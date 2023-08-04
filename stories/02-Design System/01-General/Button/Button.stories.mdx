@@ -1,0 +1,338 @@
+{/* MyComponent.stories.mdx */}
+
+import { useState, Fragment } from "react";
+import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import {
+    SearchOutlined,
+    PoweroffOutlined,
+    ReloadOutlined
+} from "@ant-design/icons";
+import { KitButton } from "@kit/General/";
+import { KitDivider, KitSpace } from "@kit/Layout/";
+import { ButtonArgTypes, Template } from "./data";
+
+<Meta
+    title="Design System/General/Button"
+    argTypes={ButtonArgTypes}
+/>
+
+# Button
+
+To trigger an operation.
+
+## When To Use
+
+A button means an operation (or a series of operations). Clicking a button will trigger corresponding business logic.
+
+In Ant Design we provide 4 types of button.
+
+-   Primary button: indicate the main action, one primary button at most in one section.
+-   Default button: indicate a series of actions without priority.
+-   Link button: used for external links.
+-   Segmented: help users to select options, switch views or sort items.
+
+And 3 other properties additionally.
+
+-   `danger`: used for actions of risk, like deletion or authorization.
+-   `disabled`: when actions are not available.
+-   `loading`: add loading spinner in button, avoiding multiple submits too.
+
+##### How to import
+```jsx
+import { KitButton } from "@kit/General/";
+
+<KitButton type="primary">Primary Button</KitButton>
+```
+
+## Examples
+
+##### Type
+
+There are `primary` button, `default` button, `link` button and `segmented` button in antd.
+
+{
+<Canvas withSource="none">
+    <KitSpace wrap>
+        <KitButton type="primary">Primary Button</KitButton>
+        <KitButton>Default Button</KitButton>
+        <KitButton type="link">Link Button</KitButton>
+        <KitButton type="segmented" icon={<ReloadOutlined />} />
+    </KitSpace>
+</Canvas>
+}
+
+##### Icon
+
+`Button` components can contain an `Icon`. This is done by setting the `icon` property or placing an `Icon` component within the `Button`.
+
+If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Button` rather than using the `icon` property.
+
+{
+    <Canvas withSource="none">
+        <KitSpace direction="vertical">
+            <KitSpace wrap>
+                <KitButton type="primary" icon={<SearchOutlined />} />
+                <KitButton type="primary" icon={<SearchOutlined />}>
+                    Search
+                </KitButton>
+                <KitButton icon={<SearchOutlined />} />
+                <KitButton icon={<SearchOutlined />}>Search</KitButton>
+                <KitButton type="link" icon={<SearchOutlined />} />
+                <KitButton type="link" icon={<SearchOutlined />}>
+                    Search
+                </KitButton>
+            </KitSpace>
+        </KitSpace>
+    </Canvas>
+}
+
+
+##### Loading
+
+A loading indicator can be added to a button by setting the `loading` property on the `Button`.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const [loadings, setLoadings] = useState([]);
+        const enterLoading = (index) => {
+            setLoadings((prevLoadings) => {
+                const newLoadings = [...prevLoadings];
+                newLoadings[index] = true;
+                return newLoadings;
+            });
+            setTimeout(() => {
+                setLoadings((prevLoadings) => {
+                    const newLoadings = [...prevLoadings];
+                    newLoadings[index] = false;
+                    return newLoadings;
+                });
+            }, 6000);
+        };
+        return (
+            <Fragment>
+                <KitSpace direction="vertical">
+                    <KitSpace wrap>
+                        <KitButton type="primary" loading>
+                            Loading
+                        </KitButton>
+                        <KitButton type="primary" loading>
+                            Loading
+                        </KitButton>
+                        <KitButton
+                            type="primary"
+                            icon={<PoweroffOutlined />}
+                            loading
+                        />
+                    </KitSpace>
+                    <KitSpace wrap>
+                        <KitButton
+                            type="primary"
+                            loading={loadings[0]}
+                            onClick={() => enterLoading(0)}
+                        >
+                            Click me!
+                        </KitButton>
+                        <KitButton
+                            type="primary"
+                            icon={<PoweroffOutlined />}
+                            loading={loadings[1]}
+                            onClick={() => enterLoading(1)}
+                        >
+                            Click me!
+                        </KitButton>
+                        <KitButton
+                            type="primary"
+                            icon={<PoweroffOutlined />}
+                            loading={loadings[2]}
+                            onClick={() => enterLoading(2)}
+                        />
+                    </KitSpace>
+                </KitSpace>
+            </Fragment>
+        );
+    })()}
+</Canvas>
+}
+
+##### Disabled
+
+To mark a button as disabled, add the `disabled` property to the Button.
+
+{
+    <Canvas withSource="none">
+    {(() => {
+        return (
+            <KitSpace direction="vertical">
+                <KitSpace>
+                    <KitButton type="primary">Primary</KitButton>
+                    <KitButton type="primary" disabled>
+                        Primary(disabled)
+                    </KitButton>
+                    <KitButton danger type="primary">
+                        Danger Text
+                    </KitButton>
+                    <KitButton danger type="primary" disabled>
+                        Danger Text(disabled)
+                    </KitButton>
+                </KitSpace>
+                <KitSpace>
+                    <KitButton>Default</KitButton>
+                    <KitButton disabled>Default(disabled)</KitButton>
+                    <KitButton danger>Danger Default</KitButton>
+                    <KitButton danger disabled>
+                        Danger Default(disabled)
+                    </KitButton>
+                </KitSpace>
+                <KitSpace>
+                    <KitButton type="link">Link</KitButton>
+                    <KitButton type="link" disabled>
+                        Link(disabled)
+                    </KitButton>
+                    <KitButton type="link" danger>
+                        Danger Link
+                    </KitButton>
+                    <KitButton type="link" danger disabled>
+                        Danger Link(disabled)
+                    </KitButton>
+                </KitSpace>
+            </KitSpace>
+        );
+    })()}
+    </Canvas>
+}
+
+##### Danger Buttons
+
+`danger` is a property of button after antd 4.0.
+
+{
+<Canvas withSource="none">
+    <KitSpace wrap>
+        <KitButton type="primary" danger>Primary</KitButton>
+        <KitButton danger>Default</KitButton>
+        <KitButton type="link" danger> Link</KitButton>
+    </KitSpace>
+</Canvas>
+}
+
+##### Segmented Buttons
+
+`Segmented` button help users to select options, switch views or sort items.
+
+{
+<Canvas withSource="none">
+    <KitSpace direction="vertical">
+        <KitSpace wrap>
+            <KitButton type="segmented" icon={<ReloadOutlined />} />
+            <KitButton type="segmented" icon={<ReloadOutlined />} disabled />
+            <br/>
+            <br/>
+            <KitButton type="segmented" icon={<ReloadOutlined />} loading />
+            <KitButton type="segmented" icon={<ReloadOutlined />} danger />
+            <KitButton type="segmented" icon={<ReloadOutlined />} danger disabled />
+        </KitSpace>
+    </KitSpace>
+</Canvas>
+}
+
+You can use `KitSpace.Compact` to group multiple segmented buttons.
+
+{
+<Canvas withSource="none">
+    <KitSpace direction="vertical">
+        <KitSpace wrap>
+            <KitSpace.Compact block>
+                <KitButton type="segmented" icon={<PoweroffOutlined />}/>
+                <KitButton type="segmented" icon={<SearchOutlined />} />
+            </KitSpace.Compact>
+            <KitSpace.Compact block>
+                <KitButton type="segmented" icon={<PoweroffOutlined />} />
+                <KitButton type="segmented" icon={<SearchOutlined />} />
+                <KitButton type="segmented" icon={<ReloadOutlined />} />
+            </KitSpace.Compact>
+        </KitSpace>
+    </KitSpace>
+</Canvas>
+}
+
+To mark a segmented button as active, add the `isActiveSegmented` property to the button.
+Use `isCheckedSegmented`to add a check icon in addition to the active type.
+
+{
+<Canvas withSource="none">
+    <KitSpace direction="vertical">
+        <KitSpace wrap>
+            <KitSpace.Compact block>
+                <KitButton type="segmented" icon={<PoweroffOutlined />} isActiveSegmented />
+                <KitButton type="segmented" icon={<SearchOutlined />} />
+            </KitSpace.Compact>
+            <KitSpace.Compact block>
+                <KitButton type="segmented" icon={<PoweroffOutlined />} />
+                <KitButton type="segmented" icon={<SearchOutlined />} isActiveSegmented isCheckedSegmented/>
+            </KitSpace.Compact>
+        </KitSpace>
+        <br/>
+        <KitSpace wrap>
+            <KitSpace.Compact block>
+                <KitButton type="segmented" icon={<PoweroffOutlined />} isActiveSegmented/>
+                <KitButton type="segmented" icon={<SearchOutlined />} />
+                <KitButton type="segmented" icon={<ReloadOutlined />} />
+            </KitSpace.Compact>
+            <KitSpace.Compact block>
+                <KitButton type="segmented" icon={<PoweroffOutlined />} />
+                <KitButton type="segmented" icon={<SearchOutlined />} isActiveSegmented isCheckedSegmented />
+                <KitButton type="segmented" icon={<ReloadOutlined />} />
+            </KitSpace.Compact>
+            <KitSpace.Compact block>
+                <KitButton type="segmented" icon={<PoweroffOutlined />} />
+                <KitButton type="segmented" icon={<SearchOutlined />} />
+                <KitButton type="segmented" icon={<ReloadOutlined />} isActiveSegmented isCheckedSegmented />
+            </KitSpace.Compact>
+        </KitSpace>
+    </KitSpace>
+</Canvas>
+}
+
+We also provide 3 subtype : `default`, `green` and `gray`.
+
+{
+<Canvas withSource="none">
+    <KitSpace direction="vertical">
+        <KitDivider orientation="left">
+            Green (Ex: use in Navigation/Menu)
+        </KitDivider>
+        <KitSpace>
+            <KitButton type="segmented" subtypeSegmented="green" icon={<PoweroffOutlined />}  />
+            <KitButton type="segmented" subtypeSegmented="green" icon={<PoweroffOutlined />} isActiveSegmented />
+            <KitButton type="segmented" subtypeSegmented="green" icon={<PoweroffOutlined />} disabled />
+            <KitSpace.Compact block>
+                <KitButton type="segmented" subtypeSegmented="green" icon={<PoweroffOutlined />} isActiveSegmented isCheckedSegmented />
+                <KitButton type="segmented" subtypeSegmented="green" icon={<SearchOutlined />} />
+            </KitSpace.Compact>
+        </KitSpace>
+        <br/>
+        <KitDivider orientation="left">
+            Gray (Ex: use in Navigation/Header)
+        </KitDivider>
+        <KitSpace>
+            <KitButton type="segmented" subtypeSegmented="gray" icon={<PoweroffOutlined />}  />
+            <KitButton type="segmented" subtypeSegmented="gray" icon={<PoweroffOutlined />} isActiveSegmented />
+            <KitButton type="segmented" subtypeSegmented="gray" icon={<PoweroffOutlined />} disabled />
+            <KitSpace.Compact block>
+                <KitButton type="segmented" subtypeSegmented="gray" icon={<PoweroffOutlined />} isActiveSegmented isCheckedSegmented />
+                <KitButton type="segmented" subtypeSegmented="gray" icon={<SearchOutlined />} />
+            </KitSpace.Compact>
+        </KitSpace>
+    </KitSpace>
+</Canvas>
+}
+
+## Api
+
+<Canvas>
+    <Story name="Button">{Template.bind({})}</Story>
+</Canvas>
+
+ <Controls story="Button"/>

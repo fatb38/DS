@@ -1,0 +1,200 @@
+import { useState, Fragment } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { KitSpace } from "@kit/Layout/";
+import { KitTypography } from "@kit/General/";
+import { KitTree, KitTreeProps } from "@kit/DataDisplay/";
+import { KitSwitch, KitSelect } from "@kit/DataEntry/";
+import { CheckOutlined, DownOutlined } from "@ant-design/icons";
+import {
+    TreeArgTypes,
+    Template,
+    mockData
+} from "./data";
+
+<Meta
+    title="Design System/DataDisplay/Tree"
+    argTypes={TreeArgTypes}
+/>
+
+# Tree
+
+A hierarchical list structure component.
+
+## Usage
+
+Almost anything can be represented in a tree structure. Examples include directories, organization hierarchies, biological classifications, countries, etc. The `KitTree` component is a way of representing the hierarchical relationship between these things. You can also expand, collapse, and select a treeNode within a `KitTree`.
+
+##### How to import
+```jsx
+import { KitTree } from "@kit/DataDisplay/";
+
+<KitTree treeData={...} />
+```
+
+## Examples
+
+##### Basic
+
+The most basic usage, tell you how to use checkable, selectable, disabled, defaultExpandKeys, and etc.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const onSelect = (selectedKeys, info) => {
+            console.log('selected', selectedKeys, info);
+        };
+
+        const onCheck = (checkedKeys, info) => {
+            console.log('onCheck', checkedKeys, info);
+        };
+
+        return (
+            <Fragment>
+                <KitSpace>
+                    <div style={{width: "300px"}}>
+                        <KitTree
+                            draggable
+                            checkable
+                            defaultExpandedKeys={mockData.data.basicDefaultKeys}
+                            defaultSelectedKeys={mockData.data.basicDefaultKeys}
+                            defaultCheckedKeys={mockData.data.basicDefaultKeys}
+                            onSelect={onSelect}
+                            onCheck={onCheck}
+                            treeData={mockData.data.basic}
+                        />
+                    </div>
+                </KitSpace>
+            </Fragment>
+        );
+    })()}
+</Canvas>
+}
+
+##### Selectable
+
+You can select multiple nodes.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <div style={{width: "300px"}}>
+                <KitTree
+                    multiple
+                    treeData={mockData.data.icon}
+                    defaultExpandAll
+                />
+            </div>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Customize Icon
+
+You can customize icons for different nodes.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <div style={{width: "300px"}}>
+                <KitTree
+                    checkable
+                    showIcon
+                    treeData={mockData.data.icon}
+                    defaultExpandAll
+                />
+            </div>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Customize collapse/expand icon
+
+customize collapse/expand icon of tree node
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <div style={{width: "300px"}}>
+                <KitTree
+                    checkable
+                    showIcon
+                    switcherIcon={<DownOutlined />}
+                    treeData={mockData.data.icon}
+                    defaultExpandAll
+                />
+            </div>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Tree with line
+
+Tree with connected line between nodes, turn on by `showLine`, customize the preset icon by `switcherIcon`.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const [showLine, setShowLine] = useState(true);
+        const [showLeafIcon, setShowLeafIcon] = useState(false);
+
+        const handleLeafIconChange = (value) => {
+            if (value === 'custom') {
+                return setShowLeafIcon(<CheckOutlined />);
+            }
+
+            if (value === 'true') {
+                return setShowLeafIcon(true);
+            }
+
+            return setShowLeafIcon(false);
+        };
+
+        return (
+            <Fragment>
+                <KitSpace direction="vertical">
+                    <KitSpace>
+                        <KitTypography.Text>showLine :</KitTypography.Text>
+                        <KitSwitch
+                            defaultChecked
+                            onChange={setShowLine}
+                        />
+                    </KitSpace>
+                    <KitSpace>
+                        <KitTypography.Text>showLeafIcon :</KitTypography.Text>
+                        <KitSelect
+                            labelOnly
+                            style={{width: "150px"}}
+                            defaultValue="false"
+                            options={mockData.data.lineSelect}
+                            onChange={handleLeafIconChange}
+                        />
+                    </KitSpace>
+                    <br/>
+                    <div style={{width: "300px"}}>
+                        <KitTree
+                            showLine={showLine ? { showLeafIcon } : false}
+                            defaultExpandAll
+                            treeData={mockData.data.line}
+                        />
+                    </div>
+                </KitSpace>
+            </Fragment>
+        );
+    })()}
+</Canvas>
+}
+
+## Api
+
+<Canvas>
+    <Story name="Tree">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Tree" />

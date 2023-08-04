@@ -1,0 +1,210 @@
+import { Fragment } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { KitDivider, KitSpace } from "@kit/Layout/";
+import { KitAvatar, KitBadge } from "@kit/DataDisplay";
+import { UserOutlined, AntDesignOutlined } from "@ant-design/icons";
+import { AvatarArgTypes, Template } from "./data";
+
+<Meta
+    title="Design System/DataDisplay/Avatar"
+    argTypes={AvatarArgTypes}
+/>
+
+# Avatar
+
+Avatars can be used to represent people or objects. It supports images, `Icon`s, or letters.
+
+## Usage
+
+Obviously (🤭) when you need to display an avatar.
+
+##### How to import
+```jsx
+import { KitAvatar } from "@kit/DataDisplay";
+
+<KitAvatar.Group>
+    <KitAvatar icon={<UserOutlined />} />
+</KitAvatar.Group>
+```
+
+## Examples
+
+##### Basic
+
+Three sizes and two shapes are available.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical" size={16}>
+            <KitSpace wrap size={16}>
+                <KitAvatar size="small" icon={<UserOutlined />} />
+                <KitAvatar icon={<UserOutlined />} />
+                <KitAvatar size="large" icon={<UserOutlined />} />
+                <KitAvatar size={64} icon={<UserOutlined />} />
+            </KitSpace>
+            <KitSpace wrap size={16}>
+                <KitAvatar shape="square" size="small" icon={<UserOutlined />} />
+                <KitAvatar shape="square" icon={<UserOutlined />} />
+                <KitAvatar shape="square" size="large" icon={<UserOutlined />} />
+                <KitAvatar shape="square" size={64} icon={<UserOutlined />} />
+            </KitSpace>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Type
+
+Image, Icon, letter and text are supported.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical" size={16}>
+            <KitSpace wrap size={16}>
+                <KitAvatar size="small" icon={<UserOutlined />} />
+                <KitAvatar icon={<UserOutlined />} />
+                <KitAvatar size="large" icon={<UserOutlined />} />
+            </KitSpace>
+            <KitSpace wrap size={16}>
+                <KitAvatar size="small">U</KitAvatar>
+                <KitAvatar>U</KitAvatar>
+                <KitAvatar size="large" >U</KitAvatar>
+            </KitSpace>
+            <KitSpace wrap size={16}>
+                <KitAvatar size="small">User</KitAvatar>
+                <KitAvatar>User</KitAvatar>
+                <KitAvatar size="large" >User</KitAvatar>
+            </KitSpace>
+            <KitSpace wrap size={16}>
+                <KitAvatar size="small" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
+                <KitAvatar src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
+                <KitAvatar size="large" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
+            </KitSpace>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Color
+
+Letter and text can have colors and background colors.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical" size={16}>
+            <KitSpace wrap size={16}>
+                <KitAvatar size="small" icon={<UserOutlined />} />
+                <KitAvatar icon={<UserOutlined />} />
+                <KitAvatar size="large" icon={<UserOutlined />} />
+            </KitSpace>
+            <KitSpace wrap size={16}>
+                <KitAvatar size="small" icon={<UserOutlined />} color="blueInvert" />
+                <KitAvatar icon={<UserOutlined />} color="blueInvert" />
+                <KitAvatar size="large" icon={<UserOutlined />} color="blueInvert" />
+            </KitSpace>
+            <KitSpace wrap size={16}>
+                <KitAvatar size="small">U</KitAvatar>
+                <KitAvatar>U</KitAvatar>
+                <KitAvatar size="large" >U</KitAvatar>
+            </KitSpace>
+            <KitSpace wrap size={16}>
+                <KitAvatar size="small" color="blueInvert">U</KitAvatar>
+                <KitAvatar color="blueInvert">U</KitAvatar>
+                <KitAvatar size="large" color="blueInvert">U</KitAvatar>
+            </KitSpace>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Avatar.Group
+
+Avatar group display.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitDivider orientation="left">
+            Default KitAvatar.Group
+        </KitDivider>
+        <KitAvatar.Group>
+            <KitAvatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1" />
+            <KitAvatar>K</KitAvatar>
+            <KitAvatar icon={<UserOutlined />} />
+        </KitAvatar.Group>
+        <KitDivider orientation="left">
+            KitAvatar.Group with limit
+        </KitDivider>
+        <KitAvatar.Group maxCount={2}>
+            <KitAvatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1" />
+            <KitAvatar>K</KitAvatar>
+            <KitAvatar icon={<UserOutlined />} />
+            <KitAvatar icon={<UserOutlined />} />
+        </KitAvatar.Group>
+        <KitDivider orientation="left">
+            KitAvatar.Group with max popover on click
+        </KitDivider>
+        <KitAvatar.Group maxCount={2} maxPopoverTrigger="click">
+            <KitAvatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1" />
+            <KitAvatar>K</KitAvatar>
+            <KitAvatar icon={<UserOutlined />} />
+            <KitAvatar icon={<UserOutlined />} />
+        </KitAvatar.Group>
+        <KitDivider orientation="left">
+            KitAvatar.Group with limit and size large
+        </KitDivider>
+        <KitAvatar.Group maxCount={2} size="large">
+            <KitAvatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1" />
+            <KitAvatar>K</KitAvatar>
+            <KitAvatar icon={<UserOutlined />} />
+            <KitAvatar icon={<UserOutlined />} />
+        </KitAvatar.Group>
+    </Fragment>
+</Canvas>
+}
+
+##### With Badge
+
+Usually used for reminders and notifications.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace size={24}>
+            <KitBadge count={1}>
+                <KitAvatar shape="square" icon={<UserOutlined />} />
+            </KitBadge>
+            <KitBadge dot>
+                <KitAvatar shape="square" icon={<UserOutlined />} />
+            </KitBadge>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Responsive Size
+
+Avatar size can be automatically adjusted based on the screen size.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitAvatar
+            size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
+            icon={<AntDesignOutlined />}
+        />
+    </Fragment>
+</Canvas>
+}
+
+## Api
+
+<Canvas>
+    <Story name="Avatar">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Avatar" />

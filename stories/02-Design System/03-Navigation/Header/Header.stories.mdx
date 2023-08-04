@@ -1,0 +1,137 @@
+import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { KitHeader } from "@kit/Navigation/";
+
+import {
+    actions,
+    options,
+    breadcrumb,
+    searchProps,
+    title,
+    argTypes,
+    Template,
+} from "./data";
+
+<Meta
+    title="Design System/Navigation/Header"
+    component={KitHeader}
+    argTypes={argTypes}
+/>
+
+# Header
+Header is displayed in top of the page. It allows showing, Title, breadcrumb, and some search and actions
+
+## Usage
+
+- When you need to inform the user of where they are.
+
+##### How to import
+```jsx
+import { KitHeader } from "@kit/Navigation/";
+
+<KitHeader title="Hi John Doe" />
+```
+
+## Examples
+
+##### Basic
+The simplest usage (empty header)
+
+{
+<Canvas withSource="none">
+    <KitHeader />
+</Canvas>
+}
+
+##### With Title
+The header can sho a Title. Just set the `title` prop
+
+{
+<Canvas withSource="none">
+    <KitHeader title={title} />
+</Canvas>
+}
+
+##### With search
+It can also show a search field. just pass the `search`property with `Input` component props
+
+{
+<Canvas withSource="none">
+    <KitHeader search={searchProps}
+    />
+</Canvas>
+}
+
+##### With Breadcrumb
+It can even display a breadcrumb with the `breadcrumb` property.
+
+{
+<Canvas withSource="none">
+    <KitHeader breadcrumb={breadcrumb} />
+</Canvas>
+}
+
+
+
+##### With Plus actions
+You can display a '+' button on the right, simply y setting the `onPlusClick` property
+
+{
+<Canvas withSource="none">
+    <KitHeader 
+        onPlusClick={() => console.log('click on plus')}
+    />
+</Canvas>
+}
+
+##### With actions
+Along with the '+' button, you can pass a set of actions. Actionscan be `Button` or `Select`. . Just set the `actions`property with an array of components.
+
+{
+<Canvas withSource="none">
+    <KitHeader actions={actions} />
+</Canvas>
+}
+
+##### With all
+
+Header with all options to display.
+
+{
+<Canvas withSource="none">
+    <KitHeader title={title} search={searchProps} breadcrumb={breadcrumb} actions={actions} onPlusClick={() => console.log('click on plus')} />
+</Canvas>
+}
+
+
+## API
+
+<Canvas>
+    <Story name="Header">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Header" />
+
+
+### Highlight Select options
+
+When adding a select to the header options, you can set an option to be highlighted.
+To do so, just add property `highlight` to true to the option to highlight
+
+exemple: 
+
+```jsx
+[
+    {
+        value: 'view',
+        icon: ControlOutlined,
+        label: "Vue"
+    },
+    {
+        value: 'save',
+        icon: ControlOutlined,
+        label: "Enregistrer la vue",
+        highlight: true,
+    }
+];
+```

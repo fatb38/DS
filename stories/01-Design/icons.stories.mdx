@@ -1,0 +1,378 @@
+import { Meta } from "@storybook/addon-docs";
+import ImagePreview from '../../.storybook/components/ImagePreview.jsx';
+import SystemIcons from "../assets/icons/systemIcons.png";
+import ContourLines from "../assets/icons/contourLines.png";
+import SquareContour from "../assets/icons/squareContour.png";
+import HorizontalRectangleContour from "../assets/icons/horizontalRectangleContour.png";
+import VerticalRectangleContour from "../assets/icons/verticalRectangleContour.png";
+import CircleContour from "../assets/icons/circleContour.png";
+import ThicknessOk from "../assets/icons/thicknessOk.png";
+import ThicknessNok from "../assets/icons/thicknessNok.png";
+import CornerOk from "../assets/icons/cornerOk.png";
+import CornerNok from "../assets/icons/cornerNok.png";
+import CorrectionOk from "../assets/icons/correctionOk.png";
+import CorrectionNok from "../assets/icons/correctionNok.png";
+import PerspectiveOk from "../assets/icons/perspectiveOk.png";
+import PerspectiveNok from "../assets/icons/perspectiveNok.png";
+import Naming from "../assets/icons/naming.png";
+import Sizing from "../assets/icons/sizing.png";
+import Color from "../assets/icons/color.png";
+import Business from "../assets/icons/business.png";
+import BusinessColor from "../assets/icons/businessColor.png";
+import BusinessSizing from "../assets/icons/businessSizing.png";
+
+
+<Meta title="Design/Icons" />
+
+<style>
+    {`
+        .clearfix + h3 {
+            clear: both;
+        }
+        h3 {
+            clear:both;
+        }
+        .preview-image-boxes {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            float: right;
+            clear: both;
+            width: 496px;
+            margin: 0 0 70px 64px;
+        }
+
+        .preview-image-boxes.small {
+            width: 248px;
+        }
+
+        .preview-image-boxes-with-carousel {
+            width: 420px;
+        }
+
+        .preview-image-boxes-with-carousel .preview-image-box img {
+            padding: 0;
+        }
+
+        .ant-row-rtl .preview-image-boxes {
+            float: left;
+            margin: 0 64px 70px 0;
+        }
+
+        .preview-image-boxes+.preview-image-boxes {
+            margin-top: -35px;
+        }
+
+        .preview-image-box {
+            float: left;
+            width: 100%;
+        }
+
+        .preview-image-box+.preview-image-box {
+            margin-left: 24px;
+        }
+
+        .ant-row-rtl .preview-image-box+.preview-image-box {
+            margin-right: 24px;
+            margin-left: 0;
+        }
+
+        .preview-image-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            padding: 16px;
+            text-align: center;
+            background: #f2f4f5;
+            box-sizing: border-box;
+        }
+
+        .preview-image-wrapper.video {
+            display: block;
+            padding: 0;
+            background: 0;
+        }
+
+        .preview-image-wrapper video {
+            display: block;
+            width: 100%;
+        }
+
+        .preview-image-wrapper video+svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .preview-image-wrapper.good::after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #1677ff;
+            content: '';
+        }
+
+        .preview-image-wrapper.bad::after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #ff4d4f;
+            content: '';
+        }
+
+        .preview-image-title {
+            margin-top: 20px;
+            color: rgba(0, 0, 0, 0.88);
+            font-size: 12px;
+        }
+
+        .preview-image-description {
+            margin-top: 2px;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .preview-image-description hr {
+            margin: 2px 0;
+            background: none;
+            border: 0;
+        }
+
+        .preview-image-box img {
+            box-sizing: border-box;
+            max-width: 100%;
+            padding: 12px;
+            background: #ffffff;
+            border-radius: 6px;
+            cursor: pointer;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .preview-image-box img.no-padding {
+            padding: 0;
+            background: none;
+        }
+
+        .preview-image-boxes.preview-image-boxes-with-carousel img {
+            padding: 0;
+            box-shadow: 0 1px 0 0 #ddd, 0 3px 0 0 #ffffff, 0 4px 0 0 #ddd, 0 6px 0 0 #ffffff, 0 7px 0 0 #ddd;
+        }
+
+        .preview-image-box img:hover {
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .transition-video-player,
+        .motion-video-min {
+            float: right;
+            width: 600px;
+            padding: 0 0 70px 20px;
+        }
+
+        .transition-video-player .preview-image-wrapper,
+        .motion-video-min .preview-image-wrapper {
+            padding: 0;
+        }
+
+        .ant-row-rtl .transition-video-player,
+        .ant-row-rtl .motion-video-min {
+            float: left;
+        }
+
+        .motion-video-min {
+            width: 390px;
+        }
+
+        .motion-principle-wrapper {
+            width: 100%;
+            max-width: 900px;
+            margin: 48px 0 24px;
+        }
+
+        .principle-wrapper {
+            width: 100%;
+        }
+
+        .principle-wrapper .principle {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 180px;
+            margin-right: 12.5%;
+            margin-bottom: 24px;
+            padding: 24px;
+            font-size: 24px;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+            border-radius: 4px;
+        }
+
+        .principle-wrapper .principle:last-child {
+            margin-right: 0;
+        }
+
+        .principle-wrapper .principle h4 {
+            margin: 16px 0 8px;
+        }
+
+        .principle-wrapper .principle p {
+            font-size: 12px;
+            line-height: 24px;
+        }
+    `}
+</style>
+
+# Designing new Icons
+
+An icon is a graphical representation of meaning. Icons can be used to express actions, state, and even to categorize data. Ant Design's icons adhere to the following two principles and are designed for cross-platform consistency:
+
+- Graphics that are clear, intuitive, and simple enjoy a higher degree of recognition and are more easily understood
+- All icons in the user interface should be consistent in style (detail design, perspective, stroke weight, etc.)
+
+
+## System Icons
+
+<ImagePreview>
+<img className="preview-img no-padding" src={SystemIcons} alt="System Icons" />
+</ImagePreview>
+
+System icons are often used to represent commonly used operations, such as: save, edit, delete. Ant Design also includes icons to represent file types and state.
+
+- [View the icons](/components/icon/)
+
+### Key Contour Lines
+
+<ImagePreview small>
+<img className="preview-img no-padding" src={ContourLines} alt="Ant Design's grid and key contour lines" alt="Key Contour Lines"/>
+</ImagePreview>
+
+Contour lines play an important role in making various icons with the same visual effect.
+
+Please make all icons in the 1024×1024 resolution (16×16 64 times).
+
+- [Illustrator tips](https://zos.alipayobjects.com/rmsportal/hmNuLjCkBssupcZgYAde.png)
+
+<ImagePreview small>
+<img className="preview-img no-padding inline" src={SquareContour} alt="Square contour"/>
+</ImagePreview>
+
+<ImagePreview small>
+<img className="preview-img no-padding inline" src={HorizontalRectangleContour} alt="Horizontal rectangle contour"/>
+</ImagePreview>
+
+<ImagePreview small>
+<img className="preview-img no-padding inline" src={CircleContour} alt="Circular contour"/>
+</ImagePreview>
+
+<ImagePreview small>
+<img className="preview-img no-padding inline" src={VerticalRectangleContour} alt="Vertical rectangle contour"/>
+</ImagePreview>
+
+### Stroke Weight
+
+<ImagePreview>
+<img className="preview-img no-padding good" src={ThicknessOk} alt="Correct example" description="Line thickness is consistently 72px"/>
+<img className="preview-img no-padding bad" src={ThicknessNok} alt="Incorrect example" description="Line thickness is not uniform"/>
+</ImagePreview>
+
+Consistent stroke weight is the key to maintaining the visual unity of the entire icon system. Ant Design's icons have a consistent line width of 72px.
+
+### Corners
+
+<ImagePreview>
+<img className="preview-img no-padding good" src={CornerOk} alt="Correct example" description="The icon's corners are properly rounded"/>
+<img className="preview-img no-padding bad" src={CornerNok} alt="Incorrect example" description="The icon's corners are not rounded"/>
+</ImagePreview>
+
+Consistent rounding of corners and sizing of angles is also an important element in maintaining visual unity.
+
+Icons that follow Ant Design should have rounded corners and edges using a 72px radius.
+
+### Visual Correction
+
+<ImagePreview>
+<img className="preview-img no-padding good" src={CorrectionOk} alt="Correct example" description="For the intricate “JPG” lettering, an outline is added for readability"/>
+<img className="preview-img no-padding bad" src={CorrectionNok} alt="Incorrect example" description="The text in the icon is crowded and hard to read"/>
+</ImagePreview>
+
+In certain special cases (for example, when the icon is too compact), adjustments to line width, outlines, or other subtle changes may be made to increase readability.
+
+### Perspective
+
+<ImagePreview>
+<img className="preview-img no-padding good" src={PerspectiveOk} alt="Correct example" description="Maintains a flat, simple style"/>
+<img className="preview-img no-padding bad" src={PerspectiveNok} alt="Incorrect example" description="Icons should not have depth nor varying perspectives"/>
+</ImagePreview>
+
+Always keep a simple, flat style. Icons should not have a sense of depth nor a large amount of detail.
+
+### Naming Conventions
+
+<ImagePreview >
+<img className="preview-img no-padding" src={Naming} alt="Naming Conventions"/>
+</ImagePreview>
+
+Uniform naming conventions make finding icons faster and easier. For example, icons with a surrounding outline have a uniform "-o" suffix.
+
+### Icon Sizing
+
+<ImagePreview>
+<img className="preview-img no-padding" src={Sizing} alt="Icon Sizing"/>
+</ImagePreview>
+
+Icons should be scaled according to the text size, according to the Ant Design specification.
+
+For example, icons inline with 12pt font should be 12px in size with 8px of spacing.
+
+### Color
+
+<ImagePreview>
+<img className="preview-img no-padding" src={Color} description="Colors demonstrated - @Black = #000000, @White = #FFFFFF, @Blue-6 = #1890FF" alt="Color"/>
+</ImagePreview>
+
+The color of the icon should be consistent the color of the surrounding copy, unless the icon is being used to express state (in which case it should be colored accordingly).
+
+### Tow Tone Icons
+
+Ant replaces colors in your svg with either PrimayColor or secondary color. To ensure color substitution is done corectly, there are some rules to follow in your svg file :
+
+- Paths to be in primary color must use one of these colors : `#333` or `#333333`
+- Paths to be in secondary color must use one of theses colors: `#E6E6E6`, `#D9D9D9`, `#D8D8D8`
+
+
+---
+
+## Business Icons
+
+<ImagePreview>
+<img className="preview-img no-padding" src={Business} alt="Business Icons"/>
+</ImagePreview>
+
+Business icons, unlike system icons, do not themselves have functional operations, but rather an abstraction that assists with copywriting. Compared to the system icon, the business icon is more rich in the details of the design, the size of the use of relatively large.
+
+> Note: Business icons design principles and system icons are basically the same, the details of the processing (such as stroke weight, fillet size, etc.) depending on the specific scene may be.
+
+### Icon Sizing
+
+<ImagePreview>
+<img className="preview-img no-padding" src={BusinessSizing} alt="Icon Sizing"/>
+</ImagePreview>
+
+In normal use, there are 32px (minimum size), 48px and 64px (maximum size) three options.
+
+### Color
+
+<ImagePreview>
+<img className="preview-img no-padding" src={BusinessColor} alt="Color"/>
+</ImagePreview>
+
+There are two kinds of business icon, single-color (neutral color) and double-color (neutral color + primary color), the area of primary color does not exceed 40% of the entire icon.

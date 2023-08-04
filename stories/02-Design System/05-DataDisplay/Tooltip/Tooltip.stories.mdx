@@ -1,0 +1,224 @@
+{/* MyComponent.stories.mdx */}
+
+import { useState, useMemo, Fragment } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { Segmented } from "antd";
+import { KitButton, KitTypography } from "@kit/General/";
+import { KitTooltip } from "@kit/DataDisplay/";
+import { KitSpace } from "@kit/Layout/";
+import { TooltipArgTypes, Template } from "./data";
+
+<Meta
+    title="Design System/DataDisplay/Tooltip"
+    argTypes={TooltipArgTypes}
+/>
+
+# Tooltip
+
+A simple text popup tip.
+
+## Usage
+
+- The tip is shown on mouse enter, and is hidden on mouse leave. The Tooltip doesn't support complex text or operations.
+
+- To provide an explanation of a `button/text/operation`. It's often used instead of the html title attribute.
+
+##### How to import
+```jsx
+import { KitTooltip } from "@kit/DataDisplay/";
+
+<KitTooltip title="prompt text">
+    Text
+</KitTooltip>
+```
+
+## Examples
+
+##### Basic
+
+The simplest usage.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <KitTooltip title="prompt text">
+                <KitTypography.Paragraph size="medium" weight="regular">Tooltip will show on mouse enter.</KitTypography.Paragraph>
+            </KitTooltip>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Placement
+
+There are 12 placement options available.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const text = "promp text";
+        const buttonWidth = 70;
+        return (
+            <Fragment>
+                <KitSpace>
+                    <div>
+                        <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
+                            <KitSpace>
+                                <KitTooltip placement="topLeft" title={text}>
+                                    <KitButton>TL</KitButton>
+                                </KitTooltip>
+                                <KitTooltip placement="top" title={text}>
+                                    <KitButton>Top</KitButton>
+                                </KitTooltip>
+                                <KitTooltip placement="topRight" title={text}>
+                                    <KitButton>TR</KitButton>
+                                </KitTooltip>
+                            </KitSpace>
+                        </div>
+                        <div style={{ width: buttonWidth, float: 'left' }}>
+                            <KitSpace direction="vertical">
+                                <KitTooltip placement="leftTop" title={text}>
+                                    <KitButton>LT</KitButton>
+                                </KitTooltip>
+                                <KitTooltip placement="left" title={text}>
+                                    <KitButton>Left</KitButton>
+                                </KitTooltip>
+                                <KitTooltip placement="leftBottom" title={text}>
+                                    <KitButton>LB</KitButton>
+                                </KitTooltip>
+                            </KitSpace>
+                        </div>
+                        <div style={{ width: buttonWidth, marginLeft: buttonWidth * 4 + 24 }}>
+                            <KitSpace direction="vertical">
+                                <KitTooltip placement="rightTop" title={text}>
+                                    <KitButton>RT</KitButton>
+                                </KitTooltip>
+                                <KitTooltip placement="right" title={text}>
+                                    <KitButton>Right</KitButton>
+                                </KitTooltip>
+                                <KitTooltip placement="rightBottom" title={text}>
+                                    <KitButton>RB</KitButton>
+                                </KitTooltip>
+                            </KitSpace>
+                        </div>
+                        <div style={{ marginLeft: buttonWidth, clear: 'both', whiteSpace: 'nowrap' }}>
+                            <KitSpace>
+                                <KitTooltip placement="bottomLeft" title={text}>
+                                    <KitButton>BL</KitButton>
+                                </KitTooltip>
+                                <KitTooltip placement="bottom" title={text}>
+                                    <KitButton>Bottom</KitButton>
+                                </KitTooltip>
+                                <KitTooltip placement="bottomRight" title={text}>
+                                    <KitButton>BR</KitButton>
+                                </KitTooltip>
+                            </KitSpace>
+                        </div>
+                    </div>
+                </KitSpace>
+            </Fragment>
+        );
+    })()}
+</Canvas>
+}
+
+##### Arrow
+
+Support show, hide or keep arrow in the center.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const text = "prompt text";
+        const buttonWidth = 70;
+        const options = ['Show', 'Hide', 'Center'];
+        const [arrow, setArrow] = useState('Show');
+        const mergedArrow = useMemo(() => {
+            if (arrow === 'Hide') {
+            return false;
+            }
+            if (arrow === 'Show') {
+            return true;
+            }
+            return {
+            pointAtCenter: true,
+            };
+        }, [arrow]);
+        return (
+            <Fragment>
+                <Segmented
+                    value={arrow}
+                    options={options}
+                    onChange={(val) => {
+                        setArrow(val);
+                    }}
+                />
+                <br/>
+                <br/>
+                    <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
+                    <KitSpace>
+                        <KitTooltip placement="topLeft" title={text} arrow={mergedArrow}>
+                            <KitButton>TL</KitButton>
+                        </KitTooltip>
+                        <KitTooltip placement="top" title={text} arrow={mergedArrow}>
+                            <KitButton>Top</KitButton>
+                        </KitTooltip>
+                        <KitTooltip placement="topRight" title={text} arrow={mergedArrow}>
+                            <KitButton>TR</KitButton>
+                        </KitTooltip>
+                    </KitSpace>
+                </div>
+                <div style={{ width: buttonWidth, float: 'left' }}>
+                    <KitSpace direction="vertical">
+                        <KitTooltip placement="leftTop" title={text} arrow={mergedArrow}>
+                            <KitButton>LT</KitButton>
+                        </KitTooltip>
+                        <KitTooltip placement="left" title={text} arrow={mergedArrow}>
+                            <KitButton>Left</KitButton>
+                        </KitTooltip>
+                        <KitTooltip placement="leftBottom" title={text} arrow={mergedArrow}>
+                            <KitButton>LB</KitButton>
+                        </KitTooltip>
+                    </KitSpace>
+                </div>
+                <div style={{ width: buttonWidth, marginLeft: buttonWidth * 4 + 24 }}>
+                    <KitSpace direction="vertical">
+                        <KitTooltip placement="rightTop" title={text} arrow={mergedArrow}>
+                            <KitButton>RT</KitButton>
+                        </KitTooltip>
+                        <KitTooltip placement="right" title={text} arrow={mergedArrow}>
+                            <KitButton>Right</KitButton>
+                        </KitTooltip>
+                        <KitTooltip placement="rightBottom" title={text} arrow={mergedArrow}>
+                            <KitButton>RB</KitButton>
+                        </KitTooltip>
+                    </KitSpace>
+                </div>
+                <div style={{ marginLeft: buttonWidth, clear: 'both', whiteSpace: 'nowrap' }}>
+                    <KitSpace>
+                        <KitTooltip placement="bottomLeft" title={text} arrow={mergedArrow}>
+                            <KitButton>BL</KitButton>
+                        </KitTooltip>
+                        <KitTooltip placement="bottom" title={text} arrow={mergedArrow}>
+                            <KitButton>Bottom</KitButton>
+                        </KitTooltip>
+                        <KitTooltip placement="bottomRight" title={text} arrow={mergedArrow}>
+                            <KitButton>BR</KitButton>
+                        </KitTooltip>
+                    </KitSpace>
+                </div>
+            </Fragment>
+        );
+    })()}
+</Canvas>
+}
+
+## Api
+
+<Canvas>
+    <Story name="Tooltip">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Tooltip" />

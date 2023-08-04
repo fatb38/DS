@@ -1,0 +1,103 @@
+{/* MyComponent.stories.mdx */}
+
+import { useState, Fragment } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { KitSwitch } from "@kit/DataEntry/";
+import { KitButton } from "@kit/General/";
+import { KitSpace } from "@kit/Layout/";
+
+import { argTypes, Template } from "./data";
+
+<Meta
+    title="Design System/DataEntry/Switch"
+    component={KitSwitch}
+    argTypes={argTypes}
+/>
+
+<style></style>
+
+# Switch
+
+Switching Selector.
+
+## Usage
+
+-   If you need to represent the switching between two states or on-off state.
+-   The difference between `Switch` and `Checkbox` is that `Switch` will trigger a state change directly when you toggle it, while `Checkbox` is generally used for state marking, which should work in conjunction with submit operation.
+
+##### How to import
+```jsx
+import { KitSwitch } from "@kit/DataEntry/";
+
+<KitSwitch defaultChecked onChange={onChange} />
+```
+
+## Examples
+
+##### Basic
+
+The most basic usage.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const onChange = (checked) => {
+            console.log(`switch to ${checked}`);
+        };
+        return <KitSwitch defaultChecked onChange={onChange} />;
+    })()}
+</Canvas>
+}
+
+##### Disabled
+
+Disabled state of `Switch`.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const [disabled, setDisabled] = useState(true);
+        const toggle = () => {
+            setDisabled(!disabled);
+        };
+        return (
+            <KitSpace direction="vertical">
+                <KitSwitch disabled={disabled} defaultChecked />
+                <KitButton type="primary" onClick={toggle}>
+                    Toggle disabled
+                </KitButton>
+            </KitSpace>
+        );
+    })()}
+</Canvas>
+}
+
+##### Loading
+
+Mark a pending state of switch.
+
+{
+<Canvas withSource="none">
+    <>
+        <KitSwitch loading defaultChecked />
+        <br />
+        <KitSwitch size="small" loading />
+    </>
+</Canvas>
+}
+
+## API
+
+<Canvas>
+    <Story name="Switch">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Switch" />
+
+## Methods
+
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |

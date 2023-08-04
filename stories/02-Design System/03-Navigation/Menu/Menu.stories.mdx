@@ -1,0 +1,421 @@
+import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+
+import { KitMenu } from "@kit/Navigation";
+
+import { KitDivider } from "@kit/Layout/"
+
+import { argTypes, mockData, Template } from "./data";
+
+<Meta
+    title="Design System/Navigation/Menu"
+    component={KitMenu}
+    argTypes={argTypes}
+/>
+
+# Menu
+
+A versatile menu for navigation.
+
+## Usage
+
+Navigation is an important part of any website, as a good navigation setup allows users to move around the site quickly and efficiently.
+
+##### How to import
+```jsx
+import { KitMenu } from "@kit/Navigation";
+
+const { ItemMenu } = KitMenu.Item;
+
+<KitMenu>
+    <KitMenu.Item title="Title" />
+    <ItemMenu title="Title" />
+</KitMenu>
+```
+
+## Examples
+
+### ItemMenu
+
+##### Basic
+
+A basic ItemMenu can contain a `title` and/or an `icon`.
+
+{
+<Canvas withSource="none">
+    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
+        <div style={{width: "350px"}}>
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+            />
+            <br/>
+            <KitMenu.Item
+                icon={mockData.itemMenu.icon.home}
+            />
+            <br/>
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+                icon={mockData.itemMenu.icon.home}
+            />
+        </div>
+    </div>
+</Canvas>
+}
+
+##### Type
+
+ItemMenu provide 3 types of itemMenu such as :
+- `default` : indicate a series of itemMenu's.
+- `cta` : indicate an itemMenu with a call to action.
+- `ctaDanger`: indicate an itemMenu with a destructive call to action.
+
+{
+    <Canvas withSource="none">
+        <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
+            <div style={{width: "350px"}}>
+                <KitMenu.Item
+                    title={mockData.itemMenu.title.save}
+                    icon={mockData.itemMenu.icon.save}
+                    type="default"
+                />
+                <br/>
+                <KitMenu.Item
+                    title={mockData.itemMenu.title.save}
+                    icon={mockData.itemMenu.icon.save}
+                    type="cta"
+                />
+                <br/>
+                <KitMenu.Item
+                    title={mockData.itemMenu.title.save}
+                    icon={mockData.itemMenu.icon.save}
+                    type="ctaDanger"
+                />
+            </div>
+        </div>
+    </Canvas>
+}
+
+##### Selectable
+
+To mark an ItemMenu as selectable, use the `onSelectChange` property. ItemMenu can also be mark as selected using `isSelected` property.
+
+{
+<Canvas withSource="none">
+    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
+        <div style={{width: "350px"}}>
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+                icon={mockData.itemMenu.icon.home}
+                onSelectChange={mockData.itemMenu.onSelectChange}
+            />
+            <br/>
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+                icon={mockData.itemMenu.icon.home}
+                onSelectChange={mockData.itemMenu.onSelectChange}
+                isSelected
+            />
+        </div>
+    </div>
+</Canvas>
+}
+
+##### Actions
+
+ItemMenu can display up to two actions. If there is more it will display a `DropDown`.
+
+{
+<Canvas withSource="none">
+    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
+        <div style={{width: "350px"}}>
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+                icon={mockData.itemMenu.icon.home}
+                actions={mockData.itemMenu.actionsOne}
+            />
+            <br/>
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+                icon={mockData.itemMenu.icon.home}
+                actions={mockData.itemMenu.actionsTwo}
+            />
+            <br/>
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+                icon={mockData.itemMenu.icon.home}
+                actions={mockData.itemMenu.actionsMore}
+            />
+        </div>
+    </div>
+</Canvas>
+}
+
+Exemple of how `acitons` property must be set :
+
+```tsx
+import { HomeOutlined, PlusOutlined, MinusOutlined, PercentageOutlined } from "@ant-design/icons";
+
+const actions = [
+    {
+        icon: PlusOutlined,
+        label: "Add",
+        onClick: () => console.log("on click add"),
+    },
+    {
+        icon: MinusOutlined,
+        label: "Subtract",
+        onClick: () => console.log("on click subtract"),
+    },
+    {
+        icon: PercentageOutlined,
+        label: "Percent",
+        onClick: () => console.log("on click percent"),
+    },
+];
+
+<KitMenu.Item title={"Item menu"} icon={HomeOutlined} actions={actions} />
+```
+
+##### Value
+
+ItemMenu can display a value using the `value` property.
+
+{
+<Canvas withSource="none">
+    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
+        <div style={{width: "350px"}}>
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+                icon={mockData.itemMenu.icon.home}
+                value={mockData.itemMenu.value.default}
+            />
+        </div>
+    </div>
+</Canvas>
+}
+
+##### Rafter
+
+ItemList can display a rafter using the `onRafterClick` property.
+
+{
+<Canvas withSource="none">
+    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
+        <div style={{width: "350px"}}>
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+                icon={mockData.itemMenu.icon.home}
+                onRafterClick={mockData.itemMenu.onRafterClick}
+            />
+        </div>
+    </div>
+</Canvas>
+}
+
+##### With everything
+
+ItemMenu with all options to display.
+
+{
+<Canvas withSource="none">
+    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
+        <div style={{width: "350px"}}>
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+                icon={mockData.itemMenu.icon.home}
+                value={mockData.itemMenu.value.default}
+                actions={mockData.itemMenu.actionsMore}
+                onSelectChange={mockData.itemMenu.onSelectChange}
+                onRafterClick={mockData.itemMenu.onRafterClick}
+                onClick={mockData.itemMenu.onClick}
+            />
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+                icon={mockData.itemMenu.icon.home}
+                value={mockData.itemMenu.value.default}
+                actions={mockData.itemMenu.actionsMore}
+                onSelectChange={mockData.itemMenu.onSelectChange}
+                onRafterClick={mockData.itemMenu.onRafterClick}
+                onClick={mockData.itemMenu.onClick}
+            />
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+                icon={mockData.itemMenu.icon.home}
+                value={mockData.itemMenu.value.default}
+                actions={mockData.itemMenu.actionsMore}
+                onSelectChange={mockData.itemMenu.onSelectChange}
+                onRafterClick={mockData.itemMenu.onRafterClick}
+                onClick={mockData.itemMenu.onClick}
+                isSelected
+            />
+            <KitMenu.Item
+                title={mockData.itemMenu.title.default}
+                icon={mockData.itemMenu.icon.home}
+                value={mockData.itemMenu.value.default}
+                actions={mockData.itemMenu.actionsMore}
+                onSelectChange={mockData.itemMenu.onSelectChange}
+                onRafterClick={mockData.itemMenu.onRafterClick}
+                onClick={mockData.itemMenu.onClick}
+            />
+        </div>
+    </div>
+</Canvas>
+}
+
+### Menu
+
+##### Basic
+
+A basic Menu is just a container.
+
+{
+<Canvas withSource="none">
+    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
+        <div style={{width: "400px"}}>
+            <KitMenu />
+        </div>
+    </div>
+</Canvas>
+}
+
+##### Header
+
+Menu can display a header with a `title` and/or a close button.
+
+{
+<Canvas withSource="none">
+    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
+        <div style={{width: "400px"}}>
+            <KitMenu
+                title={mockData.menu.title}
+            />
+            <br/>
+            <KitMenu
+                title={mockData.menu.title}
+                onCloseClick={mockData.menu.onCloseClick}
+            />
+        </div>
+    </div>
+</Canvas>
+}
+
+The header can accept a `Button` and two `Input`s.
+
+{
+<Canvas withSource="none">
+    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
+        <div style={{width: "400px"}}>
+            <KitMenu
+                title={mockData.menu.title}
+                onCloseClick={mockData.menu.onCloseClick}
+                primaryInput={mockData.menu.primaryInput}
+            />
+            <br/>
+            <KitMenu
+                title={mockData.menu.title}
+                onCloseClick={mockData.menu.onCloseClick}
+                segmentedButton={mockData.menu.segmentedButton}
+                primaryInput={mockData.menu.primaryInput}
+            />
+            <br/>
+            <KitMenu
+                title={mockData.menu.title}
+                onCloseClick={mockData.menu.onCloseClick}
+                segmentedButton={mockData.menu.segmentedButton}
+                primaryInput={mockData.menu.primaryInput}
+                secondaryInput={mockData.menu.secondaryInput}
+            />
+        </div>
+    </div>
+</Canvas>
+}
+
+##### Exemple
+
+Menu with ItemMenu's as children
+
+{
+<Canvas withSource="none">
+    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
+        <div style={{width: "400px"}}>
+            <KitMenu
+                title={mockData.menu.title}
+                onCloseClick={mockData.menu.onCloseClick}
+                segmentedButton={mockData.menu.segmentedButton}
+                primaryInput={mockData.menu.primaryInput}
+                secondaryInput={mockData.menu.secondaryInput}
+            >
+                <KitDivider noMargin color="lightGrey" />
+                <KitMenu.Item
+                    title={mockData.itemMenu.title.layout}
+                    icon={mockData.itemMenu.icon.layout}
+                    value={mockData.itemMenu.value.layout}
+                    onRafterClick={mockData.itemMenu.onRafterClick}
+                    style={{margin: "8px 0 2px 0"}}
+                />
+                <KitMenu.Item
+                    title={mockData.itemMenu.title.search}
+                    icon={mockData.itemMenu.icon.search}
+                    style={{margin: "2px 0"}}
+                />
+                <KitMenu.Item
+                    title={mockData.itemMenu.title.quickFilters}
+                    icon={mockData.itemMenu.icon.filters}
+                    onRafterClick={mockData.itemMenu.onRafterClick}
+                    style={{margin: "2px 0"}}
+                />
+                <KitMenu.Item
+                    title={mockData.itemMenu.title.filters}
+                    icon={mockData.itemMenu.icon.filters}
+                    value={mockData.itemMenu.value.filters}
+                    onRafterClick={mockData.itemMenu.onRafterClick}
+                    style={{margin: "2px 0"}}
+                />
+                <KitMenu.Item
+                    title={mockData.itemMenu.title.group}
+                    icon={mockData.itemMenu.icon.group}
+                    onRafterClick={mockData.itemMenu.onRafterClick}
+                    style={{margin: "2px 0 8px 0"}}
+                />
+                <KitDivider noMargin color="lightGrey" />
+                <KitMenu.Item
+                    title={mockData.itemMenu.title.save}
+                    icon={mockData.itemMenu.icon.save}
+                    onClick={mockData.itemMenu.onClick}
+                    type="cta"
+                    style={{margin: "16px 0 2px 0"}}
+                />
+                <KitMenu.Item
+                    title={mockData.itemMenu.title.duplicate}
+                    icon={mockData.itemMenu.icon.duplicate}
+                    onClick={mockData.itemMenu.onClick}
+                    type="cta"
+                    style={{margin: "2px 0"}}
+                />
+                <KitMenu.Item
+                    title={mockData.itemMenu.title.undo}
+                    icon={mockData.itemMenu.icon.undo}
+                    onClick={mockData.itemMenu.onClick}
+                    type="cta"
+                    style={{margin: "2px 0 0 0"}}
+                />
+                <KitMenu.Item
+                    style={{marginTop: "16px"}}
+                    title={mockData.itemMenu.title.delete}
+                    icon={mockData.itemMenu.icon.delete}
+                    onClick={mockData.itemMenu.onClick}
+                    type="ctaDanger"
+                />
+            </KitMenu>
+        </div>
+    </div>
+</Canvas>
+}
+
+## Api
+
+<Canvas>
+    <Story name="Menu">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Menu" />

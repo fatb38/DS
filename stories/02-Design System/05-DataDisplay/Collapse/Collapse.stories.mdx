@@ -1,0 +1,181 @@
+import { useState, Fragment } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { KitDivider } from "@kit/Layout/";
+import { KitCollapse } from "@kit/DataDisplay/";
+import { CollapseArgTypes, Template, mockData } from "./data";
+
+<Meta
+    title="Design System/DataDisplay/Collapse"
+    argTypes={CollapseArgTypes}
+/>
+
+# Collapse
+
+A content area which can be collapsed and expanded.
+
+## Usage
+
+- Can be used to group or hide complex regions to keep the page clean.
+
+- `Accordion` is a special kind of `Collapse`, which allows only one panel to be expanded at a time.
+
+##### How to import
+```jsx
+import { KitCollapse } from "@kit/DataDisplay";
+
+<KitCollapse items={mockData.items.default} />
+```
+
+## Examples
+
+##### Basic
+
+By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <div style={{width: "100%"}}>
+            <KitCollapse
+                items={mockData.items.default}
+                defaultActiveKey={mockData.items.defaultActiveKey}
+            />
+        </div>
+    </Fragment>
+</Canvas>
+}
+
+##### Size
+
+If a large or small collapse is desired, set the `size` property to either `large` or `small` respectively. Omit the `size` property for a collapse with the default size.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <div style={{width: "100%"}}>
+            <KitDivider orientation="left">Small</KitDivider>
+            <KitCollapse
+                size="small"
+                items={mockData.items.light}
+            />
+            <br/>
+            <KitDivider orientation="left">Default</KitDivider>
+            <KitCollapse
+                items={mockData.items.light}
+            />
+            <br/>
+            <KitDivider orientation="left">Large</KitDivider>
+            <KitCollapse
+                size="large"
+                items={mockData.items.light}
+            />
+        </div>
+    </Fragment>
+</Canvas>
+}
+
+##### Accordion
+
+In accordion mode, only one panel can be expanded at a time.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <div style={{width: "100%"}}>
+            <KitCollapse
+                items={mockData.items.default}
+                accordion
+            />
+        </div>
+    </Fragment>
+</Canvas>
+}
+
+##### Nested panel
+
+`Collapse` is nested inside the `Collapse`.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <div style={{width: "100%"}}>
+            <KitCollapse
+                items={mockData.items.nested}
+            />
+        </div>
+    </Fragment>
+</Canvas>
+}
+
+##### Extra node
+
+Render extra element in the top-right corner of each panel.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <div style={{width: "100%"}}>
+            <KitCollapse
+                items={mockData.items.extra}
+            />
+        </div>
+    </Fragment>
+</Canvas>
+}
+
+
+##### Collapsible
+
+Specify the trigger area of collapsible by `collapsible`.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <div style={{width: "100%"}}>
+            <KitDivider orientation="left">Header</KitDivider>
+            <KitCollapse
+                collapsible="header"
+                items={mockData.items.light}
+            />
+            <br/>
+            <KitDivider orientation="left">Icon</KitDivider>
+            <KitCollapse
+                collapsible="icon"
+                items={mockData.items.light}
+            />
+            <br/>
+            <KitDivider orientation="left">Disabled</KitDivider>
+            <KitCollapse
+                collapsible="disabled"
+                size="large"
+                items={mockData.items.light}
+            />
+        </div>
+    </Fragment>
+</Canvas>
+}
+
+##### Exemple
+
+Exemple of a complex `collapse`.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <div style={{width: "100%"}}>
+            <KitCollapse
+                items={mockData.items.complex}
+            />
+        </div>
+    </Fragment>
+</Canvas>
+}
+
+## API
+
+<Canvas>
+    <Story name="Collapse">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Collapse" />

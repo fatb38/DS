@@ -1,0 +1,267 @@
+{/* MyComponent.stories.mdx */}
+
+import { useState, Fragment } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { KitAvatar, KitBadge } from "@kit/DataDisplay/";
+import { KitSwitch } from "@kit/DataEntry/";
+import { KitButton } from "@kit/General/";
+import { KitSpace } from "@kit/Layout/";
+import {
+    ClockCircleOutlined,
+    NotificationOutlined,
+    MinusOutlined,
+    PlusOutlined,
+    QuestionOutlined
+} from "@ant-design/icons";
+import { BadgeArgTypes, Template } from "./data";
+import theme from "@theme/index";
+
+<Meta
+    title="Design System/DataDisplay/Badge"
+    argTypes={BadgeArgTypes}
+/>
+
+# Badge
+
+Small numerical value or status descriptor for UI elements.
+
+## Usage
+
+Badge normally appears in proximity to notifications or user avatars with eye-catching appeal, typically displaying unread messages count.
+
+##### How to import
+```jsx
+import { KitBadge, KitAvatar } from "@kit/DataDisplay";
+
+<KitBadge count={5}>
+    <KitAvatar shape="square" size="large" />
+</KitBadge>
+```
+
+## Examples
+
+##### Basic
+
+Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZero` to show it.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace size="middle">
+            <KitBadge count={5}>
+                <KitAvatar shape="square" size="large" />
+            </KitBadge>
+            <KitBadge count={0} showZero>
+                <KitAvatar shape="square" size="large" />
+            </KitBadge>
+            <KitBadge count={<ClockCircleOutlined style={{ color: theme.color.secondary.red.red400 }} />}>
+                <KitAvatar shape="square" size="large" />
+            </KitBadge>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Standalone
+
+Used in standalone when children is empty.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const [show, setShow] = useState(true);
+        return (
+            <Fragment>
+                <KitSpace direction="vertical">
+                    <KitSpace>
+                        <KitSwitch checked={show} onChange={() => setShow(!show)} />
+                    </KitSpace>
+                    <KitSpace>
+                        <KitBadge count={show ? 11 : 0} showZero/>
+                        <KitBadge count={show ? 25 : 0} />
+                        <KitBadge count={show ? <ClockCircleOutlined style={{ color: theme.color.secondary.red.red400 }} /> : 0} />
+                    </KitSpace>
+                </KitSpace>
+            </Fragment>
+        );
+    })()}
+</Canvas>
+}
+
+##### Overflow Count
+
+`${overflowCount}+` is displayed when count is larger than `overflowCount`. The default value of `overflowCount` is `99`.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace size="large">
+            <KitBadge count={99}>
+                <KitAvatar shape="square" size="large" />
+            </KitBadge>
+            <KitBadge count={100}>
+                <KitAvatar shape="square" size="large" />
+            </KitBadge>
+            <KitBadge count={99} overflowCount={10}>
+                <KitAvatar shape="square" size="large" />
+            </KitBadge>
+            <KitBadge count={1000} overflowCount={999}>
+                <KitAvatar shape="square" size="large" />
+            </KitBadge>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Red badge
+
+This will simply display a red badge, without a specific count. If count equals 0, it won't display the dot.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace size="middle">
+            <KitBadge dot>
+                <NotificationOutlined style={{ fontSize: 16 }} />
+            </KitBadge>
+            <KitBadge dot>
+                <KitButton type="link">Link</KitButton>
+            </KitBadge>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Dynamic
+
+The count will be animated as it changes.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const [count, setCount] = useState(5);
+        const [show, setShow] = useState(true);
+        const increase = () => {
+            setCount(count + 1);
+        };
+        const decline = () => {
+            let newCount = count - 1;
+            if (newCount < 0) {
+            newCount = 0;
+            }
+            setCount(newCount);
+        };
+        const random = () => {
+            const newCount = Math.floor(Math.random() * 100);
+            setCount(newCount);
+        };
+        const onChange = (checked) => {
+            setShow(checked);
+        };
+        return (
+            <Fragment>
+                <KitSpace direction="vertical">
+                    <KitSpace size="large">
+                        <KitBadge count={count}>
+                            <KitAvatar shape="square" size="large" />
+                        </KitBadge>
+                        <KitButton onClick={decline} icon={<MinusOutlined />} />
+                        <KitButton onClick={increase} icon={<PlusOutlined />} />
+                        <KitButton onClick={random} icon={<QuestionOutlined />} />
+                    </KitSpace>
+                    <br/>
+                    <KitSpace size="large">
+                        <KitBadge dot={show}>
+                            <KitAvatar shape="square" size="large" />
+                        </KitBadge>
+                        <KitSwitch onChange={onChange} checked={show} />
+                    </KitSpace>
+                </KitSpace>
+            </Fragment>
+        );
+    })()}
+</Canvas>
+}
+
+##### Count Color
+
+We preset a series of colorful Badge styles for use in different situations.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace size="middle">
+            <KitBadge countColor="default" count={5}>
+                <KitAvatar shape="square" size="large" />
+            </KitBadge>
+            <KitBadge countColor="green" count={5}>
+                <KitAvatar shape="square" size="large" />
+            </KitBadge>
+            <KitBadge countColor="blue" count={5}>
+                <KitAvatar shape="square" size="large" />
+            </KitBadge>
+            <KitBadge countColor="blueInvert" count={5}>
+                <KitAvatar shape="square" size="large" />
+            </KitBadge>
+            <KitBadge countColor="gray" count={5}>
+                <KitAvatar shape="square" size="large" />
+            </KitBadge>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Status
+
+Standalone badge with status.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitBadge status="success" text="Success" />
+            <KitBadge status="error" text="Error" />
+            <KitBadge status="default" text="Default" />
+            <KitBadge status="processing" text="Processing" />
+            <KitBadge status="warning" text="Warning" />
+        </KitSpace>
+        <br />
+        <br />
+        <KitSpace>
+            <KitBadge status="success" />
+            <KitBadge status="error" />
+            <KitBadge status="default" />
+            <KitBadge status="processing" />
+            <KitBadge status="warning" />
+        </KitSpace>
+        <br />
+        <br />
+        <KitSpace>
+            <KitBadge dot status="success">
+                <KitButton type="link">Link</KitButton>
+            </KitBadge>
+            <KitBadge dot status="error">
+                <KitButton type="link">Link</KitButton>
+            </KitBadge>
+            <KitBadge dot status="default">
+                <KitButton type="link">Link</KitButton>
+            </KitBadge>
+            <KitBadge dot status="processing">
+                <KitButton type="link">Link</KitButton>
+            </KitBadge>
+            <KitBadge dot status="warning">
+                <KitButton type="link">Link</KitButton>
+            </KitBadge>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+## Api
+
+<Canvas>
+    <Story name="Badge">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Badge" />

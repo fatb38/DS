@@ -1,0 +1,109 @@
+import { Meta, Title, IconGallery, IconItem, Canvas, Controls, Story } from "@storybook/addon-docs";
+import { KitIcon } from '@kit/General/';
+import { KitSpace } from '@kit/Layout/';
+import { DownloadOutlined } from '@ant-design/icons';
+import Gallery, {Template, argTypes} from './data';
+
+<Meta
+    title="Design System/General/Icons"
+    component={KitIcon}
+    argTypes={argTypes}
+/>
+
+<style>
+    {`
+        .gallery {
+            margin: 40px 0;
+        }
+
+        .card {
+            width: 210px;
+            transition: color 0.3s ease-in-out,background-color 0.3s ease-in-out;
+        }
+
+        .icon-item {
+            text-align: center;
+            padding-bottom: .5rem;
+            font-size: 36px;
+            transition: transform 0.3s ease-in-out;
+            will-change: transform;
+        }
+
+        .card:hover {
+            background: #1677ff;
+            color: white;
+        }
+
+        .card:hover .icon-item {
+            transform: scale(1.4);
+            transition: transform 0.3s ease-in-out;
+            will-change: transform;
+        }
+
+        .icon-name {
+            text-align: center;
+        }
+    `}
+</style>
+
+# Icon
+
+Aristid Icon is a on/off state icon
+
+## Usage
+
+##### How to import
+```jsx
+import KitIcon from "@kit/General/";
+import { UserOutlined } from "@ant-design/icons";
+
+<KitIcon icon={<UserOutlined />}/>
+```
+
+## Exemples
+
+##### Basic
+
+A basic Icon with on without `on` property.
+
+<Canvas withSource="none">
+    <KitSpace>
+        <KitIcon icon={<DownloadOutlined/>} />
+        <KitIcon icon={<DownloadOutlined/>} on />
+    </KitSpace>
+</Canvas>
+
+##### Hoverable
+
+Show Icon with `on` property on hover state.
+
+<Canvas withSource="none">
+    <KitSpace>
+        <KitIcon icon={<DownloadOutlined/>} hoverable/>
+        <KitIcon icon={<DownloadOutlined/>} hoverable on/>
+    </KitSpace>
+</Canvas>
+
+##### Clickable
+
+Icon can be clickable using `onClick` property.
+
+<Canvas withSource="none">
+    <KitSpace>
+        <KitIcon icon={<DownloadOutlined/>} onClick={() => console.log("click")}/>
+        <KitIcon icon={<DownloadOutlined/>} hoverable onClick={() => console.log("click")}/>
+    </KitSpace>
+</Canvas>
+
+## Api
+
+<Canvas>
+    <Story name="Icon">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Icon"/>
+
+# Available icons
+
+<Gallery />
+

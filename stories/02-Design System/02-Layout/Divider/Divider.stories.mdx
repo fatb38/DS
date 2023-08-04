@@ -1,0 +1,182 @@
+import { Fragment } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { KitDivider } from "@kit/Layout/";
+import { KitTypography, KitGrid } from "@kit/General/";
+import { DividerArgTypes, Template } from "./data";
+
+<Meta
+    title="Design System/Layout/Divider"
+    component={KitDivider}
+    argTypes={DividerArgTypes}
+/>
+
+# Divider
+
+A divider line separates different content.
+
+## Usage
+-   Divide sections of article.
+-   Divide inline text and links such as the operation column of table.
+
+##### How to import
+```jsx
+import { KitDivider } from "@kit/Layout/";
+
+<KitDivider>Label</KitDivider>
+```
+
+## Examples
+
+##### Horizontal
+
+Divider is `horizontal` by default. You can add text within Divider.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+        <KitDivider>Label</KitDivider>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+    </Fragment>
+</Canvas>
+}
+
+##### Vertical
+
+Use `type="vertical"` make it vertical..
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitTypography.Text>Lorem</KitTypography.Text>
+        <KitDivider type="vertical" />
+        <KitTypography.Text>ipsum</KitTypography.Text>
+        <KitDivider type="vertical" />
+        <KitTypography.Text>dolor</KitTypography.Text>
+    </Fragment>
+</Canvas>
+}
+
+##### No margin
+
+Use `noMargin` remove top and bottom margin.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+        <KitDivider noMargin />
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+        <KitDivider orientation="left" noMargin>No margin</KitDivider>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+    </Fragment>
+</Canvas>
+}
+
+##### Divider with title
+
+Divider with inner title, set `orientation="left/right"` to align it.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+        <KitDivider>Center</KitDivider>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+        <KitDivider orientation="left">Left</KitDivider>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+        <KitDivider orientation="right">Right</KitDivider>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+        <KitDivider orientation="right" orientationMargin="0">
+            Right margin 0
+        </KitDivider>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+        <KitDivider orientation="right" orientationMargin="50px">
+            Right margin 50
+        </KitDivider>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+    </Fragment>
+</Canvas>
+}
+
+##### Color
+
+Use `color` to change border color.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+        <KitDivider color="default">Default</KitDivider>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+        <KitDivider color="lightGrey">Light grey</KitDivider>
+        <KitTypography.Paragraph size="medium" weight="regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne
+            merninisti licere mihi ista probare, quae sunt a te dicta? Refert
+            tamen, quo modo.
+        </KitTypography.Paragraph>
+    </Fragment>
+</Canvas>
+}
+
+
+## Api
+
+<Canvas>
+    <Story name="Divider">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Divider" />
