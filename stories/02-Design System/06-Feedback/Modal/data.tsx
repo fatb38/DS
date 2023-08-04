@@ -278,7 +278,7 @@ export const ModalArgTypes = {
             category: "Modal",
         },
     },
-    className: {
+    role: {
         name: "role",
         description:
             "String indicating the role of the modal, allowing the 'dialog' role to be applied if desired. This attribute is `dialog` by default.",
