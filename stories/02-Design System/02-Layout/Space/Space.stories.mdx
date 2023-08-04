@@ -1,0 +1,277 @@
+import { useState, Fragment } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+
+import { Slider } from 'antd';
+import DownloadOutlined from '@ant-design/icons';
+import { KitButton, KitTypography } from "@kit/General/";
+import { KitRadio } from '@kit/DataEntry/';
+import { KitDivider, KitSpace } from '@kit/Layout/';
+import { KitTooltip } from "@kit/DataDisplay/";
+
+import { SpaceArgTypes, Template } from "./data";
+
+
+<Meta
+    title="Design System/Layout/Space"
+    component={KitSpace}
+    argTypes={SpaceArgTypes}
+/>
+
+<style>
+    {`
+        .space-align-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        }
+        .space-align-block {
+        flex: none;
+        margin: 8px 4px;
+        padding: 4px;
+        border: 1px solid #40a9ff;
+        }
+        .space-align-block .mock-block {
+        display: inline-block;
+        padding: 32px 8px 16px;
+        background: rgba(150, 150, 150, 0.2);
+        }
+    `}
+</style>
+
+# Space
+
+Set components spacing.
+
+## When To Use
+
+- Avoid components clinging together and set a unified space.
+- Use Space.Compact when child form components are compactly connected and the border is collapsed (After version `antd@4.24.0` Supported).
+
+## Examples
+
+
+##### Basic
+Crowded components horizontal spacing.
+
+{
+<Canvas>
+<KitSpace>
+    <KitButton type="primary">Button</KitButton>
+    <KitButton type="primary">Button 2</KitButton>
+    <KitButton type="primary">Button 3</KitButton>
+</KitSpace>
+</Canvas>
+}
+
+##### Vertical Space
+Crowded components vertical spacing.
+
+{
+<Canvas>
+<KitSpace direction="vertical" size="middle" style={{ display: 'flex' }}>
+    <KitButton type="primary">Button</KitButton>
+    <KitButton type="primary">Button 2</KitButton>
+    <KitButton type="primary">Button 3</KitButton>
+</KitSpace>
+</Canvas>
+}
+
+
+
+##### Space Size
+`large`, `middle` and `small` preset sizes.
+Set the size to `large` and `middle` by setting size to `large` and `middle` respectively. If size is not set, the spacing is `small`.
+
+{
+<Canvas>
+    {(() => {
+        const [size, setSize] = useState('small');
+        return (
+            <>
+            <KitRadio.Group value={size} onChange={(e) => setSize(e.target.value)}>
+                <KitRadio value="small">Small</KitRadio>
+                <KitRadio value="middle">Middle</KitRadio>
+                <KitRadio value="large">Large</KitRadio>
+            </KitRadio.Group>
+            <br />
+            <br />
+            <KitSpace size={size}>
+                <KitButton type="primary">Primary</KitButton>
+                <KitButton>Default</KitButton>
+                <KitButton type="dashed">Dashed</KitButton>
+                <KitButton type="link">Link</KitButton>
+            </KitSpace>
+            </>
+        );
+    })()}
+</Canvas>
+}
+
+##### Align
+Config item align.
+
+{
+<Canvas>
+<div className="space-align-container">
+    <div className="space-align-block">
+      <KitSpace align="center">
+        center
+        <KitButton type="primary">Primary</KitButton>
+        <span className="mock-block">Block</span>
+      </KitSpace>
+    </div>
+    <div className="space-align-block">
+      <KitSpace align="start">
+        start
+        <KitButton type="primary">Primary</KitButton>
+        <span className="mock-block">Block</span>
+      </KitSpace>
+    </div>
+    <div className="space-align-block">
+      <KitSpace align="end">
+        end
+        <KitButton type="primary">Primary</KitButton>
+        <span className="mock-block">Block</span>
+      </KitSpace>
+    </div>
+    <div className="space-align-block">
+      <KitSpace align="baseline">
+        baseline
+        <KitButton type="primary">Primary</KitButton>
+        <span className="mock-block">Block</span>
+      </KitSpace>
+    </div>
+</div>
+</Canvas>
+}
+
+##### Customize size
+Custom spacing size.
+
+{
+<Canvas>
+{(() => {
+    const [size, setSize] = useState(8);
+    return (
+    <>
+      <Slider value={size} onChange={(value) => setSize(value)} />
+      <br />
+      <br />
+      <KitSpace size={size}>
+        <KitButton type="primary">Primary</KitButton>
+        <KitButton>Default</KitButton>
+        <KitButton type="dashed">Dashed</KitButton>
+        <KitButton type="link">Link</KitButton>
+      </KitSpace>
+    </>
+  );
+})()}
+</Canvas>
+}
+
+##### Wrap
+Auto wrap line.
+
+{
+<Canvas>
+<KitSpace size={[8, 16]} wrap>
+    {new Array(20).fill(null).map((_, index) => (
+      <KitButton key={index}>Button</KitButton>
+    ))}
+</KitSpace>
+</Canvas>
+}
+
+##### Split
+Crowded components split.
+
+{
+<Canvas>
+<KitSpace split={<KitDivider type="vertical" />}>
+    <KitTypography.Link>Link</KitTypography.Link>
+    <KitTypography.Link>Link</KitTypography.Link>
+    <KitTypography.Link>Link</KitTypography.Link>
+  </KitSpace>
+</Canvas>
+}
+
+##### Button Compact Mode
+Button component compact example.
+
+{
+<Canvas>
+<KitSpace.Compact block>
+      <KitButton type="primary">Button 1</KitButton>
+      <KitButton type="primary">Button 2</KitButton>
+      <KitButton type="primary">Button 3</KitButton>
+      <KitButton type="primary">Button 4</KitButton>
+      <KitTooltip title="Tooltip">
+        <KitButton type="primary" disabled>
+            <DownloadOutlined />
+        </KitButton>
+      </KitTooltip>
+      <KitTooltip title="Tooltip">
+        <KitButton type="primary" >
+            <DownloadOutlined />
+        </KitButton>
+      </KitTooltip>
+</KitSpace.Compact>
+</Canvas>
+}
+
+##### Vertical Compact Mode
+Vertical Mode for Space.Compact, support Button only.
+
+{
+<Canvas>
+<KitSpace>
+    <KitSpace.Compact direction="vertical">
+      <KitButton>Button 1</KitButton>
+      <KitButton>Button 2</KitButton>
+      <KitButton>Button 3</KitButton>
+    </KitSpace.Compact>
+    <KitSpace.Compact direction="vertical">
+      <KitButton type="dashed">Button 1</KitButton>
+      <KitButton type="dashed">Button 2</KitButton>
+      <KitButton type="dashed">Button 3</KitButton>
+    </KitSpace.Compact>
+    <KitSpace.Compact direction="vertical">
+      <KitButton type="primary">Button 1</KitButton>
+      <KitButton type="primary">Button 2</KitButton>
+      <KitButton type="primary">Button 3</KitButton>
+    </KitSpace.Compact>
+  </KitSpace>
+</Canvas>
+}
+
+## API
+
+<Canvas>
+    <Story name="Space">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Space" />
+
+### Size
+
+`'small' | 'middle' | 'large' | number`
+
+### Space.Compact
+
+Use Space.Compact when child form components are compactly connected and the border is collapsed. The supported components are：
+
+- Button
+- AutoComplete
+- Cascader
+- DatePicker
+- Input/Input.Search
+- Select
+- TimePicker
+- TreeSelect
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| block | Option to fit width to its parent\'s width | boolean | false |
+| direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` |
+| size | Set child component size | `large` \| `middle` \| `small` | `middle` |

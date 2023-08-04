@@ -1,0 +1,181 @@
+import { useState, Fragment } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { KitSpace } from "@kit/Layout/";
+import { KitTypography } from "@kit/General/";
+import { KitRate } from "@kit/DataEntry/";
+import {
+    HeartOutlined,
+} from "@ant-design/icons";
+import {
+    RateArgTypes,
+    Template,
+    charsNumber,
+    charsIcons
+} from "./data";
+
+<Meta
+    title="Design System/DataEntry/Rate"
+    argTypes={RateArgTypes}
+/>
+
+# Rate
+
+Rate component.
+
+## Usage
+
+- Show evaluation.
+- A quick rating operation on something.
+
+##### How to import
+```jsx
+import { KitRate } from "@kit/DataEntry/";
+
+<KitRate />
+```
+
+## Examples
+
+##### Basic
+
+The simplest usage.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <KitRate />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Half star
+
+Support select half star.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <KitRate allowHalf defaultValue={2.5}/>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Show copywriting
+
+Add copywriting in rate components.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+        const [value, setValue] = useState(3);
+
+        return (
+            <Fragment>
+                <KitSpace>
+                    <KitRate tooltips={desc} onChange={setValue} value={value} />
+                    {value ? <KitTypography.Text>{desc[value - 1]}</KitTypography.Text> : ''}
+                </KitSpace>
+            </Fragment>
+        );
+    })()}
+</Canvas>
+}
+
+##### Read only
+
+Read only, can't use mouse to interact.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <KitRate disabled defaultValue={2} />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Clear star
+
+Support set allow to clear star when click again.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitRate defaultValue={3} />
+            <KitTypography.Text>allowClear: true</KitTypography.Text>
+            <br/>
+            <KitRate defaultValue={3} allowClear={false}/>
+            <KitTypography.Text>allowClear: false</KitTypography.Text>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Rate Color
+
+We preset a series of colorful Rate styles for use in different situations..
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitRate defaultValue={3} />
+            <KitRate defaultValue={3} color="red" />
+            <KitRate defaultValue={3} color="green" />
+            <KitRate defaultValue={3} color="blue" />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Other Character
+
+Replace the default star to other character like alphabet, digit, iconfont or even Chinese word.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitRate character={<HeartOutlined />} allowHalf />
+            <KitRate character="A" allowHalf style={{ fontSize: 36 }} />
+            <KitRate character="好" allowHalf />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Customize character
+
+Can customize each character using `(RateProps) => ReactNode`.
+
+{
+<Canvas withSource="none">
+    {(() => {
+
+        return (
+            <Fragment>
+                <KitSpace direction="vertical">
+                    <KitRate defaultValue={2} character={charsNumber} />
+                    <KitRate defaultValue={2} character={charsIcons} />
+                </KitSpace>
+            </Fragment>
+        );
+    })()}
+</Canvas>
+}
+
+## API
+
+<Canvas>
+    <Story name="Rate">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Rate" />

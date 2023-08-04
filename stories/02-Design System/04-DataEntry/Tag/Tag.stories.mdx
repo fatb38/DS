@@ -1,0 +1,175 @@
+import { useState, Fragment } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { KitTag } from "@kit/DataEntry/";
+import { KitSpace } from "@kit/Layout/";
+import { argTypes, Template } from "./data";
+
+<Meta
+    title="Design System/DataEntry/Tag"
+    component={KitTag}
+    argTypes={argTypes}
+/>
+
+<style></style>
+
+# Tag
+
+Tag for categorizing or markup.
+
+## Usage
+- It can be used to tag by dimension or property.
+
+- When categorizing.
+
+##### How to import
+```jsx
+import { KitTag } from "@kit/DataEntry/";
+
+<KitTag>Tag 1</KitTag>
+<KitTag.Input ... />
+```
+
+## Examples
+
+##### Basic
+Usage of basic Tag, and it could be closable by set closable property. Closable Tag supports onClose events.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const log = (e) => {
+            console.log(e); 
+        };
+        const preventDefault = (e) => {
+            e.preventDefault();
+            console.log('Clicked! But prevent default.');
+        };
+        return (
+           <KitSpace size={[0, 8]} wrap>
+                <KitTag>Tag 1</KitTag>
+                <KitTag>
+                    <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
+                </KitTag>
+                <KitTag closable onClose={log}>
+                    Tag 2
+                </KitTag>
+                <KitTag closable onClose={preventDefault}>
+                    Prevent Default
+                </KitTag>
+            </KitSpace>
+        );
+    })()}
+</Canvas>
+}
+
+##### Tag Color
+
+We preset a series of colorful Badge styles for use in different situations.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace size="middle">
+            <KitTag>Default</KitTag>
+            <KitTag color="red">Red</KitTag>
+            <KitTag color="green">Green</KitTag>
+            <KitTag color="blue">Blue</KitTag>
+            <KitTag color="blueInvert">Blue invert</KitTag>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### With Input
+Use Tags in Input (for tag selection)
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const options = ["tag 1", "tag 2"];
+        const preventDefault = (e) => {
+            e.preventDefault();
+            console.log('Clicked! But prevent default.');
+        };
+        return (
+            <KitTag.Input
+                options={options}
+                placeholder="Rechercher"
+                style={{width: "100%"}}
+            />
+        );
+    })()}
+</Canvas>
+}
+
+```js
+() => {
+    const options = ["tag 1", "tag 2"];
+
+    const preventDefault = (e) => {
+        e.preventDefault();
+        console.log('Clicked! But prevent default.');
+    };
+
+    return (
+        <KitTag.Input options={options} placeholder="Rechercher" style={{width: "100%"}}/>
+    );
+}
+```
+
+##### With remote Search
+Use Tags with remote request to fetch datas
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const [options, setOptions] = useState([]);
+        const fetchOptions = (value) => {
+            const data = ["tag 1", "tag 2", "tag 3", value];
+            setTimeout(() => {
+                setOptions(data);
+            }, 500);
+        };
+        return (
+            <KitTag.Input
+                options={options}
+                onSearch={fetchOptions}
+                placeholder="Rechercher"
+                style={{width: "100%"}}
+            />
+        );
+    })()}
+</Canvas>
+}
+
+```js
+() => {
+    const [options, setOptions] = useState([]);
+
+    const fetchOptions = (value) => {
+        const data = ["tag 1", "tag 2", "tag 3", value];
+
+        setTimeout(() => {
+            setOptions(data);
+        }, 500);
+    };
+
+    return (
+        <KitTag.Input
+            options={options}
+            onSearch={fetchOptions}
+            placeholder="Rechercher"
+            style={{width: "100%"}}
+        />
+    );
+}
+```
+
+## API
+
+<Canvas>
+    <Story name="Tag">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Tag" />

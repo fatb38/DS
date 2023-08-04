@@ -1,0 +1,200 @@
+import { useState, useMemo, Fragment } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { KitCard } from "@kit/DataDisplay/";
+import { KitSpace } from "@kit/Layout/";
+import { CardArgTypes, Template, fakeContent } from "./data";
+
+<Meta
+    title="Design System/DataDisplay/Card"
+    argTypes={CardArgTypes}
+/>
+
+# Card
+
+A component to display product informations
+
+## Usage
+
+The Card is used to display a product identity Card - some basic informations - such as a preview, label colors and so on.
+It's also provides ability to select and / or edit product data
+
+##### How to import
+```jsx
+import { KitCard, KitImage } from "@kit/DataDisplay/";
+
+<KitCard picture={<KitImage src="images/tondeuse.png" />} />
+```
+
+## Examples
+
+##### Basic
+The simplest usage.
+
+###### Horizontal layout (default)
+
+{
+<Canvas withSource="none">
+    <KitCard {...fakeContent.base} picture={fakeContent.image} />
+</Canvas>
+}
+
+###### Vertical layout
+
+{
+<Canvas withSource="none">
+    <KitCard vertical {...fakeContent.base} picture={fakeContent.image} />
+</Canvas>
+}
+
+##### With icon
+display an icon instead of image
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitCard {...fakeContent.base} picture={fakeContent.icon} />
+            <KitCard vertical {...fakeContent.base} picture={fakeContent.icon} />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### With Avatar
+display an Avatar
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitCard  {...fakeContent.base} picture={fakeContent.avatar} />
+            <KitCard vertical {...fakeContent.base} picture={fakeContent.avatar} />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### With Tags
+add tags in the Card
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitCard {...fakeContent.base} picture={fakeContent.image} tags={fakeContent.tags} />
+            <KitCard vertical {...fakeContent.base} picture={fakeContent.image} tags={fakeContent.tags} />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitCard vertical {...fakeContent.base} onEdit={() => {}} onSelectChange={() => {}}  picture={fakeContent.image} />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### With colors
+show colors bar near image
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitCard {...fakeContent.base} colors={fakeContent.colors} picture={fakeContent.image} />
+            <KitCard vertical {...fakeContent.base} colors={fakeContent.colors} picture={fakeContent.image} />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Selectable
+set the card selectable. Simply provide the `onSelectChange` property to enable selection.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitCard {...fakeContent.base} colors={fakeContent.colors} picture={fakeContent.image} onSelectChange={(e) => {console.log(e)}}/>
+            <KitCard vertical {...fakeContent.base} colors={fakeContent.colors} picture={fakeContent.image}  onSelectChange={(e) => {console.log(e)}}/>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Editable
+allow to edit the item assicated to the card. Simply provide the `onEdit` property to enable edition.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitCard {...fakeContent.base} colors={fakeContent.colors} picture={fakeContent.image} onEdit={(e) => {console.log(e)}}/>
+            <KitCard vertical {...fakeContent.base} colors={fakeContent.colors} picture={fakeContent.image}  onEdit={(e) => {console.log(e)}}/>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### With actions
+add actions near select checkbox.
+
+{
+<Canvas withSource="none">
+    <KitSpace direction="vertical">
+        <KitCard {...fakeContent.base}
+            colors={fakeContent.colors}
+            picture={fakeContent.image}
+            actions={fakeContent.actions}
+            onEdit={(e) => {console.log(e)}}
+            onSelectChange={(e) => {console.log(e)}}
+        />
+        <KitCard vertical
+            {...fakeContent.base}
+            colors={fakeContent.colors}
+            picture={fakeContent.image}
+            actions={fakeContent.actions}
+            onEdit={(e) => {console.log(e)}}
+            onSelectChange={(e) => {console.log(e)}}
+        />
+    </KitSpace>
+</Canvas>
+}
+
+##### Disabled
+Card element in disabled state.
+
+{
+<Canvas withSource="none">
+    <KitSpace direction="vertical">
+        <KitCard {...fakeContent.base}
+            disabled={true}
+            colors={fakeContent.colors}
+            picture={fakeContent.image}
+            onEdit={(e) => {console.log(e)}}
+            onSelectChange={(e) => {console.log(e)}}
+        />
+        <KitCard vertical
+            {...fakeContent.base}
+            disabled={true}
+            colors={fakeContent.colors}
+            picture={fakeContent.image}
+            onEdit={(e) => {console.log(e)}}
+            onSelectChange={(e) => {console.log(e)}}
+        />
+    </KitSpace>
+</Canvas>
+}
+
+## Api
+
+<Canvas>
+    <Story name="Card">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Card" />

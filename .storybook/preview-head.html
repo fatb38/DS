@@ -1,0 +1,81 @@
+<style>
+    #docs-root .sbdocs {
+         padding-top: .5rem;
+    }
+
+    #docs-root .docblock-argstable-body {
+        box-shadow: none;
+        border-top: 1px solid #dfdfdf;
+        border-radius: 0;
+    }
+
+    #docs-root .docblock-argstable-head {
+        background: #fff;
+        border-radius: 0;
+    }
+
+    #docs-root .sbdocs-preview {
+        border-radius: 0;
+    }
+
+    #docs-root .docblock-argstable {
+        box-shadow: rgba(0, 0, 0, 0.10) 0 1px 3px 1px, rgba(0,0,0,0.065) 0 0 0 1px;
+    }
+
+    .sbdocs.sbdocs-content {
+        width: calc(100% - 180px);
+        max-width: calc(100% - 180px);
+    }
+
+    .sbdocs.sbdocs-wrapper {
+        justify-content: left;
+        padding-left: 30px;
+    }
+
+    .sbdocs.sbdocs-toc--custom {
+        --toc-color: rgba(0,0,0,.45);
+        --toc-background: #fff;
+        --toc-indicator-color: #efefef;
+        --toc-indicator-color--active: #1677ff;
+        z-index: 0;
+        width: 180px;
+        max-width: 180px;
+        left: unset;
+        right: 0;
+        font-size: 13px;
+        font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+
+    .sbdocs.sbdocs-toc__header {
+        display: none;
+    }
+
+    .sbdocs.sbdocs-top {
+        font-size: 13px;
+        font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+        left: unset;
+        right: 0;
+        width: 180px;
+        max-width: 180px;
+        justify-content: left;
+    }
+
+    .sbdocs.sbdocs-toc--custom .toc-list-item:before {
+        width: 1px;
+    }
+
+    .js-toc .toc-list .toc-list-item.is-active-li {
+        opacity: 1;
+        font-weight: bold;
+    }
+
+    .js-toc .toc-list .toc-list-item.is-active-li > .toc-link {
+        color: var(--indicator-color--active);
+    }
+
+    @media (max-width: 1180px) {
+        .sbdocs.sbdocs-toc--custom {
+            display: none;
+        }
+    }
+</style>

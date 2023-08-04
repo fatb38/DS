@@ -1,0 +1,141 @@
+import { Fragment } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { KitSnackBarProvider, openKitSnackBar, closeKitSnackBar } from "@kit/Feedback/";
+import { KitButton } from "@kit/General/";
+import { KitSpace } from "@kit/Layout/";
+import { SnackBarArgTypes, Template } from "./data";
+
+<Meta
+    title="Design System/Feedback/SnackBar"
+    argTypes={SnackBarArgTypes}
+/>
+
+# SnackBar
+
+A snackbar is used to provide non-disruptive feedback about the outcome of an event.
+
+## Usage
+
+- Use snackbar to provide feedback about an operation and if necessary an optional action like "undo".
+
+- Use toast for system messaging and if you don't need to add optional action.
+
+- Only one snackbar may be displayed at a time. If multiple snackbars need to appear, the new one replaced the previous one. The snackbar can disappear automatically after a set of time or can be dismissed by the user.
+
+##### How to import
+
+Add the `KitSnackBarProvider` to your app and make sure it's placed at the top.
+
+There must be only one `KitSnackBarProvider` in your app.
+
+```tsx
+import { KitSnackBarProvider, openKitSnackBar, closeKitSnackBar } from "@kit/Feedback/";
+
+<div>
+    <KitSnackBarProvider/>
+</div>
+```
+
+Start using `openKitSnackBar` . You can call it from anywhere.
+```tsx
+openKitSnackBar("Hello World")
+```
+
+To manualy close the SnackBar you can use `closeKitSnackBar()`.
+```tsx
+closeKitSnackBar()
+```
+
+This components is based on [react-hot-toast](https://react-hot-toast.com/).
+
+## Examples
+
+##### Basic
+
+The simplest usage for short messages.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <KitButton
+                type="primary"
+                onClick={() => {
+                    openKitSnackBar(
+                        {
+                            message: "Hello there !"
+                        }
+                    );
+                }}
+            >
+                Open SnackBar
+            </KitButton>
+            <KitButton onClick={() => {closeKitSnackBar()}}>Close SnackBar</KitButton>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Closable
+
+To show close button.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <KitButton
+                type="primary"
+                onClick={() => {
+                    openKitSnackBar(
+                        {
+                            message: "Hello there !",
+                            closable: true
+                        }
+                    );
+                }}
+            >
+                Open SnackBar
+            </KitButton>
+            <KitButton onClick={() => {closeKitSnackBar()}}>Close SnackBar</KitButton>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### With a CTA
+
+To show call to action button.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <KitButton
+                type="primary"
+                onClick={() => {
+                    openKitSnackBar(
+                        {
+                            message: "Hello there !",
+                            ctaText: "Undo",
+                            ctaOnClick: () => console.log("With a CTA")
+                        }
+                    );
+                }}
+            >
+                Open SnackBar
+            </KitButton>
+            <KitButton onClick={() => {closeKitSnackBar()}}>Close SnackBar</KitButton>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+## Api
+
+<Canvas>
+    <Story name="SnackBar">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="SnackBar" />

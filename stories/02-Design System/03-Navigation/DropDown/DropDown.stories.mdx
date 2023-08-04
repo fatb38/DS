@@ -1,0 +1,216 @@
+import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { DownOutlined, UserOutlined } from "@ant-design/icons";
+import { KitButton } from "@kit/General/";
+import { KitDropDown } from "@kit/Navigation/";
+import { KitSpace } from "@kit/Layout/";
+
+import {
+    items,
+    handleButtonClick,
+    handleMenuClick,
+    argTypes,
+    menuProps,
+    Template,
+} from "./data";
+
+<Meta
+    title="Design System/Navigation/DropDown"
+    component={KitDropDown}
+    argTypes={argTypes}
+/>
+
+<style>
+    {`
+    .subheading {
+      --mediumdark: '#999999';
+      font-weight: 900;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 6px;
+      line-height: 24px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      margin-top: 40px;
+    }
+    .site-button-ghost-wrapper {
+        padding: 16px;
+        background: rgb(190, 200, 200);
+    }
+    `}
+</style>
+
+# DropDown
+
+A DropDown list.
+
+## Usage
+
+When there are more than a few options to choose from, you can wrap them in a `DropDown`. By hovering or clicking on the trigger, a DropDown menu will appear, which allows you to choose an option and execute the relevant action.
+
+##### How to import
+```jsx
+import { KitDropDown } from "@kit/Navigation/";
+
+<KitDropDown menu={{ items }}>
+    ...
+</KitDropDown>
+```
+
+## Examples
+
+##### Basic
+
+The most basic DropDown menu.
+
+{
+<Canvas withSource="none">
+    <KitDropDown menu={{ items }}>
+        <KitSpace>
+            Hover me
+            <DownOutlined />
+        </KitSpace>
+    </KitDropDown>
+</Canvas>
+}
+
+##### Placement
+
+Support 6 placements.
+
+{
+<Canvas withSource="none">
+    <KitSpace direction="vertical">
+        <KitSpace wrap>
+            <KitDropDown menu={{ items }} placement="bottomLeft">
+                <KitButton>bottomLeft</KitButton>
+            </KitDropDown>
+            <KitDropDown menu={{ items }} placement="bottom">
+                <KitButton>bottom</KitButton>
+            </KitDropDown>
+            <KitDropDown menu={{ items }} placement="bottomRight">
+                <KitButton>bottomRight</KitButton>
+            </KitDropDown>
+        </KitSpace>
+        <KitSpace wrap>
+            <KitDropDown menu={{ items }} placement="topLeft">
+                <KitButton>topLeft</KitButton>
+            </KitDropDown>
+            <KitDropDown menu={{ items }} placement="top">
+                <KitButton>top</KitButton>
+            </KitDropDown>
+            <KitDropDown menu={{ items }} placement="topRight">
+                <KitButton>topRight</KitButton>
+            </KitDropDown>
+        </KitSpace>
+    </KitSpace>
+</Canvas>
+}
+
+##### Arrow
+
+You could display an arrow.
+
+{
+<Canvas withSource="none">
+    <KitSpace direction="vertical">
+        <KitSpace wrap>
+            <KitDropDown
+                menu={{ items }}
+                placement="bottomLeft"
+                arrow={{ pointAtCenter: true }}
+            >
+                <KitButton>bottomLeft</KitButton>
+            </KitDropDown>
+            <KitDropDown
+                menu={{ items }}
+                placement="bottom"
+                arrow={{ pointAtCenter: true }}
+            >
+                <KitButton>bottom</KitButton>
+            </KitDropDown>
+            <KitDropDown
+                menu={{ items }}
+                placement="bottomRight"
+                arrow={{ pointAtCenter: true }}
+            >
+                <KitButton>bottomRight</KitButton>
+            </KitDropDown>
+        </KitSpace>
+        <KitSpace wrap>
+            <KitDropDown
+                menu={{ items }}
+                placement="topLeft"
+                arrow={{ pointAtCenter: true }}
+            >
+                <KitButton>topLeft</KitButton>
+            </KitDropDown>
+            <KitDropDown
+                menu={{ items }}
+                placement="top"
+                arrow={{ pointAtCenter: true }}
+            >
+                <KitButton>top</KitButton>
+            </KitDropDown>
+            <KitDropDown
+                menu={{ items }}
+                placement="topRight"
+                arrow={{ pointAtCenter: true }}
+            >
+                <KitButton>topRight</KitButton>
+            </KitDropDown>
+        </KitSpace>
+    </KitSpace>
+</Canvas>
+}
+
+##### Other elements
+
+Divider and disabled menu item.
+
+{
+<Canvas withSource="none">
+    <KitDropDown
+        menu={{
+            items,
+        }}
+        open
+    >
+        <a onClick={(e) => e.preventDefault()}>
+            <KitSpace>
+                Hover me
+                <DownOutlined />
+            </KitSpace>
+        </a>
+    </KitDropDown>
+</Canvas>
+}
+
+##### Trigger mode
+
+The default trigger mode is hover, you can change it to click.
+
+{
+<Canvas withSource="none">
+    <KitDropDown menu={{ items }} trigger={["click"]}>
+        <a onClick={(e) => e.preventDefault()}>
+            <KitSpace>
+                Click me
+                <DownOutlined />
+            </KitSpace>
+        </a>
+    </KitDropDown>
+</Canvas>
+}
+
+##### Button with DropDown menu
+
+A button is on the left, and a related functional menu is on the right. You can set the icon property to modify the icon of right.
+
+## Api
+
+<Canvas>
+    <Story name="DropDown">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="DropDown" />

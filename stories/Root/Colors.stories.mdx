@@ -1,0 +1,197 @@
+{/* Colors.stories.mdx */}
+
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs";
+import theme from "@theme/index";
+
+<Meta title="Design System/General/Colors" />
+
+# How to use
+
+## Import
+
+```tsx
+import theme from "/libs/components/theme";
+```
+
+## Usage
+
+```tsx
+const primaryColor = theme.color.primary.blue100;
+const backgroundColor = theme.color.neutral.background;
+const secondaryRedColor = theme.color.secondary.red.red100;
+```
+
+# Available Colors
+
+## Primary Color
+
+<ColorPalette>
+    <ColorItem
+        title="Actions (icons, buttons, ...)"
+        subtitle=""
+        colors={{
+            "blue-100": theme.color.primary.blue100,
+            "blue-200": theme.color.primary.blue200,
+            "blue-300": theme.color.primary.blue300,
+            "blue-400": theme.color.primary.blue400,
+            "blue-500": theme.color.primary.blue500,
+            "blue-600": theme.color.primary.blue600,
+            "blue-700": theme.color.primary.blue700,
+        }}
+    />
+</ColorPalette>
+
+## Neutral Color
+
+<ColorPalette>
+    <ColorItem
+        title="Typography"
+        subtitle=""
+        colors={{
+            black: theme.color.neutral.typography.black,
+            "black-60": theme.color.neutral.typography.black60,
+            white: theme.color.neutral.typography.white,
+        }}
+    />
+    <ColorItem
+        title="Background"
+        subtitle=""
+        colors={{
+            "light-grey": theme.color.neutral.background,
+        }}
+    />
+    <ColorItem
+        title="Border"
+        subtitle=""
+        colors={{
+            "blue-200": theme.color.neutral.border,
+        }}
+    />
+    <ColorItem
+        title="Gray"
+        subtitle=""
+        colors={{
+            "gray-100": theme.color.neutral.gray.gray100,
+            "gray-200": theme.color.neutral.gray.gray200,
+            "gray-300": theme.color.neutral.gray.gray300,
+            "gray-400": theme.color.neutral.gray.gray400,
+            "gray-500": theme.color.neutral.gray.gray500,
+            "gray-600": theme.color.neutral.gray.gray600,
+            "gray-700": theme.color.neutral.gray.gray700,
+        }}
+    />
+</ColorPalette>
+
+## Secondary Color
+
+<ColorPalette>
+    <ColorItem
+        title="Medium grey"
+        subtitle=""
+        colors={{
+            "medium-grey-100": theme.color.secondary.mediumGrey.mediumGrey100,
+            "medium-grey-200": theme.color.secondary.mediumGrey.mediumGrey200,
+            "medium-grey-300": theme.color.secondary.mediumGrey.mediumGrey300,
+            "medium-grey-400": theme.color.secondary.mediumGrey.mediumGrey400,
+            "medium-grey-500": theme.color.secondary.mediumGrey.mediumGrey500,
+            "medium-grey-600": theme.color.secondary.mediumGrey.mediumGrey600,
+            "medium-grey-700": theme.color.secondary.mediumGrey.mediumGrey700,
+        }}
+    />
+</ColorPalette>
+
+<ColorPalette>
+    <ColorItem
+        title="Yellow"
+        subtitle=""
+        colors={{
+            "yellow-100": theme.color.secondary.yellow.yellow100,
+            "yellow-200": theme.color.secondary.yellow.yellow200,
+            "yellow-300": theme.color.secondary.yellow.yellow300,
+            "yellow-400": theme.color.secondary.yellow.yellow400,
+            "yellow-500": theme.color.secondary.yellow.yellow500,
+            "yellow-600": theme.color.secondary.yellow.yellow600,
+            "yellow-700": theme.color.secondary.yellow.yellow700,
+        }}
+    />
+</ColorPalette>
+
+<ColorPalette>
+    <ColorItem
+        title="Orange"
+        subtitle=""
+        colors={{
+            "orange-100": theme.color.secondary.orange.orange100,
+            "orange-200": theme.color.secondary.orange.orange200,
+            "orange-300": theme.color.secondary.orange.orange300,
+            "orange-400": theme.color.secondary.orange.orange400,
+            "orange-500": theme.color.secondary.orange.orange500,
+            "orange-600": theme.color.secondary.orange.orange600,
+            "orange-700": theme.color.secondary.orange.orange700,
+        }}
+    />
+</ColorPalette>
+
+<ColorPalette>
+    <ColorItem
+        title="Pink"
+        subtitle=""
+        colors={{
+            "pink-100": theme.color.secondary.pink.pink100,
+            "pink-200": theme.color.secondary.pink.pink200,
+            "pink-300": theme.color.secondary.pink.pink300,
+            "pink-400": theme.color.secondary.pink.pink400,
+            "pink-500": theme.color.secondary.pink.pink500,
+            "pink-600": theme.color.secondary.pink.pink600,
+            "pink-700": theme.color.secondary.pink.pink700,
+        }}
+    />
+</ColorPalette>
+
+<ColorPalette>
+    <ColorItem
+        title="Red"
+        subtitle=""
+        colors={{
+            "red-100": theme.color.secondary.red.red100,
+            "red-200": theme.color.secondary.red.red200,
+            "red-300": theme.color.secondary.red.red300,
+            "red-400": theme.color.secondary.red.red400,
+            "red-500": theme.color.secondary.red.red500,
+            "red-600": theme.color.secondary.red.red600,
+            "red-700": theme.color.secondary.red.red700,
+        }}
+    />
+</ColorPalette>
+
+<ColorPalette>
+    <ColorItem
+        title="Blue"
+        subtitle=""
+        colors={{
+            "blue-100": theme.color.secondary.blue.blue100,
+            "blue-200": theme.color.secondary.blue.blue200,
+            "blue-300": theme.color.secondary.blue.blue300,
+            "blue-400": theme.color.secondary.blue.blue400,
+            "blue-500": theme.color.secondary.blue.blue500,
+            "blue-600": theme.color.secondary.blue.blue600,
+            "blue-700": theme.color.secondary.blue.blue700,
+        }}
+    />
+</ColorPalette>
+
+<ColorPalette>
+    <ColorItem
+        title="Green"
+        subtitle=""
+        colors={{
+            "green-100": theme.color.secondary.green.green100,
+            "green-200": theme.color.secondary.green.green200,
+            "green-300": theme.color.secondary.green.green300,
+            "green-400": theme.color.secondary.green.green400,
+            "green-500": theme.color.secondary.green.green500,
+            "green-600": theme.color.secondary.green.green600,
+            "green-700": theme.color.secondary.green.green700,
+        }}
+    />
+</ColorPalette>
