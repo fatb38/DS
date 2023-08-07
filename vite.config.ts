@@ -1,19 +1,20 @@
 import react from '@vitejs/plugin-react';
 import path from 'node:path';
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import {webpackStats} from 'rollup-plugin-webpack-stats';
-import {uglify} from 'rollup-plugin-uglify';
+import { webpackStats } from 'rollup-plugin-webpack-stats';
+import { uglify } from 'rollup-plugin-uglify';
 
-// import packageJson from './package.json';
+import packageJson from './package.json';
 
-// const getExclusions = () => {
-//     return [
-//         ...Object.keys(packageJson.dependencies),
-//         ...Object.keys(packageJson.devDependencies),
-//         'react/jsx-runtime'
-//     ]
-// };
+const getExclusions = () => {
+    return [
+        /node_modules/,
+        ...Object.keys(packageJson.dependencies),
+        ...Object.keys(packageJson.devDependencies),
+        'react/jsx-runtime'
+    ]
+};
 
 export default defineConfig({
     publicDir: false,
@@ -39,31 +40,25 @@ export default defineConfig({
         lib: {
             entry: path.resolve(__dirname, 'src/index.tsx'),
             name: 'design-system',
-            formats: ['es', 'umd'],
+            formats: ['es'],
             fileName: format => `design-system.${format}.js`
         },
         rollupOptions: {
-            external: [
-                /node_modules/,
-                'react/jsx-runtime',
-                'antd',
-                'react',
-                'react-dom',
-                'styled-components',
-                'react-hot-toast',
-                'react-modal',
-                'react-uuid',
-                'remark-gfm',
-                'react-jsx-runtime'
-            ],
+            external: getExclusions(),
             output: {
                 globals: {
                     react: 'React',
                     'react-dom': 'ReactDOM',
                     'styled-components': 'styled',
-                    'react/jsx-runtime': 'react/jsx-runtime'
-                }
-            }
-        }
-    }
+                    'react/jsx-runtime': 'react/jsx-runtime',
+                },
+                preserveModules: true,
+                preserveModulesRoot: "src",
+                inlineDynamicImports: false,
+                entryFileNames: ({ name: fileName }) => {
+                    return `${fileName}.js`;
+                },
+            },
+        },
+    },
 });
