@@ -9,7 +9,7 @@ const tocConfig = {
     tocSelector: '.js-toc',
     contentSelector: '.sbdocs-content',
     headingSelector: 'h2, h3, h4, h5',
-    ignoreSelector: ".ant-space h1, .ant-space h2, .ant-space h3, .ant-space h4, .ant-space h5"
+    ignoreSelector: ".ant-space h1, .ant-space h2, .ant-space h3, .ant-space h4, .ant-space h5",
 };
 
 const Container = ({ children, ...props }) => {
@@ -43,7 +43,7 @@ export const parameters = {
                     </KitApp>
                 </>
             );
-        }
+        },
     },
 };
 
