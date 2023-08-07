@@ -1,13 +1,11 @@
-import { DividerProps } from "antd";
-import { HTMLAttributes } from "react";
+import {DividerProps} from 'antd';
+import {HTMLAttributes} from 'react';
 
-export type AntdDividerTypesToOmit = "style" | "plain";
+export type AntdDividerTypesToOmit = 'style' | 'plain';
 
-export type KitDividerColor = "default" | "lightGrey";
+export type KitDividerColor = 'default' | 'lightGrey';
 
-export interface KitDividerProps
-    extends Omit<DividerProps, AntdDividerTypesToOmit>,
-        HTMLAttributes<HTMLDivElement> {
+export interface KitDividerProps extends Omit<DividerProps, AntdDividerTypesToOmit>, HTMLAttributes<HTMLDivElement> {
     noMargin?: boolean;
     color?: KitDividerColor;
 }

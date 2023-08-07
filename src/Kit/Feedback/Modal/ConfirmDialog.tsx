@@ -1,14 +1,14 @@
-import React from "react";
-import Modal from "./Modal";
-import {} from "./theme";
-import { KitInfoOutlined, KitWarningOutlined } from "../../../icons";
-import { CheckOutlined, ExclamationOutlined } from "@ant-design/icons";
-import { KitButton, KitIcon } from "@kit/General/";
-import { KitSpace } from "@kit/Layout/";
-import { modalTheme } from "./theme";
-import { confirmDialogProps } from "./types";
+import React from 'react';
+import Modal from './Modal';
+import {} from './theme';
+import {KitInfoOutlined, KitWarningOutlined} from '../../../icons';
+import {CheckOutlined, ExclamationOutlined} from '@ant-design/icons';
+import {KitButton, KitIcon} from '@kit/General/';
+import {KitSpace} from '@kit/Layout/';
+import {modalTheme} from './theme';
+import {confirmDialogProps} from './types';
 
-import { useLocale } from "antd/lib/locale";
+import {useLocale} from 'antd/lib/locale';
 
 const ConfirmDialog = ({
     icon,
@@ -28,61 +28,41 @@ const ConfirmDialog = ({
     close,
     ...props
 }: confirmDialogProps) => {
-    const [locale] = useLocale("Modal");
+    const [locale] = useLocale('Modal');
 
     let mergedIcon: React.ReactNode = icon;
     if (icon === true || icon === undefined) {
         switch (type) {
-            case "info":
+            case 'info':
+                mergedIcon = <KitIcon icon={<KitInfoOutlined />} on className="kit-confirm-icon" />;
+                break;
+            case 'success':
                 mergedIcon = (
-                    <KitIcon
-                        icon={<KitInfoOutlined />}
-                        on
-                        className="kit-confirm-icon"
-                    />
+                    <KitIcon icon={<CheckOutlined />} on className="kit-confirm-icon kit-confirm-icon-success" />
                 );
                 break;
-            case "success":
+            case 'error':
                 mergedIcon = (
-                    <KitIcon
-                        icon={<CheckOutlined />}
-                        on
-                        className="kit-confirm-icon kit-confirm-icon-success"
-                    />
+                    <KitIcon icon={<ExclamationOutlined />} on className="kit-confirm-icon kit-confirm-icon-error" />
                 );
                 break;
-            case "error":
-                mergedIcon = (
-                    <KitIcon
-                        icon={<ExclamationOutlined />}
-                        on
-                        className="kit-confirm-icon kit-confirm-icon-error"
-                    />
-                );
-                break;
-            case "warning":
+            case 'warning':
             default:
                 mergedIcon = (
-                    <KitIcon
-                        icon={<KitWarningOutlined />}
-                        on
-                        className="kit-confirm-icon kit-confirm-icon-warning"
-                    />
+                    <KitIcon icon={<KitWarningOutlined />} on className="kit-confirm-icon kit-confirm-icon-warning" />
                 );
                 break;
         }
     }
-    const mergedOkCancel = okCancel ?? type === "confirm";
+    const mergedOkCancel = okCancel ?? type === 'confirm';
 
-    const onClick = (actionFn) => () => {
+    const onClick = actionFn => () => {
         actionFn && actionFn();
         close?.();
     };
 
     const cancelButton = mergedOkCancel && (
-        <KitButton onClick={onClick(onCancel)}>
-            {cancelText || locale?.cancelText}
-        </KitButton>
+        <KitButton onClick={onClick(onCancel)}>{cancelText || locale?.cancelText}</KitButton>
     );
 
     const OkButton = (
@@ -95,7 +75,7 @@ const ConfirmDialog = ({
         <Modal
             isOpen={isOpen}
             showCloseIcon={false}
-            width={width || "350px"}
+            width={width || '350px'}
             portalClassName={portalClassName}
             footer={
                 <>
@@ -105,27 +85,16 @@ const ConfirmDialog = ({
             }
             {...props}
         >
-            <KitSpace
-                direction="vertical"
-                size={modalTheme.itemsVerticalSpacing}
-            >
+            <KitSpace direction="vertical" size={modalTheme.itemsVerticalSpacing}>
                 {image && (
-                    <div
-                        className="kit-confirm-image-wrapper"
-                        style={{ backgroundImage: "url(" + image + ")" }}
-                    ></div>
+                    <div className="kit-confirm-image-wrapper" style={{backgroundImage: 'url(' + image + ')'}}></div>
                 )}
                 <KitSpace size={modalTheme.itemsVerticalSpacing}>
                     {mergedIcon}
-                    <KitSpace
-                        direction="vertical"
-                        size={modalTheme.textVerticalSpacing}
-                    >
+                    <KitSpace direction="vertical" size={modalTheme.textVerticalSpacing}>
                         <div className="ant-modal-title">{title}</div>
                         <div className="ant-modal-body">{firstLine}</div>
-                        {secondLine && (
-                            <div className="ant-modal-body">{secondLine}</div>
-                        )}
+                        {secondLine && <div className="ant-modal-body">{secondLine}</div>}
                     </KitSpace>
                 </KitSpace>
             </KitSpace>

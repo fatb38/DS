@@ -1,20 +1,17 @@
-import styled from "styled-components";
-import React, { useState, useEffect } from "react";
-import { Select } from "antd";
-import type { CustomTagProps } from "rc-select/lib/BaseSelect";
-import {
-    KitSelectStyle,
-    StyledLabel,
-} from "@kit/DataEntry/Select/style";
-import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
-import { KitIcon } from "../../General/";
-import Tag from "./Tag";
-import { tagTheme } from "./theme";
-import theme from "@theme/index";
-import { KitTagInputProps } from "./types";
+import styled from 'styled-components';
+import React, {useState, useEffect} from 'react';
+import {Select} from 'antd';
+import type {CustomTagProps} from 'rc-select/lib/BaseSelect';
+import {KitSelectStyle, StyledLabel} from '@kit/DataEntry/Select/style';
+import {CheckOutlined, CloseOutlined} from '@ant-design/icons';
+import {KitIcon} from '../../General/';
+import Tag from './Tag';
+import {tagTheme} from './theme';
+import theme from '@theme/index';
+import {KitTagInputProps} from './types';
 
 const tagRender = (props: CustomTagProps) => {
-    const { label, onClose } = props;
+    const {label, onClose} = props;
     return (
         <Tag closable onClose={onClose}>
             {label}
@@ -23,13 +20,11 @@ const tagRender = (props: CustomTagProps) => {
 };
 
 const fixedProps = {
-    mode: "tags",
-    tagRender: tagRender,
+    mode: 'tags',
+    tagRender: tagRender
 };
 
-const DropDownRenderer = (menu) => (
-    <div className="ari-select-dropdown-content">{menu}</div>
-);
+const DropDownRenderer = menu => <div className="ari-select-dropdown-content">{menu}</div>;
 
 const TagInputBase = styled(Select)`
     ${KitSelectStyle}
@@ -51,21 +46,17 @@ const TagInputBase = styled(Select)`
     }
 `;
 
-const KitTagInput = ({ onChange, ...props }: KitTagInputProps) => {
-    const [selectedItems, setSelectedItems] = useState<string[]>(
-        props.value || []
-    );
+const KitTagInput = ({onChange, ...props}: KitTagInputProps) => {
+    const [selectedItems, setSelectedItems] = useState<string[]>(props.value || []);
     const [filteredOptions, setFiltereOptions] = useState<string[]>([]);
 
     useEffect(() => {
         // Todo dedoublonner les items
-        const filtered: string[] = (props.options || []).filter(
-            (v) => !selectedItems.indexOf(v)
-        );
+        const filtered: string[] = (props.options || []).filter(v => !selectedItems.indexOf(v));
         setFiltereOptions([...filtered, ...selectedItems]);
     }, [props.options, selectedItems]);
 
-    const onInternalChange = (values) => {
+    const onInternalChange = values => {
         setSelectedItems(values);
         onChange && onChange(values);
     };
@@ -79,22 +70,17 @@ const KitTagInput = ({ onChange, ...props }: KitTagInputProps) => {
         clearIcon: <CloseOutlined />,
         popupMatchSelectWidth: false,
         defaultActiveFirstOption: false,
-        tokenSeparators: props.tokenSeparator || [","],
+        tokenSeparators: props.tokenSeparator || [','],
         menuItemSelectedIcon: SelectionIcon,
         onChange: onInternalChange,
-        style: { minWidth: "100px" },
+        style: {minWidth: '100px'},
         dropdownRender: DropDownRenderer,
         popupClassName:
-            "ari-select-dropdown-" +
-            (props.placement && props.placement.indexOf("top") >= 0
-                ? "top"
-                : "bottom"),
+            'ari-select-dropdown-' + (props.placement && props.placement.indexOf('top') >= 0 ? 'top' : 'bottom'),
         className:
-            (props.className || "") +
-            " ant-select-" +
-            (props.placement && props.placement.indexOf("top") >= 0
-                ? "top"
-                : "bottom"),
+            (props.className || '') +
+            ' ant-select-' +
+            (props.placement && props.placement.indexOf('top') >= 0 ? 'top' : 'bottom')
     };
 
     if (props.onSearch) {
@@ -102,7 +88,7 @@ const KitTagInput = ({ onChange, ...props }: KitTagInputProps) => {
             ...inputProps,
             showSearch: true,
             filterOption: false,
-            notFoundContent: props.notFoundContent || null,
+            notFoundContent: props.notFoundContent || null
         };
     }
 
@@ -111,9 +97,9 @@ const KitTagInput = ({ onChange, ...props }: KitTagInputProps) => {
             {...inputProps}
             {...fixedProps}
             value={selectedItems}
-            options={filteredOptions.map((item) => ({
+            options={filteredOptions.map(item => ({
                 value: item,
-                label: <StyledLabel>{item}</StyledLabel>,
+                label: <StyledLabel>{item}</StyledLabel>
             }))}
         />
     );

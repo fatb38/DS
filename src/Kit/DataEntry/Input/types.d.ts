@@ -1,14 +1,8 @@
-import { InputProps } from "antd";
-import { PasswordProps, TextAreaProps } from "antd/es/input";
-import { HTMLAttributes } from "react";
+import {InputProps} from 'antd';
+import {PasswordProps, TextAreaProps} from 'antd/es/input';
+import {HTMLAttributes} from 'react';
 
-type AntdInputTypesToOmit =
-    | "styles"
-    | "type"
-    | "bordered"
-    | "size"
-    | "addonBefore"
-    | "addonAfter";
+type AntdInputTypesToOmit = 'styles' | 'type' | 'bordered' | 'size' | 'addonBefore' | 'addonAfter';
 
 export interface KitInputProps
     extends Omit<InputProps, AntdInputTypesToOmit>,

@@ -1,94 +1,92 @@
-import React from "react";
-import { KitSpace } from "@kit/Layout/";
-import { KitButton } from "@kit/General/";
+import React from 'react';
+import {KitSpace} from '@kit/Layout/';
+import {KitButton} from '@kit/General/';
 
 export const SpaceArgTypes = {
     compact: {
-        name: "compact",
-        control: { type: "boolean" },
-        description: "test Compact mode",
+        name: 'compact',
+        control: {type: 'boolean'},
+        description: 'test Compact mode',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: "false" },
-            category: "Space",
-            subcategory: "for testing only",
+            defaultValue: {summary: 'false'},
+            category: 'Space',
+            subcategory: 'for testing only'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     align: {
-        name: "align",
-        control: { type: "select" },
-        options: ["start", "end", "center", "baseline"],
-        description:
-            "Align items. one of `start` | `end` | `center` | `baseline",
+        name: 'align',
+        control: {type: 'select'},
+        options: ['start', 'end', 'center', 'baseline'],
+        description: 'Align items. one of `start` | `end` | `center` | `baseline',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "-" },
-            category: "Space",
+            defaultValue: {summary: '-'},
+            category: 'Space'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     direction: {
-        name: "direction",
-        control: { type: "select" },
-        options: ["vertical", "horizontal", "center"],
-        description:
-            "The space direction. One of `vertical` | `horizontal` | `center`",
+        name: 'direction',
+        control: {type: 'select'},
+        options: ['vertical', 'horizontal', 'center'],
+        description: 'The space direction. One of `vertical` | `horizontal` | `center`',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "horizontal" },
-            category: "Space",
+            defaultValue: {summary: 'horizontal'},
+            category: 'Space'
         },
-        defaultValue: "horizontal",
+        defaultValue: 'horizontal'
     },
     size: {
-        name: "size",
-        control: { type: "select" },
-        options: ["small", "middle", "large", 25],
-        description: " The space size. `Size` | `Size`[]",
+        name: 'size',
+        control: {type: 'select'},
+        options: ['small', 'middle', 'large', 25],
+        description: ' The space size. `Size` | `Size`[]',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "small" },
-            category: "Space",
+            defaultValue: {summary: 'small'},
+            category: 'Space'
         },
-        defaultValue: "small",
+        defaultValue: 'small'
     },
     split: {
-        name: "split",
-        description: " Set split. `ReactNode`",
+        name: 'split',
+        description: ' Set split. `ReactNode`',
         table: {
             type: {
-                summary: "ReactNode",
+                summary: 'ReactNode'
             },
-            defaultValue: { summary: "-" },
-            category: "Space",
+            defaultValue: {summary: '-'},
+            category: 'Space'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     wrap: {
-        name: "wrap",
-        control: { type: "boolean" },
-        description: "Auto wrap line, when `horizontal` effective",
+        name: 'wrap',
+        control: {type: 'boolean'},
+        description: 'Auto wrap line, when `horizontal` effective',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: "false" },
-            category: "Space",
+            defaultValue: {summary: 'false'},
+            category: 'Space'
         },
-        defaultValue: false,
-    },
+        defaultValue: false
+    }
 };
 
-export const Template = ({ compact, ...args }) => {
+export const Template = ({compact, ...args}) => {
     let Component = compact ? KitSpace.Compact : KitSpace;
 
     return (

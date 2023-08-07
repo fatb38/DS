@@ -1,115 +1,115 @@
-import React, { useState } from "react";
-import { Card } from "antd";
-import * as Icons from "@ant-design/icons";
-import * as AristidIcons from "@icons/index";
-import { KitInput, KitRadio, RadioChangeEvent } from "@kit/DataEntry/";
-import { KitIcon } from "@kit/General/";
-import { KitSpace } from "@kit/Layout/";
+import React, {useState} from 'react';
+import {Card} from 'antd';
+import * as Icons from '@ant-design/icons';
+import * as AristidIcons from '@icons/index';
+import {KitInput, KitRadio, RadioChangeEvent} from '@kit/DataEntry/';
+import {KitIcon} from '@kit/General/';
+import {KitSpace} from '@kit/Layout/';
 
 export const argTypes = {
     on: {
-        name: "on",
+        name: 'on',
         description: "Wether to set icon in 'on' state",
         control: {
-            type: "boolean",
-            defaultValue: false,
+            type: 'boolean',
+            defaultValue: false
         },
         table: {
             type: {
-                summary: "boolean",
-            },
+                summary: 'boolean'
+            }
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     hoverable: {
-        name: "hoverable",
+        name: 'hoverable',
         description: "Wether to set icon in 'on' state when hover",
         control: {
-            type: "boolean",
-            defaultValue: false,
+            type: 'boolean',
+            defaultValue: false
         },
         table: {
             type: {
-                summary: "boolean",
-            },
+                summary: 'boolean'
+            }
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     onClick: {
-        name: "onClick",
-        description: "Set the handler to handle click event	",
+        name: 'onClick',
+        description: 'Set the handler to handle click event	',
         table: {
             type: {
-                summary: "(event: MouseEvent) => void",
-            },
+                summary: '(event: MouseEvent) => void'
+            }
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     icon: {
-        name: "icon",
-        description: "Icon element of type ReactNode",
-        type: { name: "ReactNode", required: false },
-        options: ["SearchOutlined", "DownloadOutlined", "CheckCircleOutlined"],
+        name: 'icon',
+        description: 'Icon element of type ReactNode',
+        type: {name: 'ReactNode', required: false},
+        options: ['SearchOutlined', 'DownloadOutlined', 'CheckCircleOutlined'],
         control: {
-            type: "select",
+            type: 'select'
         },
         table: {
             type: {
-                summary: "ReactNode",
+                summary: 'ReactNode'
             },
-            defaultValue: { summary: "-" },
+            defaultValue: {summary: '-'}
         },
-        defaultValue: "-",
-    },
+        defaultValue: '-'
+    }
 };
 
-export const getIcon = ({ icon }) => {
+export const getIcon = ({icon}) => {
     switch (icon) {
-        case "SearchOutlined":
+        case 'SearchOutlined':
             return Icons.SearchOutlined;
-        case "DownloadOutlined":
+        case 'DownloadOutlined':
             return Icons.DownloadOutlined;
-        case "CheckCircleOutlined":
+        case 'CheckCircleOutlined':
         default:
             return Icons.CheckCircleOutlined;
     }
 };
 
 const options = [
-    { label: "Outlined", value: "outlined" },
-    { label: "Filled", value: "filled" },
-    { label: "TwoTone", value: "twotone" },
-    { label: "Aristid", value: "aristid" },
+    {label: 'Outlined', value: 'outlined'},
+    {label: 'Filled', value: 'filled'},
+    {label: 'TwoTone', value: 'twotone'},
+    {label: 'Aristid', value: 'aristid'}
 ];
 
 const sorted = {
-    outlined: Object.keys(Icons).filter((icon) => icon.endsWith("Outlined")),
-    filled: Object.keys(Icons).filter((icon) => icon.endsWith("Filled")),
-    twotone: Object.keys(Icons).filter((icon) => icon.endsWith("TwoTone")),
-    aristid: Object.keys(AristidIcons),
+    outlined: Object.keys(Icons).filter(icon => icon.endsWith('Outlined')),
+    filled: Object.keys(Icons).filter(icon => icon.endsWith('Filled')),
+    twotone: Object.keys(Icons).filter(icon => icon.endsWith('TwoTone')),
+    aristid: Object.keys(AristidIcons)
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const Icon = getIcon(args);
     return (
         <>
             <KitIcon {...args} icon={<Icon rev={null} />} />
-            <span style={{ marginLeft: "10px" }}>{args.icon}</span>
+            <span style={{marginLeft: '10px'}}>{args.icon}</span>
         </>
     );
 };
 
 const Gallery = () => {
-    let [type, setType] = useState("outlined");
-    let [color, setColor] = useState("");
+    let [type, setType] = useState('outlined');
+    let [color, setColor] = useState('');
 
-    const onChange = ({ target: { value } }: RadioChangeEvent) => {
+    const onChange = ({target: {value}}: RadioChangeEvent) => {
         setType(value);
     };
 
-    const onChange2 = ({ target: { value } }) => {
-        if (value === "") {
-            setColor("");
+    const onChange2 = ({target: {value}}) => {
+        if (value === '') {
+            setColor('');
         } else {
             setColor(value);
         }
@@ -118,13 +118,7 @@ const Gallery = () => {
     return (
         <div className="gallery">
             <KitSpace size="small">
-                <KitRadio.Group
-                    options={options}
-                    onChange={onChange}
-                    value={type}
-                    size="small"
-                    optionType="button"
-                />
+                <KitRadio.Group options={options} onChange={onChange} value={type} size="small" optionType="button" />
                 <KitInput
                     prefix="TwoTone color"
                     placeholder="#eb2f96"
@@ -136,18 +130,10 @@ const Gallery = () => {
             <br />
             <br />
             <KitSpace wrap size="middle">
-                {sorted[type].map((IconName) => {
-                    let Component =
-                        type === "aristid"
-                            ? AristidIcons[IconName]
-                            : Icons[IconName];
+                {sorted[type].map(IconName => {
+                    let Component = type === 'aristid' ? AristidIcons[IconName] : Icons[IconName];
                     return (
-                        <Card
-                            className="card"
-                            key={IconName}
-                            hoverable
-                            bordered={false}
-                        >
+                        <Card className="card" key={IconName} hoverable bordered={false}>
                             <div className="icon-item">
                                 <Component twoToneColor={color} />
                             </div>

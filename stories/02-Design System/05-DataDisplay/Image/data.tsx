@@ -1,174 +1,172 @@
-import React from "react";
-import { KitImage } from "@kit/DataDisplay/";
-import { KitSpace } from "@kit/Layout/";
+import React from 'react';
+import {KitImage} from '@kit/DataDisplay/';
+import {KitSpace} from '@kit/Layout/';
 
 export const ImageArgTypes = {
     rounded: {
-        name: "rounded",
+        name: 'rounded',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
-        description: "Add a border radius to the image",
+        description: 'Add a border radius to the image',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: "-" },
-            category: "Image",
+            defaultValue: {summary: '-'},
+            category: 'Image'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     bordered: {
-        name: "bordered",
+        name: 'bordered',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
-        description: "Add a border around the image",
+        description: 'Add a border around the image',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: "-" },
-            category: "Image",
+            defaultValue: {summary: '-'},
+            category: 'Image'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     alt: {
-        name: "alt",
+        name: 'alt',
         control: {
-            type: "text",
+            type: 'text'
         },
-        description: "Image description",
+        description: 'Image description',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "-" },
-            category: "Image",
+            defaultValue: {summary: '-'},
+            category: 'Image'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     fallback: {
-        name: "fallback",
+        name: 'fallback',
         control: {
-            type: "text",
+            type: 'text'
         },
-        description: "Load failure fault-tolerant src",
+        description: 'Load failure fault-tolerant src',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "-" },
-            category: "Image",
+            defaultValue: {summary: '-'},
+            category: 'Image'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     placeholder: {
-        name: "placeholder",
+        name: 'placeholder',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
-        description:
-            "Load placeholder, use default placeholder when set `true`",
+        description: 'Load placeholder, use default placeholder when set `true`',
         table: {
             type: {
-                summary: "ReactNode",
+                summary: 'ReactNode'
             },
-            defaultValue: { summary: "-" },
-            category: "Image",
+            defaultValue: {summary: '-'},
+            category: 'Image'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     src: {
-        name: "src",
+        name: 'src',
         control: {
-            type: "text",
+            type: 'text'
         },
-        description: "Image path",
+        description: 'Image path',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "-" },
-            category: "Image",
+            defaultValue: {summary: '-'},
+            category: 'Image'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     width: {
-        name: "width",
+        name: 'width',
         control: {
-            type: "text",
+            type: 'text'
         },
-        description: "Image width",
+        description: 'Image width',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "-" },
-            category: "Image",
+            defaultValue: {summary: '-'},
+            category: 'Image'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     height: {
-        name: "height",
+        name: 'height',
         control: {
-            type: "text",
+            type: 'text'
         },
-        description: "Image height",
+        description: 'Image height',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "-" },
-            category: "Image",
+            defaultValue: {summary: '-'},
+            category: 'Image'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     preview: {
-        name: "preview",
+        name: 'preview',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
-        description: "preview config, disabled when `false`",
+        description: 'preview config, disabled when `false`',
         table: {
             type: {
-                summary: "boolean | [previewType]",
+                summary: 'boolean | [previewType]'
             },
-            defaultValue: { summary: "true" },
-            category: "Image",
+            defaultValue: {summary: 'true'},
+            category: 'Image'
         },
-        defaultValue: "true",
+        defaultValue: 'true'
     },
     rootClassName: {
-        name: "rootClassName",
+        name: 'rootClassName',
         control: {
-            type: "text",
+            type: 'text'
         },
-        description:
-            "add custom className for image root DOM and preview mode root DOM",
+        description: 'add custom className for image root DOM and preview mode root DOM',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "-" },
-            category: "Image",
+            defaultValue: {summary: '-'},
+            category: 'Image'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     onError: {
-        name: "onError",
-        description: "",
+        name: 'onError',
+        description: '',
         table: {
             type: {
-                summary: "'(event: Event) => void'",
+                summary: "'(event: Event) => void'"
             },
-            defaultValue: { summary: "-" },
-            category: "Image",
-        },
-    },
+            defaultValue: {summary: '-'},
+            category: 'Image'
+        }
+    }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     return (
         <KitSpace>
             <KitImage {...args} />

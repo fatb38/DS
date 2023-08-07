@@ -1,35 +1,33 @@
-import React from "react";
-import { createRoot } from 'react-dom/client';
-import { ConfigUpdate, confirmDialogProps } from "./types";
-import ConfirmDialog from "./ConfirmDialog";
-import uuid from "react-uuid";
-import { ConfigProvider } from "antd";
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import {ConfigUpdate, confirmDialogProps} from './types';
+import ConfirmDialog from './ConfirmDialog';
+import uuid from 'react-uuid';
+import {ConfigProvider} from 'antd';
 import theme from '../../../theme';
 
 export default function confirm(config: confirmDialogProps) {
     const container = document.createDocumentFragment();
     const root = createRoot(container);
-    let portalClassName = "reactPortal-" + uuid();
+    let portalClassName = 'reactPortal-' + uuid();
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     let currentConfig = {
         ...config,
         close,
         isOpen: true,
-        portalClassName: portalClassName,
+        portalClassName: portalClassName
     } as any;
     let timeoutId: NodeJS.Timeout;
 
     function destroy(...args: any) {
-        const triggerCancel = args.some(
-            (param) => param && param.triggerCancel
-        );
+        const triggerCancel = args.some(param => param && param.triggerCancel);
         if (config.onCancel && triggerCancel) {
             config.onCancel();
         }
         root.unmount();
     }
 
-    function render({ okText, cancelText, ...props }: any) {
+    function render({okText, cancelText, ...props}: any) {
         clearTimeout(timeoutId);
 
         timeoutId = setTimeout(() => {
@@ -46,7 +44,7 @@ export default function confirm(config: confirmDialogProps) {
                     />
                 </ConfigProvider>
             );
-        }) as unknown as  NodeJS.Timeout;
+        }) as unknown as NodeJS.Timeout;
     }
 
     function close(...args: any) {
@@ -56,12 +54,12 @@ export default function confirm(config: confirmDialogProps) {
     }
 
     function update(configUpdate: ConfigUpdate) {
-        if (typeof configUpdate === "function") {
+        if (typeof configUpdate === 'function') {
             currentConfig = configUpdate(currentConfig);
         } else {
             currentConfig = {
                 ...currentConfig,
-                ...configUpdate,
+                ...configUpdate
             };
         }
         render(currentConfig);
@@ -70,41 +68,41 @@ export default function confirm(config: confirmDialogProps) {
 
     return {
         destroy: close,
-        update,
+        update
     };
 }
 
 export function withWarn(props: confirmDialogProps): confirmDialogProps {
     return {
         ...props,
-        type: "warning",
+        type: 'warning'
     };
 }
 
 export function withInfo(props: confirmDialogProps): confirmDialogProps {
     return {
         ...props,
-        type: "info",
+        type: 'info'
     };
 }
 
 export function withSuccess(props: confirmDialogProps): confirmDialogProps {
     return {
         ...props,
-        type: "success",
+        type: 'success'
     };
 }
 
 export function withError(props: confirmDialogProps): confirmDialogProps {
     return {
         ...props,
-        type: "error",
+        type: 'error'
     };
 }
 
 export function withConfirm(props: confirmDialogProps): confirmDialogProps {
     return {
         ...props,
-        type: "confirm",
+        type: 'confirm'
     };
 }

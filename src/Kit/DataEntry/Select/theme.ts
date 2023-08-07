@@ -1,8 +1,8 @@
-import theme from "@theme/index";
-import { KitSelectTheme } from "./types";
+import theme from '@theme/index';
+import {KitSelectTheme} from './types';
 
 const primaryTheme: KitSelectTheme = {
-    borderRadius: "7px",
+    borderRadius: '7px',
     optionHeight: 32,
     dropdownBgColor: theme.color.secondary.mediumGrey.mediumGrey100,
     selectedOptionBg: theme.color.primary.blue100,
@@ -16,11 +16,11 @@ const primaryTheme: KitSelectTheme = {
     groupsColor: theme.color.neutral.typography.black,
     disabledBgColor: theme.color.primary.blue100,
     disabledColor: theme.color.primary.blue200,
-    highlightColor: theme.color.primary.blue400,
+    highlightColor: theme.color.primary.blue400
 };
 
 export const headerTheme: KitSelectTheme = {
-    borderRadius: "7px",
+    borderRadius: '7px',
     optionHeight: 32,
     dropdownBgColor: theme.color.secondary.mediumGrey.mediumGrey100,
     selectedOptionBg: theme.color.secondary.mediumGrey.mediumGrey200,
@@ -34,7 +34,7 @@ export const headerTheme: KitSelectTheme = {
     groupsColor: theme.color.neutral.typography.black,
     disabledBgColor: theme.color.primary.blue100,
     disabledColor: theme.color.primary.blue200,
-    highlightColor: theme.color.primary.blue400,
+    highlightColor: theme.color.primary.blue400
 };
 
 export default primaryTheme;

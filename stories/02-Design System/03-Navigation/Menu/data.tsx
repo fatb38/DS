@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
     HomeOutlined,
     PlusOutlined,
@@ -11,26 +11,26 @@ import {
     GroupOutlined,
     CopyOutlined,
     UndoOutlined,
-    DeleteOutlined,
-} from "@ant-design/icons";
-import { KitButton } from "@kit/General/";
-import { KitInput } from "@kit/DataEntry/";
-import { KitDivider } from "@kit/Layout/";
-import { KitMenu } from "@kit/Navigation";
+    DeleteOutlined
+} from '@ant-design/icons';
+import {KitButton} from '@kit/General/';
+import {KitInput} from '@kit/DataEntry/';
+import {KitDivider} from '@kit/Layout/';
+import {KitMenu} from '@kit/Navigation';
 
 export const mockData = {
     itemMenu: {
         title: {
-            default: "Item menu",
-            save: "Save view",
-            filters: "Filters",
-            quickFilters: "Quick Filters",
-            layout: "Layout",
-            search: "Search",
-            group: "Group by",
-            duplicate: "Duplicate",
-            undo: "Restore view",
-            delete: "Delete view",
+            default: 'Item menu',
+            save: 'Save view',
+            filters: 'Filters',
+            quickFilters: 'Quick Filters',
+            layout: 'Layout',
+            search: 'Search',
+            group: 'Group by',
+            duplicate: 'Duplicate',
+            undo: 'Restore view',
+            delete: 'Delete view'
         },
         icon: {
             home: <HomeOutlined rev={null} />,
@@ -41,303 +41,285 @@ export const mockData = {
             group: <GroupOutlined rev={null} />,
             duplicate: <CopyOutlined rev={null} />,
             undo: <UndoOutlined rev={null} />,
-            delete: <DeleteOutlined rev={null} />,
+            delete: <DeleteOutlined rev={null} />
         },
         actionsOne: [
             {
                 icon: <PlusOutlined rev={null} />,
-                label: "Add",
-                onClick: () => console.log("on click add"),
-            },
+                label: 'Add',
+                onClick: () => console.log('on click add')
+            }
         ],
         actionsTwo: [
             {
                 icon: <PlusOutlined rev={null} />,
-                label: "Add",
-                onClick: () => console.log("on click add"),
+                label: 'Add',
+                onClick: () => console.log('on click add')
             },
             {
                 icon: <MinusOutlined rev={null} />,
-                label: "Subtract",
-                onClick: () => console.log("on click subtract"),
-            },
+                label: 'Subtract',
+                onClick: () => console.log('on click subtract')
+            }
         ],
         actionsMore: [
             {
                 icon: <PlusOutlined rev={null} />,
-                label: "Add",
-                onClick: () => console.log("on click add"),
+                label: 'Add',
+                onClick: () => console.log('on click add')
             },
             {
                 icon: <MinusOutlined rev={null} />,
-                label: "Subtract",
-                onClick: () => console.log("on click subtract"),
+                label: 'Subtract',
+                onClick: () => console.log('on click subtract')
             },
             {
                 icon: <PercentageOutlined rev={null} />,
-                label: "Percent",
-                onClick: () => console.log("on click percent"),
-            },
+                label: 'Percent',
+                onClick: () => console.log('on click percent')
+            }
         ],
-        value: { default: "Valeur", layout: "List", filters: "0" },
-        onSelectChange: (e) => console.log("selected", e.target.checked),
-        onRafterClick: () => console.log("click rafter"),
-        onClick: () => console.log("on click itemMenu"),
+        value: {default: 'Valeur', layout: 'List', filters: '0'},
+        onSelectChange: e => console.log('selected', e.target.checked),
+        onRafterClick: () => console.log('click rafter'),
+        onClick: () => console.log('on click itemMenu')
     },
     menu: {
-        title: "View options",
-        segmentedButton: (
-            <KitButton type="primary" icon={<HomeOutlined rev={null} />} />
-        ),
+        title: 'View options',
+        segmentedButton: <KitButton type="primary" icon={<HomeOutlined rev={null} />} />,
         primaryInput: <KitInput placeholder="Opération #1" />,
         secondaryInput: <KitInput placeholder="Description" />,
-        onCloseClick: () => console.log("on click close"),
-    },
+        onCloseClick: () => console.log('on click close')
+    }
 };
 
 export const argTypes = {
     showCloseButton: {
-        name: "showCloseButton",
-        description: "Show Menu close button",
-        control: { type: "boolean" },
+        name: 'showCloseButton',
+        description: 'Show Menu close button',
+        control: {type: 'boolean'},
         table: {
-            category: "For testing only",
-        },
+            category: 'For testing only'
+        }
     },
     showSegmentedButton: {
-        name: "showSegmentedButton",
-        description: "Show Menu segmented button",
-        control: { type: "boolean" },
+        name: 'showSegmentedButton',
+        description: 'Show Menu segmented button',
+        control: {type: 'boolean'},
         table: {
-            category: "For testing only",
-        },
+            category: 'For testing only'
+        }
     },
     showPrimaryInput: {
-        name: "showPrimaryInput",
-        description: "Show Menu primary input",
-        control: { type: "boolean" },
+        name: 'showPrimaryInput',
+        description: 'Show Menu primary input',
+        control: {type: 'boolean'},
         table: {
-            category: "For testing only",
-        },
+            category: 'For testing only'
+        }
     },
     showSecondaryInput: {
-        name: "showSecondaryInput",
-        description: "Show Menu secondary input",
-        control: { type: "boolean" },
+        name: 'showSecondaryInput',
+        description: 'Show Menu secondary input',
+        control: {type: 'boolean'},
         table: {
-            category: "For testing only",
-        },
+            category: 'For testing only'
+        }
     },
     showItemMenuIcon: {
-        name: "showItemMenuIcon",
-        description: "Show ItemMenu icon",
-        control: { type: "boolean" },
+        name: 'showItemMenuIcon',
+        description: 'Show ItemMenu icon',
+        control: {type: 'boolean'},
         table: {
-            category: "For testing only",
-        },
+            category: 'For testing only'
+        }
     },
     showItemMenuActions: {
-        name: "showItemMenuActions",
-        description: "Show ItemMenu actions",
-        control: { type: "boolean" },
+        name: 'showItemMenuActions',
+        description: 'Show ItemMenu actions',
+        control: {type: 'boolean'},
         table: {
-            category: "For testing only",
-        },
+            category: 'For testing only'
+        }
     },
     showItemMenuCheckbox: {
-        name: "showItemMenuCheckbox",
-        description: "Show ItemMenu checkbox",
-        control: { type: "boolean" },
+        name: 'showItemMenuCheckbox',
+        description: 'Show ItemMenu checkbox',
+        control: {type: 'boolean'},
         table: {
-            category: "For testing only",
-        },
+            category: 'For testing only'
+        }
     },
     showItemMenuRafter: {
-        name: "showItemMenuRafter",
-        description: "Show ItemMenu rafter",
-        control: { type: "boolean" },
+        name: 'showItemMenuRafter',
+        description: 'Show ItemMenu rafter',
+        control: {type: 'boolean'},
         table: {
-            category: "For testing only",
-        },
+            category: 'For testing only'
+        }
     },
     title: {
-        name: "title",
-        description: "Title to display on one line",
-        control: { type: "text" },
+        name: 'title',
+        description: 'Title to display on one line',
+        control: {type: 'text'},
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "Menu",
-        },
+            category: 'Menu'
+        }
     },
     onCloseClick: {
-        name: "onCloseClick",
-        description:
-            "Display a close button and set the handler to handle click event",
-        control: { type: "none" },
+        name: 'onCloseClick',
+        description: 'Display a close button and set the handler to handle click event',
+        control: {type: 'none'},
         table: {
             type: {
-                summary: "Function",
+                summary: 'Function'
             },
-            category: "Menu",
-        },
+            category: 'Menu'
+        }
     },
     segmentedButton: {
-        name: "segmentedButton",
-        description: "Display a segmented button",
-        control: { type: "none" },
+        name: 'segmentedButton',
+        description: 'Display a segmented button',
+        control: {type: 'none'},
         table: {
             type: {
-                summary: "ReactElement<KitButtonProps>",
+                summary: 'ReactElement<KitButtonProps>'
             },
-            category: "Menu",
-        },
+            category: 'Menu'
+        }
     },
     primaryInput: {
-        name: "primaryInput",
-        description: "Display an input filed",
-        control: { type: "none" },
+        name: 'primaryInput',
+        description: 'Display an input filed',
+        control: {type: 'none'},
         table: {
             type: {
-                summary: "ReactElement<KitInputProps>",
+                summary: 'ReactElement<KitInputProps>'
             },
-            category: "Menu",
-        },
+            category: 'Menu'
+        }
     },
     secondaryInput: {
-        name: "secondaryInput",
-        description: "Display an second input field",
-        control: { type: "none" },
+        name: 'secondaryInput',
+        description: 'Display an second input field',
+        control: {type: 'none'},
         table: {
             type: {
-                summary: "ReactElement<KitInputProps>",
+                summary: 'ReactElement<KitInputProps>'
             },
-            category: "Menu",
-        },
+            category: 'Menu'
+        }
     },
     itemMenuTitle: {
-        name: "title",
-        description: "Title to display on one line",
-        control: { type: "text" },
+        name: 'title',
+        description: 'Title to display on one line',
+        control: {type: 'text'},
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "ItemMenu",
-        },
+            category: 'ItemMenu'
+        }
     },
     itemMenuIcon: {
-        name: "icon",
-        description: "Icon to display",
+        name: 'icon',
+        description: 'Icon to display',
         table: {
             type: {
-                summary: "IconDefinition",
+                summary: 'IconDefinition'
             },
-            category: "ItemMenu",
-        },
+            category: 'ItemMenu'
+        }
     },
     itemMenuValue: {
-        name: "value",
-        description: "Value to display at the end of the item",
-        control: { type: "text" },
+        name: 'value',
+        description: 'Value to display at the end of the item',
+        control: {type: 'text'},
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "ItemMenu",
-        },
+            category: 'ItemMenu'
+        }
     },
     itemMenuActions: {
-        name: "actions",
-        description: "Actions list to display at the end of the item",
+        name: 'actions',
+        description: 'Actions list to display at the end of the item',
         table: {
             type: {
-                summary: "KitItemMenuActions",
+                summary: 'KitItemMenuActions'
             },
-            category: "ItemMenu",
-        },
+            category: 'ItemMenu'
+        }
     },
     isSelected: {
-        name: "isSelected",
-        description: "Selected state of the item menu",
-        control: { type: "boolean" },
+        name: 'isSelected',
+        description: 'Selected state of the item menu',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            category: "ItemMenu",
-        },
+            category: 'ItemMenu'
+        }
     },
     itemMenuOnSelectChange: {
-        name: "onSelectChange",
-        description:
-            "The callback function that is triggered when the state changes",
+        name: 'onSelectChange',
+        description: 'The callback function that is triggered when the state changes',
         table: {
             type: {
-                summary: "(e: CheckboxChangeEvent) => void",
+                summary: '(e: CheckboxChangeEvent) => void'
             },
-            category: "ItemMenu",
-        },
+            category: 'ItemMenu'
+        }
     },
     itemMenuOnRafterClick: {
-        name: "onRafterClick",
-        description: "Set the handler to handle `click` event on the rafter",
+        name: 'onRafterClick',
+        description: 'Set the handler to handle `click` event on the rafter',
         table: {
             type: {
-                summary: "Function",
+                summary: 'Function'
             },
-            category: "ItemMenu",
-        },
+            category: 'ItemMenu'
+        }
     },
     itemMenuOnClick: {
-        name: "onClick",
-        description: "Set the handler to handle `click` event on the itemMenu",
+        name: 'onClick',
+        description: 'Set the handler to handle `click` event on the itemMenu',
         table: {
             type: {
-                summary: "Function",
+                summary: 'Function'
             },
-            category: "ItemMenu",
-        },
-    },
+            category: 'ItemMenu'
+        }
+    }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const menuProps = {
         title: args.title,
-        onCloseClick: args.showCloseButton
-            ? mockData.menu.onCloseClick
-            : undefined,
-        segmentedButton: args.showSegmentedButton
-            ? mockData.menu.segmentedButton
-            : undefined,
-        primaryInput: args.showPrimaryInput
-            ? mockData.menu.secondaryInput
-            : undefined,
-        secondaryInput: args.showSecondaryInput
-            ? mockData.menu.secondaryInput
-            : undefined,
+        onCloseClick: args.showCloseButton ? mockData.menu.onCloseClick : undefined,
+        segmentedButton: args.showSegmentedButton ? mockData.menu.segmentedButton : undefined,
+        primaryInput: args.showPrimaryInput ? mockData.menu.secondaryInput : undefined,
+        secondaryInput: args.showSecondaryInput ? mockData.menu.secondaryInput : undefined
     };
 
     const itemMenuProps = {
         title: args.itemMenuTitle,
         icon: args.showItemMenuIcon ? mockData.itemMenu.icon.home : undefined,
         value: args.itemMenuValue,
-        actions: args.showItemMenuActions
-            ? mockData.itemMenu.actionsMore
-            : undefined,
+        actions: args.showItemMenuActions ? mockData.itemMenu.actionsMore : undefined,
         isSelected: args.isSelected,
-        onSelectChange: args.showItemMenuCheckbox
-            ? mockData.itemMenu.onSelectChange
-            : undefined,
-        onRafterClick: args.showItemMenuRafter
-            ? mockData.itemMenu.onRafterClick
-            : undefined,
+        onSelectChange: args.showItemMenuCheckbox ? mockData.itemMenu.onSelectChange : undefined,
+        onRafterClick: args.showItemMenuRafter ? mockData.itemMenu.onRafterClick : undefined
     };
 
     return (
-        <div style={{ width: "100%", padding: "5px", background: "lightgrey" }}>
-            <div style={{ width: "400px" }}>
+        <div style={{width: '100%', padding: '5px', background: 'lightgrey'}}>
+            <div style={{width: '400px'}}>
                 <KitMenu {...menuProps}>
                     <KitDivider noMargin color="lightGrey" />
                     <KitMenu.Item {...itemMenuProps} />

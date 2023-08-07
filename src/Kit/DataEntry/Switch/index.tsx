@@ -1,8 +1,8 @@
-import React from "react";
-import { Switch } from "antd";
-import styled from "styled-components";
-import theme from "./theme";
-import { KitSwitchProps, StyledSwitchProps } from "./types";
+import React from 'react';
+import {Switch} from 'antd';
+import styled from 'styled-components';
+import theme from './theme';
+import {KitSwitchProps, StyledSwitchProps} from './types';
 
 const StyledSwitch = styled(Switch)<StyledSwitchProps>`
     & {
@@ -30,8 +30,7 @@ const StyledSwitch = styled(Switch)<StyledSwitchProps>`
     }
 
     .ant-switch-handle::before {
-        border: ${theme.handle.borderWidth} solid
-            ${theme.handle.borderColor.default.off};
+        border: ${theme.handle.borderWidth} solid ${theme.handle.borderColor.default.off};
         background-color: ${theme.handle.backgroundColor.default};
         box-shadow: none;
         border-radius: 9px;
@@ -70,13 +69,8 @@ const StyledSwitch = styled(Switch)<StyledSwitchProps>`
     }
 `;
 
-export const KitSwitch: React.FunctionComponent<KitSwitchProps> = (props) => (
-    <StyledSwitch
-        {...props}
-        checkedChildren={null}
-        unCheckedChildren={null}
-        size={"default"}
-    />
+export const KitSwitch: React.FunctionComponent<KitSwitchProps> = props => (
+    <StyledSwitch {...props} checkedChildren={null} unCheckedChildren={null} size={'default'} />
 );
 
-KitSwitch.displayName = "KitSwitch";
+KitSwitch.displayName = 'KitSwitch';

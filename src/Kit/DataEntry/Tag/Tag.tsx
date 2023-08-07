@@ -1,9 +1,9 @@
-import React from "react";
-import { Tag } from "antd";
-import styled, { css } from "styled-components";
-import { KitTagProps, KitTagColor } from "./types";
-import { tagTheme } from "./theme";
-import theme from "@theme/index";
+import React from 'react';
+import {Tag} from 'antd';
+import styled, {css} from 'styled-components';
+import {KitTagProps, KitTagColor} from './types';
+import {tagTheme} from './theme';
+import theme from '@theme/index';
 
 const StyledAntdTag = styled(Tag)<{
     $color: KitTagColor;
@@ -33,11 +33,11 @@ const StyledAntdTag = styled(Tag)<{
         margin-left: 8px;
     }
 
-    ${(props) => {
+    ${props => {
         switch (props.$color) {
-            case "default":
+            case 'default':
                 return;
-            case "red":
+            case 'red':
                 return css`
                     background: ${theme.color.secondary.red.red400};
                     color: ${theme.color.neutral.typography.white};
@@ -50,7 +50,7 @@ const StyledAntdTag = styled(Tag)<{
                         }
                     }
                 `;
-            case "green":
+            case 'green':
                 return css`
                     background: ${theme.color.secondary.green.green400};
                     color: ${theme.color.neutral.typography.white};
@@ -63,7 +63,7 @@ const StyledAntdTag = styled(Tag)<{
                         }
                     }
                 `;
-            case "blue":
+            case 'blue':
                 return css`
                     background: ${theme.color.primary.blue400};
                     color: ${theme.color.neutral.typography.white};
@@ -76,7 +76,7 @@ const StyledAntdTag = styled(Tag)<{
                         }
                     }
                 `;
-            case "blueInvert":
+            case 'blueInvert':
                 return css`
                     background: ${theme.color.primary.blue100};
                     color: ${theme.color.secondary.blue.blue400};
@@ -93,10 +93,7 @@ const StyledAntdTag = styled(Tag)<{
     }}
 `;
 
-const KitTag: React.FunctionComponent<KitTagProps> = ({
-    color = "default",
-    ...tagProps
-}) => {
+const KitTag: React.FunctionComponent<KitTagProps> = ({color = 'default', ...tagProps}) => {
     return <StyledAntdTag $color={color} {...tagProps} />;
 };
 

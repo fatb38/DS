@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { css, styled } from "styled-components";
-import { KitItemListProps } from "./types";
-import theme from "@theme/index";
-import { KitCheckbox, KitTag } from "@kit/DataEntry/";
-import { KitTypography } from "@kit/General/";
-import { RightOutlined, EyeOutlined } from "@ant-design/icons";
+import React, {useState} from 'react';
+import {css, styled} from 'styled-components';
+import {KitItemListProps} from './types';
+import theme from '@theme/index';
+import {KitCheckbox, KitTag} from '@kit/DataEntry/';
+import {KitTypography} from '@kit/General/';
+import {RightOutlined, EyeOutlined} from '@ant-design/icons';
 
 const StyledItemList = styled.div<{
     $gridTemplateColumns: string;
@@ -13,7 +13,7 @@ const StyledItemList = styled.div<{
     $shouldHaveGapBetweenText: boolean;
 }>`
     display: grid;
-    grid-template-columns: ${(props) => props.$gridTemplateColumns};
+    grid-template-columns: ${props => props.$gridTemplateColumns};
     align-items: center;
     min-height: 75px;
     padding: 0px 8px;
@@ -30,7 +30,7 @@ const StyledItemList = styled.div<{
         border-style: dashed;
     }
 
-    ${(props) =>
+    ${props =>
         props.$isDisabled &&
         css`
             background-color: ${theme.color.primary.blue100};
@@ -42,7 +42,7 @@ const StyledItemList = styled.div<{
             }
         `}
 
-    ${(props) =>
+    ${props =>
         props.$isClickable &&
         css`
             cursor: pointer;
@@ -98,7 +98,7 @@ const StyledItemList = styled.div<{
         align-items: flex-start;
         flex: 1 0 0;
 
-        ${(props) =>
+        ${props =>
             props.$shouldHaveGapBetweenText &&
             css`
                 gap: 5px;
@@ -146,7 +146,7 @@ const StyledItemList = styled.div<{
     }
 
     .kit-item-list-tag {
-        ${(props) =>
+        ${props =>
             props.$isDisabled &&
             css`
                 opacity: 0.35;
@@ -195,22 +195,22 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
     const hasRafter = onRafterClick !== undefined;
 
     const generateGridTemplateColumns = () => {
-        let gridTemplateColumns = "";
+        let gridTemplateColumns = '';
 
         // Checkbox
-        gridTemplateColumns += isSelectable ? " min-content" : "";
+        gridTemplateColumns += isSelectable ? ' min-content' : '';
 
         // Picture
-        gridTemplateColumns += hasPicture ? " min-content" : "";
+        gridTemplateColumns += hasPicture ? ' min-content' : '';
 
         // Text (Use minmax to fix ellipsis)
-        gridTemplateColumns += " minmax(0px, auto)";
+        gridTemplateColumns += ' minmax(0px, auto)';
 
         // Tag
-        gridTemplateColumns += hasTag ? " min-content" : "";
+        gridTemplateColumns += hasTag ? ' min-content' : '';
 
         // Rafter
-        gridTemplateColumns += hasRafter ? " min-content" : "";
+        gridTemplateColumns += hasRafter ? ' min-content' : '';
 
         return gridTemplateColumns;
     };
@@ -221,8 +221,8 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
                 <div>
                     <KitCheckbox
                         disabled={isDisabled}
-                        onClick={(e) => e.stopPropagation()}
-                        onChange={(e) => {
+                        onClick={e => e.stopPropagation()}
+                        onChange={e => {
                             onSelectChange && onSelectChange(e);
                         }}
                     />
@@ -240,42 +240,34 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
 
         let noBorder = false;
         let cloneProps = {};
-        let wrapperClassName = "kit-item-list-picture-container";
+        let wrapperClassName = 'kit-item-list-picture-container';
 
         switch (pictureJsx.type.displayName) {
-            case "KitImage":
+            case 'KitImage':
                 cloneProps = {
                     preview: {
-                        mask: <EyeOutlined />,
+                        mask: <EyeOutlined />
                     },
-                    width: "100%",
-                    height: "100%",
-                    rootClassName:
-                        (pictureJsx.props.rootClassName || "") +
-                        " kit-item-list-image-container",
+                    width: '100%',
+                    height: '100%',
+                    rootClassName: (pictureJsx.props.rootClassName || '') + ' kit-item-list-image-container'
                 };
-                wrapperClassName += " kit-item-list-image";
+                wrapperClassName += ' kit-item-list-image';
                 break;
-            case "KitIcon":
+            case 'KitIcon':
                 noBorder = true;
                 cloneProps = {
-                    on: true,
+                    on: true
                 };
-                wrapperClassName += " kit-item-list-icon";
+                wrapperClassName += ' kit-item-list-icon';
                 break;
-            case "KitAvatar":
+            case 'KitAvatar':
                 break;
         }
 
         let Component = React.cloneElement(pictureJsx, cloneProps);
 
-        return (
-            <div
-                className={`${wrapperClassName} ${noBorder ? "noBorder" : ""}`}
-            >
-                {Component}
-            </div>
-        );
+        return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
     };
 
     const getContent = () => {
@@ -285,7 +277,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
                     className="kit-item-list-text kit-item-list-title"
                     size="large"
                     weight="bold"
-                    ellipsis={{ rows: 1, tooltip: true }}
+                    ellipsis={{rows: 1, tooltip: true}}
                 >
                     {title}
                 </KitTypography.Text>
@@ -301,8 +293,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
                                 : {
                                       rows: 2,
                                       expandable: true,
-                                      onEllipsis: () =>
-                                          setIsDescriptionEllipsis(true),
+                                      onEllipsis: () => setIsDescriptionEllipsis(true)
                                   }
                         }
                     >
@@ -310,7 +301,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
                         {descriptionVisible && (
                             <KitTypography.Link
                                 className="kit-item-list-description-collexp kit-item-list-description-collapse"
-                                onClick={(e) => {
+                                onClick={e => {
                                     e.stopPropagation();
                                     setDescriptionVisible(false);
                                 }}
@@ -322,7 +313,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
                     {isDescriptionEllipsis && !descriptionVisible && (
                         <KitTypography.Link
                             className="kit-item-list-description-collexp kit-item-list-description-expand"
-                            onClick={(e) => {
+                            onClick={e => {
                                 e.stopPropagation();
                                 setDescriptionVisible(true);
                             }}
@@ -350,7 +341,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
             hasRafter && (
                 <div
                     className="kit-item-list-rafter"
-                    onClick={(e) => {
+                    onClick={e => {
                         e.stopPropagation();
                         onRafterClick && onRafterClick();
                     }}
@@ -366,7 +357,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
             $isDisabled={isDisabled}
             $isClickable={isClickable}
             $shouldHaveGapBetweenText={hasTitle && hasDescription}
-            onClick={(e) => {
+            onClick={e => {
                 e.stopPropagation();
                 onClick && onClick();
             }}
@@ -382,4 +373,4 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
     );
 };
 
-KitItemList.displayName = "KitItemList";
+KitItemList.displayName = 'KitItemList';

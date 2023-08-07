@@ -1,6 +1,6 @@
-import { KitInputProps } from "../../DataEntry/Input/types";
-import { KitButtonProps } from "../../General/Button/types";
-import { HTMLAttributes, ReactElement, ReactNode } from "react";
+import {KitInputProps} from '../../DataEntry/Input/types';
+import {KitButtonProps} from '../../General/Button/types';
+import {HTMLAttributes, ReactElement, ReactNode} from 'react';
 
 export interface KitMenuProps extends HTMLAttributes<HTMLDivElement> {
     title?: string;
@@ -19,7 +19,7 @@ interface KitItemMenuAction {
 
 export interface KitItemMenuActions extends Array<KitItemMenuAction> {}
 
-export type KitItemMenuType = "default" | "cta" | "ctaDanger";
+export type KitItemMenuType = 'default' | 'cta' | 'ctaDanger';
 
 export interface KitItemMenuProps extends HTMLAttributes<HTMLDivElement> {
     type?: KitItemMenuType;

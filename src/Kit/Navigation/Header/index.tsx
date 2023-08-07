@@ -1,19 +1,19 @@
-import React, { useMemo } from "react";
-import styled from "styled-components";
-import theme from "./theme";
-import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { KitTypography, KitButton } from "@kit/General/";
-import { KitSpace } from "@kit/Layout/";
-import { KitInput } from "@kit/DataEntry/";
-import { HeaderProps } from "./types";
+import React, {useMemo} from 'react';
+import styled from 'styled-components';
+import theme from './theme';
+import {PlusOutlined, SearchOutlined} from '@ant-design/icons';
+import {KitTypography, KitButton} from '@kit/General/';
+import {KitSpace} from '@kit/Layout/';
+import {KitInput} from '@kit/DataEntry/';
+import {HeaderProps} from './types';
 
 const StyledHeaderWrapper = styled.div`
     padding: 16px 32px;
     background: ${theme.backgroundColor};
     display: grid;
     grid-template-areas:
-        "title search actions"
-        "breadcrumb breadcrumb actions";
+        'title search actions'
+        'breadcrumb breadcrumb actions';
     grid-template-columns: min-content 1fr max-content;
     grid-template-rows: 1fr min-content;
     box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
@@ -69,14 +69,14 @@ const getActions = (actions, onPlusClick) => {
     const cloneActions = actions
         ? actions.map((action, index) => {
               switch (action.type.displayName) {
-                  case "KitSelect":
+                  case 'KitSelect':
                       return React.cloneElement(action, {
                           key: index,
                           className: `${action.props.className} kit-header-action-select`,
                           header: true,
-                          dropdownMatchSelectWidth: false,
+                          dropdownMatchSelectWidth: false
                       });
-                  case "KitButton":
+                  case 'KitButton':
                       return (
                           <KitButton
                               className="ant-btn-icon-only"
@@ -121,7 +121,7 @@ export const KitHeader: React.FunctionComponent<HeaderProps> = ({
 }) => {
     const breadcrumbToDisplay = breadcrumb
         ? React.cloneElement(breadcrumb, {
-              className: "kit-header-breadcrumb",
+              className: 'kit-header-breadcrumb'
           })
         : null;
 
@@ -147,4 +147,4 @@ export const KitHeader: React.FunctionComponent<HeaderProps> = ({
     );
 };
 
-KitHeader.displayName = "KitHeader";
+KitHeader.displayName = 'KitHeader';

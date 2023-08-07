@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle, css } from "styled-components";
-import theme, { headerTheme } from "./theme";
+import styled, {createGlobalStyle, css} from 'styled-components';
+import theme, {headerTheme} from './theme';
 
 export const StyledBadge = styled.div`
     box-sizing: border-box;
@@ -24,20 +24,20 @@ export const StyledLabel = styled.div`
     padding-left: 10px;
 `;
 
-export const getPopupStyle = (placement) => {
+export const getPopupStyle = placement => {
     switch (placement) {
-        case "topLeft":
-        case "topRight":
+        case 'topLeft':
+        case 'topRight':
             return {
                 borderBottomLeftRadius: 0,
                 borderBottomRightRadius: 0,
-                transform: "translateY(15px)",
+                transform: 'translateY(15px)'
             };
         default:
             return {
                 borderTopLeftRadius: 0,
                 borderTopRightRadius: 0,
-                transform: "translateY(-1px)",
+                transform: 'translateY(-1px)'
             };
     }
 };
@@ -208,23 +208,21 @@ export const KitSelectStyle = css`
     &.ant-select-open {
         &:not(.ant-select-compact-item) {
             &.ant-select-bottom .ant-select-selector {
-                border-radius: ${(props) => props.theme.borderRadius}
-                    ${(props) => props.theme.borderRadius} 0 0;
+                border-radius: ${props => props.theme.borderRadius} ${props => props.theme.borderRadius} 0 0;
             }
 
             &.ant-select-top .ant-select-selector {
-                border-radius: 0 0 ${(props) => props.theme.borderRadius}
-                    ${(props) => props.theme.borderRadius};
+                border-radius: 0 0 ${props => props.theme.borderRadius} ${props => props.theme.borderRadius};
             }
         }
 
         &.ant-select-compact-item {
             &.ant-select-bottom .ant-select-selector {
-                border-radius: ${(props) => props.theme.borderRadius} 0 0 0;
+                border-radius: ${props => props.theme.borderRadius} 0 0 0;
             }
 
             &.ant-select-top .ant-select-selector {
-                border-radius: 0 0 0 ${(props) => props.theme.borderRadius};
+                border-radius: 0 0 0 ${props => props.theme.borderRadius};
             }
         }
     }
@@ -236,44 +234,45 @@ export const KitSelectStyle = css`
         .ant-select-selection-placeholder {
             display: flex;
             align-items: center;
-            font-weight: ${(props) => props.theme.selectionFontWeight};
-            color: ${(props) => props.theme.selectionColor};
+            font-weight: ${props => props.theme.selectionFontWeight};
+            color: ${props => props.theme.selectionColor};
 
-            & .anticon, & .kit-icon {
+            & .anticon,
+            & .kit-icon {
                 background-color: transparent;
                 height: ${theme.optionHeight};
             }
         }
 
         .ant-select-arrow {
-            color: ${(props) => props.theme.selectionColor};
+            color: ${props => props.theme.selectionColor};
         }
 
         &.ant-select:not(.ant-select-customize-input).ant-select-disabled {
             .ant-select-selector {
-                background-color: ${(props) => props.theme.disabledBgColor};
-                color: ${(props) => props.theme.disabledColor};
+                background-color: ${props => props.theme.disabledBgColor};
+                color: ${props => props.theme.disabledColor};
 
                 .ant-select-selection-item {
-                    color: ${(props) => props.theme.disabledColor};
+                    color: ${props => props.theme.disabledColor};
                 }
             }
             .ant-select-arrow {
-                color: ${(props) => props.theme.disabledColor};
+                color: ${props => props.theme.disabledColor};
             }
 
             .anticon {
-                color: ${(props) => props.theme.disabledColor};
+                color: ${props => props.theme.disabledColor};
             }
         }
 
         &.ant-header-action-select {
-            font-weight: ${(props) => props.theme.headerSelectionFontWeight};
-            color: ${(props) => props.theme.selectionColor};
+            font-weight: ${props => props.theme.headerSelectionFontWeight};
+            color: ${props => props.theme.selectionColor};
         }
 
         .ant-select-selection-item {
-            color: ${(props) => props.theme.selectionColor};
+            color: ${props => props.theme.selectionColor};
         }
     }
 `;

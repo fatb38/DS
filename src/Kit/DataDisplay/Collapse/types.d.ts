@@ -1,7 +1,7 @@
-import { CollapseProps } from "antd";
-import { HTMLAttributes } from "react";
+import {CollapseProps} from 'antd';
+import {HTMLAttributes} from 'react';
 
-type AntdCollapseTypesToOmit = "bordered" | "expandIconPosition" | "ghost";
+type AntdCollapseTypesToOmit = 'bordered' | 'expandIconPosition' | 'ghost';
 
 export interface KitCollapseProps
     extends Omit<CollapseProps, AntdCollapseTypesToOmit>,

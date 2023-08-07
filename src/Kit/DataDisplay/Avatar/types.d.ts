@@ -1,14 +1,12 @@
-import { AvatarProps } from "antd";
-import { GroupProps } from "antd/es/avatar";
+import {AvatarProps} from 'antd';
+import {GroupProps} from 'antd/es/avatar';
 
-type AntdAvatarTypesToOmit = "";
-type AntdAvatarGroupTypesToOmit = "maxStyle";
+type AntdAvatarTypesToOmit = '';
+type AntdAvatarGroupTypesToOmit = 'maxStyle';
 
-export type KitAvatarColorType = "default" | "blueInvert";
+export type KitAvatarColorType = 'default' | 'blueInvert';
 
-export interface KitAvatarProps
-    extends Omit<AvatarProps, AntdAvatarTypesToOmit>,
-        HTMLAttributes<HTMLSpanElement> {
+export interface KitAvatarProps extends Omit<AvatarProps, AntdAvatarTypesToOmit>, HTMLAttributes<HTMLSpanElement> {
     color?: KitAvatarColorType;
 }
 

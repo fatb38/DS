@@ -1,9 +1,9 @@
-import React from "react";
-import { styled } from "styled-components";
-import toast from "react-hot-toast";
-import theme from "@theme/index";
-import { KitOpenSnackBarProps, KitSnackBarProps } from "./types";
-import { CloseOutlined } from "@ant-design/icons";
+import React from 'react';
+import {styled} from 'styled-components';
+import toast from 'react-hot-toast';
+import theme from '@theme/index';
+import {KitOpenSnackBarProps, KitSnackBarProps} from './types';
+import {CloseOutlined} from '@ant-design/icons';
 
 const DEFAULT_DURATION = 4000;
 
@@ -12,22 +12,14 @@ export const openSnackBar = ({
     closable,
     ctaText,
     ctaOnClick,
-    duration = DEFAULT_DURATION,
+    duration = DEFAULT_DURATION
 }: KitOpenSnackBarProps) => {
     // Close all snackbar
     closeSnackBar();
 
-    return toast(
-        <KitSnackBar
-            message={message}
-            ctaText={ctaText}
-            ctaOnClick={ctaOnClick}
-            closable={closable}
-        />,
-        {
-            duration: duration,
-        }
-    );
+    return toast(<KitSnackBar message={message} ctaText={ctaText} ctaOnClick={ctaOnClick} closable={closable} />, {
+        duration: duration
+    });
 };
 
 export const closeSnackBar = () => {
@@ -39,9 +31,8 @@ const StyledSnackBar = styled.div<{
     $showCloseContainer: boolean;
 }>`
     display: grid;
-    grid-template-columns: auto ${(props) =>
-            props.$showCtaContainer ? "min-content" : ""} ${(props) =>
-            props.$showCloseContainer ? "12px" : ""};
+    grid-template-columns: auto ${props => (props.$showCtaContainer ? 'min-content' : '')} ${props =>
+            props.$showCloseContainer ? '12px' : ''};
     column-gap: 8px;
     align-items: center;
     min-height: 24px;
@@ -62,7 +53,7 @@ const StyledSnackBar = styled.div<{
     }
 
     .kit-snackbar-grid-three {
-        grid-column: ${(props) => (!props.$showCtaContainer ? "2" : "3")};
+        grid-column: ${props => (!props.$showCtaContainer ? '2' : '3')};
     }
 
     .kit-snackbar-grid {
@@ -109,20 +100,12 @@ const StyledSnackBar = styled.div<{
     }
 `;
 
-const KitSnackBar: React.FunctionComponent<KitSnackBarProps> = ({
-    message,
-    ctaText,
-    ctaOnClick,
-    closable,
-}) => {
+const KitSnackBar: React.FunctionComponent<KitSnackBarProps> = ({message, ctaText, ctaOnClick, closable}) => {
     const showCtaContainer = ctaText !== undefined && ctaOnClick !== undefined;
     const showCloseContainer = closable !== undefined;
 
     return (
-        <StyledSnackBar
-            $showCtaContainer={showCtaContainer}
-            $showCloseContainer={showCloseContainer}
-        >
+        <StyledSnackBar $showCtaContainer={showCtaContainer} $showCloseContainer={showCloseContainer}>
             <div className="kit-snackbar-grid kit-snackbar-grid-one">
                 <div className="kit-snackbar-title">{message}</div>
             </div>
@@ -141,10 +124,7 @@ const KitSnackBar: React.FunctionComponent<KitSnackBarProps> = ({
             )}
             {showCloseContainer && (
                 <div className="kit-snackbar-grid kit-snackbar-grid-three">
-                    <div
-                        className="kit-snackbar-close-container"
-                        onClick={() => closeSnackBar()}
-                    >
+                    <div className="kit-snackbar-close-container" onClick={() => closeSnackBar()}>
                         <CloseOutlined />
                     </div>
                 </div>

@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006 --docs",
     "build-storybook": "env=production storybook build --docs",
-    "build-all": "yarn build && yarn build-storybook"
+    "build-all": "yarn build && yarn build-storybook",
+    "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
   },
   "dependencies": {
     "antd": "^5.8.1",
@@ -43,6 +44,7 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "prettier": "^3.0.1",
     "rollup-plugin-uglify": "^6.0.4",
     "rollup-plugin-webpack-stats": "^0.2.0",
     "storybook": "^7.2.1",

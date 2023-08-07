@@ -1,237 +1,231 @@
-import React from "react";
-import { KitAvatar } from "@kit/DataDisplay";
-import { KitSpace } from "@kit/Layout";
+import React from 'react';
+import {KitAvatar} from '@kit/DataDisplay';
+import {KitSpace} from '@kit/Layout';
 
-const shape = ["circle", "square"];
+const shape = ['circle', 'square'];
 
-const color = ["default", "blueInvert"];
+const color = ['default', 'blueInvert'];
 
-const pophoverPlacement = ["top", "bottom"];
+const pophoverPlacement = ['top', 'bottom'];
 
-const pophoverTrigger = ["hover", "click", "focus"];
+const pophoverTrigger = ['hover', 'click', 'focus'];
 
 export const AvatarArgTypes = {
     alt: {
-        name: "alt",
-        description:
-            "This attribute defines the alternative text describing the image",
+        name: 'alt',
+        description: 'This attribute defines the alternative text describing the image',
         control: {
-            type: "text",
+            type: 'text'
         },
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "Avatar",
-        },
+            category: 'Avatar'
+        }
     },
     gap: {
-        name: "gap",
-        description: "Letter type unit distance between left and right sides",
+        name: 'gap',
+        description: 'Letter type unit distance between left and right sides',
         control: {
-            type: "number",
+            type: 'number'
         },
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
             defaultValue: {
-                summary: 4,
+                summary: 4
             },
-            category: "Avatar",
-        },
+            category: 'Avatar'
+        }
     },
     icon: {
-        name: "icon",
-        description: "Custom icon type for an icon avatar",
+        name: 'icon',
+        description: 'Custom icon type for an icon avatar',
         table: {
             type: {
-                summary: "ReactNode",
+                summary: 'ReactNode'
             },
-            category: "Avatar",
-        },
+            category: 'Avatar'
+        }
     },
     shape: {
-        name: "shape",
-        description: "The shape of avatar",
+        name: 'shape',
+        description: 'The shape of avatar',
         options: shape,
         control: {
-            type: "select",
-            defaultValue: "circle",
+            type: 'select',
+            defaultValue: 'circle'
         },
         table: {
             type: {
-                summary: "circle | square",
+                summary: 'circle | square'
             },
-            category: "Avatar",
-        },
+            category: 'Avatar'
+        }
     },
     color: {
-        name: "color",
-        description: "The color of avatar",
+        name: 'color',
+        description: 'The color of avatar',
         options: color,
         control: {
-            type: "select",
-            defaultValue: "default",
+            type: 'select',
+            defaultValue: 'default'
         },
         table: {
             type: {
-                summary: "default | blueInvert",
+                summary: 'default | blueInvert'
             },
-            category: "Avatar",
-        },
+            category: 'Avatar'
+        }
     },
     size: {
-        name: "size",
-        description: "The size of the avatar",
+        name: 'size',
+        description: 'The size of the avatar',
         control: {
-            type: "text",
+            type: 'text'
         },
         table: {
             type: {
-                summary:
-                    "number | large | small | default | { xs: number, sm: number, ...}",
+                summary: 'number | large | small | default | { xs: number, sm: number, ...}'
             },
             defaultValue: {
-                summary: "default",
+                summary: 'default'
             },
-            category: "Avatar",
-        },
+            category: 'Avatar'
+        }
     },
     src: {
-        name: "src",
-        description:
-            "The address of the image for an image avatar or image element",
+        name: 'src',
+        description: 'The address of the image for an image avatar or image element',
         control: {
-            type: "text",
+            type: 'text'
         },
         table: {
             type: {
-                summary: "string | ReactNode",
+                summary: 'string | ReactNode'
             },
-            category: "Avatar",
-        },
+            category: 'Avatar'
+        }
     },
     srcSet: {
-        name: "srcSet",
-        description:
-            "A list of sources to use for different screen resolutions",
+        name: 'srcSet',
+        description: 'A list of sources to use for different screen resolutions',
         control: {
-            type: "text",
+            type: 'text'
         },
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "Avatar",
-        },
+            category: 'Avatar'
+        }
     },
     draggable: {
-        name: "draggable",
-        description: "Whether the picture is allowed to be dragged",
+        name: 'draggable',
+        description: 'Whether the picture is allowed to be dragged',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean | 'true' | 'false'",
+                summary: "boolean | 'true' | 'false'"
             },
             defaultValue: {
-                summary: true,
+                summary: true
             },
-            category: "Avatar",
-        },
+            category: 'Avatar'
+        }
     },
     crossOrigin: {
-        name: "crossOrigin",
-        description: "CORS settings attributes",
+        name: 'crossOrigin',
+        description: 'CORS settings attributes',
         table: {
             type: {
-                summary: "'anonymous' | 'use-credentials' | ''",
+                summary: "'anonymous' | 'use-credentials' | ''"
             },
-            category: "Avatar",
-        },
+            category: 'Avatar'
+        }
     },
     onError: {
-        name: "onError",
-        description:
-            "Handler when img load error, return false to prevent default fallback behavior",
+        name: 'onError',
+        description: 'Handler when img load error, return false to prevent default fallback behavior',
         table: {
             type: {
-                summary: "() => boolean",
+                summary: '() => boolean'
             },
-            category: "Avatar",
-        },
+            category: 'Avatar'
+        }
     },
     maxCount: {
-        name: "maxCount",
-        description: "Max avatars to show",
+        name: 'maxCount',
+        description: 'Max avatars to show',
         control: {
-            type: "number",
+            type: 'number'
         },
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
-            category: "AvatarGroup",
-        },
+            category: 'AvatarGroup'
+        }
     },
     maxPopoverPlacement: {
-        name: "maxPopoverPlacement",
-        description: "The placement of excess avatar Popover",
+        name: 'maxPopoverPlacement',
+        description: 'The placement of excess avatar Popover',
         options: pophoverPlacement,
         control: {
-            type: "select",
-            defaultValue: "top",
+            type: 'select',
+            defaultValue: 'top'
         },
         table: {
             type: {
-                summary: "top | bottom",
+                summary: 'top | bottom'
             },
             defaultValue: {
-                summary: "top",
+                summary: 'top'
             },
-            category: "AvatarGroup",
-        },
+            category: 'AvatarGroup'
+        }
     },
     maxPopoverTrigger: {
-        name: "maxPopoverTrigger",
-        description: "Set the trigger of excess avatar Popover",
+        name: 'maxPopoverTrigger',
+        description: 'Set the trigger of excess avatar Popover',
         options: pophoverTrigger,
         control: {
-            type: "select",
-            defaultValue: "hover",
+            type: 'select',
+            defaultValue: 'hover'
         },
         table: {
             type: {
-                summary: "hover | focus | click",
+                summary: 'hover | focus | click'
             },
             defaultValue: {
-                summary: "hover",
+                summary: 'hover'
             },
-            category: "AvatarGroup",
-        },
+            category: 'AvatarGroup'
+        }
     },
     sizeGroup: {
-        name: "size",
-        description: "The size of the avatar",
+        name: 'size',
+        description: 'The size of the avatar',
         control: {
-            type: "text",
+            type: 'text'
         },
         table: {
             type: {
-                summary:
-                    "number | large | small | default | { xs: number, sm: number, ...}",
+                summary: 'number | large | small | default | { xs: number, sm: number, ...}'
             },
             defaultValue: {
-                summary: "default",
+                summary: 'default'
             },
-            category: "AvatarGroup",
-        },
-    },
+            category: 'AvatarGroup'
+        }
+    }
 };
 
-export const Template = ({ component, ...args }) => {
+export const Template = ({component, ...args}) => {
     return (
         <>
             <KitSpace>

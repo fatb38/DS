@@ -1,10 +1,10 @@
-import React from "react";
-import ReactModal from "react-modal";
-import styled from "styled-components";
-import { KitModalProps } from "./types";
-import { modalTheme } from "./theme";
-import { CloseOutlined } from "@ant-design/icons";
-import { KitSpace } from "@kit/Layout/";
+import React from 'react';
+import ReactModal from 'react-modal';
+import styled from 'styled-components';
+import {KitModalProps} from './types';
+import {modalTheme} from './theme';
+import {CloseOutlined} from '@ant-design/icons';
+import {KitSpace} from '@kit/Layout/';
 
 const StyledOverlay = styled.div`
     &.kit-modal-overlay {
@@ -99,13 +99,9 @@ const StyledKitModal = styled(ReactModal)<KitModalProps>`
     }
 `;
 
-const Modal: React.FC<KitModalProps> = ({
-    width,
-    title,
-    ...props
-}: KitModalProps) => {
+const Modal: React.FC<KitModalProps> = ({width, title, ...props}: KitModalProps) => {
     const styles = {
-        content: { width: width || "520px" },
+        content: {width: width || '520px'}
     };
 
     const onOverlayClick = () => {
@@ -121,7 +117,7 @@ const Modal: React.FC<KitModalProps> = ({
                 {contentElement}
             </StyledOverlay>
         ),
-        overlayClassName: `kit-modal-overlay ${props.overlayClassName}`,
+        overlayClassName: `kit-modal-overlay ${props.overlayClassName}`
     };
 
     return (
@@ -131,12 +127,7 @@ const Modal: React.FC<KitModalProps> = ({
             onRequestClose={onOverlayClick}
         >
             <div className="kit-modal-content-wrapper">
-                {props.showCloseIcon && (
-                    <CloseOutlined
-                        className="kit-modal-close"
-                        onClick={onOverlayClick}
-                    />
-                )}
+                {props.showCloseIcon && <CloseOutlined className="kit-modal-close" onClick={onOverlayClick} />}
                 <div className="kit-modal-title">{title}</div>
                 <div className="kit-modal-content">{props.children}</div>
                 {props.footer && (
@@ -144,7 +135,7 @@ const Modal: React.FC<KitModalProps> = ({
                         className="kit-modal-footer"
                         size={modalTheme.itemsVerticalSpacing}
                         align="end"
-                        style={{ justifyContent: "end", width: "100%" }}
+                        style={{justifyContent: 'end', width: '100%'}}
                     >
                         {props.footer}
                     </KitSpace>

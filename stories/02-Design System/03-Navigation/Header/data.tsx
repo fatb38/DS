@@ -1,94 +1,77 @@
-import React, { ReactNode } from "react";
-import {
-    FilterOutlined,
-    SortDescendingOutlined,
-    GroupOutlined,
-    ControlOutlined,
-} from "@ant-design/icons";
-import { KitButton, KitTypography } from "@kit/General/";
-import { KitSelect } from "@kit/DataEntry/";
-import { KitBreadcrumb, KitHeader } from "@kit/Navigation/";
+import React, {ReactNode} from 'react';
+import {FilterOutlined, SortDescendingOutlined, GroupOutlined, ControlOutlined} from '@ant-design/icons';
+import {KitButton, KitTypography} from '@kit/General/';
+import {KitSelect} from '@kit/DataEntry/';
+import {KitBreadcrumb, KitHeader} from '@kit/Navigation/';
 
 const menuItems = [
     {
-        key: "1",
+        key: '1',
         label: (
-            <KitTypography.Link
-                target="_blank"
-                rel="noopener noreferrer"
-                href="http://www.aristid..com/"
-            >
+            <KitTypography.Link target="_blank" rel="noopener noreferrer" href="http://www.aristid..com/">
                 General
             </KitTypography.Link>
-        ),
+        )
     },
     {
-        key: "2",
+        key: '2',
         label: (
-            <KitTypography.Link
-                target="_blank"
-                rel="noopener noreferrer"
-                href="#"
-            >
+            <KitTypography.Link target="_blank" rel="noopener noreferrer" href="#">
                 Layout
             </KitTypography.Link>
-        ),
+        )
     },
     {
-        key: "3",
+        key: '3',
         label: (
-            <KitTypography.Link
-                target="_blank"
-                rel="noopener noreferrer"
-                href="#"
-            >
+            <KitTypography.Link target="_blank" rel="noopener noreferrer" href="#">
                 Navigation
             </KitTypography.Link>
-        ),
-    },
+        )
+    }
 ];
 
 export const items = [
     {
-        title: "Aristid Design",
+        title: 'Aristid Design'
     },
     {
-        title: <KitTypography.Link href="">Component</KitTypography.Link>,
+        title: <KitTypography.Link href="">Component</KitTypography.Link>
     },
     {
         title: <KitTypography.Link href="">General</KitTypography.Link>,
-        menu: { items: menuItems },
+        menu: {items: menuItems}
     },
     {
-        title: "Button",
-    },
+        title: 'Button'
+    }
 ];
 
-export const handleButtonClick = (e) => {
-    console.log("click left button", e);
+export const handleButtonClick = e => {
+    console.log('click left button', e);
 };
 
-export const handleMenuClick = (e) => {
-    console.log("click", e);
+export const handleMenuClick = e => {
+    console.log('click', e);
 };
 
 export const menuProps = {
     items,
-    onClick: handleMenuClick,
+    onClick: handleMenuClick
 };
 
 export const options = [
     {
-        value: "view",
+        value: 'view',
         icon: <ControlOutlined rev={null} />,
-        label: "Vue",
+        label: 'Vue'
     },
     {
-        value: "save",
+        value: 'save',
         icon: <ControlOutlined rev={null} />,
-        label: "Enregistrer la vue",
-        highlight: true,
-    },
+        label: 'Enregistrer la vue',
+        highlight: true
+    }
 ];
 
 export const actions: ReactNode[] = [
@@ -101,95 +84,87 @@ export const actions: ReactNode[] = [
     <KitButton>
         <SortDescendingOutlined rev={null} />
     </KitButton>,
-    <KitSelect options={options} defaultValue="view" />,
+    <KitSelect options={options} defaultValue="view" />
 ];
 
 export const breadcrumb = <KitBreadcrumb items={items} />;
 
 export const searchProps = {
     allowClear: true,
-    placeholder: "Rechercher un PAC, une opération, un livrable",
+    placeholder: 'Rechercher un PAC, une opération, un livrable'
 };
 
-export const title = "Campagne 1 - soldes rentrée";
+export const title = 'Campagne 1 - soldes rentrée';
 
 export const argTypes = {
     title: {
-        name: "title",
-        control: { type: "text" },
-        description: "Title to display",
+        name: 'title',
+        control: {type: 'text'},
+        description: 'Title to display',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "-" },
-            category: "Header",
-        },
+            defaultValue: {summary: '-'},
+            category: 'Header'
+        }
     },
     search: {
-        name: "search",
-        control: { type: "boolean" },
-        description: "If set, show a search input. Accepts [Input] porps",
+        name: 'search',
+        control: {type: 'boolean'},
+        description: 'If set, show a search input. Accepts [Input] porps',
         table: {
             type: {
-                summary: "KitInputProps",
+                summary: 'KitInputProps'
             },
-            defaultValue: { summary: "-" },
-            category: "Header",
-        },
+            defaultValue: {summary: '-'},
+            category: 'Header'
+        }
     },
     breadcrumb: {
-        name: "breadcrumb",
-        control: { type: "boolean" },
-        description: "Display a breadcrumb. [Breadcrumb]",
+        name: 'breadcrumb',
+        control: {type: 'boolean'},
+        description: 'Display a breadcrumb. [Breadcrumb]',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: "-" },
-            category: "Header",
+            defaultValue: {summary: '-'},
+            category: 'Header'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     actions: {
-        name: "actions",
-        control: { type: "boolean" },
-        description:
-            "Display Actions buttons and / of Selects. (KitButton|KitSelect)[]",
+        name: 'actions',
+        control: {type: 'boolean'},
+        description: 'Display Actions buttons and / of Selects. (KitButton|KitSelect)[]',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: "-" },
-            category: "Header",
+            defaultValue: {summary: '-'},
+            category: 'Header'
         },
-        defaultValue: "-",
+        defaultValue: '-'
     },
     onPlusClick: {
-        name: "onPlusClick",
-        description:
-            "When set, show a '+' button on the right, and set the handler to handle `click` event",
-        control: { type: "boolean" },
+        name: 'onPlusClick',
+        description: "When set, show a '+' button on the right, and set the handler to handle `click` event",
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "(event: MouseEvent) => void",
+                summary: '(event: MouseEvent) => void'
             },
-            defaultValue: { summary: "-" },
-            category: "Button",
+            defaultValue: {summary: '-'},
+            category: 'Button'
         },
-        defaultValue: "-",
-    },
+        defaultValue: '-'
+    }
 };
 
 const handleOnPlusClick = () => console.log('click "plus" button');
 
-export const Template = ({
-    actions: showActions,
-    breadcrumb: showBreadcrumb,
-    onPlusClick,
-    search,
-    ...args
-}) => {
+export const Template = ({actions: showActions, breadcrumb: showBreadcrumb, onPlusClick, search, ...args}) => {
     return (
         <KitHeader
             actions={showActions ? actions : undefined}
