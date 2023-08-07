@@ -43,6 +43,8 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-webpack-stats": "^0.2.0",
     "storybook": "^7.2.1",
     "storybook-docs-toc": "^1.7.0",
     "typescript": "^5.0.2",

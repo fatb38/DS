@@ -5,7 +5,6 @@ import {
     SearchOutlined,
 } from "@ant-design/icons";
 import { KitButton } from "@kit/General/";
-import type { StoryObj } from '@storybook/react-vite';
 
 export const ButtonArgTypes = {
     block: {
