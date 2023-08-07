@@ -254,7 +254,7 @@
     export interface KitTooltipProps extends Omit<TooltipProps, AntdTooltipTypesToOmit>, HTMLAttributes<HTMLDivElement> {}
    ```
 
-5. Export your component in `/Kit/05-DataDisplay/index.tsx``
+5. Export your component in `/Kit/05-DataDisplay/index.tsx`
    ```tsx
    import {KitTooltip} from './Tooltip';
    ...
@@ -357,13 +357,14 @@ The type is telling us what change or iteration is being made. We have the follo
 | ci | used for changes in CI configuration files | Circle, Travis, BrowserStack, etc… |
 | revert | indicates the reversal of a previous commit |
 
+
 Exemple :
 
 ```sh
 git commit -m "style(Tooltip) : Change color on hover"
 ```
 
-Based on this [article](https://dev.to/hornet_daemon/git-commit-patterns-5dm7).
+📚 Based on this [article](https://dev.to/hornet_daemon/git-commit-patterns-5dm7).
 
 <br/>
 
@@ -373,11 +374,13 @@ We use Gitflow as Git branching model for this project. We have two branches to 
 - main (💡 Stores the official release history)
 - develop (💡 Serves as an integration branch for features)
 
+📚 Based on this [article](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
+
 #### Feature
 
 <img src="public/images/gitflow-feature.png" alt="Logo" height="250px">
 
-##### Creating a feature branch
+Creating a feature branch
 
 ```sh
 git flow feature start addTooltipComponent
@@ -385,8 +388,40 @@ git flow feature start addTooltipComponent
 
 Continue your work and use Git like you normally would.
 
-##### Finishing a feature branch
+Finishing a feature branch
 
 ```sh
 git flow feature finish addTooltipComponent
+```
+
+#### Release
+
+<img src="public/images/gitflow-release.png" alt="Logo" height="250px">
+
+Creating a release
+
+```sh
+git flow release start 0.1.0
+```
+
+Finishing a release
+
+```sh
+git flow release finish '0.1.0'
+```
+
+#### Hotfix
+
+<img src="public/images/gitflow-hotfix.png" alt="Logo" height="250px">
+
+Creating a release
+
+```sh
+git flow hotfix start fixTooltip
+```
+
+Finishing a release
+
+```sh
+git flow hotfix finish fixTooltip
 ```
