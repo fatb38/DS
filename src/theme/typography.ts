@@ -28,12 +28,12 @@ export const typographyHeaders = {
     fontSize3: 18, //"1.125rem", //'18px',
     lineHeight3: 1.2,
     fontSize4: 16, //"1rem", //'16px'
-    lineHeight4: 1.2,
+    lineHeight4: 1.2
 };
 
 export const Typography: KitTypography = {
-    fontFamily: "Inter",
-    fontStyle: "normal",
+    fontFamily: 'Inter',
+    fontStyle: 'normal',
     defaultFontWeight: 500,
     mediumfontWeight: 500,
     regularFontWeight: 400,
@@ -43,5 +43,5 @@ export const Typography: KitTypography = {
     fontSize7: 12, //'.75rem', // 12,
     lineHeight5: 1.2,
     lineHeight6: 1.2,
-    lineHeight7: 1.2,
+    lineHeight7: 1.2
 };

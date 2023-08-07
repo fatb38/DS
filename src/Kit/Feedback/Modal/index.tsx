@@ -1,12 +1,6 @@
-import Modal from "./Modal";
-import type { ModalFunc, KitModalProps, confirmDialogProps } from "./types";
-import confirm, {
-    withWarn,
-    withError,
-    withInfo,
-    withSuccess,
-    withConfirm,
-} from "./confirm";
+import Modal from './Modal';
+import type {ModalFunc, KitModalProps, confirmDialogProps} from './types';
+import confirm, {withWarn, withError, withInfo, withSuccess, withConfirm} from './confirm';
 
 type CompoundedComponent = React.FunctionComponent<KitModalProps> & {
     info: ModalFunc;
@@ -16,8 +10,8 @@ type CompoundedComponent = React.FunctionComponent<KitModalProps> & {
     confirm: ModalFunc;
 };
 
-export const KitModal = (Modal as unknown) as CompoundedComponent;
-KitModal.displayName = "KitModal";
+export const KitModal = Modal as unknown as CompoundedComponent;
+KitModal.displayName = 'KitModal';
 
 KitModal.info = function infoFn(props: confirmDialogProps) {
     return confirm(withInfo(props));

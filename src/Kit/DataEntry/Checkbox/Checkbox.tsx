@@ -1,8 +1,8 @@
-import React from "react";
-import { Checkbox } from "antd";
-import styled from "styled-components";
-import theme from "./theme";
-import { KitCheckboxProps } from "./types";
+import React from 'react';
+import {Checkbox} from 'antd';
+import styled from 'styled-components';
+import theme from './theme';
+import {KitCheckboxProps} from './types';
 
 const StyledKitCheckbox = styled(Checkbox)<KitCheckboxProps>`
     font-weight: ${theme.fontWeight.default};
@@ -26,9 +26,7 @@ const StyledKitCheckbox = styled(Checkbox)<KitCheckboxProps>`
         }
     }
 
-    &.ant-checkbox-wrapper-danger
-        .ant-checkbox-disabled
-        .ant-checkbox-inner:after {
+    &.ant-checkbox-wrapper-danger .ant-checkbox-disabled .ant-checkbox-inner:after {
         border-color: ${theme.borderColor.danger.default};
     }
 
@@ -42,7 +40,7 @@ const StyledKitCheckbox = styled(Checkbox)<KitCheckboxProps>`
             width: 8px;
             height: 0px;
             border: ${theme.borderWidth} solid white;
-            transform: translate("-4px", "-1px");
+            transform: translate('-4px', '-1px');
         }
         &.ant-checkbox-disabled .ant-checkbox-inner:after {
             border-color: ${theme.borderColor.disabled};
@@ -57,8 +55,7 @@ const StyledKitCheckbox = styled(Checkbox)<KitCheckboxProps>`
 
             .ant-checkbox-inner {
                 background-color: ${theme.backgroundColor.danger.default};
-                border: ${theme.borderWidth} solid
-                    ${theme.borderColor.danger.default};
+                border: ${theme.borderWidth} solid ${theme.borderColor.danger.default};
             }
         }
     }
@@ -84,10 +81,8 @@ const StyledKitCheckbox = styled(Checkbox)<KitCheckboxProps>`
     }
 
     &.ant-checkbox-wrapper-danger:not(.ant-checkbox-wrapper-disabled):hover,
-    &.ant-checkbox-wrapper-danger:not(.ant-checkbox-wrapper-disabled):hover
-        .ant-checkbox-checked,
-    &.ant-checkbox-wrapper-danger:not(.ant-checkbox-wrapper-disabled)
-        .ant-checkbox:hover {
+    &.ant-checkbox-wrapper-danger:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked,
+    &.ant-checkbox-wrapper-danger:not(.ant-checkbox-wrapper-disabled) .ant-checkbox:hover {
         .ant-checkbox-inner {
             border-color: ${theme.borderColor.danger.hover};
             background-color: ${theme.backgroundColor.danger.hover};
@@ -97,17 +92,13 @@ const StyledKitCheckbox = styled(Checkbox)<KitCheckboxProps>`
     &.ant-checkbox-wrapper .ant-checkbox-input:focus + .ant-checkbox-inner {
         border: ${theme.borderWidth} dashed ${theme.borderColor.focus};
     }
-    &.ant-checkbox-wrapper-danger
-        .ant-checkbox-input:focus
-        + .ant-checkbox-inner {
+    &.ant-checkbox-wrapper-danger .ant-checkbox-input:focus + .ant-checkbox-inner {
         border: ${theme.borderWidth} dashed ${theme.borderColor.danger.focus};
     }
 `;
 
 const KitCheckbox = React.forwardRef<any, KitCheckboxProps>((props, ref) => {
-    let className = props.danger
-        ? (props.className || "") + " ant-checkbox-wrapper-danger"
-        : props.className;
+    let className = props.danger ? (props.className || '') + ' ant-checkbox-wrapper-danger' : props.className;
 
     return <StyledKitCheckbox {...props} ref={ref} className={className} />;
 });

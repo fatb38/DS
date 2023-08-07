@@ -1,8 +1,8 @@
-import React from "react";
-import { Input as AntdInput } from "antd";
-import { KitInputProps } from "./types";
-import { styled } from "styled-components";
-import theme from "@theme/index";
+import React from 'react';
+import {Input as AntdInput} from 'antd';
+import {KitInputProps} from './types';
+import {styled} from 'styled-components';
+import theme from '@theme/index';
 
 const StyledAntdInput = styled(AntdInput)`
     &.ant-input,
@@ -125,8 +125,7 @@ const StyledAntdInput = styled(AntdInput)`
 
     &.ant-input-status-warning,
     &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-warning,
-    &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-warning
-        .ant-input {
+    &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-warning .ant-input {
         background-color: ${theme.color.secondary.orange.orange100};
         color: ${theme.color.secondary.orange.orange500};
 
@@ -145,7 +144,7 @@ const StyledAntdInput = styled(AntdInput)`
     }
 `;
 
-const KitInput: React.FunctionComponent<KitInputProps> = (inputProps) => {
+const KitInput: React.FunctionComponent<KitInputProps> = inputProps => {
     return <StyledAntdInput {...inputProps} />;
 };
 

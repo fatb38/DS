@@ -1,38 +1,36 @@
-import { SelectProp } from "antd";
-import type { OptionProps } from "rc-select/lib/Option";
-import { HTMLAttributes } from "react";
+import {SelectProp} from 'antd';
+import type {OptionProps} from 'rc-select/lib/Option';
+import {HTMLAttributes} from 'react';
 
 export type AntdSelectTypesToOmit =
-    | "dropdownMatchSelectWidth"
-    | "options"
-    | "bordered"
-    | "fieldNames"
-    | "filterOption"
-    | "filterSort"
-    | "labelInValue"
-    | "maxTagCount"
-    | "maxTagPlaceholder"
-    | "maxTagTextLength"
-    | "notFoundContent"
-    | "optionFilterProp"
-    | "optionLabelProp"
-    | "removeIcon"
-    | "searchValue"
-    | "showSearch"
-    | "size"
-    | "status"
-    | "tokenSeparators"
-    | "virtual"
-    | "onSearch"
-    | "clearIcon"
-    | "onDeselect"
-    | "onInputKeyDown"
-    | "dropdownStyle"
-    | "menuItemSelectedIcon";
+    | 'dropdownMatchSelectWidth'
+    | 'options'
+    | 'bordered'
+    | 'fieldNames'
+    | 'filterOption'
+    | 'filterSort'
+    | 'labelInValue'
+    | 'maxTagCount'
+    | 'maxTagPlaceholder'
+    | 'maxTagTextLength'
+    | 'notFoundContent'
+    | 'optionFilterProp'
+    | 'optionLabelProp'
+    | 'removeIcon'
+    | 'searchValue'
+    | 'showSearch'
+    | 'size'
+    | 'status'
+    | 'tokenSeparators'
+    | 'virtual'
+    | 'onSearch'
+    | 'clearIcon'
+    | 'onDeselect'
+    | 'onInputKeyDown'
+    | 'dropdownStyle'
+    | 'menuItemSelectedIcon';
 
-export interface KitSelectProps
-    extends Omit<SelectProp, AntdSelectTypesToOmit>,
-        HTMLAttributes<HTMLDivElement> {
+export interface KitSelectProps extends Omit<SelectProp, AntdSelectTypesToOmit>, HTMLAttributes<HTMLDivElement> {
     danger?: boolean | null;
     header?: boolean;
     options?: KitOptionProps[];

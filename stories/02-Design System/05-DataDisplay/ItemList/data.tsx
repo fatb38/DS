@@ -1,173 +1,158 @@
-import React from "react";
-import { KitImage, KitItemList } from "@kit/DataDisplay/";
-import { KitIcon } from "@kit/General/";
-import { UserOutlined } from "@ant-design/icons";
+import React from 'react';
+import {KitImage, KitItemList} from '@kit/DataDisplay/';
+import {KitIcon} from '@kit/General/';
+import {UserOutlined} from '@ant-design/icons';
 
 export const mockData = {
     base: {
-        title: "Tondeuse à gazon",
-        description: "Tondeuse thermique Auto tractée 70 VL 55 TH",
+        title: 'Tondeuse à gazon',
+        description: 'Tondeuse thermique Auto tractée 70 VL 55 TH'
     },
     long: {
-        title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod es do is un incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum id est laborum.",
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod es do is un incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum id est laborum.'
     },
     tag: 4,
     image: <KitImage src="images/tondeuse.png" />,
     icon: <KitIcon icon={<UserOutlined rev={null} />} />,
-    onSelectChange: (e) => console.log("selected", e.target.checked),
-    onRafterClick: () => console.log("click rafter"),
-    onClick: () => console.log("on click itemlist"),
+    onSelectChange: e => console.log('selected', e.target.checked),
+    onRafterClick: () => console.log('click rafter'),
+    onClick: () => console.log('on click itemlist')
 };
 
 export const ItemListArgTypes = {
     displayCheckbox: {
-        name: "Display checkbox",
-        description: "",
+        name: 'Display checkbox',
+        description: '',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
-            category: "For testing only",
-        },
+            category: 'For testing only'
+        }
     },
     displayRafter: {
-        name: "Display rafter",
-        description: "",
+        name: 'Display rafter',
+        description: '',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
-            category: "For testing only",
-        },
+            category: 'For testing only'
+        }
     },
     itemListClickable: {
-        name: "ItemList clickable",
-        description: "",
+        name: 'ItemList clickable',
+        description: '',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
-            category: "For testing only",
-        },
+            category: 'For testing only'
+        }
     },
     title: {
-        name: "title",
-        description: "Title content on one line",
+        name: 'title',
+        description: 'Title content on one line',
         control: {
-            type: "text",
+            type: 'text'
         },
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "ItemList",
-        },
+            category: 'ItemList'
+        }
     },
     description: {
-        name: "description",
-        description: "Description content on two lines with ellipsis",
+        name: 'description',
+        description: 'Description content on two lines with ellipsis',
         control: {
-            type: "text",
+            type: 'text'
         },
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "ItemList",
-        },
+            category: 'ItemList'
+        }
     },
     picture: {
-        name: "picture",
-        description: "Image or Icon",
+        name: 'picture',
+        description: 'Image or Icon',
         table: {
             type: {
-                summary:
-                    "ReactElement<KitAvatarProps> | ReactElement<KitIconProps> | ReactElement<KitImageProps>",
+                summary: 'ReactElement<KitAvatarProps> | ReactElement<KitIconProps> | ReactElement<KitImageProps>'
             },
-            category: "ItemList",
-        },
+            category: 'ItemList'
+        }
     },
     onSelectChange: {
-        name: "onSelectChange",
-        description:
-            "The callback function that is triggered when the state changes",
+        name: 'onSelectChange',
+        description: 'The callback function that is triggered when the state changes',
         table: {
             type: {
-                summary: "(e: CheckboxChangeEvent) => void",
+                summary: '(e: CheckboxChangeEvent) => void'
             },
-            category: "ItemList",
-        },
+            category: 'ItemList'
+        }
     },
     tagNumber: {
-        name: "tagNumber",
-        description: "Number to display in a tag element",
+        name: 'tagNumber',
+        description: 'Number to display in a tag element',
         control: {
-            type: "number",
+            type: 'number'
         },
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
-            category: "ItemList",
-        },
+            category: 'ItemList'
+        }
     },
     onRafterClick: {
-        name: "onRafterClick",
-        description: "Set the handler to handle `click` event on the rafter",
+        name: 'onRafterClick',
+        description: 'Set the handler to handle `click` event on the rafter',
         table: {
             type: {
-                summary: "Function",
+                summary: 'Function'
             },
-            category: "ItemList",
-        },
+            category: 'ItemList'
+        }
     },
     isDisabled: {
-        name: "isDisabled",
-        description: "Disabled state of ItemList",
+        name: 'isDisabled',
+        description: 'Disabled state of ItemList',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            category: "ItemList",
-        },
+            category: 'ItemList'
+        }
     },
     onClick: {
-        name: "onClick",
-        description:
-            "Set the handler to handle `click` event on the whole ItemList",
+        name: 'onClick',
+        description: 'Set the handler to handle `click` event on the whole ItemList',
         table: {
             type: {
-                summary: "Function",
+                summary: 'Function'
             },
-            category: "ItemList",
-        },
-    },
+            category: 'ItemList'
+        }
+    }
 };
 
-export const Template = ({ component, ...args }) => {
+export const Template = ({component, ...args}) => {
     return (
         <KitItemList
             {...args}
-            onSelectChange={
-                args.displayCheckbox
-                    ? () => console.log("select changer")
-                    : undefined
-            }
-            onRafterClick={
-                args.displayRafter
-                    ? () => console.log("click rafter")
-                    : undefined
-            }
-            onClick={
-                args.itemListClickable
-                    ? () => console.log("click itemList")
-                    : undefined
-            }
+            onSelectChange={args.displayCheckbox ? () => console.log('select changer') : undefined}
+            onRafterClick={args.displayRafter ? () => console.log('click rafter') : undefined}
+            onClick={args.itemListClickable ? () => console.log('click itemList') : undefined}
         />
     );
 };

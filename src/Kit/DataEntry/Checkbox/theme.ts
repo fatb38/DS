@@ -1,19 +1,19 @@
-import theme from "@theme/index";
-import { KitCheckboxTheme } from "./types";
+import theme from '@theme/index';
+import {KitCheckboxTheme} from './types';
 
 const primaryTheme: KitCheckboxTheme = {
     fontWeight: {
         default: theme.typography.mediumfontWeight,
-        checked: theme.typography.boldFontWeight,
+        checked: theme.typography.boldFontWeight
     },
-    borderWidth: "1px",
+    borderWidth: '1px',
     color: {
         default: theme.color.neutral.typography.black,
         disabled: theme.color.primary.blue200,
         danger: {
             default: theme.color.neutral.typography.black,
-            disabled: theme.color.secondary.red.red200,
-        },
+            disabled: theme.color.secondary.red.red200
+        }
     },
     backgroundColor: {
         default: theme.color.primary.blue400,
@@ -26,8 +26,8 @@ const primaryTheme: KitCheckboxTheme = {
             hover: theme.color.secondary.red.red500,
             active: theme.color.secondary.red.red600,
             focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red400,
-        },
+            disabled: theme.color.secondary.red.red400
+        }
     },
     borderColor: {
         default: theme.color.primary.blue400,
@@ -40,9 +40,9 @@ const primaryTheme: KitCheckboxTheme = {
             hover: theme.color.secondary.red.red500,
             active: theme.color.secondary.red.red600,
             focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red200,
-        },
-    },
+            disabled: theme.color.secondary.red.red200
+        }
+    }
 };
 
 export default primaryTheme;

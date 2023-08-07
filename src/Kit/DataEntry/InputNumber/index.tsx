@@ -1,8 +1,8 @@
-import React from "react";
-import { InputNumber as AntdInputNumber } from "antd";
-import { KitInputNumberProps } from "./types";
-import { styled } from "styled-components";
-import theme from "@theme/index";
+import React from 'react';
+import {InputNumber as AntdInputNumber} from 'antd';
+import {KitInputNumberProps} from './types';
+import {styled} from 'styled-components';
+import theme from '@theme/index';
 
 const StyledAntdInputNumber = styled(AntdInputNumber)`
     font-weight: ${theme.typography.regularFontWeight};
@@ -96,10 +96,8 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
     }
 `;
 
-export const KitInputNumber: React.FunctionComponent<KitInputNumberProps> = (
-    inputNumberProps
-) => {
+export const KitInputNumber: React.FunctionComponent<KitInputNumberProps> = inputNumberProps => {
     return <StyledAntdInputNumber {...inputNumberProps} />;
 };
 
-KitInputNumber.displayName = "KitInputNumber";
+KitInputNumber.displayName = 'KitInputNumber';

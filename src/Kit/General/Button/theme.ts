@@ -1,5 +1,5 @@
-import theme from "@theme/index";
-import { typographyHeaders } from "@theme/typography";
+import theme from '@theme/index';
+import {typographyHeaders} from '@theme/typography';
 
 export interface KitButtonTheme {
     font: {
@@ -52,7 +52,7 @@ export interface KitButtonTheme {
 export const primaryTheme: KitButtonTheme = {
     font: {
         weight: theme.typography.regularFontWeight,
-        bigIconSize: typographyHeaders.fontSize2,
+        bigIconSize: typographyHeaders.fontSize2
     },
     compactBorderRadius: 7,
     color: {
@@ -63,8 +63,8 @@ export const primaryTheme: KitButtonTheme = {
         disabled: theme.color.primary.blue200,
         danger: {
             default: theme.color.neutral.typography.white,
-            disabled: theme.color.neutral.typography.white,
-        },
+            disabled: theme.color.neutral.typography.white
+        }
     },
     backgroundColor: {
         default: theme.color.primary.blue400,
@@ -77,8 +77,8 @@ export const primaryTheme: KitButtonTheme = {
             hover: theme.color.secondary.red.red500,
             active: theme.color.secondary.red.red600,
             focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red200,
-        },
+            disabled: theme.color.secondary.red.red200
+        }
     },
     borderColor: {
         default: theme.color.primary.blue400,
@@ -91,15 +91,15 @@ export const primaryTheme: KitButtonTheme = {
             hover: theme.color.secondary.red.red500,
             active: theme.color.secondary.red.red600,
             focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red200,
-        },
-    },
+            disabled: theme.color.secondary.red.red200
+        }
+    }
 };
 
 export const defaultTheme: KitButtonTheme = {
     font: {
         weight: theme.typography.regularFontWeight,
-        bigIconSize: typographyHeaders.fontSize2,
+        bigIconSize: typographyHeaders.fontSize2
     },
     compactBorderRadius: 7,
     color: {
@@ -110,8 +110,8 @@ export const defaultTheme: KitButtonTheme = {
         disabled: theme.color.primary.blue200,
         danger: {
             default: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red200,
-        },
+            disabled: theme.color.secondary.red.red200
+        }
     },
     backgroundColor: {
         default: theme.color.neutral.typography.white,
@@ -124,8 +124,8 @@ export const defaultTheme: KitButtonTheme = {
             hover: theme.color.neutral.typography.white,
             active: theme.color.secondary.red.red100,
             focus: theme.color.neutral.typography.white,
-            disabled: theme.color.neutral.typography.white,
-        },
+            disabled: theme.color.neutral.typography.white
+        }
     },
     borderColor: {
         default: theme.color.primary.blue100,
@@ -138,15 +138,15 @@ export const defaultTheme: KitButtonTheme = {
             hover: theme.color.secondary.red.red400,
             active: theme.color.secondary.red.red400,
             focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red100,
-        },
-    },
+            disabled: theme.color.secondary.red.red100
+        }
+    }
 };
 
 export const linkTheme: KitButtonTheme = {
     font: {
         weight: theme.typography.regularFontWeight,
-        bigIconSize: typographyHeaders.fontSize2,
+        bigIconSize: typographyHeaders.fontSize2
     },
     compactBorderRadius: 7,
     color: {
@@ -157,8 +157,8 @@ export const linkTheme: KitButtonTheme = {
         disabled: theme.color.primary.blue200,
         danger: {
             default: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red200,
-        },
+            disabled: theme.color.secondary.red.red200
+        }
     },
     backgroundColor: {
         default: theme.color.neutral.typography.white,
@@ -171,8 +171,8 @@ export const linkTheme: KitButtonTheme = {
             hover: theme.color.neutral.typography.white,
             active: theme.color.neutral.typography.white,
             focus: theme.color.neutral.typography.white,
-            disabled: theme.color.neutral.typography.white,
-        },
+            disabled: theme.color.neutral.typography.white
+        }
     },
     borderColor: {
         default: theme.color.primary.blue400,
@@ -185,15 +185,15 @@ export const linkTheme: KitButtonTheme = {
             hover: theme.color.secondary.red.red400,
             active: theme.color.secondary.red.red400,
             focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red100,
-        },
-    },
+            disabled: theme.color.secondary.red.red100
+        }
+    }
 };
 
 export const segmentedTheme: KitButtonTheme = {
     font: {
         weight: theme.typography.regularFontWeight,
-        bigIconSize: typographyHeaders.fontSize3,
+        bigIconSize: typographyHeaders.fontSize3
     },
     compactBorderRadius: 10,
     color: {
@@ -204,9 +204,9 @@ export const segmentedTheme: KitButtonTheme = {
         disabled: theme.color.primary.blue200,
         danger: {
             default: theme.color.secondary.red.red500,
-            disabled: theme.color.secondary.red.red200,
+            disabled: theme.color.secondary.red.red200
         },
-        iconCheck: theme.color.primary.blue400,
+        iconCheck: theme.color.primary.blue400
     },
     backgroundColor: {
         default: theme.color.neutral.typography.white,
@@ -219,8 +219,8 @@ export const segmentedTheme: KitButtonTheme = {
             hover: theme.color.neutral.typography.white,
             active: theme.color.secondary.red.red100,
             focus: theme.color.neutral.typography.white,
-            disabled: theme.color.secondary.red.red100,
-        },
+            disabled: theme.color.secondary.red.red100
+        }
     },
     borderColor: {
         default: theme.color.primary.blue100,
@@ -233,15 +233,15 @@ export const segmentedTheme: KitButtonTheme = {
             hover: theme.color.secondary.red.red400,
             active: theme.color.secondary.red.red400,
             focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red100,
-        },
-    },
+            disabled: theme.color.secondary.red.red100
+        }
+    }
 };
 
 export const segmentedGreenTheme: KitButtonTheme = {
     font: {
         weight: theme.typography.regularFontWeight,
-        bigIconSize: typographyHeaders.fontSize3,
+        bigIconSize: typographyHeaders.fontSize3
     },
     compactBorderRadius: 10,
     color: {
@@ -252,9 +252,9 @@ export const segmentedGreenTheme: KitButtonTheme = {
         disabled: theme.color.secondary.green.green200,
         danger: {
             default: theme.color.secondary.red.red500,
-            disabled: theme.color.secondary.red.red200,
+            disabled: theme.color.secondary.red.red200
         },
-        iconCheck: theme.color.secondary.green.green400,
+        iconCheck: theme.color.secondary.green.green400
     },
     backgroundColor: {
         default: theme.color.secondary.green.green100,
@@ -267,8 +267,8 @@ export const segmentedGreenTheme: KitButtonTheme = {
             hover: theme.color.neutral.typography.white,
             active: theme.color.secondary.red.red100,
             focus: theme.color.neutral.typography.white,
-            disabled: theme.color.secondary.red.red100,
-        },
+            disabled: theme.color.secondary.red.red100
+        }
     },
     borderColor: {
         default: theme.color.secondary.green.green100,
@@ -281,15 +281,15 @@ export const segmentedGreenTheme: KitButtonTheme = {
             hover: theme.color.secondary.red.red400,
             active: theme.color.secondary.red.red400,
             focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red100,
-        },
-    },
+            disabled: theme.color.secondary.red.red100
+        }
+    }
 };
 
 export const segmentedGrayTheme: KitButtonTheme = {
     font: {
         weight: theme.typography.regularFontWeight,
-        bigIconSize: typographyHeaders.fontSize3,
+        bigIconSize: typographyHeaders.fontSize3
     },
     compactBorderRadius: 7,
     color: {
@@ -300,9 +300,9 @@ export const segmentedGrayTheme: KitButtonTheme = {
         disabled: theme.color.secondary.mediumGrey.mediumGrey300,
         danger: {
             default: theme.color.secondary.red.red500,
-            disabled: theme.color.secondary.red.red200,
+            disabled: theme.color.secondary.red.red200
         },
-        iconCheck: theme.color.primary.blue400,
+        iconCheck: theme.color.primary.blue400
     },
     backgroundColor: {
         default: theme.color.secondary.mediumGrey.mediumGrey100,
@@ -315,8 +315,8 @@ export const segmentedGrayTheme: KitButtonTheme = {
             hover: theme.color.neutral.typography.white,
             active: theme.color.secondary.red.red100,
             focus: theme.color.neutral.typography.white,
-            disabled: theme.color.secondary.red.red100,
-        },
+            disabled: theme.color.secondary.red.red100
+        }
     },
     borderColor: {
         default: theme.color.neutral.gray.gray100,
@@ -329,7 +329,7 @@ export const segmentedGrayTheme: KitButtonTheme = {
             hover: theme.color.secondary.red.red400,
             active: theme.color.secondary.red.red400,
             focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red100,
-        },
-    },
+            disabled: theme.color.secondary.red.red100
+        }
+    }
 };

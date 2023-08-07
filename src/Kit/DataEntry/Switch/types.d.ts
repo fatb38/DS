@@ -1,9 +1,7 @@
-import { SwitchProps } from "antd";
-import { HTMLAttributes } from "react";
+import {SwitchProps} from 'antd';
+import {HTMLAttributes} from 'react';
 
-export interface KitSwitchProps
-    extends SwitchProps,
-        HTMLAttributes<HTMLButtonElement> {}
+export interface KitSwitchProps extends SwitchProps, HTMLAttributes<HTMLButtonElement> {}
 
 export interface StyledSwitchProps extends SwitchProps {}
 

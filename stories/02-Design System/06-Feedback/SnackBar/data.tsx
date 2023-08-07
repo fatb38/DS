@@ -1,84 +1,80 @@
-import React from "react";
-import {
-    KitSnackBarProvider,
-    openKitSnackBar,
-    closeKitSnackBar,
-} from "@kit/Feedback/";
-import { KitButton } from "@kit/General/";
-import { KitSpace } from "@kit/Layout/";
+import React from 'react';
+import {KitSnackBarProvider, openKitSnackBar, closeKitSnackBar} from '@kit/Feedback/';
+import {KitButton} from '@kit/General/';
+import {KitSpace} from '@kit/Layout/';
 
 export const SnackBarArgTypes = {
     message: {
-        name: "message",
-        description: "Content of SnackBar",
+        name: 'message',
+        description: 'Content of SnackBar',
         control: {
-            type: "text",
+            type: 'text'
         },
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "openSnackBar()",
-        },
+            category: 'openSnackBar()'
+        }
     },
     closable: {
-        name: "closable",
-        description: "SnackBar Alert can be closed",
+        name: 'closable',
+        description: 'SnackBar Alert can be closed',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: false,
+                summary: false
             },
-            category: "openSnackBar()",
-        },
+            category: 'openSnackBar()'
+        }
     },
     ctaText: {
-        name: "ctaText",
-        description: "Text of call to action button",
+        name: 'ctaText',
+        description: 'Text of call to action button',
         control: {
-            type: "text",
+            type: 'text'
         },
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "openSnackBar()",
-        },
+            category: 'openSnackBar()'
+        }
     },
     ctaOnClick: {
-        name: "ctaOnClick",
-        description: "Call when button is clicked",
+        name: 'ctaOnClick',
+        description: 'Call when button is clicked',
         table: {
             type: {
-                summary: "() => void",
+                summary: '() => void'
             },
-            category: "openSnackBar()",
-        },
+            category: 'openSnackBar()'
+        }
     },
     duration: {
-        name: "duration",
-        description: "Time during witch SnackBar is displayed",
+        name: 'duration',
+        description: 'Time during witch SnackBar is displayed',
         control: {
-            type: "number",
+            type: 'number'
         },
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
             defaultValue: {
-                summary: 4000,
+                summary: 4000
             },
-            category: "openSnackBar()",
-        },
-    },
+            category: 'openSnackBar()'
+        }
+    }
 };
 
-export const Template = ({ component, ...args }) => {
+export const Template = ({component, ...args}) => {
     return (
         <div>
             <KitSnackBarProvider />
@@ -90,8 +86,8 @@ export const Template = ({ component, ...args }) => {
                             message: args.message,
                             closable: args.closable,
                             ctaText: args.ctaText,
-                            ctaOnClick: () => console.log("API - Click"),
-                            duration: args.duration,
+                            ctaOnClick: () => console.log('API - Click'),
+                            duration: args.duration
                         });
                     }}
                 >

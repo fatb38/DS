@@ -1,16 +1,16 @@
-import React from "react";
-import { KitMenuProps } from "./types";
-import { styled } from "styled-components";
-import theme from "@theme/index";
-import { KitTypography, KitIcon } from "@kit/General";
-import { CloseOutlined } from "@ant-design/icons";
+import React from 'react';
+import {KitMenuProps} from './types';
+import {styled} from 'styled-components';
+import theme from '@theme/index';
+import {KitTypography, KitIcon} from '@kit/General';
+import {CloseOutlined} from '@ant-design/icons';
 
 const StyledMenu = styled.div`
     padding: 16px 19px;
     background-color: ${theme.color.neutral.typography.white};
 
     display: grid;
-    grid-template-areas: "header" "content";
+    grid-template-areas: 'header' 'content';
 
     .kit-menu-header {
         grid-area: header;
@@ -18,7 +18,7 @@ const StyledMenu = styled.div`
 
         .kit-menu-header-topbar {
             display: grid;
-            grid-template-areas: "title close";
+            grid-template-areas: 'title close';
             grid-template-columns: 1fr min-content;
             align-items: center;
             margin-bottom: 16px;
@@ -34,7 +34,7 @@ const StyledMenu = styled.div`
 
         .kit-menu-header-primary {
             display: grid;
-            grid-template-areas: "button primary-input";
+            grid-template-areas: 'button primary-input';
             grid-template-columns: min-content 1fr;
             margin-bottom: 16px;
 
@@ -50,7 +50,7 @@ const StyledMenu = styled.div`
 
         .kit-menu-header-secondary {
             display: grid;
-            grid-template-areas: "secondary-input";
+            grid-template-areas: 'secondary-input';
             grid-template-columns: 1fr;
             margin-bottom: 16px;
 
@@ -76,19 +76,14 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
 }) => {
     const isClosable = onCloseClick !== undefined;
     const shouldDisplayHeaderTopbar = title !== undefined || isClosable;
-    const shouldDisplayHeaderPrimary =
-        segmentedButton !== undefined || primaryInput !== undefined;
+    const shouldDisplayHeaderPrimary = segmentedButton !== undefined || primaryInput !== undefined;
     const shouldDisplayHeaderSecondary = secondaryInput !== undefined;
 
     const getTitle = () => {
         return (
             title && (
                 <div className="kit-menu-header-title">
-                    <KitTypography.Text
-                        size="large"
-                        weight="medium"
-                        ellipsis={{ rows: 1, tooltip: true }}
-                    >
+                    <KitTypography.Text size="large" weight="medium" ellipsis={{rows: 1, tooltip: true}}>
                         {title}
                     </KitTypography.Text>
                 </div>
@@ -115,8 +110,8 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
         return (
             <div className="kit-menu-header-button">
                 {React.cloneElement(segmentedButton, {
-                    type: "segmented",
-                    subtypeSegmented: "green",
+                    type: 'segmented',
+                    subtypeSegmented: 'green'
                 })}
             </div>
         );
@@ -125,19 +120,13 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
     const getPrimaryInput = () => {
         if (primaryInput === undefined) return;
 
-        return (
-            <div className="kit-menu-header-primary-input">{primaryInput}</div>
-        );
+        return <div className="kit-menu-header-primary-input">{primaryInput}</div>;
     };
 
     const getSecondaryInput = () => {
         if (secondaryInput === undefined) return;
 
-        return (
-            <div className="kit-menu-header-secondary-input">
-                {secondaryInput}
-            </div>
-        );
+        return <div className="kit-menu-header-secondary-input">{secondaryInput}</div>;
     };
 
     return (
@@ -155,11 +144,7 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
                         {getPrimaryInput()}
                     </div>
                 )}
-                {shouldDisplayHeaderSecondary && (
-                    <div className="kit-menu-header-secondary">
-                        {getSecondaryInput()}
-                    </div>
-                )}
+                {shouldDisplayHeaderSecondary && <div className="kit-menu-header-secondary">{getSecondaryInput()}</div>}
             </div>
             <div className="menu-content">{children}</div>
         </StyledMenu>

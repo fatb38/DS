@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import theme from "@kit/DataEntry/Select/theme";
+import {createGlobalStyle} from 'styled-components';
+import theme from '@kit/DataEntry/Select/theme';
 
 export const DropDownStyle = createGlobalStyle`
     &.ant-dropdown .ant-dropdown-menu {

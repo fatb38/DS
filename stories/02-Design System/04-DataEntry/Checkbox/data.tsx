@@ -1,194 +1,190 @@
-import React from "react";
-import { KitCheckbox } from "@kit/DataEntry/";
+import React from 'react';
+import {KitCheckbox} from '@kit/DataEntry/';
 
 const CheckboxArgTypes = {
     label: {
-        name: "label",
-        control: { type: "text" },
-        description: "label of the checkbox",
+        name: 'label',
+        control: {type: 'text'},
+        description: 'label of the checkbox',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "-" },
-            category: "Checkbox",
-            subcategory: "For testing only",
+            defaultValue: {summary: '-'},
+            category: 'Checkbox',
+            subcategory: 'For testing only'
         },
-        defaultValue: "Label",
+        defaultValue: 'Label'
     },
     autoFocus: {
-        name: "autoFocus",
-        control: { type: "boolean" },
-        description: "If get focus when component mounted",
+        name: 'autoFocus',
+        control: {type: 'boolean'},
+        description: 'If get focus when component mounted',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Checkbox",
+            defaultValue: {summary: false},
+            category: 'Checkbox'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     checked: {
-        name: "checked",
-        control: { type: "boolean" },
-        description: "Specifies whether the checkbox is selected ",
+        name: 'checked',
+        control: {type: 'boolean'},
+        description: 'Specifies whether the checkbox is selected ',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Checkbox",
+            defaultValue: {summary: false},
+            category: 'Checkbox'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     defaultChecked: {
-        name: "defaultChecked",
-        control: { type: "boolean" },
-        description:
-            "Specifies the initial state: whether or not the checkbox is selected",
+        name: 'defaultChecked',
+        control: {type: 'boolean'},
+        description: 'Specifies the initial state: whether or not the checkbox is selected',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Checkbox",
+            defaultValue: {summary: false},
+            category: 'Checkbox'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     disabled: {
-        name: "disabled",
-        control: { type: "boolean" },
-        description: "If disable checkbox",
+        name: 'disabled',
+        control: {type: 'boolean'},
+        description: 'If disable checkbox',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Checkbox",
+            defaultValue: {summary: false},
+            category: 'Checkbox'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     danger: {
-        name: "danger",
-        control: { type: "boolean" },
-        description: "If danger checkbox",
+        name: 'danger',
+        control: {type: 'boolean'},
+        description: 'If danger checkbox',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Checkbox",
+            defaultValue: {summary: false},
+            category: 'Checkbox'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     indeterminate: {
-        name: "indeterminate",
-        control: { type: "boolean" },
-        description: "The indeterminate checked state of checkbox",
+        name: 'indeterminate',
+        control: {type: 'boolean'},
+        description: 'The indeterminate checked state of checkbox',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Checkbox",
+            defaultValue: {summary: false},
+            category: 'Checkbox'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     onChange: {
-        name: "onChange",
-        description:
-            "The callback function that is triggered when the state changes",
+        name: 'onChange',
+        description: 'The callback function that is triggered when the state changes',
         table: {
             type: {
-                summary: "(e: CheckboxChangeEvent) => void",
+                summary: '(e: CheckboxChangeEvent) => void'
             },
-            defaultValue: { summary: "-" },
-            category: "Checkbox",
-        },
-    },
+            defaultValue: {summary: '-'},
+            category: 'Checkbox'
+        }
+    }
 };
 
 const CheckboxGroupArgTypes = {
     defaultValue: {
-        name: "defaultValue",
-        description: "Default selected value",
+        name: 'defaultValue',
+        description: 'Default selected value',
         table: {
             type: {
-                summary: "string | number",
+                summary: 'string | number'
             },
-            defaultValue: { summary: "[]" },
-            category: "Checkbox Group",
-        },
+            defaultValue: {summary: '[]'},
+            category: 'Checkbox Group'
+        }
     },
     disabled: {
-        name: "disabled",
-        description: "If disable all checkboxes",
+        name: 'disabled',
+        description: 'If disable all checkboxes',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Checkbox Group",
+            defaultValue: {summary: false},
+            category: 'Checkbox Group'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     name: {
-        name: "name",
-        description:
-            'The `name` property of all `input[type="checkbox"]` children',
+        name: 'name',
+        description: 'The `name` property of all `input[type="checkbox"]` children',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "-" },
-            category: "Checkbox Group",
-        },
+            defaultValue: {summary: '-'},
+            category: 'Checkbox Group'
+        }
     },
     options: {
-        name: "options",
-        description: "Specifies options",
+        name: 'options',
+        description: 'Specifies options',
         table: {
             type: {
-                summary: "string[] | number[] | Option[]",
+                summary: 'string[] | number[] | Option[]'
             },
-            defaultValue: { summary: "[]" },
-            category: "Checkbox Group",
-        },
+            defaultValue: {summary: '[]'},
+            category: 'Checkbox Group'
+        }
     },
     value: {
-        name: "value",
-        description: "Used for setting the currently selected value",
+        name: 'value',
+        description: 'Used for setting the currently selected value',
         table: {
             type: {
-                summary: "(string | number)[]",
+                summary: '(string | number)[]'
             },
-            defaultValue: { summary: "[]" },
-            category: "Checkbox Group",
-        },
+            defaultValue: {summary: '[]'},
+            category: 'Checkbox Group'
+        }
     },
     onChange: {
-        name: "onChange",
-        description:
-            "The callback function that is triggered when the state changes",
+        name: 'onChange',
+        description: 'The callback function that is triggered when the state changes',
         table: {
             type: {
-                summary: "(checkedValue: CheckboxValueType[]) => void",
+                summary: '(checkedValue: CheckboxValueType[]) => void'
             },
-            defaultValue: { summary: "-" },
-            category: "Checkbox",
-        },
-    },
+            defaultValue: {summary: '-'},
+            category: 'Checkbox'
+        }
+    }
 };
 
 export const argTypes = {
     ...CheckboxArgTypes,
-    ...CheckboxGroupArgTypes,
+    ...CheckboxGroupArgTypes
 };
 
-export const plainOptions = ["Apple", "Pear", "Orange"];
-export const defaultCheckedList = ["Apple", "Orange"];
+export const plainOptions = ['Apple', 'Pear', 'Orange'];
+export const defaultCheckedList = ['Apple', 'Orange'];
 
-export const Template = ({ label, ...args }) => {
+export const Template = ({label, ...args}) => {
     return <KitCheckbox {...args}>{label}</KitCheckbox>;
 };

@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import cn from "classnames";
-import theme from "./theme";
-import KitCardProps from "./types";
-import KitColorbar from "./ColorBar";
-import { EditOutlined, EyeOutlined } from "@ant-design/icons";
-import { KitTypography, KitButton } from "@kit/General/";
-import { KitImageProps } from "@kit/DataDisplay/Image/types";
-import { KitIconProps } from "@kit/General/Icon/types";
-import { KitAvatarProps } from "../Avatar/types";
-import { KitCheckbox, KitTag } from "@kit/DataEntry";
-import type { CheckboxChangeEvent } from "antd/es/checkbox";
+import React, {useState} from 'react';
+import styled from 'styled-components';
+import cn from 'classnames';
+import theme from './theme';
+import KitCardProps from './types';
+import KitColorbar from './ColorBar';
+import {EditOutlined, EyeOutlined} from '@ant-design/icons';
+import {KitTypography, KitButton} from '@kit/General/';
+import {KitImageProps} from '@kit/DataDisplay/Image/types';
+import {KitIconProps} from '@kit/General/Icon/types';
+import {KitAvatarProps} from '../Avatar/types';
+import {KitCheckbox, KitTag} from '@kit/DataEntry';
+import type {CheckboxChangeEvent} from 'antd/es/checkbox';
 
 const CardWrapper = styled.div<{
     $vertical?: boolean;
 }>`
     display: grid;
     padding: ${theme.cardPadding}px;
-    font-family: "Inter";
+    font-family: 'Inter';
 
     background: ${theme.backgroundColor};
     border-radius: ${theme.borderRadius}px;
@@ -68,9 +68,9 @@ const CardWrapper = styled.div<{
 
     &.kit-card-vertical {
         grid-template:
-            "picto picto"
-            "select colors"
-            "content content";
+            'picto picto'
+            'select colors'
+            'content content';
         grid-template-columns: max-content 1fr;
 
         .kit-card-select,
@@ -97,7 +97,7 @@ const CardWrapper = styled.div<{
     }
 
     &.kit-card-horizontal {
-        grid-template: "select picto colors content";
+        grid-template: 'select picto colors content';
         grid-template-columns: min-content min-content min-content 1fr;
 
         .kit-card-select,
@@ -252,7 +252,7 @@ const CardWrapper = styled.div<{
 
 // TODO Add More /less button to description
 
-const getPicture = (picture) => {
+const getPicture = picture => {
     console.log(picture);
     if (!picture) {
         return null;
@@ -260,41 +260,32 @@ const getPicture = (picture) => {
 
     let noBorder = false;
     let cloneProps = {};
-    let wrapperClassName = "kit-card-icon";
+    let wrapperClassName = 'kit-card-icon';
     switch (picture.type.displayName) {
-        case "KitImage":
+        case 'KitImage':
             cloneProps = {
                 preview: {
-                    mask: <EyeOutlined />,
+                    mask: <EyeOutlined />
                 },
-                width: "100%",
-                height: "100%",
-                rootClassName:
-                    (picture.props.rootClassName || "") +
-                    " kit-card-image-image",
+                width: '100%',
+                height: '100%',
+                rootClassName: (picture.props.rootClassName || '') + ' kit-card-image-image'
             };
-            wrapperClassName = "kit-card-image";
+            wrapperClassName = 'kit-card-image';
             break;
-        case "KitIcon":
+        case 'KitIcon':
             noBorder = true;
             cloneProps = {
-                on: true,
+                on: true
             };
             break;
-        case "KitAvatar":
+        case 'KitAvatar':
             break;
         default:
             return null;
     }
-    let Component = React.cloneElement(
-        picture,
-        cloneProps as KitImageProps & KitIconProps & KitAvatarProps
-    );
-    return (
-        <div className={`${wrapperClassName} ${noBorder ? "noBorder" : ""}`}>
-            {Component}
-        </div>
-    );
+    let Component = React.cloneElement(picture, cloneProps as KitImageProps & KitIconProps & KitAvatarProps);
+    return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
 };
 
 const getActions = (actions, disabled) => {
@@ -302,20 +293,20 @@ const getActions = (actions, disabled) => {
         return null;
     }
 
-    return actions.map((button) => {
+    return actions.map(button => {
         return React.cloneElement(button, {
-            type: "default",
+            type: 'default',
             diasbled: disabled,
-            className: `${button.props.className || ""} kit-card-select-button`,
+            className: `${button.props.className || ''} kit-card-select-button`
         });
     });
 };
 
 const getSWrapperClassName = (vertical, disabled, className) =>
-    cn(className, "kit-card-wrapper", {
-        "kit-card-vertical": vertical,
-        "kit-card-horizontal": !vertical,
-        "kit-card-disabled": disabled,
+    cn(className, 'kit-card-wrapper', {
+        'kit-card-vertical': vertical,
+        'kit-card-horizontal': !vertical,
+        'kit-card-disabled': disabled
     });
 
 export const KitCard: React.FunctionComponent<KitCardProps> = ({
@@ -336,21 +327,12 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
     const [isDescriptionEllipsis, setIsDescriptionEllipsis] = useState(false);
 
     return (
-        <CardWrapper
-            className={getSWrapperClassName(
-                vertical,
-                disabled,
-                props.className || ""
-            )}
-            {...props}
-        >
+        <CardWrapper className={getSWrapperClassName(vertical, disabled, props.className || '')} {...props}>
             {(onSelectChange || onEdit) && (
                 <div className="kit-card-select">
                     {onSelectChange && (
                         <KitCheckbox
-                            onChange={(e: CheckboxChangeEvent) =>
-                                onSelectChange && onSelectChange(e)
-                            }
+                            onChange={(e: CheckboxChangeEvent) => onSelectChange && onSelectChange(e)}
                             disabled={disabled}
                         />
                     )}
@@ -367,18 +349,9 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
                 </div>
             )}
             {getPicture(picture)}
-            {colors && (
-                <KitColorbar
-                    colors={colors}
-                    vertical={!vertical}
-                    className={`kit-card-colorbar`}
-                />
-            )}
+            {colors && <KitColorbar colors={colors} vertical={!vertical} className={`kit-card-colorbar`} />}
             <div className="kit-card-data">
-                <KitTypography.Text
-                    className="kit-card-data-title"
-                    ellipsis={{ rows: 1, tooltip: true }}
-                >
+                <KitTypography.Text className="kit-card-data-title" ellipsis={{rows: 1, tooltip: true}}>
                     {title}
                 </KitTypography.Text>
                 <div className="kit-card-description-container">
@@ -390,8 +363,7 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
                                 : {
                                       rows: 2,
                                       expandable: true,
-                                      onEllipsis: () =>
-                                          setIsDescriptionEllipsis(true),
+                                      onEllipsis: () => setIsDescriptionEllipsis(true)
                                   }
                         }
                     >
@@ -399,7 +371,7 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
                         {descriptionVisible && (
                             <KitTypography.Link
                                 className="kit-card-description-collexp kit-card-description-collapse"
-                                onClick={(e) => {
+                                onClick={e => {
                                     e.stopPropagation();
                                     setDescriptionVisible(false);
                                 }}
@@ -411,7 +383,7 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
                     {isDescriptionEllipsis && !descriptionVisible && (
                         <KitTypography.Link
                             className="kit-card-description-collexp kit-card-description-expand"
-                            onClick={(e) => {
+                            onClick={e => {
                                 e.stopPropagation();
                                 setDescriptionVisible(true);
                             }}
@@ -420,12 +392,10 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
                         </KitTypography.Link>
                     )}
                 </div>
-                <KitTypography.Text className="kit-card-data-footer">
-                    {extrainfo}
-                </KitTypography.Text>
+                <KitTypography.Text className="kit-card-data-footer">{extrainfo}</KitTypography.Text>
                 {tags && (
                     <div className="kit-card-tags">
-                        {tags.map((tag) => (
+                        {tags.map(tag => (
                             <KitTag key={tag as string} color="blue">
                                 {tag}
                             </KitTag>
@@ -437,4 +407,4 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
     );
 };
 
-KitCard.displayName = "KitCard";
+KitCard.displayName = 'KitCard';

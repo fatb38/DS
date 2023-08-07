@@ -1,180 +1,180 @@
-import { KitRate } from "@kit/DataEntry";
-import { FrownOutlined, MehOutlined, SmileOutlined } from "@ant-design/icons";
-import React from "react";
+import {KitRate} from '@kit/DataEntry';
+import {FrownOutlined, MehOutlined, SmileOutlined} from '@ant-design/icons';
+import React from 'react';
 
-const color = ["default", "green", "red", "blue"];
+const color = ['default', 'green', 'red', 'blue'];
 
 export const RateArgTypes = {
     allowClear: {
-        name: "allowClear",
-        description: "Whether to allow clear when click again",
-        control: { type: "boolean" },
+        name: 'allowClear',
+        description: 'Whether to allow clear when click again',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            category: "Rate",
-            defaultValue: { summary: true },
-        },
+            category: 'Rate',
+            defaultValue: {summary: true}
+        }
     },
     allowHalf: {
-        name: "allowHalf",
-        description: "Whether to allow semi selection",
-        control: { type: "boolean" },
+        name: 'allowHalf',
+        description: 'Whether to allow semi selection',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            category: "Rate",
-            defaultValue: { summary: true },
-        },
+            category: 'Rate',
+            defaultValue: {summary: true}
+        }
     },
     color: {
-        name: "color",
-        description: "Set a color",
+        name: 'color',
+        description: 'Set a color',
         options: color,
         control: {
-            type: "select",
-            defaultValue: "default",
+            type: 'select',
+            defaultValue: 'default'
         },
         table: {
             type: {
-                summary: "default | red | green | blue",
+                summary: 'default | red | green | blue'
             },
-            category: "Rate",
-            defaultValue: { summary: "default" },
-        },
+            category: 'Rate',
+            defaultValue: {summary: 'default'}
+        }
     },
     autoFocus: {
-        name: "autoFocus",
-        description: "If get focus when component mounted",
-        control: { type: "boolean" },
+        name: 'autoFocus',
+        description: 'If get focus when component mounted',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            category: "Rate",
-            defaultValue: { summary: false },
-        },
+            category: 'Rate',
+            defaultValue: {summary: false}
+        }
     },
     character: {
-        name: "character",
-        description: "The custom character of rate",
+        name: 'character',
+        description: 'The custom character of rate',
         table: {
             type: {
-                summary: "ReactNode | (RateProps) => ReactNode",
+                summary: 'ReactNode | (RateProps) => ReactNode'
             },
-            category: "Rate",
-            defaultValue: { summary: "<StarFilled />" },
-        },
+            category: 'Rate',
+            defaultValue: {summary: '<StarFilled />'}
+        }
     },
     count: {
-        name: "count",
-        description: "Star count",
-        control: { type: "number" },
+        name: 'count',
+        description: 'Star count',
+        control: {type: 'number'},
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
-            category: "Rate",
-            defaultValue: { summary: 5 },
-        },
+            category: 'Rate',
+            defaultValue: {summary: 5}
+        }
     },
     defaultValue: {
-        name: "defaultValue",
-        description: "The default value",
-        control: { type: "number" },
+        name: 'defaultValue',
+        description: 'The default value',
+        control: {type: 'number'},
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
-            category: "Rate",
-            defaultValue: { summary: 0 },
-        },
+            category: 'Rate',
+            defaultValue: {summary: 0}
+        }
     },
     disabled: {
-        name: "disabled",
-        description: "If read only, unable to interact",
-        control: { type: "boolean" },
+        name: 'disabled',
+        description: 'If read only, unable to interact',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            category: "Rate",
-            defaultValue: { summary: false },
-        },
+            category: 'Rate',
+            defaultValue: {summary: false}
+        }
     },
     tooltips: {
-        name: "tooltips",
-        description: "Customize tooltip by each character",
+        name: 'tooltips',
+        description: 'Customize tooltip by each character',
         table: {
             type: {
-                summary: "string[]",
+                summary: 'string[]'
             },
-            category: "Rate",
-        },
+            category: 'Rate'
+        }
     },
     value: {
-        name: "value",
-        description: "The current value",
-        control: { type: "number" },
+        name: 'value',
+        description: 'The current value',
+        control: {type: 'number'},
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
-            category: "Rate",
-        },
+            category: 'Rate'
+        }
     },
     onBlur: {
-        name: "onBlur",
-        description: "Callback when component lose focus",
+        name: 'onBlur',
+        description: 'Callback when component lose focus',
         table: {
             type: {
-                summary: "function()",
+                summary: 'function()'
             },
-            category: "Rate",
-        },
+            category: 'Rate'
+        }
     },
     onChange: {
-        name: "onChange",
-        description: "Callback when select value",
+        name: 'onChange',
+        description: 'Callback when select value',
         table: {
             type: {
-                summary: "function(value: number)",
+                summary: 'function(value: number)'
             },
-            category: "Rate",
-        },
+            category: 'Rate'
+        }
     },
     onFocus: {
-        name: "onFocus",
-        description: "Callback when component get focus",
+        name: 'onFocus',
+        description: 'Callback when component get focus',
         table: {
             type: {
-                summary: "function()",
+                summary: 'function()'
             },
-            category: "Rate",
-        },
+            category: 'Rate'
+        }
     },
     onHoverChange: {
-        name: "onHoverChange",
-        description: "Callback when hover item",
+        name: 'onHoverChange',
+        description: 'Callback when hover item',
         table: {
             type: {
-                summary: "function(value: number)",
+                summary: 'function(value: number)'
             },
-            category: "Rate",
-        },
+            category: 'Rate'
+        }
     },
     onKeyDown: {
-        name: "onKeyDown",
-        description: "Callback when keydown on component",
+        name: 'onKeyDown',
+        description: 'Callback when keydown on component',
         table: {
             type: {
-                summary: "function(event)",
+                summary: 'function(event)'
             },
-            category: "Rate",
-        },
-    },
+            category: 'Rate'
+        }
+    }
 };
 
 const customIcons: Record<number, React.ReactNode> = {
@@ -182,14 +182,13 @@ const customIcons: Record<number, React.ReactNode> = {
     2: <FrownOutlined rev={null} />,
     3: <MehOutlined rev={null} />,
     4: <SmileOutlined rev={null} />,
-    5: <SmileOutlined rev={null} />,
+    5: <SmileOutlined rev={null} />
 };
 
-export const charsNumber = ({ index }: { index: number }) => index + 1;
+export const charsNumber = ({index}: {index: number}) => index + 1;
 
-export const charsIcons = ({ index }: { index: number }) =>
-    customIcons[index + 1];
+export const charsIcons = ({index}: {index: number}) => customIcons[index + 1];
 
-export const Template = ({ ...args }) => {
+export const Template = ({...args}) => {
     return <KitRate {...args} />;
 };

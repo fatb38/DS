@@ -1,174 +1,174 @@
-import React from "react";
-import { KitSteps } from "@kit/Navigation/";
+import React from 'react';
+import {KitSteps} from '@kit/Navigation/';
 
-const direction = ["horizontal", "vertical"];
+const direction = ['horizontal', 'vertical'];
 
-const status = ["process", "wait", "finish", "error"];
+const status = ['process', 'wait', 'finish', 'error'];
 
 export const StepsArgTypes = {
     current: {
-        name: "current",
+        name: 'current',
         description:
-            "To set the current step, counting from 0. You can overwrite this state by using `status` of `Step`",
+            'To set the current step, counting from 0. You can overwrite this state by using `status` of `Step`',
         control: {
-            type: "number",
+            type: 'number'
         },
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
             defaultValue: {
-                summary: 0,
+                summary: 0
             },
-            category: "Steps",
-        },
+            category: 'Steps'
+        }
     },
     direction: {
-        name: "direction",
+        name: 'direction',
         description:
-            "To set the current step, counting from 0. You can overwrite this state by using `status` of `Step`",
+            'To set the current step, counting from 0. You can overwrite this state by using `status` of `Step`',
         options: direction,
         control: {
-            type: "select",
-            defaultValue: "horizontal",
+            type: 'select',
+            defaultValue: 'horizontal'
         },
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
             defaultValue: {
-                summary: "horizontal",
+                summary: 'horizontal'
             },
-            category: "Steps",
-        },
+            category: 'Steps'
+        }
     },
     initial: {
-        name: "initial",
-        description: "Set the initial step, counting from 0",
+        name: 'initial',
+        description: 'Set the initial step, counting from 0',
         control: {
-            type: "number",
+            type: 'number'
         },
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
             defaultValue: {
-                summary: 0,
+                summary: 0
             },
-            category: "Steps",
-        },
+            category: 'Steps'
+        }
     },
     status: {
-        name: "status",
+        name: 'status',
         description:
-            "To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error`",
+            'To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error`',
         options: status,
         control: {
-            type: "select",
-            defaultValue: "process",
+            type: 'select',
+            defaultValue: 'process'
         },
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
             defaultValue: {
-                summary: "process",
+                summary: 'process'
             },
-            category: "Steps",
-        },
+            category: 'Steps'
+        }
     },
     onChange: {
-        name: "onChange",
-        description: "Trigger when Step is changed",
+        name: 'onChange',
+        description: 'Trigger when Step is changed',
         table: {
             type: {
-                summary: "(current) => void",
+                summary: '(current) => void'
             },
-            category: "Steps",
-        },
+            category: 'Steps'
+        }
     },
     items: {
-        name: "items",
-        description: "StepItem content",
+        name: 'items',
+        description: 'StepItem content',
         table: {
             type: {
-                summary: "StepItem",
+                summary: 'StepItem'
             },
             defaultValue: {
-                summary: "[]",
+                summary: '[]'
             },
-            category: "Steps",
-        },
+            category: 'Steps'
+        }
     },
     itemDescription: {
-        name: "description",
-        description: "Description of the step, optional property",
+        name: 'description',
+        description: 'Description of the step, optional property',
         table: {
             type: {
-                summary: "ReactNode",
+                summary: 'ReactNode'
             },
-            category: "Steps",
-            subcategory: "StepItem",
-        },
+            category: 'Steps',
+            subcategory: 'StepItem'
+        }
     },
     itemDisabled: {
-        name: "disabled",
-        description: "Disable click",
+        name: 'disabled',
+        description: 'Disable click',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: false,
+                summary: false
             },
-            category: "Steps",
-            subcategory: "StepItem",
-        },
+            category: 'Steps',
+            subcategory: 'StepItem'
+        }
     },
     itemStatus: {
-        name: "status",
+        name: 'status',
         description:
-            "To specify the status. It will be automatically set by current of Steps if not configured. Optional values are: `wait` `process` `finish` `error`",
+            'To specify the status. It will be automatically set by current of Steps if not configured. Optional values are: `wait` `process` `finish` `error`',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
             defaultValue: {
-                summary: "wait",
+                summary: 'wait'
             },
-            category: "Steps",
-            subcategory: "StepItem",
-        },
+            category: 'Steps',
+            subcategory: 'StepItem'
+        }
     },
     itemTitle: {
-        name: "title",
-        description: "Title of the step",
+        name: 'title',
+        description: 'Title of the step',
         table: {
             type: {
-                summary: "ReactNode",
+                summary: 'ReactNode'
             },
-            category: "Steps",
-            subcategory: "StepItem",
-        },
-    },
+            category: 'Steps',
+            subcategory: 'StepItem'
+        }
+    }
 };
 
-export const Template = ({ component, ...args }) => {
+export const Template = ({component, ...args}) => {
     return (
         <KitSteps
             items={[
                 {
-                    title: "Step 1",
-                    description: "This is a description",
+                    title: 'Step 1',
+                    description: 'This is a description'
                 },
                 {
-                    title: "Step 2",
-                    description: "This is a description",
+                    title: 'Step 2',
+                    description: 'This is a description'
                 },
                 {
-                    title: "Step 3",
-                    description: "This is a description",
-                },
+                    title: 'Step 3',
+                    description: 'This is a description'
+                }
             ]}
             {...args}
         />

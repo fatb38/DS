@@ -1,8 +1,8 @@
-import React from "react";
-import { Input as AntdInput } from "antd";
-import { KitPasswordProps } from "./types";
-import { styled } from "styled-components";
-import theme from "@theme/index";
+import React from 'react';
+import {Input as AntdInput} from 'antd';
+import {KitPasswordProps} from './types';
+import {styled} from 'styled-components';
+import theme from '@theme/index';
 
 const StyledAntdPassword = styled(AntdInput.Password)`
     &.ant-input-affix-wrapper {
@@ -131,9 +131,7 @@ const StyledAntdPassword = styled(AntdInput.Password)`
     }
 `;
 
-const KitPassword: React.FunctionComponent<KitPasswordProps> = (
-    passwordProps
-) => {
+const KitPassword: React.FunctionComponent<KitPasswordProps> = passwordProps => {
     return <StyledAntdPassword {...passwordProps} />;
 };
 

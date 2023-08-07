@@ -1,18 +1,16 @@
-import { HTMLAttributes, ReactNode } from "react";
-import type ReactModal from "react-modal";
+import {HTMLAttributes, ReactNode} from 'react';
+import type ReactModal from 'react-modal';
 
 type propsToOmit =
-    | "bodyOpenClassName"
-    | "htmlOpenClassName"
-    | "closeTimeoutMS"
-    | "overlayRef"
-    | "contentRef"
-    | "overlayElement"
-    | "contentElement";
+    | 'bodyOpenClassName'
+    | 'htmlOpenClassName'
+    | 'closeTimeoutMS'
+    | 'overlayRef'
+    | 'contentRef'
+    | 'overlayElement'
+    | 'contentElement';
 
-export interface KitModalProps
-    extends Omit<ReactModal.Props, propsToOmit>,
-        HTMLAttributes<HTMLDivElement> {
+export interface KitModalProps extends Omit<ReactModal.Props, propsToOmit>, HTMLAttributes<HTMLDivElement> {
     width?: string;
     showCloseIcon?: boolean;
     close?: (args: any[]) => void;
@@ -21,7 +19,7 @@ export interface KitModalProps
 }
 
 export interface confirmDialogProps extends KitModalProps {
-    type: "info" | "success" | "warning" | "error" | "warn" | "confirm";
+    type: 'info' | 'success' | 'warning' | 'error' | 'warn' | 'confirm';
     image?: string;
     icon?: ReactNode;
     firstLine?: ReactNode;
@@ -35,13 +33,9 @@ export interface confirmDialogProps extends KitModalProps {
     onOk?: () => {};
 }
 
-export type ConfigUpdate =
-    | confirmDialogProps
-    | ((prevConfig: confirmDialogProps) => confirmDialogProps);
+export type ConfigUpdate = confirmDialogProps | ((prevConfig: confirmDialogProps) => confirmDialogProps);
 
-export type ModalFunc = (
-    props: confirmDialogProps
-) => {
+export type ModalFunc = (props: confirmDialogProps) => {
     destroy: () => void;
     update: (configUpdate: ConfigUpdate) => void;
 };

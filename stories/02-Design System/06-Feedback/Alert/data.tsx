@@ -1,118 +1,117 @@
-import React from "react";
-import { KitAlert } from "@kit/Feedback/";
+import React from 'react';
+import {KitAlert} from '@kit/Feedback/';
 
-const type = ["success", "info", "warning", "error"];
+const type = ['success', 'info', 'warning', 'error'];
 
 export const AlertArgTypes = {
     type: {
-        name: "type",
-        description:
-            "Type of Alert styles, options: `success`, `info`, `warning`, `error`",
+        name: 'type',
+        description: 'Type of Alert styles, options: `success`, `info`, `warning`, `error`',
         options: type,
         control: {
-            type: "select",
-            defaultValue: "info",
+            type: 'select',
+            defaultValue: 'info'
         },
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "Alert",
-        },
+            category: 'Alert'
+        }
     },
     message: {
-        name: "message",
-        description: "Content of Alert",
+        name: 'message',
+        description: 'Content of Alert',
         control: {
-            type: "text",
+            type: 'text'
         },
         table: {
             type: {
-                summary: "ReactNode",
+                summary: 'ReactNode'
             },
-            category: "Alert",
-        },
+            category: 'Alert'
+        }
     },
     description: {
-        name: "description",
-        description: "Additional content of Alert",
+        name: 'description',
+        description: 'Additional content of Alert',
         control: {
-            type: "text",
+            type: 'text'
         },
         table: {
             type: {
-                summary: "ReactNode",
+                summary: 'ReactNode'
             },
-            category: "Alert",
-        },
+            category: 'Alert'
+        }
     },
     closable: {
-        name: "closable",
-        description: "Whether Alert can be closed",
+        name: 'closable',
+        description: 'Whether Alert can be closed',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            category: "Alert",
-        },
+            category: 'Alert'
+        }
     },
     banner: {
-        name: "banner",
-        description: "Whether to show as banner",
+        name: 'banner',
+        description: 'Whether to show as banner',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: false,
+                summary: false
             },
-            category: "Alert",
-        },
+            category: 'Alert'
+        }
     },
     showIcon: {
-        name: "showIcon",
-        description: "Whether to show icon",
+        name: 'showIcon',
+        description: 'Whether to show icon',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: "false, in banner mode default is true",
+                summary: 'false, in banner mode default is true'
             },
-            category: "Alert",
-        },
+            category: 'Alert'
+        }
     },
     afterClose: {
-        name: "afterClose",
-        description: "Called when close animation is finished",
+        name: 'afterClose',
+        description: 'Called when close animation is finished',
         table: {
             type: {
-                summary: "() => void",
+                summary: '() => void'
             },
-            category: "Alert",
-        },
+            category: 'Alert'
+        }
     },
     onClose: {
-        name: "onClose",
-        description: "Callback when Alert is closed",
+        name: 'onClose',
+        description: 'Callback when Alert is closed',
         table: {
             type: {
-                summary: "(e: MouseEvent) => void",
+                summary: '(e: MouseEvent) => void'
             },
-            category: "Alert",
-        },
-    },
+            category: 'Alert'
+        }
+    }
 };
 
-export const Template = ({ component, ...args }) => {
+export const Template = ({component, ...args}) => {
     return <KitAlert message="Default message" {...args} />;
 };

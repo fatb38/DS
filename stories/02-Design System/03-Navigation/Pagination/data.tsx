@@ -1,349 +1,324 @@
-import React from "react";
-import { KitPagination } from "@kit/Navigation/";
+import React from 'react';
+import {KitPagination} from '@kit/Navigation/';
 
-const sizeOptions = ["default", "small", "default"];
-
+const sizeOptions = ['default', 'small', 'default'];
 
 export const PaginationArgTypes = {
     current: {
-        name: "current",
-        description:
-            "Current page number",
+        name: 'current',
+        description: 'Current page number',
         control: {
-            type: "number",
+            type: 'number'
         },
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
             defaultValue: {
-                summary: '-',
+                summary: '-'
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     defaultCurrent: {
-        name: "defaultCurrent",
-        description:
-            "Default initial page number",
+        name: 'defaultCurrent',
+        description: 'Default initial page number',
         control: {
-            type: "number",
+            type: 'number'
         },
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
             defaultValue: {
-                summary: 1,
+                summary: 1
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     bordered: {
-        name: "bordered",
-        description:
-            "Show all buttons bordered (only in default size)",
+        name: 'bordered',
+        description: 'Show all buttons bordered (only in default size)',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: '-',
+                summary: '-'
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     size: {
-        name: "size",
-        description:
-            "Specify the size of `Pagination`, can be set to `small`",
+        name: 'size',
+        description: 'Specify the size of `Pagination`, can be set to `small`',
         options: sizeOptions,
         control: {
-            type: "select",
-            defaultValue: "default"
+            type: 'select',
+            defaultValue: 'default'
         },
         table: {
             type: {
-                summary: "`default` | `small` | `default`",
+                summary: '`default` | `small` | `default`'
             },
             defaultValue: {
-                summary: "default",
+                summary: 'default'
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     total: {
-        name: "total",
-        description:
-            "Total number of data items",
+        name: 'total',
+        description: 'Total number of data items',
         control: {
-            type: "number",
+            type: 'number',
             defaultValue: 0
         },
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
             defaultValue: {
-                summary: 0,
+                summary: 0
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     defaultPageSize: {
-        name: "defaultPageSize",
-        description:
-            "Default number of data items per page",
+        name: 'defaultPageSize',
+        description: 'Default number of data items per page',
         control: {
-            type: "number",
+            type: 'number'
         },
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
             defaultValue: {
-                summary: 10,
+                summary: 10
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     pageSize: {
-        name: "pageSize",
-        description:
-            "Number of data items per page",
+        name: 'pageSize',
+        description: 'Number of data items per page',
         control: {
-            type: "number",
+            type: 'number'
         },
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
             defaultValue: {
-                summary: 10,
+                summary: 10
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     pageSizeOptions: {
-        name: "pageSizeOptions",
-        description:
-            "Specify the sizeChanger options",
+        name: 'pageSizeOptions',
+        description: 'Specify the sizeChanger options',
         control: {
-            type: "text",
+            type: 'text'
         },
         table: {
             type: {
-                summary: "string[] | number[] | [`10`, `20`, `50`, `100`]",
+                summary: 'string[] | number[] | [`10`, `20`, `50`, `100`]'
             },
             defaultValue: {
-                summary: '-',
+                summary: '-'
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     disabled: {
-        name: "disabled",
-        description:
-            "Disable pagination",
+        name: 'disabled',
+        description: 'Disable pagination',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: '-',
+                summary: '-'
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     hideOnSinglePage: {
-        name: "hideOnSinglePage",
-        description:
-            "Whether to hide pager on single page",
+        name: 'hideOnSinglePage',
+        description: 'Whether to hide pager on single page',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: false,
+                summary: false
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     responsive: {
-        name: "responsive",
-        description:
-            "If `size` is not specified, `Pagination` would resize according to the width of the window",
+        name: 'responsive',
+        description: 'If `size` is not specified, `Pagination` would resize according to the width of the window',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: '-',
+                summary: '-'
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     showLessItems: {
-        name: "showLessItems",
-        description:
-            "Show less page items",
+        name: 'showLessItems',
+        description: 'Show less page items',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: false,
+                summary: false
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     showQuickJumper: {
-        name: "showQuickJumper",
-        description:
-            "Determine whether you can jump to pages directly ",
+        name: 'showQuickJumper',
+        description: 'Determine whether you can jump to pages directly ',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean | { goButton: ReactNode }",
+                summary: 'boolean | { goButton: ReactNode }'
             },
             defaultValue: {
-                summary: false,
+                summary: false
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     showSizeChanger: {
-        name: "showSizeChanger",
-        description:
-            "Determine whether to show `pageSize` select, it will be true when `total > 50`",
+        name: 'showSizeChanger',
+        description: 'Determine whether to show `pageSize` select, it will be true when `total > 50`',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: false,
+                summary: false
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     showTitle: {
-        name: "showTitle",
-        description:
-            "Show page item's title",
+        name: 'showTitle',
+        description: "Show page item's title",
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: true,
+                summary: true
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     simple: {
-        name: "simple",
-        description:
-            "Whether to use simple mode",
+        name: 'simple',
+        description: 'Whether to use simple mode',
         control: {
-            type: "boolean",
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: '-',
+                summary: '-'
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     itemRender: {
-        name: "itemRender",
-        description:
-            "To customize item's innerHTML",
+        name: 'itemRender',
+        description: "To customize item's innerHTML",
         table: {
             type: {
-                summary: "(page, type: 'page' | 'prev' | 'next', originalElement) => React.ReactNode",
+                summary: "(page, type: 'page' | 'prev' | 'next', originalElement) => React.ReactNode"
             },
             defaultValue: {
-                summary: '-',
+                summary: '-'
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     showTotal: {
-        name: "showTotal",
-        description:
-            "To display the total number and range",
+        name: 'showTotal',
+        description: 'To display the total number and range',
         table: {
             type: {
-                summary: "function(total, range)",
+                summary: 'function(total, range)'
             },
             defaultValue: {
-                summary: '-',
+                summary: '-'
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     onChange: {
-        name: "onChange",
+        name: 'onChange',
         description:
-            "Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments",
+            'Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments',
         table: {
             type: {
-                summary: "function(page, pageSize)",
+                summary: 'function(page, pageSize)'
             },
             defaultValue: {
-                summary: '-',
+                summary: '-'
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     },
     onShowSizeChange: {
-        name: "onShowSizeChange",
-        description:
-            "Called when `pageSize` is changed",
+        name: 'onShowSizeChange',
+        description: 'Called when `pageSize` is changed',
         table: {
             type: {
-                summary: "function(current, size)",
+                summary: 'function(current, size)'
             },
             defaultValue: {
-                summary: '-',
+                summary: '-'
             },
-            category: "Pagination",
-        },
+            category: 'Pagination'
+        }
     }
 };
 
-export const Template = ({ pageSizeOptions, ...args }) => {
+export const Template = ({pageSizeOptions, ...args}) => {
     let sizeOptions = pageSizeOptions ? pageSizeOptions.split(',') : null;
-    return (
-        <KitPagination
-            pageSizeOptions={sizeOptions}
-            {...args}
-        />
-    );
+    return <KitPagination pageSizeOptions={sizeOptions} {...args} />;
 };
