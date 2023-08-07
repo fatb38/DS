@@ -44,7 +44,7 @@ const StyledSnackBar = styled.div<{
             props.$showCloseContainer ? "12px" : ""};
     column-gap: 8px;
     align-items: center;
-    height: 24px;
+    min-height: 24px;
     padding: 8px 16px;
     background-color: ${theme.color.neutral.gray.gray700};
     border: 1px solid ${theme.color.neutral.gray.gray700};
