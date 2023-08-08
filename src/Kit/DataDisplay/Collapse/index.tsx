@@ -1,12 +1,14 @@
-import React from 'react';
-import {Collapse as AntdCollapse} from 'antd';
-import {KitCollapseProps} from './types';
-import styled from 'styled-components';
+import InternalCollapse from './Collapse';
+import InternalHeader from './Header';
+import InternalHeaderExtra from './HeaderExtra';
+import {KitHeaderProps, KitCollapseProps, KitHeaderExtraProps} from './types';
 
-const StyledCollapse = styled(AntdCollapse)``;
-
-export const KitCollapse: React.FunctionComponent<KitCollapseProps> = collapseProps => {
-    return <StyledCollapse {...collapseProps} />;
+type CompoundedComponent = React.FunctionComponent<KitCollapseProps> & {
+    Header: React.FunctionComponent<KitHeaderProps>;
+    HeaderExtra: React.FunctionComponent<KitHeaderExtraProps>;
 };
 
+export const KitCollapse = InternalCollapse as unknown as CompoundedComponent;
 KitCollapse.displayName = 'KitCollapse';
+KitCollapse.Header = InternalHeader;
+KitCollapse.HeaderExtra = InternalHeaderExtra;

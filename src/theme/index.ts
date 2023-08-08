@@ -165,7 +165,8 @@ const theme: KitThemeConfig = {
         },
         Collapse: {
             colorFillAlter: colorsPalette.neutral.background,
-            colorBorder: colorsPalette.neutral.background
+            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey300,
+            borderRadius: 8
         },
         Rate: {
             starColor: colorsPalette.secondary.yellow.yellow300
