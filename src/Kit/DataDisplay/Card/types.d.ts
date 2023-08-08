@@ -1,5 +1,5 @@
-import { HTMLAttributes } from "react";
-import { KitTagProps } from "../../DataEntry/Tag/types";
+import {HTMLAttributes} from 'react';
+import {KitTagProps} from '../../DataEntry/Tag/types';
 
 export type cardColor = {
     label: string;
@@ -21,7 +21,7 @@ export default interface KitCardProps extends HTMLAttributes<HTMLDivElement> {
     description?: ReactNode;
     extrainfo?: ReactNode;
     tags?: KitTagProps[] | string[];
-    actions?: typeof Button[];
+    actions?: (typeof Button)[];
     onSelectChange?: (e: T) => void;
     onEdit?: () => void;
 }

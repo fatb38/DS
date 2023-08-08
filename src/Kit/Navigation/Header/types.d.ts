@@ -1,5 +1,5 @@
-import { KitInputProps } from "@kit/DataEntry/";
-import { HTMLAttributes } from "react";
+import {KitInputProps} from '@kit/DataEntry/';
+import {HTMLAttributes} from 'react';
 
 export interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
     title?: string;

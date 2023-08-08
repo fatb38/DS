@@ -1,16 +1,17 @@
 {
-  "name": "vite-project",
+  "name": "@aristid/design-system",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc --p tsconfig.build.json && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006 --docs",
     "build-storybook": "env=production storybook build --docs",
-    "build-all": "yarn build && yarn build-storybook"
+    "build-all": "yarn build && yarn build-storybook",
+    "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
   },
   "dependencies": {
     "antd": "^5.8.1",
@@ -43,6 +44,9 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "prettier": "^3.0.1",
+    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-webpack-stats": "^0.2.0",
     "storybook": "^7.2.1",
     "storybook-docs-toc": "^1.7.0",
     "typescript": "^5.0.2",
@@ -51,8 +55,13 @@
   },
   "license": "UNLICENSED",
   "peerDependencies": {
+    "antd": "^5.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-modal": "^3.16.1",
+    "react-uuid": "^2.0.0",
+    "remark-gfm": "^3.0.1",
     "styled-components": "^6.0.7"
   },
   "files": [

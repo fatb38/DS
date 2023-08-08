@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 import InterRoman from '../../fonts/Inter-roman.var.woff2';
 import InterItalic from '../../fonts/Inter-italic.var.woff2';
 
@@ -23,6 +23,6 @@ const GlobalStyles = createGlobalStyle`
     body {
         background: purple;
     }
-`
+`;
 
 export default GlobalStyles;

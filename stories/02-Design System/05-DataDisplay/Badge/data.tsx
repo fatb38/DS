@@ -1,109 +1,109 @@
-import React from "react";
-import { KitAvatar, KitBadge } from "@kit/DataDisplay/";
-import { KitSpace } from "@kit/Layout/";
+import React from 'react';
+import {KitAvatar, KitBadge} from '@kit/DataDisplay/';
+import {KitSpace} from '@kit/Layout/';
 
-const status = ["error", "default", "success", "processing", "warning"];
+const status = ['error', 'default', 'success', 'processing', 'warning'];
 
-const countColor = ["default", "green", "blue", "blueInvert", "gray"];
+const countColor = ['default', 'green', 'blue', 'blueInvert', 'gray'];
 
 export const BadgeArgTypes = {
     count: {
-        name: "count",
-        description: "Number to show in badge",
-        control: { type: "text" },
+        name: 'count',
+        description: 'Number to show in badge',
+        control: {type: 'text'},
         table: {
             type: {
-                summary: "ReactNode",
+                summary: 'ReactNode'
             },
-            category: "Badge",
-        },
+            category: 'Badge'
+        }
     },
     dot: {
-        name: "dot",
-        description: "Whether to display a red dot instead of `count`",
-        control: { type: "boolean" },
+        name: 'dot',
+        description: 'Whether to display a red dot instead of `count`',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: false,
+                summary: false
             },
-            category: "Badge",
-        },
+            category: 'Badge'
+        }
     },
     overflowCount: {
-        name: "overflowCount",
-        description: "Max count to show",
-        control: { type: "number" },
+        name: 'overflowCount',
+        description: 'Max count to show',
+        control: {type: 'number'},
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
             defaultValue: {
-                summary: 99,
+                summary: 99
             },
-            category: "Badge",
-        },
+            category: 'Badge'
+        }
     },
     showZero: {
-        name: "showZero",
-        description: "Whether to show badge when `count` is zero",
-        control: { type: "boolean" },
+        name: 'showZero',
+        description: 'Whether to show badge when `count` is zero',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
             defaultValue: {
-                summary: false,
+                summary: false
             },
-            category: "Badge",
-        },
+            category: 'Badge'
+        }
     },
     status: {
-        name: "status",
-        description: "Set Badge as a status dot",
+        name: 'status',
+        description: 'Set Badge as a status dot',
         options: status,
         control: {
-            type: "select",
-            defaultValue: "error",
+            type: 'select',
+            defaultValue: 'error'
         },
         table: {
             type: {
-                summary: "success | processing | default | error | warning",
+                summary: 'success | processing | default | error | warning'
             },
-            category: "Badge",
-        },
+            category: 'Badge'
+        }
     },
     countColor: {
-        name: "countColor",
-        description: "Set Badge count a color",
+        name: 'countColor',
+        description: 'Set Badge count a color',
         options: countColor,
         control: {
-            type: "select",
-            defaultValue: "default",
+            type: 'select',
+            defaultValue: 'default'
         },
         table: {
             type: {
-                summary: "default | green | blue | blueInvert | gray",
+                summary: 'default | green | blue | blueInvert | gray'
             },
-            category: "Badge",
-        },
+            category: 'Badge'
+        }
     },
     title: {
-        name: "title",
-        description: "Text to show when hovering over the badge",
-        control: { type: "text" },
+        name: 'title',
+        description: 'Text to show when hovering over the badge',
+        control: {type: 'text'},
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "Badge",
-        },
-    },
+            category: 'Badge'
+        }
+    }
 };
 
-export const Template = ({ component, ...args }) => {
+export const Template = ({component, ...args}) => {
     return (
         <KitSpace>
             <KitBadge {...args} />

@@ -1,8 +1,8 @@
-import React from "react";
-import { Breadcrumb } from "antd";
-import styled from "styled-components";
-import theme from "./theme";
-import { KitBreadcrumbProps } from "./types";
+import React from 'react';
+import {Breadcrumb} from 'antd';
+import styled from 'styled-components';
+import theme from './theme';
+import {KitBreadcrumbProps} from './types';
 
 const StyledBreadcrumb = styled(Breadcrumb)`
     li:not(:last-child) a,
@@ -14,12 +14,8 @@ const StyledBreadcrumb = styled(Breadcrumb)`
     }
 `;
 
-export const KitBreadcrumb: React.FunctionComponent<KitBreadcrumbProps> = (
-    props
-) => {
-    return (
-        <StyledBreadcrumb {...props} />
-    );
+export const KitBreadcrumb: React.FunctionComponent<KitBreadcrumbProps> = props => {
+    return <StyledBreadcrumb {...props} />;
 };
 
-KitBreadcrumb.displayName = "KitBreadcrumb";
+KitBreadcrumb.displayName = 'KitBreadcrumb';

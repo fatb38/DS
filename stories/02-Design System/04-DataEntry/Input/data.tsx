@@ -1,289 +1,279 @@
-import React from "react";
-import { KitInput } from "@kit/DataEntry/";
-import { KitSpace } from "@kit/Layout/";
-import { CheckCircleOutlined, SearchOutlined } from "@ant-design/icons";
+import React from 'react';
+import {KitInput} from '@kit/DataEntry/';
+import {KitSpace} from '@kit/Layout/';
+import {CheckCircleOutlined, SearchOutlined} from '@ant-design/icons';
 
-const components = ["Input", "TextArea", "Password"];
+const components = ['Input', 'TextArea', 'Password'];
 
 export const InputArgTypes = {
     component: {
-        name: "component",
-        description: "Choose the component to play with (not a prop)",
+        name: 'component',
+        description: 'Choose the component to play with (not a prop)',
         options: components,
         control: {
-            type: "select",
-            defaultValue: "Input",
+            type: 'select',
+            defaultValue: 'Input'
         },
-        defaultValue: "Input",
+        defaultValue: 'Input'
     },
     placeHolder: {
-        name: "placeHolder",
-        description: "HTML input placeholder",
-        control: { type: "text" },
+        name: 'placeHolder',
+        description: 'HTML input placeholder',
+        control: {type: 'text'},
         table: {
             type: {
-                summary: "string",
-            },
-        },
+                summary: 'string'
+            }
+        }
     },
     rows: {
-        name: "rows",
-        description: "HTML textarea rows",
-        control: { type: "number" },
+        name: 'rows',
+        description: 'HTML textarea rows',
+        control: {type: 'number'},
         table: {
             type: {
-                summary: "number",
-            },
-        },
+                summary: 'number'
+            }
+        }
     },
     allowClear: {
-        name: "allowClear",
-        description: "If allow to remove input content with clear icon",
-        control: { type: "boolean" },
+        name: 'allowClear',
+        description: 'If allow to remove input content with clear icon',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean | { clearIcon: ReactNode }",
+                summary: 'boolean | { clearIcon: ReactNode }'
             },
-            defaultValue: { summary: false },
-            category: "Input",
+            defaultValue: {summary: false},
+            category: 'Input'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     defaultValue: {
-        name: "defaultValue",
-        description: "The initial input content	",
-        control: { type: "text" },
+        name: 'defaultValue',
+        description: 'The initial input content	',
+        control: {type: 'text'},
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "Input",
-        },
+            category: 'Input'
+        }
     },
     disabled: {
-        name: "disabled",
-        description: "Whether the input is disabled",
-        control: { type: "boolean" },
+        name: 'disabled',
+        description: 'Whether the input is disabled',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Input",
+            defaultValue: {summary: false},
+            category: 'Input'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     maxLength: {
-        name: "maxLength",
-        description: "The maximum number of characters in Input",
-        control: { type: "number" },
+        name: 'maxLength',
+        description: 'The maximum number of characters in Input',
+        control: {type: 'number'},
         table: {
             type: {
-                summary: "number",
+                summary: 'number'
             },
-            category: "Input",
-        },
+            category: 'Input'
+        }
     },
     showCount: {
-        name: "showCount",
-        description: "Whether to show character count",
-        control: { type: "boolean" },
+        name: 'showCount',
+        description: 'Whether to show character count',
+        control: {type: 'boolean'},
         table: {
             type: {
                 summary:
-                    "boolean | { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode }",
+                    'boolean | { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode }'
             },
-            defaultValue: { summary: false },
-            category: "Input",
+            defaultValue: {summary: false},
+            category: 'Input'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     status: {
-        name: "status",
-        description: "Set validation status	",
-        options: ["", "error", "warning"],
-        control: { type: "select" },
+        name: 'status',
+        description: 'Set validation status	',
+        options: ['', 'error', 'warning'],
+        control: {type: 'select'},
         table: {
             type: {
-                summary: "'error' | 'warning'",
+                summary: "'error' | 'warning'"
             },
-            category: "Input",
-        },
+            category: 'Input'
+        }
     },
     prefix: {
-        name: "prefix",
-        description:
-            "Set the icon component of button (Not working for TextArea)",
-        type: { name: "ReactNode", required: false },
-        options: ["", "SearchOutlined", "CheckCircleOutlined"],
+        name: 'prefix',
+        description: 'Set the icon component of button (Not working for TextArea)',
+        type: {name: 'ReactNode', required: false},
+        options: ['', 'SearchOutlined', 'CheckCircleOutlined'],
         control: {
-            type: "select",
+            type: 'select'
         },
         table: {
             type: {
-                summary: "ReactNode",
+                summary: 'ReactNode'
             },
-            category: "Input",
-        },
+            category: 'Input'
+        }
     },
     suffix: {
-        name: "suffix",
-        description:
-            "The suffix icon for the Input (Not working for TextArea and Password)",
-        type: { name: "ReactNode", required: false },
-        options: ["", "SearchOutlined", "CheckCircleOutlined"],
+        name: 'suffix',
+        description: 'The suffix icon for the Input (Not working for TextArea and Password)',
+        type: {name: 'ReactNode', required: false},
+        options: ['', 'SearchOutlined', 'CheckCircleOutlined'],
         control: {
-            type: "select",
+            type: 'select'
         },
         table: {
             type: {
-                summary: "ReactNode",
+                summary: 'ReactNode'
             },
-            category: "Input",
-        },
+            category: 'Input'
+        }
     },
     value: {
-        name: "value",
-        description: "The input content value",
-        control: { type: "text" },
+        name: 'value',
+        description: 'The input content value',
+        control: {type: 'text'},
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            category: "Input",
-        },
+            category: 'Input'
+        }
     },
     onChange: {
-        name: "onChange",
-        description: "Callback when user input",
+        name: 'onChange',
+        description: 'Callback when user input',
         table: {
             type: {
-                summary: "function(e)",
+                summary: 'function(e)'
             },
-            category: "Input",
-        },
+            category: 'Input'
+        }
     },
     onPressEnter: {
-        name: "onPressEnter",
-        description:
-            "The callback function that is triggered when Enter key is pressed",
+        name: 'onPressEnter',
+        description: 'The callback function that is triggered when Enter key is pressed',
         table: {
             type: {
-                summary: "function(e)",
+                summary: 'function(e)'
             },
-            category: "Input",
-        },
+            category: 'Input'
+        }
     },
     inputHtml: {
-        name: "",
-        description:
-            "The rest of the props of Input are exactly the same as the original input.",
+        name: '',
+        description: 'The rest of the props of Input are exactly the same as the original input.',
         table: {
             type: {
-                summary:
-                    "https://legacy.reactjs.org/docs/dom-elements.html#all-supported-html-attributes",
+                summary: 'https://legacy.reactjs.org/docs/dom-elements.html#all-supported-html-attributes'
             },
-            category: "Input",
-        },
+            category: 'Input'
+        }
     },
     autoSize: {
-        name: "autoSize",
-        description:
-            "Height autosize feature, can be set to true | false or an object { minRows: 2, maxRows: 6 }",
-        control: { type: "boolean" },
+        name: 'autoSize',
+        description: 'Height autosize feature, can be set to true | false or an object { minRows: 2, maxRows: 6 }',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean | object",
+                summary: 'boolean | object'
             },
-            defaultValue: { summary: true },
-            category: "Input.TextArea",
+            defaultValue: {summary: true},
+            category: 'Input.TextArea'
         },
-        defaultValue: true,
+        defaultValue: true
     },
     onResize: {
-        name: "onResize",
-        description: "The callback function that is triggered when resize",
+        name: 'onResize',
+        description: 'The callback function that is triggered when resize',
         table: {
             type: {
-                summary: "function({ width, height })",
+                summary: 'function({ width, height })'
             },
-            category: "Input.TextArea",
-        },
+            category: 'Input.TextArea'
+        }
     },
     inputTextArea: {
-        name: "",
-        description:
-            "The rest of the props of TextArea are the same as the original",
+        name: '',
+        description: 'The rest of the props of TextArea are the same as the original',
         table: {
             type: {
-                summary:
-                    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea",
+                summary: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea'
             },
-            category: "Input.TextArea",
-        },
+            category: 'Input.TextArea'
+        }
     },
     iconRender: {
-        name: "iconRender",
-        description: "Custom toggle button	",
+        name: 'iconRender',
+        description: 'Custom toggle button	',
         table: {
             type: {
-                summary: "(visible) => ReactNode",
+                summary: '(visible) => ReactNode'
             },
             defaultValue: {
-                summary:
-                    "(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)",
+                summary: '(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)'
             },
-            category: "Input.Password",
-        },
+            category: 'Input.Password'
+        }
     },
     visibilityToggle: {
-        name: "visibilityToggle",
-        description: "Whether show toggle button or control password visible",
-        control: { type: "boolean" },
+        name: 'visibilityToggle',
+        description: 'Whether show toggle button or control password visible',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean | VisibilityToggle",
+                summary: 'boolean | VisibilityToggle'
             },
-            defaultValue: { summary: true },
-            category: "Input.Password",
+            defaultValue: {summary: true},
+            category: 'Input.Password'
         },
-        defaultValue: true,
+        defaultValue: true
     },
     visible: {
-        name: "visible",
-        description: "Whether the password is show or hide",
-        control: { type: "boolean" },
+        name: 'visible',
+        description: 'Whether the password is show or hide',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Input.Password.visibilityToggle",
+            defaultValue: {summary: false},
+            category: 'Input.Password.visibilityToggle'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     onVisibleChange: {
-        name: "onVisibleChange",
-        description:
-            "Callback executed when visibility of the password is changed",
-        control: { type: "boolean" },
+        name: 'onVisibleChange',
+        description: 'Callback executed when visibility of the password is changed',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Input.Password.visibilityToggle",
-        },
-    },
+            defaultValue: {summary: false},
+            category: 'Input.Password.visibilityToggle'
+        }
+    }
 };
 
-export const getIcon = (icon) => {
+export const getIcon = icon => {
     switch (icon) {
-        case "SearchOutlined":
+        case 'SearchOutlined':
             return <SearchOutlined rev={null} />;
-        case "CheckCircleOutlined":
+        case 'CheckCircleOutlined':
             return <CheckCircleOutlined rev={null} />;
-        case "":
+        case '':
         default:
             return null;
     }
@@ -294,34 +284,16 @@ const getComponent = (component, args) => {
     const suffix = getIcon(args.suffix);
 
     switch (component) {
-        case "Password":
-            return (
-                <KitInput.Password
-                    {...args}
-                    prefix={prefix}
-                    suffix={suffix}
-                ></KitInput.Password>
-            );
-        case "TextArea":
-            return (
-                <KitInput.TextArea
-                    {...args}
-                    prefix={prefix}
-                    suffix={suffix}
-                ></KitInput.TextArea>
-            );
-        case "Input":
+        case 'Password':
+            return <KitInput.Password {...args} prefix={prefix} suffix={suffix}></KitInput.Password>;
+        case 'TextArea':
+            return <KitInput.TextArea {...args} prefix={prefix} suffix={suffix}></KitInput.TextArea>;
+        case 'Input':
         default:
-            return (
-                <KitInput {...args} prefix={prefix} suffix={suffix}></KitInput>
-            );
+            return <KitInput {...args} prefix={prefix} suffix={suffix}></KitInput>;
     }
 };
 
-export const Template = ({ component, ...args }) => {
-    return (
-        <KitSpace direction="vertical">
-            {getComponent(component, args)}
-        </KitSpace>
-    );
+export const Template = ({component, ...args}) => {
+    return <KitSpace direction="vertical">{getComponent(component, args)}</KitSpace>;
 };

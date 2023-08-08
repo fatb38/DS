@@ -4,7 +4,7 @@ interface themeProps {
     largeGap: number;
 }
 
-export const theme:themeProps = {
+export const theme: themeProps = {
     smallGap: 8,
     middleGap: 16,
     largeGap: 24

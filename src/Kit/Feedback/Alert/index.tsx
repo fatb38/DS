@@ -1,8 +1,8 @@
-import React from "react";
-import { Alert as AntdAlert } from "antd";
-import { KitAlertProps } from "./types";
-import { styled } from "styled-components";
-import theme from "@theme/index";
+import React from 'react';
+import {Alert as AntdAlert} from 'antd';
+import {KitAlertProps} from './types';
+import {styled} from 'styled-components';
+import theme from '@theme/index';
 
 const StyledAntdAlert = styled(AntdAlert)`
     &.ant-alert-with-description {
@@ -67,10 +67,8 @@ const StyledAntdAlert = styled(AntdAlert)`
     }
 `;
 
-export const KitAlert: React.FunctionComponent<KitAlertProps> = (
-    alertProps
-) => {
+export const KitAlert: React.FunctionComponent<KitAlertProps> = alertProps => {
     return <StyledAntdAlert {...alertProps} />;
 };
 
-KitAlert.displayName = "KitAlert";
+KitAlert.displayName = 'KitAlert';

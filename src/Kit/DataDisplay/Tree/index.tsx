@@ -1,8 +1,8 @@
-import React from "react";
-import { Tree as AntdTree } from "antd";
-import styled from "styled-components";
-import { KitTreeProps } from "./types";
-import theme from "@theme/index";
+import React from 'react';
+import {Tree as AntdTree} from 'antd';
+import styled from 'styled-components';
+import {KitTreeProps} from './types';
+import theme from '@theme/index';
 
 const StyledTree = styled(AntdTree)`
     .ant-tree-treenode {
@@ -89,7 +89,7 @@ const StyledTree = styled(AntdTree)`
                         width: 8px;
                         height: 0px;
                         border: 1px solid white;
-                        transform: translate("-4px", "-1px");
+                        transform: translate('-4px', '-1px');
                     }
                 }
             }
@@ -143,9 +143,7 @@ const StyledTree = styled(AntdTree)`
     }
 `;
 
-export const KitTree: React.FunctionComponent<KitTreeProps> = ({
-    ...treeProps
-}) => {
+export const KitTree: React.FunctionComponent<KitTreeProps> = ({...treeProps}) => {
     return (
         <StyledTree
             {...treeProps}
@@ -161,4 +159,4 @@ export const KitTree: React.FunctionComponent<KitTreeProps> = ({
     );
 };
 
-KitTree.displayName = "KitTree";
+KitTree.displayName = 'KitTree';

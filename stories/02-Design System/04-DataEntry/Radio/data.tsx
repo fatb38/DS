@@ -1,185 +1,180 @@
-import React from "react";
+import React from 'react';
 
-import { KitRadio } from "@kit/DataEntry/";
+import {KitRadio} from '@kit/DataEntry/';
 
 const RadioArgTypes = {
     label: {
-        name: "label",
-        control: { type: "text" },
-        description: "label of the checkbox",
+        name: 'label',
+        control: {type: 'text'},
+        description: 'label of the checkbox',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "-" },
-            category: "Radio",
-            subcategory: "For testing only",
+            defaultValue: {summary: '-'},
+            category: 'Radio',
+            subcategory: 'For testing only'
         },
-        defaultValue: "Label",
+        defaultValue: 'Label'
     },
     autoFocus: {
-        name: "autoFocus",
-        control: { type: "boolean" },
-        description: "Whether get focus when component mounted",
+        name: 'autoFocus',
+        control: {type: 'boolean'},
+        description: 'Whether get focus when component mounted',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Radio",
+            defaultValue: {summary: false},
+            category: 'Radio'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     checked: {
-        name: "checked",
-        control: { type: "boolean" },
-        description: "Specifies whether the radio is selected",
+        name: 'checked',
+        control: {type: 'boolean'},
+        description: 'Specifies whether the radio is selected',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Radio",
+            defaultValue: {summary: false},
+            category: 'Radio'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     defaultChecked: {
-        name: "defaultChecked",
-        control: { type: "boolean" },
-        description:
-            "Specifies the initial state: whether or not the radio is selected",
+        name: 'defaultChecked',
+        control: {type: 'boolean'},
+        description: 'Specifies the initial state: whether or not the radio is selected',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Radio",
+            defaultValue: {summary: false},
+            category: 'Radio'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     disabled: {
-        name: "disabled",
-        control: { type: "boolean" },
-        description: "If Disable radio",
+        name: 'disabled',
+        control: {type: 'boolean'},
+        description: 'If Disable radio',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Radio",
+            defaultValue: {summary: false},
+            category: 'Radio'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     danger: {
-        name: "danger",
-        control: { type: "boolean" },
-        description: "If Danger radio",
+        name: 'danger',
+        control: {type: 'boolean'},
+        description: 'If Danger radio',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Radio",
+            defaultValue: {summary: false},
+            category: 'Radio'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     value: {
-        name: "value",
-        control: { type: "text" },
-        description:
-            "According to value for comparison, to determine whether the selected",
+        name: 'value',
+        control: {type: 'text'},
+        description: 'According to value for comparison, to determine whether the selected',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: false },
-            category: "Radio",
+            defaultValue: {summary: false},
+            category: 'Radio'
         },
-        defaultValue: false,
-    },
+        defaultValue: false
+    }
 };
 
 const RadioGroupArgTypes = {
     defaultValue: {
-        name: "defaultValue",
-        description: "Default selected value",
+        name: 'defaultValue',
+        description: 'Default selected value',
         table: {
             type: {
-                summary: "string | number",
+                summary: 'string | number'
             },
-            defaultValue: { summary: "[]" },
-            category: "Checkbox Group",
-        },
+            defaultValue: {summary: '[]'},
+            category: 'Checkbox Group'
+        }
     },
     disabled: {
-        name: "disabled",
-        description: "Disable all radio buttons",
+        name: 'disabled',
+        description: 'Disable all radio buttons',
         table: {
             type: {
-                summary: "boolean",
+                summary: 'boolean'
             },
-            defaultValue: { summary: false },
-            category: "Checkbox Group",
+            defaultValue: {summary: false},
+            category: 'Checkbox Group'
         },
-        defaultValue: false,
+        defaultValue: false
     },
     name: {
-        name: "name",
-        description:
-            ' The `name` property of all `input[type="radio"]` children',
+        name: 'name',
+        description: ' The `name` property of all `input[type="radio"]` children',
         table: {
             type: {
-                summary: "string",
+                summary: 'string'
             },
-            defaultValue: { summary: "-" },
-            category: "Checkbox Group",
-        },
+            defaultValue: {summary: '-'},
+            category: 'Checkbox Group'
+        }
     },
     options: {
-        name: "options",
-        description: " Set children options",
+        name: 'options',
+        description: ' Set children options',
         table: {
             type: {
-                summary:
-                    "string[] | number[] | Array<{ label: ReactNode; value: string; disabled?: boolean; }>",
+                summary: 'string[] | number[] | Array<{ label: ReactNode; value: string; disabled?: boolean; }>'
             },
-            defaultValue: { summary: "[]" },
-            category: "Checkbox Group",
-        },
+            defaultValue: {summary: '[]'},
+            category: 'Checkbox Group'
+        }
     },
     value: {
-        name: "value",
-        description: "Used for setting the currently selected value",
+        name: 'value',
+        description: 'Used for setting the currently selected value',
         table: {
             type: {
-                summary: "(string | number)[]",
+                summary: '(string | number)[]'
             },
-            defaultValue: { summary: "[]" },
-            category: "Checkbox Group",
-        },
+            defaultValue: {summary: '[]'},
+            category: 'Checkbox Group'
+        }
     },
     onChange: {
-        name: "onChange",
-        description:
-            " The callback function that is triggered when the state changes ",
+        name: 'onChange',
+        description: ' The callback function that is triggered when the state changes ',
         table: {
             type: {
-                summary: "function(e:Event)",
+                summary: 'function(e:Event)'
             },
-            defaultValue: { summary: "-" },
-            category: "Radio.Group",
-        },
-    },
+            defaultValue: {summary: '-'},
+            category: 'Radio.Group'
+        }
+    }
 };
 
 export const argTypes = {
     ...RadioArgTypes,
-    ...RadioGroupArgTypes,
+    ...RadioGroupArgTypes
 };
 
-export const plainOptions = ["Apple", "Pear", "Orange"];
-export const defaultCheckedList = ["Apple", "Orange"];
+export const plainOptions = ['Apple', 'Pear', 'Orange'];
+export const defaultCheckedList = ['Apple', 'Orange'];
 
-export const Template = (args) => {
+export const Template = args => {
     return <KitRadio {...args}>Radio label</KitRadio>;
 };

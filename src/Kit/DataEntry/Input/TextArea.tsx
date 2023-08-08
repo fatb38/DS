@@ -1,8 +1,8 @@
-import React from "react";
-import { Input as AntdInput } from "antd";
-import { KitTextAreaProps } from "./types";
-import { styled } from "styled-components";
-import theme from "@theme/index";
+import React from 'react';
+import {Input as AntdInput} from 'antd';
+import {KitTextAreaProps} from './types';
+import {styled} from 'styled-components';
+import theme from '@theme/index';
 
 const StyledAntdTextArea = styled(AntdInput.TextArea)`
     &.ant-input,
@@ -144,9 +144,7 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
     }
 `;
 
-const KitTextArea: React.FunctionComponent<KitTextAreaProps> = (
-    textAreaProps
-) => {
+const KitTextArea: React.FunctionComponent<KitTextAreaProps> = textAreaProps => {
     return <StyledAntdTextArea {...textAreaProps} />;
 };
 

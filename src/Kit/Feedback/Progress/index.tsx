@@ -1,8 +1,8 @@
-import React from "react";
-import { Progress } from "antd";
-import styled from "styled-components";
-import { progressTheme } from "./theme";
-import { KitProgressProps } from "./types";
+import React from 'react';
+import {Progress} from 'antd';
+import styled from 'styled-components';
+import {progressTheme} from './theme';
+import {KitProgressProps} from './types';
 
 const StyledProgress = styled(Progress)<KitProgressProps>`
     &.ant-progress-circle .ant-progress-text {
@@ -11,9 +11,7 @@ const StyledProgress = styled(Progress)<KitProgressProps>`
     }
 `;
 
-export const KitProgress: React.FunctionComponent<KitProgressProps> = (
-    props
-) => {
+export const KitProgress: React.FunctionComponent<KitProgressProps> = props => {
     return <StyledProgress {...props} />;
 };
-KitProgress.displayName = "KitProgress";
+KitProgress.displayName = 'KitProgress';

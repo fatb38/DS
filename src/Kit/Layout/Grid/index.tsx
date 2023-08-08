@@ -1,6 +1,6 @@
-import InternalRow from "./Row";
-import InternalCol from "./Col";
-import { KitColProps, KitRowProps } from "./types";
+import InternalRow from './Row';
+import InternalCol from './Col';
+import {KitColProps, KitRowProps} from './types';
 
 type CompoundedComponent = {
     Row: React.FunctionComponent<KitRowProps>;
@@ -8,9 +8,9 @@ type CompoundedComponent = {
     displayName?: string;
 };
 
-export const KitGrid = ({
+export const KitGrid = {
     Row: InternalRow,
-    Col: InternalCol,
-} as unknown) as CompoundedComponent;
+    Col: InternalCol
+} as unknown as CompoundedComponent;
 
-KitGrid.displayName = "KitGrid";
+KitGrid.displayName = 'KitGrid';

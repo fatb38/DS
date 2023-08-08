@@ -1,8 +1,8 @@
-import React from "react";
-import { Radio } from "antd";
-import styled from "styled-components";
-import theme from "./theme";
-import { KitRadioProps, StyledKitRadioProps } from "./types";
+import React from 'react';
+import {Radio} from 'antd';
+import styled from 'styled-components';
+import theme from './theme';
+import {KitRadioProps, StyledKitRadioProps} from './types';
 
 const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
     font-weight: ${theme.fontWeight.default};
@@ -32,8 +32,7 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
 
     &.ant-radio-wrapper-danger .ant-radio {
         .ant-radio-inner {
-            border: ${theme.borderWidth} solid
-                ${theme.borderColor.danger.default};
+            border: ${theme.borderWidth} solid ${theme.borderColor.danger.default};
             background-color: ${theme.backgroundColor.danger.default};
 
             &:after {
@@ -51,9 +50,7 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
         }
     }
 
-    &.ant-radio-wrapper-danger.ant-radio-wrapper-disabled
-        .ant-radio
-        .ant-radio-inner {
+    &.ant-radio-wrapper-danger.ant-radio-wrapper-disabled .ant-radio .ant-radio-inner {
         border: ${theme.borderWidth} solid ${theme.borderColor.danger.default};
         background-color: ${theme.backgroundColor.danger.default};
 
@@ -83,9 +80,7 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
     }
 
     // Focus
-    &:not(.ant-radio-wrapper-disabled)
-        .ant-radio-input:focus
-        + .ant-radio-inner {
+    &:not(.ant-radio-wrapper-disabled) .ant-radio-input:focus + .ant-radio-inner {
         border-style: dashed;
     }
 
@@ -115,16 +110,12 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
 `;
 
 const KitRadio = React.forwardRef<any, KitRadioProps>((props, ref) => {
-    let { className, danger, ...rest } = props;
+    let {className, danger, ...rest} = props;
 
     return (
         <StyledKitRadio
             ref={ref}
-            className={
-                danger
-                    ? (className || "") + " ant-radio-wrapper-danger"
-                    : className
-            }
+            className={danger ? (className || '') + ' ant-radio-wrapper-danger' : className}
             {...rest}
         />
     );

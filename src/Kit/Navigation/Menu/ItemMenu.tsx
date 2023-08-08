@@ -1,13 +1,13 @@
-import React from "react";
-import { KitItemMenuProps, KitItemMenuType } from "./types";
-import { css, styled } from "styled-components";
-import theme from "@theme/index";
-import { KitCheckbox } from "@kit/DataEntry/";
-import { KitTypography, KitIcon } from "@kit/General/";
-import { RightOutlined, MoreOutlined } from "@ant-design/icons";
-import { KitTooltip } from "@kit/DataDisplay/";
-import { KitDropDown } from "../DropDown";
-import { MenuItemType } from "antd/es/menu/hooks/useItems";
+import React from 'react';
+import {KitItemMenuProps, KitItemMenuType} from './types';
+import {css, styled} from 'styled-components';
+import theme from '@theme/index';
+import {KitCheckbox} from '@kit/DataEntry/';
+import {KitTypography, KitIcon} from '@kit/General/';
+import {RightOutlined, MoreOutlined} from '@ant-design/icons';
+import {KitTooltip} from '@kit/DataDisplay/';
+import {KitDropDown} from '../DropDown';
+import {MenuItemType} from 'antd/es/menu/hooks/useItems';
 
 const StyledIemMenu = styled.div<{
     $isClickable: boolean;
@@ -16,19 +16,19 @@ const StyledIemMenu = styled.div<{
 }>`
     height: 32px;
     display: grid;
-    grid-template: "select icon title actions value rafter";
+    grid-template: 'select icon title actions value rafter';
     grid-template-columns: min-content min-content minmax(0px, auto) min-content min-content min-content;
     padding: 4px 8px 4px 0px;
     background-color: ${theme.color.neutral.typography.white};
     align-items: center;
 
-    ${(props) =>
+    ${props =>
         props.$isClickable &&
         css`
             cursor: pointer;
         `}
 
-    ${(props) =>
+    ${props =>
         props.$isSelected &&
         css`
             background-color: ${theme.color.primary.blue100};
@@ -77,16 +77,16 @@ const StyledIemMenu = styled.div<{
         }
     }
 
-    ${(props) => {
+    ${props => {
         switch (props.$type) {
-            case "cta":
+            case 'cta':
                 return css`
                     .kit-item-menu-title span,
                     .kit-item-menu-icon span {
                         color: ${theme.color.primary.blue400};
                     }
                 `;
-            case "ctaDanger":
+            case 'ctaDanger':
                 return css`
                     .kit-item-menu-title span,
                     .kit-item-menu-icon span {
@@ -97,7 +97,7 @@ const StyledIemMenu = styled.div<{
                         background-color: ${theme.color.secondary.red.red100};
                     }
                 `;
-            case "default":
+            case 'default':
                 return;
         }
     }}
@@ -125,7 +125,7 @@ const StyledIemMenu = styled.div<{
 `;
 
 const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
-    type = "default",
+    type = 'default',
     title,
     icon,
     value,
@@ -145,8 +145,8 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
             isSelectable && (
                 <div className="kit-item-menu-checkbox">
                     <KitCheckbox
-                        onClick={(e) => e.stopPropagation()}
-                        onChange={(e) => {
+                        onClick={e => e.stopPropagation()}
+                        onChange={e => {
                             onSelectChange && onSelectChange(e);
                         }}
                     />
@@ -169,11 +169,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         return (
             title && (
                 <div className="kit-item-menu-title">
-                    <KitTypography.Text
-                        size="large"
-                        weight="medium"
-                        ellipsis={{ rows: 1, tooltip: true }}
-                    >
+                    <KitTypography.Text size="large" weight="medium" ellipsis={{rows: 1, tooltip: true}}>
                         {title}
                     </KitTypography.Text>
                 </div>
@@ -184,8 +180,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
     const getActions = () => {
         if (actions) {
             const firstAction = actions[0] ? actions[0] : null;
-            const secondAction =
-                actions.length <= 2 && actions[1] ? actions[1] : null;
+            const secondAction = actions.length <= 2 && actions[1] ? actions[1] : null;
 
             return (
                 actions?.length && (
@@ -216,21 +211,17 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
                         )}
                         {actions.length > 2 && (
                             <div
-                                onClick={(e) => {
+                                onClick={e => {
                                     e.stopPropagation();
                                 }}
                             >
                                 <KitDropDown
                                     menu={{
-                                        items: getMoreActionsDropDownItems(),
+                                        items: getMoreActionsDropDownItems()
                                     }}
                                 >
                                     <KitTooltip title="More">
-                                        <KitIcon
-                                            className="kit-action-more"
-                                            icon={<MoreOutlined />}
-                                            hoverable
-                                        />
+                                        <KitIcon className="kit-action-more" icon={<MoreOutlined />} hoverable />
                                     </KitTooltip>
                                 </KitDropDown>
                             </div>
@@ -256,7 +247,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
                 key: index,
                 icon: item.icon,
                 label: item.label,
-                onClick: item.onClick,
+                onClick: item.onClick
             };
         });
 
@@ -267,11 +258,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         return (
             value && (
                 <div className="kit-item-menu-value">
-                    <KitTypography.Text
-                        size="large"
-                        weight="regular"
-                        ellipsis={{ rows: 1, tooltip: true }}
-                    >
+                    <KitTypography.Text size="large" weight="regular" ellipsis={{rows: 1, tooltip: true}}>
                         {value}
                     </KitTypography.Text>
                 </div>
@@ -284,7 +271,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
             hasRafter && (
                 <div
                     className="kit-item-menu-rafter"
-                    onClick={(e) => {
+                    onClick={e => {
                         e.stopPropagation();
                         onRafterClick && onRafterClick();
                     }}
@@ -300,7 +287,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
             $isClickable={isClickable}
             $isSelected={isSelected}
             $type={type}
-            onClick={(e) => {
+            onClick={e => {
                 e.stopPropagation();
                 onClick && onClick();
             }}
