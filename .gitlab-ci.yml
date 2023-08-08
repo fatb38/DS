@@ -18,6 +18,7 @@ build:
     paths:
       - node_modules/
   before_script:
+    - rm -f yarn.lock
     - yarn install
   script:
     - yarn build-all
