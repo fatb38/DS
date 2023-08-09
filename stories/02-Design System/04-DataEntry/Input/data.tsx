@@ -270,9 +270,9 @@ export const InputArgTypes = {
 export const getIcon = icon => {
     switch (icon) {
         case 'SearchOutlined':
-            return <SearchOutlined rev={null} />;
+            return <SearchOutlined />;
         case 'CheckCircleOutlined':
-            return <CheckCircleOutlined rev={null} />;
+            return <CheckCircleOutlined />;
         case '':
         default:
             return null;

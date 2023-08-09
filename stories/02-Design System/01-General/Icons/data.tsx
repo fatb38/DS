@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {Card} from 'antd';
 import * as Icons from '@ant-design/icons';
 import * as AristidIcons from '@icons/index';
-import {KitInput, KitRadio, RadioChangeEvent} from '@kit/DataEntry/';
+import { KitInput, KitRadio } from '@kit/DataEntry/';
+import type {RadioChangeEvent } from '@kit/DataEntry/Radio';
 import {KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 
@@ -93,7 +94,7 @@ export const Template = args => {
     const Icon = getIcon(args);
     return (
         <>
-            <KitIcon {...args} icon={<Icon rev={null} />} />
+            <KitIcon {...args} icon={<Icon />} />
             <span style={{marginLeft: '10px'}}>{args.icon}</span>
         </>
     );

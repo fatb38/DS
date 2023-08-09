@@ -63,12 +63,12 @@ export const menuProps = {
 export const options = [
     {
         value: 'view',
-        icon: <ControlOutlined rev={null} />,
+        icon: <ControlOutlined />,
         label: 'Vue'
     },
     {
         value: 'save',
-        icon: <ControlOutlined rev={null} />,
+        icon: <ControlOutlined />,
         label: 'Enregistrer la vue',
         highlight: true
     }
@@ -76,13 +76,13 @@ export const options = [
 
 export const actions: ReactNode[] = [
     <KitButton>
-        <FilterOutlined rev={null} />
+        <FilterOutlined />
     </KitButton>,
     <KitButton>
-        <GroupOutlined rev={null} />
+        <GroupOutlined />
     </KitButton>,
     <KitButton>
-        <SortDescendingOutlined rev={null} />
+        <SortDescendingOutlined />
     </KitButton>,
     <KitSelect options={options} defaultValue="view" />
 ];

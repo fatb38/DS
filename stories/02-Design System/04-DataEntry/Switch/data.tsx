@@ -168,9 +168,9 @@ export const argTypes = {
 export const getIcon = value => {
     switch (value) {
         case 'checkOutlined':
-            return <CheckOutlined rev={null} />;
+            return <CheckOutlined />;
         case 'CloseOutlined':
-            return <CloseOutlined rev={null} />;
+            return <CloseOutlined />;
         default:
             return null;
     }

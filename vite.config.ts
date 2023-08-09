@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { webpackStats } from 'rollup-plugin-webpack-stats';
 import { uglify } from 'rollup-plugin-uglify';
+import { visualizer } from "rollup-plugin-visualizer";
 
 import packageJson from './package.json';
 
@@ -16,18 +17,25 @@ const getExclusions = () => {
     ]
 };
 
+const plugins = [
+    react({
+        jsxRuntime: 'classic'
+    }),
+    dts({
+        insertTypesEntry: true,
+        exclude: ['stories', 'package.json'],
+    }),
+    uglify()
+];
+
+if (process.env.STATS) {
+    plugins.push(webpackStats());
+    plugins.push(visualizer());
+}
+
 export default defineConfig({
     publicDir: false,
-    plugins: [
-        react({
-            jsxRuntime: 'classic'
-        }),
-        dts({
-            insertTypesEntry: true
-        }),
-        uglify(),
-        webpackStats()
-    ],
+    plugins: plugins,
     resolve: {
         alias: {
             '@kit': path.resolve(__dirname, './src/Kit'),
