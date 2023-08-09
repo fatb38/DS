@@ -9,8 +9,8 @@ type ContainerProps = {
 };
 
 const Container = styled.div<ContainerProps>`
-    width: ${props => (props.$column ? `${colorbarTheme.barWidth} px` : 'auto')};
-    height: ${props => (props.$column ? 'auto' : `${colorbarTheme.barWidth} px`)};
+    width: ${props => (props.$column ? `${colorbarTheme.barWidth}px` : 'auto')};
+    height: ${props => (props.$column ? 'auto' : `${colorbarTheme.barWidth}px`)};
     border-radius: ${colorbarTheme.borderRadius}px;
     display: flex;
     flex-direction: ${props => (props.$column ? 'column' : 'row')};
