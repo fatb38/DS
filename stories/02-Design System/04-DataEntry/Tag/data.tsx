@@ -157,7 +157,7 @@ const TagArgTypes = {
         description: 'Callback executed when typing in input (retrieve a list of possible values)',
         table: {
             type: {
-                summary: "'(value) => string[]'"
+                summary: "'(value: string, selectionedItems: string[]) => string[]'"
             },
             defaultValue: {summary: '-'},
             category: 'Tag.Input'
