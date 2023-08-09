@@ -24,7 +24,7 @@ const fixedProps = {
     tagRender: tagRender
 };
 
-const DropDownRenderer = menu => <div className="ari-select-dropdown-content">{menu}</div>;
+const DropDownRenderer = menu => <div className="kit-select-dropdown-content">{menu}</div>;
 
 const TagInputBase = styled(Select)`
     ${KitSelectStyle}
@@ -44,6 +44,10 @@ const TagInputBase = styled(Select)`
         font-size: ${tagTheme.placeholderFontSize};
         font-weight: ${tagTheme.placeholderFontWeight};
     }
+
+    & .ant-select-selection-search {
+        min-width: 50px;
+    }
 `;
 
 const KitTagInput = ({onChange, ...props}: KitTagInputProps) => {
@@ -51,8 +55,7 @@ const KitTagInput = ({onChange, ...props}: KitTagInputProps) => {
     const [filteredOptions, setFiltereOptions] = useState<string[]>([]);
 
     useEffect(() => {
-        // Todo dedoublonner les items
-        const filtered: string[] = (props.options || []).filter(v => !selectedItems.indexOf(v));
+        const filtered: string[] = (props.options || []).filter(v => selectedItems.indexOf(v) === -1);
         setFiltereOptions([...filtered, ...selectedItems]);
     }, [props.options, selectedItems]);
 
@@ -83,12 +86,17 @@ const KitTagInput = ({onChange, ...props}: KitTagInputProps) => {
             (props.placement && props.placement.indexOf('top') >= 0 ? 'top' : 'bottom')
     };
 
+    const onSearch = (value:string) => {
+        props.onSearch && props.onSearch(value, selectedItems);
+    };
+
     if (props.onSearch) {
         inputProps = {
             ...inputProps,
             showSearch: true,
             filterOption: false,
-            notFoundContent: props.notFoundContent || null
+            notFoundContent: props.notFoundContent || null,
+            onSearch
         };
     }
 
@@ -97,6 +105,7 @@ const KitTagInput = ({onChange, ...props}: KitTagInputProps) => {
             {...inputProps}
             {...fixedProps}
             value={selectedItems}
+            getInputElement={() => {console.log('tutu'); return <input placeholder="blahh"/>}}
             options={filteredOptions.map(item => ({
                 value: item,
                 label: <StyledLabel>{item}</StyledLabel>
