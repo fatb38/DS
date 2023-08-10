@@ -94,8 +94,13 @@ Read only, can't use mouse to interact.
 {
 <Canvas withSource="none">
     <Fragment>
-        <KitSpace>
-            <KitRate disabled defaultValue={2} />
+        <KitSpace direction="vertical">
+            <KitSpace>
+                <KitRate disabled defaultValue={2} />
+            </KitSpace>
+            <KitSpace style={{backgroundColor: "lightBlue"}}>
+                <KitRate disabled defaultValue={2} disabledStarTransparency="lightBlue" />
+            </KitSpace>
         </KitSpace>
     </Fragment>
 </Canvas>

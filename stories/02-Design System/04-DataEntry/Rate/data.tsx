@@ -45,6 +45,18 @@ export const RateArgTypes = {
             defaultValue: {summary: 'default'}
         }
     },
+    disabledStarTransparency: {
+        name: 'disabledStarTransparency',
+        description: 'Set a color to match the background and keep the transparency effect of disabled striped stars',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Rate',
+            defaultValue: {summary: '#FFFFFF'}
+        }
+    },
     autoFocus: {
         name: 'autoFocus',
         description: 'If get focus when component mounted',
