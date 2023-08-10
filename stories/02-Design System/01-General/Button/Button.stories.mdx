@@ -11,6 +11,8 @@ import {
 import { KitButton } from "@kit/General/";
 import { KitDivider, KitSpace } from "@kit/Layout/";
 import { ButtonArgTypes, Template } from "./data";
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import Exemples from './exemples';
 
 <Meta
     title="Design System/General/Button"
@@ -47,20 +49,11 @@ import { KitButton } from "@kit/General/";
 
 ## Examples
 
-##### Type
+##### Typesss
 
 There are `primary` button, `default` button, `link` button and `segmented` button in antd.
 
-{
-<Canvas withSource="none">
-    <KitSpace wrap>
-        <KitButton type="primary">Primary Button</KitButton>
-        <KitButton>Default Button</KitButton>
-        <KitButton type="link">Link Button</KitButton>
-        <KitButton type="segmented" icon={<ReloadOutlined />} />
-    </KitSpace>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Type} />
 
 ##### Icon
 
@@ -68,93 +61,13 @@ There are `primary` button, `default` button, `link` button and `segmented` butt
 
 If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Button` rather than using the `icon` property.
 
-{
-    <Canvas withSource="none">
-        <KitSpace direction="vertical">
-            <KitSpace wrap>
-                <KitButton type="primary" icon={<SearchOutlined />} />
-                <KitButton type="primary" icon={<SearchOutlined />}>
-                    Search
-                </KitButton>
-                <KitButton icon={<SearchOutlined />} />
-                <KitButton icon={<SearchOutlined />}>Search</KitButton>
-                <KitButton type="link" icon={<SearchOutlined />} />
-                <KitButton type="link" icon={<SearchOutlined />}>
-                    Search
-                </KitButton>
-            </KitSpace>
-        </KitSpace>
-    </Canvas>
-}
-
+<CustomCanvas content={Exemples.Icon} />
 
 ##### Loading
 
 A loading indicator can be added to a button by setting the `loading` property on the `Button`.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const [loadings, setLoadings] = useState([]);
-        const enterLoading = (index) => {
-            setLoadings((prevLoadings) => {
-                const newLoadings = [...prevLoadings];
-                newLoadings[index] = true;
-                return newLoadings;
-            });
-            setTimeout(() => {
-                setLoadings((prevLoadings) => {
-                    const newLoadings = [...prevLoadings];
-                    newLoadings[index] = false;
-                    return newLoadings;
-                });
-            }, 6000);
-        };
-        return (
-            <Fragment>
-                <KitSpace direction="vertical">
-                    <KitSpace wrap>
-                        <KitButton type="primary" loading>
-                            Loading
-                        </KitButton>
-                        <KitButton type="primary" loading>
-                            Loading
-                        </KitButton>
-                        <KitButton
-                            type="primary"
-                            icon={<PoweroffOutlined />}
-                            loading
-                        />
-                    </KitSpace>
-                    <KitSpace wrap>
-                        <KitButton
-                            type="primary"
-                            loading={loadings[0]}
-                            onClick={() => enterLoading(0)}
-                        >
-                            Click me!
-                        </KitButton>
-                        <KitButton
-                            type="primary"
-                            icon={<PoweroffOutlined />}
-                            loading={loadings[1]}
-                            onClick={() => enterLoading(1)}
-                        >
-                            Click me!
-                        </KitButton>
-                        <KitButton
-                            type="primary"
-                            icon={<PoweroffOutlined />}
-                            loading={loadings[2]}
-                            onClick={() => enterLoading(2)}
-                        />
-                    </KitSpace>
-                </KitSpace>
-            </Fragment>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Loading} />
 
 ##### Disabled
 
