@@ -5,6 +5,7 @@ import {DropDownStyle} from '../DataEntry/Select/style';
 import KitSnackBarProvider from '../Feedback/SnackBar/SnackBarProvider';
 import {KitAppProps} from './types';
 import GlobalStyles from './style';
+import {DatePickerDropDownStyle} from '@kit/DataEntry/DatePicker/style';
 
 export const KitApp: React.FunctionComponent<KitAppProps> = props => {
     return (
@@ -12,6 +13,7 @@ export const KitApp: React.FunctionComponent<KitAppProps> = props => {
             <KitSnackBarProvider />
             <GlobalStyles />
             <DropDownStyle />
+            <DatePickerDropDownStyle />
             {props.children}
         </ConfigProvider>
     );

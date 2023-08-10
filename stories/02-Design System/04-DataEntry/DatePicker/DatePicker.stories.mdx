@@ -1,0 +1,529 @@
+import { Fragment, useState } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { KitDatePicker, KitSelect } from "@kit/DataEntry/";
+import { KitDivider, KitSpace } from "@kit/Layout/";
+import { DatePickerArgTypes, Template } from "./data";
+import dayjs from 'dayjs';
+
+
+<Meta
+    title="Design System/DataEntry/DatePicker"
+    argTypes={DatePickerArgTypes}
+/>
+
+<style></style>
+
+# DatePicker
+
+To select or input a date.
+
+## Usage
+
+By clicking the input box, you can select a date from a popup calendar.
+
+##### How to import
+```jsx
+import { KitDatePicker } from "@kit/DataEntry/";
+
+const { RangePicker } = KitDatePicker;
+
+<KitDatePicker ... />
+<KitDatePicker.RangePicker ... />
+<RangePicker ... />
+```
+
+## Examples
+
+##### Basic
+
+Basic use case. Users can select or input a date in panel.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const onChange = (date, dateString) => {
+            console.log(date, dateString);
+        };
+
+        return (
+            <Fragment>
+                <KitSpace direction="vertical">
+                    <KitDatePicker onChange={onChange} />
+                    <KitDatePicker onChange={onChange} picker="time" />
+                    <KitDatePicker onChange={onChange} picker="week" />
+                    <KitDatePicker onChange={onChange} picker="month" />
+                    <KitDatePicker onChange={onChange} picker="quarter" />
+                    <KitDatePicker onChange={onChange} picker="year" />
+                </KitSpace>
+            </Fragment>
+        )
+    })()}
+</Canvas>
+}
+
+##### Range Picker
+
+Set range picker type by picker prop.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitDatePicker.RangePicker picker="week" />
+            <KitDatePicker.RangePicker picker="month" />
+            <KitDatePicker.RangePicker picker="quarter" />
+            <KitDatePicker.RangePicker picker="year" />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Choose Time
+
+This property provide an additional time selection. When `showTime` is an Object, its properties will be passed on to built-in `TimePicker`.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const onChange = (date, dateString) => {
+            console.log(date, dateString);
+        };
+
+        const onOk = (value) => {
+            console.log('onOk: ', value);
+        };
+
+        return (
+            <Fragment>
+                <KitSpace direction="vertical">
+                    <KitDatePicker
+                        showTime
+                        onChange={onChange}
+                        onOk={onOk}
+                    />
+                    <KitDatePicker.RangePicker
+                        showTime={{ format: 'HH:mm' }}
+                        onChange={onChange}
+                        onOk={onOk}
+                        format="YYYY-MM-DD HH:mm"
+                    />
+                </KitSpace>
+            </Fragment>
+        )
+    })()}
+</Canvas>
+}
+
+##### Date Format
+
+We can set the date format by `format`. When `format` is an array, the input box can be entered in any of the valid formats of the array.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const dateFormat = 'YYYY/MM/DD';
+        const weekFormat = 'MM/DD';
+        const monthFormat = 'YYYY/MM';
+        const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY', 'DD-MM-YYYY', 'DD-MM-YY'];
+
+        const customWeekStartEndFormat = (value) => {
+            return `${dayjs(value).startOf('week').format(weekFormat)} ~ ${dayjs(value)
+            .endOf('week')
+            .format(weekFormat)}`;
+        }
+
+        const customFormat = (value) => {
+            return `custom format: ${value.format(dateFormat)}`;
+        }
+
+        return (
+            <Fragment>
+                <KitSpace direction="vertical">
+                    <KitDatePicker
+                        defaultValue={dayjs('2023/01/01', dateFormat)}
+                        format={dateFormat}
+                    />
+                    <KitDatePicker
+                        defaultValue={dayjs('01/01/2023', dateFormatList[0])}
+                        format={dateFormatList}
+                    />
+                    <KitDatePicker
+                        defaultValue={dayjs('2023/01', monthFormat)}
+                        format={monthFormat}
+                        picker="month"
+                    />
+                    <KitDatePicker
+                        defaultValue={dayjs()}
+                        format={customWeekStartEndFormat}
+                        picker="week"
+                    />
+                    <KitDatePicker.RangePicker
+                        defaultValue={[dayjs('2015/01/01', dateFormat), dayjs('2015/01/01', dateFormat)]}
+                        format={dateFormat}
+                    />
+                    <KitDatePicker
+                        defaultValue={dayjs('2015/01/01', dateFormat)}
+                        format={customFormat}
+                    />
+                </KitSpace>
+            </Fragment>
+        )
+    })()}
+</Canvas>
+}
+
+##### Disabled Date & Time
+
+Disabled part of dates and time by `disabledDate` and `disabledTime` respectively, and `disabledTime` only works with `showTime`.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const range = (start, end) => {
+            const result = [];
+            for (let i = start; i < end; i++) {
+                result.push(i);
+            }
+            return result;
+        };
+
+        const disabledDate = (current) => {
+            return current && current < dayjs().endOf('day');
+        };
+
+        const disabledDateTime = () => ({
+            disabledHours: () => range(0, 24).splice(4, 20),
+            disabledMinutes: () => range(30, 60),
+            disabledSeconds: () => [55, 56],
+        });
+
+        const disabledRangeTime = (_, type) => {
+            if (type === 'start') {
+                return {
+                disabledHours: () => range(0, 60).splice(4, 20),
+                disabledMinutes: () => range(30, 60),
+                disabledSeconds: () => [55, 56],
+                };
+            }
+            return {
+                disabledHours: () => range(0, 60).splice(20, 4),
+                disabledMinutes: () => range(0, 31),
+                disabledSeconds: () => [55, 56],
+            };
+        };
+
+        return (
+            <Fragment>
+                <KitSpace direction="vertical">
+                    <KitDatePicker
+                        format="YYYY-MM-DD HH:mm:ss"
+                        disabledDate={disabledDate}
+                        disabledTime={disabledDateTime}
+                        showTime={{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }}
+                    />
+                    <KitDatePicker
+                        picker="month"
+                        disabledDate={disabledDate}
+                    />
+                    <KitDatePicker.RangePicker
+                        disabledDate={disabledDate}
+                    />
+                    <KitDatePicker.RangePicker
+                        disabledDate={disabledDate}
+                        disabledTime={disabledRangeTime}
+                        showTime={{
+                            hideDisabledOptions: true,
+                            defaultValue: [dayjs('00:00:00', 'HH:mm:ss'), dayjs('11:59:59', 'HH:mm:ss')],
+                        }}
+                        format="YYYY-MM-DD HH:mm:ss"
+                    />
+                </KitSpace>
+            </Fragment>
+        )
+    })()}
+</Canvas>
+}
+
+##### Disabled
+
+A disabled state of the `KitDatePicker`. You can also set as array to disable one of input.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        return (
+            <Fragment>
+                <KitSpace direction="vertical">
+                    <KitDatePicker
+                        disabled
+                    />
+                    <KitDatePicker
+                        defaultValue={dayjs('2023-06-06', 'YYYY-MM-DD')}
+                        disabled
+                    />
+                    <KitDatePicker.RangePicker
+                        disabled
+                    />
+                    <KitDatePicker.RangePicker
+                        defaultValue={[dayjs('2023-06-06', 'YYYY-MM-DD'), dayjs('2023-06-06', 'YYYY-MM-DD')]}
+                        disabled
+                    />
+                    <KitDatePicker.RangePicker
+                        defaultValue={[dayjs('2023-06-06', 'YYYY-MM-DD'), dayjs('2023-06-06', 'YYYY-MM-DD')]}
+                        disabled={[false, true]}
+                    />
+                </KitSpace>
+            </Fragment>
+        )
+    })()}
+</Canvas>
+}
+
+##### Preset Ranges
+
+We can set preset ranges to RangePicker to improve user experience.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        return (
+            <Fragment>
+                <KitSpace direction="vertical">
+                    <KitDatePicker
+                        presets={[
+                            { label: 'Yesterday', value: dayjs().add(-1, 'd') },
+                            { label: 'Last Week', value: dayjs().add(-7, 'd') },
+                            { label: 'Last Month', value: dayjs().add(-1, 'month') },
+                        ]}
+                    />
+                    <KitDatePicker.RangePicker
+                        presets={[
+                            { label: 'Last 7 Days', value: [dayjs().add(-7, 'd'), dayjs()] },
+                            { label: 'Last 14 Days', value: [dayjs().add(-14, 'd'), dayjs()] },
+                            { label: 'Last 30 Days', value: [dayjs().add(-30, 'd'), dayjs()] },
+                            { label: 'Last 90 Days', value: [dayjs().add(-90, 'd'), dayjs()] },
+                        ]}
+                    />
+                </KitSpace>
+            </Fragment>
+        )
+    })()}
+</Canvas>
+}
+
+##### Select range dates in 7 days
+
+Using `changeOnBlur` work with `onCalendarChange` and `disabledDate` to limit date selection.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const [dates, setDates] = useState(null);
+        const [value, setValue] = useState(null);
+
+        const disabledDate = (current) => {
+            if (!dates) {
+                return false;
+            }
+
+            const tooLate = dates[0] && current.diff(dates[0], 'days') >= 7;
+            const tooEarly = dates[1] && dates[1].diff(current, 'days') >= 7;
+            return !!tooEarly || !!tooLate;
+        };
+
+        const onOpenChange = (open) => {
+            if (open) {
+                setDates([null, null]);
+            } else {
+                setDates(null);
+            }
+        };
+
+        return (
+            <Fragment>
+                <KitSpace direction="vertical">
+                    <KitDatePicker.RangePicker
+                        value={dates || value}
+                        disabledDate={disabledDate}
+                        onCalendarChange={(val) => {
+                            setDates(val);
+                        }}
+                        onChange={(val) => {
+                            setValue(val);
+                        }}
+                        onOpenChange={onOpenChange}
+                        changeOnBlur
+                    />
+                </KitSpace>
+            </Fragment>
+        )
+    })()}
+</Canvas>
+}
+
+##### Extra Footer
+
+Render extra footer in panel for customized requirements.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitDatePicker renderExtraFooter={() => 'extra footer'} />
+            <KitDatePicker renderExtraFooter={() => 'extra footer'} showTime />
+            <KitDatePicker.RangePicker renderExtraFooter={() => 'extra footer'} />
+            <KitDatePicker.RangePicker renderExtraFooter={() => 'extra footer'} showTime />
+            <KitDatePicker renderExtraFooter={() => 'extra footer'} picker="month" />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Status
+
+Add status to KitDatePicker with `status`, which could be `error` or `warning`.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitDatePicker status="warning" />
+            <KitDatePicker status="error" />
+            <KitDatePicker.RangePicker status="warning" />
+            <KitDatePicker.RangePicker status="error" />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Customized Cell Rendering
+
+We can customize the rendering of the cells in the calendar by providing a `cellRender` function to `KitDatePicker`.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace direction="vertical">
+            <KitDatePicker
+                cellRender={(current, info) => {
+                    if (info.type !== 'date') return info.originNode;
+                        const style = {};
+                    if (current.date() === 1) {
+                        style.backgroundColor = "#E7EDFF"
+                    }
+                    return (
+                        <div className="ant-picker-cell-inner" style={style}>
+                            {current.date()}
+                        </div>
+                    );
+                }}
+            />
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Placement
+
+You can manually specify the position of the popup via `placement`.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const [placement, setPlacement] = useState('topLeft');
+      
+        const options = [
+            {
+                value: 'topLeft',
+                label: "Top left",
+            },
+            {
+                value: 'topRight',
+                label: "Top right",
+            },
+            {
+                value: 'bottomLeft',
+                label: "Bottom left",
+            },
+            {
+                value: 'bottomRight',
+                label: "Bottom right",
+            },
+        ];
+
+        const handleChange = (value) => {
+            setPlacement(value);
+        };
+
+        return (
+            <Fragment>
+                <KitSpace direction="vertical" style={{width: "100%", alignItems: "center"}}>
+                    <KitSelect
+                        style={{width: 200}}
+                        defaultValue={placement}
+                        onChange={handleChange}
+                        options={options}
+                        labelOnly
+                    />
+                    <br/>
+                    <KitDatePicker
+                        placement={placement}
+                    />
+                    <KitDatePicker.RangePicker
+                        placement={placement}
+                    />
+                </KitSpace>
+            </Fragment>
+        )
+    })()}
+</Canvas>
+}
+
+## Api
+
+<Canvas>
+    <Story name="DatePicker">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="DatePicker" />
+
+## FAQ
+
+<br/>
+
+#### Why does the date picker switch to the date panel after selecting the year instead of the month panel?
+
+After selecting the year, the system directly switches to the date panel instead of month panel. This design is intended to reduce the user's operational burden by allowing them to complete the year modification with just one click, without having to enter the month selection interface again. At the same time, it also avoids additional cognitive burden of remembering the month.
+
+#### How to use DatePicker with customize date library like dayjs?
+
+Please refer [Use custom date library](https://ant.design/docs/react/use-custom-date-library#datepicker)
+
+#### Why config dayjs.locale globally not work?
+
+KitDatePicker default set `locale` as `en` in antd v4. You can config DatePicker `locale` prop or [ConfigProvider](https://ant.design/components/config-provider) `locale` prop instead.
+
+#### Date-related components locale is not working?
+
+See Antd FAQ [Date-related-components-locale-is-not-working?](https://ant.design/docs/react/faq#date-related-components-locale-is-not-working)
+
+#### How to modify start day of week?
+
+Please use correct [language](https://ant.design/docs/react/i18n), or update dayjs `locale` config:
+
+```jsx
+    import dayjs from 'dayjs';
+    import 'dayjs/locale/zh-cn';
+    import updateLocale from 'dayjs/plugin/updateLocale';
+
+    dayjs.extend(updateLocale);
+    dayjs.updateLocale('zh-cn', {
+        weekStart: 0,
+    });
+```
+
+#### Why origin panel don't switch when using panelRender?
+
+When you change the layout of nodes by `panelRender`, React will unmount and re-mount it which reset the component state. You should keep the layout stable. Please ref [#27263](https://github.com/ant-design/ant-design/issues/27263) for more info.
+

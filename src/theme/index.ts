@@ -191,6 +191,23 @@ const theme: KitThemeConfig = {
             colorPrimaryHover: colorsPalette.primary.blue400,
             controlHeight: 32,
             controlHeightSM: 24
+        },
+        DatePicker: {
+            colorBgContainer: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            colorBgContainerDisabled: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            colorPrimary: colorsPalette.primary.blue400,
+            colorPrimaryHover: colorsPalette.primary.blue400,
+            colorLink: colorsPalette.primary.blue400,
+            colorLinkHover: colorsPalette.primary.blue500,
+            controlItemBgHover: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            controlItemBgActive: colorsPalette.primary.blue100,
+            colorTextPlaceholder: colorsPalette.secondary.mediumGrey.mediumGrey400,
+            colorText: colorsPalette.secondary.mediumGrey.mediumGrey500,
+            borderRadius: 7,
+            borderRadiusSM: 2,
+            fontFamily: Typography.fontFamily,
+            fontSize: Typography.fontSize5
         }
     }
 };
