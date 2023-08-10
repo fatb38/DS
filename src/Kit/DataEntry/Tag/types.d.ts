@@ -1,6 +1,6 @@
-import {TagProps} from 'antd';
-import {KitSelectProps} from '../Select/types';
-import {HTMLAttributes} from 'react';
+import { TagProps } from 'antd';
+import { KitSelectProps } from '../Select/types';
+import { HTMLAttributes } from 'react';
 
 export const AntdTagPropsToOmit = 'color' | 'checkableTag' | 'icon';
 
@@ -48,4 +48,4 @@ export type AntdSelectTypesToOmit =
     | 'dropdownStyle'
     | 'menuItemSelectedIcon';
 
-export interface KitTagInputProps extends Omit<KitSelectProps, AntdSelectTypesToOmit> {}
+export interface KitTagInputProps extends Omit<KitSelectProps, AntdSelectTypesToOmit> { }

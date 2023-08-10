@@ -1,0 +1,39 @@
+stages:
+  - build
+  - deploy
+
+workflow:
+    rules: 
+      - if: $CI_COMMIT_BRANCH == "main"
+
+variables:
+    GIT_CLEAN_FLAGS: none
+
+build:
+  stage: build
+  image: node:18
+  tags:
+    - docker-shared
+  cache:
+    paths:
+      - node_modules/
+  before_script:
+    - if [ -f yarn.lock ]; then rm -f yarn.lock; fi
+    - yarn install
+  script:
+    - yarn build-all
+    - git add -f dist/
+    - git config --global user.email "infra@aristid.com"; git config --global user.name "Automatic GIT"
+    - git commit -m "CI Dist ($(sed 's/ <.*>//' <<<$CI_COMMIT_AUTHOR) - $CI_COMMIT_SHORT_SHA - $CI_COMMIT_MESSAGE)"
+    - git push -o ci.skip https://ci-push:$GIT_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:$CI_COMMIT_REF_NAME
+
+deploy:
+  stage: deploy
+  image: node:18
+  tags:
+    - docker-shared
+  before_script:
+    - eval $(ssh-agent -s) && echo "$DEPLOY_KEY" | tr -d '\r' | ssh-add - ; mkdir -p ~/.ssh ; ssh-keyscan storybook.aristid.com >> ~/.ssh/known_hosts
+    - apt-get -qq update ; export DEBIAN_FRONTEND=noninteractive ; apt-get -qqy install rsync
+  script:
+    - rsync --stats -av --delete storybook-static/ deployer@storybook.aristid.com:/var/www/storybook.aristid.com/public/

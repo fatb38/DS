@@ -15,7 +15,7 @@ export const mockData = {
     },
     tag: 4,
     image: <KitImage src="images/tondeuse.png" />,
-    icon: <KitIcon icon={<UserOutlined rev={null} />} />,
+    icon: <KitIcon icon={<UserOutlined />} />,
     onSelectChange: e => console.log('selected', e.target.checked),
     onRafterClick: () => console.log('click rafter'),
     onClick: () => console.log('on click itemlist')

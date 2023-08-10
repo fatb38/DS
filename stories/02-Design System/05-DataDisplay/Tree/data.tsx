@@ -45,22 +45,22 @@ const iconData = [
     {
         title: 'parent 1',
         key: '0-0',
-        icon: <FolderOutlined rev={null} />,
+        icon: <FolderOutlined />,
         children: [
             {
                 title: 'parent 1-0',
                 key: '0-0-0',
-                icon: <FolderOutlined rev={null} />,
+                icon: <FolderOutlined />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-0-0-0',
-                        icon: <FileOutlined rev={null} />
+                        icon: <FileOutlined />
                     },
                     {
                         title: 'leaf',
                         key: '0-0-0-1',
-                        icon: <FileOutlined rev={null} />
+                        icon: <FileOutlined />
                     }
                 ]
             }
@@ -72,17 +72,17 @@ const lineData = [
     {
         title: 'parent 1',
         key: '0-0',
-        icon: <CarryOutOutlined rev={null} />,
+        icon: <CarryOutOutlined />,
         children: [
             {
                 title: 'parent 1-0',
                 key: '0-0-0',
-                icon: <CarryOutOutlined rev={null} />,
+                icon: <CarryOutOutlined />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-0-0-0',
-                        icon: <CarryOutOutlined rev={null} />
+                        icon: <CarryOutOutlined />
                     },
                     {
                         title: (
@@ -92,42 +92,42 @@ const lineData = [
                             </>
                         ),
                         key: '0-0-0-1',
-                        icon: <CarryOutOutlined rev={null} />
+                        icon: <CarryOutOutlined />
                     },
                     {
                         title: 'leaf',
                         key: '0-0-0-2',
-                        icon: <CarryOutOutlined rev={null} />
+                        icon: <CarryOutOutlined />
                     }
                 ]
             },
             {
                 title: 'parent 1-1',
                 key: '0-0-1',
-                icon: <CarryOutOutlined rev={null} />,
+                icon: <CarryOutOutlined />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-0-1-0',
-                        icon: <CarryOutOutlined rev={null} />
+                        icon: <CarryOutOutlined />
                     }
                 ]
             },
             {
                 title: 'parent 1-2',
                 key: '0-0-2',
-                icon: <CarryOutOutlined rev={null} />,
+                icon: <CarryOutOutlined />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-0-2-0',
-                        icon: <CarryOutOutlined rev={null} />
+                        icon: <CarryOutOutlined />
                     },
                     {
                         title: 'leaf',
                         key: '0-0-2-1',
-                        icon: <CarryOutOutlined rev={null} />,
-                        switcherIcon: <FormOutlined rev={null} />
+                        icon: <CarryOutOutlined />,
+                        switcherIcon: <FormOutlined />
                     }
                 ]
             }
@@ -136,22 +136,22 @@ const lineData = [
     {
         title: 'parent 2',
         key: '0-1',
-        icon: <CarryOutOutlined rev={null} />,
+        icon: <CarryOutOutlined />,
         children: [
             {
                 title: 'parent 2-0',
                 key: '0-1-0',
-                icon: <CarryOutOutlined rev={null} />,
+                icon: <CarryOutOutlined />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-1-0-0',
-                        icon: <CarryOutOutlined rev={null} />
+                        icon: <CarryOutOutlined />
                     },
                     {
                         title: 'leaf',
                         key: '0-1-0-1',
-                        icon: <CarryOutOutlined rev={null} />
+                        icon: <CarryOutOutlined />
                     }
                 ]
             }

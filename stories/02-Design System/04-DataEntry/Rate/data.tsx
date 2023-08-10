@@ -178,11 +178,11 @@ export const RateArgTypes = {
 };
 
 const customIcons: Record<number, React.ReactNode> = {
-    1: <FrownOutlined rev={null} />,
-    2: <FrownOutlined rev={null} />,
-    3: <MehOutlined rev={null} />,
-    4: <SmileOutlined rev={null} />,
-    5: <SmileOutlined rev={null} />
+    1: <FrownOutlined />,
+    2: <FrownOutlined />,
+    3: <MehOutlined />,
+    4: <SmileOutlined />,
+    5: <SmileOutlined />
 };
 
 export const charsNumber = ({index}: {index: number}) => index + 1;

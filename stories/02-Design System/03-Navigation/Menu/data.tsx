@@ -33,48 +33,48 @@ export const mockData = {
             delete: 'Delete view'
         },
         icon: {
-            home: <HomeOutlined rev={null} />,
-            save: <SaveOutlined rev={null} />,
-            filters: <FilterOutlined rev={null} />,
-            layout: <LayoutOutlined rev={null} />,
-            search: <SearchOutlined rev={null} />,
-            group: <GroupOutlined rev={null} />,
-            duplicate: <CopyOutlined rev={null} />,
-            undo: <UndoOutlined rev={null} />,
-            delete: <DeleteOutlined rev={null} />
+            home: <HomeOutlined />,
+            save: <SaveOutlined />,
+            filters: <FilterOutlined />,
+            layout: <LayoutOutlined />,
+            search: <SearchOutlined />,
+            group: <GroupOutlined />,
+            duplicate: <CopyOutlined />,
+            undo: <UndoOutlined />,
+            delete: <DeleteOutlined />
         },
         actionsOne: [
             {
-                icon: <PlusOutlined rev={null} />,
+                icon: <PlusOutlined />,
                 label: 'Add',
                 onClick: () => console.log('on click add')
             }
         ],
         actionsTwo: [
             {
-                icon: <PlusOutlined rev={null} />,
+                icon: <PlusOutlined />,
                 label: 'Add',
                 onClick: () => console.log('on click add')
             },
             {
-                icon: <MinusOutlined rev={null} />,
+                icon: <MinusOutlined />,
                 label: 'Subtract',
                 onClick: () => console.log('on click subtract')
             }
         ],
         actionsMore: [
             {
-                icon: <PlusOutlined rev={null} />,
+                icon: <PlusOutlined />,
                 label: 'Add',
                 onClick: () => console.log('on click add')
             },
             {
-                icon: <MinusOutlined rev={null} />,
+                icon: <MinusOutlined />,
                 label: 'Subtract',
                 onClick: () => console.log('on click subtract')
             },
             {
-                icon: <PercentageOutlined rev={null} />,
+                icon: <PercentageOutlined />,
                 label: 'Percent',
                 onClick: () => console.log('on click percent')
             }
@@ -86,7 +86,7 @@ export const mockData = {
     },
     menu: {
         title: 'View options',
-        segmentedButton: <KitButton type="primary" icon={<HomeOutlined rev={null} />} />,
+        segmentedButton: <KitButton type="primary" icon={<HomeOutlined />} />,
         primaryInput: <KitInput placeholder="Opération #1" />,
         secondaryInput: <KitInput placeholder="Description" />,
         onCloseClick: () => console.log('on click close')
