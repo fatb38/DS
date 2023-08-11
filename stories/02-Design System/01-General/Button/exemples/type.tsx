@@ -5,11 +5,7 @@ import {
     ReloadOutlined
 } from "@ant-design/icons";
 
-interface IExemple {
-    source: string;
-}
-
-const Exemple: IExemple= ({}) => {
+const App= ({}) => {
     return ( <KitSpace wrap>
         <KitButton type="primary">Primary Button</KitButton>
         <KitButton>Default Button</KitButton>
@@ -18,15 +14,4 @@ const Exemple: IExemple= ({}) => {
     </KitSpace>);
 };
 
-Exemple.source = `
-const App = (props) => {
-    return (<KitSpace wrap>
-        <KitButton type="primary">Primary Button</KitButton>
-        <KitButton>Default Button</KitButton>
-        <KitButton type="link">Link Button</KitButton>
-        <KitButton type="segmented" icon={<ReloadOutlined />} />
-    </KitSpace>);
-}
-`;
-
-export default Exemple;
+export default App;

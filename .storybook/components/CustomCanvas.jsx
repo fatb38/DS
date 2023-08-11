@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Source } from '@storybook/blocks';
+import cleanSource from './cleanSource';
 
 const StyledCanvas = styled.div`
     position: relative;
@@ -77,7 +78,7 @@ const StyledToggle= styled.div`
 const CustomCanvas = props => {
     const [showCode, setShowCode] = useState(props.withSource === "always");
     const Component = props.content || 'div';
-    const source = props?.content?.source ?? '';
+    const source = cleanSource(props.source || '');
 
     const showToggle = !props.withSource || props.withSource === "always" || props.withSource === "auto"
 
