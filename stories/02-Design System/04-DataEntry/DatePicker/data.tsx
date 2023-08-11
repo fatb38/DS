@@ -535,6 +535,61 @@ const DatePickerArgs = {
     }
 };
 
+const TimePickerArgs = {
+    tp_hourStep: {
+        name: 'hourStep',
+        description: 'Interval between hours in picker',
+        table: {
+            type: {
+                summary: 'number'
+            },
+            category: 'DatePicker[picker=time]',
+            defaultValue: {
+                summary: '1'
+            }
+        }
+    },
+    tp_minuteStep: {
+        name: 'minuteStep',
+        description: 'Interval between minutes in picker',
+        table: {
+            type: {
+                summary: 'number'
+            },
+            category: 'DatePicker[picker=time]',
+            defaultValue: {
+                summary: '1'
+            }
+        }
+    },
+    tp_secondStep: {
+        name: 'secondStep',
+        description: 'Interval between seconds in picker',
+        table: {
+            type: {
+                summary: 'number'
+            },
+            category: 'DatePicker[picker=time]',
+            defaultValue: {
+                summary: '1'
+            }
+        }
+    },
+    tp_use12Hours: {
+        name: 'use12Hours',
+        description: 'Display as 12 hours format, with default format `h:mm:ss`',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            category: 'DatePicker[picker=time]',
+            defaultValue: {
+                summary: false
+            }
+        }
+    }
+};
+
 const RangePickerArgs = {
     rp_allowEmpty: {
         name: 'allowEmpty',
@@ -714,6 +769,7 @@ const RangePickerArgs = {
 export const DatePickerArgTypes = {
     ...CommonArgs,
     ...DatePickerArgs,
+    ...TimePickerArgs,
     ...RangePickerArgs
 };
 

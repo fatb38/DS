@@ -7,6 +7,7 @@ import {theme} from '../../..';
 const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
     &.ant-picker.ant-picker-range {
         height: 40px;
+        min-width: 252px;
         padding: 0px 10px;
         font-weight: ${theme.typography.regularFontWeight};
 
