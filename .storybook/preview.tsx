@@ -33,11 +33,6 @@ export const parameters = {
         }
     },
     docs: {
-        source: {
-            // any non-empty string here will skip jsx rendering, see:
-            // https://github.com/storybookjs/storybook/issues/17720
-            code: 'disabled'
-        },
         // Decorate the docs area content with antd's ConfigProvider, in order to use theme in all pages ant components
         container: ({children, context}) => {
             return (
