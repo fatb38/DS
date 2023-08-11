@@ -36,7 +36,6 @@ export default defineConfig({
         }
     },
     build: {
-        sourcemap: true,
         lib: {
             entry: path.resolve(__dirname, 'src/index.tsx'),
             name: 'design-system',
