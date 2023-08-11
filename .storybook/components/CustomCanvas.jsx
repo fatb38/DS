@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Source } from '@storybook/blocks';
+import { Source, Canvas, Unstyled } from '@storybook/blocks';
 import cleanSource from './cleanSource';
+import { KitApp } from '../../src/Kit/App';
 
 const StyledCanvas = styled.div`
     position: relative;
@@ -43,14 +44,11 @@ const StyledToggle= styled.div`
     bottom: 0;
     right: 0;
     max-width: 100%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     background: #FFFFFF;
     z-index: 1;
 
-    button {
+    .toggle-btn {
         margin: 0;
         border: 0 none;
         padding: 4px 10px;
@@ -75,6 +73,7 @@ const StyledToggle= styled.div`
     }
 `;
 
+
 const CustomCanvas = props => {
     const [showCode, setShowCode] = useState(props.withSource === "always");
     const Component = props.content || 'div';
@@ -82,17 +81,19 @@ const CustomCanvas = props => {
 
     const showToggle = !props.withSource || props.withSource === "always" || props.withSource === "auto"
 
-    return <StyledCanvas>
-        <StyledContent>
-            <StyledStory>
-                <Component/>
-            </StyledStory>
-            {showToggle && <StyledToggle>
-                <button onClick={() => setShowCode(!showCode)}>{showCode ? "Hide code": "Show code"}</button>
-            </StyledToggle>}
-        </StyledContent>
-        {showCode && <Source style={{margin:0}} className="canvas-source" code={source} dark/>}
-    </StyledCanvas>;
+    return <Unstyled>
+            <StyledCanvas>
+                <StyledContent>
+                    <StyledStory>
+                        <Component/>
+                    </StyledStory>
+                    {showToggle && <StyledToggle>
+                        <button className="toggle-btn" onClick={() => setShowCode(!showCode)}>{showCode ? "Hide code": "Show code"}</button>
+                    </StyledToggle>}
+                </StyledContent>
+                {showCode && <Source style={{margin:0}} className="canvas-source" code={source} dark/>}
+            </StyledCanvas>
+        </Unstyled>;
 };
 
 export default CustomCanvas;
