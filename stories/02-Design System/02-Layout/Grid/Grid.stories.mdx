@@ -3,6 +3,10 @@ import { Meta, Story, Canvas, Controls } from "@storybook/addon-docs";
 import { KitDivider, KitGrid } from "@kit/Layout/";
 import { argTypes, Template } from "./data";
 
+
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+
 <Meta
     title="Design System/Layout/Grid"
     argTypes={argTypes}
@@ -80,327 +84,64 @@ From the stack to the horizontal arrangement.
 
 You can create a basic grid system by using a single set of `Row` and `Col` grid assembly, all of the columns (Col) must be placed in `Row`.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitGrid.Row>
-            <KitGrid.Col span={24}>
-                <div className="col-demo odd">col</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-        <KitGrid.Row>
-            <KitGrid.Col span={12}>
-                <div className="col-demo odd">col-12</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={12}>
-                <div className="col-demo">col-12</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-        <KitGrid.Row>
-            <KitGrid.Col span={8}>
-                <div className="col-demo odd">col-8</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={8}>
-                <div className="col-demo">col-8</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={8}>
-                <div className="col-demo odd">col-8</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-        <KitGrid.Row>
-            <KitGrid.Col span={6}>
-                <div className="col-demo odd">col-6</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={6}>
-                <div className="col-demo">col-6</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={6}>
-                <div className="col-demo odd">col-6</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={6}>
-                <div className="col-demo">col-6</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-    </Fragment>
-</Canvas>
-}
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Column offset
 
 `offset` can set the column to the right side. For example, using `offset = {4}` can set the element shifted to the right four columns width.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitGrid.Row>
-            <KitGrid.Col span={8}>
-                <div className="col-demo odd">col-8</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={8} offset={8}>
-                <div className="col-demo">col-8 offset-8</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-        <KitGrid.Row>
-            <KitGrid.Col span={6} offset={6}>
-                <div className="col-demo odd">col-6 offset-6</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={6} offset={6}>
-                <div className="col-demo">col-6 offeset-6</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-        <KitGrid.Row>
-            <KitGrid.Col span={12} offset={6}>
-                <div className="col-demo">col-12 offset-6</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-    </Fragment>
-</Canvas>
-}
+
+<CustomCanvas content={Exemples.ColOffset} source={Sources.ColOffset} />
 
 ##### Grid sort
 
 By using `push` and `pull` class you can easily change column order.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitGrid.Row>
-            <KitGrid.Col span={18} push={6}>
-                <div className="col-demo odd">col-18 col-push-6</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={6} pull={18}>
-                <div className="col-demo">col-6 col-pull-18</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-    </Fragment>
-</Canvas>
-}
+
+<CustomCanvas content={Exemples.GridSort} source={Sources.GridSort} />
 
 ##### Typesetting
 
 Child elements depending on the value of the `start`, `center`, `end`, which are defined in its parent node typesetting mode.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitDivider orientation="left">sub-element align left</KitDivider>
-        <KitGrid.Row justify="start">
-            <KitGrid.Col span={4}>
-                <div className="col-demo odd">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo odd">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo">col-4</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-        <KitDivider orientation="left">sub-element align center</KitDivider>
-        <KitGrid.Row justify="center">
-            <KitGrid.Col span={4}>
-                <div className="col-demo odd">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo odd">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo">col-4</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-        <KitDivider orientation="left">sub-element align right</KitDivider>
-        <KitGrid.Row justify="end">
-            <KitGrid.Col span={4}>
-                <div className="col-demo odd">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo odd">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo">col-4</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-    </Fragment>
-</Canvas>
-}
+
+<CustomCanvas content={Exemples.Typesetting} source={Sources.Typesetting} />
 
 ##### Alignment
 
 Child elements vertically aligned.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitDivider orientation="left">Align Top</KitDivider>
-        <KitGrid.Row justify="center" align="top">
-            <KitGrid.Col span={4}>
-                <div className="col-demo odd higher">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo odd higher">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo">col-4</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-        <KitDivider orientation="left">Align Middle</KitDivider>
-        <KitGrid.Row justify="center" align="middle">
-            <KitGrid.Col span={4}>
-                <div className="col-demo odd higher">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo odd higher">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo">col-4</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-        <KitDivider orientation="left">Align Bottom</KitDivider>
-        <KitGrid.Row justify="center" align="bottom">
-            <KitGrid.Col span={4}>
-                <div className="col-demo odd higher">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo odd higher">col-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={4}>
-                <div className="col-demo">col-4</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-    </Fragment>
-</Canvas>
-}
+
+<CustomCanvas content={Exemples.Alignment} source={Sources.Alignment} />
 
 ##### Order
 
 To change the element sort by `order`.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitDivider orientation="left">Normal</KitDivider>
-        <KitGrid.Row>
-            <KitGrid.Col span={6} order={4}>
-                <div className="col-demo odd">1 col-order-4</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={6} order={3}>
-                <div className="col-demo">2 col-order-3</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={6} order={2}>
-                <div className="col-demo odd">3 col-order-2</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={6} order={1}>
-                <div className="col-demo">4 col-order-1</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-        <KitDivider orientation="left">Responsive</KitDivider>
-        <KitGrid.Row>
-            <KitGrid.Col span={6} xs={{ order: 1 }} sm={{ order: 2 }} md={{ order: 3 }} lg={{ order: 4 }}>
-                <div className="col-demo odd">1 col-order-responsive</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={6} xs={{ order: 2 }} sm={{ order: 1 }} md={{ order: 4 }} lg={{ order: 3 }}>
-                <div className="col-demo">2 col-order-responsive</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={6} xs={{ order: 3 }} sm={{ order: 4 }} md={{ order: 2 }} lg={{ order: 1 }}>
-                <div className="col-demo odd">3 col-order-responsive</div>
-            </KitGrid.Col>
-            <KitGrid.Col span={6} xs={{ order: 4 }} sm={{ order: 3 }} md={{ order: 1 }} lg={{ order: 2 }}>
-                <div className="col-demo">4 col-order-responsive</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-    </Fragment>
-</Canvas>
-}
+
+<CustomCanvas content={Exemples.Order} source={Sources.Order} />
 
 ##### Flex stretch
 
 Col provides `flex` prop to support fill rest.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitDivider orientation="left">Percentage columns</KitDivider>
-        <KitGrid.Row>
-            <KitGrid.Col flex={2}>
-                <div className="col-demo odd">2/5</div>
-            </KitGrid.Col>
-            <KitGrid.Col flex={3}>
-                <div className="col-demo">3/5</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-        <KitDivider orientation="left">Fill reset</KitDivider>
-        <KitGrid.Row>
-            <KitGrid.Col flex="100px">
-                <div className="col-demo odd">100px</div>
-            </KitGrid.Col>
-            <KitGrid.Col flex="auto">
-                <div className="col-demo">Fill rest</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-    </Fragment>
-</Canvas>
-}
+
+<CustomCanvas content={Exemples.Stretch} source={Sources.Stretch} />
 
 ##### Responsive
 
 Referring to the Bootstrap responsive design, here preset six dimensions: `xs` `sm` `md` `lg` `xl` `xxl`.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitGrid.Row>
-            <KitGrid.Col xs={2} sm={4} md={6} lg={8} xl={10}>
-                <div className="col-demo odd">Col</div>
-            </KitGrid.Col>
-            <KitGrid.Col xs={20} sm={16} md={12} lg={8} xl={4}>
-                <div className="col-demo">Col</div>
-            </KitGrid.Col>
-            <KitGrid.Col xs={2} sm={4} md={6} lg={8} xl={10}>
-                <div className="col-demo odd">Col</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-    </Fragment>
-</Canvas>
-}
+
+<CustomCanvas content={Exemples.Responsive} source={Sources.Responsive} />
 
 ##### More responsive
 
 `span` `pull` `push` `offset` `order` property can be embedded into `xs` `sm` `md` `lg` `xl` `xxl` properties to use, where `xs={6}` is equivalent to `xs={{span: 6}}`.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitGrid.Row>
-            <KitGrid.Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-                <div className="col-demo odd">Col</div>
-            </KitGrid.Col>
-            <KitGrid.Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-                <div className="col-demo">Col</div>
-            </KitGrid.Col>
-            <KitGrid.Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-                <div className="col-demo odd">Col</div>
-            </KitGrid.Col>
-        </KitGrid.Row>
-    </Fragment>
-</Canvas>
-}
+
+<CustomCanvas content={Exemples.MoreResponsive} source={Sources.MoreResponsive} />
 
 ## Api
 
