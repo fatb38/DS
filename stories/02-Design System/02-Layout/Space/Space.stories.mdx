@@ -11,6 +11,9 @@ import { KitTooltip } from "@kit/DataDisplay/";
 
 import { SpaceArgTypes, Template } from "./data";
 
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+
 
 <Meta
     title="Design System/Layout/Space"
@@ -54,28 +57,13 @@ Set components spacing.
 ##### Basic
 Crowded components horizontal spacing.
 
-{
-<Canvas>
-<KitSpace>
-    <KitButton type="primary">Button</KitButton>
-    <KitButton type="primary">Button 2</KitButton>
-    <KitButton type="primary">Button 3</KitButton>
-</KitSpace>
-</Canvas>
-}
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />Basic
 
 ##### Vertical Space
 Crowded components vertical spacing.
 
-{
-<Canvas>
-<KitSpace direction="vertical" size="middle" style={{ display: 'flex' }}>
-    <KitButton type="primary">Button</KitButton>
-    <KitButton type="primary">Button 2</KitButton>
-    <KitButton type="primary">Button 3</KitButton>
-</KitSpace>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Vertical} source={Sources.Vertical} />
 
 
 
@@ -83,167 +71,37 @@ Crowded components vertical spacing.
 `large`, `middle` and `small` preset sizes.
 Set the size to `large` and `middle` by setting size to `large` and `middle` respectively. If size is not set, the spacing is `small`.
 
-{
-<Canvas>
-    {(() => {
-        const [size, setSize] = useState('small');
-        return (
-            <>
-            <KitRadio.Group value={size} onChange={(e) => setSize(e.target.value)}>
-                <KitRadio value="small">Small</KitRadio>
-                <KitRadio value="middle">Middle</KitRadio>
-                <KitRadio value="large">Large</KitRadio>
-            </KitRadio.Group>
-            <br />
-            <br />
-            <KitSpace size={size}>
-                <KitButton type="primary">Primary</KitButton>
-                <KitButton>Default</KitButton>
-                <KitButton type="dashed">Dashed</KitButton>
-                <KitButton type="link">Link</KitButton>
-            </KitSpace>
-            </>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Size} source={Sources.Size} />
 
 ##### Align
 Config item align.
 
-{
-<Canvas>
-<div className="space-align-container">
-    <div className="space-align-block">
-      <KitSpace align="center">
-        center
-        <KitButton type="primary">Primary</KitButton>
-        <span className="mock-block">Block</span>
-      </KitSpace>
-    </div>
-    <div className="space-align-block">
-      <KitSpace align="start">
-        start
-        <KitButton type="primary">Primary</KitButton>
-        <span className="mock-block">Block</span>
-      </KitSpace>
-    </div>
-    <div className="space-align-block">
-      <KitSpace align="end">
-        end
-        <KitButton type="primary">Primary</KitButton>
-        <span className="mock-block">Block</span>
-      </KitSpace>
-    </div>
-    <div className="space-align-block">
-      <KitSpace align="baseline">
-        baseline
-        <KitButton type="primary">Primary</KitButton>
-        <span className="mock-block">Block</span>
-      </KitSpace>
-    </div>
-</div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Align} source={Sources.Align} />
 
 ##### Customize size
 Custom spacing size.
 
-{
-<Canvas>
-{(() => {
-    const [size, setSize] = useState(8);
-    return (
-    <>
-      <Slider value={size} onChange={(value) => setSize(value)} />
-      <br />
-      <br />
-      <KitSpace size={size}>
-        <KitButton type="primary">Primary</KitButton>
-        <KitButton>Default</KitButton>
-        <KitButton type="dashed">Dashed</KitButton>
-        <KitButton type="link">Link</KitButton>
-      </KitSpace>
-    </>
-  );
-})()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.CustomSize} source={Sources.CustomSize} />
 
 ##### Wrap
 Auto wrap line.
 
-{
-<Canvas>
-<KitSpace size={[8, 16]} wrap>
-    {new Array(20).fill(null).map((_, index) => (
-      <KitButton key={index}>Button</KitButton>
-    ))}
-</KitSpace>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Wrap} source={Sources.Wrap} />
 
 ##### Split
 Crowded components split.
 
-{
-<Canvas>
-<KitSpace split={<KitDivider type="vertical" />}>
-    <KitTypography.Link>Link</KitTypography.Link>
-    <KitTypography.Link>Link</KitTypography.Link>
-    <KitTypography.Link>Link</KitTypography.Link>
-  </KitSpace>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Split} source={Sources.Split} />
 
 ##### Button Compact Mode
 Button component compact example.
 
-{
-<Canvas>
-<KitSpace.Compact block>
-      <KitButton type="primary">Button 1</KitButton>
-      <KitButton type="primary">Button 2</KitButton>
-      <KitButton type="primary">Button 3</KitButton>
-      <KitButton type="primary">Button 4</KitButton>
-      <KitTooltip title="Tooltip">
-        <KitButton type="primary" disabled>
-            <DownloadOutlined />
-        </KitButton>
-      </KitTooltip>
-      <KitTooltip title="Tooltip">
-        <KitButton type="primary" >
-            <DownloadOutlined />
-        </KitButton>
-      </KitTooltip>
-</KitSpace.Compact>
-</Canvas>
-}
+<CustomCanvas content={Exemples.CompactButton} source={Sources.CompactButton} />
 
 ##### Vertical Compact Mode
 Vertical Mode for Space.Compact, support Button only.
 
-{
-<Canvas>
-<KitSpace>
-    <KitSpace.Compact direction="vertical">
-      <KitButton>Button 1</KitButton>
-      <KitButton>Button 2</KitButton>
-      <KitButton>Button 3</KitButton>
-    </KitSpace.Compact>
-    <KitSpace.Compact direction="vertical">
-      <KitButton type="dashed">Button 1</KitButton>
-      <KitButton type="dashed">Button 2</KitButton>
-      <KitButton type="dashed">Button 3</KitButton>
-    </KitSpace.Compact>
-    <KitSpace.Compact direction="vertical">
-      <KitButton type="primary">Button 1</KitButton>
-      <KitButton type="primary">Button 2</KitButton>
-      <KitButton type="primary">Button 3</KitButton>
-    </KitSpace.Compact>
-  </KitSpace>
-</Canvas>
-}
+<CustomCanvas content={Exemples.VerticalCompact} source={Sources.Horizontal} />
 
 ## API
 
