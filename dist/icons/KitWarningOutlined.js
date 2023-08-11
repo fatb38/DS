@@ -6,4 +6,3 @@ a.displayName = "KitWarningOutlined";
 export {
   a as default
 };
-//# sourceMappingURL=KitWarningOutlined.js.map

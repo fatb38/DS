@@ -6,4 +6,3 @@ a.displayName = "KitLogoutOutlined";
 export {
   a as default
 };
-//# sourceMappingURL=KitLogoutOutlined.js.map

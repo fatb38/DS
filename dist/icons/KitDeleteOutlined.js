@@ -6,4 +6,3 @@ l.displayName = "KitDeleteOutlined";
 export {
   l as default
 };
-//# sourceMappingURL=KitDeleteOutlined.js.map

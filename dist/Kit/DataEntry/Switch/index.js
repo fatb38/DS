@@ -70,4 +70,3 @@ r.displayName = "KitSwitch";
 export {
   r as KitSwitch
 };
-//# sourceMappingURL=index.js.map

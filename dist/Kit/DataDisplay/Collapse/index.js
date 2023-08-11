@@ -6,4 +6,3 @@ p.displayName = "KitCollapse";
 export {
   p as KitCollapse
 };
-//# sourceMappingURL=index.js.map

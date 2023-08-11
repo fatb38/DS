@@ -3,4 +3,3 @@ const e = { color: o.color.neutral.typography.black, backgroundColor: o.color.ne
 export {
   e as default
 };
-//# sourceMappingURL=theme.js.map

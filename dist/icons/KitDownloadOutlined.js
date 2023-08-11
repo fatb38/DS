@@ -6,4 +6,3 @@ n.displayName = "KitDownloadOutlined";
 export {
   n as default
 };
-//# sourceMappingURL=KitDownloadOutlined.js.map

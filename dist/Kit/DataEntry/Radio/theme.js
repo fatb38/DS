@@ -3,4 +3,3 @@ const o = { fontWeight: { default: r.typography.mediumfontWeight, checked: r.typ
 export {
   o as default
 };
-//# sourceMappingURL=theme.js.map

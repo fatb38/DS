@@ -6,4 +6,3 @@ t.displayName = "KitInput", t.TextArea = o, t.Password = i;
 export {
   t as KitInput
 };
-//# sourceMappingURL=index.js.map

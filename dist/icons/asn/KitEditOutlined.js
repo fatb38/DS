@@ -2,4 +2,3 @@ const a = { icon: { tag: "svg", attrs: { "data-name": "Calque 1", viewBox: "64 6
 export {
   a as default
 };
-//# sourceMappingURL=KitEditOutlined.js.map

@@ -9,4 +9,3 @@ m.displayName = "KitSpace", m.Compact = r.Compact;
 export {
   m as KitSpace
 };
-//# sourceMappingURL=index.js.map

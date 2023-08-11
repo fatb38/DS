@@ -6,4 +6,3 @@ const K = { Title: t, Text: i, Link: r, Paragraph: o, displayName: "KitTypograph
 export {
   K as KitTypography
 };
-//# sourceMappingURL=index.js.map

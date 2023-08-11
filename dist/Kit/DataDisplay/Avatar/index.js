@@ -5,4 +5,3 @@ t.displayName = "KitAvatar", t.Group = a;
 export {
   t as KitAvatar
 };
-//# sourceMappingURL=index.js.map

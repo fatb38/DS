@@ -20,4 +20,3 @@ export {
   y as getWeightClassname,
   o as sizeTofontSize
 };
-//# sourceMappingURL=commons.js.map

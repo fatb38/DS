@@ -26,4 +26,3 @@ export {
   j as InternalCheckboxGroup,
   J as default
 };
-//# sourceMappingURL=Group.js.map

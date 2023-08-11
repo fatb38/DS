@@ -4,4 +4,3 @@ const i = { circleFontSize: o.fontSize2, circleFontWeight: e.typography.boldFont
 export {
   i as progressTheme
 };
-//# sourceMappingURL=theme.js.map

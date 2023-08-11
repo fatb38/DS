@@ -2,4 +2,3 @@ const A = "data:font/woff2;base64,d09GMgABAAAAA70sABEAAAAJZUAAA7y7AAEAAAAAAAAAAA
 export {
   A as default
 };
-//# sourceMappingURL=Inter-italic.var.woff2.js.map

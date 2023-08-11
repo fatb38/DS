@@ -26,4 +26,3 @@ d.displayName = "KitRate";
 export {
   d as KitRate
 };
-//# sourceMappingURL=index.js.map

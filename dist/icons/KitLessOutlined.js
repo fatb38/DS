@@ -6,4 +6,3 @@ s.displayName = "KitLessOutlined";
 export {
   s as default
 };
-//# sourceMappingURL=KitLessOutlined.js.map

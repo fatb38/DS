@@ -6,4 +6,3 @@ l.displayName = "KitPlusOutlined";
 export {
   l as default
 };
-//# sourceMappingURL=KitPlusOutlined.js.map

@@ -45,4 +45,3 @@ export {
   b as withSuccess,
   v as withWarn
 };
-//# sourceMappingURL=confirm.js.map

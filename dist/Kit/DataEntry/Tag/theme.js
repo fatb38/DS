@@ -3,4 +3,3 @@ const e = { fontSize: t.typography.fontSize7, fontFamily: t.typography.fontFamil
 export {
   e as tagTheme
 };
-//# sourceMappingURL=theme.js.map

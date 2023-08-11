@@ -5,4 +5,3 @@ o.displayName = "KitCheckbox", o.Group = t;
 export {
   o as KitCheckbox
 };
-//# sourceMappingURL=index.js.map

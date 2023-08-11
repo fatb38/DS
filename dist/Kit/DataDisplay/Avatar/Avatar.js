@@ -24,4 +24,3 @@ m.displayName = "KitAvatar";
 export {
   m as default
 };
-//# sourceMappingURL=Avatar.js.map
