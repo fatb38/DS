@@ -36,4 +36,4 @@ deploy:
     - eval $(ssh-agent -s) && echo "$DEPLOY_KEY" | tr -d '\r' | ssh-add - ; mkdir -p ~/.ssh ; ssh-keyscan storybook.aristid.com >> ~/.ssh/known_hosts
     - apt-get -qq update ; export DEBIAN_FRONTEND=noninteractive ; apt-get -qqy install rsync
   script:
-    - rsync --stats -av --delete storybook-static/ deployer@storybook.aristid.com:/var/www/storybook.aristid.com/public/
+    - rsync --stats -av --delete --no-owner --no-group storybook-static/ deployer@storybook.aristid.com:/var/www/storybook.aristid.com/public/

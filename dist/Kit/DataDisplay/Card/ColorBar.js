@@ -3,8 +3,8 @@ import a from "styled-components";
 import { colorbarTheme as o } from "./theme.js";
 import { KitTooltip as i } from "../Tooltip/index.js";
 const c = a.div`
-    width: ${(e) => e.$column ? o.barWidth + " px" : "auto"};
-    height: ${(e) => e.$column ? "auto" : o.barWidth + " px"};
+    width: ${(e) => e.$column ? o.barWidth + "px" : "auto"};
+    height: ${(e) => e.$column ? "auto" : o.barWidth + "px"};
     border-radius: ${o.borderRadius}px;
     display: flex;
     flex-direction: ${(e) => e.$column ? "column" : "row"};
