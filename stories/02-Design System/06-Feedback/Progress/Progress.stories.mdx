@@ -1,13 +1,11 @@
 import { Fragment, useState } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { KitProgress } from "@kit/Feedback/";
-import { KitSpace } from "@kit/Layout/";
-import { KitButton } from '@kit/General/';
-import { KitTooltip } from '@kit/DataDisplay';
-import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 
 import { ProgressArgTypes, Template } from "./data";
+
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
 <Meta
     title="Design System/Feedback/Progress"
@@ -38,272 +36,69 @@ A FAIRE
 ##### Progres bar
 A standard progress bar.
 
-{
-<Canvas withSource="none">
-<>
-    <KitProgress percent={30} />
-    <KitProgress percent={50} status="active" />
-    <KitProgress percent={70} status="exception" />
-    <KitProgress percent={100} />
-    <KitProgress percent={50} showInfo={false} />
-</>
-</Canvas>
-}
+
+<CustomCanvas content={Exemples.Bar} source={Sources.Bar} />
 
 ##### Circular Progress bar
 A circular progress bar.
 
-{
-<Canvas withSource="none">
-<KitSpace wrap>
-    <KitProgress type="circle" percent={75} />
-    <KitProgress type="circle" percent={70} status="exception" />
-    <KitProgress type="circle" percent={100} />
-</KitSpace>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Circular} source={Sources.Circular} />
 
 ##### Mini size progress bar
 Appropriate for a narrow area.
 
-{
-<Canvas withSource="none">
-<div style={{ width: 170 }}>
-    <KitProgress percent={30} size="small" />
-    <KitProgress percent={50} size="small" status="active" />
-    <KitProgress percent={70} size="small" status="exception" />
-    <KitProgress percent={100} size="small" />
-</div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Minibar} source={Sources.Minibar} />
 
 ##### Responsive circular progress bar
 Responsive circular progress bar. When `width` is smaller than 20, progress information will be displayed in Tooltip.
 
-{
-<Canvas withSource="none">
-<>
-    <KitProgress
-      type="circle"
-      trailColor="#e6f4ff"
-      percent={60}
-      strokeWidth={20}
-      size={14}
-      format={(number) => `processing, finished ${number}%`}
-    />
-    <span style={{ marginLeft: 8 }}>Freeing code</span>
-</>
-</Canvas>
-}
+<CustomCanvas content={Exemples.ResponsiveCircular} source={Sources.ResponsiveCircular} />
 
 ##### Mini size circular progress bar
 A smaller circular progress bar.
 
-{
-<Canvas withSource="none">
-<KitSpace wrap>
-    <KitProgress type="circle" percent={30} size={80} />
-    <KitProgress type="circle" percent={70} size={80} status="exception" />
-    <KitProgress type="circle" percent={100} size={80} />
-</KitSpace>
-</Canvas>
-}
+<CustomCanvas content={Exemples.MiniCircular} source={Sources.MiniCircular} />
 
 ##### Dynamic
 A dynamic progress bar is better.
 
-{
-<Canvas withSource="none">
-{(() => {
-    const [percent, setPercent] = useState(0);
-    const increase = () => {
-        setPercent((prevPercent) => {
-            const newPercent = prevPercent + 10;
-            if (newPercent > 100) {
-                return 100;
-            }
-            return newPercent;
-        });
-    };
-    const decline = () => {
-        setPercent((prevPercent) => {
-            const newPercent = prevPercent - 10;
-            if (newPercent < 0) {
-                return 0;
-            }
-            return newPercent;
-        });
-    };
-    return (
-        <>
-            <KitProgress percent={percent} style={{ marginRight: 8 }} />
-            <KitSpace.Compact>
-                <KitButton onClick={decline} type="segmented" icon={<MinusOutlined />} />
-                <KitButton onClick={increase} type="segmented" icon={<PlusOutlined />} />
-            </KitSpace.Compact>
-            
-        </>
-    );
-})()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Dynamic} source={Sources.Dynamic} />
 
 ##### Dynamic circular progress bar
 A dynamic progress bar is better.
 
-{
-<Canvas withSource="none">
-{(() => {
-    const [percent, setPercent] = useState(0);
-    const increase = () => {
-        setPercent((prevPercent) => {
-            const newPercent = prevPercent + 10;
-            if (newPercent > 100) {
-                return 100;
-            }
-            return newPercent;
-        });
-    };
-    const decline = () => {
-        setPercent((prevPercent) => {
-            const newPercent = prevPercent - 10;
-            if (newPercent < 0) {
-                return 0;
-            }
-            return newPercent;
-        });
-    };
-    return (
-        <>
-            <KitProgress type="circle" percent={percent} style={{ marginRight: 8 }} />
-            <KitSpace.Compact>
-                <KitButton onClick={decline} icon={<MinusOutlined />} />
-                <KitButton onClick={increase} icon={<PlusOutlined />} />
-            </KitSpace.Compact>
-        </>
-    );
-})()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.DynamicCircular} source={Sources.DynamicCircular} />
 
 ##### Custom text format
 You can set a custom text by setting the `format` prop.
 
-{
-<Canvas withSource="none">
-<KitSpace wrap>
-    <KitProgress type="circle" percent={75} format={(percent) => `${percent} Days`} />
-    <KitProgress type="circle" percent={100} format={() => 'Done'} />
-</KitSpace>
-</Canvas>
-}
+<CustomCanvas content={Exemples.CustomText} source={Sources.CustomText} />
 
 
 ##### Dashboard
 By setting `type=dashboard`, you can get a dashboard style of progress easily. Modify `gapDegree` to set the degree of gap.
 
-{
-<Canvas withSource="none">
-<KitSpace wrap>
-    <KitProgress type="dashboard" percent={75} />
-    <KitProgress type="dashboard" percent={75} gapDegree={30} />
-</KitSpace>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Dashboard} source={Sources.Dashboard} />
 
 ##### Progress bar with success segment
 Show several parts of progress with different status.
 
-{
-<Canvas withSource="none">
-<>
-    <KitTooltip title="3 done / 3 in progress / 4 to do">
-        <KitProgress percent={60} success={{ percent: 30 }} />
-    </KitTooltip>
-    <KitSpace wrap>
-        <KitTooltip title="3 done / 3 in progress / 4 to do">
-            <KitProgress percent={60} success={{ percent: 30 }} type="circle" />
-        </KitTooltip>
-        <KitTooltip title="3 done / 3 in progress / 4 to do">
-            <KitProgress percent={60} success={{ percent: 30 }} type="dashboard" />
-        </KitTooltip>
-    </KitSpace>
-</>
-</Canvas>
-}
+<CustomCanvas content={Exemples.SuccessSegment} source={Sources.SuccessSegment} />
 
 ##### Stroke Linecap
 By setting `strokeLinecap="butt"`, you can change the linecaps from `round` to `butt`, see stroke-linecap for more information.
 
-
-{
-<Canvas withSource="none">
-<>
-    <KitProgress strokeLinecap="butt" percent={75} />
-    <KitSpace wrap>
-        <KitProgress strokeLinecap="butt" type="circle" percent={75} />
-        <KitProgress strokeLinecap="butt" type="dashboard" percent={75} />
-    </KitSpace>
-</>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Stroke} source={Sources.Stroke} />
 
 ##### Progress bar with steps
 A progress bar with steps.
 
-{
-<Canvas withSource="none">
-<>
-    <KitProgress percent={50} steps={3} />
-    <br />
-    <KitProgress percent={30} steps={5} />
-    <br />
-    <KitProgress percent={100} steps={5} size="small" strokeColor={"#389e0d"} />
-    <br />
-    <KitProgress percent={60} steps={5} strokeColor={["#389e0d", "#389e0d", "#f5222d"]} />
-</>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Steps} source={Sources.Steps} />
 
 ##### Progress size
 The size of progress.
 
-{
-<Canvas withSource="none">
-<>
-    <KitSpace direction="vertical">
-        <KitProgress percent={50} />
-        <KitProgress percent={50} size="small" />
-        <KitProgress percent={50} size={[300, 20]} />
-    </KitSpace>
-    <br />
-    <br />
-    <KitSpace size={30}>
-        <KitProgress type="circle" percent={50} />
-        <KitProgress type="circle" percent={50} size="small" />
-        <KitProgress type="circle" percent={50} size={20} />
-    </KitSpace>
-    <br />
-    <br />
-    <KitSpace size={30}>
-        <KitProgress type="dashboard" percent={50} />
-        <KitProgress type="dashboard" percent={50} size="small" />
-        <KitProgress type="dashboard" percent={50} size={20} />
-    </KitSpace>
-    <br />
-    <br />
-    <KitSpace size={30} wrap>
-        <KitProgress steps={3} percent={50} />
-        <KitProgress steps={3} percent={50} size="small" />
-        <KitProgress steps={3} percent={50} size={20} />
-        <KitProgress steps={3} percent={50} size={[20, 30]} />
-    </KitSpace>
-</>
-</Canvas>
-}
-
-
-
+<CustomCanvas content={Exemples.Size} source={Sources.Size} />
 
 ## Api
 

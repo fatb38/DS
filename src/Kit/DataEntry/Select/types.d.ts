@@ -35,7 +35,8 @@ export interface KitSelectProps extends Omit<SelectProp, AntdSelectTypesToOmit>,
     header?: boolean;
     options?: KitOptionProps[];
     labelOnly?: boolean | null;
-    onSearch?: (value: string, selectedValues: string[] | null) => {};
+    onSearch?: (value: string, selectedValues: string[] | null) => void;
+    onChange?: (value: string | string[]) => void;
 }
 
 export interface KitOptionProps extends OptionProps {
