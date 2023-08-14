@@ -34,7 +34,7 @@ const StyledStory = styled.div`
     flex-wrap: wrap;
     overflow: auto;
     flex-direction: column;
-    padding: 30px 20px;
+    padding: 30px 20px 40px 20px;
     margin: -10px;
 
 `;
