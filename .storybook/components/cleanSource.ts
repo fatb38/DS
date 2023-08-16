@@ -5,7 +5,7 @@ const replaceAll = (str: string, search: string, replacement: string) => {
 };
 
 const cleanSource = (src: string) => {
-    var regexp = /'@kit.*'/g;
+    var regexp = /['"]@kit.*['"]/g;
     const cleaned = src.replace(regexp, `'${pkg.name}'`);
     return cleaned;
 }

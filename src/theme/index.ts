@@ -1,10 +1,11 @@
-import {ThemeConfig} from 'antd';
-import {KitColorsPalette, colorsPalette} from './colors';
-import {Typography, KitTypography, typographyHeaders} from './typography';
+import { ThemeConfig } from 'antd';
+import { KitColorsPalette, colorsPalette } from './colors';
+import { Typography, KitTypography, typographyHeaders, KitTypograhyHeaders } from './typography';
 
 interface KitThemeConfig extends ThemeConfig {
     color: KitColorsPalette;
     typography: KitTypography;
+    headersTypography: KitTypograhyHeaders
 }
 
 const theme: KitThemeConfig = {
@@ -21,6 +22,7 @@ const theme: KitThemeConfig = {
     },
     color: colorsPalette,
     typography: Typography,
+    headersTypography: typographyHeaders,
     components: {
         Button: {
             borderRadius: 20,
@@ -208,6 +210,23 @@ const theme: KitThemeConfig = {
             borderRadiusSM: 2,
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize5
+        },
+        Tabs: {
+            fontFamily: Typography.fontFamily,
+            cardBg: colorsPalette.neutral.gray.gray100,
+            cardPadding: "8px 16px",
+            cardPaddingLG: "9px 16px",
+            cardPaddingSM: "7px 16px",
+            inkBarColor: colorsPalette.primary.blue400,
+            itemActiveColor: colorsPalette.primary.blue600,
+            itemHoverColor: colorsPalette.primary.blue400,
+            itemSelectedColor: colorsPalette.primary.blue400,
+            titleFontSize: Typography.fontSize5,
+            titleFontSizeLG: Typography.fontSize5,
+            titleFontSizeSM: Typography.fontSize5,
+            borderRadius: 2,
+            colorBorderSecondary: colorsPalette.neutral.gray.gray300,
+            colorTextDisabled: colorsPalette.neutral.gray.gray300
         }
     }
 };

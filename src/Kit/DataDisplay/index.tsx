@@ -6,6 +6,7 @@ import {KitImage} from './Image';
 import {KitItemList} from './ItemList';
 import {KitTooltip} from './Tooltip';
 import {KitTree} from './Tree';
+import {KitTabs} from './Tabs';
 
 export {KitAvatar};
 export {KitBadge};
@@ -15,3 +16,4 @@ export {KitImage};
 export {KitItemList};
 export {KitTooltip};
 export {KitTree};
+export {KitTabs};

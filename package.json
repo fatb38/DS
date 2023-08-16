@@ -21,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-modal": "^3.16.1",
+    "react-sticky-box": "^2.0.4",
     "react-uuid": "^2.0.0",
     "remark-gfm": "^3.0.1",
     "styled-components": "^6.0.7"
