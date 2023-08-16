@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
-import { KitProgress } from "@kit/Feedback/";
-import { KitSpace } from '@kit/Layout';
-import { KitButton } from '@kit/General';
-import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
+import React, {useState} from 'react';
+import {KitProgress, KitSpace, KitButton} from '@kit/index';
+import {MinusOutlined, PlusOutlined} from '@ant-design/icons';
 
-const App= ({}) => {
+const App = ({}) => {
     const [percent, setPercent] = useState(0);
 
     const increase = () => {
-        setPercent((prevPercent) => {
+        setPercent(prevPercent => {
             const newPercent = prevPercent + 10;
             if (newPercent > 100) {
                 return 100;
@@ -18,7 +16,7 @@ const App= ({}) => {
     };
 
     const decline = () => {
-        setPercent((prevPercent) => {
+        setPercent(prevPercent => {
             const newPercent = prevPercent - 10;
             if (newPercent < 0) {
                 return 0;
@@ -29,12 +27,11 @@ const App= ({}) => {
 
     return (
         <>
-            <KitProgress percent={percent} style={{ marginRight: 8 }} />
+            <KitProgress percent={percent} style={{marginRight: 8}} />
             <KitSpace.Compact>
                 <KitButton onClick={decline} type="segmented" icon={<MinusOutlined />} />
                 <KitButton onClick={increase} type="segmented" icon={<PlusOutlined />} />
             </KitSpace.Compact>
-            
         </>
     );
 };

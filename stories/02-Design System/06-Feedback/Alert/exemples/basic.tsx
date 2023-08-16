@@ -1,10 +1,8 @@
 import React from 'react';
-import { KitAlert } from "@kit/Feedback/";
+import {KitAlert} from '@kit/index';
 
-const App= ({}) => {
-    return (
-        <KitAlert type="success" message="Success Text"/>
-    );
+const App = ({}) => {
+    return <KitAlert type="success" message="Success Text" />;
 };
 
 export default App;

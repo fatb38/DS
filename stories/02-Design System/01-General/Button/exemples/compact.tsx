@@ -1,18 +1,13 @@
 import React from 'react';
-import { KitSpace } from '@kit/Layout';
-import { KitButton } from '@kit/General';
-import {
-    ReloadOutlined,
-    SearchOutlined,
-    PoweroffOutlined
-} from "@ant-design/icons";
+import {KitButton, KitSpace} from '@kit/index';
+import {ReloadOutlined, SearchOutlined, PoweroffOutlined} from '@ant-design/icons';
 
-const App= ({}) => {
+const App = ({}) => {
     return (
         <KitSpace direction="vertical">
             <KitSpace wrap>
                 <KitSpace.Compact block>
-                    <KitButton type="segmented" icon={<PoweroffOutlined />}/>
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} />
                     <KitButton type="segmented" icon={<SearchOutlined />} />
                 </KitSpace.Compact>
                 <KitSpace.Compact block>

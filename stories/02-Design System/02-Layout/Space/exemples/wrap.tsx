@@ -1,12 +1,11 @@
 import React from 'react';
-import { KitButton } from "@kit/General/";
-import { KitSpace } from "@kit/Layout/";
+import {KitSpace, KitButton} from '@kit/index';
 
-const App= ({}) => {
+const App = ({}) => {
     return (
         <KitSpace size={[8, 16]} wrap>
             {new Array(20).fill(null).map((_, index) => (
-            <KitButton key={index}>Button</KitButton>
+                <KitButton key={index}>Button</KitButton>
             ))}
         </KitSpace>
     );

@@ -1,8 +1,7 @@
 import React from 'react';
-import { KitTypography } from "@kit/General/";
-import { KitSpace, KitDivider } from "@kit/Layout/";
+import {KitTypography, KitSpace, KitDivider} from '@kit/index';
 
-const App= ({}) => {
+const App = ({}) => {
     return (
         <KitSpace split={<KitDivider type="vertical" />}>
             <KitTypography.Link>Link</KitTypography.Link>

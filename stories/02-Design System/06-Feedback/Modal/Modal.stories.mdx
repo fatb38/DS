@@ -3,11 +3,8 @@
 import { useState, Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { KitModal } from "@kit/Feedback/";
-import { KitSpace } from "@kit/Layout/";
-import { KitButton } from "@kit/General/";
-import { KitCheckbox, KitSelect } from '@kit/DataEntry/';
 import { ModalArgTypes, Template } from "./data";
+import { Source } from '@storybook/blocks';
 
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
@@ -28,7 +25,8 @@ When requiring users to interact with the application, but without jumping to a 
 Additionally, if you need show a simple confirmation dialog, you can use `App.useApp` hooks.
 
 ##### How to import
-```jsx
+
+<Source dark code={`
 import { KitModal } from "@kit/Feedback/";
 
 <KitModal title="Basic Modal" ... ></KitModal>
@@ -36,7 +34,7 @@ import { KitModal } from "@kit/Feedback/";
 OR
 
 KitModal.confirm({...});
-```
+`} />
 
 ## Examples
 

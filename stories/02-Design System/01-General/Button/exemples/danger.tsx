@@ -1,17 +1,18 @@
 import React from 'react';
-import { KitSpace } from '@kit/Layout';
-import { KitButton } from '@kit/General';
-import {
-    SearchOutlined
-} from "@ant-design/icons";
+import {KitButton, KitSpace} from '@kit/index';
+import {SearchOutlined} from '@ant-design/icons';
 
-
-const App= ({}) => {
+const App = ({}) => {
     return (
         <KitSpace wrap>
-            <KitButton type="primary" danger>Primary</KitButton>
+            <KitButton type="primary" danger>
+                Primary
+            </KitButton>
             <KitButton danger>Default</KitButton>
-            <KitButton type="link" danger> Link</KitButton>
+            <KitButton type="link" danger>
+                {' '}
+                Link
+            </KitButton>
         </KitSpace>
     );
 };

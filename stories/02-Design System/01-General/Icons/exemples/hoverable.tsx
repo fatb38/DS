@@ -1,16 +1,12 @@
-
 import React from 'react';
-import { KitSpace } from '@kit/Layout';
-import { KitIcon } from '@kit/General';
-import {
-    DownloadOutlined
-} from "@ant-design/icons";
+import {KitIcon, KitSpace} from '@kit/index';
+import {DownloadOutlined} from '@ant-design/icons';
 
-const App= ({}) => {
+const App = ({}) => {
     return (
         <KitSpace>
-            <KitIcon icon={<DownloadOutlined/>} hoverable />
-            <KitIcon icon={<DownloadOutlined/>} hoverable on />
+            <KitIcon icon={<DownloadOutlined />} hoverable />
+            <KitIcon icon={<DownloadOutlined />} hoverable on />
         </KitSpace>
     );
 };

@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
-import { KitDivider, KitGrid } from "@kit/Layout/";
+import React, {Fragment} from 'react';
+import {KitDivider, KitGrid} from '@kit/index';
 
-const App= ({}) => {
+const App = ({}) => {
     return (
         <Fragment>
             <KitDivider orientation="left">Percentage columns</KitDivider>
