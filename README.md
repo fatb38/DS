@@ -1,10 +1,4 @@
-<style>
-    .storybook-intro {
-        display: none;
-        margin-bottom: 30px;
-    }
-</style>
-
+<div class="git-intro">
 <div align="center">
     <img src="public/images/logo-aristid.png" alt="Logo" height="100px">
     <p align="center">
@@ -85,17 +79,7 @@
 <hr>
 <br/>
 <br/>
-
-<div class="storybook-intro">
-<h1>Bienvenue sur le Storybook ARiSTiD</h1>
-
-Sur ce Storybook vous retrouverez toute la documentation liée au **Design System** de ARiSTiD.
-L'objectif de cette interface et de centraliser tous les composants actuels et futurs d'Omnipublish.
-Ainsi, tous les composants présents sont isolés de toutes logiques métier, de data et de contexte.
-
-Pour plus d'information sur les fonctionnalités de StoryBook, n'hésitez pas à lire la [**documentation**](https://storybook.js.org/docs/react/get-started/install/).
 </div>
-
 
 ## Getting Started
 ### Prerequisites
