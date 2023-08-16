@@ -86,9 +86,16 @@ const StyledDatePicker = styled(AntdDatePicker)`
                     }
                 }
 
-                .ant-picker-suffix,
+                .ant-picker-suffix {
+                    color: ${theme.color.secondary.orange.orange500};
+                }
+
                 .ant-picker-clear {
                     color: ${theme.color.secondary.orange.orange300};
+
+                    &:hover {
+                        color: ${theme.color.secondary.orange.orange500};
+                    }
                 }
             }
         }
@@ -111,9 +118,16 @@ const StyledDatePicker = styled(AntdDatePicker)`
                     }
                 }
 
-                .ant-picker-suffix,
+                .ant-picker-suffix {
+                    color: ${theme.color.secondary.red.red400};
+                }
+
                 .ant-picker-clear {
                     color: ${theme.color.secondary.red.red300};
+
+                    &:hover {
+                        color: ${theme.color.secondary.red.red400};
+                    }
                 }
             }
         }
