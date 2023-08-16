@@ -11,12 +11,17 @@ export interface KitTypography {
     lineHeight5: number;
     lineHeight6: number;
     lineHeight7: number;
-    // fontSize5: string | number;
-    // fontSize6: string | number;
-    // fontSize7: string | number;
-    // lineHeight5: string | number;
-    // lineHeight6: string | number;
-    // lineHeight7: string | number;
+}
+
+export interface KitTypograhyHeaders {
+    fontSize1: number;
+    fontSize2: number;
+    fontSize3: number;
+    fontSize4: number;
+    lineHeight1: number;
+    lineHeight2: number;
+    lineHeight3: number;
+    lineHeight4: number;
 }
 
 // reserved to Headings

@@ -44,7 +44,7 @@ export const parameters = {
                 <>
                     <KitApp>
                         <Container context={context}>{children}</Container>
-                        <TableOfContents className="sbdocs-toc--custom" config={tocConfig} />
+                        <TableOfContents config={tocConfig} />
                         <BackToTop />
                     </KitApp>
                 </>
