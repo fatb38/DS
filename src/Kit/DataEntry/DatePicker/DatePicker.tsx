@@ -7,8 +7,8 @@ import {theme} from '../../..';
 const StyledDatePicker = styled(AntdDatePicker)`
     &.ant-picker {
         height: 40px;
-        padding: 0px 10px;
-        min-width: 130px;
+        padding: 0px 12px 0px 8px;
+        min-width: 165px;
         font-weight: ${theme.typography.regularFontWeight};
 
         &.ant-picker-focused {
@@ -17,9 +17,34 @@ const StyledDatePicker = styled(AntdDatePicker)`
         }
 
         .ant-picker-input {
-            .ant-picker-suffix,
-            .ant-picker-clear {
+            display: grid;
+            grid-template-areas: 'icon input clear';
+            grid-template-columns: 28px 1fr 12px;
+
+            input {
+                grid-area: input;
+            }
+
+            .ant-picker-suffix {
+                grid-area: icon;
                 color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+            }
+            .ant-picker-clear {
+                grid-area: clear;
+                font-size: 12px;
+                position: initial;
+                top: initial;
+                line-height: 1;
+                transform: none;
+                transition: none;
+                opacity: 1;
+                transition: color 0.2s;
+                color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+
+                &:hover {
+                    transition: color 0.2s;
+                    color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+                }
             }
         }
 
