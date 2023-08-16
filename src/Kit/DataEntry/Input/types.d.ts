@@ -6,12 +6,24 @@ type AntdInputTypesToOmit = 'styles' | 'type' | 'bordered' | 'size' | 'addonBefo
 
 export interface KitInputProps
     extends Omit<InputProps, AntdInputTypesToOmit>,
-        HTMLAttributes<HTMLSpanElement | HTMLInputElement> {}
+        HTMLAttributes<HTMLSpanElement | HTMLInputElement> {
+    label?: string;
+    helper?: string;
+    allowClear?: boolean;
+}
 
 export interface KitTextAreaProps
     extends Omit<TextAreaProps, AntdInputTypesToOmit>,
-        HTMLAttributes<HTMLSpanElement | HTMLInputElement> {}
+        HTMLAttributes<HTMLSpanElement | HTMLInputElement> {
+    label?: string;
+    helper?: string;
+    allowClear?: boolean;
+}
 
 export interface KitPasswordProps
     extends Omit<PasswordProps, AntdInputTypesToOmit>,
-        HTMLAttributes<HTMLSpanElement | HTMLInputElement> {}
+        HTMLAttributes<HTMLSpanElement | HTMLInputElement> {
+    label?: string;
+    helper?: string;
+    allowClear?: boolean;
+}

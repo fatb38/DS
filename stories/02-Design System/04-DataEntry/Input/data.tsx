@@ -42,9 +42,9 @@ export const InputArgTypes = {
         control: {type: 'boolean'},
         table: {
             type: {
-                summary: 'boolean | { clearIcon: ReactNode }'
+                summary: 'boolean'
             },
-            defaultValue: {summary: false},
+            defaultValue: {summary: true},
             category: 'Input'
         },
         defaultValue: false

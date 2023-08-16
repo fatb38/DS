@@ -3,30 +3,23 @@ import {Input as AntdInput} from 'antd';
 import {KitTextAreaProps} from './types';
 import {styled} from 'styled-components';
 import theme from '@theme/index';
+import {CloseCircleOutlined} from '@ant-design/icons';
+import {KitTypography} from '@kit/General/';
 
 const StyledAntdTextArea = styled(AntdInput.TextArea)`
     &.ant-input,
     .ant-input {
         padding: 4px 10px;
         font-weight: ${theme.typography.regularFontWeight};
-
-        &:focus {
-            border-style: dashed;
-            box-shadow: none;
-        }
     }
 
     .ant-input-suffix {
         .ant-input-clear-icon {
-            color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
         }
     }
 
     &.ant-input-affix-wrapper {
-        &.ant-input-affix-wrapper-focused {
-            border-style: dashed;
-        }
-
         &.ant-input-textarea-allow-clear {
             .ant-input {
                 padding-inline-end: 24px;
@@ -35,9 +28,9 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
         &.ant-input-textarea-show-count {
             .ant-input-data-count {
-                bottom: -18px;
+                bottom: -23px;
                 color: ${theme.color.secondary.mediumGrey.mediumGrey300};
-                font-size: ${theme.typography.fontSize7};
+                font-size: ${theme.typography.fontSize7}px;
                 font-weight: ${theme.typography.regularFontWeight};
                 line-height: ${theme.typography.lineHeight7};
             }
@@ -45,12 +38,12 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
         &.ant-input-affix-wrapper-disabled {
             .ant-input-data-count {
-                color: ${theme.color.primary.blue200};
+                color: ${theme.color.secondary.mediumGrey.mediumGrey300};
             }
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${theme.color.primary.blue200};
+                    color: ${theme.color.secondary.mediumGrey.mediumGrey300};
                 }
             }
         }
@@ -62,7 +55,7 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${theme.color.secondary.red.red300};
+                    color: ${theme.color.secondary.red.red400};
                 }
             }
 
@@ -79,7 +72,7 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${theme.color.secondary.orange.orange300};
+                    color: ${theme.color.secondary.orange.orange500};
                 }
             }
 
@@ -92,15 +85,15 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
     &.ant-input-disabled,
     .ant-input-disabled {
-        border-color: ${theme.color.primary.blue100};
-        color: ${theme.color.primary.blue300};
+        border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
+        color: ${theme.color.secondary.mediumGrey.mediumGrey400};
 
         &:hover {
-            border-color: ${theme.color.primary.blue100};
+            border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
         }
 
         &::placeholder {
-            color: ${theme.color.primary.blue200};
+            color: ${theme.color.secondary.mediumGrey.mediumGrey400};
         }
     }
 
@@ -120,7 +113,7 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
         }
 
         &::placeholder {
-            color: ${theme.color.secondary.red.red300};
+            color: ${theme.color.secondary.red.red400};
         }
     }
 
@@ -140,13 +133,78 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
         }
 
         &::placeholder {
-            color: ${theme.color.secondary.orange.orange300};
+            color: ${theme.color.secondary.orange.orange400};
+        }
+    }
+
+    &:focus,
+    &.ant-input-affix-wrapper-focused {
+        border-style: dashed;
+        box-shadow: none;
+
+        .ant-input::placeholder {
+            color: transparent;
         }
     }
 `;
 
-const KitTextArea: React.FunctionComponent<KitTextAreaProps> = textAreaProps => {
-    return <StyledAntdTextArea {...textAreaProps} />;
+const KitTextArea: React.FunctionComponent<KitTextAreaProps> = ({
+    label,
+    helper,
+    allowClear = true,
+    ...textAreaProps
+}) => {
+    const styledTextArea = (
+        <StyledAntdTextArea
+            {...textAreaProps}
+            allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
+        />
+    );
+
+    const getKitTextAreaWrapperTextColor = () => {
+        if (textAreaProps.disabled) {
+            return theme.color.secondary.mediumGrey.mediumGrey400;
+        }
+
+        switch (textAreaProps.status) {
+            case 'warning':
+                return theme.color.secondary.orange.orange400;
+            case 'error':
+                return theme.color.secondary.red.red400;
+            default:
+                return theme.color.secondary.mediumGrey.mediumGrey500;
+        }
+    };
+
+    const getKitTextArea = () => {
+        const textColor = getKitTextAreaWrapperTextColor();
+
+        if (label || helper) {
+            return (
+                <div className="kit-textarea-wrapper">
+                    {label && (
+                        <div className="kit-textarea-label" style={{paddingBottom: '4px'}}>
+                            <KitTypography.Text size="large" weight="medium" style={{color: textColor}}>
+                                {label}
+                            </KitTypography.Text>
+                        </div>
+                    )}
+                    {styledTextArea}
+                    {helper && (
+                        <div className="kit-textarea-helper" style={{paddingTop: '4px'}}>
+                            <KitTypography.Text size="small" weight="regular" style={{color: textColor}}>
+                                * {helper}
+                            </KitTypography.Text>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        return styledTextArea;
+    };
+
+    return getKitTextArea();
 };
 
 export default KitTextArea;
