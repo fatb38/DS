@@ -12,6 +12,7 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
         &:focus {
             border-style: dashed;
+            box-shadow: none;
         }
     }
 

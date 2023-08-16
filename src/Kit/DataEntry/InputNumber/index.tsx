@@ -12,6 +12,7 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
     &.ant-input-number-focused,
     &.ant-input-number-affix-wrapper-focused {
         border-style: dashed;
+        box-shadow: none;
     }
 
     &.ant-input-number-disabled,

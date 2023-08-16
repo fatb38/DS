@@ -15,6 +15,7 @@ const StyledAntdInput = styled(AntdInput)`
     &:focus,
     &.ant-input-affix-wrapper.ant-input-affix-wrapper-focused {
         border-style: dashed;
+        box-shadow: none;
     }
 
     &.ant-input-affix-wrapper {

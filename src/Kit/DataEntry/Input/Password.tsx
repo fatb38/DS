@@ -38,6 +38,7 @@ const StyledAntdPassword = styled(AntdInput.Password)`
 
         &.ant-input-affix-wrapper-focused {
             border-style: dashed;
+            box-shadow: none;
         }
 
         &.ant-input-affix-wrapper-disabled {
