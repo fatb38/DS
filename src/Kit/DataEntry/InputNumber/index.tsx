@@ -41,6 +41,7 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
 
         .ant-input-number {
             height: 38px;
+            line-height: 38px;
         }
     }
 
