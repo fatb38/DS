@@ -6,9 +6,12 @@ import {theme} from '../../..';
 
 const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
     &.ant-picker.ant-picker-range {
+        display: grid;
+        grid-template-areas: 'icon input1 separator input2 clear';
+        grid-template-columns: 28px 1fr 28px 1fr 12px;
         height: 40px;
-        min-width: 252px;
-        padding: 0px 10px;
+        min-width: 270px;
+        padding: 0px 12px 0px 8px;
         font-weight: ${theme.typography.regularFontWeight};
 
         &.ant-picker-focused {
@@ -16,22 +19,49 @@ const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
             box-shadow: none;
         }
 
-        .ant-picker-range-separator .ant-picker-separator {
-            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+        .ant-picker-range-separator {
+            grid-area: separator;
+
+            .ant-picker-separator {
+                color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+            }
         }
 
         .ant-picker-active-bar {
-            bottom: 8px;
-            height: 1px;
+            display: none;
         }
 
-        .ant-picker-suffix,
-        .ant-picker-clear {
+        .ant-picker-input {
+            &:nth-child(1) {
+                grid-area: input1;
+            }
+
+            &:nth-child(2) {
+                grid-area: input2;
+            }
+        }
+
+        .ant-picker-suffix {
+            grid-area: icon;
             color: ${theme.color.secondary.mediumGrey.mediumGrey500};
         }
 
         .ant-picker-clear {
-            inset-inline-end: 10px;
+            grid-area: clear;
+            font-size: 12px;
+            position: initial;
+            top: initial;
+            line-height: 1;
+            transform: none;
+            transition: none;
+            opacity: 1;
+            transition: color 0.2s;
+            color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+
+            &:hover {
+                transition: color 0.2s;
+                color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+            }
         }
 
         .ant-picker-input {
@@ -87,9 +117,16 @@ const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
                 color: ${theme.color.secondary.orange.orange300};
             }
 
-            .ant-picker-suffix,
+            .ant-picker-suffix {
+                color: ${theme.color.secondary.orange.orange500};
+            }
+
             .ant-picker-clear {
                 color: ${theme.color.secondary.orange.orange300};
+
+                &:hover {
+                    color: ${theme.color.secondary.orange.orange500};
+                }
             }
         }
 
@@ -116,9 +153,16 @@ const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
                 color: ${theme.color.secondary.red.red300};
             }
 
-            .ant-picker-suffix,
+            .ant-picker-suffix {
+                color: ${theme.color.secondary.red.red400};
+            }
+
             .ant-picker-clear {
                 color: ${theme.color.secondary.red.red300};
+
+                &:hover {
+                    color: ${theme.color.secondary.red.red400};
+                }
             }
         }
     }
