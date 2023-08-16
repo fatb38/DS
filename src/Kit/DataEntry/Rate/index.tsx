@@ -64,6 +64,7 @@ const StyledRate = styled(AntdRate)<{
                 div[role='radio']::after {
                     top: 2px;
                     padding-bottom: 4px;
+                    border-radius: 2px;
                 }
 
                 div[role='radio']::before {
