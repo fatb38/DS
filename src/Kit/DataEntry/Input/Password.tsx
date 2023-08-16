@@ -6,11 +6,11 @@ import theme from '@theme/index';
 
 const StyledAntdPassword = styled(AntdInput.Password)`
     &.ant-input-affix-wrapper {
-        padding: 0px 10px;
+        padding: 0px 12px;
 
         .ant-input {
             height: 38px;
-            padding: 0px 10px;
+            padding: 0px 10px 0px 0px;
             border-radius: 7px;
             font-weight: ${theme.typography.regularFontWeight};
         }
@@ -33,8 +33,7 @@ const StyledAntdPassword = styled(AntdInput.Password)`
         }
 
         .ant-input-prefix {
-            margin-inline-start: 10px;
-            margin-inline-end: 0px;
+            margin-inline-end: 10px;
         }
 
         &.ant-input-affix-wrapper-focused {
