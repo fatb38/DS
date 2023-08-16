@@ -1,23 +1,19 @@
-import React, { Fragment, useState } from 'react';
-import { KitSpace } from '@kit/Layout';
-import { KitButton } from '@kit/General';
-import {
-    PoweroffOutlined
-} from "@ant-design/icons";
+import React, {Fragment, useState} from 'react';
+import {KitButton, KitSpace} from '@kit/index';
+import {PoweroffOutlined} from '@ant-design/icons';
 
-
-const App= ({}) => {
+const App = ({}) => {
     const [loadings, setLoadings] = useState<boolean[]>([]);
 
-    const enterLoading = (index) => {
-        setLoadings((prevLoadings) => {
+    const enterLoading = index => {
+        setLoadings(prevLoadings => {
             const newLoadings = [...prevLoadings];
             newLoadings[index] = true;
             return newLoadings;
         });
 
         setTimeout(() => {
-            setLoadings((prevLoadings) => {
+            setLoadings(prevLoadings => {
                 const newLoadings = [...prevLoadings];
                 newLoadings[index] = false;
                 return newLoadings;
@@ -35,18 +31,10 @@ const App= ({}) => {
                     <KitButton type="primary" loading>
                         Loading
                     </KitButton>
-                    <KitButton
-                        type="primary"
-                        icon={<PoweroffOutlined />}
-                        loading
-                    />
+                    <KitButton type="primary" icon={<PoweroffOutlined />} loading />
                 </KitSpace>
                 <KitSpace wrap>
-                    <KitButton
-                        type="primary"
-                        loading={loadings[0]}
-                        onClick={() => enterLoading(0)}
-                    >
+                    <KitButton type="primary" loading={loadings[0]} onClick={() => enterLoading(0)}>
                         Click me!
                     </KitButton>
                     <KitButton

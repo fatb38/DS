@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import { SnackBarArgTypes, Template } from "./data";
+import { Source } from '@storybook/blocks';
 
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
@@ -29,23 +30,25 @@ Add the `KitSnackBarProvider` to your app and make sure it's placed at the top.
 
 There must be only one `KitSnackBarProvider` in your app.
 
-```tsx
+<Source dark code={`
 import { KitSnackBarProvider, openKitSnackBar, closeKitSnackBar } from "@kit/Feedback/";
 
 <div>
     <KitSnackBarProvider/>
 </div>
-```
+`} />
 
 Start using `openKitSnackBar` . You can call it from anywhere.
-```tsx
+
+<Source dark code={`
 openKitSnackBar("Hello World")
-```
+`} />
 
 To manualy close the SnackBar you can use `closeKitSnackBar()`.
-```tsx
+
+<Source dark code={`
 closeKitSnackBar()
-```
+`} />
 
 This components is based on [react-hot-toast](https://react-hot-toast.com/).
 

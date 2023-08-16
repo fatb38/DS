@@ -1,25 +1,27 @@
 import React from 'react';
-import { openKitSnackBar, closeKitSnackBar } from "@kit/Feedback/";
-import { KitSpace } from '@kit/Layout';
-import { KitButton } from '@kit/General';
+import {openKitSnackBar, closeKitSnackBar, KitSpace, KitButton} from '@kit/index';
 
-const App= ({}) => {
+const App = ({}) => {
     return (
         <KitSpace>
             <KitButton
                 type="primary"
                 onClick={() => {
-                    openKitSnackBar(
-                        {
-                            message: "Hello there !",
-                            closable: true
-                        }
-                    );
+                    openKitSnackBar({
+                        message: 'Hello there !',
+                        closable: true
+                    });
                 }}
             >
                 Open SnackBar
             </KitButton>
-            <KitButton onClick={() => {closeKitSnackBar()}}>Close SnackBar</KitButton>
+            <KitButton
+                onClick={() => {
+                    closeKitSnackBar();
+                }}
+            >
+                Close SnackBar
+            </KitButton>
         </KitSpace>
     );
 };

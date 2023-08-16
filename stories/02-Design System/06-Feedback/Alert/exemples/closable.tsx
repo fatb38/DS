@@ -1,12 +1,12 @@
 import React from 'react';
-import { KitAlert } from "@kit/Feedback/";
+import {KitAlert} from '@kit/index';
 
-const App= ({}) => {
+const App = ({}) => {
     return (
         <>
-            <KitAlert type="warning" message="Warning Text" closable/>
-            <br/>
-            <KitAlert type="error" message="Error Text" closable/>
+            <KitAlert type="warning" message="Warning Text" closable />
+            <br />
+            <KitAlert type="error" message="Error Text" closable />
         </>
     );
 };

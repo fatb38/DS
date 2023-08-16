@@ -20,14 +20,14 @@ import TypesettingSource from './typesetting?raw';
 
 export const Sources = {
     Alignment: AlignmentSource,
-    Basit: BasicSource,
+    Basic: BasicSource,
     ColOffset: ColOffsetSource,
     GridSort: GridSortSource,
-    MoreResponsivt: MoreResponsiveSource,
-    Ordet: OrderSource,
-    Responsivt: ResponsiveSource,
+    MoreResponsive: MoreResponsiveSource,
+    Order: OrderSource,
+    Responsive: ResponsiveSource,
     Stretch: StretchSource,
-    Typesettint: TypesettingSource
+    Typesetting: TypesettingSource
 };
 
 export default {
@@ -40,4 +40,4 @@ export default {
     Responsive,
     Stretch,
     Typesetting
-}
+};

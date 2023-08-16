@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
-import { KitTypography } from "@kit/General/";
+import React, {Fragment} from 'react';
+import {KitTypography} from '@kit/index';
 
-const App= ({}) => {
+const App = ({}) => {
     return (
         <Fragment>
             <KitTypography.Paragraph size="large" weight="bold">

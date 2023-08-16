@@ -1,7 +1,7 @@
 import React from 'react';
-import { KitAlert } from "@kit/Feedback/";
+import {KitAlert} from '@kit/index';
 
-const App= ({}) => {
+const App = ({}) => {
     return (
         <>
             <KitAlert
@@ -9,19 +9,19 @@ const App= ({}) => {
                 message="Success Text"
                 description="Success Description Success Description Success Description"
             />
-            <br/>
+            <br />
             <KitAlert
                 type="info"
                 message="Info Text"
                 description="Info Description Info Description Info Description Info Description"
             />
-            <br/>
+            <br />
             <KitAlert
                 type="warning"
                 message="Warning Text"
                 description="Warning Description Warning Description Warning Description Warning Description"
             />
-            <br/>
+            <br />
             <KitAlert
                 type="error"
                 message="Error Text"

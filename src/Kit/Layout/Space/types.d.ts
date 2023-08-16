@@ -1,4 +1,5 @@
 import type { SpaceProps } from 'antd';
+import type { SpaceSize } from 'antd/es/space';
 import { CSSProperties, HTMLAttributes } from 'react';
 
 export interface KitSpaceProps extends SpaceProps, HTMLAttributes<HTMLDivElement> {
@@ -9,3 +10,5 @@ export interface KitSpaceProps extends SpaceProps, HTMLAttributes<HTMLDivElement
     style?: CSSProperties;
     className?: string;
 }
+
+export { SpaceSize };

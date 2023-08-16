@@ -1,10 +1,9 @@
 import React from 'react';
-import { KitButton } from "@kit/General/";
-import { KitSpace } from "@kit/Layout/";
+import {KitSpace, KitButton} from '@kit/index';
 
-const App= ({}) => {
+const App = ({}) => {
     return (
-        <KitSpace direction="vertical" size="middle" style={{ display: 'flex' }}>
+        <KitSpace direction="vertical" size="middle" style={{display: 'flex'}}>
             <KitButton type="primary">Button</KitButton>
             <KitButton type="primary">Button 2</KitButton>
             <KitButton type="primary">Button 3</KitButton>

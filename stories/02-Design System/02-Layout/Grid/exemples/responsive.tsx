@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
-import { KitGrid } from "@kit/Layout/";
+import React, {Fragment} from 'react';
+import {KitGrid} from '@kit/index';
 
-const App= ({}) => {
+const App = ({}) => {
     return (
         <Fragment>
             <KitGrid.Row>

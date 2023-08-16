@@ -1,9 +1,7 @@
 import React from 'react';
-import { KitProgress } from "@kit/Feedback/";
-import { KitSpace } from '@kit/Layout';
+import {KitProgress, KitSpace} from '@kit/index';
 
-
-const App= ({}) => {
+const App = ({}) => {
     return (
         <>
             <KitProgress strokeLinecap="butt" percent={75} />

@@ -1,6 +1,5 @@
 import { useState, Fragment } from "react";
 import { Meta, Story, Canvas, Controls } from "@storybook/addon-docs";
-import { KitDivider, KitGrid } from "@kit/Layout/";
 import { argTypes, Template } from "./data";
 
 
@@ -58,23 +57,6 @@ Following is a brief look at how it works:
 Our grid systems base on Flex layout to allow the elements within the parent to be aligned horizontally - left, center, right, wide arrangement, and decentralized arrangement. The Grid system also supports vertical alignment - top aligned, vertically centered, bottom-aligned. You can also define the order of elements by using `order`.
 
 Layout uses a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
-
-## Usage
-
-##### How to import
-```jsx
-import { KitGrid } from "@kit/Layout/";
-
-const { Row, Col } = KitGrid;
-
-<KitGrid.Row>
-    <KitGrid.Col>1</KitGrid.Col>
-</KitGrid.Row>
-
-<Row>
-    <Col>1</Col>
-</Row>
-```
 
 ## Examples
 

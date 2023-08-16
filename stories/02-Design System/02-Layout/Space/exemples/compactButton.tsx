@@ -1,10 +1,8 @@
 import React from 'react';
-import { KitButton } from "@kit/General/";
-import { KitSpace } from "@kit/Layout/";
-import { KitTooltip } from '@kit/DataDisplay';
-import { DownloadOutlined}  from '@ant-design/icons';
+import {KitSpace, KitButton, KitTooltip} from '@kit/index';
+import {DownloadOutlined} from '@ant-design/icons';
 
-const App= ({}) => {
+const App = ({}) => {
     return (
         <KitSpace.Compact block>
             <KitButton type="primary">Button 1</KitButton>
@@ -17,7 +15,7 @@ const App= ({}) => {
                 </KitButton>
             </KitTooltip>
             <KitTooltip title="Tooltip">
-                <KitButton type="primary" >
+                <KitButton type="primary">
                     <DownloadOutlined />
                 </KitButton>
             </KitTooltip>

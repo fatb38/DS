@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { KitAlert } from "@kit/Feedback/";
 import { AlertArgTypes, Template } from "./data";
 
 import Exemples, { Sources } from './exemples';
@@ -21,13 +20,6 @@ import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 - When you need to show alert messages to users.
 
 - When you need a persistent static container which is closable by user actions.
-
-##### How to import
-```jsx
-import { KitAlert } from "@kit/Feedback/";
-
-<KitAlert type="success" message="Success Text"/>
-```
 
 ## Examples
 
@@ -59,7 +51,7 @@ Additional description for alert message.
 
 A relevant icon will make information clearer and more friendly.
 
-<CustomCanvas content={Exemples.BasIconic} source={Sources.Icon} />
+<CustomCanvas content={Exemples.Icon} source={Sources.Icon} />
 
 ##### Banner
 
