@@ -3,28 +3,42 @@ import {InputNumber as AntdInputNumber} from 'antd';
 import {KitInputNumberProps} from './types';
 import {styled} from 'styled-components';
 import theme from '@theme/index';
+import {KitTypography} from '@kit/General/';
 
 const StyledAntdInputNumber = styled(AntdInputNumber)`
     font-weight: ${theme.typography.regularFontWeight};
     height: 40px;
     line-height: 40px;
 
+    // Use :focus-within because antd doesn't add a "ant-input-number-affix-wrapper-focused" class
     &.ant-input-number-focused,
-    &.ant-input-number-affix-wrapper-focused {
+    &.ant-input-number-affix-wrapper:focus-within {
         border-style: dashed;
         box-shadow: none;
+        border-color: ${theme.color.primary.blue400};
+    }
+
+    &.ant-input-number-focused,
+    &.ant-input-number-affix-wrapper .ant-input-number-focused {
+        .ant-input-number-input::placeholder {
+            color: transparent;
+        }
     }
 
     &.ant-input-number-disabled,
     &.ant-input-number-affix-wrapper-disabled {
-        border-color: ${theme.color.primary.blue100};
+        border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
 
         .ant-input-number-input {
-            color: ${theme.color.primary.blue300};
+            color: ${theme.color.secondary.mediumGrey.mediumGrey400};
 
             &::placeholder {
-                color: ${theme.color.primary.blue200};
+                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
             }
+        }
+
+        &.ant-input-number-affix-wrapper .ant-input-number-prefix {
+            color: ${theme.color.secondary.mediumGrey.mediumGrey400};
         }
     }
 
@@ -47,8 +61,11 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
     }
 
     .ant-input-number-input-wrap {
+        border-radius: 0 7px 7px 0;
+
         .ant-input-number-input {
             padding: 0px 10px;
+            border-radius: 0;
         }
     }
 
@@ -56,11 +73,15 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
     &.ant-input-number-affix-wrapper-status-warning {
         background-color: ${theme.color.secondary.orange.orange100};
 
+        .ant-input-number-input-wrap {
+            background-color: ${theme.color.secondary.orange.orange100};
+        }
+
         .ant-input-number-input {
-            color: ${theme.color.secondary.orange.orange500};
+            color: ${theme.color.secondary.orange.orange400};
 
             &::placeholder {
-                color: ${theme.color.secondary.orange.orange300};
+                color: ${theme.color.secondary.orange.orange400};
             }
         }
 
@@ -71,6 +92,10 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
             &:focus {
                 border-color: ${theme.color.secondary.orange.orange400};
             }
+
+            &.ant-input-number-affix-wrapper .ant-input-number-prefix {
+                color: ${theme.color.secondary.orange.orange400};
+            }
         }
     }
 
@@ -79,11 +104,15 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
     &.ant-input-number-affix-wrapper-status-error {
         background-color: ${theme.color.secondary.red.red100};
 
+        .ant-input-number-input-wrap {
+            background-color: ${theme.color.secondary.red.red100};
+        }
+
         .ant-input-number-input {
             color: ${theme.color.secondary.red.red400};
 
             &::placeholder {
-                color: ${theme.color.secondary.red.red300};
+                color: ${theme.color.secondary.red.red400};
             }
         }
 
@@ -94,12 +123,61 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
             &:focus {
                 border-color: ${theme.color.secondary.red.red400};
             }
+
+            &.ant-input-number-affix-wrapper .ant-input-number-prefix {
+                color: ${theme.color.secondary.red.red400};
+            }
         }
     }
 `;
 
-export const KitInputNumber: React.FunctionComponent<KitInputNumberProps> = inputNumberProps => {
-    return <StyledAntdInputNumber {...inputNumberProps} />;
+export const KitInputNumber: React.FunctionComponent<KitInputNumberProps> = ({label, helper, ...inputNumberProps}) => {
+    const styledInputNumber = <StyledAntdInputNumber {...inputNumberProps} />;
+
+    const getKitInputNumberWrapperTextColor = () => {
+        if (inputNumberProps.disabled) {
+            return theme.color.secondary.mediumGrey.mediumGrey400;
+        }
+
+        switch (inputNumberProps.status) {
+            case 'warning':
+                return theme.color.secondary.orange.orange400;
+            case 'error':
+                return theme.color.secondary.red.red400;
+            default:
+                return theme.color.secondary.mediumGrey.mediumGrey500;
+        }
+    };
+
+    const getKitInputNumber = () => {
+        const textColor = getKitInputNumberWrapperTextColor();
+
+        if (label || helper) {
+            return (
+                <div className="kit-inputnumber-wrapper">
+                    {label && (
+                        <div className="kit-inputnumber-label" style={{paddingBottom: '4px'}}>
+                            <KitTypography.Text size="large" weight="medium" style={{color: textColor}}>
+                                {label}
+                            </KitTypography.Text>
+                        </div>
+                    )}
+                    {styledInputNumber}
+                    {helper && (
+                        <div className="kit-inputnumber-helper" style={{paddingTop: '4px'}}>
+                            <KitTypography.Text size="small" weight="regular" style={{color: textColor}}>
+                                * {helper}
+                            </KitTypography.Text>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        return styledInputNumber;
+    };
+
+    return getKitInputNumber();
 };
 
 KitInputNumber.displayName = 'KitInputNumber';
