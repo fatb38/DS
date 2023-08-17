@@ -54,15 +54,6 @@ The differences with Select are:
 - AutoComplete is an input box with text hints, and users can type freely. The keyword is aiding **input**.
 - Select is selecting among given choices. The keyword is **select**.
 
-
-
-##### How to import
-```jsx
-import { KitAutoComplete } from "@kit/DataEntry/";
-
-<KitAutoComplete />
-```
-
 ## Examples
 
 ##### Basic
@@ -347,6 +338,80 @@ Add status to AutoComplete with `status`, which could be `error` or `warning`.
 </Canvas>
 }
 
+##### Label and Helper
+
+Add `label` and/or `helper` properties to give field context.
+
+{
+<Canvas withSource="none">
+    {(() => {
+        const mockVal = (str, repeat = 1) => ({
+        value: str.repeat(repeat),
+        });
+        const [options, setOptions] = useState([]);
+        const getPanelValue = (searchText) =>
+            !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];
+        return (
+            <KitSpace
+            direction="vertical"
+            style={{
+                width: '100%',
+            }}
+            >
+                <KitAutoComplete
+                    label="Label"
+                    helper="Helper"
+                    allowClear={false}
+                    options={options}
+                    onSearch={(text) => setOptions(getPanelValue(text))}
+                    style={{
+                        width: 200,
+                    }}
+                />
+                <KitAutoComplete
+                    label="Label"
+                    helper="Helper"
+                    options={options}
+                    onSearch={(text) => setOptions(getPanelValue(text))}
+                    style={{
+                        width: 200,
+                    }}
+                />
+                <KitAutoComplete
+                    label="Label"
+                    helper="Helper"
+                    options={options}
+                    onSearch={(text) => setOptions(getPanelValue(text))}
+                    disabled={true}
+                    style={{
+                        width: 200,
+                    }}
+                />
+                <KitAutoComplete
+                    label="Label"
+                    helper="Helper"
+                    options={options}
+                    onSearch={(text) => setOptions(getPanelValue(text))}
+                    status="error"
+                    style={{
+                        width: 200,
+                    }}
+                />
+                <KitAutoComplete
+                    label="Label"
+                    helper="Helper"
+                    options={options}
+                    onSearch={(text) => setOptions(getPanelValue(text))}
+                    status="warning"
+                    style={{
+                        width: 200,
+                    }}
+                />
+            </KitSpace>
+        );
+    })()}
+</Canvas>
+}
 ## API
 
 <Canvas>
