@@ -10,12 +10,23 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
     height: 40px;
     line-height: 40px;
 
+    &:not(.ant-input-number-affix-wrapper) {
+        line-height: 38px;
+
+        .ant-input-number-input-wrap {
+            border-radius: 7px;
+        }
+    }
+
     // Use :focus-within because antd doesn't add a "ant-input-number-affix-wrapper-focused" class
     &.ant-input-number-focused,
     &.ant-input-number-affix-wrapper:focus-within {
         border-style: dashed;
-        box-shadow: none;
         border-color: ${theme.color.primary.blue400};
+
+        &:not(.ant-input-borderless):not(.ant-input-disabled) {
+            box-shadow: none;
+        }
     }
 
     &.ant-input-number-focused,
