@@ -27,3 +27,10 @@ export interface KitPasswordProps
     helper?: string;
     allowClear?: boolean;
 }
+
+export interface KitInputWrapperProps extends HTMLAttributes<HTMLDivElement> {
+    label?: string;
+    helper?: string;
+    disabled?: boolean;
+    status?: '' | 'warning' | 'error';
+}

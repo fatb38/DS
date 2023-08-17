@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import {theme} from '../../..';
 import {KitTypography} from '@kit/General/';
 import {CloseCircleOutlined} from '@ant-design/icons';
+import KitInputWrapper from '../Input/InputWrapper';
 
 const StyledDatePicker = styled(AntdDatePicker)`
     &.ant-picker {
@@ -130,54 +131,19 @@ const KitDatePicker: React.FunctionComponent<KitDatePickerProps> = ({
     allowClear = true,
     ...datePickerProps
 }) => {
-    const styledDatePicker = (
-        <StyledDatePicker {...datePickerProps} allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : false} />
+    return (
+        <KitInputWrapper
+            label={label}
+            helper={helper}
+            disabled={datePickerProps.disabled}
+            status={datePickerProps.status}
+        >
+            <StyledDatePicker
+                {...datePickerProps}
+                allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : false}
+            />
+        </KitInputWrapper>
     );
-
-    const getKitDatePickerWrapperTextColor = () => {
-        if (datePickerProps.disabled) {
-            return theme.color.secondary.mediumGrey.mediumGrey400;
-        }
-
-        switch (datePickerProps.status) {
-            case 'warning':
-                return theme.color.secondary.orange.orange400;
-            case 'error':
-                return theme.color.secondary.red.red400;
-            default:
-                return theme.color.secondary.mediumGrey.mediumGrey500;
-        }
-    };
-
-    const getKitDatePicker = () => {
-        const textColor = getKitDatePickerWrapperTextColor();
-
-        if (label || helper) {
-            return (
-                <div className="kit-input-wrapper">
-                    {label && (
-                        <div className="kit-input-label" style={{paddingBottom: '4px'}}>
-                            <KitTypography.Text size="large" weight="medium" style={{color: textColor}}>
-                                {label}
-                            </KitTypography.Text>
-                        </div>
-                    )}
-                    {styledDatePicker}
-                    {helper && (
-                        <div className="kit-input-helper" style={{paddingTop: '4px'}}>
-                            <KitTypography.Text size="small" weight="regular" style={{color: textColor}}>
-                                * {helper}
-                            </KitTypography.Text>
-                        </div>
-                    )}
-                </div>
-            );
-        }
-
-        return styledDatePicker;
-    };
-
-    return getKitDatePicker();
 };
 
 export default KitDatePicker;

@@ -4,6 +4,7 @@ import {KitInputNumberProps} from './types';
 import {styled} from 'styled-components';
 import theme from '@theme/index';
 import {KitTypography} from '@kit/General/';
+import KitInputWrapper from '../Input/InputWrapper';
 
 const StyledAntdInputNumber = styled(AntdInputNumber)`
     font-weight: ${theme.typography.regularFontWeight};
@@ -145,52 +146,16 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
 `;
 
 export const KitInputNumber: React.FunctionComponent<KitInputNumberProps> = ({label, helper, ...inputNumberProps}) => {
-    const styledInputNumber = <StyledAntdInputNumber {...inputNumberProps} />;
-
-    const getKitInputNumberWrapperTextColor = () => {
-        if (inputNumberProps.disabled) {
-            return theme.color.secondary.mediumGrey.mediumGrey400;
-        }
-
-        switch (inputNumberProps.status) {
-            case 'warning':
-                return theme.color.secondary.orange.orange400;
-            case 'error':
-                return theme.color.secondary.red.red400;
-            default:
-                return theme.color.secondary.mediumGrey.mediumGrey500;
-        }
-    };
-
-    const getKitInputNumber = () => {
-        const textColor = getKitInputNumberWrapperTextColor();
-
-        if (label || helper) {
-            return (
-                <div className="kit-inputnumber-wrapper">
-                    {label && (
-                        <div className="kit-inputnumber-label" style={{paddingBottom: '4px'}}>
-                            <KitTypography.Text size="large" weight="medium" style={{color: textColor}}>
-                                {label}
-                            </KitTypography.Text>
-                        </div>
-                    )}
-                    {styledInputNumber}
-                    {helper && (
-                        <div className="kit-inputnumber-helper" style={{paddingTop: '4px'}}>
-                            <KitTypography.Text size="small" weight="regular" style={{color: textColor}}>
-                                * {helper}
-                            </KitTypography.Text>
-                        </div>
-                    )}
-                </div>
-            );
-        }
-
-        return styledInputNumber;
-    };
-
-    return getKitInputNumber();
+    return (
+        <KitInputWrapper
+            label={label}
+            helper={helper}
+            disabled={inputNumberProps.disabled}
+            status={inputNumberProps.status}
+        >
+            <StyledAntdInputNumber {...inputNumberProps} />
+        </KitInputWrapper>
+    );
 };
 
 KitInputNumber.displayName = 'KitInputNumber';

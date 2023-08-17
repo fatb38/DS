@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import {theme} from '../../..';
 import {KitTypography} from '@kit/General/';
 import {CloseCircleOutlined} from '@ant-design/icons';
+import KitInputWrapper from '../Input/InputWrapper';
 
 const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
     &.ant-picker.ant-picker-range {
@@ -167,57 +168,32 @@ const KitDatePicker: React.FunctionComponent<KitRangePickerProps> = ({
     allowClear = true,
     ...rangePickerProps
 }) => {
-    const styledRangePicker = (
-        <StyledRangePicker
-            {...rangePickerProps}
-            allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : false}
-        />
+    const isRangePickerDisabled = () => {
+        if (rangePickerProps.disabled === undefined) {
+            return false;
+        }
+
+        if (typeof rangePickerProps.disabled === 'boolean') {
+            return rangePickerProps.disabled;
+        }
+
+        return rangePickerProps.disabled[0] && rangePickerProps.disabled[1];
+    };
+
+    return (
+        <KitInputWrapper
+            label={label}
+            helper={helper}
+            disabled={isRangePickerDisabled()}
+            status={rangePickerProps.status}
+        >
+            {' '}
+            <StyledRangePicker
+                {...rangePickerProps}
+                allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : false}
+            />
+        </KitInputWrapper>
     );
-
-    const getKitRangePickerWrapperTextColor = () => {
-        if (rangePickerProps.disabled) {
-            return theme.color.secondary.mediumGrey.mediumGrey400;
-        }
-
-        switch (rangePickerProps.status) {
-            case 'warning':
-                return theme.color.secondary.orange.orange400;
-            case 'error':
-                return theme.color.secondary.red.red400;
-            default:
-                return theme.color.secondary.mediumGrey.mediumGrey500;
-        }
-    };
-
-    const getKitRangePicker = () => {
-        const textColor = getKitRangePickerWrapperTextColor();
-
-        if (label || helper) {
-            return (
-                <div className="kit-input-wrapper">
-                    {label && (
-                        <div className="kit-input-label" style={{paddingBottom: '4px'}}>
-                            <KitTypography.Text size="large" weight="medium" style={{color: textColor}}>
-                                {label}
-                            </KitTypography.Text>
-                        </div>
-                    )}
-                    {styledRangePicker}
-                    {helper && (
-                        <div className="kit-input-helper" style={{paddingTop: '4px'}}>
-                            <KitTypography.Text size="small" weight="regular" style={{color: textColor}}>
-                                * {helper}
-                            </KitTypography.Text>
-                        </div>
-                    )}
-                </div>
-            );
-        }
-
-        return styledRangePicker;
-    };
-
-    return getKitRangePicker();
 };
 
 export default KitDatePicker;

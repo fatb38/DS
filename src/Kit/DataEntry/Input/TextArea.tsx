@@ -5,6 +5,7 @@ import {styled} from 'styled-components';
 import theme from '@theme/index';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import {KitTypography} from '@kit/General/';
+import KitInputWrapper from './InputWrapper';
 
 const StyledAntdTextArea = styled(AntdInput.TextArea)`
     &.ant-input,
@@ -156,57 +157,14 @@ const KitTextArea: React.FunctionComponent<KitTextAreaProps> = ({
     allowClear = true,
     ...textAreaProps
 }) => {
-    const styledTextArea = (
-        <StyledAntdTextArea
-            {...textAreaProps}
-            allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
-        />
+    return (
+        <KitInputWrapper label={label} helper={helper} disabled={textAreaProps.disabled} status={textAreaProps.status}>
+            <StyledAntdTextArea
+                {...textAreaProps}
+                allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
+            />
+        </KitInputWrapper>
     );
-
-    const getKitTextAreaWrapperTextColor = () => {
-        if (textAreaProps.disabled) {
-            return theme.color.secondary.mediumGrey.mediumGrey400;
-        }
-
-        switch (textAreaProps.status) {
-            case 'warning':
-                return theme.color.secondary.orange.orange400;
-            case 'error':
-                return theme.color.secondary.red.red400;
-            default:
-                return theme.color.secondary.mediumGrey.mediumGrey500;
-        }
-    };
-
-    const getKitTextArea = () => {
-        const textColor = getKitTextAreaWrapperTextColor();
-
-        if (label || helper) {
-            return (
-                <div className="kit-textarea-wrapper">
-                    {label && (
-                        <div className="kit-textarea-label" style={{paddingBottom: '4px'}}>
-                            <KitTypography.Text size="large" weight="medium" style={{color: textColor}}>
-                                {label}
-                            </KitTypography.Text>
-                        </div>
-                    )}
-                    {styledTextArea}
-                    {helper && (
-                        <div className="kit-textarea-helper" style={{paddingTop: '4px'}}>
-                            <KitTypography.Text size="small" weight="regular" style={{color: textColor}}>
-                                * {helper}
-                            </KitTypography.Text>
-                        </div>
-                    )}
-                </div>
-            );
-        }
-
-        return styledTextArea;
-    };
-
-    return getKitTextArea();
 };
 
 export default KitTextArea;
