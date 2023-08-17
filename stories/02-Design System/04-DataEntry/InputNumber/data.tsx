@@ -4,6 +4,39 @@ import {KitSpace} from '@kit/Layout/';
 import {CheckCircleOutlined, SearchOutlined} from '@ant-design/icons';
 
 export const InputNumberArgTypes = {
+    label: {
+        name: 'label',
+        description: 'Label displayed above the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'InputNumber'
+        }
+    },
+    helper: {
+        name: 'helper',
+        description: 'Helper displayed below the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'InputNumber'
+        }
+    },
+    placeHolder: {
+        name: 'placeHolder',
+        description: 'HTML input placeholder',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'InputNumber'
+        }
+    },
     autoFocus: {
         name: 'autoFocus',
         description: 'If get focus when component mounted',

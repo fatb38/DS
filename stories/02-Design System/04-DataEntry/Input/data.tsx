@@ -16,6 +16,26 @@ export const InputArgTypes = {
         },
         defaultValue: 'Input'
     },
+    label: {
+        name: 'label',
+        description: 'Label displayed above the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            }
+        }
+    },
+    helper: {
+        name: 'helper',
+        description: 'Helper displayed below the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            }
+        }
+    },
     placeHolder: {
         name: 'placeHolder',
         description: 'HTML input placeholder',

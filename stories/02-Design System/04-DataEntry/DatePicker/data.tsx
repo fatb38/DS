@@ -8,6 +8,28 @@ const placementOptions = [' ', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight
 const statusOptions = [' ', 'warning', 'error'];
 
 const CommonArgs = {
+    label: {
+        name: 'label',
+        description: 'Label displayed above the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Common API'
+        }
+    },
+    helper: {
+        name: 'helper',
+        description: 'Helper displayed below the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Common API'
+        }
+    },
     allowClear: {
         name: 'allowClear',
         description: 'Customize clear button',
