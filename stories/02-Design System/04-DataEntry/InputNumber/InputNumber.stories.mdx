@@ -41,7 +41,7 @@ Numeric-only input box.
 <Canvas withSource="none">
     <Fragment>
         <KitSpace>
-            <KitInputNumber min={1} max={10} placeHolder={1} />
+            <KitInputNumber min={1} max={10} placeholder={1} />
         </KitSpace>
     </Fragment>
 </Canvas>
@@ -61,7 +61,7 @@ Click the button to toggle between available and disabled states.
         return (
             <Fragment>
                 <KitSpace>
-                    <KitInputNumber min={1} max={10} placeHolder={1} disabled={disabled} />
+                    <KitInputNumber min={1} max={10} placeholder={1} disabled={disabled} />
                     <KitButton onClick={toggle} type="primary">
                         Toggle disabled
                     </KitButton>
@@ -169,12 +169,12 @@ Add status to InputNumber with `status`, which could be `error` or `warning`.
     <Fragment>
         <KitSpace direction="vertical">
             <KitSpace align="start">
-                <KitInputNumber status="warning" placeHolder="1"/>
-                <KitInputNumber prefix="￥" status="warning" placeHolder="1"/>
+                <KitInputNumber status="warning" placeholder="1"/>
+                <KitInputNumber prefix="￥" status="warning" placeholder="1"/>
             </KitSpace>
             <KitSpace align="start">
-                <KitInputNumber status="error" placeHolder="1" />
-                <KitInputNumber prefix="￥" status="error" placeHolder="1" />
+                <KitInputNumber status="error" placeholder="1" />
+                <KitInputNumber prefix="￥" status="error" placeholder="1" />
             </KitSpace>
         </KitSpace>
     </Fragment>
