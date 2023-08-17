@@ -61,6 +61,7 @@ const StyledDatePicker = styled(AntdDatePicker)`
         &.ant-picker-status-warning:not(.ant-picker-disabled) {
             background-color: ${theme.color.secondary.orange.orange100};
             border-color: ${theme.color.secondary.orange.orange400};
+            box-shadow: none;
 
             &:hover {
                 background-color: ${theme.color.secondary.orange.orange100};
@@ -89,6 +90,7 @@ const StyledDatePicker = styled(AntdDatePicker)`
         &.ant-picker-status-error:not(.ant-picker-disabled) {
             background-color: ${theme.color.secondary.red.red100};
             border-color: ${theme.color.secondary.red.red400};
+            box-shadow: none;
 
             &:hover {
                 background-color: ${theme.color.secondary.red.red100};

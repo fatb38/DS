@@ -110,6 +110,7 @@ const StyledAntdInput = styled(AntdInput)`
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
             border-color: ${theme.color.secondary.red.red400};
+            box-shadow: none;
 
             &:hover,
             &:focus {
@@ -130,6 +131,7 @@ const StyledAntdInput = styled(AntdInput)`
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
             border-color: ${theme.color.secondary.orange.orange400};
+            box-shadow: none;
 
             &:hover,
             &:focus {

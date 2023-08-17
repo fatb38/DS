@@ -72,6 +72,7 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
     &.ant-input-number-status-warning,
     &.ant-input-number-affix-wrapper-status-warning {
         background-color: ${theme.color.secondary.orange.orange100};
+        box-shadow: none;
 
         .ant-input-number-input-wrap {
             background-color: ${theme.color.secondary.orange.orange100};
@@ -103,6 +104,7 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
     &.ant-input-number-out-of-range,
     &.ant-input-number-affix-wrapper-status-error {
         background-color: ${theme.color.secondary.red.red100};
+        box-shadow: none;
 
         .ant-input-number-input-wrap {
             background-color: ${theme.color.secondary.red.red100};
