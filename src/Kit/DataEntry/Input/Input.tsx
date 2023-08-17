@@ -142,11 +142,12 @@ const StyledAntdInput = styled(AntdInput)`
         }
     }
 
-    &:focus,
+    &:focus-within,
     &.ant-input-affix-wrapper.ant-input-affix-wrapper-focused {
         border-style: dashed;
         box-shadow: none;
 
+        &.ant-input::placeholder,
         .ant-input::placeholder {
             color: transparent;
         }
