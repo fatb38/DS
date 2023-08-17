@@ -3,6 +3,8 @@ import {DatePicker as AntdDatePicker} from 'antd';
 import {KitRangePickerProps} from './types';
 import styled from 'styled-components';
 import {theme} from '../../..';
+import {KitTypography} from '@kit/General/';
+import {CloseCircleOutlined} from '@ant-design/icons';
 
 const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
     &.ant-picker.ant-picker-range {
@@ -13,11 +15,6 @@ const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
         min-width: 270px;
         padding: 0px 12px 0px 8px;
         font-weight: ${theme.typography.regularFontWeight};
-
-        &.ant-picker-focused {
-            border-style: dashed;
-            box-shadow: none;
-        }
 
         .ant-picker-range-separator {
             grid-area: separator;
@@ -55,48 +52,42 @@ const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
             transform: none;
             transition: none;
             opacity: 1;
-            transition: color 0.2s;
-            color: ${theme.color.secondary.mediumGrey.mediumGrey300};
-
-            &:hover {
-                transition: color 0.2s;
-                color: ${theme.color.secondary.mediumGrey.mediumGrey500};
-            }
+            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
         }
 
         .ant-picker-input {
             input[disabled] {
-                color: ${theme.color.primary.blue200};
+                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
             }
         }
 
         &.ant-picker-disabled {
-            background-color: ${theme.color.primary.blue100};
-            border-color: ${theme.color.primary.blue100};
+            border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
 
             .ant-picker-input {
                 input {
-                    color: ${theme.color.primary.blue300};
+                    color: ${theme.color.secondary.mediumGrey.mediumGrey400};
 
                     &::placeholder {
-                        color: ${theme.color.primary.blue200};
+                        color: ${theme.color.secondary.mediumGrey.mediumGrey400};
                     }
                 }
             }
 
             .ant-picker-range-separator .ant-picker-separator {
-                color: ${theme.color.primary.blue200};
+                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
             }
 
             .ant-picker-suffix,
             .ant-picker-clear {
-                color: ${theme.color.primary.blue200};
+                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
             }
         }
 
         &.ant-picker-status-warning:not(.ant-picker-disabled) {
             background-color: ${theme.color.secondary.orange.orange100};
             border-color: ${theme.color.secondary.orange.orange400};
+            box-shadow: none;
 
             &:hover {
                 background-color: ${theme.color.secondary.orange.orange100};
@@ -105,10 +96,10 @@ const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
 
             .ant-picker-input {
                 input {
-                    color: ${theme.color.secondary.orange.orange500};
+                    color: ${theme.color.secondary.orange.orange400};
 
                     &::placeholder {
-                        color: ${theme.color.secondary.orange.orange300};
+                        color: ${theme.color.secondary.orange.orange400};
                     }
                 }
             }
@@ -118,21 +109,18 @@ const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
             }
 
             .ant-picker-suffix {
-                color: ${theme.color.secondary.orange.orange500};
+                color: ${theme.color.secondary.orange.orange400};
             }
 
             .ant-picker-clear {
-                color: ${theme.color.secondary.orange.orange300};
-
-                &:hover {
-                    color: ${theme.color.secondary.orange.orange500};
-                }
+                color: ${theme.color.secondary.orange.orange500};
             }
         }
 
         &.ant-picker-status-error:not(.ant-picker-disabled) {
             background-color: ${theme.color.secondary.red.red100};
             border-color: ${theme.color.secondary.red.red400};
+            box-shadow: none;
 
             &:hover {
                 background-color: ${theme.color.secondary.red.red100};
@@ -144,7 +132,7 @@ const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
                     color: ${theme.color.secondary.red.red400};
 
                     &::placeholder {
-                        color: ${theme.color.secondary.red.red300};
+                        color: ${theme.color.secondary.red.red400};
                     }
                 }
             }
@@ -158,18 +146,78 @@ const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
             }
 
             .ant-picker-clear {
-                color: ${theme.color.secondary.red.red300};
+                color: ${theme.color.secondary.red.red400};
+            }
+        }
 
-                &:hover {
-                    color: ${theme.color.secondary.red.red400};
-                }
+        &.ant-picker-focused {
+            border-style: dashed;
+            box-shadow: none;
+
+            &:not(.ant-picker-disabled) .ant-picker-input:focus-within input::placeholder {
+                color: transparent;
             }
         }
     }
 `;
 
-const KitDatePicker: React.FunctionComponent<KitRangePickerProps> = rangePickerProps => {
-    return <StyledRangePicker {...rangePickerProps} />;
+const KitDatePicker: React.FunctionComponent<KitRangePickerProps> = ({
+    label,
+    helper,
+    allowClear = true,
+    ...rangePickerProps
+}) => {
+    const styledRangePicker = (
+        <StyledRangePicker
+            {...rangePickerProps}
+            allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : false}
+        />
+    );
+
+    const getKitRangePickerWrapperTextColor = () => {
+        if (rangePickerProps.disabled) {
+            return theme.color.secondary.mediumGrey.mediumGrey400;
+        }
+
+        switch (rangePickerProps.status) {
+            case 'warning':
+                return theme.color.secondary.orange.orange400;
+            case 'error':
+                return theme.color.secondary.red.red400;
+            default:
+                return theme.color.secondary.mediumGrey.mediumGrey500;
+        }
+    };
+
+    const getKitRangePicker = () => {
+        const textColor = getKitRangePickerWrapperTextColor();
+
+        if (label || helper) {
+            return (
+                <div className="kit-input-wrapper">
+                    {label && (
+                        <div className="kit-input-label" style={{paddingBottom: '4px'}}>
+                            <KitTypography.Text size="large" weight="medium" style={{color: textColor}}>
+                                {label}
+                            </KitTypography.Text>
+                        </div>
+                    )}
+                    {styledRangePicker}
+                    {helper && (
+                        <div className="kit-input-helper" style={{paddingTop: '4px'}}>
+                            <KitTypography.Text size="small" weight="regular" style={{color: textColor}}>
+                                * {helper}
+                            </KitTypography.Text>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        return styledRangePicker;
+    };
+
+    return getKitRangePicker();
 };
 
 export default KitDatePicker;

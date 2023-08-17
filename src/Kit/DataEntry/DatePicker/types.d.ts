@@ -16,6 +16,9 @@ export type KitDatePickerProps = DatePickerProps & InternalDatePickerProps;
 interface InternalRangerPickerProps extends HTMLAttributes<HTMLDivElement> {
     size?: never;
     bordered?: never;
+    label?: string;
+    helper?: string;
+    allowClear?: boolean;
 }
 
 export type KitRangePickerProps = RangePickerProps & InternalRangerPickerProps;
