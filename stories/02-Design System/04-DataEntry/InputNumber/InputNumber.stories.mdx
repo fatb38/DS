@@ -181,6 +181,26 @@ Add status to InputNumber with `status`, which could be `error` or `warning`.
 </Canvas>
 }
 
+##### Label and Helper
+
+Add `label` and/or `helper` properties to give field context.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <KitSpace direction="vertical" style={{width: "100px"}}>
+                <KitInputNumber placeholder="2" helper="Helper" label="Label" />
+                <KitInputNumber prefix="￥" placeholder="2" helper="Helper" label="Label" />
+                <KitInputNumber prefix="￥" placeholder="2" helper="Helper" label="Label" disabled />
+                <KitInputNumber prefix="￥" placeholder="2" helper="Helper" label="Label" status="warning" />
+                <KitInputNumber prefix="￥" placeholder="2" helper="Helper" label="Label" status="error" />
+            </KitSpace>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
 ## Api
 
 <Canvas>

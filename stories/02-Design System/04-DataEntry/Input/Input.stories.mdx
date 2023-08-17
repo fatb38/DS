@@ -1,9 +1,7 @@
-{/* MyComponent.stories.mdx */}
-
 import { useState, Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { SearchOutlined, UserOutlined, EyeTwoTone, EyeInvisibleOutlined } from "@ant-design/icons";
+import { SearchOutlined, UserOutlined, EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 import { KitInput } from "@kit/DataEntry/";
 import { KitButton } from "@kit/General/";
 import { KitDivider, KitSpace } from "@kit/Layout/";
@@ -34,7 +32,7 @@ Basic usage example.
 {
 <Canvas withSource="none">
     <Fragment>
-        <KitSpace>
+        <KitSpace direction="vertical">
             <KitInput placeholder="Default" />
             <KitInput placeholder="Disabled" disabled={true} />
         </KitSpace>
@@ -90,7 +88,7 @@ Input type of password.
                     </KitSpace>
                     <KitSpace>
                         <KitInput.Password
-                            iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                            iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
                             visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
                         />
                         <KitButton
@@ -263,20 +261,39 @@ Add status to Input with status, which could be error or warning.
                     <KitInput.Password showCount maxLength={10} status="error"/>
                 </KitSpace>
             </KitSpace>
-            <KitDivider orientation="left">Input, TextArea and Password with allowClear</KitDivider>
-            <KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput placeholder="Input allowClear" allowClear status="warning" />
-                    <KitInput placeholder="Input allowClear" allowClear status="error" />
-                </KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput.TextArea placeholder="TextArea allowClear" allowClear status="warning" />
-                    <KitInput.TextArea placeholder="TextArea allowClear" allowClear status="error" />
-                </KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput.Password allowClear status="warning" />
-                    <KitInput.Password allowClear status="error" />
-                </KitSpace>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
+##### Label and Helper
+
+Add `label` and/or `helper` properties to give field context.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <KitSpace direction="vertical" style={{width: "400px", paddingRight: "20px"}}>
+                <KitInput placeholder="Prefix & default" helper="Helper" label="Label" allowClear={false} />
+                <KitInput placeholder="Prefix & default" prefix={<UserOutlined/>} helper="Helper" label="Label" />
+                <KitInput placeholder="Prefix & default" prefix={<UserOutlined/>} helper="Helper" label="Label" disabled />
+                <KitInput placeholder="Prefix & default" prefix={<UserOutlined/>} helper="Helper" label="Label" status="warning" />
+                <KitInput placeholder="Prefix & default" prefix={<UserOutlined/>} helper="Helper" label="Label" status="error" />
+            </KitSpace>
+            <KitSpace direction="vertical" style={{width: "400px", paddingRight: "20px"}}>
+                <KitInput.Password placeholder="Prefix & default" helper="Helper" label="Label" allowClear={false} />
+                <KitInput.Password placeholder="Prefix & default" prefix={<UserOutlined/>} helper="Helper" label="Label" />
+                <KitInput.Password placeholder="Prefix & default" prefix={<UserOutlined/>} helper="Helper" label="Label" disabled />
+                <KitInput.Password placeholder="Prefix & default" prefix={<UserOutlined/>} helper="Helper" label="Label" status="warning" showCount/>
+                <KitInput.Password placeholder="Prefix & default" prefix={<UserOutlined/>} helper="Helper" label="Label" status="error" showCount/>
+            </KitSpace>
+            <KitSpace direction="vertical" style={{width: "400px", paddingRight: "20px"}}>
+                <KitInput.TextArea placeholder="Prefix & default" helper="Helper" label="Label" allowClear={false} showCount />
+                <KitInput.TextArea placeholder="Prefix & default" helper="Helper" label="Label" showCount />
+                <KitInput.TextArea placeholder="Prefix & default" helper="Helper" label="Label" disabled showCount />
+                <KitInput.TextArea placeholder="Prefix & default" helper="Helper" label="Label" status="warning" showCount/>
+                <KitInput.TextArea placeholder="Prefix & default" helper="Helper" label="Label" status="error" showCount/>
             </KitSpace>
         </KitSpace>
     </Fragment>

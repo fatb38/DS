@@ -388,6 +388,33 @@ Add status to KitDatePicker with `status`, which could be `error` or `warning`.
 </Canvas>
 }
 
+##### Label and Helper
+
+Add `label` and/or `helper` properties to give field context.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <KitSpace>
+            <KitSpace direction="vertical" style={{width: "200px", paddingRight: "20px"}}>
+                <KitDatePicker helper="Helper" label="Label" allowClear={false} />
+                <KitDatePicker helper="Helper" label="Label" />
+                <KitDatePicker helper="Helper" label="Label" disabled />
+                <KitDatePicker helper="Helper" label="Label" status="warning" />
+                <KitDatePicker helper="Helper" label="Label" status="error" />
+            </KitSpace>
+            <KitSpace direction="vertical" style={{width: "400px", paddingRight: "20px"}}>
+                <KitDatePicker.RangePicker helper="Helper" label="Label" allowClear={false} />
+                <KitDatePicker.RangePicker helper="Helper" label="Label" />
+                <KitDatePicker.RangePicker helper="Helper" label="Label" disabled />
+                <KitDatePicker.RangePicker helper="Helper" label="Label" status="warning" />
+                <KitDatePicker.RangePicker helper="Helper" label="Label" status="error" />
+            </KitSpace>
+        </KitSpace>
+    </Fragment>
+</Canvas>
+}
+
 ##### Customized Cell Rendering
 
 We can customize the rendering of the cells in the calendar by providing a `cellRender` function to `KitDatePicker`.
