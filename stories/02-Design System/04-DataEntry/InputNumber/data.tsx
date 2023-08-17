@@ -296,19 +296,3 @@ export const Template = ({component, ...args}) => {
         </KitSpace>
     );
 };
-
-export const formatterDollar = value => {
-    return `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-};
-
-export const formatterPercent = value => {
-    return `${value}%`;
-};
-
-export const parserDollar = value => {
-    return value!.replace(/\$\s?|(,*)/g, '');
-};
-
-export const parserPercent = value => {
-    return value!.replace('%', '');
-};

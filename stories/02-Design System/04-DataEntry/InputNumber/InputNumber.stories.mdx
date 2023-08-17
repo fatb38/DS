@@ -1,20 +1,15 @@
-{/* MyComponent.stories.mdx */}
-
-import { useState, Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-
 import { KitButton } from "@kit/General/";
 import { KitSpace } from "@kit/Layout/";
 import { KitInputNumber, KitCheckbox } from "@kit/DataEntry/";
 import {
     InputNumberArgTypes,
-    Template,
-    formatterDollar,
-    formatterPercent,
-    parserDollar,
-    parserPercent
+    Template
 } from "./data";
+
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
 <Meta
     title="Design System/DataEntry/InputNumber"
@@ -37,169 +32,49 @@ When a numeric value needs to be provided.
 
 Numeric-only input box.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace>
-            <KitInputNumber min={1} max={10} placeholder={1} />
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Disabled
 
 Click the button to toggle between available and disabled states.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const [disabled, setDisabled] = useState(true);
-        const toggle = () => {
-            setDisabled(!disabled);
-        };
-        return (
-            <Fragment>
-                <KitSpace>
-                    <KitInputNumber min={1} max={10} placeholder={1} disabled={disabled} />
-                    <KitButton onClick={toggle} type="primary">
-                        Toggle disabled
-                    </KitButton>
-                </KitSpace>
-            </Fragment>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} />
 
 ##### High precision decimals
 
 Use `stringMode` to support high precision decimals support. `onChange` will return string value instead. You need polyfill of BigInt if browser not support.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        return (
-            <Fragment>
-                <KitSpace>
-                    <KitInputNumber defaultValue={1000} formatter={formatterDollar} parser={parserDollar}/>
-                    <KitInputNumber mix={0} max={100} defaultValue={100} formatter={formatterPercent} parser={parserPercent}/>
-                </KitSpace>
-            </Fragment>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Precision} source={Sources.Precision} />
 
 ##### Keyboard
 
 Control keyboard behavior by `keyboard`.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const [keyboard, setKeyboard] = useState(true);
-        return (
-            <Fragment>
-                <KitSpace>
-                    <KitInputNumber min={1} max={10} keyboard={keyboard} defaultValue={3} />
-                    <KitCheckbox
-                        onChange={() => {
-                            setKeyboard(!keyboard);
-                        }}
-                        checked={keyboard}
-                    >
-                        Toggle keyboard
-                    </KitCheckbox>
-                </KitSpace>
-            </Fragment>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Keyboard} source={Sources.Keyboard} />
 
 ##### Prefix
 
 Add a prefix inside input.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace>
-            <KitInputNumber prefix="￥"/>
-            <KitInputNumber prefix="￥" disabled={true} />
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Prefix} source={Sources.Prefix} />
 
 ##### Out of range
 
 Show warning style when `value` is out of range by control.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const [value, setValue] = useState('99');
-        return (
-            <Fragment>
-                <KitSpace>
-                    <KitInputNumber min={1} max={10} value={value} onChange={setValue} />
-                    <KitButton
-                        type="primary"
-                        onClick={() => {
-                            setValue(99);
-                        }}
-                    >
-                        Reset
-                    </KitButton>
-                </KitSpace>
-            </Fragment>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Outrange} source={Sources.Outrange} />
 
 ##### Status
 
 Add status to InputNumber with `status`, which could be `error` or `warning`.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace direction="vertical">
-            <KitSpace align="start">
-                <KitInputNumber status="warning" placeholder="1"/>
-                <KitInputNumber prefix="￥" status="warning" placeholder="1"/>
-            </KitSpace>
-            <KitSpace align="start">
-                <KitInputNumber status="error" placeholder="1" />
-                <KitInputNumber prefix="￥" status="error" placeholder="1" />
-            </KitSpace>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Status} source={Sources.Status} />
 
 ##### Label and Helper
 
 Add `label` and/or `helper` properties to give field context.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace>
-            <KitSpace direction="vertical" style={{width: "100px"}}>
-                <KitInputNumber placeholder="2" helper="Helper" label="Label" />
-                <KitInputNumber prefix="￥" placeholder="2" helper="Helper" label="Label" />
-                <KitInputNumber prefix="￥" placeholder="2" helper="Helper" label="Label" disabled />
-                <KitInputNumber prefix="￥" placeholder="2" helper="Helper" label="Label" status="warning" />
-                <KitInputNumber prefix="￥" placeholder="2" helper="Helper" label="Label" status="error" />
-            </KitSpace>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Wrapper} source={Sources.Wrapper} />
 
 ## Api
 
