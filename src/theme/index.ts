@@ -193,9 +193,9 @@ const theme: KitThemeConfig = {
             controlHeightSM: 24
         },
         DatePicker: {
-            colorBgContainer: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            colorBgContainer: colorsPalette.neutral.typography.white,
             colorBgContainerDisabled: colorsPalette.secondary.mediumGrey.mediumGrey100,
-            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey200,
             colorPrimary: colorsPalette.primary.blue400,
             colorPrimaryHover: colorsPalette.primary.blue400,
             colorLink: colorsPalette.primary.blue400,

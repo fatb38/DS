@@ -5,6 +5,9 @@ import {HTMLAttributes} from 'react';
 interface InternalDatePickerProps extends HTMLAttributes<HTMLDivElement> {
     size?: never;
     bordered?: never;
+    label?: string;
+    helper?: string;
+    allowClear?: boolean;
 }
 
 export type KitDatePickerProps = DatePickerProps & InternalDatePickerProps;

@@ -16,7 +16,7 @@ const CommonArgs = {
         },
         table: {
             type: {
-                summary: 'boolean | { clearIcon?: ReactNode }'
+                summary: 'boolean'
             },
             category: 'Common API',
             defaultValue: {
