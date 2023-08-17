@@ -4,11 +4,11 @@ import {KitSpace} from '@kit/Layout';
 import {KitButton} from '@kit/General';
 
 const App = ({}) => {
-    const [value, setValue] = useState(99);
+    const [value, setValue] = useState<string | number | null>(99);
 
     return (
         <KitSpace>
-            <KitInputNumber min={1} max={10} value={value} onChange={value => setValue(value)} />
+            <KitInputNumber min={1} max={10} value={value} onChange={setValue} />
             <KitButton
                 type="primary"
                 onClick={() => {
