@@ -7,6 +7,7 @@
     "dev": "vite",
     "tsc": "tsc",
     "build": "tsc && vite build",
+    "install": "tsc && vite build",
     "build-stats": "STATS=true tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
