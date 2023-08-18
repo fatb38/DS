@@ -187,7 +187,7 @@ export const argTypes = {
     }
 };
 
-export const Template = ({label, ...args}) => {
+export const Template = () => {
     const {Row, Col} = KitGrid;
     return (
         <Row>

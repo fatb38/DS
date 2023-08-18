@@ -1,3 +1,4 @@
+<div class="git-intro">
 <div align="center">
     <img src="public/images/logo-aristid.png" alt="Logo" height="100px">
     <p align="center">
@@ -14,7 +15,7 @@
 
 <br/>
 <hr>
-<details open>
+<details open class="toc-block">
     <summary>Table of Contents</summary>
     <ol>
         <li>
@@ -78,42 +79,49 @@
 <hr>
 <br/>
 <br/>
+</div>
 
 ## Getting Started
 ### Prerequisites
 
 * npm
-  ```sh
-  npm install npm@latest -g
-  ```
+
+```sh dark
+npm install npm@latest -g
+```
 
 * yarn
-  ```sh
-  npm install yarn -g
-  ```
+
+```sh dark
+npm install yarn -g
+```
 <br/>
 
 ### Installation
 
 1. Create a folder for this repo
-   ```sh
-   mkdir DESIGN-SYSTEM
-   ```
+
+```sh dark
+mkdir DESIGN-SYSTEM
+```
 
 2. Clone the repo
-   ```sh
-   git clone https://gitlab.aristid.com/dev/design-system.git
-   ```
+
+```sh dark
+git clone https://gitlab.aristid.com/dev/design-system.git
+```
 
 3. Install requiered packages
-   ```sh
-   yarn install
-   ```
+
+```sh dark
+yarn install
+```
 
 6. Start the application
-    ```sh
-    yarn start
-    ```
+
+```sh dark
+yarn start
+```
 
 7. Once the installation is complete, you can access to the application at http://localhost:6006.
 
@@ -133,205 +141,208 @@
 
 ### Code structure
 
-<ol>
-    <li>📁 .storybook (💡 Configuration files of Storybook)</li>
-    <li>
-        📁 src (💡 Design system code)
-        <ul>
-            <li>
-                📁 fonts
-            </li>
-            <li>
-                📁 icons (💡 Custom icons components)
-            </li>
-            <li>
-                📁 Kit (💡 Components are in this folder and follow the same structure as in "stories/02-Design System/")
-                <ul>
-                    <li>
-                        📁 App
-                    </li>
-                    <li>
-                        📁 DataDisplay
-                    </li>
-                    <li>
-                        📁 DataEntry
-                    </li>
-                    <li>
-                        📁 Feedback
-                    </li>
-                    <li>
-                        📁 General
-                    </li>
-                    <li>
-                        📁 Layout
-                    </li>
-                    <li>
-                        📁 Navigation
-                    </li>
-                </ul>
-            </li>
-            <li>
-                📁 theme (💡 Theme variables declaration)
-            </li>
-            <li>
-                index.tsx (💡 Components export)
-            </li>
-            <li>
-                vite-env.d.ts
-            </li>
-        </ul>
-    </li>
-    <li>
-        📁 stories (💡 Storybook documentation)
-        <ul>
-            <li>📁 01-Design</li>
-            <li>
-                📁 02-Design System (💡 Components documentation are in this folder)
-                <ul>
-                    <li>
-                        📁 01-General
-                    </li>
-                    <li>
-                        📁 02-Layout
-                    </li>
-                    <li>
-                        📁 03-Navigation
-                    </li>
-                    <li>
-                        📁 04-DataEntry
-                    </li>
-                    <li>
-                        📁 05-DataDisplay
-                    </li>
-                    <li>
-                        📁 06-Feedback
-                    </li>
-                </ul>
-            </li>
-            <li>📁 assets</li>
-            <li>📁 Root</li>
-        </ul>
-    </li>
-</ol>
 
+1. 📁 .storybook (💡 Configuration files of Storybook)
+2. 📁 src (💡 Design system code)
+    - 📁 fonts
+    - 📁 icons (💡 Custom icons components)
+    -  📁 Kit (💡 Components are in this folder and follow the same structure as in "stories/02-Design System/")
+        - 📁 App
+        - 📁 DataDisplay
+        - 📁 DataEntry
+        - 📁 Feedback
+        - 📁 General
+        - 📁 Layout
+    -  📁 theme (💡 Theme variables declaration)
+    - index.tsx (💡 Components export)
+    -  vite-env.d.ts
+3. 📁 stories (💡 Storybook documentation)
+    - 📁 01-Design
+    - 📁 02-Design System (💡 Components documentation are in this folder)
+        - 📁 01-General
+        - 📁 02-Layout
+        - 📁 03-Navigation
+        - 📁 04-DataEntry
+        - 📁 05-DataDisplay
+        - 📁 06-Feedback
+    - 📁 assets
+    - 📁 Root
 <br/>
 
 ### Creating a component
 #### Component code
 
 1. Create a new folder for the code of your component
-   ```sh
-   mkdir DESIGN-SYSTEM/src/Kit/DataDisplay/Tooltip
-   ```
+
+```sh dark
+mkdir DESIGN-SYSTEM/src/Kit/DataDisplay/Tooltip
+```
 
 2. In this folder create two files
-   ```sh
-   cd Tooltip
-   touch index.tsx
-   touch types.d.tsx
-   ```
+
+```sh dark
+cd Tooltip
+touch index.tsx
+touch types.d.tsx
+```
 
 3. Exemple of `Tooltip/index.tsx`
-   ```tsx
-    import React from 'react';
-    import {Tooltip as AntdTooltip} from 'antd';
-    import {KitTooltipProps} from './types';
 
-    export const KitTooltip: React.FunctionComponent<KitTooltipProps> = tooltipProps => {
-        return <AntdTooltip {...tooltipProps} />;
-    };
+```tsx dark
+import React from 'react';
+import {Tooltip as AntdTooltip} from 'antd';
+import {KitTooltipProps} from './types';
 
-    KitTooltip.displayName = 'KitTooltip';
-   ```
+export const KitTooltip: React.FunctionComponent<KitTooltipProps> = tooltipProps => {
+    return <AntdTooltip {...tooltipProps} />;
+};
+
+KitTooltip.displayName = 'KitTooltip';
+```
 
 4. Exemple of `Tooltip/types.d.ts`
-   ```tsx
-    import {TooltipProps} from 'antd';
-    import {HTMLAttributes} from 'react';
 
-    type AntdTooltipTypesToOmit = 'color' | 'overlayClassName' | 'overlayStyle' | 'overlayInnerStyle';
+```tsx dark
+import {TooltipProps} from 'antd';
+import {HTMLAttributes} from 'react';
 
-    export interface KitTooltipProps extends Omit<TooltipProps, AntdTooltipTypesToOmit>, HTMLAttributes<HTMLDivElement> {}
-   ```
+type AntdTooltipTypesToOmit = 'color' | 'overlayClassName' | 'overlayStyle' | 'overlayInnerStyle';
+
+export interface KitTooltipProps extends Omit<TooltipProps, AntdTooltipTypesToOmit>, HTMLAttributes<HTMLDivElement> {}
+```
 
 5. Export your component in `/Kit/05-DataDisplay/index.tsx`
-   ```tsx
-   import {KitTooltip} from './Tooltip';
-   ...
-   export {KitTooltip};
-   ```
+
+```tsx dark
+import {KitTooltip} from './Tooltip';
+...
+export {KitTooltip};
+```
 
 <br/>
 
 #### Component documentation
 
 1. Create a new folder for the documentation of your component
-   ```sh
-   mkdir DESIGN-SYSTEM/stories/02-Design System/05-DataDisplay/Tooltip
-   ```
+
+```sh dark
+mkdir DESIGN-SYSTEM/stories/02-Design System/05-DataDisplay/Tooltip
+```
 
 2. In this folder create two files
-   ```sh
-   cd Tooltip
-   touch Tooltip.stories.mdx
-   touch data.tsx
-   ```
 
-3. Exemple of `Tooltip/data.tsx`
-   ```tsx
-    import React from 'react';
-    import {KitTooltip} from '@kit/DataDisplay/';
+```sh dark
+cd Tooltip
+touch Tooltip.stories.mdx
+touch data.tsx
+```
+- Tooltip.stories.mdx : Contain all your documentation and exemples
+- data.tsx : Used mainly for the API section (Args, Template, ...)
+
+3. Create `exemples` for your component
+
+```sh dark
+mkdir exemples
+cd exemples
+touch basic.tsx
+touch index.tsx
+```
+- basic.tsx : Contain your exemple
+- index.tsx : Used for export exemples and sources
+
+4. Exemple of `Tooltip/exemples/basic.tsx`
+
+```tsx dark
+import React from 'react';
+import {KitTooltip} from '@aristid/design-system';
+
+const App = ({}) => {
+    return (
+        <KitTooltip title="Hey i'm a tooltip">
+            Tooltip will show on mouse enter.
+        </KitTooltip>
+    );
+};
+
+export default App;
+```
+<br/>
+
+5. Exemple of `Tooltip/exemples/index.tsx`
+
+```tsx dark
+import Basic from './basic';
+import BasicSource from './basic?raw';
+
+export const Sources = {
+    Basic: BasicSource
+};
+
+export default {
+    Basic
+};
+```
+
+<br/>
+
+6. Exemple of `Tooltip/data.tsx`
+
+```tsx dark
+import React from 'react';
+import {KitTooltip} from '@aristid/design-system';
+
+export const TooltipArgTypes = {
+    title: {
+        name: 'title',
+        description: 'The text shown in the tooltip',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'ReactNode | () => ReactNode'
+            },
+            category: 'Tooltip'
+        }
+    },
     ...
+}
 
-    export const TooltipArgTypes = {
-        title: {
-            name: 'title',
-            description: 'The text shown in the tooltip',
-            control: {type: 'text'},
-            table: {
-                type: {
-                    summary: 'ReactNode | () => ReactNode'
-                },
-                category: 'Tooltip'
-            }
-        },
-        ...
-    }
+export const Template = ({component, ...args}) => {
+    return (
+        <KitTooltip {...args}>
+            Tooltip will show on mouse enter.
+        </KitTooltip>
+    );
+};
+```
 
-    export const Template = ({component, ...args}) => {
-        return (
-            <KitTooltip {...args}>
-                Tooltip will show on mouse enter.
-            </KitTooltip>
-        );
-    };
-   ```
+<br/>
 
-4. Exemple of `Tooltip/Tooltip.stories.mdx`
-   ```mdx
-    import { TooltipArgTypes, Template } from "./data";
-    ...
+7. Exemple of `Tooltip/Tooltip.stories.mdx`
 
-    <Meta
-        title="Design System/DataDisplay/Tooltip"
-        argTypes={TooltipArgTypes}
-    />
+```tsx dark
+import { TooltipArgTypes, Template } from "./data";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
-    # Tooltip
-    ...
+<Meta
+    title="Design System/DataDisplay/Tooltip"
+    argTypes={TooltipArgTypes}
+/>
 
-    <Canvas>
-        <Story name="Tooltip">{Template.bind({})}</Story>
-    </Canvas>
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
-    <Controls story="Tooltip" />
-   ```
+<Canvas>
+    <Story name="Tooltip">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Tooltip" />
+```
 
 <br/>
 
 ## Contributing
 
-Any contributions you make are **greatly appreciated**. If you have a suggestion that would make this better, please create a pull request. You can also simply open an issue with the appropriate tag.
+Any contributions you make are **greatly appreciated**. If you have a suggestion that would make this better, please create a pull request. You can also simply open an issue with the appropriate tag to report a bug or inconsistencies in documentation.
 
 ### Commit
 

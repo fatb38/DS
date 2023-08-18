@@ -125,7 +125,8 @@ Use Tags with remote request to fetch datas
 <Canvas withSource="none">
     {(() => {
         const [options, setOptions] = useState([]);
-        const fetchOptions = (value) => {
+        const fetchOptions = (value, selectedValues) => {
+            console.log("fetchOptions", value, selectedValues);
             const data = ["tag 1", "tag 2", "tag 3", value];
             setTimeout(() => {
                 setOptions(data);
@@ -147,7 +148,8 @@ Use Tags with remote request to fetch datas
 () => {
     const [options, setOptions] = useState([]);
 
-    const fetchOptions = (value) => {
+    const fetchOptions = (value, selectedValues) => {
+        console.log("fetchOptions", value, selectedValues);
         const data = ["tag 1", "tag 2", "tag 3", value];
 
         setTimeout(() => {

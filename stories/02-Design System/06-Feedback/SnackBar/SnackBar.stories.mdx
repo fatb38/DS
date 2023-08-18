@@ -1,10 +1,11 @@
 import { Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { KitSnackBarProvider, openKitSnackBar, closeKitSnackBar } from "@kit/Feedback/";
-import { KitButton } from "@kit/General/";
-import { KitSpace } from "@kit/Layout/";
 import { SnackBarArgTypes, Template } from "./data";
+import { Source } from '@storybook/blocks';
+
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
 <Meta
     title="Design System/Feedback/SnackBar"
@@ -29,23 +30,25 @@ Add the `KitSnackBarProvider` to your app and make sure it's placed at the top.
 
 There must be only one `KitSnackBarProvider` in your app.
 
-```tsx
+<Source dark code={`
 import { KitSnackBarProvider, openKitSnackBar, closeKitSnackBar } from "@kit/Feedback/";
 
 <div>
     <KitSnackBarProvider/>
 </div>
-```
+`} />
 
 Start using `openKitSnackBar` . You can call it from anywhere.
-```tsx
+
+<Source dark code={`
 openKitSnackBar("Hello World")
-```
+`} />
 
 To manualy close the SnackBar you can use `closeKitSnackBar()`.
-```tsx
+
+<Source dark code={`
 closeKitSnackBar()
-```
+`} />
 
 This components is based on [react-hot-toast](https://react-hot-toast.com/).
 
@@ -55,82 +58,19 @@ This components is based on [react-hot-toast](https://react-hot-toast.com/).
 
 The simplest usage for short messages.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace>
-            <KitButton
-                type="primary"
-                onClick={() => {
-                    openKitSnackBar(
-                        {
-                            message: "Hello there !"
-                        }
-                    );
-                }}
-            >
-                Open SnackBar
-            </KitButton>
-            <KitButton onClick={() => {closeKitSnackBar()}}>Close SnackBar</KitButton>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Closable
 
 To show close button.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace>
-            <KitButton
-                type="primary"
-                onClick={() => {
-                    openKitSnackBar(
-                        {
-                            message: "Hello there !",
-                            closable: true
-                        }
-                    );
-                }}
-            >
-                Open SnackBar
-            </KitButton>
-            <KitButton onClick={() => {closeKitSnackBar()}}>Close SnackBar</KitButton>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Closable} source={Sources.Closable} />
 
 ##### With a CTA
 
 To show call to action button.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace>
-            <KitButton
-                type="primary"
-                onClick={() => {
-                    openKitSnackBar(
-                        {
-                            message: "Hello there !",
-                            ctaText: "Undo",
-                            ctaOnClick: () => console.log("With a CTA")
-                        }
-                    );
-                }}
-            >
-                Open SnackBar
-            </KitButton>
-            <KitButton onClick={() => {closeKitSnackBar()}}>Close SnackBar</KitButton>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.CallToAction} source={Sources.CallToAction} />
 
 ## Api
 

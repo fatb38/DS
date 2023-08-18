@@ -1,10 +1,11 @@
-import {ThemeConfig} from 'antd';
-import {KitColorsPalette, colorsPalette} from './colors';
-import {Typography, KitTypography, typographyHeaders} from './typography';
+import { ThemeConfig } from 'antd';
+import { KitColorsPalette, colorsPalette } from './colors';
+import { Typography, KitTypography, typographyHeaders, KitTypograhyHeaders } from './typography';
 
 interface KitThemeConfig extends ThemeConfig {
     color: KitColorsPalette;
     typography: KitTypography;
+    headersTypography: KitTypograhyHeaders
 }
 
 const theme: KitThemeConfig = {
@@ -21,6 +22,7 @@ const theme: KitThemeConfig = {
     },
     color: colorsPalette,
     typography: Typography,
+    headersTypography: typographyHeaders,
     components: {
         Button: {
             borderRadius: 20,
@@ -67,24 +69,24 @@ const theme: KitThemeConfig = {
             colorSplit: colorsPalette.neutral.typography.black60
         },
         Input: {
-            colorBgContainer: colorsPalette.secondary.mediumGrey.mediumGrey100,
-            colorBgContainerDisabled: colorsPalette.primary.blue100,
-            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            colorBgContainer: colorsPalette.neutral.typography.white,
+            colorBgContainerDisabled: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey200,
             colorPrimaryHover: colorsPalette.primary.blue400,
-            colorTextPlaceholder: colorsPalette.secondary.mediumGrey.mediumGrey400,
-            colorText: colorsPalette.secondary.mediumGrey.mediumGrey500,
+            colorTextPlaceholder: colorsPalette.secondary.mediumGrey.mediumGrey500,
+            colorText: colorsPalette.primary.blue300,
             borderRadius: 7,
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize5
         },
         InputNumber: {
-            colorBgContainer: colorsPalette.secondary.mediumGrey.mediumGrey100,
-            colorBgContainerDisabled: colorsPalette.primary.blue100,
-            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            colorBgContainer: colorsPalette.neutral.typography.white,
+            colorBgContainerDisabled: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey200,
             colorPrimary: colorsPalette.primary.blue400,
             colorPrimaryHover: colorsPalette.primary.blue400,
-            colorTextPlaceholder: colorsPalette.secondary.mediumGrey.mediumGrey400,
-            colorText: colorsPalette.secondary.mediumGrey.mediumGrey500,
+            colorTextPlaceholder: colorsPalette.secondary.mediumGrey.mediumGrey500,
+            colorText: colorsPalette.primary.blue300,
             borderRadius: 7,
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize5
@@ -165,7 +167,8 @@ const theme: KitThemeConfig = {
         },
         Collapse: {
             colorFillAlter: colorsPalette.neutral.background,
-            colorBorder: colorsPalette.neutral.background
+            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey300,
+            borderRadius: 8
         },
         Rate: {
             starColor: colorsPalette.secondary.yellow.yellow300
@@ -190,6 +193,40 @@ const theme: KitThemeConfig = {
             colorPrimaryHover: colorsPalette.primary.blue400,
             controlHeight: 32,
             controlHeightSM: 24
+        },
+        DatePicker: {
+            colorBgContainer: colorsPalette.neutral.typography.white,
+            colorBgContainerDisabled: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey200,
+            colorPrimary: colorsPalette.primary.blue400,
+            colorPrimaryHover: colorsPalette.primary.blue400,
+            colorLink: colorsPalette.primary.blue400,
+            colorLinkHover: colorsPalette.primary.blue500,
+            controlItemBgHover: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            controlItemBgActive: colorsPalette.primary.blue100,
+            colorTextPlaceholder: colorsPalette.secondary.mediumGrey.mediumGrey500,
+            colorText: colorsPalette.primary.blue300,
+            borderRadius: 7,
+            borderRadiusSM: 2,
+            fontFamily: Typography.fontFamily,
+            fontSize: Typography.fontSize5
+        },
+        Tabs: {
+            fontFamily: Typography.fontFamily,
+            cardBg: colorsPalette.neutral.gray.gray100,
+            cardPadding: "8px 16px",
+            cardPaddingLG: "9px 16px",
+            cardPaddingSM: "7px 16px",
+            inkBarColor: colorsPalette.primary.blue400,
+            itemActiveColor: colorsPalette.primary.blue600,
+            itemHoverColor: colorsPalette.primary.blue400,
+            itemSelectedColor: colorsPalette.primary.blue400,
+            titleFontSize: Typography.fontSize5,
+            titleFontSizeLG: Typography.fontSize5,
+            titleFontSizeSM: Typography.fontSize5,
+            borderRadius: 2,
+            colorBorderSecondary: colorsPalette.neutral.gray.gray300,
+            colorTextDisabled: colorsPalette.neutral.gray.gray300
         }
     }
 };

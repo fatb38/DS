@@ -6,6 +6,8 @@ import {KitRate} from './Rate';
 import {KitSelect} from './Select';
 import {KitTag} from './Tag';
 import {KitSwitch} from './Switch';
+import {KitDatePicker} from './DatePicker';
+import {KitAutoComplete} from './AutoComplete';
 
 export {KitCheckbox};
 export {KitInput};
@@ -15,3 +17,5 @@ export {KitRate};
 export {KitSelect};
 export {KitTag};
 export {KitSwitch};
+export { KitAutoComplete};
+export {KitDatePicker};

@@ -1,8 +1,10 @@
 import { Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { KitAlert } from "@kit/Feedback/";
 import { AlertArgTypes, Template } from "./data";
+
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
 <Meta
     title="Design System/Feedback/Alert"
@@ -19,161 +21,43 @@ import { AlertArgTypes, Template } from "./data";
 
 - When you need a persistent static container which is closable by user actions.
 
-##### How to import
-```jsx
-import { KitAlert } from "@kit/Feedback/";
-
-<KitAlert type="success" message="Success Text"/>
-```
-
 ## Examples
 
 ##### Basic
 
 The simplest usage for short messages.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitAlert type="success" message="Success Text"/>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### More types
 
 There are 4 types of Alert: `success`, `info`, `warning`, `error`.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitAlert type="success" message="Success Text"/>
-        <br/>
-        <KitAlert type="info" message="Info Text"/>
-        <br/>
-        <KitAlert type="warning" message="Warning Text"/>
-        <br/>
-        <KitAlert type="error" message="Error Text"/>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Types} source={Sources.Types} />
 
 ##### Closable
 
 To show close button.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitAlert type="warning" message="Warning Text" closable/>
-        <br/>
-        <KitAlert type="error" message="Error Text" closable/>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Closable} source={Sources.Closable} />
 
 ##### Description
 
 Additional description for alert message.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitAlert
-            type="success"
-            message="Success Text"
-            description="Success Description Success Description Success Description"
-        />
-        <br/>
-        <KitAlert
-            type="info"
-            message="Info Text"
-            description="Info Description Info Description Info Description Info Description"
-        />
-        <br/>
-        <KitAlert
-            type="warning"
-            message="Warning Text"
-            description="Warning Description Warning Description Warning Description Warning Description"
-        />
-        <br/>
-        <KitAlert
-            type="error"
-            message="Error Text"
-            description="Error Description Error Description Error Description Error Description"
-        />
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Description} source={Sources.Description} />
 
 ##### Icon
 
 A relevant icon will make information clearer and more friendly.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitAlert message="Success Tips" type="success" showIcon />
-        <br/>
-        <KitAlert message="Informational Notes" type="info" showIcon />
-        <br/>
-        <KitAlert message="Warning" type="warning" showIcon closable />
-        <br/>
-        <KitAlert message="Error" type="error" showIcon />
-        <br/>
-        <KitAlert
-            message="Success Tips"
-            description="Detailed description and advice about successful copywriting."
-            type="success"
-            showIcon
-        />
-        <br/>
-        <KitAlert
-            message="Informational Notes"
-            description="Additional description and information about copywriting."
-            type="info"
-            showIcon
-        />
-        <br/>
-        <KitAlert
-            message="Warning"
-            description="This is a warning notice about copywriting."
-            type="warning"
-            showIcon
-            closable
-        />
-        <br/>
-        <KitAlert
-            message="Error"
-            description="This is an error message about copywriting."
-            type="error"
-            showIcon
-        />
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Icon} source={Sources.Icon} />
 
 ##### Banner
 
 Display Alert as a banner at top of page.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitAlert type="warning" message="Warning Text" banner/>
-        <br/>
-        <KitAlert
-            message="Very long warning text warning text text text text text text text"
-            banner
-            closable
-        />
-        <br/>
-        <KitAlert showIcon={false} message="Warning text without icon" banner />
-        <br/>
-        <KitAlert type="error" message="Error text" banner />
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Banner} source={Sources.Banner} />
 
 ## Api
 

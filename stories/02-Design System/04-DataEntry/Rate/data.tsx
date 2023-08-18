@@ -45,6 +45,18 @@ export const RateArgTypes = {
             defaultValue: {summary: 'default'}
         }
     },
+    disabledStarTransparency: {
+        name: 'disabledStarTransparency',
+        description: 'Set a color to match the background and keep the transparency effect of disabled striped stars',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Rate',
+            defaultValue: {summary: '#FFFFFF'}
+        }
+    },
     autoFocus: {
         name: 'autoFocus',
         description: 'If get focus when component mounted',
@@ -176,18 +188,6 @@ export const RateArgTypes = {
         }
     }
 };
-
-const customIcons: Record<number, React.ReactNode> = {
-    1: <FrownOutlined rev={null} />,
-    2: <FrownOutlined rev={null} />,
-    3: <MehOutlined rev={null} />,
-    4: <SmileOutlined rev={null} />,
-    5: <SmileOutlined rev={null} />
-};
-
-export const charsNumber = ({index}: {index: number}) => index + 1;
-
-export const charsIcons = ({index}: {index: number}) => customIcons[index + 1];
 
 export const Template = ({...args}) => {
     return <KitRate {...args} />;

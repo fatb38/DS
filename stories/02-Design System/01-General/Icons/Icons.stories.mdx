@@ -1,8 +1,9 @@
-import { Meta, Title, IconGallery, IconItem, Canvas, Controls, Story } from "@storybook/addon-docs";
-import { KitIcon } from '@kit/General/';
-import { KitSpace } from '@kit/Layout/';
-import { DownloadOutlined } from '@ant-design/icons';
+import { Meta, Canvas, Controls, Story } from "@storybook/addon-docs";
 import Gallery, {Template, argTypes} from './data';
+import { KitIcon } from '@kit/General';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+
+import Exemples, { Sources } from './exemples';
 
 <Meta
     title="Design System/General/Icons"
@@ -50,50 +51,25 @@ import Gallery, {Template, argTypes} from './data';
 
 Aristid Icon is a on/off state icon
 
-## Usage
-
-##### How to import
-```jsx
-import KitIcon from "@kit/General/";
-import { UserOutlined } from "@ant-design/icons";
-
-<KitIcon icon={<UserOutlined />}/>
-```
-
 ## Exemples
 
 ##### Basic
 
 A basic Icon with on without `on` property.
 
-<Canvas withSource="none">
-    <KitSpace>
-        <KitIcon icon={<DownloadOutlined/>} />
-        <KitIcon icon={<DownloadOutlined/>} on />
-    </KitSpace>
-</Canvas>
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Hoverable
 
 Show Icon with `on` property on hover state.
 
-<Canvas withSource="none">
-    <KitSpace>
-        <KitIcon icon={<DownloadOutlined/>} hoverable/>
-        <KitIcon icon={<DownloadOutlined/>} hoverable on/>
-    </KitSpace>
-</Canvas>
+<CustomCanvas content={Exemples.Hoverable} source={Sources.Hoverable} />
 
 ##### Clickable
 
 Icon can be clickable using `onClick` property.
 
-<Canvas withSource="none">
-    <KitSpace>
-        <KitIcon icon={<DownloadOutlined/>} onClick={() => console.log("click")}/>
-        <KitIcon icon={<DownloadOutlined/>} hoverable onClick={() => console.log("click")}/>
-    </KitSpace>
-</Canvas>
+<CustomCanvas content={Exemples.Clickable} source={Sources.Clickable} />
 
 ## Api
 

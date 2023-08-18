@@ -1,13 +1,8 @@
-{/* MyComponent.stories.mdx */}
-
-import { useState, Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { SearchOutlined, UserOutlined, EyeTwoTone, EyeInvisibleOutlined } from "@ant-design/icons";
-import { KitInput } from "@kit/DataEntry/";
-import { KitButton } from "@kit/General/";
-import { KitDivider, KitSpace } from "@kit/Layout/";
 import { InputArgTypes, Template } from "./data";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
 <Meta
     title="Design System/DataEntry/Input"
@@ -25,272 +20,61 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 - A user input in a form field is needed.
 - A search input is required.
 
-##### How to import
-```jsx
-import { KitInput } from "@kit/DataEntry/";
-
-<KitInput placeholder="Default" />
-<KitInput.TextArea placeholder="Default" />
-<KitInput.Password placeholder="Default" />
-```
-
 ## Examples
 
 ##### Basic
 
 Basic usage example.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace>
-            <KitInput placeholder="Default" />
-            <KitInput placeholder="Disabled" disabled={true} />
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Prefix and suffix
 
 Add a prefix or suffix icons inside input.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace>
-            <KitSpace direction="vertical" align="start">
-                <KitInput placeholder="Prefix & default" prefix={<UserOutlined/>}/>
-                <KitInput placeholder="Prefix & disabled" prefix={<UserOutlined/>} disabled={true} />
-            </KitSpace>
-            <KitSpace direction="vertical">
-                <KitInput placeholder="Suffix & default" suffix={<UserOutlined/>}/>
-                <KitInput placeholder="Suffix & disabled" suffix={<UserOutlined/>} disabled={true} />
-            </KitSpace>
-            <KitSpace direction="vertical">
-                <KitInput placeholder="Prefix & Suffix & default" prefix={<SearchOutlined/>} suffix={<UserOutlined/>} />
-                <KitInput placeholder="Prefix & Suffix & disabled" prefix={<SearchOutlined/>} suffix={<UserOutlined/>} disabled={true} />
-            </KitSpace>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Prefixsuffix} source={Sources.Prefixsuffix} />
 
 ##### Password box
 
 Input type of password.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const [passwordVisible, setPasswordVisible] = useState(false);
-        return (
-            <Fragment>
-                <KitSpace direction="vertical">
-                    <KitSpace direction="vertical">
-                        <KitSpace>
-                            <KitInput.Password />
-                            <KitInput.Password prefix={<UserOutlined/>} />
-                        </KitSpace>
-                        <KitSpace>
-                            <KitInput.Password disabled={true} />
-                            <KitInput.Password prefix={<UserOutlined/>} disabled={true} />
-                        </KitSpace>
-                    </KitSpace>
-                    <KitSpace>
-                        <KitInput.Password
-                            iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                            visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
-                        />
-                        <KitButton
-                            type="primary"
-                            onClick={() => setPasswordVisible((prevState) => !prevState)}
-                        >
-                            {passwordVisible ? 'Hide' : 'Show'}
-                        </KitButton>
-                    </KitSpace>
-                </KitSpace>
-            </Fragment>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Password} source={Sources.Password} />
 
 ##### TextArea
 
 For multi-line input.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace direction="vertical">
-            <KitSpace>
-                <KitInput.TextArea placeholder="Default" />
-                <KitInput.TextArea placeholder="Disabled" disabled={true} />
-            </KitSpace>
-            <KitDivider />
-            <KitSpace align="start">
-                <KitInput.TextArea placeholder="Rows is 1" rows={1} />
-                <KitInput.TextArea placeholder="Rows is 5" rows={5} />
-                <KitInput.TextArea placeholder="MaxLength is 6" maxLength={6} />
-            </KitSpace>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Textarea} source={Sources.Textarea} />
 
 ##### Autosizing the height to fit the content
 
 `autoSize` prop for a `textarea` type of `Input` makes the height to automatically adjust based on the content. An option object can be provided to `autoSize` to specify the minimum and maximum number of lines the textarea will automatically adjust.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace align="start">
-            <KitInput.TextArea placeholder="Autosize height based on content lines" autoSize />
-            <KitInput.TextArea placeholder="Autosize height with minimum and maximum number of lines" autoSize={{ minRows: 2, maxRows: 6 }} />
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Autosizing} source={Sources.Autosizing} />
 
 ##### With character counting
 
 Show character counting.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace direction="vertical">
-            <KitDivider orientation="left">Input</KitDivider>
-            <KitSpace align="start">
-                <KitInput placeholder="Input" showCount maxLength={20}/>
-                <KitInput placeholder="Input" showCount maxLength={20} disabled={true}/>
-            </KitSpace>
-            <KitDivider orientation="left">TextArea</KitDivider>
-            <KitSpace align="start" >
-                <KitInput.TextArea placeholder="TextArea" showCount maxLength={120} />
-                <KitInput.TextArea placeholder="TextArea" showCount maxLength={120} disabled={true}/>
-            </KitSpace>
-            <KitDivider orientation="left">Password</KitDivider>
-            <KitSpace align="start" >
-                <KitInput.Password showCount maxLength={10} />
-                <KitInput.Password showCount maxLength={10} disabled={true}/>
-            </KitSpace>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Counting} source={Sources.Counting} />
 
 ##### With clear icon
 
 Input box with the remove icon, click the icon to delete everything.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace direction="vertical">
-            <KitDivider orientation="left">Input</KitDivider>
-            <KitSpace align="start">
-                <KitInput placeholder="Input" allowClear />
-                <KitInput placeholder="Input" allowClear disabled={true} />
-            </KitSpace>
-            <KitDivider orientation="left">TextArea</KitDivider>
-            <KitSpace align="start">
-                <KitInput.TextArea placeholder="TextArea" allowClear />
-                <KitInput.TextArea placeholder="TextArea" allowClear disabled={true} />
-            </KitSpace>
-            <KitDivider orientation="left">Password</KitDivider>
-            <KitSpace align="start">
-                <KitInput.Password allowClear />
-                <KitInput.Password allowClear disabled={true} />
-            </KitSpace>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Clearicon} source={Sources.Clearicon} />
 
 ##### Status
 
 Add status to Input with status, which could be error or warning.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace direction="vertical">
-            <KitDivider orientation="left">Input</KitDivider>
-            <KitSpace align="start">
-                <KitInput placeholder="Input warning" status="warning" />
-                <KitInput placeholder="Input error" status="error" />
-            </KitSpace>
-            <KitDivider orientation="left">Input with prefix and/or suffix</KitDivider>
-            <KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput placeholder="Prefix & warning" prefix={<UserOutlined/>} status="warning"/>
-                    <KitInput placeholder="Prefix & error" prefix={<UserOutlined/>} status="error"/>
-                </KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput placeholder="Suffix & warning" suffix={<UserOutlined/>} status="warning"/>
-                    <KitInput placeholder="Suffix & error" suffix={<UserOutlined/>} status="error"/>
-                </KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput placeholder="Prefix & Suffix & warning" prefix={<SearchOutlined/>} suffix={<UserOutlined/>} status="warning"/>
-                    <KitInput placeholder="Prefix & Suffix & error" prefix={<SearchOutlined/>} suffix={<UserOutlined/>} status="error"/>
-                </KitSpace>
-            </KitSpace>
-            <KitDivider orientation="left">TextArea</KitDivider>
-            <KitSpace align="start">
-                <KitInput.TextArea placeholder="TextArea warning" status="warning" />
-                <KitInput.TextArea placeholder="TextArea error" status="error" />
-            </KitSpace>
-            <KitDivider orientation="left">Password</KitDivider>
-            <KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput.Password status="warning" />
-                    <KitInput.Password status="error" />
-                </KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput.Password prefix={<UserOutlined/>} status="warning" />
-                    <KitInput.Password prefix={<UserOutlined/>} status="error" />
-                </KitSpace>
-            </KitSpace>
-            <KitDivider orientation="left">Input, TextArea and Password with showCount</KitDivider>
-            <KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput placeholder="Input showCount" showCount maxLength={20} status="warning"/>
-                    <br/>
-                    <KitInput placeholder="Input showCount" showCount maxLength={20} status="error"/>
-                </KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput.TextArea placeholder="TextArea showCount" showCount maxLength={120} status="warning"/>
-                    <br/>
-                    <KitInput.TextArea placeholder="TextArea showCount" showCount maxLength={120} status="error"/>
-                </KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput.Password showCount maxLength={10} status="warning"/>
-                    <br/>
-                    <KitInput.Password showCount maxLength={10} status="error"/>
-                </KitSpace>
-            </KitSpace>
-            <KitDivider orientation="left">Input, TextArea and Password with allowClear</KitDivider>
-            <KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput placeholder="Input allowClear" allowClear status="warning" />
-                    <KitInput placeholder="Input allowClear" allowClear status="error" />
-                </KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput.TextArea placeholder="TextArea allowClear" allowClear status="warning" />
-                    <KitInput.TextArea placeholder="TextArea allowClear" allowClear status="error" />
-                </KitSpace>
-                <KitSpace direction="vertical">
-                    <KitInput.Password allowClear status="warning" />
-                    <KitInput.Password allowClear status="error" />
-                </KitSpace>
-            </KitSpace>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Status} source={Sources.Status} />
+
+##### Label and Helper
+
+Add `label` and/or `helper` properties to give field context.
+
+<CustomCanvas content={Exemples.Wrapper} source={Sources.Wrapper} />
 
 ## Api
 

@@ -24,7 +24,20 @@ A content area which can be collapsed and expanded.
 ```jsx
 import { KitCollapse } from "@kit/DataDisplay";
 
-<KitCollapse items={mockData.items.default} />
+// Alternative to KitCollapse.Header
+const { Header } = KitCollapse;
+
+const items = [
+    {
+        key: '1',
+        label: <KitCollapse.Header ... />,
+        extra: <KitCollapse.HeaderExtra ... />
+        children: <p>{mockDataItemsText}</p>,
+    },
+    ...
+]
+
+<KitCollapse items={items} />
 ```
 
 ## Examples
@@ -108,9 +121,25 @@ In accordion mode, only one panel can be expanded at a time.
 </Canvas>
 }
 
-##### Extra node
+##### Custom header content
 
-Render extra element in the top-right corner of each panel.
+Render header content with a proper layout in the top-left corner of each panel. To do so, you can use `KitCollapse.Header`.
+
+{
+<Canvas withSource="none">
+    <Fragment>
+        <div style={{width: "100%"}}>
+            <KitCollapse
+                items={mockData.items.customHeader}
+            />
+        </div>
+    </Fragment>
+</Canvas>
+}
+
+##### Custom header extra actions
+
+Render extra element in the top-right corner of each panel. To do so, you can use `KitCollapse.HeaderExtra`.
 
 {
 <Canvas withSource="none">
@@ -148,24 +177,7 @@ Specify the trigger area of collapsible by `collapsible`.
             <KitDivider orientation="left">Disabled</KitDivider>
             <KitCollapse
                 collapsible="disabled"
-                size="large"
                 items={mockData.items.light}
-            />
-        </div>
-    </Fragment>
-</Canvas>
-}
-
-##### Exemple
-
-Exemple of a complex `collapse`.
-
-{
-<Canvas withSource="none">
-    <Fragment>
-        <div style={{width: "100%"}}>
-            <KitCollapse
-                items={mockData.items.complex}
             />
         </div>
     </Fragment>
@@ -174,7 +186,7 @@ Exemple of a complex `collapse`.
 
 ## API
 
-<Canvas>
+<Canvas withSource="none">
     <Story name="Collapse">{Template.bind({})}</Story>
 </Canvas>
 

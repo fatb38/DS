@@ -18,16 +18,16 @@ export const fakeContent = {
     ],
     tags: ['3 opérations'],
     image: <KitImage src="images/tondeuse.png" />,
-    icon: <KitIcon icon={<AntDesignOutlined rev={null} />} />,
+    icon: <KitIcon icon={<AntDesignOutlined />} />,
     avatar: <KitAvatar>G</KitAvatar>,
     onSeectChange: '',
     onEdit: '',
     actions: [
         <KitButton onClick={() => console.log('download action')}>
-            <DownloadOutlined rev={null} />
+            <DownloadOutlined />
         </KitButton>,
         <KitButton onClick={() => console.log('open action')}>
-            <FolderOpenOutlined rev={null} />
+            <FolderOpenOutlined />
         </KitButton>
     ]
 };
