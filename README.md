@@ -236,13 +236,60 @@ cd Tooltip
 touch Tooltip.stories.mdx
 touch data.tsx
 ```
+- Tooltip.stories.mdx : Contain all your documentation and exemples
+- data.tsx : Used mainly for the API section (Args, Template, ...)
 
-3. Exemple of `Tooltip/data.tsx`
+3. Create `exemples` for your component
+
+```sh dark
+mkdir exemples
+cd exemples
+touch basic.tsx
+touch index.tsx
+```
+- basic.tsx : Contain your exemple
+- index.tsx : Used for export exemples and sources
+
+4. Exemple of `Tooltip/exemples/basic.tsx`
 
 ```tsx dark
 import React from 'react';
-import {KitTooltip} from '@kit/DataDisplay/';
-...
+import {KitTooltip} from '@aristid/design-system';
+
+const App = ({}) => {
+    return (
+        <KitTooltip title="Hey i'm a tooltip">
+            Tooltip will show on mouse enter.
+        </KitTooltip>
+    );
+};
+
+export default App;
+```
+<br/>
+
+5. Exemple of `Tooltip/exemples/index.tsx`
+
+```tsx dark
+import Basic from './basic';
+import BasicSource from './basic?raw';
+
+export const Sources = {
+    Basic: BasicSource
+};
+
+export default {
+    Basic
+};
+```
+
+<br/>
+
+6. Exemple of `Tooltip/data.tsx`
+
+```tsx dark
+import React from 'react';
+import {KitTooltip} from '@aristid/design-system';
 
 export const TooltipArgTypes = {
     title: {
@@ -268,19 +315,21 @@ export const Template = ({component, ...args}) => {
 };
 ```
 
-4. Exemple of `Tooltip/Tooltip.stories.mdx`
+<br/>
+
+7. Exemple of `Tooltip/Tooltip.stories.mdx`
 
 ```tsx dark
 import { TooltipArgTypes, Template } from "./data";
-...
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
 <Meta
     title="Design System/DataDisplay/Tooltip"
     argTypes={TooltipArgTypes}
 />
 
-# Tooltip
-...
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 <Canvas>
     <Story name="Tooltip">{Template.bind({})}</Story>
@@ -293,7 +342,7 @@ import { TooltipArgTypes, Template } from "./data";
 
 ## Contributing
 
-Any contributions you make are **greatly appreciated**. If you have a suggestion that would make this better, please create a pull request. You can also simply open an issue with the appropriate tag.
+Any contributions you make are **greatly appreciated**. If you have a suggestion that would make this better, please create a pull request. You can also simply open an issue with the appropriate tag to report a bug or inconsistencies in documentation.
 
 ### Commit
 
