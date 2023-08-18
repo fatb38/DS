@@ -1,10 +1,10 @@
 import react from '@vitejs/plugin-react';
 import path from 'node:path';
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import dts from 'vite-plugin-dts';
-import { webpackStats } from 'rollup-plugin-webpack-stats';
-import { uglify } from 'rollup-plugin-uglify';
-import { visualizer } from "rollup-plugin-visualizer";
+import {webpackStats} from 'rollup-plugin-webpack-stats';
+import {uglify} from 'rollup-plugin-uglify';
+import {visualizer} from 'rollup-plugin-visualizer';
 
 import packageJson from './package.json';
 
@@ -14,7 +14,7 @@ const getExclusions = () => {
         ...Object.keys(packageJson.dependencies),
         ...Object.keys(packageJson.devDependencies),
         'react/jsx-runtime'
-    ]
+    ];
 };
 
 const plugins = [
@@ -23,7 +23,7 @@ const plugins = [
     }),
     dts({
         insertTypesEntry: true,
-        exclude: ['stories', 'package.json'],
+        exclude: ['stories', 'package.json']
     }),
     uglify()
 ];
@@ -48,7 +48,7 @@ export default defineConfig({
             entry: path.resolve(__dirname, 'src/index.tsx'),
             name: 'design-system',
             formats: ['es'],
-            fileName: format => `design-system.${format}.js`
+            fileName: format => `index.${format}.js`
         },
         rollupOptions: {
             external: getExclusions(),
@@ -57,15 +57,15 @@ export default defineConfig({
                     react: 'React',
                     'react-dom': 'ReactDOM',
                     'styled-components': 'styled',
-                    'react/jsx-runtime': 'react/jsx-runtime',
-                },
-                preserveModules: true,
-                preserveModulesRoot: "src",
-                inlineDynamicImports: false,
-                entryFileNames: ({ name: fileName }) => {
-                    return `${fileName}.js`;
-                },
-            },
-        },
-    },
+                    'react/jsx-runtime': 'react/jsx-runtime'
+                }
+                // preserveModules: true,
+                // preserveModulesRoot: "src",
+                // inlineDynamicImports: false,
+                // entryFileNames: ({ name: fileName }) => {
+                //     return `${fileName}.js`;
+                // },
+            }
+        }
+    }
 });
