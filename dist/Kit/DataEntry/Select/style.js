@@ -257,4 +257,3 @@ export {
   s as StyledBadge,
   a as StyledLabel
 };
-//# sourceMappingURL=style.js.map

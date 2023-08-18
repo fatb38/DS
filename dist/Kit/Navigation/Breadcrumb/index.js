@@ -15,4 +15,3 @@ m.displayName = "KitBreadcrumb";
 export {
   m as KitBreadcrumb
 };
-//# sourceMappingURL=index.js.map

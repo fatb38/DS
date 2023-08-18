@@ -2,4 +2,3 @@ const A = "data:font/woff2;base64,d09GMgABAAAAA3dsABEAAAAJODQAA3b8AAEAAAAAAAAAAA
 export {
   A as default
 };
-//# sourceMappingURL=Inter-roman.var.woff2.js.map

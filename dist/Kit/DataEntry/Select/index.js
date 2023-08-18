@@ -37,4 +37,3 @@ D.displayName = "KitSelect";
 export {
   D as KitSelect
 };
-//# sourceMappingURL=index.js.map

@@ -20,4 +20,3 @@ const V = t.forwardRef((o, f) => {
 export {
   U as default
 };
-//# sourceMappingURL=Group.js.map

@@ -3,4 +3,3 @@ const a = { color: { on: o.color.primary.blue400, default: o.color.neutral.typog
 export {
   a as iconTheme
 };
-//# sourceMappingURL=theme.js.map

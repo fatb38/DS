@@ -8,4 +8,3 @@ const u = (r) => e.createElement(t, { theme: o }, e.createElement(l, null), e.cr
 export {
   u as KitApp
 };
-//# sourceMappingURL=index.js.map

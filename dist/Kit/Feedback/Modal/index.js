@@ -15,4 +15,3 @@ n.displayName = "KitModal", n.info = function(r) {
 export {
   n as KitModal
 };
-//# sourceMappingURL=index.js.map

@@ -21,4 +21,3 @@ $.displayName = "KitIcon";
 export {
   $ as KitIcon
 };
-//# sourceMappingURL=index.js.map

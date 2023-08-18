@@ -27,4 +27,3 @@ const g = p(a.Text)`
 export {
   s as default
 };
-//# sourceMappingURL=Text.js.map

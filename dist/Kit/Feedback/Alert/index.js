@@ -68,4 +68,3 @@ i.displayName = "KitAlert";
 export {
   i as KitAlert
 };
-//# sourceMappingURL=index.js.map

@@ -279,4 +279,3 @@ P.displayName = "KitCard";
 export {
   P as KitCard
 };
-//# sourceMappingURL=index.js.map

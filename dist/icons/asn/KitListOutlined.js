@@ -2,4 +2,3 @@ const t = { icon: { tag: "svg", attrs: { viewBox: "64 64 896 896", focusable: "f
 export {
   t as default
 };
-//# sourceMappingURL=KitListOutlined.js.map

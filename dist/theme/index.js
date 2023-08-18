@@ -4,4 +4,3 @@ const i = { token: { fontFamily: r.fontFamily }, color: o, typography: r, compon
 export {
   i as default
 };
-//# sourceMappingURL=index.js.map

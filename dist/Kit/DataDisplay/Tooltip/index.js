@@ -5,4 +5,3 @@ i.displayName = "KitTooltip";
 export {
   i as KitTooltip
 };
-//# sourceMappingURL=index.js.map

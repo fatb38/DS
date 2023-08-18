@@ -85,4 +85,3 @@ y.displayName = "KitHeader";
 export {
   y as KitHeader
 };
-//# sourceMappingURL=index.js.map

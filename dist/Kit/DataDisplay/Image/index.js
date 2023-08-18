@@ -15,4 +15,3 @@ o.PreviewGroup = d.PreviewGroup, o.displayName = "KitImage";
 export {
   o as KitImage
 };
-//# sourceMappingURL=index.js.map

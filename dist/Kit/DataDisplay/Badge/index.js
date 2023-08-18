@@ -62,4 +62,3 @@ i.displayName = "KitBadge";
 export {
   i as KitBadge
 };
-//# sourceMappingURL=index.js.map

@@ -5,4 +5,3 @@ t.displayName = "KitMenu", t.Item = i;
 export {
   t as KitMenu
 };
-//# sourceMappingURL=index.js.map

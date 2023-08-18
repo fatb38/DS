@@ -7,4 +7,3 @@ export {
   t as closeKitSnackBar,
   e as openKitSnackBar
 };
-//# sourceMappingURL=index.js.map

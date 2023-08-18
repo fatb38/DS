@@ -6,4 +6,3 @@ e.displayName = "KitRailroadOutlined";
 export {
   e as default
 };
-//# sourceMappingURL=KitRailroadOutlined.js.map

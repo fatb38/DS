@@ -80,4 +80,3 @@ const k = p.div`
 export {
   w as default
 };
-//# sourceMappingURL=Menu.js.map
