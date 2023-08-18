@@ -6,4 +6,3 @@ d.displayName = "KitPdfOutlined";
 export {
   d as default
 };
-//# sourceMappingURL=KitPdfOutlined.js.map

@@ -415,6 +415,8 @@ Creating a release
 git flow release start 0.1.0
 ```
 
+⚠️ - Don't forget to update the version number in `package.json`
+
 Finishing a release
 
 ```sh

@@ -106,4 +106,3 @@ const p = n.div`
 export {
   w as default
 };
-//# sourceMappingURL=Modal.js.map

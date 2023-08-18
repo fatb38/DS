@@ -1,25 +1,25 @@
-import n, { createGlobalStyle as i, css as r } from "styled-components";
-import t, { headerTheme as o } from "./theme.js";
-const s = n.div`
+import n, { createGlobalStyle as r, css as i } from "styled-components";
+import e, { headerTheme as o } from "./theme.js";
+const a = n.div`
     box-sizing: border-box;
-    min-width: ${t.optionHeight}px;
-    width: ${t.optionHeight}px;
-    height: ${t.optionHeight}px;
-    padding: ${t.optionHeight / 4}px;
+    min-width: ${e.optionHeight}px;
+    width: ${e.optionHeight}px;
+    height: ${e.optionHeight}px;
+    padding: ${e.optionHeight / 4}px;
 
     div {
-        width: ${t.optionHeight / 2}px;
-        height: ${t.optionHeight / 2}px;
+        width: ${e.optionHeight / 2}px;
+        height: ${e.optionHeight / 2}px;
         border-radius: 2px;
     }
-`, a = n.div`
+`, c = n.div`
     box-sizing: border-box;
     display: inline-block;
     vertical-align: middle;
     overflow: hidden;
     text-overflow: ellipsis;
     padding-left: 10px;
-`, c = i`
+`, s = r`
     &.kit-header-select-droppdown {
         .ant-select-dropdown {
             font-family: ${o.fontFamily};
@@ -38,7 +38,7 @@ const s = n.div`
                 font-weight: ${o.groupsFontWeight};
             }
         }
-        .kit-select-dropdown-content {
+        .kit-select-dropdown-content, .rc-virtual-list-holder {
             background-color: ${o.dropdownBgColor};
             background: red !important;
             padding-left: 0;
@@ -55,23 +55,27 @@ const s = n.div`
         }
 
         .kit-select-dropdown-bottom {
-            .kit-select-dropdown-content {
-                border-radius: 0 0 ${o.borderRadius} ${t.borderRadius} ;
+            .kit-select-dropdown-content, .rc-virtual-list-holder {
+                border-radius: 0 0 ${o.borderRadius} ${e.borderRadius} ;
             }
 
             &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content,
-            &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content {
+            &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content,
+            &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder,
+            &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder {
                 border-radius: ${o.borderRadius} ${o.borderRadius} 0 0 ;
             }
         }
 
         .kit-select-dropdown-top {
-            .kit-select-dropdown-content {
+            .kit-select-dropdown-content, .rc-virtual-list-holder {
                 border-radius: ${o.borderRadius} ${o.borderRadius} 0 0 ;
             }
 
             &.ant-select-dropdown-placement-bottomLeft .kit-select-dropdown-content,
-            &.ant-select-dropdown-placement-bottomRight .kit-select-dropdown-content {
+            &.ant-select-dropdown-placement-bottomRight .kit-select-dropdown-content,
+            &.ant-select-dropdown-placement-bottomLeft .rc-virtual-list-holder,
+            &.ant-select-dropdown-placement-bottomRight .rc-virtual-list-holder {
                 border-radius: 0 0 ${o.borderRadius} ${o.borderRadius} ;
             }
         }
@@ -84,16 +88,16 @@ const s = n.div`
         padding: 0;
         border-radius: 0;
         box-shadow: none;
-        font-family: ${t.fontFamily};
-        font-weight: ${t.fontWeight};
-        color: ${t.itemsColor};
+        font-family: ${e.fontFamily};
+        font-weight: ${e.fontWeight};
+        color: ${e.itemsColor};
         ;
         .ant-select-item, .ant-select-item-option, .ant-select-item-option-selected {
-            border-radius: ${t.borderRadius};
+            border-radius: ${e.borderRadius};
             border: none;
-            min-height: ${t.optionHeight}px;
-            font-weight: ${t.fontWeight};
-            color: ${t.itemsColor};
+            min-height: ${e.optionHeight}px;
+            font-weight: ${e.fontWeight};
+            color: ${e.itemsColor};
 
             .ant-select-item-option-content {
                 display: flex;
@@ -103,16 +107,28 @@ const s = n.div`
 
 
         .ant-select-item-group {
-            color: ${t.groupsColor};
-            font-weight: ${t.groupsFontWeight};
+            color: ${e.groupsColor};
+            font-weight: ${e.groupsFontWeight};
+        }
+    }
+
+    .rc-virtual-list-holder {
+        background-color: ${e.dropdownBgColor};
+        padding-left: 0px;
+        overflow: hidden;
+        border-radius: ${e.borderRadius} ;
+
+        .ant-select-item.ant-select-item-option {
+            padding-left: 10px;
         }
     }
 
     .kit-select-dropdown-content {
-        background-color: ${t.dropdownBgColor};
+        background-color: ${e.dropdownBgColor};
         padding-left: 10px;
         padding-bottom: 10px;
         overflow: hidden;
+
 
         .ant-select-item.ant-select-item-option {
             padding: 0;
@@ -126,15 +142,15 @@ const s = n.div`
 
             .kit-icon {
                 box-sizing: border-box;
-                height: ${t.optionHeight}px;
-                width: ${t.optionHeight}px;
+                height: ${e.optionHeight}px;
+                width: ${e.optionHeight}px;
                 text-align: center;
             }
         }
         .ant-select-item.ant-select-item-option-selected, .ant-select-item.ant-select-item-option-active {
-            background: ${t.selectedOptionBg};
-            font-weight: ${t.fontWeight};
-            color: ${t.itemsColor};
+            background: ${e.selectedOptionBg};
+            font-weight: ${e.fontWeight};
+            color: ${e.itemsColor};
         }
 
         .ant-select-item.ant-select-item-option-disabled {
@@ -142,34 +158,38 @@ const s = n.div`
         }
 
         .ant-select-item.ant-select-item-option-active {
-            color: ${t.selectedItemColor};
+            color: ${e.selectedItemColor};
         }
     }
 
     .kit-select-dropdown-bottom {
         .kit-select-dropdown-content {
-            border-radius: 0 0 ${t.borderRadius} ${t.borderRadius} ;
+            border-radius: 0 0 ${e.borderRadius} ${e.borderRadius} ;
             transform: translateY(-5px);
         }
 
         &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content,
-        &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content {
-            border-radius: ${t.borderRadius} ${t.borderRadius} 0 0 ;
+        &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content,
+        &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder,
+        &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder {
+            border-radius: ${e.borderRadius} ${e.borderRadius} 0 0 ;
         }
     }
 
     .kit-select-dropdown-top {
         .kit-select-dropdown-content {
-            border-radius: ${t.borderRadius} ${t.borderRadius} 0 0 ;
+            border-radius: ${e.borderRadius} ${e.borderRadius} 0 0 ;
             transform: translateY(5px);
         }
 
         &.ant-select-dropdown-placement-bottomLeft .kit-select-dropdown-content,
-        &.ant-select-dropdown-placement-bottomRight .kit-select-dropdown-content {
-            border-radius: 0 0 ${t.borderRadius} ${t.borderRadius} ;
+        &.ant-select-dropdown-placement-bottomRight .kit-select-dropdown-content,
+        &.ant-select-dropdown-placement-bottomLeft .rc-virtual-list-holder,
+        &.ant-select-dropdown-placement-bottomRight .rc-virtual-list-holder {
+            border-radius: 0 0 ${e.borderRadius} ${e.borderRadius} ;
         }
     }
-`, p = r`
+`, p = i`
     &.ant-select.ant-select-compact-item:not(.ant-select-compact-last-item) {
         margin-inline-end: 0px;
     }
@@ -183,21 +203,21 @@ const s = n.div`
     &.ant-select-open {
         &:not(.ant-select-compact-item) {
             &.ant-select-bottom .ant-select-selector {
-                border-radius: ${(e) => e.theme.borderRadius} ${(e) => e.theme.borderRadius} 0 0;
+                border-radius: ${(t) => t.theme.borderRadius} ${(t) => t.theme.borderRadius} 0 0;
             }
 
             &.ant-select-top .ant-select-selector {
-                border-radius: 0 0 ${(e) => e.theme.borderRadius} ${(e) => e.theme.borderRadius};
+                border-radius: 0 0 ${(t) => t.theme.borderRadius} ${(t) => t.theme.borderRadius};
             }
         }
 
         &.ant-select-compact-item {
             &.ant-select-bottom .ant-select-selector {
-                border-radius: ${(e) => e.theme.borderRadius} 0 0 0;
+                border-radius: ${(t) => t.theme.borderRadius} 0 0 0;
             }
 
             &.ant-select-top .ant-select-selector {
-                border-radius: 0 0 0 ${(e) => e.theme.borderRadius};
+                border-radius: 0 0 0 ${(t) => t.theme.borderRadius};
             }
         }
     }
@@ -209,52 +229,51 @@ const s = n.div`
         .ant-select-selection-placeholder {
             display: flex;
             align-items: center;
-            font-weight: ${(e) => e.theme.selectionFontWeight};
-            color: ${(e) => e.theme.selectionColor};
+            font-weight: ${(t) => t.theme.selectionFontWeight};
+            color: ${(t) => t.theme.selectionColor};
 
             & .anticon,
             & .kit-icon {
                 background-color: transparent;
-                height: ${t.optionHeight};
+                height: ${e.optionHeight};
             }
         }
 
         .ant-select-arrow {
-            color: ${(e) => e.theme.selectionColor};
+            color: ${(t) => t.theme.selectionColor};
         }
 
         &.ant-select:not(.ant-select-customize-input).ant-select-disabled {
             .ant-select-selector {
-                background-color: ${(e) => e.theme.disabledBgColor};
-                color: ${(e) => e.theme.disabledColor};
+                background-color: ${(t) => t.theme.disabledBgColor};
+                color: ${(t) => t.theme.disabledColor};
 
                 .ant-select-selection-item {
-                    color: ${(e) => e.theme.disabledColor};
+                    color: ${(t) => t.theme.disabledColor};
                 }
             }
             .ant-select-arrow {
-                color: ${(e) => e.theme.disabledColor};
+                color: ${(t) => t.theme.disabledColor};
             }
 
             .anticon {
-                color: ${(e) => e.theme.disabledColor};
+                color: ${(t) => t.theme.disabledColor};
             }
         }
 
         &.ant-header-action-select {
-            font-weight: ${(e) => e.theme.headerSelectionFontWeight};
-            color: ${(e) => e.theme.selectionColor};
+            font-weight: ${(t) => t.theme.headerSelectionFontWeight};
+            color: ${(t) => t.theme.selectionColor};
         }
 
         .ant-select-selection-item {
-            color: ${(e) => e.theme.selectionColor};
+            color: ${(t) => t.theme.selectionColor};
         }
     }
 `;
 export {
-  c as DropDownStyle,
+  s as DropDownStyle,
   p as KitSelectStyle,
-  s as StyledBadge,
-  a as StyledLabel
+  a as StyledBadge,
+  c as StyledLabel
 };
-//# sourceMappingURL=style.js.map

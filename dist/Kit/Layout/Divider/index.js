@@ -19,4 +19,3 @@ l.displayName = "KitDivider";
 export {
   l as KitDivider
 };
-//# sourceMappingURL=index.js.map

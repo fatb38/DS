@@ -3,4 +3,3 @@ const t = { fontSize: o.typography.fontSize5, fontFamily: o.typography.fontFamil
 export {
   t as default
 };
-//# sourceMappingURL=theme.js.map

@@ -4,4 +4,3 @@ export {
   r as default,
   l as headerTheme
 };
-//# sourceMappingURL=theme.js.map

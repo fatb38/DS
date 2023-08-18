@@ -5,4 +5,3 @@ o.displayName = "KitRadio", o.Group = i;
 export {
   o as KitRadio
 };
-//# sourceMappingURL=index.js.map

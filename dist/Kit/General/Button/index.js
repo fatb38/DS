@@ -253,4 +253,3 @@ x.displayName = "KitButton";
 export {
   x as KitButton
 };
-//# sourceMappingURL=index.js.map

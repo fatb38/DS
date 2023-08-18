@@ -144,4 +144,3 @@ c.displayName = "KitTree";
 export {
   c as KitTree
 };
-//# sourceMappingURL=index.js.map

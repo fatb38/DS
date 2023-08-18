@@ -2,4 +2,3 @@ const a = { icon: { tag: "svg", attrs: { viewBox: "64 64 896 896", focusable: "f
 export {
   a as default
 };
-//# sourceMappingURL=KitWarningOutlined.js.map

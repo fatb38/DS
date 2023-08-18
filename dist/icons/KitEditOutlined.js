@@ -6,4 +6,3 @@ d.displayName = "KitEditOutlined";
 export {
   d as default
 };
-//# sourceMappingURL=KitEditOutlined.js.map

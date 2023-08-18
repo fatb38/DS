@@ -4,4 +4,3 @@ const t = { backgroundColor: o.color.neutral.typography.white, fontFamily: o.typ
 export {
   t as modalTheme
 };
-//# sourceMappingURL=theme.js.map

@@ -12,4 +12,3 @@ m.displayName = "KitProgress";
 export {
   m as KitProgress
 };
-//# sourceMappingURL=index.js.map

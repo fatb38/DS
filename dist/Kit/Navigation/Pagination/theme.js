@@ -3,4 +3,3 @@ const e = { bordered: { borderColor: o.color.neutral.typography.black60, hoverBo
 export {
   e as paginationTheme
 };
-//# sourceMappingURL=theme.js.map

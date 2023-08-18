@@ -2,4 +2,3 @@ const c = { icon: { tag: "svg", attrs: { viewBox: "64 64 896 896", focusable: "f
 export {
   c as default
 };
-//# sourceMappingURL=KitLockOutlined.js.map

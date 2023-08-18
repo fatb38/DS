@@ -26,4 +26,3 @@ const e = t`
 export {
   e as default
 };
-//# sourceMappingURL=style.js.map

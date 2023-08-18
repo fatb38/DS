@@ -50,4 +50,3 @@ const re = ({ icon: i, title: u, firstLine: E, secondLine: p, image: f, type: r,
 export {
   re as default
 };
-//# sourceMappingURL=ConfirmDialog.js.map

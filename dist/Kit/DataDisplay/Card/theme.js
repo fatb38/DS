@@ -4,4 +4,3 @@ export {
   e as colorbarTheme,
   t as default
 };
-//# sourceMappingURL=theme.js.map

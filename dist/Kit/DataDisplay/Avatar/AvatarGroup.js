@@ -5,4 +5,3 @@ const i = (r) => e.createElement(t.Group, { maxStyle: { background: o.color.prim
 export {
   i as default
 };
-//# sourceMappingURL=AvatarGroup.js.map

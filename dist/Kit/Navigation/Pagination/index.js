@@ -121,4 +121,3 @@ const g = p(d)`
 export {
   h as KitPagination
 };
-//# sourceMappingURL=index.js.map

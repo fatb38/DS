@@ -4,4 +4,3 @@ const a = { background: "initial", padding: "initial", color: "initial", boxShad
 export {
   n as default
 };
-//# sourceMappingURL=SnackBarProvider.js.map

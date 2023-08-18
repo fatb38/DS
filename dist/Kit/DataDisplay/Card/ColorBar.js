@@ -17,4 +17,3 @@ const c = a.div`
 export {
   u as default
 };
-//# sourceMappingURL=ColorBar.js.map

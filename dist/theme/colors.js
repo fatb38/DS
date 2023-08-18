@@ -2,4 +2,3 @@ const e = { primary: { blue100: "#E7EDFF", blue200: "#97B9FD", blue300: "#5784FC
 export {
   e as colorsPalette
 };
-//# sourceMappingURL=colors.js.map

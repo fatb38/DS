@@ -6,4 +6,3 @@ n.displayName = "KitCalendarOutlined";
 export {
   n as default
 };
-//# sourceMappingURL=KitCalendarOutlined.js.map

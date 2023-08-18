@@ -4,4 +4,3 @@ const l = (t) => e.createElement(o, { ...t });
 export {
   l as default
 };
-//# sourceMappingURL=Col.js.map

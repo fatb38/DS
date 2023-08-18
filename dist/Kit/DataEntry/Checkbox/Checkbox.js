@@ -100,4 +100,3 @@ const t = n(d)`
 export {
   i as default
 };
-//# sourceMappingURL=Checkbox.js.map

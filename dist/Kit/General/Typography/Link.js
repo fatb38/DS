@@ -27,4 +27,3 @@ const g = p(a.Link)`
 export {
   s as default
 };
-//# sourceMappingURL=Link.js.map

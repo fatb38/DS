@@ -27,4 +27,3 @@ const h = p(i.Paragraph)`
 export {
   s as default
 };
-//# sourceMappingURL=Paragraph.js.map

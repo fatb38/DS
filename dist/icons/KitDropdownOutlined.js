@@ -6,4 +6,3 @@ n.displayName = "KitDropdownOutlined";
 export {
   n as default
 };
-//# sourceMappingURL=KitDropdownOutlined.js.map
