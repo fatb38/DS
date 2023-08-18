@@ -189,18 +189,6 @@ export const RateArgTypes = {
     }
 };
 
-const customIcons: Record<number, React.ReactNode> = {
-    1: <FrownOutlined />,
-    2: <FrownOutlined />,
-    3: <MehOutlined />,
-    4: <SmileOutlined />,
-    5: <SmileOutlined />
-};
-
-export const charsNumber = ({index}: {index: number}) => index + 1;
-
-export const charsIcons = ({index}: {index: number}) => customIcons[index + 1];
-
 export const Template = ({...args}) => {
     return <KitRate {...args} />;
 };
