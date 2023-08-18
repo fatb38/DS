@@ -5,4 +5,7 @@ type AntdInputNumberTypesToOmit = 'size' | 'addonBefore' | 'addonAfter' | 'borde
 
 export interface KitInputNumberProps
     extends Omit<InputNumberProps, AntdInputNumberTypesToOmit>,
-        HTMLAttributes<HTMLSpanElement | HTMLInputElement> {}
+        HTMLAttributes<HTMLSpanElement | HTMLInputElement> {
+    label?: string;
+    helper?: string;
+}

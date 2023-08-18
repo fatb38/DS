@@ -1,19 +1,13 @@
-import { useState, Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { KitSpace } from "@kit/Layout/";
-import { KitAutoComplete } from "@kit/DataEntry/";
-import { UserOutlined } from '@ant-design/icons';
-import {
-    AutoCompleteArgTypes,
-    Template
-} from "./data";
+import { AutoCompleteArgTypes, Template} from "./data";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
 <Meta
     title="Design System/DataEntry/AutoComplete"
     argTypes={AutoCompleteArgTypes}
 />
-
 
 <style>
     {`
@@ -54,298 +48,44 @@ The differences with Select are:
 - AutoComplete is an input box with text hints, and users can type freely. The keyword is aiding **input**.
 - Select is selecting among given choices. The keyword is **select**.
 
-
-
-##### How to import
-```jsx
-import { KitAutoComplete } from "@kit/DataEntry/";
-
-<KitAutoComplete />
-```
-
 ## Examples
 
 ##### Basic
 
 Basic Usage, set data source of autocomplete with `options` property.
 
-{
-<Canvas withSource="none">
-{(() => {
-    const mockVal = (str, repeat = 1) => ({
-        value: str.repeat(repeat),
-    });
-    const [value, setValue] = useState('');
-    const [options, setOptions] = useState([]);
-    const [anotherOptions, setAnotherOptions] = useState([]);
-    const getPanelValue = (searchText) => {
-        return !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];
-    };
-    const onSelect = (data) => {
-        console.log('onSelect', data);
-    };
-    const onChange = (data) => {
-        setValue(data);
-    };
-    return (
-        <>
-            <KitAutoComplete
-                options={options}
-                style={{
-                width: 200,
-                }}
-                onSelect={onSelect}
-                onSearch={(text) => setOptions(getPanelValue(text))}
-                placeholder="input here"
-            />
-            <br />
-            <br />
-            <KitAutoComplete
-                value={value}
-                options={anotherOptions}
-                style={{
-                width: 200,
-                }}
-                onSelect={onSelect}
-                onSearch={(text) => setAnotherOptions(getPanelValue(text))}
-                onChange={onChange}
-                placeholder="control mode"
-            />
-        </>
-    );
-})()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Customized
 You could set custom `Option` label
 
-{
-<Canvas withSource="none">
-{(() => {
-    const [options, setOptions] = useState([]);
-    const handleSearch = (value) => {
-        let res = [];
-        if (!value || value.indexOf('@') >= 0) {
-            res = [];
-        } else {
-            res = ['gmail.com', '163.com', 'qq.com'].map((domain) => ({
-                value,
-                label: `${value}@${domain}`,
-            }));
-        }
-        setOptions(res);
-    };
-    return (
-        <KitAutoComplete
-            style={{
-                width: 200,
-            }}
-            onSearch={handleSearch}
-            placeholder="input here"
-            options={options}
-        />
-    );
-})()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Customized} source={Sources.Customized} />
 
 ##### Non-case-sensitive AutoComplete
 A non-case-sensitive AutoComplete
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const options = [
-            {
-                value: 'Burns Bay Road',
-            },
-            {
-                value: 'Downing Street',
-            },
-            {
-                value: 'Wall Street',
-            },
-        ];
-        return (
-            <KitAutoComplete
-                style={{
-                    width: 200,
-                }}
-                options={options}
-                placeholder="try to type `b`"
-                filterOption={(inputValue, option) =>
-                    option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-                }
-            />
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Noncasesensitive} source={Sources.Noncasesensitive} />
 
 ##### Lookup-Patterns - Certain Category
 Demonstration of Lookup Patterns: Certain Category. Basic Usage, set options of autocomplete with options property.
 
-{
-<Canvas withSource="none">
-{(() => {
-    const renderTitle = (title) => (
-        <span>
-            {title}
-            <a
-                style={{ float: 'right' }}
-                href="https://www.google.com/search?q=antd"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-            more
-            </a>
-        </span>
-    );
-    const renderItem = (title, count) => ({
-        value: title,
-        label: (
-            <div
-                style={{
-                    display: 'flex',
-                    flex:  '1',
-                    justifyContent: 'space-between',
-                }}
-                >
-                {title}
-                <span>
-                    <UserOutlined /> {count}
-                </span>
-            </div>
-        ),
-    });
-    const options = [
-        {
-            label: renderTitle('Libraries'),
-            options: [renderItem('AntDesign', 10000), renderItem('AntDesign UI', 10600)],
-        },
-        {
-            label: renderTitle('Solutions'),
-            options: [renderItem('AntDesign UI FAQ', 60100), renderItem('AntDesign FAQ', 30010)],
-        },
-        {
-            label: renderTitle('Articles'),
-            options: [renderItem('AntDesign design language', 100000)],
-        },
-    ];
-    return (
-        <KitAutoComplete
-            popupClassName="certain-category-search-dropdown"
-            dropdownMatchSelectWidth={500}
-            placeholder="input here"
-            style={{ width: 250 }}
-            options={options}
-        />
-    );
-})()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Certaincategory} source={Sources.Certaincategory} />
 
 ##### Lookup-Patterns - Uncertain Category
 Demonstration of Lookup Patterns: Uncertain Category.
 
-{
-<Canvas withSource="none">
-{(() => {
-    const getRandomInt = (max, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
-    const searchResult = (query) => {
-        return new Array(getRandomInt(5))
-            .join('.')
-            .split('.')
-            .map((_, idx) => {
-                const category = `${query}${idx}`;
-                return {
-                    value: category,
-                    label: (
-                    <div
-                        style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        }}
-                    >
-                        <span>
-                        Found {query} on{' '}
-                        <a
-                            href={`https://s.taobao.com/search?q=${query}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {category}
-                        </a>
-                        </span>
-                        <span>{getRandomInt(200, 100)} results</span>
-                    </div>
-                    ),
-                };
-            });
-    }
-    const [options, setOptions] = useState([]);
-    const handleSearch = (value) => {
-        setOptions(value ? searchResult(value) : []);
-    };
-    const onSelect = (value) => {
-        console.log('onSelect', value);
-    };
-    return (
-        <KitAutoComplete
-            dropdownMatchSelectWidth={252}
-            style={{ width: 300 }}
-            options={options}
-            onSelect={onSelect}
-            onSearch={handleSearch}
-            placeholder="input here"
-        />
-    );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Unertaincategory} source={Sources.Unertaincategory} />
 
 ##### Status
 Add status to AutoComplete with `status`, which could be `error` or `warning`.
 
-{
-<Canvas withSource="none">
-{(() => {
-    const mockVal = (str, repeat = 1) => ({
-     value: str.repeat(repeat),
-    });
-    const [options, setOptions] = useState([]);
-    const [anotherOptions, setAnotherOptions] = useState([]);
-    const getPanelValue = (searchText) =>
-        !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];
-    return (
-        <KitSpace
-        direction="vertical"
-        style={{
-            width: '100%',
-        }}
-        >
-        <KitAutoComplete
-            options={options}
-            onSearch={(text) => setOptions(getPanelValue(text))}
-            status="error"
-            style={{
-            width: 200,
-            }}
-        />
-        <KitAutoComplete
-            options={anotherOptions}
-            onSearch={(text) => setAnotherOptions(getPanelValue(text))}
-            status="warning"
-            style={{
-            width: 200,
-            }}
-        />
-        </KitSpace>
-    );
-})()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Status} source={Sources.Status} />
+
+##### Label and Helper
+
+Add `label` and/or `helper` properties to give field context.
+
+<CustomCanvas content={Exemples.Wrapper} source={Sources.Wrapper} />
 
 ## API
 

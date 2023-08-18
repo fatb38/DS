@@ -3,6 +3,9 @@ import {Input as AntdInput} from 'antd';
 import {KitInputProps} from './types';
 import {styled} from 'styled-components';
 import theme from '@theme/index';
+import {KitTypography} from '@kit/General/';
+import {CloseCircleOutlined} from '@ant-design/icons';
+import KitInputWrapper from './InputWrapper';
 
 const StyledAntdInput = styled(AntdInput)`
     &.ant-input,
@@ -10,11 +13,6 @@ const StyledAntdInput = styled(AntdInput)`
         height: 40px;
         padding: 0px 10px;
         font-weight: ${theme.typography.regularFontWeight};
-    }
-
-    &:focus,
-    &.ant-input-affix-wrapper.ant-input-affix-wrapper-focused {
-        border-style: dashed;
     }
 
     &.ant-input-affix-wrapper {
@@ -30,7 +28,7 @@ const StyledAntdInput = styled(AntdInput)`
             color: ${theme.color.secondary.mediumGrey.mediumGrey500};
 
             .ant-input-clear-icon {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+                color: ${theme.color.secondary.mediumGrey.mediumGrey500};
             }
         }
 
@@ -45,18 +43,14 @@ const StyledAntdInput = styled(AntdInput)`
             height: 38px;
         }
 
-        &:focus {
-            border-style: dashed;
-        }
-
         &.ant-input-affix-wrapper-disabled {
-            border-color: ${theme.color.primary.blue100};
+            border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
 
             .ant-input-prefix,
             .ant-input-suffix,
             .ant-input-suffix .ant-input-show-count-suffix,
             .ant-input-suffix .ant-input-clear-icon {
-                color: ${theme.color.primary.blue200};
+                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
             }
         }
 
@@ -67,9 +61,12 @@ const StyledAntdInput = styled(AntdInput)`
             }
 
             .ant-input-suffix {
-                .ant-input-show-count-suffix,
-                .ant-input-clear-icon {
+                .ant-input-show-count-suffix {
                     color: ${theme.color.secondary.red.red300};
+                }
+
+                .ant-input-clear-icon {
+                    color: ${theme.color.secondary.red.red400};
                 }
             }
         }
@@ -81,9 +78,12 @@ const StyledAntdInput = styled(AntdInput)`
             }
 
             .ant-input-suffix {
-                .ant-input-show-count-suffix,
-                .ant-input-clear-icon {
+                .ant-input-show-count-suffix {
                     color: ${theme.color.secondary.orange.orange300};
+                }
+
+                .ant-input-clear-icon {
+                    color: ${theme.color.secondary.orange.orange500};
                 }
             }
         }
@@ -91,15 +91,15 @@ const StyledAntdInput = styled(AntdInput)`
 
     &.ant-input-disabled,
     .ant-input-disabled {
-        border-color: ${theme.color.primary.blue100};
-        color: ${theme.color.primary.blue300};
+        border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
+        color: ${theme.color.secondary.mediumGrey.mediumGrey400};
 
         &:hover {
-            border-color: ${theme.color.primary.blue100};
+            border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
         }
 
         &::placeholder {
-            color: ${theme.color.primary.blue200};
+            color: ${theme.color.secondary.mediumGrey.mediumGrey400};
         }
     }
 
@@ -111,6 +111,7 @@ const StyledAntdInput = styled(AntdInput)`
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
             border-color: ${theme.color.secondary.red.red400};
+            box-shadow: none;
 
             &:hover,
             &:focus {
@@ -119,7 +120,7 @@ const StyledAntdInput = styled(AntdInput)`
         }
 
         &::placeholder {
-            color: ${theme.color.secondary.red.red300};
+            color: ${theme.color.secondary.red.red400};
         }
     }
 
@@ -131,6 +132,7 @@ const StyledAntdInput = styled(AntdInput)`
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
             border-color: ${theme.color.secondary.orange.orange400};
+            box-shadow: none;
 
             &:hover,
             &:focus {
@@ -139,13 +141,31 @@ const StyledAntdInput = styled(AntdInput)`
         }
 
         &::placeholder {
-            color: ${theme.color.secondary.orange.orange300};
+            color: ${theme.color.secondary.orange.orange400};
+        }
+    }
+
+    &:focus-within,
+    &.ant-input-affix-wrapper.ant-input-affix-wrapper-focused {
+        border-style: dashed;
+        box-shadow: none;
+
+        &.ant-input::placeholder,
+        .ant-input::placeholder {
+            color: transparent;
         }
     }
 `;
 
-const KitInput: React.FunctionComponent<KitInputProps> = inputProps => {
-    return <StyledAntdInput {...inputProps} />;
+const KitInput: React.FunctionComponent<KitInputProps> = ({label, helper, allowClear = true, ...inputProps}) => {
+    return (
+        <KitInputWrapper label={label} helper={helper} disabled={inputProps.disabled} status={inputProps.status}>
+            <StyledAntdInput
+                {...inputProps}
+                allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
+            />
+        </KitInputWrapper>
+    );
 };
 
 export default KitInput;

@@ -3,29 +3,24 @@ import {Input as AntdInput} from 'antd';
 import {KitTextAreaProps} from './types';
 import {styled} from 'styled-components';
 import theme from '@theme/index';
+import {CloseCircleOutlined} from '@ant-design/icons';
+import {KitTypography} from '@kit/General/';
+import KitInputWrapper from './InputWrapper';
 
 const StyledAntdTextArea = styled(AntdInput.TextArea)`
     &.ant-input,
     .ant-input {
         padding: 4px 10px;
         font-weight: ${theme.typography.regularFontWeight};
-
-        &:focus {
-            border-style: dashed;
-        }
     }
 
     .ant-input-suffix {
         .ant-input-clear-icon {
-            color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
         }
     }
 
     &.ant-input-affix-wrapper {
-        &.ant-input-affix-wrapper-focused {
-            border-style: dashed;
-        }
-
         &.ant-input-textarea-allow-clear {
             .ant-input {
                 padding-inline-end: 24px;
@@ -34,9 +29,9 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
         &.ant-input-textarea-show-count {
             .ant-input-data-count {
-                bottom: -18px;
+                bottom: -23px;
                 color: ${theme.color.secondary.mediumGrey.mediumGrey300};
-                font-size: ${theme.typography.fontSize7};
+                font-size: ${theme.typography.fontSize7}px;
                 font-weight: ${theme.typography.regularFontWeight};
                 line-height: ${theme.typography.lineHeight7};
             }
@@ -44,12 +39,12 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
         &.ant-input-affix-wrapper-disabled {
             .ant-input-data-count {
-                color: ${theme.color.primary.blue200};
+                color: ${theme.color.secondary.mediumGrey.mediumGrey300};
             }
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${theme.color.primary.blue200};
+                    color: ${theme.color.secondary.mediumGrey.mediumGrey300};
                 }
             }
         }
@@ -61,7 +56,7 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${theme.color.secondary.red.red300};
+                    color: ${theme.color.secondary.red.red400};
                 }
             }
 
@@ -78,7 +73,7 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${theme.color.secondary.orange.orange300};
+                    color: ${theme.color.secondary.orange.orange500};
                 }
             }
 
@@ -91,15 +86,15 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
     &.ant-input-disabled,
     .ant-input-disabled {
-        border-color: ${theme.color.primary.blue100};
-        color: ${theme.color.primary.blue300};
+        border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
+        color: ${theme.color.secondary.mediumGrey.mediumGrey400};
 
         &:hover {
-            border-color: ${theme.color.primary.blue100};
+            border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
         }
 
         &::placeholder {
-            color: ${theme.color.primary.blue200};
+            color: ${theme.color.secondary.mediumGrey.mediumGrey400};
         }
     }
 
@@ -111,6 +106,7 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
             border-color: ${theme.color.secondary.red.red400};
+            box-shadow: none;
 
             &:hover,
             &:focus {
@@ -119,7 +115,7 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
         }
 
         &::placeholder {
-            color: ${theme.color.secondary.red.red300};
+            color: ${theme.color.secondary.red.red400};
         }
     }
 
@@ -131,6 +127,7 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
             border-color: ${theme.color.secondary.orange.orange400};
+            box-shadow: none;
 
             &:hover,
             &:focus {
@@ -139,13 +136,35 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
         }
 
         &::placeholder {
-            color: ${theme.color.secondary.orange.orange300};
+            color: ${theme.color.secondary.orange.orange400};
+        }
+    }
+
+    &:focus,
+    &.ant-input-affix-wrapper-focused {
+        border-style: dashed;
+        box-shadow: none;
+
+        .ant-input::placeholder {
+            color: transparent;
         }
     }
 `;
 
-const KitTextArea: React.FunctionComponent<KitTextAreaProps> = textAreaProps => {
-    return <StyledAntdTextArea {...textAreaProps} />;
+const KitTextArea: React.FunctionComponent<KitTextAreaProps> = ({
+    label,
+    helper,
+    allowClear = true,
+    ...textAreaProps
+}) => {
+    return (
+        <KitInputWrapper label={label} helper={helper} disabled={textAreaProps.disabled} status={textAreaProps.status}>
+            <StyledAntdTextArea
+                {...textAreaProps}
+                allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
+            />
+        </KitInputWrapper>
+    );
 };
 
 export default KitTextArea;

@@ -3,14 +3,17 @@ import {Input as AntdInput} from 'antd';
 import {KitPasswordProps} from './types';
 import {styled} from 'styled-components';
 import theme from '@theme/index';
+import {KitTypography} from '@kit/General/';
+import {CloseCircleOutlined} from '@ant-design/icons';
+import KitInputWrapper from './InputWrapper';
 
 const StyledAntdPassword = styled(AntdInput.Password)`
     &.ant-input-affix-wrapper {
-        padding: 0px 10px;
+        padding: 0px 12px;
 
         .ant-input {
             height: 38px;
-            padding: 0px 10px;
+            padding: 0px 10px 0px 0px;
             border-radius: 7px;
             font-weight: ${theme.typography.regularFontWeight};
         }
@@ -27,31 +30,31 @@ const StyledAntdPassword = styled(AntdInput.Password)`
             }
 
             .ant-input-clear-icon {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey300};
                 margin-top: 2px;
+                color: ${theme.color.secondary.mediumGrey.mediumGrey500};
             }
         }
 
         .ant-input-prefix {
-            margin-inline-start: 10px;
-            margin-inline-end: 0px;
-        }
-
-        &.ant-input-affix-wrapper-focused {
-            border-style: dashed;
+            margin-inline-end: 10px;
+            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
         }
 
         &.ant-input-affix-wrapper-disabled {
-            border-color: ${theme.color.primary.blue100};
+            border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
 
             .ant-input {
-                color: ${theme.color.primary.blue300};
+                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+
+                &::placeholder {
+                    color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+                }
             }
 
             .ant-input-prefix,
             .ant-input-suffix,
             .ant-input-suffix .anticon {
-                color: ${theme.color.primary.blue200};
+                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
             }
         }
 
@@ -62,6 +65,7 @@ const StyledAntdPassword = styled(AntdInput.Password)`
 
             &:not(.ant-input-borderless):not(.ant-input-disabled) {
                 border-color: ${theme.color.secondary.red.red400};
+                box-shadow: none;
 
                 &:hover,
                 &:focus {
@@ -70,7 +74,7 @@ const StyledAntdPassword = styled(AntdInput.Password)`
             }
 
             &::placeholder {
-                color: ${theme.color.secondary.red.red300};
+                color: ${theme.color.secondary.red.red400};
             }
 
             .ant-input-prefix,
@@ -81,12 +85,13 @@ const StyledAntdPassword = styled(AntdInput.Password)`
             }
 
             .ant-input-suffix {
-                .ant-input-show-count-suffix,
-                .ant-input-clear-icon {
+                .ant-input-show-count-suffix {
                     color: ${theme.color.secondary.red.red300};
+                }
 
+                .ant-input-clear-icon {
                     .anticon {
-                        color: ${theme.color.secondary.red.red300};
+                        color: ${theme.color.secondary.red.red400};
                     }
                 }
             }
@@ -99,6 +104,7 @@ const StyledAntdPassword = styled(AntdInput.Password)`
 
             &:not(.ant-input-borderless):not(.ant-input-disabled) {
                 border-color: ${theme.color.secondary.orange.orange400};
+                box-shadow: none;
 
                 &:hover,
                 &:focus {
@@ -107,7 +113,7 @@ const StyledAntdPassword = styled(AntdInput.Password)`
             }
 
             &::placeholder {
-                color: ${theme.color.secondary.orange.orange300};
+                color: ${theme.color.secondary.orange.orange400};
             }
 
             .ant-input-prefix,
@@ -118,21 +124,43 @@ const StyledAntdPassword = styled(AntdInput.Password)`
             }
 
             .ant-input-suffix {
-                .ant-input-show-count-suffix,
-                .ant-input-clear-icon {
+                .ant-input-show-count-suffix {
                     color: ${theme.color.secondary.orange.orange300};
+                }
 
+                .ant-input-clear-icon {
                     .anticon {
-                        color: ${theme.color.secondary.orange.orange300};
+                        color: ${theme.color.secondary.orange.orange500};
                     }
                 }
+            }
+        }
+
+        &.ant-input-affix-wrapper-focused {
+            border-style: dashed;
+            box-shadow: none;
+
+            .ant-input::placeholder {
+                color: transparent;
             }
         }
     }
 `;
 
-const KitPassword: React.FunctionComponent<KitPasswordProps> = passwordProps => {
-    return <StyledAntdPassword {...passwordProps} />;
+const KitPassword: React.FunctionComponent<KitPasswordProps> = ({
+    label,
+    helper,
+    allowClear = true,
+    ...passwordProps
+}) => {
+    return (
+        <KitInputWrapper label={label} helper={helper} disabled={passwordProps.disabled} status={passwordProps.status}>
+            <StyledAntdPassword
+                {...passwordProps}
+                allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
+            />
+        </KitInputWrapper>
+    );
 };
 
 export default KitPassword;

@@ -2,9 +2,29 @@ import {KitAutoComplete, KitRate} from '@kit/DataEntry';
 import {FrownOutlined, MehOutlined, SmileOutlined} from '@ant-design/icons';
 import React from 'react';
 
-
-
 export const AutoCompleteArgTypes = {
+    label: {
+        name: 'label',
+        description: 'Label displayed above the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'AutoComplete'
+        }
+    },
+    helper: {
+        name: 'helper',
+        description: 'Helper displayed below the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'AutoComplete'
+        }
+    },
     allowClear: {
         name: 'allowClear',
         description: 'Show clear button',
@@ -14,7 +34,7 @@ export const AutoCompleteArgTypes = {
                 summary: 'boolean'
             },
             category: 'AutoComplete',
-            defaultValue: {summary: false}
+            defaultValue: {summary: true}
         }
     },
     autoFocus: {
@@ -103,7 +123,8 @@ export const AutoCompleteArgTypes = {
     },
     dropdownMatchSelectWidth: {
         name: 'dropdownMatchSelectWidth',
-        description: 'Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll',
+        description:
+            'Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll',
         control: {type: 'boolean'},
         table: {
             type: {
@@ -115,7 +136,8 @@ export const AutoCompleteArgTypes = {
     },
     filterOption: {
         name: 'filterOption',
-        description: 'If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded',
+        description:
+            'If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded',
         control: {type: 'boolean'},
         table: {
             type: {
@@ -254,7 +276,7 @@ export const AutoCompleteArgTypes = {
     },
     onSelect: {
         name: 'onSelect',
-        description: 'Called when a option is selected. param is option\'s value and option instance',
+        description: "Called when a option is selected. param is option's value and option instance",
         table: {
             type: {
                 summary: 'function(value, option)'
@@ -275,7 +297,6 @@ export const AutoCompleteArgTypes = {
         }
     }
 };
-
 
 export const Template = ({...args}) => {
     return <KitAutoComplete {...args} />;

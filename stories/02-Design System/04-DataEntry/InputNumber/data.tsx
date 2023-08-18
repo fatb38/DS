@@ -4,6 +4,39 @@ import {KitSpace} from '@kit/Layout/';
 import {CheckCircleOutlined, SearchOutlined} from '@ant-design/icons';
 
 export const InputNumberArgTypes = {
+    label: {
+        name: 'label',
+        description: 'Label displayed above the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'InputNumber'
+        }
+    },
+    helper: {
+        name: 'helper',
+        description: 'Helper displayed below the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'InputNumber'
+        }
+    },
+    placeHolder: {
+        name: 'placeHolder',
+        description: 'HTML input placeholder',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'InputNumber'
+        }
+    },
     autoFocus: {
         name: 'autoFocus',
         description: 'If get focus when component mounted',
@@ -262,20 +295,4 @@ export const Template = ({component, ...args}) => {
             <KitInputNumber {...args} prefix={prefix} />
         </KitSpace>
     );
-};
-
-export const formatterDollar = value => {
-    return `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-};
-
-export const formatterPercent = value => {
-    return `${value}%`;
-};
-
-export const parserDollar = value => {
-    return value!.replace(/\$\s?|(,*)/g, '');
-};
-
-export const parserPercent = value => {
-    return value!.replace('%', '');
 };
