@@ -16,6 +16,8 @@ import "../../DataEntry/Rate/index.js";
 import "../../DataEntry/Select/index.js";
 import "../../DataEntry/Tag/index.js";
 import "../../DataEntry/Switch/index.js";
+import "../../DataEntry/DatePicker/index.js";
+import "../../DataEntry/AutoComplete/index.js";
 const f = s.div`
     padding: 16px 32px;
     background: ${o.backgroundColor};
@@ -77,9 +79,9 @@ const f = s.div`
     default:
       return null;
   }
-}) : null, e.createElement("div", { className: "kit-header-actions" }, e.createElement(b, null, t, r && e.createElement(m, { type: "primary", className: "kit-header-plus-button", bigIcon: !0, onClick: r, icon: e.createElement(h, null) })))) : null, y = ({ title: t, search: r, breadcrumb: n, actions: a, onPlusClick: l, ...c }) => {
-  var n = n ? e.cloneElement(n, { className: "kit-header-breadcrumb" }) : null, p = d(() => k(a, l), [a, l]);
-  return e.createElement(f, { ...c }, t && e.createElement(g.Title, { level: 2, className: "kit-header-title" }, t), r && e.createElement("div", { className: "kit-header-search" }, e.createElement(x, { ...r, prefix: e.createElement(u, { rev: "" }) })), n, p);
+}) : null, e.createElement("div", { className: "kit-header-actions" }, e.createElement(b, null, t, r && e.createElement(m, { type: "primary", className: "kit-header-plus-button", bigIcon: !0, onClick: r, icon: e.createElement(h, null) })))) : null, y = ({ title: t, search: r, breadcrumb: n, actions: a, onPlusClick: l, ...p }) => {
+  var n = n ? e.cloneElement(n, { className: "kit-header-breadcrumb" }) : null, c = d(() => k(a, l), [a, l]);
+  return e.createElement(f, { ...p }, t && e.createElement(g.Title, { level: 2, className: "kit-header-title" }, t), r && e.createElement("div", { className: "kit-header-search" }, e.createElement(x, { ...r, prefix: e.createElement(u, { rev: "" }) })), n, c);
 };
 y.displayName = "KitHeader";
 export {

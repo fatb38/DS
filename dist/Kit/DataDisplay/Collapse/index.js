@@ -1,8 +1,8 @@
-import l from "react";
-import { Collapse as t } from "antd";
-import o from "styled-components";
-const a = o(t)``, p = (e) => l.createElement(a, { ...e });
-p.displayName = "KitCollapse";
+import { KitCollapse as a } from "./Collapse.js";
+import { KitHeader as r } from "./Header.js";
+import { KitHeaderExtra as t } from "./HeaderExtra.js";
+const e = a;
+e.displayName = "KitCollapse", e.Header = r, e.HeaderExtra = t;
 export {
-  p as KitCollapse
+  e as KitCollapse
 };

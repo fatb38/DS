@@ -1,27 +1,53 @@
-import e from "react";
-import { InputNumber as o } from "antd";
-import { styled as t } from "styled-components";
+import n from "react";
+import { InputNumber as t } from "antd";
+import { styled as u } from "styled-components";
 import r from "../../../theme/index.js";
-const a = t(o)`
+import p from "../Input/InputWrapper.js";
+const i = u(t)`
     font-weight: ${r.typography.regularFontWeight};
     height: 40px;
     line-height: 40px;
 
+    &:not(.ant-input-number-affix-wrapper) {
+        line-height: 38px;
+
+        .ant-input-number-input-wrap {
+            border-radius: 7px;
+        }
+    }
+
+    // Use :focus-within because antd doesn't add a "ant-input-number-affix-wrapper-focused" class
     &.ant-input-number-focused,
-    &.ant-input-number-affix-wrapper-focused {
+    &.ant-input-number-affix-wrapper:focus-within {
         border-style: dashed;
+        border-color: ${r.color.primary.blue400};
+
+        &:not(.ant-input-borderless):not(.ant-input-disabled) {
+            box-shadow: none;
+        }
+    }
+
+    &.ant-input-number-focused,
+    &.ant-input-number-affix-wrapper .ant-input-number-focused {
+        .ant-input-number-input::placeholder {
+            color: transparent;
+        }
     }
 
     &.ant-input-number-disabled,
     &.ant-input-number-affix-wrapper-disabled {
-        border-color: ${r.color.primary.blue100};
+        border-color: ${r.color.secondary.mediumGrey.mediumGrey200};
 
         .ant-input-number-input {
-            color: ${r.color.primary.blue300};
+            color: ${r.color.secondary.mediumGrey.mediumGrey400};
 
             &::placeholder {
-                color: ${r.color.primary.blue200};
+                color: ${r.color.secondary.mediumGrey.mediumGrey400};
             }
+        }
+
+        &.ant-input-number-affix-wrapper .ant-input-number-prefix {
+            color: ${r.color.secondary.mediumGrey.mediumGrey400};
         }
     }
 
@@ -39,24 +65,33 @@ const a = t(o)`
 
         .ant-input-number {
             height: 38px;
+            line-height: 38px;
         }
     }
 
     .ant-input-number-input-wrap {
+        border-radius: 0 7px 7px 0;
+
         .ant-input-number-input {
             padding: 0px 10px;
+            border-radius: 0;
         }
     }
 
     &.ant-input-number-status-warning,
     &.ant-input-number-affix-wrapper-status-warning {
         background-color: ${r.color.secondary.orange.orange100};
+        box-shadow: none;
+
+        .ant-input-number-input-wrap {
+            background-color: ${r.color.secondary.orange.orange100};
+        }
 
         .ant-input-number-input {
-            color: ${r.color.secondary.orange.orange500};
+            color: ${r.color.secondary.orange.orange400};
 
             &::placeholder {
-                color: ${r.color.secondary.orange.orange300};
+                color: ${r.color.secondary.orange.orange400};
             }
         }
 
@@ -67,6 +102,10 @@ const a = t(o)`
             &:focus {
                 border-color: ${r.color.secondary.orange.orange400};
             }
+
+            &.ant-input-number-affix-wrapper .ant-input-number-prefix {
+                color: ${r.color.secondary.orange.orange400};
+            }
         }
     }
 
@@ -74,12 +113,17 @@ const a = t(o)`
     &.ant-input-number-out-of-range,
     &.ant-input-number-affix-wrapper-status-error {
         background-color: ${r.color.secondary.red.red100};
+        box-shadow: none;
+
+        .ant-input-number-input-wrap {
+            background-color: ${r.color.secondary.red.red100};
+        }
 
         .ant-input-number-input {
             color: ${r.color.secondary.red.red400};
 
             &::placeholder {
-                color: ${r.color.secondary.red.red300};
+                color: ${r.color.secondary.red.red400};
             }
         }
 
@@ -90,10 +134,14 @@ const a = t(o)`
             &:focus {
                 border-color: ${r.color.secondary.red.red400};
             }
+
+            &.ant-input-number-affix-wrapper .ant-input-number-prefix {
+                color: ${r.color.secondary.red.red400};
+            }
         }
     }
-`, u = (n) => e.createElement(a, { ...n });
-u.displayName = "KitInputNumber";
+`, d = ({ label: o, helper: a, ...e }) => n.createElement(p, { label: o, helper: a, disabled: e.disabled, status: e.status }, n.createElement(i, { ...e }));
+d.displayName = "KitInputNumber";
 export {
-  u as KitInputNumber
+  d as KitInputNumber
 };

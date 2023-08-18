@@ -15,6 +15,8 @@ import "../../DataEntry/Rate/index.js";
 import "../../DataEntry/Select/index.js";
 import { KitTag as K } from "../../DataEntry/Tag/index.js";
 import "../../DataEntry/Switch/index.js";
+import "../../DataEntry/DatePicker/index.js";
+import "../../DataEntry/AutoComplete/index.js";
 const B = w.div`
     display: grid;
     padding: ${t.cardPadding}px;

@@ -9,6 +9,8 @@ import "../../DataEntry/Rate/index.js";
 import "../../DataEntry/Select/index.js";
 import "../../DataEntry/Tag/index.js";
 import "../../DataEntry/Switch/index.js";
+import "../../DataEntry/DatePicker/index.js";
+import "../../DataEntry/AutoComplete/index.js";
 import "../../General/Button/index.js";
 import { KitTypography as f } from "../../General/Typography/index.js";
 import { KitIcon as m } from "../../General/Icon/index.js";
@@ -21,6 +23,7 @@ import "../../DataDisplay/Image/index.js";
 import "../../DataDisplay/ItemList/index.js";
 import { KitTooltip as d } from "../../DataDisplay/Tooltip/index.js";
 import "../../DataDisplay/Tree/index.js";
+import "../../DataDisplay/Tabs/index.js";
 import { KitDropDown as P } from "../DropDown/index.js";
 const S = w.div`
     height: 32px;
@@ -127,7 +130,7 @@ const S = w.div`
             cursor: pointer;
         }
     }
-`, te = ({ type: n = "default", title: g, icon: k, value: y, actions: t, onSelectChange: c, onRafterClick: p, isSelected: h = !1, onClick: s, ...v }) => {
+`, oe = ({ type: n = "default", title: g, icon: k, value: y, actions: t, onSelectChange: c, onRafterClick: p, isSelected: h = !1, onClick: s, ...v }) => {
   var b = s !== void 0;
   const x = c !== void 0, E = p !== void 0;
   return e.createElement(S, { $isClickable: b, $isSelected: h, $type: n, onClick: (i) => {
@@ -154,5 +157,5 @@ const S = w.div`
   } }, e.createElement(K, { rev: "" })));
 };
 export {
-  te as default
+  oe as default
 };

@@ -9,6 +9,8 @@ import "../../DataEntry/Rate/index.js";
 import "../../DataEntry/Select/index.js";
 import { KitTag as I } from "../../DataEntry/Tag/index.js";
 import "../../DataEntry/Switch/index.js";
+import "../../DataEntry/DatePicker/index.js";
+import "../../DataEntry/AutoComplete/index.js";
 import "../../General/Button/index.js";
 import { KitTypography as l } from "../../General/Typography/index.js";
 import "../../General/Icon/index.js";

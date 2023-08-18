@@ -1,29 +1,23 @@
 import e from "react";
-import { Input as a } from "antd";
-import { styled as n } from "styled-components";
+import { Input as d } from "antd";
+import { styled as c } from "styled-components";
 import r from "../../../theme/index.js";
-const t = n(a.TextArea)`
+import { CloseCircleOutlined as l } from "/builds/dev/design-system/node_modules/@ant-design/icons/es/index.js";
+import i from "./InputWrapper.js";
+const u = c(d.TextArea)`
     &.ant-input,
     .ant-input {
         padding: 4px 10px;
         font-weight: ${r.typography.regularFontWeight};
-
-        &:focus {
-            border-style: dashed;
-        }
     }
 
     .ant-input-suffix {
         .ant-input-clear-icon {
-            color: ${r.color.secondary.mediumGrey.mediumGrey300};
+            color: ${r.color.secondary.mediumGrey.mediumGrey500};
         }
     }
 
     &.ant-input-affix-wrapper {
-        &.ant-input-affix-wrapper-focused {
-            border-style: dashed;
-        }
-
         &.ant-input-textarea-allow-clear {
             .ant-input {
                 padding-inline-end: 24px;
@@ -32,9 +26,9 @@ const t = n(a.TextArea)`
 
         &.ant-input-textarea-show-count {
             .ant-input-data-count {
-                bottom: -18px;
+                bottom: -23px;
                 color: ${r.color.secondary.mediumGrey.mediumGrey300};
-                font-size: ${r.typography.fontSize7};
+                font-size: ${r.typography.fontSize7}px;
                 font-weight: ${r.typography.regularFontWeight};
                 line-height: ${r.typography.lineHeight7};
             }
@@ -42,12 +36,12 @@ const t = n(a.TextArea)`
 
         &.ant-input-affix-wrapper-disabled {
             .ant-input-data-count {
-                color: ${r.color.primary.blue200};
+                color: ${r.color.secondary.mediumGrey.mediumGrey300};
             }
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${r.color.primary.blue200};
+                    color: ${r.color.secondary.mediumGrey.mediumGrey300};
                 }
             }
         }
@@ -59,7 +53,7 @@ const t = n(a.TextArea)`
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${r.color.secondary.red.red300};
+                    color: ${r.color.secondary.red.red400};
                 }
             }
 
@@ -76,7 +70,7 @@ const t = n(a.TextArea)`
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${r.color.secondary.orange.orange300};
+                    color: ${r.color.secondary.orange.orange500};
                 }
             }
 
@@ -89,15 +83,15 @@ const t = n(a.TextArea)`
 
     &.ant-input-disabled,
     .ant-input-disabled {
-        border-color: ${r.color.primary.blue100};
-        color: ${r.color.primary.blue300};
+        border-color: ${r.color.secondary.mediumGrey.mediumGrey200};
+        color: ${r.color.secondary.mediumGrey.mediumGrey400};
 
         &:hover {
-            border-color: ${r.color.primary.blue100};
+            border-color: ${r.color.secondary.mediumGrey.mediumGrey200};
         }
 
         &::placeholder {
-            color: ${r.color.primary.blue200};
+            color: ${r.color.secondary.mediumGrey.mediumGrey400};
         }
     }
 
@@ -109,6 +103,7 @@ const t = n(a.TextArea)`
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
             border-color: ${r.color.secondary.red.red400};
+            box-shadow: none;
 
             &:hover,
             &:focus {
@@ -117,7 +112,7 @@ const t = n(a.TextArea)`
         }
 
         &::placeholder {
-            color: ${r.color.secondary.red.red300};
+            color: ${r.color.secondary.red.red400};
         }
     }
 
@@ -129,6 +124,7 @@ const t = n(a.TextArea)`
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
             border-color: ${r.color.secondary.orange.orange400};
+            box-shadow: none;
 
             &:hover,
             &:focus {
@@ -137,10 +133,20 @@ const t = n(a.TextArea)`
         }
 
         &::placeholder {
-            color: ${r.color.secondary.orange.orange300};
+            color: ${r.color.secondary.orange.orange400};
         }
     }
-`, p = (o) => e.createElement(t, { ...o });
+
+    &:focus,
+    &.ant-input-affix-wrapper-focused {
+        border-style: dashed;
+        box-shadow: none;
+
+        .ant-input::placeholder {
+            color: transparent;
+        }
+    }
+`, h = ({ label: a, helper: n, allowClear: t = !0, ...o }) => e.createElement(i, { label: a, helper: n, disabled: o.disabled, status: o.status }, e.createElement(u, { ...o, allowClear: t ? { clearIcon: e.createElement(l, null) } : void 0 }));
 export {
-  p as default
+  h as default
 };
