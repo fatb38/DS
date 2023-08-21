@@ -120,7 +120,7 @@ yarn install
 6. Start the application
 
 ```sh dark
-yarn start
+yarn storybook
 ```
 
 7. Once the installation is complete, you can access to the application at http://localhost:6006.
