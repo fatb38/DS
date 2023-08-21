@@ -31,7 +31,8 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
     }
 
     &.ant-input-number-focused,
-    &.ant-input-number-affix-wrapper .ant-input-number-focused {
+    &.ant-input-number-affix-wrapper .ant-input-number-focused,
+    &.ant-input-number-focused .ant-input-number-affix-wrapper {
         .ant-input-number-input::placeholder {
             color: transparent;
         }
