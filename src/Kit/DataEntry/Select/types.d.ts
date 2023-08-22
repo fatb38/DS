@@ -21,10 +21,8 @@ export type AntdSelectTypesToOmit =
     | 'searchValue'
     | 'showSearch'
     | 'size'
-    // | 'status'
     | 'tokenSeparators'
     | 'virtual'
-    // | 'onSearch'
     | 'clearIcon'
     | 'onDeselect'
     | 'onInputKeyDown'
@@ -39,13 +37,11 @@ export interface KitSelectProps
     allowClear?: boolean;
     options?: KitOptionProps[];
     labelOnly?: boolean | null;
-    // onSearch?: (value: string, selectedValues: string[] | null) => void;
-    // onSearch?: (value: string) => void;
-    // onChange?: (value: string | string[]) => void;
 }
 
 export interface KitOptionProps extends OptionProps {
     icon?: ReactNode;
     color?: string;
+    label?: string;
     children?: React.ReactNode;
 }
