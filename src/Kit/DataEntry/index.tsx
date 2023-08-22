@@ -17,5 +17,5 @@ export {KitRate};
 export {KitSelect};
 export {KitTag};
 export {KitSwitch};
-export { KitAutoComplete};
+export {KitAutoComplete};
 export {KitDatePicker};
