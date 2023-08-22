@@ -69,24 +69,14 @@ const getActions = (actions, onPlusClick) => {
     const cloneActions = actions
         ? actions.map((action, index) => {
               switch (action.type.displayName) {
-                  case 'KitSelect':
-                      return React.cloneElement(action, {
-                          key: index,
-                          className: `${action.props.className} kit-header-action-select`,
-                          header: true,
-                          dropdownMatchSelectWidth: false
-                      });
                   case 'KitButton':
-                      return (
-                          <KitButton
-                              className="ant-btn-icon-only"
-                              type="segmented"
-                              subtypeSegmented="gray"
-                              bigIcon
-                              key={index}
-                              {...action.props}
-                          />
-                      );
+                      return React.cloneElement(action, {
+                          type: 'segmented',
+                          subtypeSegmented: 'gray',
+                          bigIcon: true,
+                          key: index,
+                          ...action.props
+                      });
                   default:
                       return null;
               }
