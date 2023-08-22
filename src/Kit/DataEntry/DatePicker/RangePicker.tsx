@@ -39,6 +39,17 @@ const StyledRangePicker = styled(AntdDatePicker.RangePicker)`
             }
         }
 
+        .ant-picker-input {
+            input {
+                font-weight: ${theme.typography.mediumfontWeight};
+                font-family: ${theme.typography.fontFamily};
+
+                &::placeholder {
+                    font-weight: ${theme.typography.regularFontWeight};
+                }
+            }
+        }
+
         .ant-picker-suffix {
             grid-area: icon;
             color: ${theme.color.secondary.mediumGrey.mediumGrey500};
