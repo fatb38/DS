@@ -1,11 +1,11 @@
-import { ThemeConfig } from 'antd';
-import { KitColorsPalette, colorsPalette } from './colors';
-import { Typography, KitTypography, typographyHeaders, KitTypograhyHeaders } from './typography';
+import {ThemeConfig} from 'antd';
+import {KitColorsPalette, colorsPalette} from './colors';
+import {Typography, KitTypography, typographyHeaders, KitTypograhyHeaders} from './typography';
 
 interface KitThemeConfig extends ThemeConfig {
     color: KitColorsPalette;
     typography: KitTypography;
-    headersTypography: KitTypograhyHeaders
+    headersTypography: KitTypograhyHeaders;
 }
 
 const theme: KitThemeConfig = {
@@ -94,14 +94,15 @@ const theme: KitThemeConfig = {
         Select: {
             borderRadius: 7,
             controlHeight: 40,
-            colorBgContainer: colorsPalette.secondary.mediumGrey.mediumGrey100,
-            colorPrimaryHover: colorsPalette.secondary.mediumGrey.mediumGrey100,
-            colorTextPlaceholder: '#010819',
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize6,
+            colorBgContainer: colorsPalette.neutral.typography.white,
+            colorBgContainerDisabled: colorsPalette.secondary.mediumGrey.mediumGrey100,
+            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey200,
+            colorPrimaryHover: colorsPalette.primary.blue400,
+            colorTextPlaceholder: colorsPalette.secondary.mediumGrey.mediumGrey500,
             colorBgElevated: colorsPalette.secondary.mediumGrey.mediumGrey100,
             controlItemBgHover: colorsPalette.primary.blue100,
-            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey100
+            fontFamily: Typography.fontFamily,
+            fontSize: Typography.fontSize6
         },
         Tooltip: {
             colorBgSpotlight: colorsPalette.primary.blue600,
@@ -214,9 +215,9 @@ const theme: KitThemeConfig = {
         Tabs: {
             fontFamily: Typography.fontFamily,
             cardBg: colorsPalette.neutral.gray.gray100,
-            cardPadding: "8px 16px",
-            cardPaddingLG: "9px 16px",
-            cardPaddingSM: "7px 16px",
+            cardPadding: '8px 16px',
+            cardPaddingLG: '9px 16px',
+            cardPaddingSM: '7px 16px',
             inkBarColor: colorsPalette.primary.blue400,
             itemActiveColor: colorsPalette.primary.blue600,
             itemHoverColor: colorsPalette.primary.blue400,

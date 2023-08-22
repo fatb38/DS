@@ -21,7 +21,6 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     border-color: ${props => props.theme.borderColor.default};
     font-weight: ${props => props.theme.font.weight};
 
-    &.ant-btn.ant-btn-icon-only,
     &.ant-btn {
         .anticon {
             ${props =>
@@ -286,8 +285,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
     return (
         <div
             style={{
-                position: 'relative',
-                width: 'fit-content'
+                position: 'relative'
             }}
         >
             <StyledAntdButton

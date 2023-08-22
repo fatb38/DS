@@ -75,16 +75,10 @@ export const options = [
 ];
 
 export const actions: ReactNode[] = [
-    <KitButton>
-        <FilterOutlined />
-    </KitButton>,
-    <KitButton>
-        <GroupOutlined />
-    </KitButton>,
-    <KitButton>
-        <SortDescendingOutlined />
-    </KitButton>,
-    <KitSelect options={options} defaultValue="view" />
+    <KitButton icon={<FilterOutlined />}></KitButton>,
+    <KitButton icon={<GroupOutlined />}></KitButton>,
+    <KitButton icon={<SortDescendingOutlined />}></KitButton>,
+    <KitButton icon={<ControlOutlined />}>Vue</KitButton>
 ];
 
 export const breadcrumb = <KitBreadcrumb items={items} />;

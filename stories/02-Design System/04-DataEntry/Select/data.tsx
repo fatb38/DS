@@ -3,15 +3,49 @@ import React from 'react';
 import {KitSelect} from '@kit/DataEntry/';
 
 const SelectArgTypes = {
+    label: {
+        name: 'label',
+        description: 'Label displayed above the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Select'
+        }
+    },
+    helper: {
+        name: 'helper',
+        description: 'Helper displayed below the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Select'
+        }
+    },
+    placeholder: {
+        name: 'placeholder',
+        control: {type: 'text'},
+        description: 'Placeholder of select',
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            defaultValue: {summary: '-'},
+            category: 'Select'
+        }
+    },
     allowClear: {
-        name: 'alllowClear',
+        name: 'allowClear',
         control: {type: 'boolean'},
         description: 'Show clear button',
         table: {
             type: {
                 summary: 'boolean'
             },
-            defaultValue: {summary: false},
+            defaultValue: {summary: true},
             category: 'Select'
         },
         defaultValue: false
@@ -56,15 +90,15 @@ const SelectArgTypes = {
         },
         defaultValue: true
     },
-    danger: {
-        name: 'danger',
-        control: {type: 'boolean'},
-        description: 'Whether select is in danger status',
+    status: {
+        name: 'status',
+        description: 'Set validation status',
+        options: ['', 'error', 'warning'],
+        control: {type: 'select'},
         table: {
             type: {
-                summary: 'boolean'
+                summary: "'error' | 'warning'"
             },
-            defaultValue: {summary: false},
             category: 'Select'
         },
         defaultValue: false
@@ -145,18 +179,6 @@ const SelectArgTypes = {
                 summary: 'text'
             },
             defaultValue: {summary: '{ label, value }[] }'},
-            category: 'Select'
-        }
-    },
-    placeholder: {
-        name: 'placeholder',
-        control: {type: 'text'},
-        description: 'Placeholder of select',
-        table: {
-            type: {
-                summary: 'ReactNode'
-            },
-            defaultValue: {summary: '-'},
             category: 'Select'
         }
     },
