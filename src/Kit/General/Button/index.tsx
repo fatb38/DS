@@ -286,8 +286,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
     return (
         <div
             style={{
-                position: 'relative',
-                width: 'fit-content'
+                position: 'relative'
             }}
         >
             <StyledAntdButton
