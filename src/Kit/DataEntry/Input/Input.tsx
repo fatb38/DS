@@ -12,7 +12,11 @@ const StyledAntdInput = styled(AntdInput)`
     .ant-input {
         height: 40px;
         padding: 0px 10px;
-        font-weight: ${theme.typography.regularFontWeight};
+        font-weight: ${theme.typography.mediumfontWeight};
+
+        &::placeholder {
+            font-weight: ${theme.typography.regularFontWeight};
+        }
     }
 
     &.ant-input-affix-wrapper {
@@ -39,8 +43,12 @@ const StyledAntdInput = styled(AntdInput)`
         }
 
         .ant-input {
-            font-weight: ${theme.typography.regularFontWeight};
+            font-weight: ${theme.typography.mediumfontWeight};
             height: 38px;
+
+            &::placeholder {
+                font-weight: ${theme.typography.regularFontWeight};
+            }
         }
 
         &.ant-input-affix-wrapper-disabled {
