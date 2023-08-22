@@ -11,6 +11,14 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
     height: 40px;
     line-height: 40px;
 
+    .ant-input-number-input {
+        font-weight: ${theme.typography.mediumfontWeight};
+
+        &::placeholder {
+            font-weight: ${theme.typography.regularFontWeight};
+        }
+    }
+
     &:not(.ant-input-number-affix-wrapper) {
         line-height: 38px;
 
