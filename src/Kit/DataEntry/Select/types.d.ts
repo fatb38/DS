@@ -1,6 +1,7 @@
-import { SelectProp } from 'antd';
-import type { OptionProps } from 'rc-select/lib/Option';
-import { HTMLAttributes } from 'react';
+import {SelectProps} from 'antd';
+import {BaseOptionType, DefaultOptionType} from 'antd/es/select';
+import type {OptionProps} from 'rc-select/lib/Option';
+import {HTMLAttributes} from 'react';
 
 export type AntdSelectTypesToOmit =
     | 'dropdownMatchSelectWidth'
@@ -20,56 +21,31 @@ export type AntdSelectTypesToOmit =
     | 'searchValue'
     | 'showSearch'
     | 'size'
-    | 'status'
+    // | 'status'
     | 'tokenSeparators'
     | 'virtual'
-    | 'onSearch'
+    // | 'onSearch'
     | 'clearIcon'
     | 'onDeselect'
     | 'onInputKeyDown'
     | 'dropdownStyle'
     | 'menuItemSelectedIcon';
 
-export interface KitSelectProps extends Omit<SelectProp, AntdSelectTypesToOmit>, HTMLAttributes<HTMLDivElement> {
-    danger?: boolean | null;
-    header?: boolean;
+export interface KitSelectProps
+    extends Omit<SelectProps<any, DefaultOptionType | BaseOptionType>, AntdSelectTypesToOmit>,
+        HTMLAttributes<HTMLDivElement> {
+    label?: string;
+    helper?: string;
+    allowClear?: boolean;
     options?: KitOptionProps[];
     labelOnly?: boolean | null;
-    onSearch?: (value: string, selectedValues: string[] | null) => void;
-    onChange?: (value: string | string[]) => void;
+    // onSearch?: (value: string, selectedValues: string[] | null) => void;
+    // onSearch?: (value: string) => void;
+    // onChange?: (value: string | string[]) => void;
 }
 
 export interface KitOptionProps extends OptionProps {
     icon?: ReactNode;
     color?: string;
     children?: React.ReactNode;
-}
-
-export interface KitSelectTheme {
-    borderRadius: string;
-    dropdownBgColor: string;
-    fontFamily: string;
-    fontWeight: string | number;
-    selectionFontWeight: string | number;
-    selectionColor: string;
-    selectedItemColor: string;
-    selectedOptionBg: string;
-    itemsColor: string;
-    groupsColor: string;
-    groupsFontWeight: string | number;
-    disabledBgColor: string;
-    disabledColor: string;
-    highlightColor: string;
-    optionHeight: number;
-}
-
-export interface KitTagTheme {
-    fontSize: string | number;
-    fontFamily: string;
-    fontWeight: string | number;
-    lineHeight: string | number;
-    height: string | number;
-    backgroundColor: string;
-    color: string;
-    borderRadius: string;
 }
