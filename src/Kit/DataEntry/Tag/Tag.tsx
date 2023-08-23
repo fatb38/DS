@@ -23,6 +23,8 @@ const StyledAntdTag = styled(Tag)<{
         font-weight: ${tagTheme.fontWeight};
         line-height: 18px;
         box-sizing: border-box;
+        display: flex;
+        width: fit-content;
     }
 
     .ant-tag-close-icon {
