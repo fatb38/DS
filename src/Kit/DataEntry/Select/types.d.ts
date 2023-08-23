@@ -35,6 +35,7 @@ export interface KitSelectProps
     label?: string;
     helper?: string;
     allowClear?: boolean;
+    oneLineTags?: boolean;
     options?: KitOptionProps[];
     labelOnly?: boolean | null;
 }

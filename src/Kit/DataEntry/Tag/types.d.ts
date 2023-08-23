@@ -22,27 +22,3 @@ export interface KitTagTheme {
     placeholderFontWeight: string | number;
     placeholderColor: string;
 }
-export type AntdSelectTypesToOmit =
-    | 'dropdownMatchSelectWidth'
-    | 'bordered'
-    | 'fieldNames'
-    | 'filterOption'
-    | 'filterSort'
-    | 'labelInValue'
-    | 'maxTagCount'
-    | 'maxTagPlaceholder'
-    | 'maxTagTextLength'
-    | 'optionFilterProp'
-    | 'optionLabelProp'
-    | 'removeIcon'
-    | 'searchValue'
-    | 'showSearch'
-    | 'size'
-    | 'status'
-    | 'tokenSeparators'
-    | 'virtual'
-    | 'clearIcon'
-    | 'onDeselect'
-    | 'onInputKeyDown'
-    | 'dropdownStyle'
-    | 'menuItemSelectedIcon';
