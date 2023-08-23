@@ -32,11 +32,11 @@ const StyledKitIcon = styled.span<StyledKitIconProps>`
     }
 `;
 
-export const KitIcon: React.FunctionComponent<KitIconProps> = ({on, hoverable, icon, onClick, ...props}) => {
+export const KitIcon: React.FunctionComponent<KitIconProps> = ({className, on, hoverable, icon, onClick, ...props}) => {
     // @ts-ignore
     return (
         <StyledKitIcon
-            className="kit-icon"
+            className={'kit-icon ' + className}
             $on={on}
             $hoverable={hoverable}
             $isClickable={onClick !== undefined}
