@@ -1,5 +1,6 @@
-import { Meta } from "@storybook/addon-docs";
-import { NotificationArgTypes } from "./data";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { NotificationArgTypes, Template } from "./data";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
@@ -55,3 +56,22 @@ A notification box can appear from the **topLeft**, **topRight**, **bottomLeft**
 Update content with unique key.
 
 <CustomCanvas content={Exemples.UpdateMessage} source={Sources.UpdateMessage} />
+
+## Api
+
+<Canvas>
+    <Story name="Notification">{Template.bind({})}</Story>
+</Canvas>
+
+Common props ref: 
+
+- notification.success(config)
+- notification.error(config)
+- notification.info(config)
+- notification.warning(config)
+- notification.open(config)
+- notification.destroy(key?: String)
+
+The properties of config are as follows:
+
+<Controls story="Notification" />

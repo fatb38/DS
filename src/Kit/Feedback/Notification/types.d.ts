@@ -2,7 +2,11 @@ import {ArgsProps} from 'antd/lib/notification/interface';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
-export interface KitNotificationArgsProps extends ArgsProps {
+type AntdArgsPropsTypesToOmit = 'message' | 'description' | 'placement';
+
+export interface KitNotificationArgsProps extends Omit<ArgsProps, AntdArgsPropsTypesToOmit> {
+    message: string;
+    description: string;
     placement?: NotificationPlacement;
 }
 

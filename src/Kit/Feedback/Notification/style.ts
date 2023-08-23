@@ -46,6 +46,7 @@ export const NotificationStyle = createGlobalStyle`
             .ant-notification-notice-close {
                 top: 16px;
                 inset-inline-end: 16px;
+                font-size: 14px;
             }
         }
     }

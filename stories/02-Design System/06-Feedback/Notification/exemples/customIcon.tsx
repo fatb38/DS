@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitButton, KitIcon} from '../../../../../src';
+import {KitButton, KitIcon} from '@kit/General/';
 import {useKitNotification} from '@kit/Feedback/Notification/useKitNotification';
 import {CloudOutlined} from '@ant-design/icons';
 

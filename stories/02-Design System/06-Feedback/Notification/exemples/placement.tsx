@@ -1,5 +1,6 @@
 import React from 'react';
-import {KitButton, KitDivider, KitIcon, KitSpace} from '../../../../../src';
+import {KitButton} from '@kit/General/';
+import {KitDivider, KitSpace} from '@kit/Layout/';
 import {useKitNotification} from '@kit/Feedback/Notification/useKitNotification';
 import {
     RadiusBottomleftOutlined,

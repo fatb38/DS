@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitButton} from '../../../../../src';
+import {KitButton} from '@kit/General/';
 import {useKitNotification} from '@kit/Feedback/Notification/useKitNotification';
 
 const App = () => {
