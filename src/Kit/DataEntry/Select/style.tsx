@@ -102,6 +102,10 @@ export const DropDownStyle = createGlobalStyle`
                 margin-left: 10px;
             }
 
+            &[title] {
+                padding-left: 10px;
+            }
+
             .kit-select-option {
                 align-self: center;
 
