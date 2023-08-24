@@ -1,10 +1,10 @@
-{/* MyComponent.stories.mdx */}
-
 import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import { HomeOutlined, UserOutlined } from "@ant-design/icons";
 import { KitBreadcrumb } from "@kit/Navigation/";
 import { KitTypography } from '@kit/General/';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import Exemples, { Sources } from './exemples';
 
 import {
     items,
@@ -41,173 +41,27 @@ import { KitBreadcrumb } from "@kit/Navigation/";
 ##### Basic
 The simplest use.
 
-{
-<Canvas withSource="none">
-<KitBreadcrumb
-    items={[
-      {
-        title: 'Home',
-      },
-      {
-        title: 'Application Center',
-        href: '',
-      },
-      {
-        title: 'Application List',
-        href: '',
-      },
-      {
-        title: 'An Application',
-      },
-    ]}
-/>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
-##### With an  icon
+##### With an icon
 The icon should be placed in front of the text.
 
-{
-<Canvas withSource="none">
-<KitBreadcrumb
-    items={[
-      {
-        href: '',
-        title: <HomeOutlined />,
-      },
-      {
-        href: '',
-        title: (
-          <>
-            <UserOutlined />
-            <span>Application List</span>
-          </>
-        ),
-      },
-      {
-        title: 'Application',
-      },
-    ]}
-/>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Icon} source={Sources.Icon} />
 
 ##### Configuring the separator
 The separator can be customized by setting the separator property: `separator=">"`.
 
-{
-<Canvas withSource="none">
-<KitBreadcrumb
-    separator=">"
-    items={[
-    {
-        title: 'Home',
-    },
-    {
-        title: 'Application Center',
-        href: '',
-    },
-    {
-        title: 'Application List',
-        href: '',
-    },
-    {
-        title: 'An Application',
-    },
-    ]}
-/>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Separator} source={Sources.Separator} />
 
 ##### Bread crumbs with drop down menu
 Breadcrumbs support drop down menu.
 
-{
-<Canvas withSource="none">
-    {(() => {
-    const menuItems = [
-        {
-            key: '1',
-            label: (
-            <KitTypography.Link target="_blank" rel="noopener noreferrer" href="http://www.aristid..com/">
-                General
-            </KitTypography.Link>
-            ),
-        },
-        {
-            key: '2',
-            label: (
-            <KitTypography.Link target="_blank" rel="noopener noreferrer" href="#">
-                Layout
-            </KitTypography.Link>
-            ),
-        },
-        {
-            key: '3',
-            label: (
-            <KitTypography.Link target="_blank" rel="noopener noreferrer" href="#">
-                Navigation
-            </KitTypography.Link>
-            ),
-        },
-    ];
-    return (<KitBreadcrumb
-        items={[
-        {
-            title: 'Aristid Design',
-        },
-        {
-            title: <a href="">Component</a>,
-        },
-        {
-            title: <a href="">General</a>,
-            menu: { items: menuItems, open: true }
-        },
-        {
-            title: 'Button',
-        },
-        ]}
-    />);
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Dropdown} source={Sources.Dropdown} />
 
 ##### Configuring the Separator Independently
 Customize separator for each other.
 
-{
-<Canvas withSource="none">
-<KitBreadcrumb
-    separator=""
-    items={[
-      {
-        title: 'Location',
-      },
-      {
-        type: 'separator',
-        separator: ':',
-      },
-      {
-        href: '',
-        title: 'Application Center',
-      },
-      {
-        type: 'separator',
-      },
-      {
-        href: '',
-        title: 'Application List',
-      },
-      {
-        type: 'separator',
-      },
-      {
-        title: 'An Application',
-      },
-    ]}
-/>
-</Canvas>
-}
+<CustomCanvas content={Exemples.IndependentSeparator} source={Sources.IndependentSeparator} />
 
 ## API
 
