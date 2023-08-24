@@ -120,20 +120,30 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
                 maxTagPlaceholder={oneLineTags ? maxTagRender : undefined}
                 ref={selectRef}
                 open={isOpen}
-                onClick={() => {
-                    console.log('->onClick');
+                onClick={e => {
+                    console.log('->onClick', e.target, (e.target as HTMLElement).closest('.ant-select'));
+
                     if (selectRef.current) {
                         console.log('-> focus');
                         selectRef.current.focus();
                     }
 
-                    if (!props.mode && isOpen) {
-                        console.log('false');
+                    if (
+                        (!props.mode && isOpen) ||
+                        (props.mode && isOpen && (e.target as HTMLElement).closest('.ant-select'))
+                    ) {
                         setIsOpen(false);
                     } else {
-                        console.log('open');
                         setIsOpen(true);
                     }
+
+                    // if (!props.mode && isOpen) {
+                    //     console.log('false');
+                    //     setIsOpen(false);
+                    // } else {
+                    //     console.log('open');
+                    //     setIsOpen(true);
+                    // }
                 }}
                 onClear={() => {
                     console.log('-> onClear');
