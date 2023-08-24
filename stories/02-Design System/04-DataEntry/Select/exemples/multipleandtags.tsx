@@ -93,6 +93,7 @@ const App = ({}) => {
                     mode="tags"
                     placeholder="Select a file"
                     style={style}
+                    labelOnly
                     oneLineTags
                     defaultActiveFirstOption={false}
                     onChange={handleChange}
