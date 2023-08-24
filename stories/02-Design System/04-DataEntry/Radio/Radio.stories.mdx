@@ -1,39 +1,19 @@
-{/* MyComponent.stories.mdx */}
-
-import { useState, Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { KitInput, KitRadio } from "@kit/DataEntry/";
-import { KitButton } from "@kit/General/";
-import { KitSpace } from "@kit/Layout/";
-
 import { argTypes, Template } from "./data";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
 <Meta
     title="Design System/DataEntry/Radio"
-    component={KitRadio}
     argTypes={argTypes}
 />
-
-<style></style>
 
 # Radio
 
 ## Usage
-
 -   Used to select a single state from multiple options.
 -   The difference from Select is that Radio is visible to the user and can facilitate the comparison of choice, which means there shouldn't be too many of them.
-
-##### How to import
-```jsx
-import { KitRadio } from "@kit/DataEntry";
-
-<KitRadio.Group onChange={onChange} value={value}>
-    <KitRadio value={1}>A</KitRadio>
-    <KitRadio value={2}>B</KitRadio>
-    <KitRadio value={3}>C</KitRadio>
-</KitRadio.Group>
-```
 
 ## Examples
 
@@ -41,137 +21,37 @@ import { KitRadio } from "@kit/DataEntry";
 
 The simplest use
 
-{
-<Canvas withSource="none">
-    <KitRadio>Radio</KitRadio>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Disabled
 
 Radio unavailable.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const [disabled, setDisabled] = useState(true);
-        const toggleDisabled = () => {
-            setDisabled(!disabled);
-        };
-        return (
-            <>
-                <KitRadio defaultChecked={false} disabled={disabled}>
-                    Disabled
-                </KitRadio>
-                <KitRadio defaultChecked disabled={disabled}>
-                    Disabled
-                </KitRadio>
-                <br />
-                <KitButton
-                    type="primary"
-                    onClick={toggleDisabled}
-                    style={{ marginTop: 16 }}
-                >
-                    Toggle disabled
-                </KitButton>
-            </>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} />
 
 ##### Danger Radio
 
 Danger Radio
 
-{
-<Canvas withSource="none">
-    <>
-        <KitRadio danger>Unchecked</KitRadio>
-        <KitRadio danger defaultChecked>
-            Checked
-        </KitRadio>
-        <KitRadio danger disabled>
-            Disabled Unchecked
-        </KitRadio>
-        <KitRadio danger defaultChecked disabled>
-            Disabled Checked
-        </KitRadio>
-    </>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Danger} source={Sources.Danger} />
 
 ##### Radio Group
 
 A group of radio components.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const [value, setValue] = useState(1);
-        const onChange = (e) => {
-            console.log("radio checked", e.target.value);
-            setValue(e.target.value);
-        };
-        return (
-            <KitRadio.Group onChange={onChange} value={value}>
-                <KitRadio value={1}>A</KitRadio>
-                <KitRadio value={2}>B</KitRadio>
-                <KitRadio value={3}>C</KitRadio>
-                <KitRadio value={4}>D</KitRadio>
-            </KitRadio.Group>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Group} source={Sources.Group} />
 
 ##### Vertical Radio Group
 
 Vertical Radio.Group, with more radios.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const [value, setValue] = useState(1);
-        const onChange = (e) => {
-            console.log("radio checked", e.target.value);
-            setValue(e.target.value);
-        };
-        return (
-            <KitRadio.Group onChange={onChange} value={value}>
-                <KitSpace direction="vertical">
-                    <KitRadio value={1}>Option A</KitRadio>
-                    <KitRadio value={2}>Option B</KitRadio>
-                    <KitRadio value={3}>Option C</KitRadio>
-                    <KitRadio value={4}>
-                        More...
-                        {value === 4 ? (
-                            <KitInput style={{ width: 100, marginLeft: 10 }} />
-                        ) : null}
-                    </KitRadio>
-                </KitSpace>
-            </KitRadio.Group>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.VerticalGroup} source={Sources.VerticalGroup} />
 
 ##### Radio group with name
 
 Passing the name property to all input[type="radio"] that are in the same Radio.Group. It is usually used to let the browser see your Radio.Group as a real "group" and keep the default behavior. For example, using left/right keyboard arrow to change your selection that in the same Radio.Group.
 
-{
-<Canvas withSource="none">
-    <div>
-    <KitRadio.Group name="radiogroup" defaultValue={1}>
-        <KitRadio value={1}>A</KitRadio>
-        <KitRadio value={2}>B</KitRadio>
-        <KitRadio value={3}>C</KitRadio>
-        <KitRadio value={4}>D</KitRadio>
-    </KitRadio.Group>
-    </div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.NamedGroup} source={Sources.NamedGroup} />
 
 ## API
 

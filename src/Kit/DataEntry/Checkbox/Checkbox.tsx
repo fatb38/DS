@@ -97,8 +97,8 @@ const StyledKitCheckbox = styled(Checkbox)<KitCheckboxProps>`
     }
 `;
 
-const KitCheckbox = React.forwardRef<any, KitCheckboxProps>((props, ref) => {
-    let className = props.danger ? (props.className || '') + ' ant-checkbox-wrapper-danger' : props.className;
+const KitCheckbox = React.forwardRef<any, KitCheckboxProps>(({danger, ...props}, ref) => {
+    let className = danger ? (props.className || '') + ' ant-checkbox-wrapper-danger' : props.className;
 
     return <StyledKitCheckbox {...props} ref={ref} className={className} />;
 });

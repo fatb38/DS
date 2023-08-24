@@ -182,9 +182,6 @@ export const argTypes = {
     ...CheckboxGroupArgTypes
 };
 
-export const plainOptions = ['Apple', 'Pear', 'Orange'];
-export const defaultCheckedList = ['Apple', 'Orange'];
-
 export const Template = ({label, ...args}) => {
     return <KitCheckbox {...args}>{label}</KitCheckbox>;
 };
