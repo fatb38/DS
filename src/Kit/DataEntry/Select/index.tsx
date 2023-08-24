@@ -72,11 +72,16 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
     labelOnly,
     label,
     helper,
+    onClick,
+    onClear,
+    onBlur,
     oneLineTags = false,
     allowClear = true,
     ...props
 }) => {
     let [internalOptions, setOptions] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+    const selectRef = useRef<any>(null);
 
     useEffect(() => {
         if (!options) {
@@ -101,8 +106,29 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
         });
     };
 
-    const [isOpen, setIsOpen] = useState(false);
-    const selectRef = useRef(null);
+    const handleOnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (selectRef.current) {
+            selectRef.current.focus();
+        }
+
+        if ((!props.mode && isOpen) || (props.mode && isOpen && (event.target as HTMLElement).closest('.ant-select'))) {
+            setIsOpen(false);
+        } else {
+            setIsOpen(true);
+        }
+
+        onClick && onClick(event);
+    };
+
+    const handleOnClear = () => {
+        setIsOpen(false);
+        onClear && onClear();
+    };
+
+    const handleOnBlur = (event: React.FocusEvent<HTMLElement, Element>) => {
+        setIsOpen(false);
+        onBlur && onBlur(event);
+    };
 
     return (
         <KitInputWrapper label={label} helper={helper} disabled={props.disabled} status={props.status}>
@@ -120,39 +146,9 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
                 maxTagPlaceholder={oneLineTags ? maxTagRender : undefined}
                 ref={selectRef}
                 open={isOpen}
-                onClick={e => {
-                    console.log('->onClick', e.target, (e.target as HTMLElement).closest('.ant-select'));
-
-                    if (selectRef.current) {
-                        console.log('-> focus');
-                        selectRef.current.focus();
-                    }
-
-                    if (
-                        (!props.mode && isOpen) ||
-                        (props.mode && isOpen && (e.target as HTMLElement).closest('.ant-select'))
-                    ) {
-                        setIsOpen(false);
-                    } else {
-                        setIsOpen(true);
-                    }
-
-                    // if (!props.mode && isOpen) {
-                    //     console.log('false');
-                    //     setIsOpen(false);
-                    // } else {
-                    //     console.log('open');
-                    //     setIsOpen(true);
-                    // }
-                }}
-                onClear={() => {
-                    console.log('-> onClear');
-                    setIsOpen(false);
-                }}
-                onBlur={() => {
-                    console.log('-> onBlur');
-                    setIsOpen(false);
-                }}
+                onClick={event => handleOnClick(event)}
+                onClear={() => handleOnClear()}
+                onBlur={event => handleOnBlur(event)}
             />
         </KitInputWrapper>
     );
