@@ -23,9 +23,7 @@ build:
   script:
     - yarn build-all
     - git add -f dist/
-    - git config --global user.email "infra@aristid.com"; git config --global user.name "Automatic GIT"
-    - git commit -m "CI Dist ($(sed 's/ <.*>//' <<<$CI_COMMIT_AUTHOR) - $CI_COMMIT_SHORT_SHA - $CI_COMMIT_MESSAGE)"
-    - git push -o ci.skip https://ci-push:$GIT_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:$CI_COMMIT_REF_NAME
+    - if ! git diff-index --quiet HEAD; then git config --global user.email "infra@aristid.com"; git config --global user.name "Automatic GIT" && git commit -m "CI Dist ($(sed 's/ <.*>//' <<<$CI_COMMIT_AUTHOR) - $CI_COMMIT_SHORT_SHA - $CI_COMMIT_MESSAGE)" && git push -o ci.skip https://ci-push:$GIT_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:$CI_COMMIT_REF_NAME; else echo "Nothing to commit"; fi
 
 deploy:
   stage: deploy
