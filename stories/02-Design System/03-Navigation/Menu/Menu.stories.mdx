@@ -1,11 +1,10 @@
 import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-
 import { KitMenu } from "@kit/Navigation";
-
 import { KitDivider } from "@kit/Layout/"
-
 import { argTypes, mockData, Template } from "./data";
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import Exemples, { Sources } from './exemples';
 
 <Meta
     title="Design System/Navigation/Menu"
@@ -21,18 +20,6 @@ A versatile menu for navigation.
 
 Navigation is an important part of any website, as a good navigation setup allows users to move around the site quickly and efficiently.
 
-##### How to import
-```jsx
-import { KitMenu } from "@kit/Navigation";
-
-const { ItemMenu } = KitMenu.Item;
-
-<KitMenu>
-    <KitMenu.Item title="Title" />
-    <ItemMenu title="Title" />
-</KitMenu>
-```
-
 ## Examples
 
 ### ItemMenu
@@ -41,26 +28,7 @@ const { ItemMenu } = KitMenu.Item;
 
 A basic ItemMenu can contain a `title` and/or an `icon`.
 
-{
-<Canvas withSource="none">
-    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
-        <div style={{width: "350px"}}>
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-            />
-            <br/>
-            <KitMenu.Item
-                icon={mockData.itemMenu.icon.home}
-            />
-            <br/>
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-                icon={mockData.itemMenu.icon.home}
-            />
-        </div>
-    </div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Type
 
@@ -69,88 +37,21 @@ ItemMenu provide 3 types of itemMenu such as :
 - `cta` : indicate an itemMenu with a call to action.
 - `ctaDanger`: indicate an itemMenu with a destructive call to action.
 
-{
-    <Canvas withSource="none">
-        <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
-            <div style={{width: "350px"}}>
-                <KitMenu.Item
-                    title={mockData.itemMenu.title.save}
-                    icon={mockData.itemMenu.icon.save}
-                    type="default"
-                />
-                <br/>
-                <KitMenu.Item
-                    title={mockData.itemMenu.title.save}
-                    icon={mockData.itemMenu.icon.save}
-                    type="cta"
-                />
-                <br/>
-                <KitMenu.Item
-                    title={mockData.itemMenu.title.save}
-                    icon={mockData.itemMenu.icon.save}
-                    type="ctaDanger"
-                />
-            </div>
-        </div>
-    </Canvas>
-}
+<CustomCanvas content={Exemples.Type} source={Sources.Type} />
 
 ##### Selectable
 
 To mark an ItemMenu as selectable, use the `onSelectChange` property. ItemMenu can also be mark as selected using `isSelected` property.
 
-{
-<Canvas withSource="none">
-    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
-        <div style={{width: "350px"}}>
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-                icon={mockData.itemMenu.icon.home}
-                onSelectChange={mockData.itemMenu.onSelectChange}
-            />
-            <br/>
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-                icon={mockData.itemMenu.icon.home}
-                onSelectChange={mockData.itemMenu.onSelectChange}
-                isSelected
-            />
-        </div>
-    </div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Selectable} source={Sources.Selectable} />
 
 ##### Actions
 
 ItemMenu can display up to two actions. If there is more it will display a `DropDown`.
 
-{
-<Canvas withSource="none">
-    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
-        <div style={{width: "350px"}}>
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-                icon={mockData.itemMenu.icon.home}
-                actions={mockData.itemMenu.actionsOne}
-            />
-            <br/>
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-                icon={mockData.itemMenu.icon.home}
-                actions={mockData.itemMenu.actionsTwo}
-            />
-            <br/>
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-                icon={mockData.itemMenu.icon.home}
-                actions={mockData.itemMenu.actionsMore}
-            />
-        </div>
-    </div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Actions} source={Sources.Actions} />
 
-Exemple of how `acitons` property must be set :
+Exemple of how `actions` property must be set :
 
 ```tsx
 import { HomeOutlined, PlusOutlined, MinusOutlined, PercentageOutlined } from "@ant-design/icons";
@@ -180,87 +81,19 @@ const actions = [
 
 ItemMenu can display a value using the `value` property.
 
-{
-<Canvas withSource="none">
-    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
-        <div style={{width: "350px"}}>
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-                icon={mockData.itemMenu.icon.home}
-                value={mockData.itemMenu.value.default}
-            />
-        </div>
-    </div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Value} source={Sources.Value} />
 
 ##### Rafter
 
 ItemList can display a rafter using the `onRafterClick` property.
 
-{
-<Canvas withSource="none">
-    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
-        <div style={{width: "350px"}}>
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-                icon={mockData.itemMenu.icon.home}
-                onRafterClick={mockData.itemMenu.onRafterClick}
-            />
-        </div>
-    </div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Rafter} source={Sources.Rafter} />
 
 ##### With everything
 
 ItemMenu with all options to display.
 
-{
-<Canvas withSource="none">
-    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
-        <div style={{width: "350px"}}>
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-                icon={mockData.itemMenu.icon.home}
-                value={mockData.itemMenu.value.default}
-                actions={mockData.itemMenu.actionsMore}
-                onSelectChange={mockData.itemMenu.onSelectChange}
-                onRafterClick={mockData.itemMenu.onRafterClick}
-                onClick={mockData.itemMenu.onClick}
-            />
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-                icon={mockData.itemMenu.icon.home}
-                value={mockData.itemMenu.value.default}
-                actions={mockData.itemMenu.actionsMore}
-                onSelectChange={mockData.itemMenu.onSelectChange}
-                onRafterClick={mockData.itemMenu.onRafterClick}
-                onClick={mockData.itemMenu.onClick}
-            />
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-                icon={mockData.itemMenu.icon.home}
-                value={mockData.itemMenu.value.default}
-                actions={mockData.itemMenu.actionsMore}
-                onSelectChange={mockData.itemMenu.onSelectChange}
-                onRafterClick={mockData.itemMenu.onRafterClick}
-                onClick={mockData.itemMenu.onClick}
-                isSelected
-            />
-            <KitMenu.Item
-                title={mockData.itemMenu.title.default}
-                icon={mockData.itemMenu.icon.home}
-                value={mockData.itemMenu.value.default}
-                actions={mockData.itemMenu.actionsMore}
-                onSelectChange={mockData.itemMenu.onSelectChange}
-                onRafterClick={mockData.itemMenu.onRafterClick}
-                onClick={mockData.itemMenu.onClick}
-            />
-        </div>
-    </div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.All} source={Sources.All} />
 
 ### Menu
 
