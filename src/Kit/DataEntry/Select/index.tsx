@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Select as AntdSelect} from 'antd';
 import cn from 'classnames';
 import {CloseCircleOutlined} from '@ant-design/icons';
@@ -101,6 +101,9 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
         });
     };
 
+    const [isOpen, setIsOpen] = useState(false);
+    const selectRef = useRef(null);
+
     return (
         <KitInputWrapper label={label} helper={helper} disabled={props.disabled} status={props.status}>
             <StyledKitSelect
@@ -115,6 +118,31 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
                 tagRender={props.mode ? tagRender : undefined}
                 maxTagCount={oneLineTags ? 'responsive' : undefined}
                 maxTagPlaceholder={oneLineTags ? maxTagRender : undefined}
+                ref={selectRef}
+                open={isOpen}
+                onClick={() => {
+                    console.log('->onClick');
+                    if (selectRef.current) {
+                        console.log('-> focus');
+                        selectRef.current.focus();
+                    }
+
+                    if (!props.mode && isOpen) {
+                        console.log('false');
+                        setIsOpen(false);
+                    } else {
+                        console.log('open');
+                        setIsOpen(true);
+                    }
+                }}
+                onClear={() => {
+                    console.log('-> onClear');
+                    setIsOpen(false);
+                }}
+                onBlur={() => {
+                    console.log('-> onBlur');
+                    setIsOpen(false);
+                }}
             />
         </KitInputWrapper>
     );
