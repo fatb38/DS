@@ -276,6 +276,7 @@ export const KitSelectStyle = css`
         .ant-select-arrow {
             grid-area: arrow;
             position: relative;
+            top: 48%;
             color: ${theme.color.secondary.mediumGrey.mediumGrey500};
             inset-inline-end: 0;
         }

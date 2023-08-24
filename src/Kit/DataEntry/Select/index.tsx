@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Select as AntdSelect} from 'antd';
 import cn from 'classnames';
 import {CloseCircleOutlined} from '@ant-design/icons';
@@ -72,11 +72,16 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
     labelOnly,
     label,
     helper,
+    onClick,
+    onClear,
+    onBlur,
     oneLineTags = false,
     allowClear = true,
     ...props
 }) => {
     let [internalOptions, setOptions] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+    const selectRef = useRef<any>(null);
 
     useEffect(() => {
         if (!options) {
@@ -101,6 +106,30 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
         });
     };
 
+    const handleOnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (selectRef.current) {
+            selectRef.current.focus();
+        }
+
+        if ((!props.mode && isOpen) || (props.mode && isOpen && (event.target as HTMLElement).closest('.ant-select'))) {
+            setIsOpen(false);
+        } else {
+            setIsOpen(true);
+        }
+
+        onClick && onClick(event);
+    };
+
+    const handleOnClear = () => {
+        setIsOpen(false);
+        onClear && onClear();
+    };
+
+    const handleOnBlur = (event: React.FocusEvent<HTMLElement, Element>) => {
+        setIsOpen(false);
+        onBlur && onBlur(event);
+    };
+
     return (
         <KitInputWrapper label={label} helper={helper} disabled={props.disabled} status={props.status}>
             <StyledKitSelect
@@ -115,6 +144,11 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
                 tagRender={props.mode ? tagRender : undefined}
                 maxTagCount={oneLineTags ? 'responsive' : undefined}
                 maxTagPlaceholder={oneLineTags ? maxTagRender : undefined}
+                ref={selectRef}
+                open={isOpen}
+                onClick={event => handleOnClick(event)}
+                onClear={() => handleOnClear()}
+                onBlur={event => handleOnBlur(event)}
             />
         </KitInputWrapper>
     );
