@@ -20,7 +20,7 @@ function useKitNotification() {
     return context;
 }
 
-const DisplayModeProvider = ({children}) => {
+const KitNotificationProvider = ({children}) => {
     const [api, contextHolder] = notification.useNotification();
     return (
         <KitNotificationContext.Provider value={useKitNotificationProvider(api)}>
@@ -104,4 +104,4 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
     return {kitNotification};
 };
 
-export {DisplayModeProvider, useKitNotification};
+export {KitNotificationProvider, useKitNotification};

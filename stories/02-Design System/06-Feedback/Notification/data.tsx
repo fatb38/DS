@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitButton, KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
-import {useKitNotification} from '@kit/Feedback/Notification/useKitNotification';
+import {useKitNotification} from '@kit/Feedback/';
 import {
     CheckCircleOutlined,
     CloseCircleOutlined,
@@ -231,7 +231,13 @@ export const Template = args => {
         if (checkRequiredField(args, ['message', 'description'])) {
             kitNotification[type]({...args, icon: getIcon(args), closeIcon: getCloseIcon(args)});
         } else {
-            console.error('Some required field are invalid (message, description)');
+            kitNotification[type]({
+                ...args,
+                icon: getIcon(args),
+                closeIcon: getCloseIcon(args),
+                message: 'Some field are required',
+                description: 'Some required fields are not fulfill !'
+            });
         }
     };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitButton} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
-import {useKitNotification} from '@kit/Feedback/Notification/useKitNotification';
+import {useKitNotification} from '@kit/Feedback/';
 
 const App = () => {
     const {kitNotification} = useKitNotification();

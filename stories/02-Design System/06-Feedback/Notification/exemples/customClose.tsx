@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitButton, KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
-import {useKitNotification} from '@kit/Feedback/Notification/useKitNotification';
+import {useKitNotification} from '@kit/Feedback/';
 import {CloseCircleOutlined} from '@ant-design/icons';
 
 const App = () => {

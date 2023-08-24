@@ -26,6 +26,7 @@ export const NotificationStyle = createGlobalStyle`
         }
 
         .ant-notification-notice {
+            font-family: ${Typography.fontFamily};
             padding: 16px;
             font-size: 10px;
             .ant-notification-notice-with-icon {

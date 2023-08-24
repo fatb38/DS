@@ -1,11 +1,11 @@
-import { ThemeConfig } from 'antd';
-import { KitColorsPalette, colorsPalette } from './colors';
-import { Typography, KitTypography, typographyHeaders, KitTypograhyHeaders } from './typography';
+import {ThemeConfig} from 'antd';
+import {KitColorsPalette, colorsPalette} from './colors';
+import {Typography, KitTypography, typographyHeaders, KitTypograhyHeaders} from './typography';
 
 interface KitThemeConfig extends ThemeConfig {
     color: KitColorsPalette;
     typography: KitTypography;
-    headersTypography: KitTypograhyHeaders
+    headersTypography: KitTypograhyHeaders;
 }
 
 const theme: KitThemeConfig = {
@@ -214,9 +214,9 @@ const theme: KitThemeConfig = {
         Tabs: {
             fontFamily: Typography.fontFamily,
             cardBg: colorsPalette.neutral.gray.gray100,
-            cardPadding: "8px 16px",
-            cardPaddingLG: "9px 16px",
-            cardPaddingSM: "7px 16px",
+            cardPadding: '8px 16px',
+            cardPaddingLG: '9px 16px',
+            cardPaddingSM: '7px 16px',
             inkBarColor: colorsPalette.primary.blue400,
             itemActiveColor: colorsPalette.primary.blue600,
             itemHoverColor: colorsPalette.primary.blue400,
@@ -227,6 +227,9 @@ const theme: KitThemeConfig = {
             borderRadius: 2,
             colorBorderSecondary: colorsPalette.neutral.gray.gray300,
             colorTextDisabled: colorsPalette.neutral.gray.gray300
+        },
+        Notification: {
+            fontFamily: Typography.fontFamily
         }
     }
 };

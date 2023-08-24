@@ -1,6 +1,6 @@
 import React from 'react';
 import {KitButton, KitIcon} from '@kit/General/';
-import {useKitNotification} from '@kit/Feedback/Notification/useKitNotification';
+import {useKitNotification} from '@kit/Feedback/';
 import {CloudOutlined} from '@ant-design/icons';
 
 const App = () => {
