@@ -1,22 +1,23 @@
 import {createGlobalStyle} from 'styled-components';
-import {colorsPalette} from '../../../theme/colors';
-import {typographyHeaders, Typography} from '../../../theme/typography';
+import theme from '@theme/index';
+
+const {color, headersTypography, typography} = theme;
 
 export const NotificationStyle = createGlobalStyle`
     .ant-notification-notice-info .ant-notification-notice-content .ant-notification-notice-message {
-        color: ${colorsPalette.primary.blue400};
+        color: ${color.primary.blue400};
     }
 
     .ant-notification-notice-success .ant-notification-notice-content .ant-notification-notice-message {
-        color: ${colorsPalette.secondary.green.green400};
+        color: ${color.secondary.green.green400};
     }
 
     .ant-notification-notice-error .ant-notification-notice-content .ant-notification-notice-message {
-        color: ${colorsPalette.secondary.red.red400};
+        color: ${color.secondary.red.red400};
     }
 
     .ant-notification-notice-warning .ant-notification-notice-content .ant-notification-notice-message {
-        color: ${colorsPalette.secondary.orange.orange400};
+        color: ${color.secondary.orange.orange400};
     }
 
     .ant-notification {
@@ -26,19 +27,19 @@ export const NotificationStyle = createGlobalStyle`
         }
 
         .ant-notification-notice {
-            font-family: ${Typography.fontFamily};
+            font-family: ${typography.fontFamily};
             padding: 16px;
             font-size: 10px;
             .ant-notification-notice-with-icon {
                 .ant-notification-notice-message {
-                    font-size: ${typographyHeaders.fontSize4}px;
-                    font-weight: ${Typography.mediumfontWeight};
+                    font-size: ${headersTypography.fontSize4}px;
+                    font-weight: ${typography.mediumfontWeight};
                     margin-inline-start: 48px;
                     padding-right: 32px;
                 }
                 .ant-notification-notice-description {
                     margin-inline-start: 48px;
-                    font-size: ${Typography.fontSize5}px;
+                    font-size: ${typography.fontSize5}px;
                     line-height: 22px;
                     margin-bottom: 8px;
                 }

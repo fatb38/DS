@@ -227,9 +227,6 @@ const theme: KitThemeConfig = {
             borderRadius: 2,
             colorBorderSecondary: colorsPalette.neutral.gray.gray300,
             colorTextDisabled: colorsPalette.neutral.gray.gray300
-        },
-        Notification: {
-            fontFamily: Typography.fontFamily
         }
     }
 };
