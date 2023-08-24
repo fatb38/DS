@@ -1,14 +1,12 @@
 import { useState, Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { KitDivider, KitGrid } from "@kit/Layout/";
-import { KitCheckbox } from "@kit/DataEntry/";
-import { KitButton } from "@kit/General/";
-import { argTypes, Template, plainOptions, defaultCheckedList } from "./data";
+import { argTypes, Template } from "./data";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
 <Meta
     title="Design System/DataEntry/Checkbox"
-    component={KitCheckbox}
     argTypes={argTypes}
 />
 
@@ -23,276 +21,49 @@ Checkbox component.
 -   Used for selecting multiple values from several options.
 -   If you use only one checkbox, it is the same as using Switch to toggle between two states. The difference is that Switch will trigger the state change directly, but Checkbox just marks the state as changed and this needs to be submitted.
 
-##### How to import
-```jsx
-import { KitCheckbox } from "@kit/DataDisplay";
-
-<KitCheckbox>Checkbox</KitCheckbox>
-```
-
 ## Examples
 
 ##### Basic
 
 Basic usage of checkbox.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const onChange = (e) => {
-            console.log(`checked = ${e.target.checked}`);
-        };
-        return <KitCheckbox onChange={onChange}>Checkbox</KitCheckbox>;
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Controlled Checkbox
 
 Communicated with other components.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const [checked, setChecked] = useState(true);
-        const [disabled, setDisabled] = useState(false);
-        const toggleChecked = () => {
-            setChecked(!checked);
-        };
-        const toggleDisable = () => {
-            setDisabled(!disabled);
-        };
-        const onChange = (e) => {
-            console.log("checked = ", e.target.checked);
-            setChecked(e.target.checked);
-        };
-        const label = `${checked ? "Checked" : "Unchecked"}-${
-            disabled ? "Disabled" : "Enabled"
-        }`;
-        return (
-            <Fragment>
-                <p style={{ marginBottom: "20px" }}>
-                    <KitCheckbox
-                        checked={checked}
-                        disabled={disabled}
-                        onChange={onChange}
-                    >
-                        {label}
-                    </KitCheckbox>
-                </p>
-                <p>
-                    <KitButton type="primary" size="small" onClick={toggleChecked}>
-                        {!checked ? "Check" : "Uncheck"}
-                    </KitButton>
-                    <KitButton
-                        style={{ margin: "0 10px" }}
-                        type="primary"
-                        size="small"
-                        onClick={toggleDisable}
-                    >
-                        {!disabled ? "Disable" : "Enable"}
-                    </KitButton>
-                </p>
-            </Fragment>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Controlled} source={Sources.Controlled} />
 
 ##### Check all
 
 The `indeterminate` property can help you to achieve a 'check all' effect.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const [checkedList, setCheckedList] = useState(defaultCheckedList);
-        const [indeterminate, setIndeterminate] = useState(true);
-        const [checkAll, setCheckAll] = useState(false);
-        const onChange = (list) => {
-            setCheckedList(list);
-            setIndeterminate(
-                !!list.length && list.length < plainOptions.length
-            );
-            setCheckAll(list.length === plainOptions.length);
-        };
-        const onCheckAllChange = (e) => {
-            setCheckedList(e.target.checked ? plainOptions : []);
-            setIndeterminate(false);
-            setCheckAll(e.target.checked);
-        };
-        return (
-            <Fragment>
-                <KitCheckbox
-                    indeterminate={indeterminate}
-                    onChange={onCheckAllChange}
-                    checked={checkAll}
-                >
-                    Check all
-                </KitCheckbox>
-                <KitDivider />
-                <KitCheckbox.Group
-                    options={plainOptions}
-                    value={checkedList}
-                    onChange={onChange}
-                />
-            </Fragment>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.CheckAll} source={Sources.CheckAll} />
 
 ##### Disabled
 
 Disabled checkbox.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitCheckbox defaultChecked={false} disabled>
-            Unchecked
-        </KitCheckbox>
-        <br />
-        <KitCheckbox indeterminate disabled>
-            Indeterminate
-        </KitCheckbox>
-        <br />
-        <KitCheckbox defaultChecked disabled>
-            Checked
-        </KitCheckbox>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} />
 
 ##### Danger
 
 Danger checkbox.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitCheckbox defaultChecked={false} danger>
-            Unchecked
-        </KitCheckbox>
-        <br />
-        <KitCheckbox indeterminate danger>
-            Indeterminate
-        </KitCheckbox>
-        <br />
-        <KitCheckbox defaultChecked danger>
-            Checked
-        </KitCheckbox>
-        <br />
-        <KitCheckbox defaultChecked disabled danger>
-            Disabled
-        </KitCheckbox>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Danger} source={Sources.Danger} />
 
 ##### Checkbox Group
 
 Generate a group of checkboxes from an array.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const onChange = (checkedValues) => {
-            console.log("checked = ", checkedValues);
-        };
-        const plainOptions = ["Apple", "Pear", "Orange"];
-        const options = [
-            {
-                label: "Apple",
-                value: "Apple",
-            },
-            {
-                label: "Pear",
-                value: "Pear",
-            },
-            {
-                label: "Orange",
-                value: "Orange",
-            },
-        ];
-        const optionsWithDisabled = [
-            {
-                label: "Apple",
-                value: "Apple",
-            },
-            {
-                label: "Pear",
-                value: "Pear",
-            },
-            {
-                label: "Orange",
-                value: "Orange",
-                disabled: false,
-            },
-        ];
-        return (
-            <Fragment>
-                <KitCheckbox.Group
-                    options={plainOptions}
-                    defaultValue={["Apple"]}
-                    onChange={onChange}
-                />
-                <br />
-                <br />
-                <KitCheckbox.Group
-                    options={options}
-                    defaultValue={["Pear"]}
-                    onChange={onChange}
-                />
-                <br />
-                <br />
-                <KitCheckbox.Group
-                    options={optionsWithDisabled}
-                    disabled
-                    defaultValue={["Apple"]}
-                    onChange={onChange}
-                />
-            </Fragment>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Group} source={Sources.Group} />
 
 ##### Use with grid
 
 We can use Checkbox and Grid in Checkbox.Group, to implement complex layout.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const onChange = (checkedValues) => {
-            console.log("checked = ", checkedValues);
-        };
-        
-        return (
-            <KitCheckbox.Group onChange={onChange}>
-                <KitGrid.Row>
-                    <KitGrid.Col span={8}>
-                        <KitCheckbox value="A">A</KitCheckbox>
-                    </KitGrid.Col>
-                    <KitGrid.Col span={8}>
-                        <KitCheckbox value="B">B</KitCheckbox>
-                    </KitGrid.Col>
-                    <KitGrid.Col span={8}>
-                        <KitCheckbox value="C">C</KitCheckbox>
-                    </KitGrid.Col>
-                    <KitGrid.Col span={8}>
-                        <KitCheckbox value="D">D</KitCheckbox>
-                    </KitGrid.Col>
-                    <KitGrid.Col span={8}>
-                        <KitCheckbox value="E">E</KitCheckbox>
-                    </KitGrid.Col>
-                </KitGrid.Row>
-            </KitCheckbox.Group>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Grid} source={Sources.Grid} />
 
 ## Api
 
