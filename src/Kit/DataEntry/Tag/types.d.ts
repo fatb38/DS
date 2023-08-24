@@ -1,6 +1,5 @@
-import { TagProps } from 'antd';
-import { KitSelectProps } from '../Select/types';
-import { HTMLAttributes } from 'react';
+import {TagProps} from 'antd';
+import {HTMLAttributes} from 'react';
 
 export const AntdTagPropsToOmit = 'color' | 'checkableTag' | 'icon';
 
@@ -23,29 +22,3 @@ export interface KitTagTheme {
     placeholderFontWeight: string | number;
     placeholderColor: string;
 }
-export type AntdSelectTypesToOmit =
-    | 'dropdownMatchSelectWidth'
-    | 'bordered'
-    | 'fieldNames'
-    | 'filterOption'
-    | 'filterSort'
-    | 'labelInValue'
-    | 'maxTagCount'
-    | 'maxTagPlaceholder'
-    | 'maxTagTextLength'
-    | 'optionFilterProp'
-    | 'optionLabelProp'
-    | 'removeIcon'
-    | 'searchValue'
-    | 'showSearch'
-    | 'size'
-    | 'status'
-    | 'tokenSeparators'
-    | 'virtual'
-    | 'clearIcon'
-    | 'onDeselect'
-    | 'onInputKeyDown'
-    | 'dropdownStyle'
-    | 'menuItemSelectedIcon';
-
-export interface KitTagInputProps extends Omit<KitSelectProps, AntdSelectTypesToOmit> { }

@@ -50,6 +50,19 @@ const SelectArgTypes = {
         },
         defaultValue: false
     },
+    oneLineTags: {
+        name: 'oneLineTags',
+        control: {type: 'boolean'},
+        description: 'Display tags on one line. Only applies when `mode` is set to `multiple` or `tags`',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: false},
+            category: 'Select'
+        },
+        defaultValue: false
+    },
     autoClearSearchValue: {
         name: 'autoClearSearchValue',
         control: {type: 'boolean'},
@@ -181,6 +194,19 @@ const SelectArgTypes = {
             defaultValue: {summary: '{ label, value }[] }'},
             category: 'Select'
         }
+    },
+    labelOnly: {
+        name: 'labelOnly',
+        control: {type: 'boolean'},
+        description: 'If options contains icons or colors they will be ignored',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: false},
+            category: 'Select'
+        },
+        defaultValue: false
     },
     value: {
         name: 'value',
