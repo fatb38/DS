@@ -44,20 +44,22 @@ const StyledAntdBadge = styled(AntdBadge)<{
         }}
     }
 
-    .ant-badge-status-processing {
-        &.ant-scroll-number {
-            position: absolute;
-        }
+    &.ant-badge {
+        .ant-badge-status-processing {
+            &.ant-scroll-number {
+                position: absolute;
+            }
 
-        &::after {
-            animation-name: none;
-            content: initial;
-        }
-
-        &.ant-badge-status-dot {
             &::after {
                 animation-name: none;
                 content: initial;
+            }
+
+            &.ant-badge-status-dot {
+                &::after {
+                    animation-name: none;
+                    content: initial;
+                }
             }
         }
     }

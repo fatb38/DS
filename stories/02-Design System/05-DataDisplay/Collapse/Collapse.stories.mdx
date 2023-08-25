@@ -1,9 +1,8 @@
-import { useState, Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { KitDivider } from "@kit/Layout/";
-import { KitCollapse } from "@kit/DataDisplay/";
-import { CollapseArgTypes, Template, mockData } from "./data";
+import { CollapseArgTypes, Template } from "./data";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
 <Meta
     title="Design System/DataDisplay/Collapse"
@@ -17,28 +16,7 @@ A content area which can be collapsed and expanded.
 ## Usage
 
 - Can be used to group or hide complex regions to keep the page clean.
-
 - `Accordion` is a special kind of `Collapse`, which allows only one panel to be expanded at a time.
-
-##### How to import
-```jsx
-import { KitCollapse } from "@kit/DataDisplay";
-
-// Alternative to KitCollapse.Header
-const { Header } = KitCollapse;
-
-const items = [
-    {
-        key: '1',
-        label: <KitCollapse.Header ... />,
-        extra: <KitCollapse.HeaderExtra ... />
-        children: <p>{mockDataItemsText}</p>,
-    },
-    ...
-]
-
-<KitCollapse items={items} />
-```
 
 ## Examples
 
@@ -46,147 +24,47 @@ const items = [
 
 By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <div style={{width: "100%"}}>
-            <KitCollapse
-                items={mockData.items.default}
-                defaultActiveKey={mockData.items.defaultActiveKey}
-            />
-        </div>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Size
 
 If a large or small collapse is desired, set the `size` property to either `large` or `small` respectively. Omit the `size` property for a collapse with the default size.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <div style={{width: "100%"}}>
-            <KitDivider orientation="left">Small</KitDivider>
-            <KitCollapse
-                size="small"
-                items={mockData.items.light}
-            />
-            <br/>
-            <KitDivider orientation="left">Default</KitDivider>
-            <KitCollapse
-                items={mockData.items.light}
-            />
-            <br/>
-            <KitDivider orientation="left">Large</KitDivider>
-            <KitCollapse
-                size="large"
-                items={mockData.items.light}
-            />
-        </div>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Size} source={Sources.Size} />
 
 ##### Accordion
 
 In accordion mode, only one panel can be expanded at a time.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <div style={{width: "100%"}}>
-            <KitCollapse
-                items={mockData.items.default}
-                accordion
-            />
-        </div>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Accordion} source={Sources.Accordion} />
 
 ##### Nested panel
 
 `Collapse` is nested inside the `Collapse`.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <div style={{width: "100%"}}>
-            <KitCollapse
-                items={mockData.items.nested}
-            />
-        </div>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Nested} source={Sources.Nested} />
 
 ##### Custom header content
 
 Render header content with a proper layout in the top-left corner of each panel. To do so, you can use `KitCollapse.Header`.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <div style={{width: "100%"}}>
-            <KitCollapse
-                items={mockData.items.customHeader}
-            />
-        </div>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.CustomHeaderContent} source={Sources.CustomHeaderContent} />
 
 ##### Custom header extra actions
 
 Render extra element in the top-right corner of each panel. To do so, you can use `KitCollapse.HeaderExtra`.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <div style={{width: "100%"}}>
-            <KitCollapse
-                items={mockData.items.extra}
-            />
-        </div>
-    </Fragment>
-</Canvas>
-}
-
+<CustomCanvas content={Exemples.CustomHeaderExtra} source={Sources.CustomHeaderExtra} />
 
 ##### Collapsible
 
 Specify the trigger area of collapsible by `collapsible`.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <div style={{width: "100%"}}>
-            <KitDivider orientation="left">Header</KitDivider>
-            <KitCollapse
-                collapsible="header"
-                items={mockData.items.light}
-            />
-            <br/>
-            <KitDivider orientation="left">Icon</KitDivider>
-            <KitCollapse
-                collapsible="icon"
-                items={mockData.items.light}
-            />
-            <br/>
-            <KitDivider orientation="left">Disabled</KitDivider>
-            <KitCollapse
-                collapsible="disabled"
-                items={mockData.items.light}
-            />
-        </div>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Collapsible} source={Sources.Collapsible} />
 
 ## API
 
-<Canvas withSource="none">
+<Canvas>
     <Story name="Collapse">{Template.bind({})}</Story>
 </Canvas>
 
