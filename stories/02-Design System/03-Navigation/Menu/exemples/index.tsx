@@ -1,35 +1,51 @@
-import Basic from './basic';
-import Type from './type';
-import Selectable from './selectable';
-import Actions from './actions';
-import Value from './value';
-import Rafter from './rafter';
-import All from './all';
+import ItemMenuBasic from './ItemMenu/itemMenuBasic';
+import ItemMenuType from './ItemMenu/itemMenuType';
+import ItemMenuSelectable from './ItemMenu/itemMenuSelectable';
+import ItemMenuActions from './ItemMenu/itemMenuActions';
+import ItemMenuValue from './ItemMenu/itemMenuValue';
+import ItemMenuRafter from './ItemMenu/itemMenuRafter';
+import ItemMenuAll from './ItemMenu/itemMenuAll';
+import MenuBasic from './Menu/menuBasic';
+import MenuHeader from './Menu/menuHeader';
+import MenuHeaderButton from './Menu/menuHeaderButton';
+import MenuExemple from './Menu/menuExemple';
 
-import BasicSource from './basic?raw';
-import TypeSource from './type?raw';
-import SelectableSource from './selectable?raw';
-import ActionsSource from './actions?raw';
-import ValueSource from './value?raw';
-import RafterSource from './rafter?raw';
-import AllSource from './all?raw';
+import ItemMenuBasicSource from './ItemMenu/itemMenuBasic?raw';
+import ItemMenuTypeSource from './ItemMenu/itemMenuType?raw';
+import ItemMenuSelectableSource from './ItemMenu/itemMenuSelectable?raw';
+import ItemMenuActionsSource from './ItemMenu/ItemMenuActions?raw';
+import ItemMenuValueSource from './ItemMenu/itemMenuValue?raw';
+import ItemMenuRafterSource from './ItemMenu/itemMenuRafter?raw';
+import ItemMenuAllSource from './ItemMenu/itemMenuAll?raw';
+import MenuBasicSource from './Menu/menuBasic?raw';
+import MenuHeaderSource from './Menu/menuHeader?raw';
+import MenuHeaderButtonSource from './Menu/menuHeaderButton?raw';
+import MenuExempleSource from './Menu/menuExemple?raw';
 
 export const Sources = {
-    Basic: BasicSource,
-    Type: TypeSource,
-    Selectable: SelectableSource,
-    Actions: ActionsSource,
-    Value: ValueSource,
-    Rafter: RafterSource,
-    All: AllSource
+    ItemMenuBasic: ItemMenuBasicSource,
+    ItemMenuType: ItemMenuTypeSource,
+    ItemMenuSelectable: ItemMenuSelectableSource,
+    ItemMenuActions: ItemMenuActionsSource,
+    ItemMenuValue: ItemMenuValueSource,
+    ItemMenuRafter: ItemMenuRafterSource,
+    ItemMenuAll: ItemMenuAllSource,
+    MenuBasic: MenuBasicSource,
+    MenuHeader: MenuHeaderSource,
+    MenuHeaderButton: MenuHeaderButtonSource,
+    MenuExemple: MenuExempleSource
 };
 
 export default {
-    Basic,
-    Type,
-    Selectable,
-    Actions,
-    Value,
-    Rafter,
-    All
+    ItemMenuBasic,
+    ItemMenuType,
+    ItemMenuSelectable,
+    ItemMenuActions,
+    ItemMenuValue,
+    ItemMenuRafter,
+    ItemMenuAll,
+    MenuBasic,
+    MenuHeader,
+    MenuHeaderButton,
+    MenuExemple
 };

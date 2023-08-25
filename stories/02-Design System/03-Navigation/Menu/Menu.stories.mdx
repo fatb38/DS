@@ -37,19 +37,19 @@ ItemMenu provide 3 types of itemMenu such as :
 - `cta` : indicate an itemMenu with a call to action.
 - `ctaDanger`: indicate an itemMenu with a destructive call to action.
 
-<CustomCanvas content={Exemples.Type} source={Sources.Type} />
+<CustomCanvas content={Exemples.ItemMenuType} source={Sources.ItemMenuType} />
 
 ##### Selectable
 
 To mark an ItemMenu as selectable, use the `onSelectChange` property. ItemMenu can also be mark as selected using `isSelected` property.
 
-<CustomCanvas content={Exemples.Selectable} source={Sources.Selectable} />
+<CustomCanvas content={Exemples.ItemMenuSelectable} source={Sources.ItemMenuSelectable} />
 
 ##### Actions
 
 ItemMenu can display up to two actions. If there is more it will display a `DropDown`.
 
-<CustomCanvas content={Exemples.Actions} source={Sources.Actions} />
+<CustomCanvas content={Exemples.ItemMenuActions} source={Sources.ItemMenuActions} />
 
 Exemple of how `actions` property must be set :
 
@@ -81,19 +81,19 @@ const actions = [
 
 ItemMenu can display a value using the `value` property.
 
-<CustomCanvas content={Exemples.Value} source={Sources.Value} />
+<CustomCanvas content={Exemples.ItemMenuValue} source={Sources.ItemMenuValue} />
 
 ##### Rafter
 
 ItemList can display a rafter using the `onRafterClick` property.
 
-<CustomCanvas content={Exemples.Rafter} source={Sources.Rafter} />
+<CustomCanvas content={Exemples.ItemMenuRafter} source={Sources.ItemMenuRafter} />
 
 ##### With everything
 
 ItemMenu with all options to display.
 
-<CustomCanvas content={Exemples.All} source={Sources.All} />
+<CustomCanvas content={Exemples.ItemMenuAll} source={Sources.ItemMenuAll} />
 
 ### Menu
 
@@ -101,149 +101,23 @@ ItemMenu with all options to display.
 
 A basic Menu is just a container.
 
-{
-<Canvas withSource="none">
-    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
-        <div style={{width: "400px"}}>
-            <KitMenu />
-        </div>
-    </div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.MenuBasic} source={Sources.MenuBasic} />
 
 ##### Header
 
 Menu can display a header with a `title` and/or a close button.
 
-{
-<Canvas withSource="none">
-    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
-        <div style={{width: "400px"}}>
-            <KitMenu
-                title={mockData.menu.title}
-            />
-            <br/>
-            <KitMenu
-                title={mockData.menu.title}
-                onCloseClick={mockData.menu.onCloseClick}
-            />
-        </div>
-    </div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.MenuHeader} source={Sources.MenuHeader} />
 
 The header can accept a `Button` and two `Input`s.
 
-{
-<Canvas withSource="none">
-    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
-        <div style={{width: "400px"}}>
-            <KitMenu
-                title={mockData.menu.title}
-                onCloseClick={mockData.menu.onCloseClick}
-                primaryInput={mockData.menu.primaryInput}
-            />
-            <br/>
-            <KitMenu
-                title={mockData.menu.title}
-                onCloseClick={mockData.menu.onCloseClick}
-                segmentedButton={mockData.menu.segmentedButton}
-                primaryInput={mockData.menu.primaryInput}
-            />
-            <br/>
-            <KitMenu
-                title={mockData.menu.title}
-                onCloseClick={mockData.menu.onCloseClick}
-                segmentedButton={mockData.menu.segmentedButton}
-                primaryInput={mockData.menu.primaryInput}
-                secondaryInput={mockData.menu.secondaryInput}
-            />
-        </div>
-    </div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.MenuHeaderButton} source={Sources.MenuHeaderButton} />
 
 ##### Exemple
 
 Menu with ItemMenu's as children
 
-{
-<Canvas withSource="none">
-    <div style={{width: "100%", padding: "5px", background: "lightgrey"}}>
-        <div style={{width: "400px"}}>
-            <KitMenu
-                title={mockData.menu.title}
-                onCloseClick={mockData.menu.onCloseClick}
-                segmentedButton={mockData.menu.segmentedButton}
-                primaryInput={mockData.menu.primaryInput}
-                secondaryInput={mockData.menu.secondaryInput}
-            >
-                <KitDivider noMargin color="lightGrey" />
-                <KitMenu.Item
-                    title={mockData.itemMenu.title.layout}
-                    icon={mockData.itemMenu.icon.layout}
-                    value={mockData.itemMenu.value.layout}
-                    onRafterClick={mockData.itemMenu.onRafterClick}
-                    style={{margin: "8px 0 2px 0"}}
-                />
-                <KitMenu.Item
-                    title={mockData.itemMenu.title.search}
-                    icon={mockData.itemMenu.icon.search}
-                    style={{margin: "2px 0"}}
-                />
-                <KitMenu.Item
-                    title={mockData.itemMenu.title.quickFilters}
-                    icon={mockData.itemMenu.icon.filters}
-                    onRafterClick={mockData.itemMenu.onRafterClick}
-                    style={{margin: "2px 0"}}
-                />
-                <KitMenu.Item
-                    title={mockData.itemMenu.title.filters}
-                    icon={mockData.itemMenu.icon.filters}
-                    value={mockData.itemMenu.value.filters}
-                    onRafterClick={mockData.itemMenu.onRafterClick}
-                    style={{margin: "2px 0"}}
-                />
-                <KitMenu.Item
-                    title={mockData.itemMenu.title.group}
-                    icon={mockData.itemMenu.icon.group}
-                    onRafterClick={mockData.itemMenu.onRafterClick}
-                    style={{margin: "2px 0 8px 0"}}
-                />
-                <KitDivider noMargin color="lightGrey" />
-                <KitMenu.Item
-                    title={mockData.itemMenu.title.save}
-                    icon={mockData.itemMenu.icon.save}
-                    onClick={mockData.itemMenu.onClick}
-                    type="cta"
-                    style={{margin: "16px 0 2px 0"}}
-                />
-                <KitMenu.Item
-                    title={mockData.itemMenu.title.duplicate}
-                    icon={mockData.itemMenu.icon.duplicate}
-                    onClick={mockData.itemMenu.onClick}
-                    type="cta"
-                    style={{margin: "2px 0"}}
-                />
-                <KitMenu.Item
-                    title={mockData.itemMenu.title.undo}
-                    icon={mockData.itemMenu.icon.undo}
-                    onClick={mockData.itemMenu.onClick}
-                    type="cta"
-                    style={{margin: "2px 0 0 0"}}
-                />
-                <KitMenu.Item
-                    style={{marginTop: "16px"}}
-                    title={mockData.itemMenu.title.delete}
-                    icon={mockData.itemMenu.icon.delete}
-                    onClick={mockData.itemMenu.onClick}
-                    type="ctaDanger"
-                />
-            </KitMenu>
-        </div>
-    </div>
-</Canvas>
-}
+<CustomCanvas content={Exemples.MenuExemple} source={Sources.MenuExemple} />
 
 ## Api
 
