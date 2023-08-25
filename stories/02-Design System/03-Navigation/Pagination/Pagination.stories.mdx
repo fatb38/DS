@@ -4,6 +4,8 @@ import { Controls } from "@storybook/addon-docs";
 import { KitPagination } from "@kit/Navigation/";
 import { KitSpace } from "@kit/Layout/";
 import { PaginationArgTypes, Template } from "./data";
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import Exemples, { Sources } from './exemples';
 
 <Meta
     title="Design System/Navigation/Pagination"
@@ -32,203 +34,62 @@ import { KitPagination } from "@kit/Navigation/";
 
 Basic pagination.
 
-{
-<Canvas withSource="none">
-    <KitPagination defaultCurrent={1} total={50} />
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Bordered
 show pagination with bordered items
 
-{
-<Canvas withSource="none">
-    <KitPagination defaultCurrent={1} total={50} bordered/>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Bordered} source={Sources.Bordered} />
 
 
 ##### More
 
 More pages.
 
-{
-<Canvas withSource="none">
-    <KitPagination defaultCurrent={6} total={500}/>
-</Canvas>
-}
+<CustomCanvas content={Exemples.More} source={Sources.More} />
 
 ##### Changer
 
 Change `pageSize`.
 
-{
-<Canvas withSource="none">
-{(() => {
-    const onShowSizeChange = (current, pageSize) => {
-        console.log(current, pageSize);
-    };
-    return (
-        <>
-            <KitPagination
-                showSizeChanger
-                onShowSizeChange={onShowSizeChange}
-                defaultCurrent={30}
-                total={50}
-                pageSize={10}
-            />
-            <br />
-            <KitPagination
-                showSizeChanger
-                onShowSizeChange={onShowSizeChange}
-                defaultCurrent={30}
-                total={50}
-                pageSize={10}
-                disabled
-            />
-        </>
-    );
-})()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Changer} source={Sources.Changer} />
 
 ##### Jumper
 
 Jump to a page directly.
 
-{
-<Canvas withSource="none">
-{(() => {
-    const onChange = (pageNumber) => {
-        console.log('Page: ', pageNumber);
-    };
-    return (
-        <>
-            <KitPagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} />
-            <br />
-            <KitPagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} disabled />
-        </>
-    );
-})()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Jumper} source={Sources.Jumper} />
 
 ##### Mini Size
 
 Mini size pagination.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const showTotal = (total) => `Total ${total} items`;
-        return (
-            <KitSpace direction="vertical">
-                <KitPagination size="small" total={50} />
-                <KitPagination size="small" total={50} showSizeChanger showQuickJumper />
-                <KitPagination size="small" total={50} showTotal={showTotal} />
-                <KitPagination
-                    size="small"
-                    total={50}
-                    disabled
-                    showTotal={showTotal}
-                    showSizeChanger
-                    showQuickJumper
-                />
-            </KitSpace>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.MiniSize} source={Sources.MiniSize} />
 
 ##### Simple mode
 Simple mode.
 
-{
-<Canvas withSource="none">
-    <>
-        <KitPagination simple defaultCurrent={2} total={50} />
-        <br />
-        <KitPagination disabled simple defaultCurrent={2} total={50} />
-    </>
-</Canvas>
-}
+<CustomCanvas content={Exemples.SimpleMode} source={Sources.SimpleMode} />
 
 ##### controlled
 Controlled page number.
 
-{
-<Canvas withSource="none">
-{(() => {
-    const [current, setCurrent] = useState(3);
-    const onChange = (page) => {
-        console.log(page);
-        setCurrent(page);
-    };
-    return (
-        <KitPagination current={current} onChange={onChange} total={50} />
-    );
-})()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Controlled} source={Sources.Controlled} />
 
 ##### Total number
 You can show the total number of data by setting showTotal.
 
-{
-<Canvas withSource="none">
-    <>
-        <KitPagination
-            total={85}
-            showTotal={(total) => `Total ${total} items`}
-            defaultPageSize={20}
-            defaultCurrent={1}
-        />
-        <br />
-        <KitPagination
-            total={85}
-            showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
-            defaultPageSize={20}
-            defaultCurrent={1}
-        />
-    </>
-</Canvas>
-}
+<CustomCanvas content={Exemples.TotalNumber} source={Sources.TotalNumber} />
 
 ##### Show all
 Show all configured prop.
 
-{
-<Canvas withSource="none">
-    <KitPagination
-        total={85}
-        showSizeChanger
-        showQuickJumper
-        showTotal={(total) => `Total ${total} items`}
-    />
-</Canvas>
-}
+<CustomCanvas content={Exemples.ShowAll} source={Sources.ShowAll} />
 
 ##### Prev and Next
 Use text link for prev and next button.
 
-{
-<Canvas withSource="none">
-{(() => {
-    const itemRender = (_, type, originalElement) => {
-        if (type === 'prev') {
-            return <a>Previous</a>;
-        }
-        if (type === 'next') {
-            return <a>Next</a>;
-        }
-        return originalElement;
-    };
-    return (
-        <KitPagination total={500} itemRender={itemRender} />
-    );
-})()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.PrevNext} source={Sources.PrevNext} />
 
 ## Api
 

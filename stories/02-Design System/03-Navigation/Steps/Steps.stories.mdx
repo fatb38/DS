@@ -3,7 +3,7 @@ import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import { KitSteps } from "@kit/Navigation/";
 import { KitButton, KitTypography } from "@kit/General/";
-import { KitDivider } from "@kit/Layout/";
+import { KitDivider, KitSpace } from "@kit/Layout/";
 import { StepsArgTypes, Template } from "./data";
 
 <Meta
@@ -182,7 +182,7 @@ Cooperate with the content and buttons, to represent the progress of a process.
                 <div style={contentStyle}>
                     {steps[current].content}
                 </div>
-                <div style={{ marginTop: 24 }}>
+                <KitSpace style={{ marginTop: 24 }}>
                     {current < steps.length - 1 && (
                         <KitButton type="primary" onClick={() => next()}>
                             Next
@@ -198,7 +198,7 @@ Cooperate with the content and buttons, to represent the progress of a process.
                             Previous
                         </KitButton>
                     )}
-                </div>
+                </KitSpace>
             </Fragment>
         );
     })()}
