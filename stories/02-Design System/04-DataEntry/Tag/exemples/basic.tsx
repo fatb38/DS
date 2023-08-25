@@ -1,25 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {KitTag} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
+import {KitButton} from '@kit/General/';
 
-const App = ({}) => {
+const App = () => {
+    const [isTagVisible, setIsTagVisible] = useState(true);
+
     const log = e => {
         console.log(e);
-    };
-    const preventDefault = e => {
-        e.preventDefault();
-        console.log('Clicked! But prevent default.');
+        setIsTagVisible(false);
     };
 
     return (
-        <KitSpace>
-            <KitTag>Tag 1</KitTag>
-            <KitTag closable onClose={log}>
-                Tag 2
-            </KitTag>
-            <KitTag closable onClose={preventDefault}>
-                Prevent Default
-            </KitTag>
+        <KitSpace direction="vertical">
+            <KitSpace>
+                <KitTag>Tag 1</KitTag>
+                {isTagVisible && <KitTag onClose={log}>Tag 2</KitTag>}
+            </KitSpace>
+            <br />
+            <KitSpace>
+                <KitButton type="primary" onClick={() => setIsTagVisible(!isTagVisible)}>
+                    {isTagVisible ? 'Hide Tag2' : 'Show Tag2'}
+                </KitButton>
+            </KitSpace>
         </KitSpace>
     );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import {KitTag} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace>
             <KitTag>Default</KitTag>
