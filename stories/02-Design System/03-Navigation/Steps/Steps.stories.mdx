@@ -5,6 +5,8 @@ import { KitSteps } from "@kit/Navigation/";
 import { KitButton, KitTypography } from "@kit/General/";
 import { KitDivider, KitSpace } from "@kit/Layout/";
 import { StepsArgTypes, Template } from "./data";
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import Exemples, { Sources } from './exemples';
 
 <Meta
     title="Design System/Navigation/Steps"
@@ -19,312 +21,37 @@ import { StepsArgTypes, Template } from "./data";
 
 When a given task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
 
-##### How to import
-```jsx
-import { KitSteps } from "@kit/Navigation/";
-
-<KitSteps ... />
-```
-
 ## Examples
 
 ##### Basic
 
 The most basic step bar.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSteps
-            current={1}
-            items={[
-            {
-                title: 'Finished',
-                description: 'This is a description',
-            },
-            {
-                title: 'In Progress',
-                description: 'This is a description',
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            },
-            ]}
-        />
-        <br/>
-        <br/>
-        <KitSteps
-            current={1}
-            items={[
-            {
-                title: 'Finished',
-                description: 'This is a description',
-            },
-            {
-                title: 'In Progress',
-                description: 'This is a description',
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            },
-            ]}
-        />
-        <br/>
-        <br/>
-        <KitSteps
-            current={1}
-            items={[
-            {
-                title: 'Finished',
-                description: 'This is a description',
-            },
-            {
-                title: 'In Progress',
-                description: 'This is a description',
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            },
-            ]}
-        />
-        <br/>
-        <br/>
-        <KitSteps
-            current={1}
-            items={[
-            {
-                title: 'Finished',
-                description: 'This is a description',
-            },
-            {
-                title: 'In Progress',
-                description: 'This is a description',
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            },
-            ]}
-        />
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Switch Step
 
 Cooperate with the content and buttons, to represent the progress of a process.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const steps = [
-            {
-                title: 'First',
-                content: <KitTypography.Paragraph size="medium" weight="regular">First-content</KitTypography.Paragraph>,
-            },
-            {
-                title: 'Second',
-                content: <KitTypography.Paragraph size="medium" weight="regular">Second-content</KitTypography.Paragraph>,
-            },
-            {
-                title: 'Last',
-                content: <KitTypography.Paragraph size="medium" weight="regular">Last-content</KitTypography.Paragraph>,
-            },
-        ];
-        const [current, setCurrent] = useState(0);
-        const next = () => {
-            setCurrent(current + 1);
-        };
-        const prev = () => {
-            setCurrent(current - 1);
-        };
-        const items = steps.map((item) => ({ key: item.title, title: item.title }));
-        const contentStyle = {
-            height: "200px",
-            textAlign: "center",
-            color: "rgba(0, 0, 0, 0.45)",
-            backgroundColor: "rgba(0, 0, 0, 0.02)",
-            borderRadius: "8px",
-            border: "1px dashed rgb(217, 217, 217)",
-            marginTop: "16px",
-            paddingTop: "50px"
-        };
-        return (
-            <Fragment>
-                <KitSteps current={current} items={items} />
-                <div style={contentStyle}>
-                    {steps[current].content}
-                </div>
-                <KitSpace style={{ marginTop: 24 }}>
-                    {current < steps.length - 1 && (
-                        <KitButton type="primary" onClick={() => next()}>
-                            Next
-                        </KitButton>
-                    )}
-                    {current === steps.length - 1 && (
-                        <KitButton type="primary">
-                            Done
-                        </KitButton>
-                    )}
-                    {current > 0 && (
-                        <KitButton style={{ margin: '0 8px' }} onClick={() => prev()}>
-                            Previous
-                        </KitButton>
-                    )}
-                </KitSpace>
-            </Fragment>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.SwitchStep} source={Sources.SwitchStep} />
 
 ##### Vertical
 
 A simple step bar in the vertical direction.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSteps
-            current={1}
-            direction="vertical"
-            items={[
-            {
-                title: 'Finished',
-                description: 'This is a description',
-            },
-            {
-                title: 'In Progress',
-                description: 'This is a description',
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            }
-            ]}
-        />
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Vertical} source={Sources.Vertical} />
 
 ##### Status
 
 By using `status` of `Steps`, you can specify the state for current step.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitDivider orientation="left">Status on 'Steps'</KitDivider>
-        <br/>
-        <KitSteps
-            current={1}
-            status="error"
-            items={[
-            {
-                title: 'Finished',
-                description: 'This is a description',
-            },
-            {
-                title: 'In Progress',
-                description: 'This is a description',
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            }
-            ]}
-        />
-        <br/>
-        <br/>
-        <br/>
-        <KitDivider orientation="left">Status on 'Steps.Items'</KitDivider>
-        <br/>
-        <KitSteps
-            current={1}
-            items={[
-            {
-                title: 'Finished',
-                description: 'This is a description',
-            },
-            {
-                title: 'In Progress',
-                description: 'This is a description',
-                status: "error"
-            },
-            {
-                title: 'Waiting',
-                description: 'This is a description',
-            }
-            ]}
-        />
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Status} source={Sources.Status} />
 
 ##### Clickable
 
 Setting `onChange` makes Steps clickable.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const [current, setCurrent] = useState(0);
-        const onChange = (value) => {
-            setCurrent(value);
-        };
-        const description = 'This is a description.';
-        return (
-            <Fragment>
-                <KitSteps
-                    current={current}
-                    onChange={onChange}
-                    items={[
-                        {
-                            title: 'Step 1',
-                            description,
-                        },
-                        {
-                            title: 'Step 2',
-                            description,
-                        },
-                        {
-                            title: 'Step 3',
-                            description,
-                        },
-                    ]}
-                />
-            </Fragment>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Clickable} source={Sources.Clickable} />
 
 ## Api
 
