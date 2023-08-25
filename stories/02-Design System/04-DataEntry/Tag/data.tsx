@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import {KitTag} from '@kit/DataEntry/';
 
@@ -20,19 +20,6 @@ const TagArgTypes = {
             subcategory: 'For testing only'
         },
         defaultValue: 'Label'
-    },
-    closable: {
-        name: 'closable',
-        control: {type: 'boolean'},
-        description: 'Whether the Tag can be closed',
-        table: {
-            type: {
-                summary: 'boolean'
-            },
-            defaultValue: {summary: false},
-            category: 'Tag'
-        },
-        defaultValue: false
     },
     color: {
         name: 'color',
