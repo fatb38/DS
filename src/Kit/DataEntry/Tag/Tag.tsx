@@ -96,7 +96,7 @@ const StyledAntdTag = styled(Tag)<{
 `;
 
 const KitTag: React.FunctionComponent<KitTagProps> = ({color = 'default', ...tagProps}) => {
-    return <StyledAntdTag $color={color} {...tagProps} />;
+    return <StyledAntdTag {...tagProps} $color={color} closable={tagProps.onClose ? true : false} />;
 };
 
 export default KitTag;
