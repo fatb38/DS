@@ -1,7 +1,6 @@
 import React, {ReactNode} from 'react';
 import {FilterOutlined, SortDescendingOutlined, GroupOutlined, ControlOutlined} from '@ant-design/icons';
 import {KitButton, KitTypography} from '@kit/General/';
-import {KitSelect} from '@kit/DataEntry/';
 import {KitBreadcrumb, KitHeader} from '@kit/Navigation/';
 
 const menuItems = [
