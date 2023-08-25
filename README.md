@@ -183,7 +183,7 @@ mkdir DESIGN-SYSTEM/src/Kit/DataDisplay/Tooltip
 ```sh dark
 cd Tooltip
 touch index.tsx
-touch types.d.tsx
+touch types.d.ts
 ```
 
 3. Exemple of `Tooltip/index.tsx`

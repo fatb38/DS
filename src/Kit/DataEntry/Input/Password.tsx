@@ -15,7 +15,11 @@ const StyledAntdPassword = styled(AntdInput.Password)`
             height: 38px;
             padding: 0px 10px 0px 0px;
             border-radius: 7px;
-            font-weight: ${theme.typography.regularFontWeight};
+            font-weight: ${theme.typography.mediumfontWeight};
+
+            &::placeholder {
+                font-weight: ${theme.typography.regularFontWeight};
+            }
         }
 
         .ant-input-suffix {

@@ -1,16 +1,14 @@
 import styled, {createGlobalStyle, css} from 'styled-components';
-import theme, {headerTheme} from './theme';
+import theme from '@theme/index';
 
 export const StyledBadge = styled.div`
-    box-sizing: border-box;
-    min-width: ${theme.optionHeight}px;
-    width: ${theme.optionHeight}px;
-    height: ${theme.optionHeight}px;
-    padding: ${theme.optionHeight / 4}px;
+    display: inline-block;
+    vertical-align: middle;
 
     div {
-        width: ${theme.optionHeight / 2}px;
-        height: ${theme.optionHeight / 2}px;
+        margin-left: 4px;
+        width: 16px;
+        height: 16px;
         border-radius: 2px;
     }
 `;
@@ -43,84 +41,22 @@ export const getPopupStyle = placement => {
 };
 
 export const DropDownStyle = createGlobalStyle`
-    &.kit-header-select-droppdown {
-        .ant-select-dropdown {
-            font-family: ${headerTheme.fontFamily};
-            font-weight: ${headerTheme.fontWeight};
-            color: ${headerTheme.itemsColor};
-
-            .ant-select-item, .ant-select-item-option, .ant-select-item-option-selected {
-                border-radius: ${headerTheme.borderRadius} 0 0 ${headerTheme.borderRadius};
-                min-height: ${headerTheme.optionHeight}px;
-                font-weight: ${headerTheme.fontWeight};
-                color: ${headerTheme.itemsColor};
-            }
-
-            .ant-select-item-group {
-                color: ${headerTheme.groupsColor};
-                font-weight: ${headerTheme.groupsFontWeight};
-            }
-        }
-        .kit-select-dropdown-content, .rc-virtual-list-holder {
-            background-color: ${headerTheme.dropdownBgColor};
-            background: red !important;
-            padding-left: 0;
-            padding-bottom: 0;
-
-            .ant-select-item.ant-select-item-option-selected, .ant-select-item.ant-select-item-option-active {
-                background: ${headerTheme.selectedOptionBg};
-                font-weight: ${headerTheme.fontWeight};
-                color: ${headerTheme.itemsColor};
-            }
-            .ant-select-item.ant-select-item-option-active {
-                color: ${headerTheme.selectedItemColor};
-            }
-        }
-
-        .kit-select-dropdown-bottom {
-            .kit-select-dropdown-content, .rc-virtual-list-holder {
-                border-radius: 0 0 ${headerTheme.borderRadius} ${theme.borderRadius} ;
-            }
-
-            &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content,
-            &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content,
-            &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder,
-            &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder {
-                border-radius: ${headerTheme.borderRadius} ${headerTheme.borderRadius} 0 0 ;
-            }
-        }
-
-        .kit-select-dropdown-top {
-            .kit-select-dropdown-content, .rc-virtual-list-holder {
-                border-radius: ${headerTheme.borderRadius} ${headerTheme.borderRadius} 0 0 ;
-            }
-
-            &.ant-select-dropdown-placement-bottomLeft .kit-select-dropdown-content,
-            &.ant-select-dropdown-placement-bottomRight .kit-select-dropdown-content,
-            &.ant-select-dropdown-placement-bottomLeft .rc-virtual-list-holder,
-            &.ant-select-dropdown-placement-bottomRight .rc-virtual-list-holder {
-                border-radius: 0 0 ${headerTheme.borderRadius} ${headerTheme.borderRadius} ;
-            }
-        }
-    }
-
-
     .ant-select-dropdown {
         background: transparent;
         overflow: visible;
         padding: 0;
         border-radius: 0;
         box-shadow: none;
-        font-family: ${theme.fontFamily};
-        font-weight: ${theme.fontWeight};
-        color: ${theme.itemsColor};
-        ;
+        font-family: ${theme.typography.fontFamily};
+        font-weight: ${theme.typography.mediumfontWeight};
+        color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+
         .ant-select-item, .ant-select-item-option, .ant-select-item-option-selected {
-            border-radius: ${theme.borderRadius};
+            border-radius: 7px;
             border: none;
-            min-height: ${theme.optionHeight}px;
-            font-weight: ${theme.fontWeight};
-            color: ${theme.itemsColor};
+            min-height: 32px;
+            font-weight: ${theme.typography.mediumfontWeight};
+            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
 
             .ant-select-item-option-content {
                 display: flex;
@@ -128,18 +64,18 @@ export const DropDownStyle = createGlobalStyle`
             }
         }
 
-
         .ant-select-item-group {
-            color: ${theme.groupsColor};
-            font-weight: ${theme.groupsFontWeight};
+            color: ${theme.color.neutral.typography.black};
+            font-weight: ${theme.typography.boldFontWeight};
+            padding: 8px 0;
         }
     }
 
     .rc-virtual-list-holder {
-        background-color: ${theme.dropdownBgColor};
+        background-color: ${theme.color.secondary.mediumGrey.mediumGrey100};
         padding-left: 0px;
         overflow: hidden;
-        border-radius: ${theme.borderRadius} ;
+        border-radius: 7px ;
 
         .ant-select-item.ant-select-item-option {
             padding-left: 10px;
@@ -147,9 +83,8 @@ export const DropDownStyle = createGlobalStyle`
     }
 
     .kit-select-dropdown-content {
-        background-color: ${theme.dropdownBgColor};
-        padding-left: 10px;
-        padding-bottom: 10px;
+        background-color: ${theme.color.secondary.mediumGrey.mediumGrey100};
+        padding: 10px;
         overflow: hidden;
 
 
@@ -163,17 +98,30 @@ export const DropDownStyle = createGlobalStyle`
                 margin-bottom: 5px;
             }
 
+            &.ant-select-item-option-grouped {
+                margin-left: 10px;
+            }
+
+            &[title] {
+                padding-left: 10px;
+            }
+
+            .kit-select-option {
+                align-self: center;
+
+                .kit-select-option-icon {
+                    vertical-align: middle;
+                }
+            }
+
             .kit-icon {
-                box-sizing: border-box;
-                height: ${theme.optionHeight}px;
-                width: ${theme.optionHeight}px;
-                text-align: center;
+                padding: 5px;
             }
         }
         .ant-select-item.ant-select-item-option-selected, .ant-select-item.ant-select-item-option-active {
-            background: ${theme.selectedOptionBg};
-            font-weight: ${theme.fontWeight};
-            color: ${theme.itemsColor};
+            background: ${theme.color.primary.blue100};
+            font-weight: ${theme.typography.mediumfontWeight};
+            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
         }
 
         .ant-select-item.ant-select-item-option-disabled {
@@ -181,35 +129,35 @@ export const DropDownStyle = createGlobalStyle`
         }
 
         .ant-select-item.ant-select-item-option-active {
-            color: ${theme.selectedItemColor};
+            color: ${theme.color.primary.blue400};
         }
     }
 
     .kit-select-dropdown-bottom {
         .kit-select-dropdown-content {
-            border-radius: 0 0 ${theme.borderRadius} ${theme.borderRadius} ;
-            transform: translateY(-5px);
+            border-radius: 0 0 7px 7px ;
+            transform: translateX(-1px) translateY(-3px);
         }
 
         &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content,
         &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content,
         &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder,
         &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder {
-            border-radius: ${theme.borderRadius} ${theme.borderRadius} 0 0 ;
+            border-radius: 7px 7px 0 0 ;
         }
     }
 
     .kit-select-dropdown-top {
         .kit-select-dropdown-content {
-            border-radius: ${theme.borderRadius} ${theme.borderRadius} 0 0 ;
-            transform: translateY(5px);
+            border-radius: 7px 7px 0 0 ;
+            transform: translateX(-1px) translateY(3px);
         }
 
         &.ant-select-dropdown-placement-bottomLeft .kit-select-dropdown-content,
         &.ant-select-dropdown-placement-bottomRight .kit-select-dropdown-content,
         &.ant-select-dropdown-placement-bottomLeft .rc-virtual-list-holder,
         &.ant-select-dropdown-placement-bottomRight .rc-virtual-list-holder {
-            border-radius: 0 0 ${theme.borderRadius} ${theme.borderRadius} ;
+            border-radius: 0 0 7px 7px ;
         }
     }
 `;
@@ -227,72 +175,190 @@ export const KitSelectStyle = css`
 
     &.ant-select-open {
         &:not(.ant-select-compact-item) {
-            &.ant-select-bottom .ant-select-selector {
-                border-radius: ${props => props.theme.borderRadius} ${props => props.theme.borderRadius} 0 0;
+            &.ant-select-bottom {
+                border-radius: 7px 7px 0 0;
             }
 
-            &.ant-select-top .ant-select-selector {
-                border-radius: 0 0 ${props => props.theme.borderRadius} ${props => props.theme.borderRadius};
+            &.ant-select-top {
+                border-radius: 0 0 7px 7px;
             }
         }
 
         &.ant-select-compact-item {
-            &.ant-select-bottom .ant-select-selector {
-                border-radius: ${props => props.theme.borderRadius} 0 0 0;
+            &.ant-select-bottom {
+                border-radius: 7px 0 0 0;
             }
 
-            &.ant-select-top .ant-select-selector {
-                border-radius: 0 0 0 ${props => props.theme.borderRadius};
+            &.ant-select-top {
+                border-radius: 0 0 0 7px;
             }
         }
     }
 
-    &.ant-select:not(.ant-select-customize-input) .ant-select-selector {
-        padding: 8px 10px;
+    &.ant-select:not(.ant-select-customize-input) {
+        display: grid;
+        min-height: 40px;
+        grid-template-areas: 'input clear arrow';
+        grid-template-columns: auto 30px 30px;
+        position: relative;
+        background-color: #ffffff;
+        border: 1px solid #d1dfe9;
+        border-radius: 7px;
+        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-        .ant-select-selection-item,
-        .ant-select-selection-placeholder {
-            display: flex;
-            align-items: center;
-            font-weight: ${props => props.theme.selectionFontWeight};
-            color: ${props => props.theme.selectionColor};
+        &:hover,
+        &.ant-select-focused {
+            border-color: ${theme.color.primary.blue400};
+        }
 
-            & .anticon,
-            & .kit-icon {
-                background-color: transparent;
-                height: ${theme.optionHeight};
+        .ant-select-selector {
+            grid-area: input;
+            padding: 4px 9px;
+            background-color: inherit;
+            border: none;
+            transition: none;
+
+            .ant-select-selection-overflow {
+                gap: 4px 0px;
+            }
+
+            .ant-select-selection-overflow-item-rest .ant-select-selection-item {
+                background: none;
+                margin: 0;
+                padding-inline-start: 0;
+                padding-inline-end: 0;
+            }
+
+            .ant-select-selection-item,
+            .ant-select-selection-placeholder {
+                display: flex;
+                align-items: center;
+                font-weight: ${theme.typography.mediumfontWeight};
+                color: ${theme.color.primary.blue300};
+            }
+
+            .ant-select-selection-placeholder {
+                font-weight: ${theme.typography.regularFontWeight};
+                color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+            }
+
+            .ant-select-selection-item .kit-icon {
+                padding: 5px;
+            }
+
+            .ant-select-selection-search input {
+                font-weight: ${theme.typography.mediumfontWeight};
+                color: ${theme.color.primary.blue300};
+            }
+
+            .kit-select-option {
+                display: inline-block;
+                align-self: center;
+
+                .kit-select-option-icon {
+                    vertical-align: middle;
+                }
+            }
+
+            .ant-tag {
+                .kit-select-option {
+                    .kit-select-option-icon {
+                        padding: 0;
+                    }
+
+                    .kit-select-option-color {
+                        margin-left: 0;
+                    }
+                }
             }
         }
 
         .ant-select-arrow {
-            color: ${props => props.theme.selectionColor};
+            grid-area: arrow;
+            position: relative;
+            top: 48%;
+            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+            inset-inline-end: 0;
         }
 
-        &.ant-select:not(.ant-select-customize-input).ant-select-disabled {
-            .ant-select-selector {
-                background-color: ${props => props.theme.disabledBgColor};
-                color: ${props => props.theme.disabledColor};
+        .ant-select-clear {
+            grid-area: clear;
+            position: relative;
+            display: flex;
+            inset-inline-end: 0;
+            font-size: 12px;
+            transform: none;
+            transition: none;
+            opacity: 1;
+            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+        }
 
-                .ant-select-selection-item {
-                    color: ${props => props.theme.disabledColor};
-                }
-            }
-            .ant-select-arrow {
-                color: ${props => props.theme.disabledColor};
+        &.ant-select-disabled {
+            background-color: ${theme.color.secondary.mediumGrey.mediumGrey100};
+            color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+            border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
+            cursor: not-allowed;
+
+            .ant-select-selection-item {
+                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
             }
 
-            .anticon {
-                color: ${props => props.theme.disabledColor};
+            .ant-select-selection-placeholder {
+                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+            }
+
+            .ant-select-arrow,
+            .ant-select-clear {
+                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
             }
         }
 
-        &.ant-header-action-select {
-            font-weight: ${props => props.theme.headerSelectionFontWeight};
-            color: ${props => props.theme.selectionColor};
+        &.ant-select-status-warning {
+            background-color: ${theme.color.secondary.orange.orange100};
+            border-color: ${theme.color.secondary.orange.orange400};
+            color: ${theme.color.secondary.orange.orange400};
+
+            .ant-select-selection-item {
+                color: ${theme.color.secondary.orange.orange500};
+            }
+
+            .ant-select-selection-placeholder {
+                color: ${theme.color.secondary.orange.orange400};
+            }
+
+            .ant-select-arrow,
+            .ant-select-clear {
+                color: ${theme.color.secondary.orange.orange400};
+                background-color: ${theme.color.secondary.orange.orange100};
+            }
         }
 
-        .ant-select-selection-item {
-            color: ${props => props.theme.selectionColor};
+        &.ant-select-status-error {
+            background-color: ${theme.color.secondary.red.red100};
+            border-color: ${theme.color.secondary.red.red400};
+            color: ${theme.color.secondary.red.red400};
+
+            .ant-select-selection-item {
+                color: ${theme.color.secondary.red.red400};
+            }
+
+            .ant-select-selection-placeholder {
+                color: ${theme.color.secondary.red.red400};
+            }
+
+            .ant-select-arrow,
+            .ant-select-clear {
+                color: ${theme.color.secondary.red.red400};
+                background-color: ${theme.color.secondary.red.red100};
+            }
+        }
+
+        &.ant-select-focused:not(.ant-select-customize-input) {
+            border-style: dashed;
+
+            .ant-select-selector span.ant-select-selection-placeholder {
+                color: transparent;
+            }
         }
     }
 `;

@@ -1,10 +1,8 @@
-{/* MyComponent.stories.mdx */}
-
-import { useState, useMemo, Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { KitItemList } from "@kit/DataDisplay/";
-import { KitSpace } from "@kit/Layout/";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+
 
 import { ItemListArgTypes, Template, mockData } from "./data";
 
@@ -21,232 +19,55 @@ Simple rectangular container with text, icons, and images and components such as
 
 Use the ItemList to display a repeated piece of information in, for instance, a List component, to allow users to take possible actions.
 
-##### How to import
-```jsx
-import { KitItemList } from "@kit/DataDisplay/";
-
-<KitItemList title="Title" />
-```
-
 ## Examples
 
 ##### Basic
 
 A basic ItemList can contain a `title` and/or a `description`.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace direction="vertical" size="large">
-            <div style={{width: "350px"}}>
-                <KitItemList title={mockData.base.title} />
-            </div>
-            <div style={{width: "350px"}}>
-                <KitItemList description={mockData.base.description} />
-            </div>
-            <div style={{width: "350px"}}>
-                <KitItemList title={mockData.base.title} description={mockData.base.description} />
-            </div>
-            <div style={{width: "350px"}}>
-                <KitItemList title={mockData.long.title} description={mockData.long.description} />
-            </div>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Selectable
 
 To mark an ItemList as selectable, use the `onSelectChange` property.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace direction="vertical" size="large">
-            <div style={{width: "350px"}}>
-                <KitItemList
-                    title={mockData.base.title}
-                    description={mockData.base.description}
-                    onSelectChange={mockData.onSelectChange}
-                />
-            </div>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Selectable} source={Sources.Selectable} />
 
 ##### Picture
 
 ItemList can contain a picture using the `picture` property.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace direction="vertical" size="large">
-            <div style={{width: "350px"}}>
-                <KitItemList
-                    title={mockData.base.title}
-                    description={mockData.base.description}
-                    picture={mockData.icon}
-                />
-            </div>
-            <div style={{width: "350px"}}>
-                <KitItemList
-                    title={mockData.base.title}
-                    description={mockData.base.description}
-                    picture={mockData.image}
-                />
-            </div>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Picture} source={Sources.Picture} />
 
 ##### Tag
 
 ItemList can display a tag using the `tagNumber` property.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace direction="vertical" size="large">
-            <div style={{width: "350px"}}>
-                <KitItemList
-                    title={mockData.base.title}
-                    description={mockData.base.description}
-                    tagNumber={mockData.tag}
-                />
-            </div>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Tag} source={Sources.Tag} />
 
 ##### Rafter
 
 ItemList can display a rafter using the `onRafterClick` property.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace direction="vertical" size="large">
-            <div style={{width: "350px"}}>
-                <KitItemList
-                    title={mockData.base.title}
-                    description={mockData.base.description}
-                    onRafterClick={mockData.onRafterClick}
-                />
-            </div>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Rafter} source={Sources.Rafter} />
 
 ##### With everything
 
 ItemList with all options to display.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace direction="vertical" size="large">
-            <div style={{width: "350px"}}>
-                <KitItemList
-                    onSelectChange={mockData.onSelectChange}
-                    picture={mockData.icon}
-                    title={mockData.base.title}
-                    description={mockData.base.description}
-                    tagNumber={mockData.tag}
-                    onRafterClick={mockData.onRafterClick}
-                    onClick={mockData.onClick}
-                />
-            </div>
-            <div style={{width: "350px"}}>
-                <KitItemList
-                    onSelectChange={mockData.onSelectChange}
-                    picture={mockData.image}
-                    title={mockData.base.title}
-                    description={mockData.base.description}
-                    tagNumber={mockData.tag}
-                    onRafterClick={mockData.onRafterClick}
-                    onClick={mockData.onClick}
-                />
-            </div>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.All} source={Sources.All} />
 
 ##### Sizing
 
 ItemList has no defined width. It will take the width of its parent container
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <div style={{width: "350px"}}>
-            <KitItemList
-                onSelectChange={mockData.onSelectChange}
-                picture={mockData.image}
-                title="Container width: 350px"
-                description={mockData.base.description}
-                tagNumber={mockData.tag}
-                onRafterClick={mockData.onRafterClick}
-                onClick={mockData.onClick}
-            />
-        </div>
-        <br/>
-        <br/>
-        <div style={{width: "500px"}}>
-            <KitItemList
-                onSelectChange={mockData.onSelectChange}
-                picture={mockData.image}
-                title="Container width: 500px"
-                description={mockData.base.description}
-                tagNumber={mockData.tag}
-                onRafterClick={mockData.onRafterClick}
-                onClick={mockData.onClick}
-            />
-        </div>
-        <br/>
-        <br/>
-        <div style={{width: "100%"}}>
-            <KitItemList
-                onSelectChange={mockData.onSelectChange}
-                picture={mockData.image}
-                title="Container width: 100%"
-                description={mockData.base.description}
-                tagNumber={mockData.tag}
-                onRafterClick={mockData.onRafterClick}
-                onClick={mockData.onClick}
-            />
-        </div>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Sizing} source={Sources.Sizing} />
+
 ##### Disabled
 
 To mark an ItemList as disabled, add the `disabled` property.
 
-{
-<Canvas withSource="none">
-    <Fragment>
-        <KitSpace direction="vertical" size="large">
-            <div style={{width: "350px"}}>
-                <KitItemList
-                    isDisabled
-                    onSelectChange={mockData.onSelectChange}
-                    picture={mockData.image}
-                    title={mockData.base.title}
-                    description={mockData.base.description}
-                    tagNumber={mockData.tag}
-                    onRafterClick={mockData.onRafterClick}
-                />
-            </div>
-        </KitSpace>
-    </Fragment>
-</Canvas>
-}
+<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} />
 
 ## API
 

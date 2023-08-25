@@ -23,6 +23,8 @@ const StyledAntdTag = styled(Tag)<{
         font-weight: ${tagTheme.fontWeight};
         line-height: 18px;
         box-sizing: border-box;
+        display: flex;
+        width: fit-content;
     }
 
     .ant-tag-close-icon {
@@ -94,7 +96,7 @@ const StyledAntdTag = styled(Tag)<{
 `;
 
 const KitTag: React.FunctionComponent<KitTagProps> = ({color = 'default', ...tagProps}) => {
-    return <StyledAntdTag $color={color} {...tagProps} />;
+    return <StyledAntdTag {...tagProps} $color={color} closable={!!tagProps.onClose} />;
 };
 
 export default KitTag;

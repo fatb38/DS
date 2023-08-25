@@ -1,15 +1,11 @@
-import { useState, Fragment } from "react";
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import { DownloadOutlined } from "@ant-design/icons";
-import { KitSelect } from "@kit/DataEntry/";
-import { KitButton } from "@kit/General/";
-import { KitSpace } from "@kit/Layout/";
 import { argTypes, Template } from "./data";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
 <Meta
     title="Design System/DataEntry/Select"
-    component={KitSelect}
     argTypes={argTypes}
 />
 
@@ -22,285 +18,44 @@ Select component to select value from options.
 - A dropdown menu for displaying choices - an elegant alternative to the native `<select>` element.
 - Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
 
-##### How to import
-```jsx
-import { KitSelect } from "@kit/DataEntry/";
-
-<KitSelect ... />
-```
-
 ## Examples
 
 ##### Basic
 Basic Usage.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const handleChange = (value) => {
-          console.log(`selected ${value}`);
-        };
-        const options = [
-            {
-                value: 'jack',
-                color: "red",
-                label: "Jack"
-            },
-            {
-                value: 'lucy',
-                label: "Lucy (no Color)",
-            },
-            {
-                value: 'Yiminghe',
-                icon: <DownloadOutlined />,
-                label: "Yiminghe",
-            },
-            {
-                value: 'Yiminghe no icon',
-                label: "Yiminghe (no icon)",
-            },
-            {
-                value: 'disabled',
-                label: 'Disabled',
-                disabled: true,
-            }
-        ];
-        const style={width: 320};
-        return (
-            <KitSpace wrap>
-                <KitSelect defaultValue="lucy"
-                    style={style}
-                    defaultActiveFirstOption={false}
-                    onChange={handleChange}
-                    options={options}
-                />
-                <KitSelect
-                    defaultValue="lucy"
-                    style={style}
-                    loading
-                    options={[options[1]]}
-                />
-                <KitSelect
-                    defaultValue="lucy"
-                    style={style}
-                    allowClear
-                    options={[options[1]]}
-                />
-            </KitSpace>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### Disabled
 Disabled state.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const handleChange = (value) => {
-          console.log(`selected ${value}`);
-        };
-        const options = [
-            {
-                value: 'lucy',
-                label: "Lucy (no Color)",
-            },
-        ];
-        const style={width: 320};
-        return (
-            <KitSpace wrap>
-                <KitSelect
-                    defaultValue="lucy"
-                    style={style}
-                    disabled
-                    labelOnly
-                    options={options}
-                />
-            </KitSpace>
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} />
 
 ##### With Downlad Icon
 Code sample to display with a downlad icon.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        let [selectedOption, setSelectedOption] = useState('lucy');
-        const handleChange = (value) => {
-          setSelectedOption(value);
-        };
-        const handleClick = () => {
-            alert(`download ${selectedOption}`);
-        }
-        const options = [
-            {
-                value: 'jack',
-                icon: <DownloadOutlined />,
-                label: "Jack"
-            },
-            {
-                value: 'lucy',
-                icon: <DownloadOutlined />,
-                label: "Lucy (no Color)",
-            },
-            {
-                value: 'Yiminghe',
-                icon: <DownloadOutlined />,
-                label: "Yiminghe",
-            },
-            {
-                value: 'Yiminghe no icon',
-                icon: <DownloadOutlined />,
-                label: "Yiminghe (no icon)",
-            },
-            {
-                value: 'disabled',
-                label: 'Disabled',
-                disabled: true,
-            }
-        ];
-        const style={width: 320};
-
-        return (
-            <KitSpace.Compact compact="true">
-                <KitSelect defaultValue="lucy"
-                    style={style}
-                    onChange={handleChange}
-                    options={options}
-                />
-                <KitButton type="primary" 
-                    bigIcon
-                    onClick={handleClick}
-                >
-                    <DownloadOutlined />
-                </KitButton>
-            </KitSpace.Compact>
-        );
-    })()}
-</Canvas>
-}
-
-```jsx
-() => {
-    let [selectedOption, setSelectedOption] = useState('lucy');
-    const handleChange = (value) => {
-        setSelectedOption(value);
-    };
-    const handleClick = () => {
-        alert(`download ${selectedOption}`);
-    }
-    const options = [
-        {
-            value: 'jack',
-            icon: <DownloadOutlined />,
-            label: "Jack"
-        },
-        {
-            value: 'lucy',
-            icon: <DownloadOutlined />,
-            label: "Lucy (no Color)",
-        },
-        {
-            value: 'Yiminghe',
-            icon: <DownloadOutlined />,
-            label: "Yiminghe",
-        },
-        {
-            value: 'Yiminghe no icon',
-            icon: <DownloadOutlined />,
-            label: "Yiminghe (no icon)",
-        },
-        {
-            value: 'disabled',
-            label: 'Disabled',
-            disabled: true,
-        }
-    ];
-    const style={width: 320};
-
-    return (
-        <KitSpace.Compact compact="true">
-            <KitSelect defaultValue="lucy"
-                style={style}
-                onChange={handleChange}
-                options={options}
-            />
-            <KitButton type="primary" 
-                bigIcon
-                onClick={handleClick}
-            >
-                <DownloadOutlined />
-            </KitButton>
-        </KitSpace.Compact>
-    );
-}
-```
-
+<CustomCanvas content={Exemples.Download} source={Sources.Download} />
 
 ##### Option Group
 Using `OptGroup` to group the options.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const handleChange = (value) => {
-          console.log(`selected ${value}`);
-        };
-        const options = [
-            {
-                label: 'Manager',
-                options: [
-                {
-                    label: 'Jack',
-                    value: 'jack',
-                },
-                {
-                    label: 'Lucy',
-                    value: 'lucy',
-                },
-                ],
-            },
-            {
-                label: 'Engineer',
-                options: [
-                {
-                    label: 'yiminghe',
-                    value: 'Yiminghe',
-                },
-                ],
-            }
-        ];
-        const style={width: 200};
-        return (
-            <KitSelect
-                defaultValue="lucy"
-                labelOnly
-                style={style}
-                onChange={handleChange}
-                options={options}
-            />
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Group} source={Sources.Group} />
 
-##### Danger
-Add danger status to Select with `danger`.
+##### Mode
+- `multiple` : selecting from existing items.
+- `tags`: selecting from existing items and transform input to tag.
 
-{
-<Canvas withSource="none">
-    {(() => {
-        const style={width: '100%'};
-        return (
-            <KitSelect danger="true" style={style} />
-        );
-    })()}
-</Canvas>
-}
+<CustomCanvas content={Exemples.Multipleandtags} source={Sources.Multipleandtags} />
+
+##### Status
+Add status to KitSelect with `status`, which could be `error` or `warning`.
+
+<CustomCanvas content={Exemples.Status} source={Sources.Status} />
+
+##### Label and Helper
+
+Add `label` and/or `helper` properties to give field context.
+
+<CustomCanvas content={Exemples.Wrapper} source={Sources.Wrapper} />
 
 ## API
 
@@ -336,24 +91,3 @@ Add danger status to Select with `danger`.
 | -------- | ----------- | ----------------------- | ------- | ------- |
 | key      | Group key   | string                  | -       |         |
 | label    | Group label | string \| React.Element | -       |         |
-
-## FAQ
-
-### I don't want dropdown close when click inside `dropdownRender`?
-
-Select will close when it lose focus. You can prevent event to handle this:
-
-```tsx
-<KitSelect
-  dropdownRender={() => (
-    <div
-      onMouseDown={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-      }}
-    >
-      Some Content
-    </div>
-  )}
-/>
-```

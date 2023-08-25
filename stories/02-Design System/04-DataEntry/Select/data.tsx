@@ -3,10 +3,57 @@ import React from 'react';
 import {KitSelect} from '@kit/DataEntry/';
 
 const SelectArgTypes = {
+    label: {
+        name: 'label',
+        description: 'Label displayed above the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Select'
+        }
+    },
+    helper: {
+        name: 'helper',
+        description: 'Helper displayed below the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Select'
+        }
+    },
+    placeholder: {
+        name: 'placeholder',
+        control: {type: 'text'},
+        description: 'Placeholder of select',
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            defaultValue: {summary: '-'},
+            category: 'Select'
+        }
+    },
     allowClear: {
-        name: 'alllowClear',
+        name: 'allowClear',
         control: {type: 'boolean'},
         description: 'Show clear button',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: true},
+            category: 'Select'
+        },
+        defaultValue: false
+    },
+    oneLineTags: {
+        name: 'oneLineTags',
+        control: {type: 'boolean'},
+        description: 'Display tags on one line. Only applies when `mode` is set to `multiple` or `tags`',
         table: {
             type: {
                 summary: 'boolean'
@@ -56,15 +103,15 @@ const SelectArgTypes = {
         },
         defaultValue: true
     },
-    danger: {
-        name: 'danger',
-        control: {type: 'boolean'},
-        description: 'Whether select is in danger status',
+    status: {
+        name: 'status',
+        description: 'Set validation status',
+        options: ['', 'error', 'warning'],
+        control: {type: 'select'},
         table: {
             type: {
-                summary: 'boolean'
+                summary: "'error' | 'warning'"
             },
-            defaultValue: {summary: false},
             category: 'Select'
         },
         defaultValue: false
@@ -148,17 +195,18 @@ const SelectArgTypes = {
             category: 'Select'
         }
     },
-    placeholder: {
-        name: 'placeholder',
-        control: {type: 'text'},
-        description: 'Placeholder of select',
+    labelOnly: {
+        name: 'labelOnly',
+        control: {type: 'boolean'},
+        description: 'If options contains icons or colors they will be ignored',
         table: {
             type: {
-                summary: 'ReactNode'
+                summary: 'boolean'
             },
-            defaultValue: {summary: '-'},
+            defaultValue: {summary: false},
             category: 'Select'
-        }
+        },
+        defaultValue: false
     },
     value: {
         name: 'value',

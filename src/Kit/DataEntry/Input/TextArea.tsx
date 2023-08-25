@@ -11,7 +11,11 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
     &.ant-input,
     .ant-input {
         padding: 4px 10px;
-        font-weight: ${theme.typography.regularFontWeight};
+        font-weight: ${theme.typography.mediumfontWeight};
+
+        &::placeholder {
+            font-weight: ${theme.typography.regularFontWeight};
+        }
     }
 
     .ant-input-suffix {

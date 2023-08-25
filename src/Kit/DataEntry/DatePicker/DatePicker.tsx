@@ -21,6 +21,12 @@ const StyledDatePicker = styled(AntdDatePicker)`
 
             input {
                 grid-area: input;
+                font-weight: ${theme.typography.mediumfontWeight};
+                font-family: ${theme.typography.fontFamily};
+
+                &::placeholder {
+                    font-weight: ${theme.typography.regularFontWeight};
+                }
             }
 
             .ant-picker-suffix {

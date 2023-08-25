@@ -1,13 +1,13 @@
 import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import { KitHeader } from "@kit/Navigation/";
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import Exemples, { Sources } from './exemples';
 
 import {
     actions,
     options,
     breadcrumb,
-    searchProps,
-    title,
     argTypes,
     Template,
 } from "./data";
@@ -25,83 +25,43 @@ Header is displayed in top of the page. It allows showing, Title, breadcrumb, an
 
 - When you need to inform the user of where they are.
 
-##### How to import
-```jsx
-import { KitHeader } from "@kit/Navigation/";
-
-<KitHeader title="Hi John Doe" />
-```
-
 ## Examples
 
 ##### Basic
 The simplest usage (empty header)
 
-{
-<Canvas withSource="none">
-    <KitHeader />
-</Canvas>
-}
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
 ##### With Title
 The header can sho a Title. Just set the `title` prop
 
-{
-<Canvas withSource="none">
-    <KitHeader title={title} />
-</Canvas>
-}
+<CustomCanvas content={Exemples.Title} source={Sources.Title} />
 
 ##### With search
 It can also show a search field. just pass the `search`property with `Input` component props
 
-{
-<Canvas withSource="none">
-    <KitHeader search={searchProps}
-    />
-</Canvas>
-}
+<CustomCanvas content={Exemples.Search} source={Sources.Search} />
 
 ##### With Breadcrumb
 It can even display a breadcrumb with the `breadcrumb` property.
 
-{
-<Canvas withSource="none">
-    <KitHeader breadcrumb={breadcrumb} />
-</Canvas>
-}
-
-
+<CustomCanvas content={Exemples.Breadcrumb} source={Sources.Breadcrumb} />
 
 ##### With Plus actions
 You can display a '+' button on the right, simply y setting the `onPlusClick` property
 
-{
-<Canvas withSource="none">
-    <KitHeader 
-        onPlusClick={() => console.log('click on plus')}
-    />
-</Canvas>
-}
+<CustomCanvas content={Exemples.PlusAction} source={Sources.PlusAction} />
 
 ##### With actions
 Along with the '+' button, you can pass a set of actions. Actionscan be `Button` or `Select`. . Just set the `actions`property with an array of components.
 
-{
-<Canvas withSource="none">
-    <KitHeader actions={actions} />
-</Canvas>
-}
+<CustomCanvas content={Exemples.Actions} source={Sources.Actions} />
 
 ##### With all
 
 Header with all options to display.
 
-{
-<Canvas withSource="none">
-    <KitHeader title={title} search={searchProps} breadcrumb={breadcrumb} actions={actions} onPlusClick={() => console.log('click on plus')} />
-</Canvas>
-}
+<CustomCanvas content={Exemples.All} source={Sources.All} />
 
 
 ## API
