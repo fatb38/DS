@@ -1,0 +1,57 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { argTypes, Template} from "./data";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+
+
+<Meta
+    title="Design System/DataEntry/Upload"
+    argTypes={argTypes}
+/>
+
+## Usage
+
+Upload file by selecting or dragging.
+
+## When To Use
+
+Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool.
+
+- When you need to upload one or more files.
+- When you need to show the process of uploading.
+- When you need to upload files by dragging and dropping.
+
+## Examples
+
+##### TEST
+
+Test Zone
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
+
+
+##### Pictures Wall
+
+After users upload picture, the thumbnail will be shown in list. The upload button will disappear when count meets limitation.
+
+<CustomCanvas content={Exemples.PicturesWall} source={Sources.PicturesWall} />
+
+##### Default Files
+
+Use `defaultFileList` for uploaded files when page init.
+
+<CustomCanvas content={Exemples.DefaultFiles} source={Sources.DefaultFiles} />
+
+##### Pictures with list style
+
+If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not support local thumbnail show. Please use `thumbUrl` instead.
+
+<CustomCanvas content={Exemples.ListStyle} source={Sources.ListStyle} />
+
+##### Drag and Drop
+
+You can drag files to a specific area, to upload. Alternatively, you can also upload by selecting.
+
+We can upload serveral files at once in modern browsers by giving the input the `multiple` attribute.
+
+<CustomCanvas content={Exemples.DragNDrop} source={Sources.DragNDrop} />
