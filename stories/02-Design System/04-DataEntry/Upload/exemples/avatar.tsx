@@ -45,6 +45,8 @@ const App = () => {
             showUploadList={false}
             beforeUpload={beforeUpload}
             onChange={handleChange}
+            imageUrl={imageUrl}
+            loading={loading}
         />
     );
 };

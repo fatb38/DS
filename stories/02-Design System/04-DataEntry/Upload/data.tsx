@@ -124,6 +124,16 @@ const UploadArgTypes = {
             category: 'Upload'
         }
     },
+    imageUrl: {
+        name: 'imageUrl',
+        description: 'Image Url for preview when listItem is `picture-card`',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Upload'
+        }
+    },
     isImageUrl: {
         name: 'isImageUrl',
         description: 'Customize if render <img /> in thumbnail',
@@ -150,6 +160,16 @@ const UploadArgTypes = {
             defaultValue: {summary: 'text'}
         },
         defaultValue: 'text'
+    },
+    loading: {
+        name: 'loading',
+        description: 'Loading button when listItem is `picture-card`',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            category: 'Upload'
+        }
     },
     maxCount: {
         name: 'maxCount',

@@ -2,7 +2,7 @@ import React from 'react';
 import {KitButton} from '@kit/General';
 import {Upload as AntdUpload} from 'antd';
 import {KitUploadProps} from './types';
-import {PlusOutlined, UploadOutlined} from '@ant-design/icons';
+import {LoadingOutlined, PlusOutlined, UploadOutlined} from '@ant-design/icons';
 import theme from '../../../theme';
 import styled from 'styled-components';
 
@@ -78,20 +78,40 @@ const StyledUpload = styled(AntdUpload)<{$listType: String}>`
     }
 `;
 
-const KitUpload: React.FunctionComponent<KitUploadProps> = ({listType = 'text', ...uploadProps}) => {
+const KitUpload: React.FunctionComponent<KitUploadProps> = ({
+    listType = 'text',
+    loading,
+    imageUrl,
+    showUploadList,
+    ...uploadProps
+}) => {
     return (
-        <StyledUpload $listType={listType} listType={listType} {...uploadProps}>
+        <StyledUpload $listType={listType} listType={listType} showUploadList={showUploadList} {...uploadProps}>
             {(listType === undefined || listType === 'text' || listType === 'picture') && (
                 <KitButton icon={<UploadOutlined />}>Upload</KitButton>
             )}
-            {listType === 'picture-card' && (
+            {showUploadList && listType === 'picture-card' && (
                 <div>
                     <PlusOutlined />
                     <div style={{marginTop: 8}}>Upload</div>
                 </div>
             )}
+            {!showUploadList &&
+                listType === 'picture-card' &&
+                (imageUrl ? (
+                    <div style={{width: '100%', padding: '8px'}}>
+                        <img src={imageUrl} alt="avatar" style={{width: '100%'}} />
+                    </div>
+                ) : (
+                    <div>
+                        {loading ? <LoadingOutlined /> : <PlusOutlined />}
+                        <div style={{marginTop: 8}}>Upload</div>
+                    </div>
+                ))}
         </StyledUpload>
     );
 };
+
+KitUpload.displayName = 'KitUpload';
 
 export default KitUpload;
