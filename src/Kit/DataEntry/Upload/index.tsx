@@ -1,5 +1,5 @@
 import React from 'react';
-import {Upload as AntdUpload} from 'antd';
+import {Upload as AntdUpload, Upload} from 'antd';
 import styled from 'styled-components';
 import {KitUploadProps} from './types';
 import theme from '../../../theme';
@@ -136,5 +136,7 @@ export const KitDragger: React.FunctionComponent<any> = ({...draggerProps}) => {
         </StyledDragger>
     );
 };
+
+export const KIT_LIST_IGNORE = AntdUpload.LIST_IGNORE;
 
 KitUpload.displayName = 'KitUpload';
