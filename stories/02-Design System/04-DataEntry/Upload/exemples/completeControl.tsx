@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {KitUpload} from '@kit/DataEntry/Upload';
+import {KitUpload} from '@kit/DataEntry';
 import {UploadFile, UploadProps} from 'antd';
 
 const App = () => {
@@ -31,14 +31,7 @@ const App = () => {
         setFileList(newFileList);
     };
 
-    return (
-        <KitUpload
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            fileList={fileList}
-            onChange={handleChange}
-            multiple
-        />
-    );
+    return <KitUpload fileList={fileList} onChange={handleChange} multiple />;
 };
 
 export default App;

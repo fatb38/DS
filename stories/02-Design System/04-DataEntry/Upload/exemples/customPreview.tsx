@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitUpload} from '@kit/DataEntry/Upload';
+import {KitUpload} from '@kit/DataEntry';
 
 const previewFile = file => {
     console.log('Your upload file:', file);
@@ -13,7 +13,7 @@ const previewFile = file => {
 };
 
 const App = () => {
-    return <KitUpload previewFile={previewFile} action="//jsonplaceholder.typicode.com/posts/" listType="picture" />;
+    return <KitUpload previewFile={previewFile} listType="picture" />;
 };
 
 export default App;

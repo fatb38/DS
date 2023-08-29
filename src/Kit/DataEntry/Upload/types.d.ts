@@ -1,6 +1,6 @@
 import {BadgeProps, UploadProps} from 'antd';
 
-type AntdUploadTypesToOmit = 'listType' | '';
+type AntdUploadTypesToOmit = 'listType' | 'itemRender' | 'openFileDialogOnClick';
 
 export type KitUploadListType = 'text' | 'picture' | 'picture-card';
 

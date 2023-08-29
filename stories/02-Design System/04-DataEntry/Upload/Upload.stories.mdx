@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
 import { argTypes, Template} from "./data";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
@@ -124,3 +125,11 @@ Use `showUploadList` for custom action icons of files.
 Use `progress` for customize progress bar.
 
 <CustomCanvas content={Exemples.CustomProgress} source={Sources.CustomProgress} />
+
+## API
+
+<Canvas>
+    <Story name="Upload">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Upload" />

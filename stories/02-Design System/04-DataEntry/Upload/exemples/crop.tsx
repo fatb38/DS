@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {KitUpload} from '@kit/DataEntry/Upload';
+import {KitUpload} from '@kit/DataEntry';
 import {UploadFile, UploadProps} from 'antd';
 import {RcFile} from 'antd/es/upload';
 import ImgCrop from 'antd-img-crop';

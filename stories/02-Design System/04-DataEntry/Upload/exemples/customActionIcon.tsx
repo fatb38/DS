@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitUpload} from '@kit/DataEntry/Upload';
+import {KitUpload} from '@kit/DataEntry';
 import {UploadProps} from 'antd';
 import {StarOutlined} from '@ant-design/icons';
 

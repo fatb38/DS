@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitUpload} from '@kit/DataEntry/Upload';
+import {KitUpload} from '@kit/DataEntry';
 
 const onChange = info => {
     if (info.file.status !== 'uploading') {

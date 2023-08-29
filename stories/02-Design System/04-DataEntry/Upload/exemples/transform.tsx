@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitUpload} from '@kit/DataEntry/Upload';
+import {KitUpload} from '@kit/DataEntry';
 import {UploadProps} from 'antd';
 
 const beforeUpload: UploadProps['beforeUpload'] = file => {
@@ -26,13 +26,7 @@ const beforeUpload: UploadProps['beforeUpload'] = file => {
 };
 
 const App = () => {
-    return (
-        <KitUpload
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            listType="picture"
-            beforeUpload={beforeUpload}
-        />
-    );
+    return <KitUpload listType="picture" beforeUpload={beforeUpload} />;
 };
 
 export default App;

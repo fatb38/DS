@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {KitUpload} from '@kit/DataEntry/Upload';
+import {KitUpload} from '@kit/DataEntry';
 import {RcFile, UploadFile, UploadProps} from 'antd/es/upload';
 import {KitModal} from '../../../../../src';
 

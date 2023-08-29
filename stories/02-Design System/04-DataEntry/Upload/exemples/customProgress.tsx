@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitUpload} from '@kit/DataEntry/Upload';
+import {KitUpload} from '@kit/DataEntry';
 import {UploadProps} from 'antd';
 
 const onChange = info => {
@@ -13,7 +13,7 @@ const onChange = info => {
     }
 };
 
-const progress = {
+const progress: UploadProps['progress'] = {
     strokeColor: {
         '0%': '#108ee9',
         '100%': '#87d068'
