@@ -1,9 +1,9 @@
 import React from 'react';
 import {Upload as AntdUpload} from 'antd';
 import styled from 'styled-components';
-import theme from '../../../theme';
+import theme from '@theme/index';
 import {InboxOutlined} from '@ant-design/icons';
-import {DraggerProps} from 'antd/es/upload';
+import { KitDraggerProps } from './types';
 
 const {Dragger: AntdDragger} = AntdUpload;
 const {color, typography} = theme;
@@ -39,17 +39,17 @@ const StyledDragger = styled(AntdDragger)`
     }
 `;
 
-const KitDragger: React.FunctionComponent<DraggerProps> = ({...draggerProps}) => {
+const KitDragger: React.FunctionComponent<KitDraggerProps> = ({title, description, ...draggerProps}) => {
+    const draggerTitle = title ?? 'Click or drag file to this area to upload'
+    const draggerDescription = description ?? 'Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.'
+    
     return (
         <StyledDragger {...draggerProps}>
             <p className="ant-upload-drag-icon">
                 <InboxOutlined />
             </p>
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-            <p className="ant-upload-hint">
-                Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned
-                files.
-            </p>
+            <p className="ant-upload-text">{draggerTitle}</p>
+            <p className="ant-upload-hint">{draggerDescription}</p>
         </StyledDragger>
     );
 };

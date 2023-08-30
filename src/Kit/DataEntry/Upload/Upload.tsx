@@ -3,7 +3,7 @@ import {KitButton} from '@kit/General';
 import {Upload as AntdUpload} from 'antd';
 import {KitUploadProps} from './types';
 import {LoadingOutlined, PlusOutlined, UploadOutlined} from '@ant-design/icons';
-import theme from '../../../theme';
+import theme from '@theme/index';
 import styled from 'styled-components';
 
 const {color} = theme;
@@ -82,18 +82,20 @@ const KitUpload: React.FunctionComponent<KitUploadProps> = ({
     listType = 'text',
     loading,
     imageUrl,
+    buttonWording,
     showUploadList,
     ...uploadProps
 }) => {
+    const uploadWording = buttonWording ?? 'Upload';
     return (
         <StyledUpload $listType={listType} listType={listType} showUploadList={showUploadList} {...uploadProps}>
             {(listType === undefined || listType === 'text' || listType === 'picture') && (
-                <KitButton icon={<UploadOutlined />}>Upload</KitButton>
+                <KitButton icon={<UploadOutlined />}>{uploadWording}</KitButton>
             )}
             {showUploadList && listType === 'picture-card' && (
                 <div>
                     <PlusOutlined />
-                    <div style={{marginTop: 8}}>Upload</div>
+                    <div style={{marginTop: 8}}>{uploadWording}</div>
                 </div>
             )}
             {!showUploadList &&
@@ -105,7 +107,7 @@ const KitUpload: React.FunctionComponent<KitUploadProps> = ({
                 ) : (
                     <div>
                         {loading ? <LoadingOutlined /> : <PlusOutlined />}
-                        <div style={{marginTop: 8}}>Upload</div>
+                        <div style={{marginTop: 8}}>{uploadWording}</div>
                     </div>
                 ))}
         </StyledUpload>

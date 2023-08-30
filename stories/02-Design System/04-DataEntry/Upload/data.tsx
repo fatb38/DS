@@ -34,6 +34,22 @@ const UploadArgTypes = {
             category: 'Upload'
         }
     },
+    buttonWording: {
+        name: 'buttonWording',
+        description:
+            'Wording of the upload button',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'text'
+            },
+            defaultValue: {
+                summary: 'Upload'
+            },
+            category: 'Upload'
+        },
+        defaultValue: 'Upload',
+    },
     customRequest: {
         name: 'customRequest',
         description:
@@ -212,7 +228,7 @@ const UploadArgTypes = {
     name: {
         name: 'name',
         description: 'The name of uploading file',
-        control: {type: 'string'},
+        control: {type: 'text'},
         table: {
             type: {
                 summary: 'string'
@@ -321,6 +337,38 @@ const UploadArgTypes = {
             },
             category: 'Upload'
         }
+    },
+    title: {
+        name: 'title',
+        description:
+            'Title of the dragger component',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            defaultValue: {
+                summary: 'Click or drag file to this area to upload'
+            },
+            category: 'Dragger'
+        },
+        defaultValue: 'Click or drag file to this area to upload'
+    },
+    description: {
+        name: 'description',
+        description:
+            'Description of the dragger component',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            defaultValue: {
+                summary: 'Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.'
+            },
+            category: 'Dragger'
+        },
+        defaultValue: 'Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.'
     }
 };
 
