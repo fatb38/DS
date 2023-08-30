@@ -12,8 +12,8 @@ const StyledHeaderWrapper = styled.div`
     background: ${theme.backgroundColor};
     display: grid;
     grid-template-areas:
-        'title search actions'
-        'breadcrumb breadcrumb actions';
+        'breadcrumb breadcrumb breadcrumb'
+        'title search actions';
     grid-template-columns: min-content 1fr max-content;
     grid-template-rows: 1fr min-content;
     box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
