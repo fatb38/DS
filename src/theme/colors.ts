@@ -98,7 +98,7 @@ export const colorsPalette: KitColorsPalette = {
         blue100: '#E7EDFF',
         blue200: '#97B9FD',
         blue300: '#5784FC',
-        blue400: '#0F4FFA',
+        blue400: '#0141EC',
         blue500: '#0B37AF',
         blue600: '#062064',
         blue700: '#010819'
@@ -171,7 +171,7 @@ export const colorsPalette: KitColorsPalette = {
             blue100: '#E7EDFF',
             blue200: '#97B9FD',
             blue300: '#5784FC',
-            blue400: '#0F4FFA',
+            blue400: '#0141EC',
             blue500: '#0B37AF',
             blue600: '#062064',
             blue700: '#010819'
