@@ -14,12 +14,14 @@ export const StyledBadge = styled.div`
 `;
 
 export const StyledLabel = styled.div`
+    width: 100%;
     box-sizing: border-box;
     display: inline-block;
     vertical-align: middle;
     overflow: hidden;
     text-overflow: ellipsis;
     padding-left: 10px;
+    padding-right: 10px;
 `;
 
 export const getPopupStyle = placement => {
@@ -40,7 +42,7 @@ export const getPopupStyle = placement => {
     }
 };
 
-export const DropDownStyle = createGlobalStyle`
+export const SelectDropDownStyle = createGlobalStyle`
     .ant-select-dropdown {
         background: transparent;
         overflow: visible;
@@ -108,9 +110,15 @@ export const DropDownStyle = createGlobalStyle`
 
             .kit-select-option {
                 align-self: center;
+                width: 100%;
 
                 .kit-select-option-icon {
                     vertical-align: middle;
+                }
+
+                .kit-select-option-icon + .kit-select-option-label,
+                .kit-select-option-badge + .kit-select-option-label {
+                    width: calc(100% - 20px);
                 }
             }
 
@@ -199,7 +207,7 @@ export const KitSelectStyle = css`
         display: grid;
         min-height: 40px;
         grid-template-areas: 'input clear arrow';
-        grid-template-columns: auto 30px 30px;
+        grid-template-columns: calc(100% - 60px) 30px 30px;
         position: relative;
         background-color: #ffffff;
         border: 1px solid #d1dfe9;
@@ -220,13 +228,30 @@ export const KitSelectStyle = css`
 
             .ant-select-selection-overflow {
                 gap: 4px 0px;
-            }
 
-            .ant-select-selection-overflow-item-rest .ant-select-selection-item {
-                background: none;
-                margin: 0;
-                padding-inline-start: 0;
-                padding-inline-end: 0;
+                .ant-select-selection-overflow-item {
+                    max-width: calc(100% - 4px);
+
+                    > span,
+                    .ant-tag {
+                        max-width: 100%;
+                    }
+
+                    .ant-tag .kit-select-option {
+                        width: calc(100% - 20px);
+
+                        .kit-select-option-label {
+                            padding-right: 0;
+                        }
+                    }
+
+                    &.ant-select-selection-overflow-item-rest .ant-select-selection-item {
+                        background: none;
+                        margin: 0;
+                        padding-inline-start: 0;
+                        padding-inline-end: 0;
+                    }
+                }
             }
 
             .ant-select-selection-item,
@@ -235,6 +260,7 @@ export const KitSelectStyle = css`
                 align-items: center;
                 font-weight: ${theme.typography.mediumfontWeight};
                 color: ${theme.color.primary.blue300};
+                padding-inline-end: 0;
             }
 
             .ant-select-selection-placeholder {
@@ -254,9 +280,15 @@ export const KitSelectStyle = css`
             .kit-select-option {
                 display: inline-block;
                 align-self: center;
+                width: 100%;
 
                 .kit-select-option-icon {
                     vertical-align: middle;
+                }
+
+                .kit-select-option-icon + .kit-select-option-label,
+                .kit-select-option-badge + .kit-select-option-label {
+                    width: calc(100% - 15px);
                 }
             }
 
