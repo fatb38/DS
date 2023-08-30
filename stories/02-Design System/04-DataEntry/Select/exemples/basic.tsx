@@ -98,8 +98,8 @@ const App = ({}) => {
             </KitSpace>
             <KitDivider orientation="left">Loading and allowClear=false</KitDivider>
             <KitSpace>
-                <KitSelect defaultValue="not-allowed" style={style} loading options={colorOptions} />
-                <KitSelect defaultValue="file-2" style={style} allowClear={false} options={iconOptions} />
+                <KitSelect defaultValue="not-allowed" style={style} allowClear={false} loading options={colorOptions} />
+                <KitSelect defaultValue="file-2" style={style} allowClear={false} loading options={iconOptions} />
             </KitSpace>
         </KitSpace>
     );
