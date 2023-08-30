@@ -42,7 +42,7 @@ export const getPopupStyle = placement => {
     }
 };
 
-export const DropDownStyle = createGlobalStyle`
+export const SelectDropDownStyle = createGlobalStyle`
     .ant-select-dropdown {
         background: transparent;
         overflow: visible;
