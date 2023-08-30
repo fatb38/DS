@@ -20,11 +20,11 @@ const getOptionLabel = props => (
     <div className="kit-select-option">
         {props.icon && <KitIcon className="kit-select-option-icon" icon={props.icon} on />}
         {!props.icon && (
-            <StyledBadge>
+            <StyledBadge className="kit-select-option-badge">
                 {props.color && <div className="kit-select-option-color" style={{backgroundColor: props.color}} />}
             </StyledBadge>
         )}
-        <StyledLabel>{props.label}</StyledLabel>
+        <StyledLabel className="kit-select-option-label">{props.label}</StyledLabel>
     </div>
 );
 
@@ -50,15 +50,20 @@ const dropDownRenderer = (menu: React.ReactElement<any, string | React.JSXElemen
 };
 
 const tagRender = (props: CustomTagProps) => {
-    const {label, closable, onClose} = props;
+    const {label, onClose} = props;
     const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
         event.preventDefault();
         event.stopPropagation();
     };
 
     return (
-        <KitTag color="blueInvert" onMouseDown={onPreventMouseDown} closable={closable} onClose={onClose}>
-            {label}
+        <KitTag color="blueInvert" onMouseDown={onPreventMouseDown} onClose={onClose}>
+            {typeof label === 'object' && label}
+            {typeof label === 'string' && (
+                <div className="kit-select-option">
+                    <StyledLabel className="kit-select-option-label">{label}</StyledLabel>
+                </div>
+            )}
         </KitTag>
     );
 };
@@ -145,7 +150,7 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
                 maxTagCount={oneLineTags ? 'responsive' : undefined}
                 maxTagPlaceholder={oneLineTags ? maxTagRender : undefined}
                 ref={selectRef}
-                open={isOpen}
+                open={props.open !== undefined ? props.open : isOpen}
                 onClick={event => handleOnClick(event)}
                 onClear={() => handleOnClear()}
                 onBlur={event => handleOnBlur(event)}
