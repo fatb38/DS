@@ -1,13 +1,14 @@
 import React from 'react';
 import {ConfigProvider} from 'antd';
-import theme from '../../theme/index';
-import {SelectDropDownStyle} from '../DataEntry/Select/style';
-import KitSnackBarProvider from '../Feedback/SnackBar/SnackBarProvider';
 import {KitAppProps} from './types';
 import GlobalStyles from './style';
+import theme from '@theme/index';
+import KitSnackBarProvider from '@kit/Feedback/SnackBar/SnackBarProvider';
+import {KitNotificationProvider} from '@kit/Feedback/Notification/useKitNotification';
+import {DropDownStyle} from '@kit/Navigation/DropDown/style';
+import {SelectDropDownStyle} from '@kit/DataEntry/Select/style';
 import {DatePickerDropDownStyle} from '@kit/DataEntry/DatePicker/style';
 import {NotificationStyle} from '@kit/Feedback/Notification/style';
-import {KitNotificationProvider} from '@kit/Feedback/Notification/useKitNotification';
 
 export const KitApp: React.FunctionComponent<KitAppProps> = props => {
     return (
@@ -15,6 +16,7 @@ export const KitApp: React.FunctionComponent<KitAppProps> = props => {
             <KitNotificationProvider>
                 <KitSnackBarProvider />
                 <GlobalStyles />
+                <DropDownStyle />
                 <SelectDropDownStyle />
                 <DatePickerDropDownStyle />
                 <NotificationStyle />
