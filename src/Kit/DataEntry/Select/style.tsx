@@ -101,7 +101,7 @@ export const SelectDropDownStyle = createGlobalStyle`
             }
 
             &.ant-select-item-option-grouped {
-                margin-left: 10px;
+                margin-left: 5px;
             }
 
             &[title] {
