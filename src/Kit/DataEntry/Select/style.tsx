@@ -85,6 +85,7 @@ export const SelectDropDownStyle = createGlobalStyle`
     }
 
     .kit-select-dropdown-content {
+        box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
         background-color: ${theme.color.secondary.mediumGrey.mediumGrey100};
         padding: 10px;
         overflow: hidden;
