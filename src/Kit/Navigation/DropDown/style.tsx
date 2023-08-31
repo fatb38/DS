@@ -2,11 +2,6 @@ import {createGlobalStyle} from 'styled-components';
 import theme from '@theme/index';
 
 export const DropDownStyle = createGlobalStyle`
-    .ant-dropdown-menu.ant-dropdown-menu-submenu {
-        /* transition: 0s; */
-        /* transform: translateX(30px) translateY(-5px); */
-    }
-
     .ant-dropdown,
     .ant-dropdown-menu.ant-dropdown-menu-submenu {
         padding: 10px;
@@ -27,11 +22,7 @@ export const DropDownStyle = createGlobalStyle`
         .ant-dropdown-menu {
             overflow: visible;
             padding: 0px;
-            /* border-radius: 7px; */
-            /* font-family: ${theme.typography.fontFamily}; */
-            /* font-weight: ${theme.typography.mediumfontWeight}; */
             background-color: ${theme.color.secondary.mediumGrey.mediumGrey100};
-            /* color: ${theme.color.secondary.mediumGrey.mediumGrey500}; */
             box-shadow: none;
 
             .ant-dropdown-menu-item-group:first-of-type .ant-dropdown-menu-item-group-title {
@@ -49,10 +40,7 @@ export const DropDownStyle = createGlobalStyle`
                 margin: 0 0 0 5px;
             }
 
-            // Verifier -option et -option-selected
             .ant-dropdown-menu-item,
-            .ant-dropdown-menu-item-option,
-            .ant-dropdown-menu-item-option-selected,
             .ant-dropdown-menu-submenu {
                 border-radius: 7px;
                 border: none;
