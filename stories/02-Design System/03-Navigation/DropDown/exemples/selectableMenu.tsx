@@ -8,11 +8,7 @@ import {KitButton} from '@kit/General';
 const items: KitDropdownMenuProps['items'] = [
     {
         key: '1',
-        label: (
-            <a target="_blank" rel="noopener noreferrer" href="http://www.aristid..com/">
-                1st menu item link
-            </a>
-        )
+        label: '1st menu item link'
     },
     {
         key: '2',
@@ -27,7 +23,7 @@ const items: KitDropdownMenuProps['items'] = [
 const App = () => {
     return (
         <KitSpace>
-            <KitDropDown menu={{items}}>
+            <KitDropDown menu={{items, selectable: true}}>
                 <KitButton type="link">
                     Hover me <DownOutlined />
                 </KitButton>
