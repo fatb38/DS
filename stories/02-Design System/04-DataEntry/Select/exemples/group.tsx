@@ -51,8 +51,6 @@ const App = ({}) => {
                 style={style}
                 options={iconOptions}
                 defaultActiveFirstOption={false}
-                open
-                labelOnly
             />
         </KitSpace>
     );
