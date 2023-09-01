@@ -63,7 +63,7 @@ const itemsGroups: KitDropdownMenuProps['items'] = [
 
 const App = () => {
     return (
-        <KitSpace>
+        <KitSpace size="large">
             <KitDropDown
                 menu={{
                     items
@@ -73,7 +73,6 @@ const App = () => {
                     Divider and disabled <DownOutlined />
                 </KitButton>
             </KitDropDown>
-            <br />
             <KitDropDown
                 menu={{
                     items: itemsGroups

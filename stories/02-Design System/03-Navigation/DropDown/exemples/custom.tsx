@@ -27,12 +27,12 @@ const items: KitDropdownMenuProps['items'] = [
 const App = () => {
     const customRender = (menu: React.ReactNode) => {
         return (
-            <div>
+            <>
                 {menu}
                 <KitButton type="primary" block style={{marginTop: '15px'}}>
                     CTA Action
                 </KitButton>
-            </div>
+            </>
         );
     };
 
