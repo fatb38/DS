@@ -13,7 +13,7 @@ import MenuExemple from './Menu/menuExemple';
 import ItemMenuBasicSource from './ItemMenu/itemMenuBasic?raw';
 import ItemMenuTypeSource from './ItemMenu/itemMenuType?raw';
 import ItemMenuSelectableSource from './ItemMenu/itemMenuSelectable?raw';
-import ItemMenuActionsSource from './ItemMenu/ItemMenuActions?raw';
+import ItemMenuActionsSource from './ItemMenu/itemMenuActions?raw';
 import ItemMenuValueSource from './ItemMenu/itemMenuValue?raw';
 import ItemMenuRafterSource from './ItemMenu/itemMenuRafter?raw';
 import ItemMenuAllSource from './ItemMenu/itemMenuAll?raw';
