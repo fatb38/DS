@@ -3,6 +3,9 @@ import {Checkbox} from 'antd';
 import styled from 'styled-components';
 import theme from './theme';
 import {KitCheckboxProps} from './types';
+import globalTheme from '@theme/index';
+
+const {color} = globalTheme;
 
 const StyledKitCheckbox = styled(Checkbox)<KitCheckboxProps>`
     font-weight: ${theme.fontWeight.default};
@@ -94,6 +97,55 @@ const StyledKitCheckbox = styled(Checkbox)<KitCheckboxProps>`
     }
     &.ant-checkbox-wrapper-danger .ant-checkbox-input:focus + .ant-checkbox-inner {
         border: ${theme.borderWidth} dashed ${theme.borderColor.danger.focus};
+    }
+
+    // Focus
+
+    &.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):not(.ant-checkbox-wrapper-danger):hover
+        .ant-checkbox:focus-within
+        .ant-checkbox-inner {
+        border: 1px dashed ${color.primary.blue400};
+        background-color: white;
+        &:after {
+            border-color: ${color.primary.blue300};
+            border-top: 0;
+            border-inline-start: 0;
+        }
+    }
+
+    &.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):not(.ant-checkbox-wrapper-danger)
+        .ant-checkbox:focus-within
+        .ant-checkbox-inner {
+        background-color: white;
+        &:after {
+            border-color: ${color.primary.blue400};
+            border-top: 0;
+            border-inline-start: 0;
+        }
+    }
+
+    &.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):not(.ant-checkbox-wrapper-danger)
+        .ant-checkbox:focus-within
+        .ant-checkbox-inner {
+        background-color: white;
+        &:after {
+            border-color: ${color.primary.blue400};
+            border-top: 0;
+            border-inline-start: 0;
+            border-width: 2px;
+        }
+    }
+
+    &.ant-checkbox-wrapper-danger:not(.ant-checkbox-wrapper-disabled) .ant-checkbox:focus-within {
+        .ant-checkbox-inner {
+            background-color: white;
+            &:after {
+                border-color: ${color.secondary.red.red400};
+                border-top: 0;
+                border-inline-start: 0;
+                border-width: 2px;
+            }
+        }
     }
 `;
 
