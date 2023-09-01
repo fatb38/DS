@@ -1,9 +1,9 @@
 import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
-import {DownOutlined} from '@ant-design/icons';
 import {KitDropdownMenuProps} from '@kit/Navigation/DropDown/types';
-import {KitButton} from '@kit/General';
+import {KitTypography} from '@kit/General';
+import theme from '@theme/index';
 
 const items: KitDropdownMenuProps['items'] = [
     {
@@ -27,10 +27,18 @@ const items: KitDropdownMenuProps['items'] = [
 const App = () => {
     return (
         <KitSpace>
-            <KitDropDown menu={{items}}>
-                <KitButton type="link">
-                    Hover me <DownOutlined />
-                </KitButton>
+            <KitDropDown menu={{items}} trigger={['contextMenu']}>
+                <div
+                    style={{
+                        background: theme.color.neutral.background,
+                        height: 200,
+                        width: 600,
+                        textAlign: 'center',
+                        lineHeight: '200px'
+                    }}
+                >
+                    <KitTypography.Text>Right Click on here</KitTypography.Text>
+                </div>
             </KitDropDown>
         </KitSpace>
     );

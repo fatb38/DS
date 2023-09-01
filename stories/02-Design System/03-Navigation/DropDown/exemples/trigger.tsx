@@ -2,8 +2,10 @@ import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 import {DownOutlined} from '@ant-design/icons';
+import {KitDropdownMenuProps} from '@kit/Navigation/DropDown/types';
+import {KitButton} from '@kit/General';
 
-const items = [
+const items: KitDropdownMenuProps['items'] = [
     {
         key: '1',
         label: (
@@ -24,14 +26,15 @@ const items = [
 
 const App = () => {
     return (
-        <KitDropDown menu={{items}} trigger={['click']}>
-            <a onClick={e => e.preventDefault()}>
-                <KitSpace>
-                    Click me
-                    <DownOutlined />
-                </KitSpace>
-            </a>
-        </KitDropDown>
+        <KitSpace>
+            <KitDropDown menu={{items}} trigger={['click']}>
+                <a onClick={e => e.preventDefault()}>
+                    <KitButton type="link">
+                        Click me <DownOutlined />
+                    </KitButton>
+                </a>
+            </KitDropDown>
+        </KitSpace>
     );
 };
 
