@@ -557,5 +557,5 @@ export declare const getPopupStyle: (placement: any) => {
     borderBottomLeftRadius?: undefined;
     borderBottomRightRadius?: undefined;
 };
-export declare const DropDownStyle: import("react").NamedExoticComponent<import("styled-components").ExecutionProps & object>;
+export declare const SelectDropDownStyle: import("react").NamedExoticComponent<import("styled-components").ExecutionProps & object>;
 export declare const KitSelectStyle: import("styled-components").RuleSet<object>;
