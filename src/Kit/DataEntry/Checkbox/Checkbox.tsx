@@ -64,7 +64,7 @@ const StyledKitCheckbox = styled(Checkbox)<KitCheckboxProps>`
     }
 
     .ant-checkbox-checked + span {
-        font-weight: ${theme.fontWeight.checked};
+        font-weight: ${theme.fontWeight.default};
     }
 
     .ant-checkbox-checked:after {
