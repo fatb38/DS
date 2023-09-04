@@ -15,10 +15,14 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
         }
 
         .ant-radio-inner:after {
-            transform: scale(0.5);
+            transform: scale(0.6);
             visibility: hidden;
             background-color: ${theme.bulletColor.default};
         }
+    }
+
+    .ant-radio-checked::after {
+        border-color: transparent;
     }
 
     &.ant-radio-wrapper-disabled .ant-radio .ant-radio-inner {
@@ -84,6 +88,14 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
         border-style: dashed;
     }
 
+    &:not(.ant-radio-wrapper-disabled):not(.ant-radio-wrapper-danger) .ant-radio-input:focus + .ant-radio-inner {
+        border-color: ${theme.borderColor.checked};
+    }
+
+    &:not(.ant-radio-wrapper-disabled) .ant-radio-input:focus-within + .ant-radio-inner::after {
+        transform: scale(0.52);
+    }
+
     // active
 
     &:not(.ant-radio-wrapper-danger) {
@@ -105,7 +117,7 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
     }
 
     .ant-radio-checked + span {
-        font-weight: ${theme.fontWeight.checked};
+        font-weight: ${theme.fontWeight.default};
     }
 `;
 

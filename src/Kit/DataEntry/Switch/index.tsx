@@ -7,10 +7,23 @@ import {KitSwitchProps, StyledSwitchProps} from './types';
 const StyledSwitch = styled(Switch)<StyledSwitchProps>`
     & {
         background: ${theme.backgroundColor.default.off};
+        border: ${theme.handle.borderWidth} solid ${theme.handle.borderColor.default.off};
         height: ${theme.height}px;
         width: 32px;
         min-width: 32px;
         border-radius: 20px;
+    }
+
+    &.ant-switch-checked {
+        border: ${theme.handle.borderWidth} solid ${theme.handle.borderColor.default.on};
+    }
+
+    &.ant-switch:hover {
+        background-color: white;
+    }
+
+    & {
+        height: 22px;
     }
 
     .ant-switch-handle {
@@ -21,7 +34,7 @@ const StyledSwitch = styled(Switch)<StyledSwitchProps>`
         inset-inline-start: 1px;
 
         .ant-switch-loading-icon {
-            top: ${(theme.pinHeight - theme.iconFontSize) / 2}px;
+            top: ${(theme.pinHeight - theme.iconFontSize) / 2 + 1}px;
         }
     }
 
@@ -31,18 +44,24 @@ const StyledSwitch = styled(Switch)<StyledSwitchProps>`
 
     .ant-switch-handle::before {
         border: ${theme.handle.borderWidth} solid ${theme.handle.borderColor.default.off};
-        background-color: ${theme.handle.backgroundColor.default};
+        background-color: ${theme.handle.backgroundColor.default.off};
         box-shadow: none;
         border-radius: 9px;
+    }
+
+    &.ant-switch-checked .ant-switch-handle::before {
+        border: ${theme.handle.borderWidth} solid ${theme.handle.borderColor.default.on};
+        background-color: ${theme.handle.backgroundColor.default.on};
     }
 
     &.ant-switch-disabled,
     &.ant-switch-checked.ant-switch-disabled {
         background: ${theme.backgroundColor.disabled.on};
+        border-color: ${theme.handle.borderColor.disabled.on};
 
         .ant-switch-handle::before {
             border-color: ${theme.handle.borderColor.disabled.on};
-            background-color: ${theme.handle.backgroundColor.disabled};
+            background-color: ${theme.handle.borderColor.disabled.on};
             box-shadow: none;
         }
     }
@@ -62,9 +81,17 @@ const StyledSwitch = styled(Switch)<StyledSwitchProps>`
         }
     }
 
-    &:focus {
-        .ant-switch-handle::before {
-            border-style: dashed;
+    // Focus
+    &.ant-switch-checked:focus-visible .ant-switch-handle {
+        width: 23px;
+        inset-inline-start: calc(100% - 24px);
+    }
+
+    &.ant-switch:not(.ant-switch-checked):focus-visible .ant-switch-handle {
+        width: 23px;
+        &::before {
+            background-color: ${theme.handle.borderColor.default.on};
+            border-color: ${theme.handle.borderColor.default.on};
         }
     }
 `;

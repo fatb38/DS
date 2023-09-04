@@ -32,7 +32,7 @@ export interface KitSwitchTheme {
             };
         };
         backgroundColor: {
-            default: string;
+            default: {on: string; off: string};
             disabled: string;
         };
     };

@@ -15,12 +15,12 @@ const primaryTheme: KitSwitchTheme = {
         borderWidth: '1.3px',
         borderColor: {
             default: {
-                off: theme.color.neutral.typography.black60,
+                off: theme.color.secondary.mediumGrey.mediumGrey400,
                 on: theme.color.primary.blue400
             },
             disabled: {
-                off: theme.color.primary.blue200,
-                on: theme.color.primary.blue200
+                off: theme.color.secondary.mediumGrey.mediumGrey200,
+                on: theme.color.secondary.mediumGrey.mediumGrey200
             },
             focus: {
                 off: theme.color.primary.blue200,
@@ -28,8 +28,11 @@ const primaryTheme: KitSwitchTheme = {
             }
         },
         backgroundColor: {
-            default: theme.color.neutral.typography.white,
-            disabled: theme.color.primary.blue100
+            default: {
+                on: theme.color.neutral.typography.white,
+                off: theme.color.secondary.mediumGrey.mediumGrey400
+            },
+            disabled: theme.color.secondary.mediumGrey.mediumGrey100
         }
     },
     backgroundColor: {
@@ -38,8 +41,8 @@ const primaryTheme: KitSwitchTheme = {
             off: theme.color.neutral.background
         },
         disabled: {
-            on: theme.color.primary.blue100,
-            off: theme.color.primary.blue100
+            on: theme.color.secondary.mediumGrey.mediumGrey100,
+            off: theme.color.secondary.mediumGrey.mediumGrey100
         },
         focus: {
             on: '',
