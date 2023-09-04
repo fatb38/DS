@@ -168,9 +168,6 @@ const theme: KitThemeConfig = {
             colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey300,
             borderRadius: 8
         },
-        Rate: {
-            starColor: colorsPalette.secondary.yellow.yellow300
-        },
         Tree: {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize5,

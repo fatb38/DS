@@ -2,28 +2,30 @@ import React from 'react';
 import {Rate as AntdRate} from 'antd';
 import {KitRateColor, KitRateProps} from './types';
 import styled, {css} from 'styled-components';
-import theme from '@theme/index';
+import {KitRateThemeProps} from '@theme/types/components/Rate';
+import {useKitTheme} from '@theme/theme-context';
 
 const StyledRate = styled(AntdRate)<{
+    $theme: KitRateThemeProps;
     $color: KitRateColor;
     $disabledStarTransparency: string;
 }>`
-    ${props => {
-        switch (props.$color) {
+    ${({$color, $theme}) => {
+        switch ($color) {
             case 'default':
                 // Use default one from theme
                 return;
             case 'red':
                 return css`
-                    color: ${theme.color.secondary.red.red300};
+                    color: ${$theme.starColorPalette.red};
                 `;
             case 'green':
                 return css`
-                    color: ${theme.color.secondary.green.green300};
+                    color: ${$theme.starColorPalette.green};
                 `;
             case 'blue':
                 return css`
-                    color: ${theme.color.secondary.blue.blue300};
+                    color: ${$theme.starColorPalette.blue};
                 `;
         }
     }}
@@ -31,13 +33,13 @@ const StyledRate = styled(AntdRate)<{
     &.ant-rate .ant-rate-star {
         &:not(.ant-rate-star-half):not(.ant-rate-star-full) {
             .ant-rate-star-first {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey100};
+                color: ${({$theme}) => $theme.startDefaultColor};
             }
         }
 
         &:not(.ant-rate-star-full) {
             .ant-rate-star-second {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey100};
+                color: ${({$theme}) => $theme.startDefaultColor};
             }
         }
     }
@@ -55,7 +57,7 @@ const StyledRate = styled(AntdRate)<{
                     position: absolute;
                     width: 2px;
                     height: 95%;
-                    background-color: ${theme.color.secondary.mediumGrey.mediumGrey100};
+                    background-color: ${({$theme}) => $theme.startDisabledColor};
                     transform-origin: 0 0;
                     transform: rotate(320deg);
                     left: 0;
@@ -68,9 +70,7 @@ const StyledRate = styled(AntdRate)<{
                 }
 
                 div[role='radio']::before {
-                    background-color: ${props => {
-                        return props.$disabledStarTransparency;
-                    }};
+                    background-color: ${({$disabledStarTransparency}) => $disabledStarTransparency};
                     top: 5px;
                 }
             }
@@ -80,10 +80,19 @@ const StyledRate = styled(AntdRate)<{
 
 export const KitRate: React.FunctionComponent<KitRateProps> = ({
     color = 'default',
-    disabledStarTransparency = theme.color.neutral.typography.white,
+    disabledStarTransparency,
     ...rateProps
 }) => {
-    return <StyledRate $color={color} $disabledStarTransparency={disabledStarTransparency} {...rateProps} />;
+    const {theme} = useKitTheme();
+
+    return (
+        <StyledRate
+            $theme={theme.components.Rate}
+            $color={color}
+            $disabledStarTransparency={disabledStarTransparency ?? theme.general.colors.neutral.typography.white}
+            {...rateProps}
+        />
+    );
 };
 
 KitRate.displayName = 'KitRate';

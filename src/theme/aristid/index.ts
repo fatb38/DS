@@ -1,7 +1,12 @@
-import {RateTheme} from './components/Rate';
+import {KitThemeProps} from '@theme/types';
+import {KitRateTheme} from './components/Rate';
+import {colorsPalette} from './general/colors';
 
-export const KitDefaultTheme = {
+export const KitDefaultTheme: KitThemeProps = {
+    general: {
+        colors: colorsPalette
+    },
     components: {
-        Rate: RateTheme
+        Rate: KitRateTheme
     }
 };

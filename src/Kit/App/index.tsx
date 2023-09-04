@@ -1,6 +1,5 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {ConfigProvider} from 'antd';
-import {KitAppProps} from './types';
 import GlobalStyles from './style';
 import theme from '@theme/index';
 import KitSnackBarProvider from '@kit/Feedback/SnackBar/SnackBarProvider';
@@ -11,8 +10,14 @@ import {DatePickerDropDownStyle} from '@kit/DataEntry/DatePicker/style';
 import {NotificationStyle} from '@kit/Feedback/Notification/style';
 import {KitThemeProvider, useKitTheme} from '@theme/theme-context';
 import {merge} from 'lodash';
+import {KitCustomThemeProps} from '@theme/types';
 
-export const KitApp: React.FunctionComponent = ({children, customTheme}: {children?: ReactNode; customTheme?: any}) => {
+export const KitApp: React.FunctionComponent<React.PropsWithChildren<{customTheme?: KitCustomThemeProps}>> = ({
+    children,
+    customTheme
+}) => {
+    console.log('KitApp customTheme : ', customTheme);
+
     return (
         <KitThemeProvider>
             <KitAppConfig customTheme={customTheme}>{children}</KitAppConfig>
@@ -20,28 +25,29 @@ export const KitApp: React.FunctionComponent = ({children, customTheme}: {childr
     );
 };
 
-const KitAppConfig = ({children, customTheme}: {children?: ReactNode; customTheme?: any}) => {
+const KitAppConfig: React.FunctionComponent<React.PropsWithChildren<{customTheme?: KitCustomThemeProps}>> = ({
+    children,
+    customTheme
+}) => {
     //TODO: rename contextTheme -> theme
     const {theme: contextTheme, overrideTheme} = useKitTheme();
+
+    // Temporary -------
+    const tmpMergedTheme = merge(theme, contextTheme);
+    // Temporary -------
 
     if (customTheme !== undefined) {
         overrideTheme(customTheme);
     }
 
     // Temporary -------
-
-    console.log('contextTheme : ', contextTheme);
-    // const tmpMergedTheme = {...theme, ...contextTheme};
-
-    const tmpMergedTheme = merge(theme, contextTheme);
-
-    console.log('tmpMergedTheme : ', tmpMergedTheme);
+    const tmpBigMergeTheme = merge(tmpMergedTheme, customTheme);
     // Temporary -------
 
     // TODO: Give to all the providers contextTheme
 
     return (
-        <ConfigProvider theme={tmpMergedTheme}>
+        <ConfigProvider theme={tmpBigMergeTheme}>
             <KitNotificationProvider>
                 <KitSnackBarProvider />
                 <GlobalStyles />
