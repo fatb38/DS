@@ -11,14 +11,6 @@ interface KitThemeConfig extends ThemeConfig {
 const theme: KitThemeConfig = {
     token: {
         fontFamily: Typography.fontFamily
-        // colorPrimary: "#0F4FFA",
-        // colorPrimaryHover: "#0B37AF",
-        // colorPrimaryActive: "#062064",
-        // colorBgBase: "#ffffff",
-        // colorBorderSecondary: "#e2edff",
-        // colorBgContainerDisabled: "#E7EDFF",
-        // colorTextDisabled: "#9eb9fd",
-        // colorBorder: "#E7EDFF",
     },
     color: colorsPalette,
     typography: Typography,
