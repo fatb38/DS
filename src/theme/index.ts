@@ -91,6 +91,11 @@ const theme: KitThemeConfig = {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize5
         },
+        Dropdown: {
+            borderRadius: 7,
+            fontFamily: Typography.fontFamily,
+            fontSize: Typography.fontSize6
+        },
         Select: {
             borderRadius: 7,
             controlHeight: 40,

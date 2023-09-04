@@ -8,6 +8,7 @@ import {KitTag} from './Tag';
 import {KitSwitch} from './Switch';
 import {KitDatePicker} from './DatePicker';
 import {KitAutoComplete} from './AutoComplete';
+import {KitUpload} from './Upload';
 
 export {KitCheckbox};
 export {KitInput};
@@ -19,3 +20,4 @@ export {KitTag};
 export {KitSwitch};
 export {KitAutoComplete};
 export {KitDatePicker};
+export {KitUpload};

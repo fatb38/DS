@@ -15,26 +15,6 @@ import {
     argTypes={argTypes}
 />
 
-<style>
-    {`
-    .subheading {
-      --mediumdark: '#999999';
-      font-weight: 900;
-      font-size: 13px;
-      color: #999;
-      letter-spacing: 6px;
-      line-height: 24px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      margin-top: 40px;
-    }
-    .site-button-ghost-wrapper {
-        padding: 16px;
-        background: rgb(190, 200, 200);
-    }
-    `}
-</style>
-
 # DropDown
 
 A DropDown list.
@@ -63,6 +43,12 @@ You could display an arrow.
 
 <CustomCanvas content={Exemples.Arrow} source={Sources.Arrow} />
 
+##### Arrow pointing at the center
+
+By specifying `arrow` prop with `{ pointAtCenter: true }`, the arrow will point to the center of the target element.
+
+<CustomCanvas content={Exemples.ArrowCenter} source={Sources.ArrowCenter} />
+
 ##### Other elements
 
 Divider and disabled menu item.
@@ -75,9 +61,35 @@ The default trigger mode is hover, you can change it to click.
 
 <CustomCanvas content={Exemples.Trigger} source={Sources.Trigger} />
 
-##### Button with DropDown menu
+##### Custom dropdown
 
-A button is on the left, and a related functional menu is on the right. You can set the icon property to modify the icon of right.
+Customize the dropdown menu via `dropdownRender`. If you don't need the Menu content, use the Popover component directly.
+
+<CustomCanvas content={Exemples.Custom} source={Sources.Custom} />
+
+##### Cascading menu
+
+The menu has multiple levels.
+
+<CustomCanvas content={Exemples.CascadingMenu} source={Sources.CascadingMenu} />
+
+##### Context menu
+
+The default trigger mode is `hover`, you can change it to `contextMenu`.
+
+<CustomCanvas content={Exemples.ContextMenu} source={Sources.ContextMenu} />
+
+##### Selectable menu
+
+Configure the `selectable` property in `menu` to enable selectable ability.
+
+<CustomCanvas content={Exemples.SelectableMenu} source={Sources.SelectableMenu} />
+
+##### The way of hiding menu
+
+The default is to close the menu when you click on menu items, this feature can be turned off.
+
+<CustomCanvas content={Exemples.HidingMenu} source={Sources.HidingMenu} />
 
 ## Api
 

@@ -27,24 +27,24 @@ const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitSpace wrap>
-                <KitDropDown menu={{items}} placement="bottomLeft" arrow>
+                <KitDropDown menu={{items}} placement="bottomLeft" arrow={{pointAtCenter: true}}>
                     <KitButton>bottomLeft</KitButton>
                 </KitDropDown>
-                <KitDropDown menu={{items}} placement="bottom" arrow>
+                <KitDropDown menu={{items}} placement="bottom" arrow={{pointAtCenter: true}}>
                     <KitButton>bottom</KitButton>
                 </KitDropDown>
-                <KitDropDown menu={{items}} placement="bottomRight" arrow>
+                <KitDropDown menu={{items}} placement="bottomRight" arrow={{pointAtCenter: true}}>
                     <KitButton>bottomRight</KitButton>
                 </KitDropDown>
             </KitSpace>
             <KitSpace wrap>
-                <KitDropDown menu={{items}} placement="topLeft" arrow>
+                <KitDropDown menu={{items}} placement="topLeft" arrow={{pointAtCenter: true}}>
                     <KitButton>topLeft</KitButton>
                 </KitDropDown>
-                <KitDropDown menu={{items}} placement="top" arrow>
+                <KitDropDown menu={{items}} placement="top" arrow={{pointAtCenter: true}}>
                     <KitButton>top</KitButton>
                 </KitDropDown>
-                <KitDropDown menu={{items}} placement="topRight" arrow>
+                <KitDropDown menu={{items}} placement="topRight" arrow={{pointAtCenter: true}}>
                     <KitButton>topRight</KitButton>
                 </KitDropDown>
             </KitSpace>

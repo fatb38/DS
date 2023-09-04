@@ -1,18 +1,12 @@
 import React from 'react';
-import {DropDownProps, Dropdown} from 'antd';
 import styled from 'styled-components';
+import {Dropdown as AntdDropdown} from 'antd';
+import {KitDropdownProps} from './types';
 
-import {DropDownStyle} from './style';
+const StyledDropDown = styled(AntdDropdown)``;
 
-const StyledDropDown = styled(Dropdown)``;
-
-export const KitDropDown: React.FunctionComponent<DropDownProps> = props => {
-    return (
-        <>
-            <DropDownStyle />
-            <StyledDropDown {...props} />
-        </>
-    );
+export const KitDropDown: React.FunctionComponent<KitDropdownProps> = props => {
+    return <StyledDropDown {...props} />;
 };
 
 KitDropDown.displayName = 'KitDropDown';

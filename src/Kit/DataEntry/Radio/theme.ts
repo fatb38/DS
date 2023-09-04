@@ -10,7 +10,7 @@ const primaryTheme: KitRadioTheme = {
     color: {
         default: theme.color.neutral.typography.black,
         enabled: theme.color.neutral.typography.black,
-        disabled: theme.color.primary.blue200,
+        disabled: theme.color.secondary.mediumGrey.mediumGrey400,
         danger: {
             default: theme.color.neutral.typography.black,
             disabled: theme.color.secondary.red.red200
@@ -20,7 +20,7 @@ const primaryTheme: KitRadioTheme = {
         default: theme.color.neutral.typography.white,
         checked: theme.color.neutral.typography.white,
         hover: theme.color.neutral.typography.white,
-        disabled: theme.color.primary.blue100,
+        disabled: theme.color.secondary.mediumGrey.mediumGrey100,
         danger: {
             default: theme.color.secondary.red.red200,
             hover: theme.color.secondary.red.red200,
@@ -29,9 +29,9 @@ const primaryTheme: KitRadioTheme = {
     },
     borderColor: {
         default: theme.color.neutral.typography.black60,
-        checked: theme.color.primary.blue300,
-        hover: theme.color.primary.blue400,
-        disabled: theme.color.primary.blue200,
+        checked: theme.color.primary.blue400,
+        hover: theme.color.primary.blue500,
+        disabled: theme.color.secondary.mediumGrey.mediumGrey200,
         danger: {
             default: theme.color.secondary.red.red400,
             hover: theme.color.secondary.red.red500,
@@ -39,9 +39,9 @@ const primaryTheme: KitRadioTheme = {
         }
     },
     bulletColor: {
-        default: theme.color.primary.blue200,
-        hover: theme.color.primary.blue400,
-        disabled: theme.color.primary.blue200,
+        default: theme.color.primary.blue400,
+        hover: theme.color.primary.blue500,
+        disabled: theme.color.secondary.mediumGrey.mediumGrey200,
         danger: {
             default: theme.color.secondary.red.red400,
             hover: theme.color.secondary.red.red500,

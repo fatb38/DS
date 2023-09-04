@@ -295,8 +295,8 @@ const DropDownButtonArgTypes = {
 };
 
 export const argTypes = {
-    ...DropDownArgTypes,
-    ...DropDownButtonArgTypes
+    ...DropDownArgTypes
+    // ...DropDownButtonArgTypes // Keep this line, as it may come in handy later.
 };
 
 export const Template = args => {
