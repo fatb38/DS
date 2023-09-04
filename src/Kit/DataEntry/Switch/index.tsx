@@ -80,6 +80,20 @@ const StyledSwitch = styled(Switch)<StyledSwitchProps>`
             }
         }
     }
+
+    // Focus
+    &.ant-switch-checked:focus-visible .ant-switch-handle {
+        width: 23px;
+        inset-inline-start: calc(100% - 24px);
+    }
+
+    &.ant-switch:not(.ant-switch-checked):focus-visible .ant-switch-handle {
+        width: 23px;
+        &::before {
+            background-color: ${theme.handle.borderColor.default.on};
+            border-color: ${theme.handle.borderColor.default.on};
+        }
+    }
 `;
 
 export const KitSwitch: React.FunctionComponent<KitSwitchProps> = props => (
