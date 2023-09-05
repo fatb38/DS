@@ -101,9 +101,6 @@ const theme: KitThemeConfig = {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize6
         },
-        Tooltip: {
-            borderRadius: 7
-        },
         Steps: {
             colorPrimary: colorsPalette.primary.blue400,
             colorError: colorsPalette.secondary.red.red400,

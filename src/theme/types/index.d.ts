@@ -2,6 +2,7 @@ import {KitRateTheme} from './components/DataEntry/Rate';
 import {KitTooltipTheme} from './components/DateDisplay/Tooltip';
 import {KitBorder} from './general/border';
 import {KitColorsPalette} from './general/colors';
+import {KitSpacing} from './general/spacing';
 import {KitTypography} from './general/typography';
 
 type DeepPartial<T> = T extends object
@@ -13,6 +14,7 @@ type DeepPartial<T> = T extends object
 export interface KitThemeGeneral {
     colors: KitColorsPalette;
     border: KitBorder;
+    spacing: KitSpacing;
     typography: KitTypography;
 }
 

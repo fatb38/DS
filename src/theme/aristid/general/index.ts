@@ -2,9 +2,11 @@ import {KitThemeGeneral} from '@theme/types';
 import {colorsPalette} from './colors';
 import {typography} from './typography';
 import {border} from './border';
+import {spacing} from './spacing';
 
 export const KitAristidThemeGeneral: KitThemeGeneral = {
     colors: colorsPalette,
     border: border,
+    spacing: spacing,
     typography: typography
 };
