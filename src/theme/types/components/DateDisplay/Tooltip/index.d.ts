@@ -7,6 +7,9 @@ export interface KitTooltipThemeAntd {
             default: string;
         };
     };
+    border: {
+        radius: number;
+    };
     typography: {
         fontFamily: string;
         fontSize: number;
