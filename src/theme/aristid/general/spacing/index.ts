@@ -6,9 +6,9 @@ export const spacing: KitSpacing = {
     xs: 8,
     s: 16,
     m: 24,
-    xl: 32,
-    xxl: 40,
-    xxxl: 48,
+    l: 32,
+    xl: 40,
+    xxl: 48,
     huge: 56,
     veryHuge: 64
 };

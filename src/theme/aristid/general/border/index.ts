@@ -7,9 +7,9 @@ export const border: KitBorder = {
         xs: 4,
         s: 8,
         m: 16,
-        xl: 24,
-        xxl: 32,
-        xxxl: 40
+        l: 24,
+        xl: 32,
+        xxl: 40
     },
     width: 0
 };
