@@ -124,11 +124,6 @@ const theme: KitThemeConfig = {
             colorText: colorsPalette.neutral.typography.black,
             fontFamily: Typography.fontFamily
         },
-        Tag: {
-            defaultBg: colorsPalette.primary.blue100,
-            borderRadiusSM: 7,
-            defaultColor: colorsPalette.neutral.typography.black
-        },
         Breadcrumb: {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize5,

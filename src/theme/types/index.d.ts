@@ -1,9 +1,10 @@
 import {KitRateTheme} from './components/DataEntry/Rate';
-import {KitTooltipTheme} from './components/DateDisplay/Tooltip';
+import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
 import {KitBorder} from './general/border';
 import {KitColorsPalette} from './general/colors';
 import {KitSpacing} from './general/spacing';
 import {KitTypography} from './general/typography';
+import {KitTagTheme} from '@kit/DataEntry/Tag/types';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -23,6 +24,7 @@ export interface KitTheme {
     components: {
         Rate: KitRateTheme;
         Tooltip: KitTooltipTheme;
+        Tag: KitTagTheme;
     };
 }
 

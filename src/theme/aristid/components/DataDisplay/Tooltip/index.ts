@@ -1,6 +1,6 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
 import {AntdThemeConfigWithRequiredComponents} from '@theme/types';
-import {KitTooltipThemeAntd} from '@theme/types/components/DateDisplay/Tooltip';
+import {KitTooltipThemeAntd} from '@theme/types/components/DataDisplay/Tooltip';
 
 const {colors, typography, border} = KitAristidThemeGeneral;
 
