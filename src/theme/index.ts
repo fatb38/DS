@@ -60,17 +60,6 @@ const theme: KitThemeConfig = {
             lineHeight: Typography.lineHeight6,
             colorSplit: colorsPalette.neutral.typography.black60
         },
-        Input: {
-            colorBgContainer: colorsPalette.neutral.typography.white,
-            colorBgContainerDisabled: colorsPalette.secondary.mediumGrey.mediumGrey100,
-            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey200,
-            colorPrimaryHover: colorsPalette.primary.blue400,
-            colorTextPlaceholder: colorsPalette.secondary.mediumGrey.mediumGrey500,
-            colorText: colorsPalette.primary.blue300,
-            borderRadius: 7,
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize5
-        },
         InputNumber: {
             colorBgContainer: colorsPalette.neutral.typography.white,
             colorBgContainerDisabled: colorsPalette.secondary.mediumGrey.mediumGrey100,

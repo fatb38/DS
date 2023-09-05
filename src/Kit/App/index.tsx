@@ -16,8 +16,6 @@ export const KitApp: React.FunctionComponent<React.PropsWithChildren<{customThem
     children,
     customTheme
 }) => {
-    console.log('KitApp customTheme : ', customTheme);
-
     return (
         <KitThemeProvider>
             <KitAppConfig customTheme={customTheme}>{children}</KitAppConfig>

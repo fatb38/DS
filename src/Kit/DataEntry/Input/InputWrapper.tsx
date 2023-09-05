@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitInputWrapperProps} from './types';
-import theme from '@theme/index';
 import {KitTypography} from '@kit/General/';
+import {useKitTheme} from '@theme/theme-context';
 
 const KitInputWrapper: React.FunctionComponent<KitInputWrapperProps> = ({
     label,
@@ -10,18 +10,21 @@ const KitInputWrapper: React.FunctionComponent<KitInputWrapperProps> = ({
     status,
     children
 }) => {
+    const {theme: kitTheme} = useKitTheme();
+    const {colors, gap} = kitTheme.components.InputWrapper;
+
     const getKitInputWrapperTextColor = () => {
         if (disabled) {
-            return theme.color.secondary.mediumGrey.mediumGrey400;
+            return colors.typography.disabled;
         }
 
         switch (status) {
             case 'warning':
-                return theme.color.secondary.orange.orange400;
+                return colors.typography.warning;
             case 'error':
-                return theme.color.secondary.red.red400;
+                return colors.typography.error;
             default:
-                return theme.color.secondary.mediumGrey.mediumGrey500;
+                return colors.typography.default;
         }
     };
 
@@ -30,7 +33,7 @@ const KitInputWrapper: React.FunctionComponent<KitInputWrapperProps> = ({
     return (
         <div className="kit-input-wrapper">
             {label && (
-                <div className="kit-input-label" style={{paddingBottom: '4px'}}>
+                <div className="kit-input-label" style={{marginBottom: gap.label}}>
                     <KitTypography.Text size="large" weight="medium" style={{color: textColor}}>
                         {label}
                     </KitTypography.Text>
@@ -38,7 +41,7 @@ const KitInputWrapper: React.FunctionComponent<KitInputWrapperProps> = ({
             )}
             {children}
             {helper && (
-                <div className="kit-input-helper" style={{paddingTop: '4px'}}>
+                <div className="kit-input-helper" style={{marginTop: gap.helper}}>
                     <KitTypography.Text size="small" weight="regular" style={{color: textColor}}>
                         * {helper}
                     </KitTypography.Text>

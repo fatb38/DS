@@ -4,7 +4,9 @@ import {KitBorder} from './general/border';
 import {KitColorsPalette} from './general/colors';
 import {KitSpacing} from './general/spacing';
 import {KitTypography} from './general/typography';
-import {KitTagTheme} from '@kit/DataEntry/Tag/types';
+import {KitTagTheme} from './components/DataEntry/Tag';
+import {KitInputWrapperTheme} from './components/DataEntry/Input';
+import {KitInputTheme} from './components/DataEntry/Input/Input';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -25,6 +27,8 @@ export interface KitTheme {
         Rate: KitRateTheme;
         Tooltip: KitTooltipTheme;
         Tag: KitTagTheme;
+        InputWrapper: KitInputWrapperTheme;
+        Input: KitInputTheme;
     };
 }
 
