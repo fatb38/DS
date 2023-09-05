@@ -102,12 +102,7 @@ const theme: KitThemeConfig = {
             fontSize: Typography.fontSize6
         },
         Tooltip: {
-            colorBgSpotlight: colorsPalette.primary.blue600,
-            colorTextLightSolid: colorsPalette.neutral.typography.white,
-            fontSize: Typography.fontSize7,
-            fontFamily: Typography.fontFamily,
-            borderRadius: 7,
-            controlHeight: 15
+            borderRadius: 7
         },
         Steps: {
             colorPrimary: colorsPalette.primary.blue400,

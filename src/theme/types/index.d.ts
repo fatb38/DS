@@ -1,5 +1,7 @@
-import {KitRateThemeProps} from './components/Rate';
+import {KitRateTheme} from './components/DataEntry/Rate';
+import {KitTooltipTheme} from './components/DateDisplay/Tooltip';
 import {KitColorsPalette} from './general/colors';
+import {KitTypography} from './general/typography';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -7,13 +9,23 @@ type DeepPartial<T> = T extends object
       }
     : T;
 
-export interface KitThemeProps {
-    general: {
-        colors: KitColorsPalette;
-    };
+export interface KitThemeGeneral {
+    colors: KitColorsPalette;
+    typography: KitTypography;
+}
+
+export interface KitTheme {
+    general: KitThemeGeneral;
     components: {
-        Rate: KitRateThemeProps;
+        Rate: KitRateTheme;
+        Tooltip: KitTooltipTheme;
     };
 }
 
-export interface KitCustomThemeProps extends DeepPartial<KitThemeProps> {}
+export interface KitCustomTheme extends DeepPartial<KitTheme> {}
+
+// This function can set an optional attribute to be required
+type SetRequired<T, K extends keyof T> = T & {[P in K]-?: T[P]};
+
+// This type can be used to map our custom token to antd design token
+export type AntdThemeConfigWithRequiredComponents = SetRequired<ThemeConfig, 'components'>;

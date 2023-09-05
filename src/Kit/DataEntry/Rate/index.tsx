@@ -2,11 +2,11 @@ import React from 'react';
 import {Rate as AntdRate} from 'antd';
 import {KitRateColor, KitRateProps} from './types';
 import styled, {css} from 'styled-components';
-import {KitRateThemeProps} from '@theme/types/components/Rate';
+import {KitRateTheme} from '@theme/types/components/DataEntry/Rate';
 import {useKitTheme} from '@theme/theme-context';
 
 const StyledRate = styled(AntdRate)<{
-    $theme: KitRateThemeProps;
+    $theme: KitRateTheme;
     $color: KitRateColor;
     $disabledStarTransparency: string;
 }>`
@@ -17,15 +17,15 @@ const StyledRate = styled(AntdRate)<{
                 return;
             case 'red':
                 return css`
-                    color: ${$theme.starColorPalette.red};
+                    color: ${$theme.colors.star.active.red};
                 `;
             case 'green':
                 return css`
-                    color: ${$theme.starColorPalette.green};
+                    color: ${$theme.colors.star.active.green};
                 `;
             case 'blue':
                 return css`
-                    color: ${$theme.starColorPalette.blue};
+                    color: ${$theme.colors.star.active.blue};
                 `;
         }
     }}
@@ -33,13 +33,13 @@ const StyledRate = styled(AntdRate)<{
     &.ant-rate .ant-rate-star {
         &:not(.ant-rate-star-half):not(.ant-rate-star-full) {
             .ant-rate-star-first {
-                color: ${({$theme}) => $theme.startDefaultColor};
+                color: ${({$theme}) => $theme.colors.star.default};
             }
         }
 
         &:not(.ant-rate-star-full) {
             .ant-rate-star-second {
-                color: ${({$theme}) => $theme.startDefaultColor};
+                color: ${({$theme}) => $theme.colors.star.default};
             }
         }
     }
@@ -57,7 +57,7 @@ const StyledRate = styled(AntdRate)<{
                     position: absolute;
                     width: 2px;
                     height: 95%;
-                    background-color: ${({$theme}) => $theme.startDisabledColor};
+                    background-color: ${({$theme}) => $theme.colors.star.disabled};
                     transform-origin: 0 0;
                     transform: rotate(320deg);
                     left: 0;

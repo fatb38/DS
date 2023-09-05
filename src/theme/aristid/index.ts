@@ -1,12 +1,12 @@
-import {KitThemeProps} from '@theme/types';
-import {KitRateTheme} from './components/Rate';
-import {colorsPalette} from './general/colors';
+import {KitTheme} from '@theme/types';
+import {KitAristidThemeGeneral} from './general';
+import {KitRateTheme} from './components/DataEntry/Rate';
+import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
 
-export const KitDefaultTheme: KitThemeProps = {
-    general: {
-        colors: colorsPalette
-    },
+export const KitAristidTheme: KitTheme = {
+    general: KitAristidThemeGeneral,
     components: {
-        Rate: KitRateTheme
+        Rate: KitRateTheme,
+        Tooltip: KitTooltipTheme
     }
 };

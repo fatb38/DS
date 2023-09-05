@@ -1,18 +1,18 @@
 import React, {ReactNode, createContext, useState} from 'react';
 
 // TODO: Later add option to have more arisitd themes
-import {KitDefaultTheme} from './aristid';
+import {KitAristidTheme} from './aristid';
 import {merge} from 'lodash';
-import {KitCustomThemeProps, KitThemeProps} from './types';
+import {KitCustomTheme, KitTheme} from './types';
 
 const defaultValue = {
-    theme: KitDefaultTheme,
+    theme: KitAristidTheme,
     overrideTheme: () => {}
 };
 
 const KitThemeContext = createContext<{
-    theme: KitThemeProps;
-    overrideTheme: (customTheme?: KitCustomThemeProps) => void;
+    theme: KitTheme;
+    overrideTheme: (customTheme?: KitCustomTheme) => void;
 }>(defaultValue);
 
 export const useKitTheme = () => {
@@ -29,10 +29,10 @@ export const KitThemeProvider = ({children}: {children: ReactNode}) => {
 };
 
 const useKitThemeProvider = () => {
-    const [theme, setTheme] = useState(KitDefaultTheme);
+    const [theme, setTheme] = useState(KitAristidTheme);
 
-    const overrideTheme = (customTheme?: KitCustomThemeProps) => {
-        const mergedTheme = merge(KitDefaultTheme, customTheme);
+    const overrideTheme = (customTheme?: KitCustomTheme) => {
+        const mergedTheme = merge(KitAristidTheme, customTheme);
         setTheme(mergedTheme);
     };
 

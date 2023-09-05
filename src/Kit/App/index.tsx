@@ -10,9 +10,9 @@ import {DatePickerDropDownStyle} from '@kit/DataEntry/DatePicker/style';
 import {NotificationStyle} from '@kit/Feedback/Notification/style';
 import {KitThemeProvider, useKitTheme} from '@theme/theme-context';
 import {merge} from 'lodash';
-import {KitCustomThemeProps} from '@theme/types';
+import {KitCustomTheme} from '@theme/types';
 
-export const KitApp: React.FunctionComponent<React.PropsWithChildren<{customTheme?: KitCustomThemeProps}>> = ({
+export const KitApp: React.FunctionComponent<React.PropsWithChildren<{customTheme?: KitCustomTheme}>> = ({
     children,
     customTheme
 }) => {
@@ -25,7 +25,7 @@ export const KitApp: React.FunctionComponent<React.PropsWithChildren<{customThem
     );
 };
 
-const KitAppConfig: React.FunctionComponent<React.PropsWithChildren<{customTheme?: KitCustomThemeProps}>> = ({
+const KitAppConfig: React.FunctionComponent<React.PropsWithChildren<{customTheme?: KitCustomTheme}>> = ({
     children,
     customTheme
 }) => {
