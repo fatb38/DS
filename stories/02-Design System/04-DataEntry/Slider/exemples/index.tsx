@@ -1,10 +1,22 @@
+import Test from './test';
 import Basic from './basic';
+import WithIcon from './withIcon';
+import WithInputNumber from './withInputNumber';
 
+import TestSource from './test?raw';
 import BasicSource from './basic?raw';
+import WithIconSource from './withIcon?raw';
+import WithInputNumberSource from './withInputNumber?raw';
 
 export const Sources = {
-    Basic: BasicSource
+    Test: TestSource,
+    Basic: BasicSource,
+    WithIcon: WithIconSource,
+    WithInputNumber: WithInputNumberSource
 };
 export default {
-    Basic
+    Test,
+    Basic,
+    WithIcon,
+    WithInputNumber
 };

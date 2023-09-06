@@ -25,7 +25,7 @@ const EndIcon = styled.div`
 const StyledKitSlider = styled(AntdSlider)<{$isStartIcon: boolean; $isEndIcon: boolean}>`
     margin-left: ${({$isStartIcon}) => ($isStartIcon ? '30px' : '0px')};
     margin-right: ${({$isEndIcon}) => ($isEndIcon ? '30px' : '0px')};
-    &.ant-slider {
+    &.ant-slider:not(.ant-slider-disabled) {
         .ant-slider-handle {
             &:hover::after {
                 background-color: ${colorsPalette.primary.blue100};
@@ -50,7 +50,7 @@ const StyledKitSlider = styled(AntdSlider)<{$isStartIcon: boolean; $isEndIcon: b
     }
 `;
 
-export const KitSlider = ({startIcon, endIcon, ...props}) => {
+export const KitSlider = ({startIcon, endIcon, ...props}: {[x: string]: any; startIcon?: any; endIcon?: any}) => {
     if (startIcon !== undefined || endIcon !== undefined) {
         return (
             <KitSliderContainer>

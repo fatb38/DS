@@ -1,29 +1,23 @@
-import React from 'react';
-import {KitSlider} from '@kit/DataEntry/';
-import {SliderMarks} from 'antd/es/slider';
-import {ZoomInOutlined, ZoomOutOutlined} from '@ant-design/icons';
+import React, {useState} from 'react';
+import {KitSlider, KitSwitch} from '@kit/DataEntry/';
+import {KitSpace} from '@kit/Layout';
+import {Typography} from 'antd';
 
 const App = () => {
-    const marks: SliderMarks = {
-        0: '0',
-        25: '25',
-        50: '50',
-        100: {
-            style: {
-                color: '#f50'
-            },
-            label: <strong>100</strong>
-        }
+    const [disabled, setDisabled] = useState(false);
+
+    const onChange = (checked: boolean) => {
+        setDisabled(checked);
     };
 
     return (
-        <KitSlider
-            range
-            defaultValue={[20, 50]}
-            marks={marks}
-            startIcon={<ZoomOutOutlined />}
-            endIcon={<ZoomInOutlined />}
-        />
+        <KitSpace direction="vertical" style={{width: '100%'}}>
+            <Typography>
+                Disabled: <KitSwitch onChange={onChange} />
+            </Typography>
+            <KitSlider defaultValue={40} disabled={disabled} />
+            <KitSlider range defaultValue={[30, 60]} disabled={disabled} />
+        </KitSpace>
     );
 };
 
