@@ -1,40 +1,41 @@
 import React from 'react';
 import {Button as AntdButton} from 'antd';
 import {styled, css} from 'styled-components';
-import {primaryTheme, linkTheme, defaultTheme, segmentedTheme, segmentedGreenTheme, segmentedGrayTheme} from './theme';
 import type {KitButtonProps} from './types';
-import {ButtonProps} from 'antd/lib/button';
 import {ButtonType} from 'antd/es/button';
 import {CheckCircleFilled} from '@ant-design/icons';
+import {useKitTheme} from '@theme/theme-context';
+import {KitButtonTheme} from '@theme/types/components/General/Button';
 
-interface StyledAntdButtonProps extends ButtonProps {
+interface toto {
+    $theme: KitButtonTheme['primary'];
     $bigIcon?: boolean;
     ghost?: boolean;
 }
 
-const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
+const StyledAntdButton = styled(AntdButton)<toto>`
     height: 40px;
     min-width: 40px;
     box-shadow: none;
-    color: ${props => props.theme.color.default};
-    background-color: ${props => props.theme.backgroundColor.default};
-    border-color: ${props => props.theme.borderColor.default};
-    font-weight: ${props => props.theme.font.weight};
+    color: ${({$theme}) => $theme.colors.typography.default};
+    background-color: ${({$theme}) => $theme.colors.background.default};
+    border-color: ${({$theme}) => $theme.colors.border.default};
+    font-weight: ${({$theme}) => $theme.typography.fontWeight};
 
     &.ant-btn {
         .anticon {
-            ${props =>
-                props.$bigIcon &&
+            ${({$bigIcon, $theme}) =>
+                $bigIcon &&
                 css`
                     padding: 0;
-                    font-size: ${props.theme.font.bigIconSize}px;
+                    font-size: ${$theme.typography.fontSizeBigIcon}px;
                 `}
         }
     }
 
     &.ant-btn-primary.ant-btn-background-ghost {
-        color: ${props => props.theme.backgroundColor.default};
-        background-color: ${props => props.theme.color.default};
+        color: ${({$theme}) => $theme.colors.typography.ghost};
+        background-color: ${({$theme}) => $theme.colors.background.ghost};
     }
 
     + .kit-btn-segmented-active-icon {
@@ -43,34 +44,34 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
         bottom: 6px;
         right: 5px;
         font-size: 12px;
-        color: ${props => props.theme.color.iconCheck};
+        /* color: {props => props.theme.color.iconCheck}; TODO: */
     }
 
     &.kit-btn-segmented {
         border-radius: 10px;
 
         &.kit-btn-segmented-active:not(.ant-btn-dangerous) {
-            color: ${props => props.theme.color.active};
-            background-color: ${props => props.theme.backgroundColor.active};
-            border-color: ${props => props.theme.borderColor.active};
+            color: ${({$theme}) => $theme.colors.typography.active};
+            background-color: ${({$theme}) => $theme.colors.background.active};
+            border-color: ${({$theme}) => $theme.colors.border.active};
             z-index: 2;
 
             &:not(.ant-btn-link):not(.ant-btn-loading):not(.ant-btn-dangerous):not(:disabled) {
                 &:hover {
-                    background-color: ${props => props.theme.backgroundColor.active};
-                    color: ${props => props.theme.color.active};
+                    /* background-color: {props => props.theme.backgroundColor.active}; */
+                    /* color: {props => props.theme.color.active}; */
                 }
             }
         }
 
         &.kit-btn-segmented-active.ant-btn-dangerous {
-            color: ${props => props.theme.color.danger.default};
-            background-color: ${props => props.theme.backgroundColor.danger.active};
-            border-color: ${props => props.theme.borderColor.danger.active};
+            color: ${({$theme}) => $theme.colors.typography.danger.default};
+            background-color: ${({$theme}) => $theme.colors.background.danger.active};
+            border-color: ${({$theme}) => $theme.colors.border.danger.active};
 
             &:not(.ant-btn-loading):not(:disabled) {
                 &:hover {
-                    background-color: ${props => props.theme.backgroundColor.danger.active};
+                    background-color: ${({$theme}) => $theme.colors.background.danger.active};
                 }
             }
         }
@@ -84,17 +85,17 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
         border-radius: 0;
 
         &.ant-btn-compact-first-item {
-            border-radius: ${props => props.theme.compactBorderRadius}px 0 0
-                ${props => props.theme.compactBorderRadius}px;
+            border-radius: ${({$theme}) => $theme.compact.border.radius}px 0 0
+                ${({$theme}) => $theme.compact.border.radius}px;
         }
 
         &.ant-btn-compact-last-item {
-            border-radius: 0 ${props => props.theme.compactBorderRadius}px ${props => props.theme.compactBorderRadius}px
-                0;
+            border-radius: 0 ${({$theme}) => $theme.compact.border.radius}px
+                ${({$theme}) => $theme.compact.border.radius}px 0;
         }
 
         &.ant-btn-compact-first-item.ant-btn-compact-last-item {
-            border-radius: ${props => props.theme.compactBorderRadius}px;
+            border-radius: ${({$theme}) => $theme.compact.border.radius}px;
         }
     }
 
@@ -102,53 +103,53 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
         border-radius: 0;
 
         &.ant-btn-compact-vertical-first-item {
-            border-radius: ${props => props.theme.compactBorderRadius}px ${props => props.theme.compactBorderRadius}px 0
-                0;
+            border-radius: ${({$theme}) => $theme.compact.border.radius}px
+                ${({$theme}) => $theme.compact.border.radius}px 0 0;
         }
 
         &.ant-btn-compact-vertical-last-item {
-            border-radius: 0 0 ${props => props.theme.compactBorderRadius}px
-                ${props => props.theme.compactBorderRadius}px;
+            border-radius: 0 0 ${({$theme}) => $theme.compact.border.radius}px
+                ${({$theme}) => $theme.compact.border.radius}px;
         }
 
         &.ant-btn-compact-first-item.ant-btn-compact-last-item {
-            border-radius: ${props => props.theme.compactBorderRadius}px;
+            border-radius: ${({$theme}) => $theme.compact.border.radius}px;
         }
     }
 
     &:disabled,
     &.ant-btn-loading {
-        color: ${props => props.theme.color.disabled};
-        background-color: ${props => props.theme.backgroundColor.disabled};
-        border-color: ${props => props.theme.borderColor.disabled};
+        color: ${({$theme}) => $theme.colors.typography.disabled};
+        background-color: ${({$theme}) => $theme.colors.background.disabled};
+        border-color: ${({$theme}) => $theme.colors.border.disabled};
         opacity: initial;
 
         &:hover {
-            color: ${props => props.theme.color.disabled};
-            background-color: ${props => props.theme.backgroundColor.disabled};
-            border-color: ${props => props.theme.borderColor.disabled};
+            color: ${({$theme}) => $theme.colors.typography.disabled};
+            background-color: ${({$theme}) => $theme.colors.background.disabled};
+            border-color: ${({$theme}) => $theme.colors.border.disabled};
         }
     }
 
     &:not(.ant-btn-link):not(.ant-btn-loading):not(.ant-btn-dangerous):not(:disabled) {
         &:hover {
-            color: ${props => props.theme.color.hover};
-            background-color: ${props => props.theme.backgroundColor.hover};
-            border-color: ${props => props.theme.borderColor.hover};
+            color: ${({$theme}) => $theme.colors.typography.hover};
+            background-color: ${({$theme}) => $theme.colors.background.hover};
+            border-color: ${({$theme}) => $theme.colors.border.hover};
             border-style: solid;
         }
 
         &:focus {
-            color: ${props => props.theme.color.focus};
-            background-color: ${props => props.theme.backgroundColor.focus};
-            border-color: ${props => props.theme.borderColor.focus};
+            color: ${({$theme}) => $theme.colors.typography.focus};
+            background-color: ${({$theme}) => $theme.colors.background.focus};
+            border-color: ${({$theme}) => $theme.colors.border.focus};
             border-style: dashed;
         }
 
         &:active {
-            color: ${props => props.theme.color.active};
-            background-color: ${props => props.theme.backgroundColor.active};
-            border-color: ${props => props.theme.borderColor.active};
+            color: ${({$theme}) => $theme.colors.typography.active};
+            background-color: ${({$theme}) => $theme.colors.background.active};
+            border-color: ${({$theme}) => $theme.colors.border.active};
             border-style: solid;
         }
     }
@@ -158,7 +159,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
         padding: 0px;
         border: none;
         border-radius: 0px;
-        border-bottom: 1px solid ${props => props.theme.borderColor.default};
+        border-bottom: 1px solid ${({$theme}) => $theme.colors.border.default};
 
         &:disabled {
             border-bottom: none;
@@ -166,38 +167,38 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
 
         &:not(.ant-btn-loading):not(:disabled) {
             &:hover {
-                color: ${props => props.theme.color.default};
-                border-bottom: 1px dashed ${props => props.theme.borderColor.hover};
+                color: ${({$theme}) => $theme.colors.typography.default};
+                border-bottom: 1px dashed ${({$theme}) => $theme.colors.border.hover};
             }
 
             &:focus {
-                border-bottom: 1px dashed ${props => props.theme.borderColor.focus};
+                border-bottom: 1px dashed ${({$theme}) => $theme.colors.border.focus};
             }
 
             &:active {
-                border-bottom: 1px dashed ${props => props.theme.borderColor.active};
+                border-bottom: 1px dashed ${({$theme}) => $theme.colors.border.active};
             }
         }
     }
 
     &.ant-btn-dangerous {
         box-shadow: none;
-        color: ${props => props.theme.color.danger.default};
-        background-color: ${props => props.theme.backgroundColor.danger.default};
-        border-color: ${props => props.theme.borderColor.danger.default};
+        color: ${({$theme}) => $theme.colors.typography.danger.default};
+        background-color: ${({$theme}) => $theme.colors.background.danger.default};
+        border-color: ${({$theme}) => $theme.colors.border.danger.default};
 
         &:disabled {
-            color: ${props => props.theme.color.danger.disabled};
-            background-color: ${props => props.theme.backgroundColor.danger.disabled};
-            border-color: ${props => props.theme.borderColor.danger.disabled};
+            color: ${({$theme}) => $theme.colors.typography.danger.disabled};
+            background-color: ${({$theme}) => $theme.colors.background.danger.disabled};
+            border-color: ${({$theme}) => $theme.colors.border.danger.disabled};
             opacity: initial;
         }
 
         &:not(.ant-btn-loading):not(:disabled) {
             &:hover {
-                color: ${props => props.theme.color.danger.default};
-                background-color: ${props => props.theme.backgroundColor.danger.hover};
-                border-color: ${props => props.theme.borderColor.danger.hover};
+                color: ${({$theme}) => $theme.colors.typography.danger.default};
+                background-color: ${({$theme}) => $theme.colors.background.danger.hover};
+                border-color: ${({$theme}) => $theme.colors.border.danger.hover};
 
                 &.ant-btn-link {
                     border-width: 0 0 1px 0;
@@ -205,9 +206,9 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
             }
 
             &:focus {
-                color: ${props => props.theme.color.danger.default};
-                background-color: ${props => props.theme.backgroundColor.danger.focus};
-                border-color: ${props => props.theme.borderColor.danger.focus};
+                color: ${({$theme}) => $theme.colors.typography.danger.default};
+                background-color: ${({$theme}) => $theme.colors.background.danger.focus};
+                border-color: ${({$theme}) => $theme.colors.border.danger.focus};
                 border-style: dashed;
 
                 &.ant-btn-link {
@@ -216,9 +217,9 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
             }
 
             &:active {
-                color: ${props => props.theme.color.danger.default};
-                background-color: ${props => props.theme.backgroundColor.danger.active};
-                border-color: ${props => props.theme.borderColor.danger.active};
+                color: ${({$theme}) => $theme.colors.typography.danger.default};
+                background-color: ${({$theme}) => $theme.colors.background.danger.active};
+                border-color: ${({$theme}) => $theme.colors.border.danger.active};
 
                 &.ant-btn-link {
                     border-width: 0 0 1px 0;
@@ -232,36 +233,29 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
     {bigIcon, primaryModal, type, subtypeSegmented, isCheckedSegmented, isActiveSegmented, className, ...buttonProps},
     ref
 ) => {
-    const getThemeToUse = () => {
-        if (primaryModal) {
-            return primaryTheme;
-        }
+    const {theme: kitTheme} = useKitTheme();
+
+    const getTheme = () => {
+        const theme = kitTheme.components.Button;
 
         switch (type) {
             case 'primary':
-                return primaryTheme;
+                return theme.primary;
             case 'link':
-                return linkTheme;
+                return theme.link;
             case 'segmented':
-                switch (subtypeSegmented) {
-                    case 'green':
-                        return segmentedGreenTheme;
-                    case 'gray':
-                        return segmentedGrayTheme;
-                    case 'default':
-                    default:
-                        return segmentedTheme;
-                }
+                return theme.segmented;
             case 'default':
             default:
-                return defaultTheme;
+                return theme.default;
         }
     };
 
-    const getTypeToUseForAntd = (): ButtonType => {
+    const getType = (): ButtonType => {
         if (primaryModal) {
             return 'primary';
         }
+
         switch (type) {
             case 'segmented':
             default:
@@ -289,12 +283,12 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
             }}
         >
             <StyledAntdButton
+                $theme={getTheme()}
+                $bigIcon={bigIcon}
                 {...buttonProps}
                 className={getClasses()}
-                $bigIcon={bigIcon}
                 ghost={primaryModal}
-                theme={getThemeToUse()}
-                type={getTypeToUseForAntd()}
+                type={getType()}
                 ref={ref}
             ></StyledAntdButton>
             {type === 'segmented' && isCheckedSegmented && (

@@ -49,194 +49,194 @@ export interface KitButtonTheme {
     };
 }
 
-export const primaryTheme: KitButtonTheme = {
-    font: {
-        weight: theme.typography.regularFontWeight,
-        bigIconSize: typographyHeaders.fontSize2
-    },
-    compactBorderRadius: 7,
-    color: {
-        default: theme.color.neutral.typography.white,
-        hover: theme.color.neutral.typography.white,
-        active: theme.color.neutral.typography.white,
-        focus: theme.color.neutral.typography.white,
-        disabled: theme.color.primary.blue200,
-        danger: {
-            default: theme.color.neutral.typography.white,
-            disabled: theme.color.neutral.typography.white
-        }
-    },
-    backgroundColor: {
-        default: theme.color.primary.blue400,
-        hover: theme.color.primary.blue500,
-        active: theme.color.primary.blue600,
-        focus: theme.color.primary.blue400,
-        disabled: theme.color.primary.blue100,
-        danger: {
-            default: theme.color.secondary.red.red400,
-            hover: theme.color.secondary.red.red500,
-            active: theme.color.secondary.red.red600,
-            focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red200
-        }
-    },
-    borderColor: {
-        default: theme.color.primary.blue400,
-        hover: theme.color.primary.blue500,
-        active: theme.color.primary.blue600,
-        focus: theme.color.primary.blue400,
-        disabled: theme.color.primary.blue100,
-        danger: {
-            default: theme.color.secondary.red.red400,
-            hover: theme.color.secondary.red.red500,
-            active: theme.color.secondary.red.red600,
-            focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red200
-        }
-    }
-};
+// export const primaryTheme: KitButtonTheme = {
+//     font: {
+//         weight: theme.typography.regularFontWeight,
+//         bigIconSize: typographyHeaders.fontSize2
+//     },
+//     compactBorderRadius: 7,
+//     color: {
+//         default: theme.color.neutral.typography.white,
+//         hover: theme.color.neutral.typography.white,
+//         active: theme.color.neutral.typography.white,
+//         focus: theme.color.neutral.typography.white,
+//         disabled: theme.color.primary.blue200,
+//         danger: {
+//             default: theme.color.neutral.typography.white,
+//             disabled: theme.color.neutral.typography.white
+//         }
+//     },
+//     backgroundColor: {
+//         default: theme.color.primary.blue400,
+//         hover: theme.color.primary.blue500,
+//         active: theme.color.primary.blue600,
+//         focus: theme.color.primary.blue400,
+//         disabled: theme.color.primary.blue100,
+//         danger: {
+//             default: theme.color.secondary.red.red400,
+//             hover: theme.color.secondary.red.red500,
+//             active: theme.color.secondary.red.red600,
+//             focus: theme.color.secondary.red.red400,
+//             disabled: theme.color.secondary.red.red200
+//         }
+//     },
+//     borderColor: {
+//         default: theme.color.primary.blue400,
+//         hover: theme.color.primary.blue500,
+//         active: theme.color.primary.blue600,
+//         focus: theme.color.primary.blue400,
+//         disabled: theme.color.primary.blue100,
+//         danger: {
+//             default: theme.color.secondary.red.red400,
+//             hover: theme.color.secondary.red.red500,
+//             active: theme.color.secondary.red.red600,
+//             focus: theme.color.secondary.red.red400,
+//             disabled: theme.color.secondary.red.red200
+//         }
+//     }
+// };
 
-export const defaultTheme: KitButtonTheme = {
-    font: {
-        weight: theme.typography.regularFontWeight,
-        bigIconSize: typographyHeaders.fontSize2
-    },
-    compactBorderRadius: 7,
-    color: {
-        default: theme.color.primary.blue400,
-        hover: theme.color.primary.blue400,
-        active: theme.color.primary.blue400,
-        focus: theme.color.primary.blue400,
-        disabled: theme.color.primary.blue200,
-        danger: {
-            default: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red200
-        }
-    },
-    backgroundColor: {
-        default: theme.color.neutral.typography.white,
-        hover: theme.color.neutral.typography.white,
-        active: theme.color.primary.blue100,
-        focus: theme.color.neutral.typography.white,
-        disabled: theme.color.neutral.typography.white,
-        danger: {
-            default: theme.color.neutral.typography.white,
-            hover: theme.color.neutral.typography.white,
-            active: theme.color.secondary.red.red100,
-            focus: theme.color.neutral.typography.white,
-            disabled: theme.color.neutral.typography.white
-        }
-    },
-    borderColor: {
-        default: theme.color.primary.blue100,
-        hover: theme.color.primary.blue400,
-        active: theme.color.primary.blue400,
-        focus: theme.color.primary.blue400,
-        disabled: theme.color.primary.blue100,
-        danger: {
-            default: theme.color.secondary.red.red100,
-            hover: theme.color.secondary.red.red400,
-            active: theme.color.secondary.red.red400,
-            focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red100
-        }
-    }
-};
+// export const defaultTheme: KitButtonTheme = {
+// font: {
+//     weight: theme.typography.regularFontWeight,
+//     bigIconSize: typographyHeaders.fontSize2
+// },
+// compactBorderRadius: 7,
+// color: {
+// default: theme.color.primary.blue400,
+// hover: theme.color.primary.blue400,
+// active: theme.color.primary.blue400,
+// focus: theme.color.primary.blue400,
+// disabled: theme.color.primary.blue200,
+// danger: {
+//     default: theme.color.secondary.red.red400,
+//     disabled: theme.color.secondary.red.red200
+// }
+// },
+// backgroundColor: {
+//     default: theme.color.neutral.typography.white,
+//     hover: theme.color.neutral.typography.white,
+//     active: theme.color.primary.blue100,
+//     focus: theme.color.neutral.typography.white,
+//     disabled: theme.color.neutral.typography.white,
+//     danger: {
+//         default: theme.color.neutral.typography.white,
+//         hover: theme.color.neutral.typography.white,
+//         active: theme.color.secondary.red.red100,
+//         focus: theme.color.neutral.typography.white,
+//         disabled: theme.color.neutral.typography.white
+//     }
+// },
+// borderColor: {
+//     default: theme.color.primary.blue100,
+//     hover: theme.color.primary.blue400,
+//     active: theme.color.primary.blue400,
+//     focus: theme.color.primary.blue400,
+//     disabled: theme.color.primary.blue100,
+//     danger: {
+//         default: theme.color.secondary.red.red100,
+//         hover: theme.color.secondary.red.red400,
+//         active: theme.color.secondary.red.red400,
+//         focus: theme.color.secondary.red.red400,
+//         disabled: theme.color.secondary.red.red100
+//     }
+// }
+// };
 
-export const linkTheme: KitButtonTheme = {
-    font: {
-        weight: theme.typography.regularFontWeight,
-        bigIconSize: typographyHeaders.fontSize2
-    },
-    compactBorderRadius: 7,
-    color: {
-        default: theme.color.primary.blue400,
-        hover: theme.color.primary.blue400,
-        active: theme.color.primary.blue400,
-        focus: theme.color.primary.blue400,
-        disabled: theme.color.primary.blue200,
-        danger: {
-            default: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red200
-        }
-    },
-    backgroundColor: {
-        default: theme.color.neutral.typography.white,
-        hover: theme.color.neutral.typography.white,
-        active: theme.color.neutral.typography.white,
-        focus: theme.color.neutral.typography.white,
-        disabled: theme.color.neutral.typography.white,
-        danger: {
-            default: theme.color.neutral.typography.white,
-            hover: theme.color.neutral.typography.white,
-            active: theme.color.neutral.typography.white,
-            focus: theme.color.neutral.typography.white,
-            disabled: theme.color.neutral.typography.white
-        }
-    },
-    borderColor: {
-        default: theme.color.primary.blue400,
-        hover: theme.color.primary.blue400,
-        active: theme.color.primary.blue400,
-        focus: theme.color.primary.blue400,
-        disabled: theme.color.primary.blue100,
-        danger: {
-            default: theme.color.secondary.red.red400,
-            hover: theme.color.secondary.red.red400,
-            active: theme.color.secondary.red.red400,
-            focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red100
-        }
-    }
-};
+// export const linkTheme: KitButtonTheme = {
+// font: {
+//     weight: theme.typography.regularFontWeight,
+//     bigIconSize: typographyHeaders.fontSize2
+// },
+// compactBorderRadius: 7,
+// color: {
+//     default: theme.color.primary.blue400,
+//     hover: theme.color.primary.blue400,
+//     active: theme.color.primary.blue400,
+//     focus: theme.color.primary.blue400,
+//     disabled: theme.color.primary.blue200,
+//     danger: {
+//         default: theme.color.secondary.red.red400,
+//         disabled: theme.color.secondary.red.red200
+//     }
+// },
+// backgroundColor: {
+//     default: theme.color.neutral.typography.white,
+//     hover: theme.color.neutral.typography.white,
+//     active: theme.color.neutral.typography.white,
+//     focus: theme.color.neutral.typography.white,
+//     disabled: theme.color.neutral.typography.white,
+//     danger: {
+//         default: theme.color.neutral.typography.white,
+//         hover: theme.color.neutral.typography.white,
+//         active: theme.color.neutral.typography.white,
+//         focus: theme.color.neutral.typography.white,
+//         disabled: theme.color.neutral.typography.white
+//     }
+// },
+// borderColor: {
+//     default: theme.color.primary.blue400,
+//     hover: theme.color.primary.blue400,
+//     active: theme.color.primary.blue400,
+//     focus: theme.color.primary.blue400,
+//     disabled: theme.color.primary.blue100,
+//     danger: {
+//         default: theme.color.secondary.red.red400,
+//         hover: theme.color.secondary.red.red400,
+//         active: theme.color.secondary.red.red400,
+//         focus: theme.color.secondary.red.red400,
+//         disabled: theme.color.secondary.red.red100
+//     }
+// }
+// };
 
-export const segmentedTheme: KitButtonTheme = {
-    font: {
-        weight: theme.typography.regularFontWeight,
-        bigIconSize: typographyHeaders.fontSize3
-    },
-    compactBorderRadius: 10,
-    color: {
-        default: theme.color.primary.blue500,
-        hover: theme.color.primary.blue500,
-        active: theme.color.primary.blue500,
-        focus: theme.color.primary.blue500,
-        disabled: theme.color.primary.blue200,
-        danger: {
-            default: theme.color.secondary.red.red500,
-            disabled: theme.color.secondary.red.red200
-        },
-        iconCheck: theme.color.primary.blue400
-    },
-    backgroundColor: {
-        default: theme.color.neutral.typography.white,
-        hover: theme.color.neutral.typography.white,
-        active: theme.color.primary.blue100,
-        focus: theme.color.neutral.typography.white,
-        disabled: theme.color.primary.blue100,
-        danger: {
-            default: theme.color.neutral.typography.white,
-            hover: theme.color.neutral.typography.white,
-            active: theme.color.secondary.red.red100,
-            focus: theme.color.neutral.typography.white,
-            disabled: theme.color.secondary.red.red100
-        }
-    },
-    borderColor: {
-        default: theme.color.primary.blue100,
-        hover: theme.color.primary.blue400,
-        active: theme.color.primary.blue400,
-        focus: theme.color.primary.blue400,
-        disabled: theme.color.primary.blue100,
-        danger: {
-            default: theme.color.secondary.red.red100,
-            hover: theme.color.secondary.red.red400,
-            active: theme.color.secondary.red.red400,
-            focus: theme.color.secondary.red.red400,
-            disabled: theme.color.secondary.red.red100
-        }
-    }
-};
+// export const segmentedTheme: KitButtonTheme = {
+// font: {
+//     weight: theme.typography.regularFontWeight,
+//     bigIconSize: typographyHeaders.fontSize3
+// },
+// compactBorderRadius: 10,
+// color: {
+//     default: theme.color.primary.blue500,
+//     hover: theme.color.primary.blue500,
+//     active: theme.color.primary.blue500,
+//     focus: theme.color.primary.blue500,
+//     disabled: theme.color.primary.blue200,
+//     danger: {
+//         default: theme.color.secondary.red.red500,
+//         disabled: theme.color.secondary.red.red200
+//     },
+//     iconCheck: theme.color.primary.blue400
+// },
+// backgroundColor: {
+//     default: theme.color.neutral.typography.white,
+//     hover: theme.color.neutral.typography.white,
+//     active: theme.color.primary.blue100,
+//     focus: theme.color.neutral.typography.white,
+//     disabled: theme.color.primary.blue100,
+//     danger: {
+//         default: theme.color.neutral.typography.white,
+//         hover: theme.color.neutral.typography.white,
+//         active: theme.color.secondary.red.red100,
+//         focus: theme.color.neutral.typography.white,
+//         disabled: theme.color.secondary.red.red100
+//     }
+// },
+// borderColor: {
+//     default: theme.color.primary.blue100,
+//     hover: theme.color.primary.blue400,
+//     active: theme.color.primary.blue400,
+//     focus: theme.color.primary.blue400,
+//     disabled: theme.color.primary.blue100,
+//     danger: {
+//         default: theme.color.secondary.red.red100,
+//         hover: theme.color.secondary.red.red400,
+//         active: theme.color.secondary.red.red400,
+//         focus: theme.color.secondary.red.red400,
+//         disabled: theme.color.secondary.red.red100
+//     }
+// }
+// };
 
 export const segmentedGreenTheme: KitButtonTheme = {
     font: {

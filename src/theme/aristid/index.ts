@@ -5,10 +5,12 @@ import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
 import {KitTagTheme} from './components/DataEntry/Tag';
 import {KitInputWrapperTheme} from './components/DataEntry/Input/InputWrapper';
 import {KitInputTheme} from './components/DataEntry/Input/Input';
+import {KitButtonTheme} from './components/General/Button';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
     components: {
+        Button: KitButtonTheme,
         Rate: KitRateTheme,
         Tooltip: KitTooltipTheme,
         Tag: KitTagTheme,
