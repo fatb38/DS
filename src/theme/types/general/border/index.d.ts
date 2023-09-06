@@ -8,6 +8,7 @@ export interface KitBorder {
         l: number;
         xl: number;
         xxl: number;
+        pills: number;
     };
     width: number;
 }
