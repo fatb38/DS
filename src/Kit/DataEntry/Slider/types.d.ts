@@ -1,3 +1,3 @@
-type AntdSliderTypesToOmit = '';
+import {SliderSingleProps, SliderRangeProps} from 'antd/lib';
 
-export interface KitSliderProps extends Omit<SliderSingleProps | SliderRangeProps, AntdSelectTypesToOmit> {}
+type AntdSliderTypesToOmit = '';

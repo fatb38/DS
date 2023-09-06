@@ -198,6 +198,21 @@ const theme: KitThemeConfig = {
             borderRadius: 2,
             colorBorderSecondary: colorsPalette.neutral.gray.gray300,
             colorTextDisabled: colorsPalette.neutral.gray.gray300
+        },
+        Slider: {
+            railBg: colorsPalette.secondary.mediumGrey.mediumGrey200,
+            railHoverBg: colorsPalette.secondary.mediumGrey.mediumGrey200,
+            railSize: 4,
+            handleColor: colorsPalette.primary.blue400,
+            handleSize: 14,
+            handleSizeHover: 14,
+            handleLineWidth: 2,
+            handleLineWidthHover: 2,
+            trackBg: colorsPalette.primary.blue400,
+            trackHoverBg: colorsPalette.primary.blue400,
+            dotActiveBorderColor: colorsPalette.primary.blue400,
+            dotSize: 8,
+            dotBorderColor: colorsPalette.secondary.mediumGrey.mediumGrey200
         }
     }
 };
