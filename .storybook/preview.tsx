@@ -36,13 +36,11 @@ export const parameters = {
         // Decorate the docs area content with antd's ConfigProvider, in order to use theme in all pages ant components
         container: ({children, context}) => {
             return (
-                <>
-                    <KitApp>
-                        <Container context={context}>{children}</Container>
-                        <TableOfContents config={tocConfig} />
-                        <BackToTop />
-                    </KitApp>
-                </>
+                <KitApp /*customTheme={{components: {Rate: {starColor: '#ff00ea'}}}}*/>
+                    <Container context={context}>{children}</Container>
+                    <TableOfContents config={tocConfig} />
+                    <BackToTop />
+                </KitApp>
             );
         }
     }
@@ -52,7 +50,7 @@ const preview: Preview = {
     decorators: [
         Story => {
             return (
-                <KitApp>
+                <KitApp /*customTheme={{components: {Rate: {starColor: '#ff00ea'}}}}*/>
                     <Story />
                 </KitApp>
             );

@@ -11,14 +11,6 @@ interface KitThemeConfig extends ThemeConfig {
 const theme: KitThemeConfig = {
     token: {
         fontFamily: Typography.fontFamily
-        // colorPrimary: "#0F4FFA",
-        // colorPrimaryHover: "#0B37AF",
-        // colorPrimaryActive: "#062064",
-        // colorBgBase: "#ffffff",
-        // colorBorderSecondary: "#e2edff",
-        // colorBgContainerDisabled: "#E7EDFF",
-        // colorTextDisabled: "#9eb9fd",
-        // colorBorder: "#E7EDFF",
     },
     color: colorsPalette,
     typography: Typography,
@@ -68,17 +60,6 @@ const theme: KitThemeConfig = {
             lineHeight: Typography.lineHeight6,
             colorSplit: colorsPalette.neutral.typography.black60
         },
-        Input: {
-            colorBgContainer: colorsPalette.neutral.typography.white,
-            colorBgContainerDisabled: colorsPalette.secondary.mediumGrey.mediumGrey100,
-            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey200,
-            colorPrimaryHover: colorsPalette.primary.blue400,
-            colorTextPlaceholder: colorsPalette.secondary.mediumGrey.mediumGrey500,
-            colorText: colorsPalette.primary.blue300,
-            borderRadius: 7,
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize5
-        },
         InputNumber: {
             colorBgContainer: colorsPalette.neutral.typography.white,
             colorBgContainerDisabled: colorsPalette.secondary.mediumGrey.mediumGrey100,
@@ -109,14 +90,6 @@ const theme: KitThemeConfig = {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize6
         },
-        Tooltip: {
-            colorBgSpotlight: colorsPalette.primary.blue600,
-            colorTextLightSolid: colorsPalette.neutral.typography.white,
-            fontSize: Typography.fontSize7,
-            fontFamily: Typography.fontFamily,
-            borderRadius: 7,
-            controlHeight: 15
-        },
         Steps: {
             colorPrimary: colorsPalette.primary.blue400,
             colorError: colorsPalette.secondary.red.red400,
@@ -139,11 +112,6 @@ const theme: KitThemeConfig = {
             colorErrorBorder: colorsPalette.secondary.red.red400,
             colorText: colorsPalette.neutral.typography.black,
             fontFamily: Typography.fontFamily
-        },
-        Tag: {
-            defaultBg: colorsPalette.primary.blue100,
-            borderRadiusSM: 7,
-            defaultColor: colorsPalette.neutral.typography.black
         },
         Breadcrumb: {
             fontFamily: Typography.fontFamily,
@@ -175,9 +143,6 @@ const theme: KitThemeConfig = {
             colorFillAlter: colorsPalette.neutral.background,
             colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey300,
             borderRadius: 8
-        },
-        Rate: {
-            starColor: colorsPalette.secondary.yellow.yellow300
         },
         Tree: {
             fontFamily: Typography.fontFamily,

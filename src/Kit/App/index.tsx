@@ -1,6 +1,5 @@
 import React from 'react';
 import {ConfigProvider} from 'antd';
-import {KitAppProps} from './types';
 import GlobalStyles from './style';
 import theme from '@theme/index';
 import KitSnackBarProvider from '@kit/Feedback/SnackBar/SnackBarProvider';
@@ -9,10 +8,44 @@ import {DropDownStyle} from '@kit/Navigation/DropDown/style';
 import {SelectDropDownStyle} from '@kit/DataEntry/Select/style';
 import {DatePickerDropDownStyle} from '@kit/DataEntry/DatePicker/style';
 import {NotificationStyle} from '@kit/Feedback/Notification/style';
+import {KitThemeProvider, useKitTheme} from '@theme/theme-context';
+import {merge} from 'lodash';
+import {KitCustomTheme} from '@theme/types';
 
-export const KitApp: React.FunctionComponent<KitAppProps> = props => {
+export const KitApp: React.FunctionComponent<React.PropsWithChildren<{customTheme?: KitCustomTheme}>> = ({
+    children,
+    customTheme
+}) => {
     return (
-        <ConfigProvider theme={theme}>
+        <KitThemeProvider>
+            <KitAppConfig customTheme={customTheme}>{children}</KitAppConfig>
+        </KitThemeProvider>
+    );
+};
+
+const KitAppConfig: React.FunctionComponent<React.PropsWithChildren<{customTheme?: KitCustomTheme}>> = ({
+    children,
+    customTheme
+}) => {
+    //TODO: rename contextTheme -> theme
+    const {theme: contextTheme, overrideTheme} = useKitTheme();
+
+    // Temporary -------
+    const tmpMergedTheme = merge(theme, contextTheme);
+    // Temporary -------
+
+    if (customTheme !== undefined) {
+        overrideTheme(customTheme);
+    }
+
+    // Temporary -------
+    const tmpBigMergeTheme = merge(tmpMergedTheme, customTheme);
+    // Temporary -------
+
+    // TODO: Give to all the providers contextTheme
+
+    return (
+        <ConfigProvider theme={tmpBigMergeTheme}>
             <KitNotificationProvider>
                 <KitSnackBarProvider />
                 <GlobalStyles />
@@ -20,7 +53,7 @@ export const KitApp: React.FunctionComponent<KitAppProps> = props => {
                 <SelectDropDownStyle />
                 <DatePickerDropDownStyle />
                 <NotificationStyle />
-                {props.children}
+                {children}
             </KitNotificationProvider>
         </ConfigProvider>
     );
