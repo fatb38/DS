@@ -16,13 +16,6 @@ const theme: KitThemeConfig = {
     typography: Typography,
     headersTypography: typographyHeaders,
     components: {
-        Button: {
-            borderRadius: 20,
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize5,
-            fontSizeLG: Typography.fontSize5,
-            lineHeight: Typography.lineHeight5
-        },
         Checkbox: {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize5,
