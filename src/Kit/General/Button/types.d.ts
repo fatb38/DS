@@ -1,3 +1,4 @@
+import {KitColorsPalette} from '@theme/types/general/colors';
 import {ButtonProps} from 'antd';
 import {HTMLAttributes} from 'react';
 
@@ -9,6 +10,7 @@ export interface KitButtonProps extends Omit<ButtonProps, AntdButtonTypesToOmit>
     type?: KitButtonType;
     segmentedActived?: boolean;
     segmentedChecked?: boolean;
+    segmentedColor?: keyof KitColorsPalette['secondary'];
     bigIcon?: boolean;
     primaryModal?: boolean;
 }

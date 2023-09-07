@@ -1,3 +1,5 @@
+import {KitColorKeys, KitColorsPalette} from '../../../general/colors/index';
+
 export interface KitButtonThemeAntd {
     typography: {
         fontFamily: string;
@@ -46,9 +48,13 @@ export interface KitButtonThemeStyled {
     };
 }
 
+export type KitColoredSegmentedButtonThemesStyled = {[key in KitColorKeys]: KitButtonThemeStyled};
+
 export type KitButtonTheme = KitButtonThemeAntd & {
     primary: KitButtonThemeStyled;
     default: KitButtonThemeStyled;
     link: KitButtonThemeStyled;
-    segmented: KitButtonThemeStyled;
+    segmented: {
+        default: KitButtonThemeStyled;
+    } & KitColoredSegmentedButtonThemesStyled;
 };

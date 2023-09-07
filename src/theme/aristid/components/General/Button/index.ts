@@ -1,6 +1,11 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
 import {AntdThemeConfigWithRequiredComponents} from '@theme/types';
-import {KitButtonThemeAntd, KitButtonThemeStyled} from '@theme/types/components/General/Button';
+import {
+    KitButtonThemeAntd,
+    KitButtonThemeStyled,
+    KitColoredSegmentedButtonThemesStyled
+} from '@theme/types/components/General/Button';
+import {KitColorKeys} from '@theme/types/general/colors';
 
 const {colors, typography, border} = KitAristidThemeGeneral;
 
@@ -230,6 +235,69 @@ const kitSegmentedButtonThemeStyled: KitButtonThemeStyled = {
     }
 };
 
+const generateColoredSegmentedButtonThemesStyled = (): KitColoredSegmentedButtonThemesStyled => {
+    const colorKeys: KitColorKeys[] = Object.keys(colors.secondary) as KitColorKeys[];
+    const colorThemes = {} as KitColoredSegmentedButtonThemesStyled;
+
+    for (const color of colorKeys) {
+        colorThemes[color] = {
+            colors: {
+                typography: {
+                    default: colors.secondary[color][color + '500'],
+                    hover: colors.secondary[color][color + '500'],
+                    active: colors.secondary[color][color + '500'],
+                    focus: colors.secondary[color][color + '500'],
+                    disabled: colors.secondary.mediumGrey.mediumGrey400,
+                    danger: {
+                        default: colors.secondary.red.red500,
+                        disabled: colors.secondary.mediumGrey.mediumGrey400
+                    },
+                    iconCheck: colors.secondary[color][color + '400']
+                },
+                background: {
+                    default: colors.neutral.typography.white,
+                    hover: colors.neutral.typography.white,
+                    active: colors.secondary[color][color + '100'],
+                    focus: colors.neutral.typography.white,
+                    disabled: colors.secondary.mediumGrey.mediumGrey100,
+                    danger: {
+                        default: colors.neutral.typography.white,
+                        hover: colors.neutral.typography.white,
+                        active: colors.secondary.red.red100,
+                        focus: colors.neutral.typography.white,
+                        disabled: colors.secondary.mediumGrey.mediumGrey100
+                    }
+                },
+                border: {
+                    default: colors.secondary[color][color + '100'],
+                    hover: colors.secondary[color][color + '400'],
+                    active: colors.secondary[color][color + '400'],
+                    focus: colors.secondary[color][color + '400'],
+                    disabled: colors.secondary.mediumGrey.mediumGrey200,
+                    danger: {
+                        default: colors.secondary.red.red100,
+                        hover: colors.secondary.red.red400,
+                        active: colors.secondary.red.red400,
+                        focus: colors.secondary.red.red400,
+                        disabled: colors.secondary.mediumGrey.mediumGrey200
+                    }
+                }
+            },
+            typography: {
+                fontWeight: typography.regularFontWeight,
+                fontSizeBigIcon: typography.fontSize3
+            },
+            compact: {
+                border: {
+                    radius: border.radius.s
+                }
+            }
+        };
+    }
+
+    return colorThemes;
+};
+
 const formatKitTokenForAntdDesignTolen = (
     kitButtonThemeAntd: KitButtonThemeAntd
 ): AntdThemeConfigWithRequiredComponents['Button'] => {
@@ -256,6 +324,9 @@ export const KitButtonTheme = {
         ...kitLinkButtonThemeStyled
     },
     segmented: {
-        ...kitSegmentedButtonThemeStyled
+        default: {
+            ...kitSegmentedButtonThemeStyled
+        },
+        ...generateColoredSegmentedButtonThemesStyled()
     }
 };

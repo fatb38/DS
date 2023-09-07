@@ -92,3 +92,5 @@ export interface KitColorsPalette {
         };
     };
 }
+
+export type KitColorKeys = keyof KitColorsPalette['secondary'];

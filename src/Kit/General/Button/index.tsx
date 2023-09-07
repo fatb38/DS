@@ -230,21 +230,24 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
 `;
 
 const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, KitButtonProps> = (
-    {bigIcon, primaryModal, type, segmentedChecked, segmentedActived, className, ...buttonProps},
+    {bigIcon, primaryModal, type, segmentedChecked, segmentedActived, segmentedColor, className, ...buttonProps},
     ref
 ) => {
     const {theme: kitTheme} = useKitTheme();
+    const theme = kitTheme.components.Button;
 
     const getTheme = () => {
-        const theme = kitTheme.components.Button;
-
         switch (type) {
             case 'primary':
                 return theme.primary;
             case 'link':
                 return theme.link;
             case 'segmented':
-                return theme.segmented;
+                if (!segmentedColor) {
+                    return theme.segmented.default;
+                }
+
+                return theme.segmented[segmentedColor];
             case 'default':
             default:
                 return theme.default;
