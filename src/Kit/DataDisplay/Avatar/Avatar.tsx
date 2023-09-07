@@ -2,23 +2,25 @@ import React from 'react';
 import {Avatar as AntdAvatar} from 'antd';
 import {KitAvatarProps, KitAvatarColorType} from './types';
 import {css, styled} from 'styled-components';
-import theme from '@theme/index';
+import {useKitTheme} from '@theme/theme-context';
+import {KitAvatarTheme} from '@theme/types/components/DataDisplay/Avatar';
 
 const StyledAntdAvatar = styled(AntdAvatar)<{
+    $theme: KitAvatarTheme;
     $color: KitAvatarColorType;
 }>`
     &:not(.ant-avatar-image) {
-        ${props => {
-            switch (props.$color) {
+        ${({$color, $theme}) => {
+            switch ($color) {
                 case 'default':
                     return css`
-                        background: ${theme.color.neutral.typography.black60};
-                        color: ${theme.color.neutral.typography.white};
+                        background: ${$theme.colors.background.default};
+                        color: ${$theme.colors.typography.default};
                     `;
                 case 'blueInvert':
                     return css`
-                        background: ${theme.color.primary.blue100};
-                        color: ${theme.color.secondary.blue.blue200};
+                        background: ${$theme.colors.background.blueInvert};
+                        color: ${$theme.colors.typography.blueInvert};
                     `;
             }
         }}
@@ -26,7 +28,8 @@ const StyledAntdAvatar = styled(AntdAvatar)<{
 `;
 
 const KitAvatar: React.FunctionComponent<KitAvatarProps> = ({color = 'default', ...avatarProps}) => {
-    return <StyledAntdAvatar $color={color} {...avatarProps} />;
+    const {theme} = useKitTheme();
+    return <StyledAntdAvatar $theme={theme.components.Avatar} $color={color} {...avatarProps} />;
 };
 
 KitAvatar.displayName = 'KitAvatar';

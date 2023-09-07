@@ -7,6 +7,7 @@ import {KitTypography} from './general/typography';
 import {KitTagTheme} from './components/DataEntry/Tag';
 import {KitInputWrapperTheme} from './components/DataEntry/Input';
 import {KitInputTheme} from './components/DataEntry/Input/Input';
+import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -29,6 +30,8 @@ export interface KitTheme {
         Tag: KitTagTheme;
         InputWrapper: KitInputWrapperTheme;
         Input: KitInputTheme;
+        Avatar: KitAvatarTheme;
+        AvatarGroup: KitAvatarGroupTheme;
     };
 }
 
