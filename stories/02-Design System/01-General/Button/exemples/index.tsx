@@ -4,6 +4,7 @@ import Loading from './loading';
 import Disabled from './disabled';
 import Danger from './danger';
 import SegmentedActive from './segmentedActive';
+import SegmentedColors from './segmentedColors';
 import Compact from './compact';
 
 import TypeSource from './type?raw';
@@ -12,6 +13,7 @@ import LoadingSource from './loading?raw';
 import DisabledSource from './disabled?raw';
 import DangerSource from './danger?raw';
 import SegmentedActiveSource from './segmentedActive?raw';
+import SegmentedColorsSource from './segmentedColors?raw';
 import CompactSource from './compact?raw';
 
 export const Sources = {
@@ -21,6 +23,7 @@ export const Sources = {
     Disabled: DisabledSource,
     Danger: DangerSource,
     SegmentedActive: SegmentedActiveSource,
+    SegmentedColors: SegmentedColorsSource,
     Compact: CompactSource
 };
 
@@ -31,5 +34,6 @@ export default {
     Disabled,
     Danger,
     SegmentedActive,
+    SegmentedColors,
     Compact
 };

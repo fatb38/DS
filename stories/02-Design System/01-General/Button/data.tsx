@@ -148,6 +148,20 @@ export const ButtonArgTypes = {
         },
         defaultValue: false
     },
+    segmentedColor: {
+        name: 'segmentedColor',
+        options: ['mediumGrey', 'yellow', 'orange', 'pink', 'red', 'blue', 'green'],
+        control: {type: 'select'},
+        description: '[Only for segmented type] - Option to display segmented button with an other color',
+        table: {
+            type: {
+                summary: 'KitColorKeys'
+            },
+            defaultValue: {summary: false},
+            category: 'Button'
+        },
+        defaultValue: false
+    },
     bigIcon: {
         name: 'bigIcon',
         control: {type: 'boolean'},
