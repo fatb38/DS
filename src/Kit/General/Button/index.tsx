@@ -118,7 +118,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     }
 
     &:disabled,
-    &.ant-btn-loading {
+    &.ant-btn-loading:not(:disabled) {
         color: ${({$theme}) => $theme.colors.typography.disabled};
         background-color: ${({$theme}) => $theme.colors.background.disabled};
         border-color: ${({$theme}) => $theme.colors.border.disabled};
