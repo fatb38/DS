@@ -1,4 +1,3 @@
-import Test from './test';
 import Basic from './basic';
 import WithIcon from './withIcon';
 import WithInputNumber from './withInputNumber';
@@ -9,7 +8,6 @@ import Graduated from './graduated';
 import VisibleTooltip from './visibleTooltip';
 import Draggable from './draggable';
 
-import TestSource from './test?raw';
 import BasicSource from './basic?raw';
 import WithIconSource from './withIcon?raw';
 import WithInputNumberSource from './withInputNumber?raw';
@@ -21,7 +19,6 @@ import VisibleTooltipSource from './visibleTooltip?raw';
 import DraggableSource from './draggable?raw';
 
 export const Sources = {
-    Test: TestSource,
     Basic: BasicSource,
     WithIcon: WithIconSource,
     WithInputNumber: WithInputNumberSource,
@@ -34,7 +31,6 @@ export const Sources = {
 };
 
 export default {
-    Test,
     Basic,
     WithIcon,
     WithInputNumber,
