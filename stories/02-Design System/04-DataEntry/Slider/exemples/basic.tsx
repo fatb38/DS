@@ -11,7 +11,7 @@ const App = () => {
     };
 
     return (
-        <KitSpace direction="vertical" style={{width: '100%'}}>
+        <KitSpace direction="vertical" style={{width: '300px'}}>
             <Typography>
                 Disabled: <KitSwitch onChange={onChange} />
             </Typography>

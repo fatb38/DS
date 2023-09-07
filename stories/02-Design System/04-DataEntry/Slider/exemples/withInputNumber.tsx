@@ -6,9 +6,9 @@ const App = () => {
     const [value, setValue] = useState<string | number | null>(50);
 
     return (
-        <KitSpace direction="vertical" style={{width: '100%'}}>
+        <KitSpace direction="vertical" style={{width: '300px'}}>
             <KitInputNumber min={0} max={100} value={value} onChange={setValue} />
-            <KitSlider value={value} onChange={setValue} />
+            <KitSlider value={value ? +value : undefined} onChange={setValue} />
         </KitSpace>
     );
 };

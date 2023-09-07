@@ -35,6 +35,30 @@ You can add an icon beside the slider to make it meaningful.
 
 <CustomCanvas content={Exemples.WithIcon} source={Sources.WithIcon} />
 
+##### Customize tooltip
+Use `tooltip.formatter` to format content of `Tooltip`. If `tooltip.formatter` is null, hide it.
+
+<CustomCanvas content={Exemples.Formatter} source={Sources.Formatter} />
+
+##### Event
+The `onChange` callback function will fire when the user changes the slider's value. The `onAfterChange` callback function will fire when `onmouseup` fired.
+
+<CustomCanvas content={Exemples.Events} source={Sources.Events} />
+
+##### Reverse
+Using `reverse` to render slider reversely.
+
+<CustomCanvas content={Exemples.Reversed} source={Sources.Reversed} />
+
+##### Graduated slider
+Using `marks` property to mark a graduated slider, use `value` or `defaultValue` to specify the position of thumb. When `included` is false, means that different thumbs are coordinative. when `step` is null, users can only slide the thumbs onto marks.
+
+<CustomCanvas content={Exemples.Graduated} source={Sources.Graduated} />
+
+##### Control visible of ToolTip
+When `tooltip.open` is `true`, ToolTip will always show, or ToolTip will not show anyway, even if dragging or hovering.
+<CustomCanvas content={Exemples.VisibleTooltip} source={Sources.VisibleTooltip} />
+
 
 ## API
 

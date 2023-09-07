@@ -6,7 +6,7 @@ import {KitSpace} from '../../../../../src';
 
 const App = () => {
     return (
-        <KitSpace direction="vertical" style={{width: '100%'}}>
+        <KitSpace direction="vertical" style={{width: '300px'}}>
             <KitSlider endIcon={<ZoomInOutlined />} />
             <KitSlider startIcon={<ZoomOutOutlined />} />
             <KitSlider startIcon={<ZoomOutOutlined />} endIcon={<ZoomInOutlined />} />

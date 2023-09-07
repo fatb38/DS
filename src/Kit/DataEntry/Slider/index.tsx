@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import React from 'react';
 import {colorsPalette} from '../../..';
+import {KitSliderRangeProps, KitSliderSingleProps} from './types';
 
 const KitSliderContainer = styled.div`
     position: relative;
@@ -44,13 +45,21 @@ const StyledKitSlider = styled(AntdSlider)<{$isStartIcon: boolean; $isEndIcon: b
             }
         }
 
+        .ant-slider-mark .ant-slider-mark-text:not(.ant-slider-mark-text-active) {
+            color: ${colorsPalette.secondary.mediumGrey.mediumGrey200};
+        }
+
         .ant-slider-mark {
             top: 14px;
         }
     }
 `;
 
-export const KitSlider = ({startIcon, endIcon, ...props}: {[x: string]: any; startIcon?: any; endIcon?: any}) => {
+export const KitSlider: React.FunctionComponent<KitSliderSingleProps | KitSliderRangeProps> = ({
+    startIcon,
+    endIcon,
+    ...props
+}) => {
     if (startIcon !== undefined || endIcon !== undefined) {
         return (
             <KitSliderContainer>
