@@ -72,7 +72,6 @@ const getActions = (actions, onPlusClick) => {
                   case 'KitButton':
                       return React.cloneElement(action, {
                           type: 'segmented',
-                          subtypeSegmented: 'gray',
                           bigIcon: true,
                           key: index,
                           ...action.props

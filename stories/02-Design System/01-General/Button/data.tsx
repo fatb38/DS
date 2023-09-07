@@ -122,20 +122,6 @@ export const ButtonArgTypes = {
         },
         defaultValue: 'default'
     },
-    subtypeSegmented: {
-        name: 'subtypeSegmented',
-        options: ['default', 'green', 'gray'],
-        control: {type: 'select'},
-        description: 'Can be set to `default` | `green` | `gray`',
-        table: {
-            type: {
-                summary: 'string'
-            },
-            defaultValue: {summary: 'default'},
-            category: 'Button'
-        },
-        defaultValue: 'default'
-    },
     isActiveSegmented: {
         name: 'isActiveSegmented',
         control: {type: 'boolean'},

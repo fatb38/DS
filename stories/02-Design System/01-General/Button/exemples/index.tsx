@@ -1,22 +1,20 @@
 import Type from './type';
-import TypeSource from './type?raw';
 import Icon from './icon';
-import IconSource from './icon?raw';
 import Loading from './loading';
-import LoadingSource from './loading?raw';
 import Disabled from './disabled';
-import DisabledSource from './disabled?raw';
 import Danger from './danger';
-import DangerSource from './danger?raw';
 import Segmented from './segmented';
-import SegmentedSource from './segmented?raw';
 import SegmentedActive from './segmentedActive';
-import SegmentedActiveSource from './segmentedActive?raw';
 import Compact from './compact';
-import CompactSource from './compact?raw';
-import Subtypes from './subtypes';
-import SubtypesSource from './subtypes?raw';
 
+import TypeSource from './type?raw';
+import IconSource from './icon?raw';
+import LoadingSource from './loading?raw';
+import DisabledSource from './disabled?raw';
+import DangerSource from './danger?raw';
+import SegmentedSource from './segmented?raw';
+import SegmentedActiveSource from './segmentedActive?raw';
+import CompactSource from './compact?raw';
 
 export const Sources = {
     Type: TypeSource,
@@ -26,8 +24,7 @@ export const Sources = {
     Danger: DangerSource,
     Segmented: SegmentedSource,
     SegmentedActive: SegmentedActiveSource,
-    Compact: CompactSource,
-    Subtypes: SubtypesSource
+    Compact: CompactSource
 };
 
 export default {
@@ -38,6 +35,5 @@ export default {
     Danger,
     Segmented,
     SegmentedActive,
-    Compact,
-    Subtypes
+    Compact
 };

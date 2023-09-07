@@ -230,7 +230,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
 `;
 
 const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, KitButtonProps> = (
-    {bigIcon, primaryModal, type, subtypeSegmented, isCheckedSegmented, isActiveSegmented, className, ...buttonProps},
+    {bigIcon, primaryModal, type, isCheckedSegmented, isActiveSegmented, className, ...buttonProps},
     ref
 ) => {
     const {theme: kitTheme} = useKitTheme();

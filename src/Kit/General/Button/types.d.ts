@@ -3,13 +3,10 @@ import {HTMLAttributes} from 'react';
 
 export type KitButtonType = 'primary' | 'default' | 'link' | 'segmented';
 
-export type KitButtonSubtypeSegmented = 'default' | 'green' | 'gray';
-
 export type AntdButtonTypesToOmit = 'type' | 'size' | 'ghost' | 'shape' | 'styles';
 
 export interface KitButtonProps extends Omit<ButtonProps, AntdButtonTypesToOmit>, HTMLAttributes<HTMLDivElement> {
     type?: KitButtonType;
-    subtypeSegmented?: KitButtonSubtypeSegmented;
     isActiveSegmented?: boolean;
     isCheckedSegmented?: boolean;
     bigIcon?: boolean;
