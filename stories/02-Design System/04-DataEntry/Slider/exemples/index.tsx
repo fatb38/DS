@@ -7,6 +7,7 @@ import Events from './events';
 import Reversed from './reversed';
 import Graduated from './graduated';
 import VisibleTooltip from './visibleTooltip';
+import Draggable from './draggable';
 
 import TestSource from './test?raw';
 import BasicSource from './basic?raw';
@@ -17,6 +18,7 @@ import EventsSource from './events?raw';
 import ReversedSource from './reversed?raw';
 import GraduatedSource from './graduated?raw';
 import VisibleTooltipSource from './visibleTooltip?raw';
+import DraggableSource from './draggable?raw';
 
 export const Sources = {
     Test: TestSource,
@@ -27,7 +29,8 @@ export const Sources = {
     Events: EventsSource,
     Reversed: ReversedSource,
     Graduated: GraduatedSource,
-    VisibleTooltip: VisibleTooltipSource
+    VisibleTooltip: VisibleTooltipSource,
+    Draggable: DraggableSource
 };
 
 export default {
@@ -39,5 +42,6 @@ export default {
     Events,
     Reversed,
     Graduated,
-    VisibleTooltip
+    VisibleTooltip,
+    Draggable
 };

@@ -53,6 +53,12 @@ const StyledKitSlider = styled(AntdSlider)<{$isStartIcon: boolean; $isEndIcon: b
             top: 14px;
         }
     }
+
+    &.ant-slider-disabled {
+        .ant-slider-handle::after {
+            box-shadow: 0 0 0 2px ${colorsPalette.secondary.mediumGrey.mediumGrey200};
+        }
+    }
 `;
 
 export const KitSlider: React.FunctionComponent<KitSliderSingleProps | KitSliderRangeProps> = ({
