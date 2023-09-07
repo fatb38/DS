@@ -38,7 +38,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
         background-color: ${({$theme}) => $theme.colors.background.ghost};
     }
 
-    + .kit-btn-segmented-active-icon {
+    + .kit-btn-segmented-actived-icon {
         position: absolute;
         z-index: 2;
         bottom: 6px;
@@ -50,7 +50,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     &.kit-btn-segmented {
         border-radius: 10px;
 
-        &.kit-btn-segmented-active:not(.ant-btn-dangerous) {
+        &.kit-btn-segmented-actived:not(.ant-btn-dangerous) {
             color: ${({$theme}) => $theme.colors.typography.active};
             background-color: ${({$theme}) => $theme.colors.background.active};
             border-color: ${({$theme}) => $theme.colors.border.active};
@@ -64,7 +64,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
             }
         }
 
-        &.kit-btn-segmented-active.ant-btn-dangerous {
+        &.kit-btn-segmented-actived.ant-btn-dangerous {
             color: ${({$theme}) => $theme.colors.typography.danger.default};
             background-color: ${({$theme}) => $theme.colors.background.danger.active};
             border-color: ${({$theme}) => $theme.colors.border.danger.active};
@@ -230,7 +230,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
 `;
 
 const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, KitButtonProps> = (
-    {bigIcon, primaryModal, type, isCheckedSegmented, isActiveSegmented, className, ...buttonProps},
+    {bigIcon, primaryModal, type, segmentedChecked, segmentedActived, className, ...buttonProps},
     ref
 ) => {
     const {theme: kitTheme} = useKitTheme();
@@ -271,7 +271,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
         let classes = className || '';
 
         classes += type === 'segmented' ? ' kit-btn-segmented' : '';
-        classes += isActiveSegmented ? ' kit-btn-segmented-active' : '';
+        classes += segmentedActived ? ' kit-btn-segmented-actived' : '';
 
         return classes;
     };
@@ -291,8 +291,8 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
                 type={getAntdType()}
                 ref={ref}
             ></StyledAntdButton>
-            {type === 'segmented' && isCheckedSegmented && (
-                <CheckCircleFilled className="kit-btn-segmented-active-icon" />
+            {type === 'segmented' && segmentedChecked && (
+                <CheckCircleFilled className="kit-btn-segmented-actived-icon" />
             )}
         </div>
     );

@@ -122,8 +122,8 @@ export const ButtonArgTypes = {
         },
         defaultValue: 'default'
     },
-    isActiveSegmented: {
-        name: 'isActiveSegmented',
+    segmentedActived: {
+        name: 'segmentedActived',
         control: {type: 'boolean'},
         description: '[Only for segmented type] - Option to display segmented button with an active state',
         table: {
@@ -135,8 +135,8 @@ export const ButtonArgTypes = {
         },
         defaultValue: false
     },
-    isCheckedSegmented: {
-        name: 'isCheckedSegmented',
+    segmentedChecked: {
+        name: 'segmentedChecked',
         control: {type: 'boolean'},
         description: '[Only for segmented type] - Option to display segmented button with a check icon',
         table: {

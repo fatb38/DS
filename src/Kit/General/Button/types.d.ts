@@ -7,8 +7,8 @@ export type AntdButtonTypesToOmit = 'type' | 'size' | 'ghost' | 'shape' | 'style
 
 export interface KitButtonProps extends Omit<ButtonProps, AntdButtonTypesToOmit>, HTMLAttributes<HTMLDivElement> {
     type?: KitButtonType;
-    isActiveSegmented?: boolean;
-    isCheckedSegmented?: boolean;
+    segmentedActived?: boolean;
+    segmentedChecked?: boolean;
     bigIcon?: boolean;
     primaryModal?: boolean;
 }
