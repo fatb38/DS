@@ -3,7 +3,6 @@ import Icon from './icon';
 import Loading from './loading';
 import Disabled from './disabled';
 import Danger from './danger';
-import Segmented from './segmented';
 import SegmentedActive from './segmentedActive';
 import Compact from './compact';
 
@@ -12,7 +11,6 @@ import IconSource from './icon?raw';
 import LoadingSource from './loading?raw';
 import DisabledSource from './disabled?raw';
 import DangerSource from './danger?raw';
-import SegmentedSource from './segmented?raw';
 import SegmentedActiveSource from './segmentedActive?raw';
 import CompactSource from './compact?raw';
 
@@ -22,7 +20,6 @@ export const Sources = {
     Loading: LoadingSource,
     Disabled: DisabledSource,
     Danger: DangerSource,
-    Segmented: SegmentedSource,
     SegmentedActive: SegmentedActiveSource,
     Compact: CompactSource
 };
@@ -33,7 +30,6 @@ export default {
     Loading,
     Disabled,
     Danger,
-    Segmented,
     SegmentedActive,
     Compact
 };

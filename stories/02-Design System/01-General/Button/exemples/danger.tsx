@@ -13,6 +13,7 @@ const App = ({}) => {
                 {' '}
                 Link
             </KitButton>
+            <KitButton type="segmented" icon={<SearchOutlined />} danger />
         </KitSpace>
     );
 };

@@ -28,21 +28,15 @@ const App = ({}) => {
                     <KitButton type="primary" loading>
                         Loading
                     </KitButton>
-                    <KitButton type="primary" loading>
-                        Loading
-                    </KitButton>
+                    <KitButton loading>Loading</KitButton>
                     <KitButton type="primary" icon={<PoweroffOutlined />} loading />
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} loading />
                 </KitSpace>
                 <KitSpace wrap>
                     <KitButton type="primary" loading={loadings[0]} onClick={() => enterLoading(0)}>
                         Click me!
                     </KitButton>
-                    <KitButton
-                        type="primary"
-                        icon={<PoweroffOutlined />}
-                        loading={loadings[1]}
-                        onClick={() => enterLoading(1)}
-                    >
+                    <KitButton icon={<PoweroffOutlined />} loading={loadings[1]} onClick={() => enterLoading(1)}>
                         Click me!
                     </KitButton>
                     <KitButton
@@ -50,6 +44,12 @@ const App = ({}) => {
                         icon={<PoweroffOutlined />}
                         loading={loadings[2]}
                         onClick={() => enterLoading(2)}
+                    />
+                    <KitButton
+                        type="segmented"
+                        icon={<PoweroffOutlined />}
+                        loading={loadings[3]}
+                        onClick={() => enterLoading(3)}
                     />
                 </KitSpace>
             </KitSpace>
