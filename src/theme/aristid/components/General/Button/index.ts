@@ -22,11 +22,11 @@ const kitPrimaryButtonThemeStyled: KitButtonThemeStyled = {
             hover: colors.neutral.typography.white,
             active: colors.neutral.typography.white,
             focus: colors.neutral.typography.white,
-            disabled: colors.primary.blue200,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
             ghost: colors.primary.blue400,
             danger: {
                 default: colors.neutral.typography.white,
-                disabled: colors.neutral.typography.white
+                disabled: colors.secondary.mediumGrey.mediumGrey400
             }
         },
         background: {
@@ -34,14 +34,14 @@ const kitPrimaryButtonThemeStyled: KitButtonThemeStyled = {
             hover: colors.primary.blue500,
             active: colors.primary.blue600,
             focus: colors.primary.blue400,
-            disabled: colors.primary.blue100,
+            disabled: colors.secondary.mediumGrey.mediumGrey100,
             ghost: colors.neutral.typography.white,
             danger: {
                 default: colors.secondary.red.red400,
                 hover: colors.secondary.red.red500,
                 active: colors.secondary.red.red600,
                 focus: colors.secondary.red.red400,
-                disabled: colors.secondary.red.red200
+                disabled: colors.secondary.mediumGrey.mediumGrey100
             }
         },
         border: {
@@ -49,13 +49,13 @@ const kitPrimaryButtonThemeStyled: KitButtonThemeStyled = {
             hover: colors.primary.blue500,
             active: colors.primary.blue600,
             focus: colors.primary.blue400,
-            disabled: colors.primary.blue100,
+            disabled: colors.secondary.mediumGrey.mediumGrey200,
             danger: {
                 default: colors.secondary.red.red400,
                 hover: colors.secondary.red.red500,
                 active: colors.secondary.red.red600,
                 focus: colors.secondary.red.red400,
-                disabled: colors.secondary.red.red200
+                disabled: colors.secondary.mediumGrey.mediumGrey200
             }
         }
     },
@@ -77,10 +77,10 @@ const kitDefaultButtonThemeStyled: KitButtonThemeStyled = {
             hover: colors.primary.blue400,
             active: colors.primary.blue400,
             focus: colors.primary.blue400,
-            disabled: colors.primary.blue200,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
             danger: {
                 default: colors.secondary.red.red400,
-                disabled: colors.secondary.red.red200
+                disabled: colors.secondary.mediumGrey.mediumGrey400
             }
         },
         background: {
@@ -88,13 +88,13 @@ const kitDefaultButtonThemeStyled: KitButtonThemeStyled = {
             hover: colors.neutral.typography.white,
             active: colors.primary.blue100,
             focus: colors.neutral.typography.white,
-            disabled: colors.neutral.typography.white,
+            disabled: colors.secondary.mediumGrey.mediumGrey100,
             danger: {
                 default: colors.neutral.typography.white,
                 hover: colors.neutral.typography.white,
                 active: colors.secondary.red.red100,
                 focus: colors.neutral.typography.white,
-                disabled: colors.neutral.typography.white
+                disabled: colors.secondary.mediumGrey.mediumGrey100
             }
         },
         border: {
@@ -102,13 +102,13 @@ const kitDefaultButtonThemeStyled: KitButtonThemeStyled = {
             hover: colors.primary.blue400,
             active: colors.primary.blue400,
             focus: colors.primary.blue400,
-            disabled: colors.primary.blue100,
+            disabled: colors.secondary.mediumGrey.mediumGrey200,
             danger: {
                 default: colors.secondary.red.red100,
                 hover: colors.secondary.red.red400,
                 active: colors.secondary.red.red400,
                 focus: colors.secondary.red.red400,
-                disabled: colors.secondary.red.red100
+                disabled: colors.secondary.mediumGrey.mediumGrey200
             }
         }
     },
@@ -130,10 +130,10 @@ const kitLinkButtonThemeStyled: KitButtonThemeStyled = {
             hover: colors.primary.blue400,
             active: colors.primary.blue400,
             focus: colors.primary.blue400,
-            disabled: colors.primary.blue200,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
             danger: {
                 default: colors.secondary.red.red400,
-                disabled: colors.secondary.red.red200
+                disabled: colors.secondary.mediumGrey.mediumGrey400
             }
         },
         background: {
@@ -155,13 +155,13 @@ const kitLinkButtonThemeStyled: KitButtonThemeStyled = {
             hover: colors.primary.blue400,
             active: colors.primary.blue400,
             focus: colors.primary.blue400,
-            disabled: colors.primary.blue100,
+            disabled: colors.secondary.mediumGrey.mediumGrey200,
             danger: {
                 default: colors.secondary.red.red400,
                 hover: colors.secondary.red.red400,
                 active: colors.secondary.red.red400,
                 focus: colors.secondary.red.red400,
-                disabled: colors.secondary.red.red100
+                disabled: colors.secondary.mediumGrey.mediumGrey200
             }
         }
     },
@@ -183,10 +183,10 @@ const kitSegmentedButtonThemeStyled: KitButtonThemeStyled = {
             hover: colors.primary.blue500,
             active: colors.primary.blue500,
             focus: colors.primary.blue500,
-            disabled: colors.primary.blue200,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
             danger: {
                 default: colors.secondary.red.red500,
-                disabled: colors.secondary.red.red200
+                disabled: colors.secondary.mediumGrey.mediumGrey400
             },
             iconCheck: colors.primary.blue400
         },
@@ -195,13 +195,13 @@ const kitSegmentedButtonThemeStyled: KitButtonThemeStyled = {
             hover: colors.neutral.typography.white,
             active: colors.primary.blue100,
             focus: colors.neutral.typography.white,
-            disabled: colors.primary.blue100,
+            disabled: colors.secondary.mediumGrey.mediumGrey100,
             danger: {
                 default: colors.neutral.typography.white,
                 hover: colors.neutral.typography.white,
                 active: colors.secondary.red.red100,
                 focus: colors.neutral.typography.white,
-                disabled: colors.secondary.red.red100
+                disabled: colors.secondary.mediumGrey.mediumGrey100
             }
         },
         border: {
@@ -209,13 +209,13 @@ const kitSegmentedButtonThemeStyled: KitButtonThemeStyled = {
             hover: colors.primary.blue400,
             active: colors.primary.blue400,
             focus: colors.primary.blue400,
-            disabled: colors.primary.blue100,
+            disabled: colors.secondary.mediumGrey.mediumGrey200,
             danger: {
                 default: colors.secondary.red.red100,
                 hover: colors.secondary.red.red400,
                 active: colors.secondary.red.red400,
                 focus: colors.secondary.red.red400,
-                disabled: colors.secondary.red.red100
+                disabled: colors.secondary.mediumGrey.mediumGrey200
             }
         }
     },
