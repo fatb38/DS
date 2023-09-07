@@ -302,6 +302,11 @@ export const argTypes = {
     ...TooltipArgsType
 };
 
-export const Template = args => {
-    return <KitSlider {...args} />;
+export const Template = ({open, placement, range, ...args}) => {
+    const rangeTest = range !== undefined && range;
+    console.log(rangeTest);
+
+    return (
+        <KitSlider range={rangeTest} defaultValue={rangeTest ? [0, 30] : 30} tooltip={{open, placement}} {...args} />
+    );
 };

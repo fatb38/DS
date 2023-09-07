@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import React from 'react';
 import {colorsPalette} from '../../..';
 import {KitSliderRangeProps, KitSliderSingleProps} from './types';
+import {KitSliderTheme} from '@theme/types/components/DataEntry/Slider';
+import {useKitTheme} from '@theme/theme-context';
 
 const KitSliderContainer = styled.div`
     position: relative;
@@ -23,30 +25,30 @@ const EndIcon = styled.div`
     color: ${colorsPalette.neutral.typography.black60};
 `;
 
-const StyledKitSlider = styled(AntdSlider)<{$isStartIcon: boolean; $isEndIcon: boolean}>`
+const StyledKitSlider = styled(AntdSlider)<{$theme: KitSliderTheme; $isStartIcon: boolean; $isEndIcon: boolean}>`
     margin-left: ${({$isStartIcon}) => ($isStartIcon ? '30px' : '0px')};
     margin-right: ${({$isEndIcon}) => ($isEndIcon ? '30px' : '0px')};
     &.ant-slider:not(.ant-slider-disabled) {
         .ant-slider-handle {
             &:hover::after {
-                background-color: ${colorsPalette.primary.blue100};
+                background-color: ${({$theme}) => $theme.handle.colors.background.hover};
             }
             &::after {
-                box-shadow: 0 0 0 2px ${colorsPalette.primary.blue400};
+                box-shadow: 0 0 0 2px ${({$theme}) => $theme.handle.colors.border.default};
             }
             &:focus::after {
-                background-color: ${colorsPalette.primary.blue400};
+                background-color: ${({$theme}) => $theme.handle.colors.background.focus};
             }
         }
 
         &:hover {
             .ant-slider-dot:not(.ant-slider-dot-active) {
-                border-color: ${colorsPalette.secondary.mediumGrey.mediumGrey200};
+                border-color: ${({$theme}) => $theme.dot.colors.border.default};
             }
         }
 
         .ant-slider-mark .ant-slider-mark-text:not(.ant-slider-mark-text-active) {
-            color: ${colorsPalette.secondary.mediumGrey.mediumGrey200};
+            color: ${({$theme}) => $theme.dot.colors.border.default};
         }
 
         .ant-slider-mark {
@@ -56,7 +58,7 @@ const StyledKitSlider = styled(AntdSlider)<{$isStartIcon: boolean; $isEndIcon: b
 
     &.ant-slider-disabled {
         .ant-slider-handle::after {
-            box-shadow: 0 0 0 2px ${colorsPalette.secondary.mediumGrey.mediumGrey200};
+            box-shadow: 0 0 0 2px ${({$theme}) => $theme.handle.colors.border.disabled};
         }
     }
 `;
@@ -66,15 +68,21 @@ export const KitSlider: React.FunctionComponent<KitSliderSingleProps | KitSlider
     endIcon,
     ...props
 }) => {
+    const {theme} = useKitTheme();
     if (startIcon !== undefined || endIcon !== undefined) {
         return (
             <KitSliderContainer>
                 <StartIcon>{startIcon}</StartIcon>
-                <StyledKitSlider $isStartIcon={!!startIcon} $isEndIcon={!!endIcon} {...props} />
+                <StyledKitSlider
+                    $theme={theme.components.Slider}
+                    $isStartIcon={!!startIcon}
+                    $isEndIcon={!!endIcon}
+                    {...props}
+                />
                 <EndIcon>{endIcon}</EndIcon>
             </KitSliderContainer>
         );
     }
 
-    return <StyledKitSlider $isStartIcon={false} $isEndIcon={false} {...props} />;
+    return <StyledKitSlider $theme={theme.components.Slider} $isStartIcon={false} $isEndIcon={false} {...props} />;
 };
