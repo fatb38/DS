@@ -7,13 +7,13 @@ import {CheckCircleFilled} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
 import {KitButtonTheme} from '@theme/types/components/General/Button';
 
-interface toto {
+interface StyledAntdButtonProps {
     $theme: KitButtonTheme['primary'];
     $bigIcon?: boolean;
     ghost?: boolean;
 }
 
-const StyledAntdButton = styled(AntdButton)<toto>`
+const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     height: 40px;
     min-width: 40px;
     box-shadow: none;
@@ -44,7 +44,7 @@ const StyledAntdButton = styled(AntdButton)<toto>`
         bottom: 6px;
         right: 5px;
         font-size: 12px;
-        /* color: {props => props.theme.color.iconCheck}; TODO: */
+        color: ${({$theme}) => $theme.colors.typography.iconCheck};
     }
 
     &.kit-btn-segmented {
@@ -58,8 +58,8 @@ const StyledAntdButton = styled(AntdButton)<toto>`
 
             &:not(.ant-btn-link):not(.ant-btn-loading):not(.ant-btn-dangerous):not(:disabled) {
                 &:hover {
-                    /* background-color: {props => props.theme.backgroundColor.active}; */
-                    /* color: {props => props.theme.color.active}; */
+                    color: ${({$theme}) => $theme.colors.typography.active};
+                    background-color: ${({$theme}) => $theme.colors.background.active};
                 }
             }
         }
@@ -251,7 +251,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
         }
     };
 
-    const getType = (): ButtonType => {
+    const getAntdType = (): ButtonType => {
         if (primaryModal) {
             return 'primary';
         }
@@ -288,7 +288,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
                 {...buttonProps}
                 className={getClasses()}
                 ghost={primaryModal}
-                type={getType()}
+                type={getAntdType()}
                 ref={ref}
             ></StyledAntdButton>
             {type === 'segmented' && isCheckedSegmented && (
