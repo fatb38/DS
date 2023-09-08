@@ -9,8 +9,8 @@ const Container = styled.div<{
     $theme: KitCardTheme;
     $column: boolean;
 }>`
-    width: ${({$column, $theme}) => ($column ? `${$theme.colorBar.width}px` : 'auto')};
-    height: ${({$column, $theme}) => ($column ? 'auto' : `${$theme.colorBar.width}px`)};
+    width: ${({$column, $theme}) => ($column ? `${$theme.colorBar.thickness}px` : 'auto')};
+    height: ${({$column, $theme}) => ($column ? 'auto' : `${$theme.colorBar.thickness}px`)};
     border-radius: ${({$theme}) => $theme.colorBar.border.radius}px;
     display: flex;
     flex-direction: ${({$column}) => ($column ? 'column' : 'row')};
@@ -23,7 +23,7 @@ const Container = styled.div<{
 
 const getSwatchStyle = (item: cardColor) => {
     return {
-        background: item.color || 'transparent'
+        background: item.color ?? 'transparent'
     };
 };
 
@@ -31,7 +31,7 @@ const KitColorbar = (props: KitColorbarProps) => {
     const {theme} = useKitTheme();
     return (
         <Container $theme={theme.components.Card} $column={props.vertical ?? false} className={props.className}>
-            {(props.colors || []).map((item, i) => (
+            {props.colors?.map((item, i) => (
                 <KitTooltip
                     key={`${item.label}_${i}`}
                     title={item.label}

@@ -24,7 +24,7 @@ const kitCardThemeStyled: KitCardThemeStyled = {
         }
     },
     colorBar: {
-        width: 8,
+        thickness: 8,
         border: {
             radius: border.radius.s
         }

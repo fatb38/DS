@@ -273,7 +273,7 @@ const getPicture = picture => {
                 },
                 width: '100%',
                 height: '100%',
-                rootClassName: (picture.props.rootClassName || '') + ' kit-card-image-image'
+                rootClassName: (picture.props.rootClassName ?? '') + ' kit-card-image-image'
             };
             wrapperClassName = 'kit-card-image';
             break;
@@ -297,13 +297,14 @@ const getActions = (actions, disabled) => {
         return null;
     }
 
-    return actions.map(button => {
-        return React.cloneElement(button, {
+    return actions.map((button, index) =>
+        React.cloneElement(button, {
+            key: index,
             type: 'default',
             disabled: disabled,
-            className: `${button.props.className || ''} kit-card-select-button`
-        });
-    });
+            className: `${button.props.className ?? ''} kit-card-select-button`
+        })
+    );
 };
 
 const getSWrapperClassName = (vertical, disabled, className) =>
@@ -334,7 +335,7 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
     return (
         <CardWrapper
             $theme={theme.components.Card}
-            className={getSWrapperClassName(vertical, disabled, props.className || '')}
+            className={getSWrapperClassName(vertical, disabled, props.className ?? '')}
             {...props}
         >
             {(onSelectChange || onEdit) && (

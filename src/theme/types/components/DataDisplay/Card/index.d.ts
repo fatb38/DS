@@ -18,7 +18,7 @@ export interface KitCardThemeStyled {
         };
     };
     colorBar: {
-        width: number;
+        thickness: number;
         border: {
             radius: number;
         };
