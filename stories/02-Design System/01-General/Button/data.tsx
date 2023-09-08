@@ -83,6 +83,20 @@ export const ButtonArgTypes = {
         },
         description: 'Set the icon component of button'
     },
+    iconSize: {
+        name: 'iconSize',
+        options: ['xs', 's', 'm', 'l', 'xl'],
+        control: {type: 'select'},
+        description: 'Set a size to the icon button',
+        table: {
+            type: {
+                summary: 'xs | s | m | l | xl'
+            },
+            defaultValue: {summary: 'm'},
+            category: 'Button'
+        },
+        defaultValue: false
+    },
     loading: {
         name: 'loading',
         control: {type: 'boolean'},
@@ -122,22 +136,8 @@ export const ButtonArgTypes = {
         },
         defaultValue: 'default'
     },
-    subtypeSegmented: {
-        name: 'subtypeSegmented',
-        options: ['default', 'green', 'gray'],
-        control: {type: 'select'},
-        description: 'Can be set to `default` | `green` | `gray`',
-        table: {
-            type: {
-                summary: 'string'
-            },
-            defaultValue: {summary: 'default'},
-            category: 'Button'
-        },
-        defaultValue: 'default'
-    },
-    isActiveSegmented: {
-        name: 'isActiveSegmented',
+    segmentedActived: {
+        name: 'segmentedActived',
         control: {type: 'boolean'},
         description: '[Only for segmented type] - Option to display segmented button with an active state',
         table: {
@@ -149,8 +149,8 @@ export const ButtonArgTypes = {
         },
         defaultValue: false
     },
-    isCheckedSegmented: {
-        name: 'isCheckedSegmented',
+    segmentedChecked: {
+        name: 'segmentedChecked',
         control: {type: 'boolean'},
         description: '[Only for segmented type] - Option to display segmented button with a check icon',
         table: {
@@ -162,13 +162,14 @@ export const ButtonArgTypes = {
         },
         defaultValue: false
     },
-    bigIcon: {
-        name: 'bigIcon',
-        control: {type: 'boolean'},
-        description: '[Only with KitSpace.Compact] Option to display only a big icon without padings in button',
+    segmentedColor: {
+        name: 'segmentedColor',
+        options: ['mediumGrey', 'yellow', 'orange', 'pink', 'red', 'blue', 'green'],
+        control: {type: 'select'},
+        description: '[Only for segmented type] - Option to display segmented button with an other color',
         table: {
             type: {
-                summary: 'boolean'
+                summary: 'KitColorKeys'
             },
             defaultValue: {summary: false},
             category: 'Button'

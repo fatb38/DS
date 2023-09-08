@@ -14,13 +14,13 @@ const App = () => {
     return (
         <div>
             <KitSpace.Compact block>
-                <KitButton type="segmented" onClick={() => setSize('small')} isActiveSegmented={size === 'small'}>
+                <KitButton type="segmented" onClick={() => setSize('small')} segmentedActived={size === 'small'}>
                     Small
                 </KitButton>
-                <KitButton type="segmented" onClick={() => setSize('middle')} isActiveSegmented={size === 'middle'}>
+                <KitButton type="segmented" onClick={() => setSize('middle')} segmentedActived={size === 'middle'}>
                     Middle
                 </KitButton>
-                <KitButton type="segmented" onClick={() => setSize('large')} isActiveSegmented={size === 'large'}>
+                <KitButton type="segmented" onClick={() => setSize('large')} segmentedActived={size === 'large'}>
                     Large
                 </KitButton>
             </KitSpace.Compact>

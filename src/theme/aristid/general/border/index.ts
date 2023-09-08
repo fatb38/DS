@@ -9,7 +9,8 @@ export const border: KitBorder = {
         m: 16,
         l: 24,
         xl: 32,
-        xxl: 40
+        xxl: 40,
+        pills: 1000
     },
     width: 0
 };

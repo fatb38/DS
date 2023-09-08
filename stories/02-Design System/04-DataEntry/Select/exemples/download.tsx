@@ -60,7 +60,7 @@ const App = ({}) => {
                     options={iconOptions}
                 />
                 {selectedOption && (
-                    <KitButton type="primary" bigIcon icon={<DownloadOutlined />} onClick={handleClick} />
+                    <KitButton type="primary" icon={<DownloadOutlined />} iconSize="xl" onClick={handleClick} />
                 )}
             </KitSpace.Compact>
             <KitDivider orientation="left">Download under the select</KitDivider>

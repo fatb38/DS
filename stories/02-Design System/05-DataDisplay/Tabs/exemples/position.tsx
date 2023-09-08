@@ -20,28 +20,28 @@ const App = () => {
                     <KitButton
                         type="segmented"
                         onClick={() => setTabPosition('top')}
-                        isActiveSegmented={tabPosition === 'top'}
+                        segmentedActived={tabPosition === 'top'}
                     >
                         Top
                     </KitButton>
                     <KitButton
                         type="segmented"
                         onClick={() => setTabPosition('bottom')}
-                        isActiveSegmented={tabPosition === 'bottom'}
+                        segmentedActived={tabPosition === 'bottom'}
                     >
                         Bottom
                     </KitButton>
                     <KitButton
                         type="segmented"
                         onClick={() => setTabPosition('left')}
-                        isActiveSegmented={tabPosition === 'bottom'}
+                        segmentedActived={tabPosition === 'bottom'}
                     >
                         Left
                     </KitButton>
                     <KitButton
                         type="segmented"
                         onClick={() => setTabPosition('right')}
-                        isActiveSegmented={tabPosition === 'right'}
+                        segmentedActived={tabPosition === 'right'}
                     >
                         Right
                     </KitButton>
