@@ -124,13 +124,6 @@ const theme: KitThemeConfig = {
             lastItemColor: colorsPalette.primary.blue400,
             colorBgTextHover: 'transparent'
         },
-        Badge: {
-            fontFamily: Typography.fontFamily,
-            colorError: colorsPalette.secondary.red.red400,
-            colorSuccess: colorsPalette.secondary.green.green400,
-            colorPrimary: colorsPalette.primary.blue400,
-            colorWarning: colorsPalette.secondary.yellow.yellow400
-        },
         Progress: {
             colorBgContainer: colorsPalette.neutral.background,
             colorError: colorsPalette.secondary.red.red400,
