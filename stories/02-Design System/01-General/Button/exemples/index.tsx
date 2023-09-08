@@ -1,43 +1,43 @@
 import Type from './type';
-import TypeSource from './type?raw';
 import Icon from './icon';
-import IconSource from './icon?raw';
+import IconSize from './iconSize';
 import Loading from './loading';
-import LoadingSource from './loading?raw';
 import Disabled from './disabled';
-import DisabledSource from './disabled?raw';
 import Danger from './danger';
-import DangerSource from './danger?raw';
-import Segmented from './segmented';
-import SegmentedSource from './segmented?raw';
 import SegmentedActive from './segmentedActive';
-import SegmentedActiveSource from './segmentedActive?raw';
+import SegmentedColors from './segmentedColors';
 import Compact from './compact';
-import CompactSource from './compact?raw';
-import Subtypes from './subtypes';
-import SubtypesSource from './subtypes?raw';
 
+import TypeSource from './type?raw';
+import IconSource from './icon?raw';
+import IconSizeSource from './iconSize?raw';
+import LoadingSource from './loading?raw';
+import DisabledSource from './disabled?raw';
+import DangerSource from './danger?raw';
+import SegmentedActiveSource from './segmentedActive?raw';
+import SegmentedColorsSource from './segmentedColors?raw';
+import CompactSource from './compact?raw';
 
 export const Sources = {
     Type: TypeSource,
     Icon: IconSource,
+    IconSize: IconSizeSource,
     Loading: LoadingSource,
     Disabled: DisabledSource,
     Danger: DangerSource,
-    Segmented: SegmentedSource,
     SegmentedActive: SegmentedActiveSource,
-    Compact: CompactSource,
-    Subtypes: SubtypesSource
+    SegmentedColors: SegmentedColorsSource,
+    Compact: CompactSource
 };
 
 export default {
     Type,
     Icon,
+    IconSize,
     Loading,
     Disabled,
     Danger,
-    Segmented,
     SegmentedActive,
-    Compact,
-    Subtypes
+    SegmentedColors,
+    Compact
 };

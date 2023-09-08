@@ -1,5 +1,6 @@
 import React from 'react';
 import {KitButton, KitSpace} from '@kit/index';
+import {SearchOutlined} from '@ant-design/icons';
 
 const App = ({}) => {
     return (
@@ -35,6 +36,12 @@ const App = ({}) => {
                 <KitButton type="link" danger disabled>
                     Danger Link(disabled)
                 </KitButton>
+            </KitSpace>
+            <KitSpace>
+                <KitButton type="segmented" icon={<SearchOutlined />} />
+                <KitButton type="segmented" icon={<SearchOutlined />} disabled />
+                <KitButton type="segmented" icon={<SearchOutlined />} danger />
+                <KitButton type="segmented" icon={<SearchOutlined />} danger disabled />
             </KitSpace>
         </KitSpace>
     );

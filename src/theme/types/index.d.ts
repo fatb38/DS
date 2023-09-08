@@ -7,6 +7,7 @@ import {KitTypography} from './general/typography';
 import {KitTagTheme} from './components/DataEntry/Tag';
 import {KitInputWrapperTheme} from './components/DataEntry/Input';
 import {KitInputTheme} from './components/DataEntry/Input/Input';
+import {KitButtonTheme} from './components/General/Button';
 import {KitSliderTheme} from './components/DataEntry/Slider';
 
 type DeepPartial<T> = T extends object
@@ -25,6 +26,7 @@ export interface KitThemeGeneral {
 export interface KitTheme {
     general: KitThemeGeneral;
     components: {
+        Button: KitButtonTheme;
         Rate: KitRateTheme;
         Tooltip: KitTooltipTheme;
         Tag: KitTagTheme;

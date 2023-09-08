@@ -110,8 +110,7 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
         return (
             <div className="kit-menu-header-button">
                 {React.cloneElement(segmentedButton, {
-                    type: 'segmented',
-                    subtypeSegmented: 'green'
+                    type: 'segmented'
                 })}
             </div>
         );
