@@ -1,0 +1,70 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { argTypes, Template } from "./data";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+
+<Meta
+    title="Design System/DataEntry/Slider"
+    argTypes={argTypes}
+/>
+
+# Slider
+
+Slider Component.
+
+## Examples
+
+##### Basic
+Basic slider. When `range` is `true`, display as dual thumb mode. When `disable` is `true`, the slider will not be interactable.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
+
+##### Slider with InputNumber
+Synchronize with KitInputNumber component.
+
+<CustomCanvas content={Exemples.WithInputNumber} source={Sources.WithInputNumber} />
+
+##### Slider with icon
+You can add an icon beside the slider to make it meaningful.
+
+<CustomCanvas content={Exemples.WithIcon} source={Sources.WithIcon} />
+
+##### Customize tooltip
+Use `tooltip.formatter` to format content of `Tooltip`. If `tooltip.formatter` is null, hide it.
+
+<CustomCanvas content={Exemples.Formatter} source={Sources.Formatter} />
+
+##### Event
+The `onChange` callback function will fire when the user changes the slider's value. The `onAfterChange` callback function will fire when `onmouseup` fired.
+
+<CustomCanvas content={Exemples.Events} source={Sources.Events} />
+
+##### Reverse
+Using `reverse` to render slider reversely.
+
+<CustomCanvas content={Exemples.Reversed} source={Sources.Reversed} />
+
+##### Graduated slider
+Using `marks` property to mark a graduated slider, use `value` or `defaultValue` to specify the position of thumb. When `included` is false, means that different thumbs are coordinative. when `step` is null, users can only slide the thumbs onto marks.
+
+<CustomCanvas content={Exemples.Graduated} source={Sources.Graduated} />
+
+##### Control visible of ToolTip
+When `tooltip.open` is `true`, ToolTip will always show, or ToolTip will not show anyway, even if dragging or hovering.
+
+<CustomCanvas content={Exemples.VisibleTooltip} source={Sources.VisibleTooltip} />
+
+##### Draggable track
+Make range track draggable when set `range.draggableTrack`.
+
+<CustomCanvas content={Exemples.Draggable} source={Sources.Draggable} />
+
+
+## API
+
+<Canvas>
+    <Story name="Slider">{Template.bind({})}</Story>
+</Canvas>
+
+<Controls story="Slider" />
