@@ -5,10 +5,10 @@ import type {KitButtonProps} from './types';
 import {ButtonType} from 'antd/es/button';
 import {CheckCircleFilled} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
-import {KitButtonTheme} from '@theme/types/components/General/Button';
+import {KitButtonThemeStyled} from '@theme/types/components/General/Button';
 
 interface StyledAntdButtonProps {
-    $theme: KitButtonTheme['primary'];
+    $theme: KitButtonThemeStyled;
     $iconSize: KitButtonProps['iconSize'];
 }
 
@@ -22,13 +22,8 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     font-weight: ${({$theme}) => $theme.typography.fontWeight};
 
     &.ant-btn .ant-btn-icon .anticon {
-        font-size: ${({$theme, $iconSize}) => {
-            if ($iconSize === undefined) {
-                return $theme.typography.iconSize['m'];
-            }
-
-            return $theme.typography.iconSize[$iconSize];
-        }}px;
+        font-size: ${({$theme, $iconSize}) =>
+            $iconSize === undefined ? $theme.typography.iconSize.m : $theme.typography.iconSize[$iconSize]}px;
     }
 
     &.ant-btn-primary.ant-btn-background-ghost {
@@ -241,11 +236,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
             case 'link':
                 return theme.link;
             case 'segmented':
-                if (!segmentedColor) {
-                    return theme.segmented.default;
-                }
-
-                return theme.segmented[segmentedColor];
+                return !segmentedColor ? theme.segmented.default : theme.segmented[segmentedColor];
             case 'default':
             default:
                 return theme.default;

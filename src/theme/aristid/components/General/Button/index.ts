@@ -261,10 +261,9 @@ const kitSegmentedButtonThemeStyled: KitButtonThemeStyled = {
 
 const generateColoredSegmentedButtonThemesStyled = (): KitColoredSegmentedButtonThemesStyled => {
     const colorKeys: KitColorKeys[] = Object.keys(colors.secondary) as KitColorKeys[];
-    const colorThemes = {} as KitColoredSegmentedButtonThemesStyled;
 
-    for (const color of colorKeys) {
-        colorThemes[color] = {
+    const colorThemes = colorKeys.reduce<KitColoredSegmentedButtonThemesStyled>((acc, color) => {
+        const theme = {
             colors: {
                 typography: {
                     default: colors.secondary[color][color + '500'],
@@ -323,7 +322,9 @@ const generateColoredSegmentedButtonThemesStyled = (): KitColoredSegmentedButton
                 }
             }
         };
-    }
+
+        return {...acc, [color]: theme};
+    }, {} as KitColoredSegmentedButtonThemesStyled);
 
     return colorThemes;
 };
