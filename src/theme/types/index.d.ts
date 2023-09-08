@@ -9,6 +9,7 @@ import {KitInputWrapperTheme} from './components/DataEntry/Input';
 import {KitInputTheme} from './components/DataEntry/Input/Input';
 import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
 import {KitBadgeTheme} from './components/DataDisplay/Badge';
+import {KitCardTheme} from './components/DataDisplay/Card';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -34,6 +35,7 @@ export interface KitTheme {
         Avatar: KitAvatarTheme;
         AvatarGroup: KitAvatarGroupTheme;
         Badge: KitBadgeTheme;
+        Card: KitCardTheme;
     };
 }
 

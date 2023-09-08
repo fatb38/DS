@@ -7,6 +7,7 @@ import {KitInputWrapperTheme} from './components/DataEntry/Input/InputWrapper';
 import {KitInputTheme} from './components/DataEntry/Input/Input';
 import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
 import {KitBadgeTheme} from './components/DataDisplay/Badge';
+import {KitCardTheme} from './components/DataDisplay/Card';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -18,6 +19,7 @@ export const KitAristidTheme: KitTheme = {
         Input: KitInputTheme,
         Avatar: KitAvatarTheme,
         AvatarGroup: KitAvatarGroupTheme,
-        Badge: KitBadgeTheme
+        Badge: KitBadgeTheme,
+        Card: KitCardTheme
     }
 };

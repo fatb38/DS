@@ -1,19 +1,19 @@
 import React from 'react';
 import {KitColorbarProps, cardColor} from './types';
 import styled from 'styled-components';
-import {colorbarTheme} from './theme';
 import {KitTooltip} from '../Tooltip';
+import {useKitTheme} from '@theme/theme-context';
+import {KitCardTheme} from '@theme/types/components/DataDisplay/Card';
 
-type ContainerProps = {
+const Container = styled.div<{
+    $theme: KitCardTheme;
     $column: boolean;
-};
-
-const Container = styled.div<ContainerProps>`
-    width: ${props => (props.$column ? `${colorbarTheme.barWidth}px` : 'auto')};
-    height: ${props => (props.$column ? 'auto' : `${colorbarTheme.barWidth}px`)};
-    border-radius: ${colorbarTheme.borderRadius}px;
+}>`
+    width: ${({$column, $theme}) => ($column ? `${$theme.colorBar.width}px` : 'auto')};
+    height: ${({$column, $theme}) => ($column ? 'auto' : `${$theme.colorBar.width}px`)};
+    border-radius: ${({$theme}) => $theme.colorBar.border.radius}px;
     display: flex;
-    flex-direction: ${props => (props.$column ? 'column' : 'row')};
+    flex-direction: ${({$column}) => ($column ? 'column' : 'row')};
     overflow: hidden;
 
     > div {
@@ -27,18 +27,21 @@ const getSwatchStyle = (item: cardColor) => {
     };
 };
 
-const KitColorbar = (props: KitColorbarProps) => (
-    <Container $column={props.vertical ?? false} className={props.className}>
-        {(props.colors || []).map((item, i) => (
-            <KitTooltip
-                key={`${item.label}_${i}`}
-                title={item.label}
-                placement={props.vertical ?? false ? 'right' : 'top'}
-            >
-                <div style={getSwatchStyle(item)} />
-            </KitTooltip>
-        ))}
-    </Container>
-);
+const KitColorbar = (props: KitColorbarProps) => {
+    const {theme} = useKitTheme();
+    return (
+        <Container $theme={theme.components.Card} $column={props.vertical ?? false} className={props.className}>
+            {(props.colors || []).map((item, i) => (
+                <KitTooltip
+                    key={`${item.label}_${i}`}
+                    title={item.label}
+                    placement={props.vertical ?? false ? 'right' : 'top'}
+                >
+                    <div style={getSwatchStyle(item)} />
+                </KitTooltip>
+            ))}
+        </Container>
+    );
+};
 
 export default KitColorbar;

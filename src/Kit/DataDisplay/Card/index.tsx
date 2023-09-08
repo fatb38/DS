@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
-import theme from './theme';
 import KitCardProps from './types';
 import KitColorbar from './ColorBar';
 import {EditOutlined, EyeOutlined} from '@ant-design/icons';
@@ -11,58 +10,64 @@ import {KitIconProps} from '@kit/General/Icon/types';
 import {KitAvatarProps} from '../Avatar/types';
 import {KitCheckbox, KitTag} from '@kit/DataEntry';
 import type {CheckboxChangeEvent} from 'antd/es/checkbox';
+import {KitCardTheme} from '@theme/types/components/DataDisplay/Card';
+import {useKitTheme} from '@theme/theme-context';
 
 const CardWrapper = styled.div<{
+    $theme: KitCardTheme;
     $vertical?: boolean;
 }>`
     display: grid;
-    padding: ${theme.cardPadding}px;
-    font-family: 'Inter';
-
-    background: ${theme.backgroundColor};
-    border-radius: ${theme.borderRadius}px;
-    box-shadow: ${theme.shadow};
+    padding: 16px;
+    font-family: ${({$theme}) => $theme.card.typography.fontFamily};
+    background: ${({$theme}) => $theme.card.colors.background.default};
+    border-radius: ${({$theme}) => $theme.card.border.radius}px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
     min-width: 248px;
     width: 248px;
-    border: 1px solid transparent;
+    border: 1px solid ${({$theme}) => $theme.card.colors.border.default};
 
     &:not(.kit-card-disabled):hover {
-        border: 1px solid ${theme.hoverBorderColor};
+        border: 1px solid ${({$theme}) => $theme.card.colors.border.hover};
     }
 
     &:not(.kit-card-disabled) {
         .kit-card-select-button {
             border-radius: 3.5px;
-            font-size: ${theme.selectIconFontSize};
+            font-size: 0.6rem;
             padding: 0;
             width: 16px;
             height: 16px;
             min-width: 16px;
-            color: ${theme.selectIconColor};
+            color: ${({$theme}) => $theme.select.colors.typography.default};
         }
     }
 
     &.kit-card-disabled {
-        background: ${theme.disabledBackgroundColor};
+        background: ${({$theme}) => $theme.card.colors.background.disabled};
         pointer-events: none;
 
         .kit-card-data {
-            .kit-card-data-title,
-            .kit-card-data-desc,
-            .kit-card-data-footer {
-                color: ${theme.diabledTextColor};
+            .kit-card-title {
+                color: ${({$theme}) => $theme.title.colors.typography.disabled};
+            }
+            .kit-card-desc {
+                color: ${({$theme}) => $theme.description.colors.typography.disabled};
+            }
+            .kit-card-footer {
+                color: ${({$theme}) => $theme.footer.colors.typography.disabled};
             }
         }
 
         .kit-card-select-button {
             border-radius: 3.5px;
-            font-size: ${theme.selectIconFontSize};
-            background: ${theme.disabledBackgroundColor};
+            font-size: 0.6rem;
+            background: ${({$theme}) => $theme.select.colors.background.disabled};
             padding: 0;
             width: 16px;
             height: 16px;
             min-width: 16px;
-            color: ${theme.diabledTextColor};
+            color: ${({$theme}) => $theme.select.colors.typography.disabled};
         }
     }
 
@@ -77,7 +82,7 @@ const CardWrapper = styled.div<{
         .kit-card-image,
         .kit-card-icon,
         .kit-card-colorbar {
-            margin-bottom: ${theme.itemsMargin}px;
+            margin-bottom: 8px;
         }
 
         .kit-card-image,
@@ -104,7 +109,7 @@ const CardWrapper = styled.div<{
         .kit-card-image,
         .kit-card-icon,
         .kit-card-colorbar {
-            margin-right: ${theme.itemsMargin}px;
+            margin-right: 8px;
         }
 
         .kit-card-select {
@@ -142,12 +147,12 @@ const CardWrapper = styled.div<{
     .kit-card-image {
         grid-area: picto;
         height: 64px;
-        border-radius: ${theme.borderRadius}px;
+        border-radius: ${({$theme}) => $theme.image.border.radius}px;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        border: 1px solid ${theme.imageBorderColor};
+        border: 1px solid ${({$theme}) => $theme.image.colors.border.default};
 
         .kit-card-image-image {
             display: flex;
@@ -166,12 +171,12 @@ const CardWrapper = styled.div<{
         grid-area: picto;
         height: 64px;
         width: 64px;
-        border-radius: ${theme.borderRadius}px;
+        border-radius: ${({$theme}) => $theme.icon.border.radius}px;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        border: 1px solid ${theme.imageBorderColor};
+        border: 1px solid ${({$theme}) => $theme.icon.colors.border.default};
 
         &.noBorder {
             border-color: transparent;
@@ -210,31 +215,31 @@ const CardWrapper = styled.div<{
             position: relative;
         }
 
-        .kit-card-data-title {
-            font-size: ${theme.text.title.fontSize}px;
-            font-weight: ${theme.text.title.fontWeight};
-            color: ${theme.text.title.color};
+        .kit-card-title {
+            font-size: ${({$theme}) => $theme.title.typography.fontSize}px;
+            font-weight: ${({$theme}) => $theme.title.typography.fontWeight};
+            color: ${({$theme}) => $theme.title.colors.typography.default};
         }
-        .kit-card-data-desc {
-            font-size: ${theme.text.description.fontSize}px;
-            font-weight: ${theme.text.description.fontWeight};
-            color: ${theme.text.description.color};
+        .kit-card-desc {
+            font-size: ${({$theme}) => $theme.description.typography.fontSize}px;
+            font-weight: ${({$theme}) => $theme.description.typography.fontWeight};
+            color: ${({$theme}) => $theme.description.colors.typography.default};
 
             .ant-typography-expand {
                 visibility: hidden;
             }
         }
-        .kit-card-data-footer {
-            font-size: ${theme.text.footer.fontSize}px;
-            font-weight: ${theme.text.footer.fontWeight};
-            color: ${theme.text.footer.color};
+        .kit-card-footer {
+            font-size: ${({$theme}) => $theme.footer.typography.fontSize}px;
+            font-weight: ${({$theme}) => $theme.footer.typography.fontWeight};
+            color: ${({$theme}) => $theme.footer.colors.typography.default};
         }
 
         .kit-card-description-collexp {
-            color: ${theme.text.description.color};
+            color: ${({$theme}) => $theme.expend.colors.typography.default};
 
             &:hover {
-                color: ${theme.text.description.moreLessHoverColor};
+                color: ${({$theme}) => $theme.expend.colors.typography.hover};
             }
 
             &.kit-card-description-collapse {
@@ -253,7 +258,6 @@ const CardWrapper = styled.div<{
 // TODO Add More /less button to description
 
 const getPicture = picture => {
-    console.log(picture);
     if (!picture) {
         return null;
     }
@@ -284,7 +288,7 @@ const getPicture = picture => {
         default:
             return null;
     }
-    let Component = React.cloneElement(picture, cloneProps as KitImageProps & KitIconProps & KitAvatarProps);
+    const Component = React.cloneElement(picture, cloneProps as KitImageProps & KitIconProps & KitAvatarProps);
     return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
 };
 
@@ -296,7 +300,7 @@ const getActions = (actions, disabled) => {
     return actions.map(button => {
         return React.cloneElement(button, {
             type: 'default',
-            diasbled: disabled,
+            disabled: disabled,
             className: `${button.props.className || ''} kit-card-select-button`
         });
     });
@@ -323,11 +327,16 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
     onEdit,
     ...props
 }) => {
+    const {theme} = useKitTheme();
     const [descriptionVisible, setDescriptionVisible] = useState(false);
     const [isDescriptionEllipsis, setIsDescriptionEllipsis] = useState(false);
 
     return (
-        <CardWrapper className={getSWrapperClassName(vertical, disabled, props.className || '')} {...props}>
+        <CardWrapper
+            $theme={theme.components.Card}
+            className={getSWrapperClassName(vertical, disabled, props.className || '')}
+            {...props}
+        >
             {(onSelectChange || onEdit) && (
                 <div className="kit-card-select">
                     {onSelectChange && (
@@ -351,12 +360,12 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
             {getPicture(picture)}
             {colors && <KitColorbar colors={colors} vertical={!vertical} className={`kit-card-colorbar`} />}
             <div className="kit-card-data">
-                <KitTypography.Text className="kit-card-data-title" ellipsis={{rows: 1, tooltip: true}}>
+                <KitTypography.Text className="kit-card-title" ellipsis={{rows: 1, tooltip: true}}>
                     {title}
                 </KitTypography.Text>
                 <div className="kit-card-description-container">
                     <KitTypography.Paragraph
-                        className="kit-card-data-desc"
+                        className="kit-card-desc"
                         ellipsis={
                             descriptionVisible
                                 ? false
@@ -392,7 +401,7 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
                         </KitTypography.Link>
                     )}
                 </div>
-                <KitTypography.Text className="kit-card-data-footer">{extrainfo}</KitTypography.Text>
+                <KitTypography.Text className="kit-card-footer">{extrainfo}</KitTypography.Text>
                 {tags && (
                     <div className="kit-card-tags">
                         {tags.map(tag => (
