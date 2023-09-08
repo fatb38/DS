@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button as AntdButton} from 'antd';
-import {styled, css} from 'styled-components';
+import {styled} from 'styled-components';
 import type {KitButtonProps} from './types';
 import {ButtonType} from 'antd/es/button';
 import {CheckCircleFilled} from '@ant-design/icons';
@@ -9,8 +9,7 @@ import {KitButtonTheme} from '@theme/types/components/General/Button';
 
 interface StyledAntdButtonProps {
     $theme: KitButtonTheme['primary'];
-    $bigIcon?: boolean;
-    ghost?: boolean;
+    $iconSize: KitButtonProps['iconSize'];
 }
 
 const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
@@ -22,15 +21,14 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     border-color: ${({$theme}) => $theme.colors.border.default};
     font-weight: ${({$theme}) => $theme.typography.fontWeight};
 
-    &.ant-btn {
-        .anticon {
-            ${({$bigIcon, $theme}) =>
-                $bigIcon &&
-                css`
-                    padding: 0;
-                    font-size: ${$theme.typography.fontSizeBigIcon}px;
-                `}
-        }
+    &.ant-btn .ant-btn-icon .anticon {
+        font-size: ${({$theme, $iconSize}) => {
+            if ($iconSize === undefined) {
+                return $theme.typography.iconSize['m'];
+            }
+
+            return $theme.typography.iconSize[$iconSize];
+        }}px;
     }
 
     &.ant-btn-primary.ant-btn-background-ghost {
@@ -230,7 +228,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
 `;
 
 const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, KitButtonProps> = (
-    {bigIcon, primaryModal, type, segmentedChecked, segmentedActived, segmentedColor, className, ...buttonProps},
+    {iconSize, primaryModal, type, segmentedChecked, segmentedActived, segmentedColor, className, ...buttonProps},
     ref
 ) => {
     const {theme: kitTheme} = useKitTheme();
@@ -287,7 +285,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
         >
             <StyledAntdButton
                 $theme={getTheme()}
-                $bigIcon={bigIcon}
+                $iconSize={iconSize}
                 {...buttonProps}
                 className={getClasses()}
                 ghost={primaryModal}

@@ -83,6 +83,20 @@ export const ButtonArgTypes = {
         },
         description: 'Set the icon component of button'
     },
+    iconSize: {
+        name: 'iconSize',
+        options: ['xs', 's', 'm', 'l', 'xl'],
+        control: {type: 'select'},
+        description: 'Set a size to the icon button',
+        table: {
+            type: {
+                summary: 'xs | s | m | l | xl'
+            },
+            defaultValue: {summary: 'm'},
+            category: 'Button'
+        },
+        defaultValue: false
+    },
     loading: {
         name: 'loading',
         control: {type: 'boolean'},
@@ -156,19 +170,6 @@ export const ButtonArgTypes = {
         table: {
             type: {
                 summary: 'KitColorKeys'
-            },
-            defaultValue: {summary: false},
-            category: 'Button'
-        },
-        defaultValue: false
-    },
-    bigIcon: {
-        name: 'bigIcon',
-        control: {type: 'boolean'},
-        description: '[Only with KitSpace.Compact] Option to display only a big icon without padings in button',
-        table: {
-            type: {
-                summary: 'boolean'
             },
             defaultValue: {summary: false},
             category: 'Button'

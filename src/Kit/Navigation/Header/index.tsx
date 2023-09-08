@@ -72,7 +72,6 @@ const getActions = (actions, onPlusClick) => {
                   case 'KitButton':
                       return React.cloneElement(action, {
                           type: 'segmented',
-                          bigIcon: true,
                           key: index,
                           ...action.props
                       });
@@ -90,7 +89,6 @@ const getActions = (actions, onPlusClick) => {
                     <KitButton
                         type="primary"
                         className="kit-header-plus-button"
-                        bigIcon={true}
                         onClick={onPlusClick}
                         icon={<PlusOutlined />}
                     />

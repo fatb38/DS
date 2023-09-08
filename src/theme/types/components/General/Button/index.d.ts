@@ -39,7 +39,13 @@ export interface KitButtonThemeStyled {
     };
     typography: {
         fontWeight: string | number;
-        fontSizeBigIcon: number;
+        iconSize: {
+            xs: number;
+            s: number;
+            m: number;
+            l: number;
+            xl: number;
+        };
     };
     compact: {
         border: {

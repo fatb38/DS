@@ -66,7 +66,13 @@ const kitPrimaryButtonThemeStyled: KitButtonThemeStyled = {
     },
     typography: {
         fontWeight: typography.regularFontWeight,
-        fontSizeBigIcon: typography.fontSize2
+        iconSize: {
+            xs: typography.fontSize7,
+            s: typography.fontSize6,
+            m: typography.fontSize5,
+            l: typography.fontSize4,
+            xl: typography.fontSize3
+        }
     },
     compact: {
         border: {
@@ -119,7 +125,13 @@ const kitDefaultButtonThemeStyled: KitButtonThemeStyled = {
     },
     typography: {
         fontWeight: typography.regularFontWeight,
-        fontSizeBigIcon: typography.fontSize2
+        iconSize: {
+            xs: typography.fontSize7,
+            s: typography.fontSize6,
+            m: typography.fontSize5,
+            l: typography.fontSize4,
+            xl: typography.fontSize3
+        }
     },
     compact: {
         border: {
@@ -172,7 +184,13 @@ const kitLinkButtonThemeStyled: KitButtonThemeStyled = {
     },
     typography: {
         fontWeight: typography.regularFontWeight,
-        fontSizeBigIcon: typography.fontSize2
+        iconSize: {
+            xs: typography.fontSize7,
+            s: typography.fontSize6,
+            m: typography.fontSize5,
+            l: typography.fontSize4,
+            xl: typography.fontSize3
+        }
     },
     compact: {
         border: {
@@ -226,7 +244,13 @@ const kitSegmentedButtonThemeStyled: KitButtonThemeStyled = {
     },
     typography: {
         fontWeight: typography.regularFontWeight,
-        fontSizeBigIcon: typography.fontSize3
+        iconSize: {
+            xs: typography.fontSize7,
+            s: typography.fontSize6,
+            m: typography.fontSize5,
+            l: typography.fontSize4,
+            xl: typography.fontSize3
+        }
     },
     compact: {
         border: {
@@ -285,7 +309,13 @@ const generateColoredSegmentedButtonThemesStyled = (): KitColoredSegmentedButton
             },
             typography: {
                 fontWeight: typography.regularFontWeight,
-                fontSizeBigIcon: typography.fontSize3
+                iconSize: {
+                    xs: typography.fontSize7,
+                    s: typography.fontSize6,
+                    m: typography.fontSize5,
+                    l: typography.fontSize4,
+                    xl: typography.fontSize3
+                }
             },
             compact: {
                 border: {

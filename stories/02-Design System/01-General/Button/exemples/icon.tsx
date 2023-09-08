@@ -1,6 +1,6 @@
 import React from 'react';
 import {KitButton, KitSpace} from '@kit/index';
-import {FilterOutlined, SearchOutlined} from '@ant-design/icons';
+import {DownOutlined, FilterOutlined, SearchOutlined} from '@ant-design/icons';
 
 const App = ({}) => {
     return (
@@ -18,7 +18,7 @@ const App = ({}) => {
                 </KitButton>
                 <KitButton type="segmented" icon={<FilterOutlined />} />
                 <KitButton type="segmented" icon={<FilterOutlined />}>
-                    Filter
+                    Filter <DownOutlined />
                 </KitButton>
             </KitSpace>
         </KitSpace>
