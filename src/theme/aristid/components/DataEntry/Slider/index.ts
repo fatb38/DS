@@ -40,7 +40,7 @@ const kitSliderThemeAntd: KitSliderThemeAntd = {
     }
 };
 
-export const kitSliderStyled: KitSliderStyled = {
+const kitSliderStyled: KitSliderStyled = {
     handle: {
         colors: {
             background: {
@@ -58,6 +58,16 @@ export const kitSliderStyled: KitSliderStyled = {
             border: {
                 default: colors.secondary.mediumGrey.mediumGrey200
             }
+        }
+    },
+    startIcon: {
+        colors: {
+            default: colors.neutral.typography.black60
+        }
+    },
+    endIcon: {
+        colors: {
+            default: colors.neutral.typography.black60
         }
     }
 };

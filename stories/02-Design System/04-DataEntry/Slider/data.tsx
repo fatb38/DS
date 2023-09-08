@@ -1,5 +1,6 @@
 import React from 'react';
 import {KitSlider} from '@kit/DataEntry/';
+import {KitSpace} from '@kit/Layout';
 
 const placement = [
     'top',
@@ -303,9 +304,10 @@ export const argTypes = {
 };
 
 export const Template = ({open, placement, range, ...args}) => {
-    const rangeTest = range !== undefined && range;
-
     return (
-        <KitSlider range={rangeTest} defaultValue={rangeTest ? [0, 30] : 30} tooltip={{open, placement}} {...args} />
+        <KitSpace direction="vertical" style={{width: '300px'}}>
+            <KitSlider tooltip={{open, placement}} {...args} />
+            <KitSlider range defaultValue={[0, 30]} tooltip={{open, placement}} {...args} />
+        </KitSpace>
     );
 };

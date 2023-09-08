@@ -1,10 +1,10 @@
 import React from 'react';
 import {KitSlider} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout';
-import {SliderMarks} from 'antd/es/slider';
 import {KitTypography} from '@kit/General';
+import {KitSliderMarks} from '@kit/DataEntry/Slider/types';
 
-const marks: SliderMarks = {
+const marks: KitSliderMarks = {
     0: '0',
     25: '25',
     50: '50',

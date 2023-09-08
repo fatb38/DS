@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitSlider} from '@kit/DataEntry/';
-import {SliderMarks} from 'antd/es/slider';
 import {ZoomInOutlined, ZoomOutOutlined} from '@ant-design/icons';
-import {KitSpace} from '../../../../../src';
+import {KitSpace} from '@kit/Layout';
 
 const App = () => {
     return (

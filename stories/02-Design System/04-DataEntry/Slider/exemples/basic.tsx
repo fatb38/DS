@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {KitSlider, KitSwitch} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout';
-import {Typography} from 'antd';
+import {KitTypography} from '@kit/General';
 
 const App = () => {
     const [disabled, setDisabled] = useState(false);
@@ -12,9 +12,9 @@ const App = () => {
 
     return (
         <KitSpace direction="vertical" style={{width: '300px'}}>
-            <Typography>
+            <KitTypography.Text>
                 Disabled: <KitSwitch onChange={onChange} />
-            </Typography>
+            </KitTypography.Text>
             <KitSlider defaultValue={40} disabled={disabled} />
             <KitSlider range defaultValue={[30, 60]} disabled={disabled} />
         </KitSpace>

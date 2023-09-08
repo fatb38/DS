@@ -54,6 +54,16 @@ export interface KitSliderStyled {
             };
         };
     };
+    startIcon: {
+        colors: {
+            default: string;
+        };
+    };
+    endIcon: {
+        colors: {
+            default: string;
+        };
+    };
 }
 
 export type KitSliderTheme = KitSliderThemeAntd & KitSliderStyled;
