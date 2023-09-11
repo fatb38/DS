@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {KitSpace, KitButton} from '@kit/index';
 import {Slider} from 'antd';
 
-const App = ({}) => {
+const App = () => {
     const [size, setSize] = useState(8);
 
     return (

@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import {KitTypography, KitSwitch} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     const [ellipsis, setEllipsis] = useState(true);
 
     const paragraphEllipsis = ellipsis ? {rows: 2, expandable: true, symbol: 'more'} : false;

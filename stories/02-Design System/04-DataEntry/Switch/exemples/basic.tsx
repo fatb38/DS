@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitSwitch} from '@kit/DataEntry';
 
-const App = ({}) => {
+const App = () => {
     const onChange = checked => {
         console.log(`switch to ${checked}`);
     };

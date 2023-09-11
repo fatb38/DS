@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {KitTypography, KitDivider} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
         <Fragment>
             <KitTypography.Text>Lorem</KitTypography.Text>

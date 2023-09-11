@@ -4,7 +4,7 @@ import {KitSpace} from '@kit/Layout/';
 import {KitButton} from '@kit/General';
 import {UserOutlined, EyeOutlined, EyeInvisibleOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     return (

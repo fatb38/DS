@@ -2,7 +2,7 @@ import React from 'react';
 import {KitSpace, KitButton, KitTooltip} from '@kit/index';
 import {DownloadOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace.Compact block>
             <KitButton type="primary">Button 1</KitButton>

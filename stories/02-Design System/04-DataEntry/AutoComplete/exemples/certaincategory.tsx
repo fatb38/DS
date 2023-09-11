@@ -2,7 +2,7 @@ import React from 'react';
 import {KitAutoComplete} from '@kit/DataEntry';
 import {UserOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     const renderTitle = title => (
         <span>
             {title}

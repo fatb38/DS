@@ -5,7 +5,7 @@ import type {Dayjs} from 'dayjs';
 
 type RangeValue = [Dayjs | null, Dayjs | null] | null;
 
-const App = ({}) => {
+const App = () => {
     const [dates, setDates] = useState<RangeValue>(null);
     const [value, setValue] = useState<RangeValue>(null);
 

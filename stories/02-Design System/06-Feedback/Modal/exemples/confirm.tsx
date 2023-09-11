@@ -24,7 +24,7 @@ const options = [
     }
 ];
 
-const App = ({}) => {
+const App = () => {
     const [modalType, setModalType] = useState('confirm');
     const [showImage, setShowImage] = useState(false);
     const [showTitle, setShowTitle] = useState(false);

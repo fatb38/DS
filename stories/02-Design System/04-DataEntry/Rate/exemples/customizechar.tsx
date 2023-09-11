@@ -3,7 +3,7 @@ import {KitRate} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout';
 import {FrownOutlined, MehOutlined, SmileOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     const customIcons: Record<number, React.ReactNode> = {
         1: <FrownOutlined />,
         2: <FrownOutlined />,

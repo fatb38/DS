@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitTypography, KitSpace} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitTypography.Title>h1. Aristid Design</KitTypography.Title>

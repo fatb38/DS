@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitAlert} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
         <>
             <KitAlert message="Success Tips" type="success" showIcon />

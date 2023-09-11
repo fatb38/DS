@@ -251,7 +251,7 @@ touch index.tsx
 import React from 'react';
 import {KitTooltip} from '@aristid/design-system';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitTooltip title="Hey i'm a tooltip">
             Tooltip will show on mouse enter.

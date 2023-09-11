@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitSpace, KitButton} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
         <div className="space-align-container">
             <div className="space-align-block">

@@ -1,9 +1,9 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {KitDivider, KitGrid} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
-        <Fragment>
+        <>
             <KitDivider orientation="left">Percentage columns</KitDivider>
             <KitGrid.Row>
                 <KitGrid.Col flex={2}>
@@ -22,7 +22,7 @@ const App = ({}) => {
                     <div className="col-demo">Fill rest</div>
                 </KitGrid.Col>
             </KitGrid.Row>
-        </Fragment>
+        </>
     );
 };
 

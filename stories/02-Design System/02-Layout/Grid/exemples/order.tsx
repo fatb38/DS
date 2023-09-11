@@ -1,9 +1,9 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {KitDivider, KitGrid} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
-        <Fragment>
+        <>
             <KitDivider orientation="left">Normal</KitDivider>
             <KitGrid.Row>
                 <KitGrid.Col span={6} order={4}>
@@ -34,7 +34,7 @@ const App = ({}) => {
                     <div className="col-demo">4 col-order-responsive</div>
                 </KitGrid.Col>
             </KitGrid.Row>
-        </Fragment>
+        </>
     );
 };
 

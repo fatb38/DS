@@ -4,7 +4,7 @@ import {KitSpace} from '@kit/Layout/';
 import dayjs from 'dayjs';
 import type {KitRangePickerProps} from '@kit/DataEntry/DatePicker/types';
 
-const App = ({}) => {
+const App = () => {
     const range = (start: number, end: number) => {
         const result: number[] = [];
         for (let i = start; i < end; i++) {

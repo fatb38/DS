@@ -2,7 +2,7 @@ import React from 'react';
 import {KitButton, KitSpace} from '@kit/index';
 import {PoweroffOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitSpace wrap>

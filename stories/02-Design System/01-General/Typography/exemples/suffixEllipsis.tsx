@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitTypography} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     const suffixCount = 12;
 
     const text =

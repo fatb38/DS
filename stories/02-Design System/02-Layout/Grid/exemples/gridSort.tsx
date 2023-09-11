@@ -1,9 +1,9 @@
 import React, {Fragment} from 'react';
 import {KitGrid} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
-        <Fragment>
+        <>
             <KitGrid.Row>
                 <KitGrid.Col span={18} push={6}>
                     <div className="col-demo odd">col-18 col-push-6</div>
@@ -12,7 +12,7 @@ const App = ({}) => {
                     <div className="col-demo">col-6 col-pull-18</div>
                 </KitGrid.Col>
             </KitGrid.Row>
-        </Fragment>
+        </>
     );
 };
 

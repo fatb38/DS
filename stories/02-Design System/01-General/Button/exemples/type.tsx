@@ -2,7 +2,7 @@ import React from 'react';
 import {KitButton, KitSpace} from '@kit/index';
 import {ReloadOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace wrap>
             <KitButton type="primary">Primary Button</KitButton>

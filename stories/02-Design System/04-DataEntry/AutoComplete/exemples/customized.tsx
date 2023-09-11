@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {KitAutoComplete} from '@kit/DataEntry';
 
-const App = ({}) => {
+const App = () => {
     const [options, setOptions] = useState<{value: string; label: string}[]>([]);
 
     const handleSearch = (value: string) => {

@@ -1,7 +1,7 @@
 import React, {ReactNode, useState} from 'react';
 import {KitAutoComplete} from '@kit/DataEntry';
 
-const App = ({}) => {
+const App = () => {
     const getRandomInt = (max, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
 
     const searchResult = query => {
