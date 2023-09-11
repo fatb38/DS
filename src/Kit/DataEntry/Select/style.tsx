@@ -242,7 +242,7 @@ export const KitSelectStyle = css`
             background-color: inherit;
             border: none;
             transition: none;
-            height: 38px;
+            min-height: 38px;
 
             .ant-select-selection-overflow {
                 gap: 4px 0px;
