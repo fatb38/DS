@@ -303,11 +303,6 @@ export const KitSelectStyle = css`
                 .kit-select-option-icon {
                     vertical-align: middle;
                 }
-
-                .kit-select-option-icon + .kit-select-option-label,
-                .kit-select-option-badge + .kit-select-option-label {
-                    width: calc(100% - 15px);
-                }
             }
 
             .ant-tag {
