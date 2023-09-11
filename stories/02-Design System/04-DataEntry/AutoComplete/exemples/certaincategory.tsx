@@ -51,7 +51,7 @@ const App = () => {
     return (
         <KitAutoComplete
             popupClassName="certain-category-search-dropdown"
-            dropdownMatchSelectWidth={500}
+            popupMatchSelectWidth={500}
             placeholder="input here"
             style={{width: 250}}
             options={options}

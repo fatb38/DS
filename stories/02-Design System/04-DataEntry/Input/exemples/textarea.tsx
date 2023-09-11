@@ -2,7 +2,7 @@ import React from 'react';
 import {KitInput} from '@kit/DataEntry/';
 import {KitDivider, KitSpace} from '@kit/Layout/';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitSpace>
