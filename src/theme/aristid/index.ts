@@ -20,7 +20,7 @@ export const KitAristidTheme: KitTheme = {
         Tag: KitTagTheme,
         InputWrapper: KitInputWrapperTheme,
         Input: KitInputTheme,
-        Slider: KitSliderTheme
+        Slider: KitSliderTheme,
         Avatar: KitAvatarTheme,
         AvatarGroup: KitAvatarGroupTheme,
         Badge: KitBadgeTheme,
