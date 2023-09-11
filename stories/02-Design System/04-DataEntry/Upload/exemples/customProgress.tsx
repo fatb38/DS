@@ -18,7 +18,7 @@ const progress: UploadProps['progress'] = {
         '0%': '#108ee9',
         '100%': '#87d068'
     },
-    strokeWidth: 3,
+    size: 'small',
     format: percent => percent && `${parseFloat(percent.toFixed(2))}%`
 };
 
