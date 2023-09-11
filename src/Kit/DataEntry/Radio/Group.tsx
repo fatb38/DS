@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import * as React from 'react';
+import React from 'react';
 import {ConfigContext} from 'antd/es/config-provider/';
 import SizeContext from 'antd/es/config-provider/SizeContext';
 import pickAttrs from 'rc-util/lib/pickAttrs';
@@ -53,11 +53,9 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     const [wrapSSR, hashId] = useStyle(prefixCls);
 
     let childrenToRender = children;
-    // 如果存在 options, 优先使用
     if (options && options.length > 0) {
         childrenToRender = options.map(option => {
             if (typeof option === 'string' || typeof option === 'number') {
-                // 此处类型自动推导为 string
                 return (
                     <Radio
                         key={option.toString()}
@@ -70,7 +68,6 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
                     </Radio>
                 );
             }
-            // 此处类型自动推导为 { label: string value: string }
             return (
                 <Radio
                     key={`radio-group-value-options-${option.value}`}

@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitProgress, KitSpace, KitTooltip} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
         <>
             <KitTooltip title="3 done / 3 in progress / 4 to do">

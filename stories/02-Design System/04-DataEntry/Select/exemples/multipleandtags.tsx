@@ -1,10 +1,10 @@
 import React from 'react';
-import {KitInput, KitSelect, KitTag} from '@kit/DataEntry/';
+import {KitSelect} from '@kit/DataEntry/';
 import {KitDivider, KitSpace} from '@kit/Layout/';
 import {FileOutlined} from '@ant-design/icons';
 import theme from '@theme/index';
 
-const App = ({}) => {
+const App = () => {
     const handleChange = value => {
         console.log(`selected ${value}`);
     };

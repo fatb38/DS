@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {KitSpace, KitButton, KitRadio} from '@kit/index';
 import type {SpaceSize} from 'antd/es/space';
 
-const App = ({}) => {
+const App = () => {
     const [size, setSize] = useState('small');
 
     return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitProgress} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
         <div style={{width: 170}}>
             <KitProgress percent={30} size="small" />

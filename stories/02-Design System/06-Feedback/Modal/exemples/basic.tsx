@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {KitModal, KitButton} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const showModal = () => {

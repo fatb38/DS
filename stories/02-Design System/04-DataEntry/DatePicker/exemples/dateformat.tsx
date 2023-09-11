@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 
-const App = ({}) => {
+const App = () => {
     const dateFormat = 'YYYY/MM/DD';
     const weekFormat = 'MM/DD';
     const monthFormat = 'YYYY/MM';

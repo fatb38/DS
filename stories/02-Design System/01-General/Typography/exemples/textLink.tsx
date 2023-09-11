@@ -1,9 +1,9 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {KitTypography} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
-        <Fragment>
+        <>
             <KitTypography.Paragraph size="large" weight="bold">
                 Aristid Design Paragraph-L bold
             </KitTypography.Paragraph>
@@ -36,7 +36,7 @@ const App = ({}) => {
             <KitTypography.Link href="https://aristid.com" target="_blank">
                 Aristid Design (Link)
             </KitTypography.Link>
-        </Fragment>
+        </>
     );
 };
 

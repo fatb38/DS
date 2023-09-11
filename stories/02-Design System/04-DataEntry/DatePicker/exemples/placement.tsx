@@ -3,7 +3,7 @@ import {KitDatePicker, KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import type {KitDatePickerProps} from '@kit/DataEntry/DatePicker/types';
 
-const App = ({}) => {
+const App = () => {
     const [placement, setPlacement] = useState<KitDatePickerProps['placement']>('topLeft');
 
     const options = [

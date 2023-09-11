@@ -2,7 +2,7 @@ import React from 'react';
 import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace>
             <KitSpace direction="vertical" style={{width: '200px', paddingRight: '20px'}}>

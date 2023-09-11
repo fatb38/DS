@@ -5,14 +5,10 @@ import {KitButton} from '@kit/General';
 import {SizeType} from 'antd/es/config-provider/SizeContext';
 
 const App = () => {
-    const [size, setSize] = useState('small');
-
-    const onChange = e => {
-        setSize(e.target.value);
-    };
+    const [size, setSize] = useState<SizeType>('small');
 
     return (
-        <div>
+        <>
             <KitSpace.Compact block>
                 <KitButton type="segmented" onClick={() => setSize('small')} segmentedActived={size === 'small'}>
                     Small
@@ -26,7 +22,7 @@ const App = () => {
             </KitSpace.Compact>
             <KitTabs
                 defaultActiveKey="1"
-                size={size as SizeType}
+                size={size}
                 style={{marginBottom: 32}}
                 items={new Array(3).fill(null).map((_, i) => {
                     const id = String(i + 1);
@@ -40,7 +36,7 @@ const App = () => {
             <KitTabs
                 defaultActiveKey="1"
                 type="card"
-                size={size as SizeType}
+                size={size}
                 items={new Array(3).fill(null).map((_, i) => {
                     const id = String(i + 1);
                     return {
@@ -50,7 +46,7 @@ const App = () => {
                     };
                 })}
             />
-        </div>
+        </>
     );
 };
 

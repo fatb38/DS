@@ -1,8 +1,8 @@
-import type { StorybookConfig } from '@storybook/react-vite';
+import type {StorybookConfig} from '@storybook/react-vite';
 import remarkGfm from 'remark-gfm';
 
 const config: StorybookConfig = {
-    stories: ['../**/*.mdx'],
+    stories: ['../**/01-Design/**/*.mdx', '../**/02-Design System/**/*.mdx', '../**/Root/**/*.mdx'],
     addons: [
         '@storybook/addon-links',
         {

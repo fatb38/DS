@@ -3,7 +3,7 @@ import {KitRate} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout';
 import {KitTypography} from '@kit/General';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitRate defaultValue={3} />

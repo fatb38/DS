@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {KitTypography} from '@kit/index';
 import {Slider} from 'antd';
 
-const App = ({}) => {
+const App = () => {
     const [rows, setRows] = useState(1);
 
     const article =

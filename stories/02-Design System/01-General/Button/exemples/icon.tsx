@@ -2,7 +2,7 @@ import React from 'react';
 import {KitButton, KitSpace} from '@kit/index';
 import {DownOutlined, FilterOutlined, SearchOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitSpace wrap>
