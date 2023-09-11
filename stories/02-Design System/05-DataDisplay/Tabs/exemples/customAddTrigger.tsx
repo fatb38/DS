@@ -41,7 +41,7 @@ const App = () => {
     };
 
     return (
-        <div>
+        <>
             <div style={{marginBottom: 16}}>
                 <KitButton onClick={add}>ADD</KitButton>
             </div>
@@ -53,7 +53,7 @@ const App = () => {
                 onEdit={onEdit}
                 items={items}
             />
-        </div>
+        </>
     );
 };
 
