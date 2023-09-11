@@ -172,8 +172,14 @@ export const SelectDropDownStyle = createGlobalStyle`
 `;
 
 export const KitSelectStyle = css`
-    &.ant-select.ant-select-compact-item:not(.ant-select-compact-last-item) {
-        margin-inline-end: 0px;
+    &.ant-select.ant-select-compact-item {
+        &:not(.ant-select-compact-last-item) {
+            margin-inline-end: 0px;
+        }
+
+        &.ant-select-compact-first-item:not(.ant-select-compact-last-item):not(.ant-select-open) {
+            border-radius: 7px 0 0 7px;
+        }
     }
 
     &.ant-select-focused.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input) {
@@ -194,6 +200,16 @@ export const KitSelectStyle = css`
         }
 
         &.ant-select-compact-item {
+            &.ant-select-bottom {
+                border-radius: 7px 7px 0 0;
+            }
+
+            &.ant-select-top {
+                border-radius: 0 0 7px 7px;
+            }
+        }
+
+        &.ant-select-compact-item.ant-select-compact-first-item:not(.ant-select-compact-last-item) {
             &.ant-select-bottom {
                 border-radius: 7px 0 0 0;
             }
@@ -226,6 +242,7 @@ export const KitSelectStyle = css`
             background-color: inherit;
             border: none;
             transition: none;
+            height: 38px;
 
             .ant-select-selection-overflow {
                 gap: 4px 0px;
