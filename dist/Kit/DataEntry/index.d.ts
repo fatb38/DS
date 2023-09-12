@@ -9,6 +9,7 @@ import { KitSwitch } from './Switch';
 import { KitDatePicker } from './DatePicker';
 import { KitAutoComplete } from './AutoComplete';
 import { KitUpload } from './Upload';
+export { KitSlider } from './Slider';
 export { KitCheckbox };
 export { KitInput };
 export { KitInputNumber };
