@@ -4,4 +4,5 @@ export interface KitAutoCompleteProps extends AutoCompleteProps, HTMLAttributes<
     label?: string;
     helper?: string;
     allowClear?: boolean;
+    placeholder?: string;
 }
