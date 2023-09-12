@@ -182,18 +182,19 @@ const StyledAntdInput = styled(AntdInput)<{
     }
 `;
 
-const KitInput: React.FunctionComponent<KitInputProps> = ({label, helper, allowClear = true, ...inputProps}) => {
+const KitInput = React.forwardRef<any, KitInputProps>(({label, helper, allowClear = true, ...inputProps}, ref) => {
     const {theme} = useKitTheme();
 
     return (
         <KitInputWrapper label={label} helper={helper} disabled={inputProps.disabled} status={inputProps.status}>
             <StyledAntdInput
+                ref={ref}
                 $theme={theme.components.Input}
                 {...inputProps}
                 allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
             />
         </KitInputWrapper>
     );
-};
+});
 
 export default KitInput;
