@@ -1,3 +1,1 @@
-import {useKitNotification} from './useKitNotification';
-
-export {useKitNotification};
+export {useKitNotification} from './useKitNotification';
