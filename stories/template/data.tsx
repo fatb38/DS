@@ -7,5 +7,5 @@ export const argTypes = {
 };
 
 export const Template = ({...props}) => {
-    return <div>Component</div>;
+    return <div {...props}>Component</div>;
 };
