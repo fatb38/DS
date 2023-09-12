@@ -1,3 +1,3 @@
 import React from 'react';
-import { DropDownProps } from 'antd';
-export declare const KitDropDown: React.FunctionComponent<DropDownProps>;
+import { KitDropdownProps } from './types';
+export declare const KitDropDown: React.FunctionComponent<KitDropdownProps>;
