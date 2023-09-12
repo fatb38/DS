@@ -1,7 +1,7 @@
 {
   "name": "aristid-design-system",
   "private": false,
-  "version": "0.5.0",
+  "version": "0.5.23",
   "authors": [
     "e.voiron-levy@aristid.com",
     "p.chevieux@aristid.com",
@@ -12,8 +12,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "tsc": "tsc",
-    "build": "tsc && vite build",
+    "copy-typescript-definitions": "copyfiles -u 1 \"src/**/*.d.ts\" dist",
+    "build": "tsc && vite build && yarn copy-typescript-definitions",
     "build-stats": "STATS=true tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
@@ -27,6 +27,7 @@
     "antd": "^5.8.1",
     "antd-img-crop": "^4.12.2",
     "classnames": "^2.3.2",
+    "copyfiles": "^2.4.1",
     "dayjs": "^1.11.9",
     "lodash.merge": "^4.6.2",
     "react": "^18.2.0",

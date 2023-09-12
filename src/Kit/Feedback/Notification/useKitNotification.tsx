@@ -1,38 +1,36 @@
 import React, {createContext, useContext} from 'react';
 import {CheckCircleOutlined, CloseCircleOutlined, ExclamationCircleOutlined, WarningOutlined} from '@ant-design/icons';
 import {KitIcon} from '@kit/General/Icon';
-import notification from 'antd/lib/notification';
-import {NotificationInstance} from 'antd/lib/notification/interface';
-import {KitNotification, KitNotificationArgsProps} from './types';
+import {notification} from 'antd';
 import theme from '@theme/index';
+import {NotificationInstance} from 'antd/es/notification/interface';
+import type {IKitNotificationContext, KitNotification, KitNotificationArgsProps} from './types';
 
 const {color} = theme;
 
-interface KitNotificationContext {
-    kitNotification: KitNotification;
-}
+const KitNotificationContext = createContext<IKitNotificationContext | undefined>(undefined);
 
-const KitNotificationContext = createContext<KitNotificationContext | undefined>(undefined);
-
-function useKitNotification() {
+export function useKitNotification(): IKitNotificationContext {
     const context = useContext(KitNotificationContext);
     if (context === undefined) {
         throw new Error('useKitNotification must be inside a context');
     }
-    return context;
+    return context as IKitNotificationContext;
 }
 
-const KitNotificationProvider = ({children}) => {
+export const KitNotificationProvider = ({children}) => {
     const [api, contextHolder] = notification.useNotification();
+    const value = useKitNotificationProvider(api);
+
     return (
-        <KitNotificationContext.Provider value={useKitNotificationProvider(api)}>
+        <KitNotificationContext.Provider value={value}>
             {children}
             {contextHolder}
         </KitNotificationContext.Provider>
     );
 };
 
-const useKitNotificationProvider = (api: NotificationInstance) => {
+const useKitNotificationProvider = (api: NotificationInstance): IKitNotificationContext => {
     const error = (args: KitNotificationArgsProps) => {
         api.error({
             ...args,
@@ -102,8 +100,6 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
         api.destroy(key);
     };
 
-    const kitNotification = {error, warning, success, info, open, destroy};
+    const kitNotification: KitNotification = {error, warning, success, info, open, destroy};
     return {kitNotification};
 };
-
-export {KitNotificationProvider, useKitNotification};
