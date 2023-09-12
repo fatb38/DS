@@ -4,7 +4,7 @@ import {KitDivider, KitSpace} from '@kit/Layout/';
 import theme from '@theme/index';
 import {FileOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     const handleChange = value => {
         console.log(`selected ${value}`);
     };

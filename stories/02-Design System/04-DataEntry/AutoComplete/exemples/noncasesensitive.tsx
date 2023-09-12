@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitAutoComplete} from '@kit/DataEntry';
 
-const App = ({}) => {
+const App = () => {
     const options = [
         {
             value: 'Burns Bay Road',

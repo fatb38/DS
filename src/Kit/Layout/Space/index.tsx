@@ -15,7 +15,7 @@ const spaceSize: {
 };
 
 const Space: React.FunctionComponent<KitSpaceProps> = props => {
-    let {size, ...rest} = props;
+    const {size, ...rest} = props;
     const gapSize = React.useMemo(() => {
         return typeof size === 'string' ? spaceSize[size] : size;
     }, [size]);

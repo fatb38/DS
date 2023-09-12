@@ -1,4 +1,4 @@
-import React, {ReactNode, useState} from 'react';
+import React, {useState} from 'react';
 import {KitAutoComplete} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout';
 
@@ -7,7 +7,7 @@ const mockVal = (str, repeat = 1) => ({
     label: str.repeat(repeat)
 });
 
-const App = ({}) => {
+const App = () => {
     const mockVal = (str, repeat = 1) => ({
         value: str.repeat(repeat),
         label: str.repeat(repeat)

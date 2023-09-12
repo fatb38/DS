@@ -3,7 +3,7 @@ import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import type {KitDatePickerProps, KitRangePickerProps} from '@kit/DataEntry/DatePicker/types';
 
-const App = ({}) => {
+const App = () => {
     const onChange = (
         value: KitDatePickerProps['value'] | KitRangePickerProps['value'],
         dateString: [string, string] | string

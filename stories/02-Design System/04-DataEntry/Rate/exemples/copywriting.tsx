@@ -3,7 +3,7 @@ import {KitRate} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout';
 import {KitTypography} from '@kit/General';
 
-const App = ({}) => {
+const App = () => {
     const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
     const [value, setValue] = useState(3);
 

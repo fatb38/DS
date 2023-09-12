@@ -3,7 +3,7 @@ import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import dayjs from 'dayjs';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitDatePicker disabled />

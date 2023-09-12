@@ -2,7 +2,7 @@ import React from 'react';
 import {KitButton, KitSpace} from '@kit/index';
 import {SearchOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace wrap>
             <KitButton type="primary" danger>
@@ -13,6 +13,7 @@ const App = ({}) => {
                 {' '}
                 Link
             </KitButton>
+            <KitButton type="segmented" icon={<SearchOutlined />} danger />
         </KitSpace>
     );
 };

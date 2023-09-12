@@ -1,84 +1,78 @@
-<div class="git-intro">
-<div align="center">
-    <img src="public/images/logo-aristid.png" alt="Logo" height="100px">
-    <p align="center">
-        ARiSTiD design system documentation.
-        <br />
-        <br />
-        <a href="https://storybook.aristid.com/?path=/docs/introduction-wip--docs">View Demo</a>
-        ·
-        <a href="https://gitlab.aristid.com/dev/design-system/-/issues">Report Bug</a>
-        ·
-        <a href="https://gitlab.aristid.com/dev/design-system/-/issues">Request Feature</a>
-    </p>
-</div>
-
-<br/>
-<hr>
-<details open class="toc-block">
-    <summary>Table of Contents</summary>
-    <ol>
-        <li>
-            <a href="#getting-started">Getting Started</a>
-            <ul>
-                <li>
-                    <a href="#prerequisites">Prerequisites</a>
-                </li>
-                <li>
-                    <a href="#installation">Installation</a>
-                </li>
-                <li>
-                    <a href="#usage-in-a-project">Usage in a project</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#development">Development</a>
-            <ul>
-                <li>
-                    <a href="#code-structure">Code structure</a>
-                </li>
-                <li>
-                    <a href="#creating-a-component">Creating a component</a>
-                    <ul>
-                        <li>
-                            <a href="#component-code">Component code</a>
-                        </li>
-                        <li>
-                            <a href="#component-documentation">Component documentation</a>
-                        </li>
-                    </ul>
-                </li>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#contributing">Contributing</a>
-            <ul>
-                <li>
-                    <a href="#commit">Commit</a>
-                </li>
-                <li>
-                    <a href="#gitflow">Gitflow</a>
-                    <ul>
-                        <li>
-                            <a href="#feature">Feature</a>
-                        </li>
-                        <li>
-                            <a href="#release">Release</a>
-                        </li>
-                        <li>
-                            <a href="#hotfix">Hotfix</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ol>
-</details>
-<hr>
-<br/>
-<br/>
+<div className="git-intro">
+    <div style="text-align: center">
+        <img src="public/images/logo-aristid.png" alt="Logo" height="100px">
+        <p style="text-align: center">
+            ARiSTiD design system documentation.
+            <a href="https://storybook.aristid.com/?path=/docs/introduction-wip--docs">View Demo</a>
+            ·
+            <a href="https://gitlab.aristid.com/dev/design-system/-/issues">Report Bug</a>
+            ·
+            <a href="https://gitlab.aristid.com/dev/design-system/-/issues">Request Feature</a>
+        </p>
+    </div>
+    <br/>
+    <hr>
+    <details open className="toc-block">
+        <summary>Table of Contents</summary>
+        <ol>
+            <li>
+                <a href="#getting-started">Getting Started</a>
+                <ul>
+                    <li>
+                        <a href="#prerequisites">Prerequisites</a>
+                    </li>
+                    <li>
+                        <a href="#installation">Installation</a>
+                    </li>
+                    <li>
+                        <a href="#usage-in-a-project">Usage in a project</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#development">Development</a>
+                <ul>
+                    <li>
+                        <a href="#code-structure">Code structure</a>
+                    </li>
+                    <li>
+                        <a href="#creating-a-component">Creating a component</a>
+                        <ul>
+                            <li>
+                                <a href="#component-code">Component code</a>
+                            </li>
+                            <li>
+                                <a href="#component-documentation">Component documentation</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#contributing">Contributing</a>
+                <ul>
+                    <li>
+                        <a href="#commit">Commit</a>
+                    </li>
+                    <li>
+                        <a href="#gitflow">Gitflow</a>
+                        <ul>
+                            <li>
+                                <a href="#feature">Feature</a>
+                            </li>
+                            <li>
+                                <a href="#release">Release</a>
+                            </li>
+                            <li>
+                                <a href="#hotfix">Hotfix</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </details>
+    <hr>
 </div>
 
 ## Getting Started
@@ -256,7 +250,7 @@ touch index.tsx
 import React from 'react';
 import {KitTooltip} from '@aristid/design-system';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitTooltip title="Hey i'm a tooltip">
             Tooltip will show on mouse enter.

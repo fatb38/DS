@@ -6,11 +6,7 @@ import {KitTabs} from '@kit/DataDisplay';
 type TabPosition = 'left' | 'right' | 'top' | 'bottom';
 
 const App = () => {
-    const [tabPosition, setTabPosition] = useState('left');
-
-    const changeTabPosition = e => {
-        setTabPosition(e.target.value);
-    };
+    const [tabPosition, setTabPosition] = useState<TabPosition>('left');
 
     return (
         <>
@@ -20,35 +16,35 @@ const App = () => {
                     <KitButton
                         type="segmented"
                         onClick={() => setTabPosition('top')}
-                        isActiveSegmented={tabPosition === 'top'}
+                        segmentedActived={tabPosition === 'top'}
                     >
                         Top
                     </KitButton>
                     <KitButton
                         type="segmented"
                         onClick={() => setTabPosition('bottom')}
-                        isActiveSegmented={tabPosition === 'bottom'}
+                        segmentedActived={tabPosition === 'bottom'}
                     >
                         Bottom
                     </KitButton>
                     <KitButton
                         type="segmented"
                         onClick={() => setTabPosition('left')}
-                        isActiveSegmented={tabPosition === 'bottom'}
+                        segmentedActived={tabPosition === 'left'}
                     >
                         Left
                     </KitButton>
                     <KitButton
                         type="segmented"
                         onClick={() => setTabPosition('right')}
-                        isActiveSegmented={tabPosition === 'right'}
+                        segmentedActived={tabPosition === 'right'}
                     >
                         Right
                     </KitButton>
                 </KitSpace.Compact>
             </KitSpace>
             <KitTabs
-                tabPosition={tabPosition as TabPosition}
+                tabPosition={tabPosition}
                 items={new Array(3).fill(null).map((_, i) => {
                     const id = String(i + 1);
                     return {

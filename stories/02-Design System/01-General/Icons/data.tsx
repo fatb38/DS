@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {Card} from 'antd';
 import * as Icons from '@ant-design/icons';
 import * as AristidIcons from '@icons/index';
-import { KitInput, KitRadio } from '@kit/DataEntry/';
-import type {RadioChangeEvent } from '@kit/DataEntry/Radio';
+import {KitInput, KitRadio} from '@kit/DataEntry/';
+import type {RadioChangeEvent} from '@kit/DataEntry/Radio';
 import {KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 
@@ -101,8 +101,8 @@ export const Template = args => {
 };
 
 const Gallery = () => {
-    let [type, setType] = useState('outlined');
-    let [color, setColor] = useState('');
+    const [type, setType] = useState('outlined');
+    const [color, setColor] = useState('');
 
     const onChange = ({target: {value}}: RadioChangeEvent) => {
         setType(value);
@@ -132,7 +132,7 @@ const Gallery = () => {
             <br />
             <KitSpace wrap size="middle">
                 {sorted[type].map(IconName => {
-                    let Component = type === 'aristid' ? AristidIcons[IconName] : Icons[IconName];
+                    const Component = type === 'aristid' ? AristidIcons[IconName] : Icons[IconName];
                     return (
                         <Card className="card" key={IconName} hoverable bordered={false}>
                             <div className="icon-item">

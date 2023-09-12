@@ -6,7 +6,7 @@ const mockVal = (str: string, repeat = 1) => ({
     value: str.repeat(repeat)
 });
 
-const App = ({}) => {
+const App = () => {
     const [value, setValue] = useState('');
     const [options, setOptions] = useState<{label: string; value: string}[]>([]);
     const [anotherOptions, setAnotherOptions] = useState<{label: string; value: string}[]>([]);

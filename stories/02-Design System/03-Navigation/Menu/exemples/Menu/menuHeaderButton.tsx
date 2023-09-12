@@ -17,13 +17,17 @@ const App = () => {
                 <KitMenu
                     title="View options"
                     onCloseClick={() => console.log('on click close')}
-                    segmentedButton={<KitButton type="primary" icon={<HomeOutlined />} />}
+                    segmentedButton={
+                        <KitButton type="segmented" segmentedColor="green" segmentedActived icon={<HomeOutlined />} />
+                    }
                     primaryInput={<KitInput placeholder="Opération #1" />}
                 />
                 <KitMenu
                     title="View options"
                     onCloseClick={() => console.log('on click close')}
-                    segmentedButton={<KitButton type="primary" icon={<HomeOutlined />} />}
+                    segmentedButton={
+                        <KitButton type="segmented" segmentedColor="green" segmentedActived icon={<HomeOutlined />} />
+                    }
                     primaryInput={<KitInput placeholder="Opération #1" />}
                     secondaryInput={<KitInput placeholder="Description" />}
                 />

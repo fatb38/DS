@@ -1,8 +1,8 @@
 import React from 'react';
 import {KitButton, KitSpace} from '@kit/index';
-import {SearchOutlined} from '@ant-design/icons';
+import {DownOutlined, FilterOutlined, SearchOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitSpace wrap>
@@ -15,6 +15,10 @@ const App = ({}) => {
                 <KitButton type="link" icon={<SearchOutlined />} />
                 <KitButton type="link" icon={<SearchOutlined />}>
                     Search
+                </KitButton>
+                <KitButton type="segmented" icon={<FilterOutlined />} />
+                <KitButton type="segmented" icon={<FilterOutlined />}>
+                    Filter <DownOutlined />
                 </KitButton>
             </KitSpace>
         </KitSpace>

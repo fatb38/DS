@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {KitProgress, KitSpace, KitButton} from '@kit/index';
 import {MinusOutlined, PlusOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     const [percent, setPercent] = useState(0);
 
     const increase = () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import {KitInputNumber} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout';
 
-const App = ({}) => {
+const App = () => {
     const formatterDollar = value => {
         return `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     };

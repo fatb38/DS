@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {KitCheckbox, KitInputNumber} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout';
 
-const App = ({}) => {
+const App = () => {
     const [keyboard, setKeyboard] = useState(true);
 
     return (

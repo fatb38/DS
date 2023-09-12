@@ -1,7 +1,7 @@
 import React from 'react';
 import {openKitSnackBar, closeKitSnackBar, KitSpace, KitButton} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace>
             <KitButton

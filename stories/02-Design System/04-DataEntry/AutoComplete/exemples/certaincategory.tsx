@@ -2,7 +2,7 @@ import React from 'react';
 import {KitAutoComplete} from '@kit/DataEntry';
 import {UserOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     const renderTitle = title => (
         <span>
             {title}
@@ -51,7 +51,7 @@ const App = ({}) => {
     return (
         <KitAutoComplete
             popupClassName="certain-category-search-dropdown"
-            dropdownMatchSelectWidth={500}
+            popupMatchSelectWidth={500}
             placeholder="input here"
             style={{width: 250}}
             options={options}

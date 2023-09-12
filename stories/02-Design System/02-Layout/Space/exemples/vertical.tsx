@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitSpace, KitButton} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace direction="vertical" size="middle" style={{display: 'flex'}}>
             <KitButton type="primary">Button</KitButton>

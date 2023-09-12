@@ -3,7 +3,7 @@ import {KitInput} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import {UserOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace>
             <KitSpace direction="vertical" style={{width: '400px', paddingRight: '20px'}}>

@@ -2,7 +2,7 @@ import React from 'react';
 import {KitTabs} from '@kit/DataDisplay';
 
 const onChange = (key: string) => {
-    console.log(key);
+    console.log('Tab:', key);
 };
 
 const items = [
