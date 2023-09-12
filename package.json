@@ -1,7 +1,14 @@
 {
   "name": "@aristid/design-system",
   "private": false,
-  "version": "0.4.0",
+  "version": "0.5.0",
+  "authors": [
+    "e.voiron-levy@aristid.com",
+    "p.chevieux@aristid.com",
+    "v.delmotte@aristid.com"
+  ],
+  "license": "MIT",
+  "homepage": "https://www.aristid.com",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -21,6 +28,7 @@
     "antd-img-crop": "^4.12.2",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.9",
+    "lodash.merge": "^4.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
@@ -36,7 +44,6 @@
     "@storybook/addon-essentials": "^7.2.1",
     "@storybook/addon-interactions": "^7.2.1",
     "@storybook/addon-links": "^7.2.1",
-    "@storybook/addon-onboarding": "^1.0.8",
     "@storybook/blocks": "^7.2.1",
     "@storybook/manager-api": "^7.2.1",
     "@storybook/react": "^7.2.1",
@@ -61,7 +68,6 @@
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.4.0"
   },
-  "license": "UNLICENSED",
   "peerDependencies": {
     "antd": "^5.8.1",
     "react": "^18.2.0",
@@ -75,13 +81,13 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "main": "./dist/index.es.js",
+  "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.es.js"
     }
   }
 }

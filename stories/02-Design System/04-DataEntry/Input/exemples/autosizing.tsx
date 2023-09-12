@@ -2,7 +2,7 @@ import React from 'react';
 import {KitInput} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace align="start">
             <KitInput.TextArea placeholder="Autosize height based on content lines" autoSize />

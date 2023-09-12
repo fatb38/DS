@@ -87,7 +87,7 @@ export const SpaceArgTypes = {
 };
 
 export const Template = ({compact, ...args}) => {
-    let Component = compact ? KitSpace.Compact : KitSpace;
+    const Component = compact ? KitSpace.Compact : KitSpace;
 
     return (
         <Component {...args}>

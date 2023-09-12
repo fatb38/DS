@@ -3,7 +3,7 @@ import {KitRate} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout';
 import {HeartOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitRate character={<HeartOutlined />} allowHalf />

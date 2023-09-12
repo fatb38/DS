@@ -1,16 +1,8 @@
-{/* MyComponent.stories.mdx */}
-
-import { useState, Fragment } from "react";
-import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import {
-    SearchOutlined,
-    PoweroffOutlined,
-    ReloadOutlined
-} from "@ant-design/icons";
-import { ButtonArgTypes, Template } from "./data";
+import {Meta, Story, Canvas} from "@storybook/addon-docs";
+import {Controls} from "@storybook/addon-docs";
+import {ButtonArgTypes, Template} from "./data";
+import Exemples, {Sources} from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
-import Exemples, { Sources } from './exemples';
 
 <Meta
     title="Design System/General/Button"
@@ -48,25 +40,24 @@ There are `primary` button, `default` button, `link` button and `segmented` butt
 
 ##### Icon
 
-`Button` components can contain an `Icon`. This is done by setting the `icon` property or placing an `Icon` component within the `Button`.
+`KitButton` components can contain an `Icon`. This is done by setting the `icon` property or placing an `Icon` component within the `Button`.
 
 If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Button` rather than using the `icon` property.
 
 <CustomCanvas content={Exemples.Icon} source={Sources.Icon}/>
 
+##### IconSize
+
+`xs`, `s`, `m`, `l` and `xl` preset sizes.
+You can use `iconSize` to set the size of icon button. If size is not set, the size is `m`.
+
+<CustomCanvas content={Exemples.IconSize} source={Sources.IconSize}/>
+
 ##### Loading
 
-A loading indicator can be added to a button by setting the `loading` property on the `Button`.
+A loading indicator can be added to a button by setting the `loading` property on the `KitButton`.
 
 <CustomCanvas content={Exemples.Loading} source={Sources.Loading}/>
-
-##### Disabled
-
-To mark a button as disabled, add the `disabled` property to the Button.
-
-{
- <CustomCanvas content={Exemples.Disabled} source={Sources.Disabled}/>
-}
 
 ##### Danger Buttons
 
@@ -74,28 +65,27 @@ To mark a button as disabled, add the `disabled` property to the Button.
 
 <CustomCanvas content={Exemples.Danger} source={Sources.Danger} />
 
+##### Disabled
+
+To mark a button as disabled, add the `disabled` property to the Button.
+
+<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled}/>
+
 ##### Segmented Buttons
-
-`Segmented` button help users to select options, switch views or sort items.
-
-
-<CustomCanvas content={Exemples.Segmented} source={Sources.Segmented} />
 
 You can use `KitSpace.Compact` to group multiple segmented buttons.
 
-
 <CustomCanvas content={Exemples.Compact} source={Sources.Compact} />
 
-To mark a segmented button as active, add the `isActiveSegmented` property to the button.
-Use `isCheckedSegmented`to add a check icon in addition to the active type.
-
+To mark a segmented button as active, add the `segmentedActived` property to the button.
+Use `segmentedChecked`to add a check icon in addition to the active type.
 
 <CustomCanvas content={Exemples.SegmentedActive} source={Sources.SegmentedActive} />
 
-We also provide 3 subtype : `default`, `green` and `gray`.
+We preset a series of colorful segmented `KitButton` styles for use in different situations.
+This series is based on the secondary color palette.
 
-
-<CustomCanvas content={Exemples.Subtypes} source={Sources.Subtypes} />
+<CustomCanvas content={Exemples.SegmentedColors} source={Sources.SegmentedColors} />
 
 ## Api
 

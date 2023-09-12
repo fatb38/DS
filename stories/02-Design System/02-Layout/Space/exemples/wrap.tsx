@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitSpace, KitButton} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace size={[8, 16]} wrap>
             {new Array(20).fill(null).map((_, index) => (

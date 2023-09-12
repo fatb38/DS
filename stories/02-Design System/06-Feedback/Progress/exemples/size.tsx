@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitProgress, KitSpace} from '@kit/index';
 
-const App = ({}) => {
+const App = () => {
     return (
         <>
             <KitSpace direction="vertical">

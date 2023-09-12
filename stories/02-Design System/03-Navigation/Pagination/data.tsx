@@ -319,6 +319,6 @@ export const PaginationArgTypes = {
 };
 
 export const Template = ({pageSizeOptions, ...args}) => {
-    let sizeOptions = pageSizeOptions ? pageSizeOptions.split(',') : null;
+    const sizeOptions = pageSizeOptions ? pageSizeOptions.split(',') : null;
     return <KitPagination pageSizeOptions={sizeOptions} {...args} />;
 };

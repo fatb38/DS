@@ -3,7 +3,7 @@ import {KitInputNumber} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout';
 import {KitButton} from '@kit/General';
 
-const App = ({}) => {
+const App = () => {
     const [value, setValue] = useState<string | number | null>(99);
 
     return (

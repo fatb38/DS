@@ -122,7 +122,7 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
 `;
 
 const KitRadio = React.forwardRef<any, KitRadioProps>((props, ref) => {
-    let {className, danger, ...rest} = props;
+    const {className, danger, ...rest} = props;
 
     return (
         <StyledKitRadio

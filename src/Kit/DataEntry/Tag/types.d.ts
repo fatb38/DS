@@ -10,14 +10,3 @@ export interface KitTagProps extends Omit<TagProps, AntdTagPropsToOmit>, HTMLAtt
     children?: ReactNode[] | ReactNode;
     onClose?: TagProps['onClose'];
 }
-
-export interface KitTagTheme {
-    fontSize: string | number;
-    fontFamily: string;
-    fontWeight: string | number;
-    lineHeight: string | number;
-    height: string | number;
-    placeholderFontSize: string | number;
-    placeholderFontWeight: string | number;
-    placeholderColor: string;
-}

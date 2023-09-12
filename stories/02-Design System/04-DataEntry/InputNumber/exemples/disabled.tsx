@@ -3,7 +3,7 @@ import {KitInputNumber} from '@kit/DataEntry/';
 import {KitButton} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
 
-const App = ({}) => {
+const App = () => {
     const [disabled, setDisabled] = useState(true);
     const toggle = () => {
         setDisabled(!disabled);

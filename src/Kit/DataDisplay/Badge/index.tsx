@@ -3,8 +3,11 @@ import {Badge as AntdBadge} from 'antd';
 import {KitBadgeProps, KitBadgeCountColor} from './types';
 import {css, styled} from 'styled-components';
 import theme from '@theme/index';
+import {KitBadgeTheme} from '@theme/types/components/DataDisplay/Badge';
+import {useKitTheme} from '@theme/theme-context';
 
 const StyledAntdBadge = styled(AntdBadge)<{
+    $theme: KitBadgeTheme;
     $countColor: KitBadgeCountColor;
 }>`
     height: 16px;
@@ -13,32 +16,32 @@ const StyledAntdBadge = styled(AntdBadge)<{
     font-size: ${theme.typography.fontSize7};
 
     .ant-badge-count {
-        ${props => {
-            switch (props.$countColor) {
+        ${({$countColor, $theme}) => {
+            switch ($countColor) {
                 case 'default':
                     return css`
-                        background: ${theme.color.secondary.red.red400};
-                        color: ${theme.color.neutral.typography.white};
+                        background: ${$theme.colors.background.default};
+                        color: ${$theme.colors.typography.default};
                     `;
                 case 'green':
                     return css`
-                        background: ${theme.color.secondary.green.green400};
-                        color: ${theme.color.neutral.typography.white};
+                        background: ${$theme.colors.background.green};
+                        color: ${$theme.colors.typography.green};
                     `;
                 case 'blue':
                     return css`
-                        background: ${theme.color.primary.blue400};
-                        color: ${theme.color.neutral.typography.white};
+                        background: ${$theme.colors.background.blue};
+                        color: ${$theme.colors.typography.blue};
                     `;
                 case 'blueInvert':
                     return css`
-                        background: ${theme.color.primary.blue100};
-                        color: ${theme.color.secondary.blue.blue400};
+                        background: ${$theme.colors.background.blueInvert};
+                        color: ${$theme.colors.typography.blueInvert};
                     `;
                 case 'gray':
                     return css`
-                        background: ${theme.color.neutral.background};
-                        color: ${theme.color.neutral.typography.black60};
+                        background: ${$theme.colors.background.gray};
+                        color: ${$theme.colors.typography.gray};
                     `;
             }
         }}
@@ -66,7 +69,9 @@ const StyledAntdBadge = styled(AntdBadge)<{
 `;
 
 export const KitBadge: React.FunctionComponent<KitBadgeProps> = ({countColor = 'default', ...badgeProps}) => {
-    return <StyledAntdBadge $countColor={countColor} {...badgeProps} />;
+    const {theme} = useKitTheme();
+
+    return <StyledAntdBadge $theme={theme.components.Badge} $countColor={countColor} {...badgeProps} />;
 };
 
 KitBadge.displayName = 'KitBadge';

@@ -203,7 +203,7 @@ const getPicture = picture => {
 };
 
 export const Template = ({colors, picture, tags, actions, ...args}: KitCardProps) => {
-    let props: KitCardProps = {
+    const props: KitCardProps = {
         ...args,
         picture: getPicture(picture),
         title: args.title || fakeContent.base.title,

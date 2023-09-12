@@ -172,8 +172,14 @@ export const SelectDropDownStyle = createGlobalStyle`
 `;
 
 export const KitSelectStyle = css`
-    &.ant-select.ant-select-compact-item:not(.ant-select-compact-last-item) {
-        margin-inline-end: 0px;
+    &.ant-select.ant-select-compact-item {
+        &:not(.ant-select-compact-last-item) {
+            margin-inline-end: 0px;
+        }
+
+        &.ant-select-compact-first-item:not(.ant-select-compact-last-item):not(.ant-select-open) {
+            border-radius: 7px 0 0 7px;
+        }
     }
 
     &.ant-select-focused.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input) {
@@ -194,6 +200,16 @@ export const KitSelectStyle = css`
         }
 
         &.ant-select-compact-item {
+            &.ant-select-bottom {
+                border-radius: 7px 7px 0 0;
+            }
+
+            &.ant-select-top {
+                border-radius: 0 0 7px 7px;
+            }
+        }
+
+        &.ant-select-compact-item.ant-select-compact-first-item:not(.ant-select-compact-last-item) {
             &.ant-select-bottom {
                 border-radius: 7px 0 0 0;
             }
@@ -226,6 +242,7 @@ export const KitSelectStyle = css`
             background-color: inherit;
             border: none;
             transition: none;
+            min-height: 38px;
 
             .ant-select-selection-overflow {
                 gap: 4px 0px;
@@ -285,11 +302,6 @@ export const KitSelectStyle = css`
 
                 .kit-select-option-icon {
                     vertical-align: middle;
-                }
-
-                .kit-select-option-icon + .kit-select-option-label,
-                .kit-select-option-badge + .kit-select-option-label {
-                    width: calc(100% - 15px);
                 }
             }
 

@@ -3,7 +3,7 @@ import {KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import theme from '@theme/index';
 
-const App = ({}) => {
+const App = () => {
     const colorOptions = [
         {
             value: 'not-allowed',

@@ -3,7 +3,7 @@ import {KitInput} from '@kit/DataEntry/';
 import {KitDivider, KitSpace} from '@kit/Layout/';
 import {UserOutlined, SearchOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitDivider orientation="left">Input</KitDivider>

@@ -3,7 +3,7 @@ import {KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import {FileOutlined} from '@ant-design/icons';
 
-const App = ({}) => {
+const App = () => {
     const iconOptions = [
         {
             label: 'Folder 3',
