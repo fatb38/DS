@@ -2,7 +2,7 @@ import React from 'react';
 import {KitSlider} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout';
 
-const formatter = (value: number) => `${value}%`;
+const formatter = (value: number | undefined) => `${value}%`;
 
 const App = () => {
     return (
