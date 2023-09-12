@@ -18,7 +18,7 @@ const KitThemeContext = createContext<{
 export const useKitTheme = () => {
     const context = React.useContext(KitThemeContext);
     if (context === undefined) {
-        throw new Error('useKitTheme must be inside a context');
+        throw new Error('You need to encapsulate component inside a KitApp, useKitTheme must be inside a context');
     }
     return context;
 };
