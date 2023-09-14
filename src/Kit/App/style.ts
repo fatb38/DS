@@ -20,9 +20,6 @@ const GlobalStyles = createGlobalStyle`
         src: local('Inter'), url('${InterItalic}') format('woff2');
         font-named-instance: 'Italic';
     }
-    body {
-        background: purple;
-    }
 `;
 
 export default GlobalStyles;
