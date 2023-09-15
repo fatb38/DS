@@ -1,7 +1,7 @@
 import {KitInputProps} from '@kit/DataEntry/';
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
-export interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
+export interface HeaderProps extends KitHTMLAttributes<HTMLDivElement> {
     title?: string;
     search?: KitInputProps;
     actions?: ReactNode[];

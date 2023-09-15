@@ -1,11 +1,12 @@
 import {CollapseProps} from 'antd';
-import {HTMLAttributes, ReactNode} from 'react';
+import {ReactNode} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
 type AntdCollapseTypesToOmit = 'bordered' | 'expandIconPosition' | 'ghost';
 
 export interface KitCollapseProps
     extends Omit<CollapseProps, AntdCollapseTypesToOmit>,
-        HTMLAttributes<HTMLDivElement> {}
+        KitHTMLAttributes<HTMLDivElement> {}
 
 export interface KitHeaderProps {
     icon?: ReactNode;

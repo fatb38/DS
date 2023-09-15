@@ -1,11 +1,11 @@
 import {RateProps} from 'antd';
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
 type AntdRateTypesToOmit = '';
 
 export type KitRateColor = 'default' | 'red' | 'green' | 'blue';
 
-export interface KitRateProps extends Omit<RateProps, AntdRateTypesToOmit>, HTMLAttributes<HTMLDivElement> {
+export interface KitRateProps extends Omit<RateProps, AntdRateTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     color?: KitRateColor;
     disabledStarTransparency?: string;
 }

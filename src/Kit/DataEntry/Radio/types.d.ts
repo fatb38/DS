@@ -1,7 +1,8 @@
 import {RadioProps} from 'antd';
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
+import {ReactNode, CSSProperties} from 'react';
 
-export interface KitRadioProps extends RadioProps, HTMLAttributes<HTMLLabelElement> {
+export interface KitRadioProps extends RadioProps, KitHTMLAttributes<HTMLLabelElement> {
     danger?: boolean;
     className?: string;
     children?: ReactNode;
@@ -10,12 +11,12 @@ export interface KitRadioProps extends RadioProps, HTMLAttributes<HTMLLabelEleme
     defaultValue?: any;
     value?: any;
     checked?: boolean;
-    style?: React.CSSProperties;
+    style?: CSSProperties;
 }
 
 export interface StyledKitRadioProps extends RadioProps {}
 
-export interface KitRadioGroupProps extends RadioGroupProps, HTMLAttributes<HTMLDivElement> {
+export interface KitRadioGroupProps extends RadioGroupProps, KitHTMLAttributes<HTMLDivElement> {
     defaultValue?: any;
     value?: any;
 }

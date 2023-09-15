@@ -1,9 +1,9 @@
 import type {ProgressProps} from 'antd';
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
 export interface ProgressThemeProps {
     circleFontSize: number;
     circleFontWeight: string | number;
 }
 
-export interface KitProgressProps extends ProgressProps, HTMLAttributes<HTMLDivElement> {}
+export interface KitProgressProps extends ProgressProps, KitHTMLAttributes<HTMLDivElement> {}

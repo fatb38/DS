@@ -1,7 +1,7 @@
 import type {BasicDataNode} from 'rc-tree';
 import {TreeProps} from 'antd';
 import {DataNode} from 'antd/es/tree';
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
 type AntdTreeTypesToOmit =
     | 'blockNode'
@@ -16,4 +16,4 @@ type AntdTreeTypesToOmit =
 
 export interface KitTreeProps
     extends Omit<TreeProps<BasicDataNode | DataNode>, AntdTreeTypesToOmit>,
-        HTMLAttributes<HTMLDivElement> {}
+        KitHTMLAttributes<HTMLDivElement> {}
