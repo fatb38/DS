@@ -3546,9 +3546,9 @@ const Jo = ({ children: e }) => {
   if (o !== void 0) {
     const a = o[0] || null, i = o.length <= 2 && o[1] ? o[1] : null;
     return (o == null ? void 0 : o.length) && t.createElement("div", { className: "kit-collapse-header-extra-actions" }, a && t.createElement(ae, { title: a.label }, t.createElement(re, { type: "segmented", icon: a.icon, onClick: (l) => {
-      l.stopPropagation(), a.onClick();
+      l.stopPropagation(), a.onClick && a.onClick(l);
     } })), i && t.createElement(ae, { title: i.label }, t.createElement(re, { type: "segmented", icon: i.icon, onClick: (l) => {
-      l.stopPropagation(), i.onClick();
+      l.stopPropagation(), i.onClick !== void 0 && i.onClick(l);
     } })), 2 < o.length && t.createElement("div", { onClick: (l) => {
       l.stopPropagation();
     } }, t.createElement(_e, { menu: { items: (() => {

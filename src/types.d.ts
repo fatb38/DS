@@ -1,6 +1,8 @@
 import {HTMLAttributes} from 'react';
 
 type PropsToOmit =
+    | 'placeholder'
+    | 'prefix'
     | 'onClick'
     | 'onClickCapture'
     | 'onInput'
@@ -178,4 +180,4 @@ type PropsToOmit =
     | 'onWheel'
     | 'onWheelCapture';
 
-export type KitHTMLAttributes<T> = Omit<HTMLAttributes<T>, PropsToOmit>;
+export type KitHTMLAttributes<T = void> = Omit<HTMLAttributes<T>, PropsToOmit>;
