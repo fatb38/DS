@@ -1,7 +1,3 @@
-import {KitButton} from './Button';
-import {KitTypography} from './Typography';
-import {KitIcon} from './Icon';
-
-export {KitButton};
-export {KitTypography};
-export {KitIcon};
+export {KitButton} from './Button';
+export {KitTypography} from './Typography';
+export {KitIcon} from './Icon';

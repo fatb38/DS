@@ -1,5 +1,7 @@
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 import {KitTagProps} from '../../DataEntry/Tag/types';
+import {ReactNode} from 'react';
+import {CheckboxChangeEvent} from 'antd/es/checkbox';
 
 export type cardColor = {
     label: string;
@@ -12,7 +14,8 @@ export interface KitColorbarProps {
     className?: string;
 }
 
-export default interface KitCardProps extends HTMLAttributes<HTMLDivElement> {
+//TODO change title wording and delete omit<title>
+export default interface KitCardProps extends Omit<KitHTMLAttributes<HTMLDivElement>, 'title'> {
     vertical?: boolean;
     disabled?: boolean;
     colors?: cardColor[] | null;
@@ -21,7 +24,7 @@ export default interface KitCardProps extends HTMLAttributes<HTMLDivElement> {
     description?: ReactNode;
     extrainfo?: ReactNode;
     tags?: KitTagProps[] | string[];
-    actions?: (typeof Button)[];
-    onSelectChange?: (e: T) => void;
+    actions?: ReactNode[];
+    onSelectChange?: (e: CheckboxChangeEvent) => void;
     onEdit?: () => void;
 }

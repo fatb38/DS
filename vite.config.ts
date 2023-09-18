@@ -53,9 +53,13 @@ export default defineConfig({
         lib: {
             entry: path.resolve(__dirname, 'src/index.tsx'),
             name: 'design-system',
-            formats: ['es'],
-            fileName: format => `index.${format}.js`
+            formats: ['es', 'umd'],
+            fileName: format => {
+                if (format === 'es') return `index.es.js`;
+                else return `index.js`;
+            }
         },
+        //minify: 'terser',
         rollupOptions: {
             external: getExclusions(),
             output: {

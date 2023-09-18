@@ -1,5 +1,6 @@
 import {HTMLAttributes, ReactNode} from 'react';
 import type ReactModal from 'react-modal';
+import {KitHTMLAttributes} from '../../../types';
 
 type propsToOmit =
     | 'bodyOpenClassName'
@@ -10,7 +11,10 @@ type propsToOmit =
     | 'overlayElement'
     | 'contentElement';
 
-export interface KitModalProps extends Omit<ReactModal.Props, propsToOmit>, HTMLAttributes<HTMLDivElement> {
+//todo delete Omit<title role className style>
+export interface KitModalProps
+    extends Omit<ReactModal.Props, propsToOmit>,
+        Omit<KitHTMLAttributes<HTMLDivElement>, 'title' | 'role' | 'className' | 'style'> {
     width?: string;
     showCloseIcon?: boolean;
     close?: (args: any[]) => void;

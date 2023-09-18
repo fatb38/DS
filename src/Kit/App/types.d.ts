@@ -1,5 +1,6 @@
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../types';
+import {ReactNode} from 'react';
 
-export interface KitAppProps extends HTMLAttributes {
+export interface KitAppProps extends KitHTMLAttributes {
     children?: ReactNode;
 }

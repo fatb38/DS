@@ -1,11 +1,14 @@
 import {CollapseProps} from 'antd';
-import {HTMLAttributes, ReactNode} from 'react';
+import {MouseEventHandler, ReactNode} from 'react';
+import {KitHTMLAttributes} from '../../../types';
+import {CheckboxChangeEvent} from 'antd/es/checkbox';
+import {MenuInfo} from '../../';
 
 type AntdCollapseTypesToOmit = 'bordered' | 'expandIconPosition' | 'ghost';
 
 export interface KitCollapseProps
     extends Omit<CollapseProps, AntdCollapseTypesToOmit>,
-        HTMLAttributes<HTMLDivElement> {}
+        KitHTMLAttributes<HTMLDivElement> {}
 
 export interface KitHeaderProps {
     icon?: ReactNode;
@@ -18,7 +21,7 @@ export interface KitHeaderProps {
 interface KitHeaderExtraAction {
     icon: ReactNode;
     label: string;
-    onClick: MenuClickEventHandler;
+    onClick?: (e: MouseEvent<HTMLElement, MouseEvent> | MenuInfo) => void;
 }
 
 export interface KitHeaderExtraActions extends Array<KitHeaderExtraAction> {}

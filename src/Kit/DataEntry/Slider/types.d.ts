@@ -8,7 +8,7 @@ interface SliderIcons {
     endIcon?: any;
 }
 
-export interface KitSliderMarks extends SliderMarks {}
+export type KitSliderMarks = SliderMarks;
 
 export interface KitSliderSingleProps extends Omit<SliderSingleProps, AntdSliderTypesToOmit>, SliderIcons {
     marks?: KitSliderMarks;

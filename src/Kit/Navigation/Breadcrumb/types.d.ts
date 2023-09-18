@@ -1,4 +1,4 @@
 import {BreadcrumbProps} from 'antd';
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
-export interface KitBreadcrumbProps extends BreadcrumbProps, HTMLAttributes<HTMLDivElement> {}
+export interface KitBreadcrumbProps extends BreadcrumbProps, KitHTMLAttributes<HTMLDivElement> {}

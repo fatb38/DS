@@ -1,7 +1,7 @@
 import {CheckboxProps} from 'antd';
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
-export interface KitCheckboxProps extends CheckboxProps, HTMLAttributes<HTMLLabelElement> {
+export interface KitCheckboxProps extends CheckboxProps, KitHTMLAttributes<HTMLLabelElement> {
     danger?: boolean;
 }
 

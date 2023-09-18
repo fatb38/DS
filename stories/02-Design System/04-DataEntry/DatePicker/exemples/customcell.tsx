@@ -1,6 +1,7 @@
 import React, {CSSProperties} from 'react';
 import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
+import {Dayjs} from 'dayjs';
 
 const App = () => {
     return (
@@ -11,15 +12,17 @@ const App = () => {
 
                     const style: CSSProperties = {};
 
-                    if (current.date() === 1) {
-                        style.backgroundColor = '#E7EDFF';
-                    }
+                    if (typeof current !== 'number') {
+                        if (current.date() === 1) {
+                            style.backgroundColor = '#E7EDFF';
+                        }
 
-                    return (
-                        <div className="ant-picker-cell-inner" style={style}>
-                            {current.date()}
-                        </div>
-                    );
+                        return (
+                            <div className="ant-picker-cell-inner" style={style}>
+                                {current.date()}
+                            </div>
+                        );
+                    }
                 }}
             />
         </KitSpace>

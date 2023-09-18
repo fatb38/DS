@@ -83,7 +83,7 @@ export const KitHeaderExtra: React.FunctionComponent<KitHeaderExtraProps> = ({on
                                     icon={firstAction.icon}
                                     onClick={e => {
                                         e.stopPropagation();
-                                        firstAction.onClick();
+                                        firstAction.onClick && firstAction.onClick(e);
                                     }}
                                 />
                             </KitTooltip>
@@ -95,7 +95,7 @@ export const KitHeaderExtra: React.FunctionComponent<KitHeaderExtraProps> = ({on
                                     icon={secondAction.icon}
                                     onClick={e => {
                                         e.stopPropagation();
-                                        secondAction.onClick();
+                                        secondAction.onClick !== undefined && secondAction.onClick(e);
                                     }}
                                 />
                             </KitTooltip>

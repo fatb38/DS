@@ -1,3 +1,5 @@
 import React from 'react';
-import { KitAppProps } from './types';
-export declare const KitApp: React.FunctionComponent<KitAppProps>;
+import { KitCustomTheme } from '../../theme/types';
+export declare const KitApp: React.FunctionComponent<React.PropsWithChildren<{
+    customTheme?: KitCustomTheme;
+}>>;

@@ -1,6 +1,6 @@
 import {DropdownProps, MenuProps} from 'antd';
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
-export interface KitDropdownProps extends DropdownProps, HTMLAttributes<HTMLDivElement> {}
+export interface KitDropdownProps extends DropdownProps, KitHTMLAttributes<HTMLDivElement> {}
 
 export interface KitDropdownMenuProps extends MenuProps {}
