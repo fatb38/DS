@@ -1,12 +1,12 @@
 import {InputProps} from 'antd';
 import {PasswordProps, TextAreaProps} from 'antd/es/input';
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
 type AntdInputTypesToOmit = 'styles' | 'type' | 'bordered' | 'size' | 'addonBefore' | 'addonAfter';
 
 export interface KitInputProps
     extends Omit<InputProps, AntdInputTypesToOmit>,
-        HTMLAttributes<HTMLSpanElement | HTMLInputElement> {
+        KitHTMLAttributes<HTMLSpanElement | HTMLInputElement> {
     label?: string;
     helper?: string;
     allowClear?: boolean;
@@ -14,7 +14,7 @@ export interface KitInputProps
 
 export interface KitTextAreaProps
     extends Omit<TextAreaProps, AntdInputTypesToOmit>,
-        HTMLAttributes<HTMLSpanElement | HTMLInputElement> {
+        KitHTMLAttributes<HTMLSpanElement | HTMLInputElement> {
     label?: string;
     helper?: string;
     allowClear?: boolean;
@@ -22,13 +22,13 @@ export interface KitTextAreaProps
 
 export interface KitPasswordProps
     extends Omit<PasswordProps, AntdInputTypesToOmit>,
-        HTMLAttributes<HTMLSpanElement | HTMLInputElement> {
+        KitHTMLAttributes<HTMLSpanElement | HTMLInputElement> {
     label?: string;
     helper?: string;
     allowClear?: boolean;
 }
 
-export interface KitInputWrapperProps extends HTMLAttributes<HTMLDivElement> {
+export interface KitInputWrapperProps extends KitHTMLAttributes<HTMLDivElement> {
     label?: string;
     helper?: string;
     disabled?: boolean;

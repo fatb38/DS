@@ -1,7 +1,7 @@
-import type { TabsProps } from 'antd';
-import { HTMLAttributes } from 'react';
+import type {TabsProps} from 'antd';
+import {KitHTMLAttributes} from '../../../types';
 
-export interface KitTabsProps extends TabsProps, HTMLAttributes<HTMLDivElement> { };
+export interface KitTabsProps extends TabsProps, KitHTMLAttributes<HTMLDivElement> {}
 
 export interface KitTabsThemeProps {
     extra: {
@@ -12,5 +12,5 @@ export interface KitTabsThemeProps {
         color: string;
         verticalMargin: number;
         horizontalMargin: number;
-    }
+    };
 }

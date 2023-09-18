@@ -1,12 +1,12 @@
 import {ColProps, RowProps} from 'antd';
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
 type KitGridJustify = 'start' | 'end' | 'center';
 
 type AntdRowTypesToOmit = 'gutter' | 'justify';
 
-export interface KitRowProps extends Omit<RowProps, AntdRowTypesToOmit>, HTMLAttributes<HTMLDivElement> {
+export interface KitRowProps extends Omit<RowProps, AntdRowTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     justify?: KitGridJustify;
 }
 
-export interface KitColProps extends ColProps, HTMLAttributes<HTMLDivElement> {}
+export interface KitColProps extends ColProps, KitHTMLAttributes<HTMLDivElement> {}
