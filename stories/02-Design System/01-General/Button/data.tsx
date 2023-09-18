@@ -187,6 +187,26 @@ export const ButtonArgTypes = {
             category: 'Button'
         },
         defaultValue: () => {}
+    },
+    wrapperClassName: {
+        name: 'wrapperClassName',
+        description: 'Add a classname to the button wrapper',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Button'
+        }
+    },
+    wrapperStyle: {
+        name: 'wrapperStyle',
+        description: 'Add a style to the button wrapper',
+        table: {
+            type: {
+                summary: 'CssProperties'
+            },
+            category: 'Button'
+        }
     }
 };
 
