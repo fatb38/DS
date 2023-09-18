@@ -1,11 +1,11 @@
 import type {ImageProps} from 'antd';
-import {Image} from 'antd';
-import {HTMLAttributes, ReactElement} from 'react';
+import {ReactElement} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
-export interface KitImageProps extends ImageProps, HTMLAttributes<HTMLDivElement> {
+export interface KitImageProps extends ImageProps, KitHTMLAttributes<HTMLDivElement> {
     rounded?: boolean;
     bordered?: boolean;
-    PreviewGroup?: ReactElement<Image.PreviewGroup>;
+    PreviewGroup?: ReactElement;
 }
 
 export interface themeProps {

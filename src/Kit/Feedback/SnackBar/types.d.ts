@@ -1,6 +1,6 @@
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
-export interface KitSnackBarProps extends HTMLAttributes<HTMLDivElement> {
+export interface KitSnackBarProps extends KitHTMLAttributes<HTMLDivElement> {
     message: string;
     ctaText?: string;
     ctaOnClick?: Function;

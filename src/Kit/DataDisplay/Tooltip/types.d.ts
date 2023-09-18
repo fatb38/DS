@@ -1,6 +1,9 @@
 import {TooltipProps} from 'antd';
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
 
 type AntdTooltipTypesToOmit = 'color' | 'overlayClassName' | 'overlayStyle' | 'overlayInnerStyle';
 
-export interface KitTooltipProps extends Omit<TooltipProps, AntdTooltipTypesToOmit>, HTMLAttributes<HTMLDivElement> {}
+//TODO change title wording and delete Omit<title>
+export interface KitTooltipProps
+    extends Omit<TooltipProps, AntdTooltipTypesToOmit>,
+        Omit<KitHTMLAttributes<HTMLDivElement>, 'title'> {}

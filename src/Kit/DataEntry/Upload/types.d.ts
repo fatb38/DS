@@ -1,5 +1,5 @@
-import {BadgeProps, UploadProps} from 'antd';
-import { DraggerProps } from 'antd/lib/upload';
+import {UploadProps} from 'antd';
+import {DraggerProps} from 'antd/lib/upload';
 
 type AntdUploadTypesToOmit = 'listType' | 'itemRender' | 'openFileDialogOnClick';
 
@@ -9,7 +9,7 @@ export interface KitUploadProps extends Omit<UploadProps, AntdUploadTypesToOmit>
     listType?: KitUploadListType;
     loading?: boolean;
     imageUrl?: string;
-    buttonWording?: string
+    buttonWording?: string;
 }
 
 type AntdDraggerTypesToOmit = 'listType' | 'itemRender' | 'openFileDialogOnClick';

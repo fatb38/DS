@@ -1,5 +1,6 @@
-import type IconBaseComponent from '@ant-design/icons/lib/components/AntdIcon';
-import {HTMLAttributes, ReactNode} from 'react';
+import {ReactNode} from 'react';
+import {KitHTMLAttributes} from '../../../types';
+import {IconComponentProps} from '@ant-design/icons/lib/components/Icon';
 
 export interface KitIconTheme {
     color: {
@@ -18,7 +19,7 @@ export interface KitIconTheme {
     padding: string;
 }
 
-export interface KitIconProps extends IconBaseComponent, HTMLAttributes<HTMLSpanElement> {
+export interface KitIconProps extends IconComponentProps, KitHTMLAttributes<HTMLSpanElement> {
     on?: boolean;
     hoverable?: boolean;
     color?: string;
@@ -26,7 +27,7 @@ export interface KitIconProps extends IconBaseComponent, HTMLAttributes<HTMLSpan
     displayName?: string;
     icon: ReactNode;
     className?: string;
-    onClick?: MouseEventHandler<HTMLSpanElement> | undefined;
+    onClick?: MouseEventHandler<HTMLSpanElement>;
 }
 
 export interface StyledKitIconProps extends KitIconProps {

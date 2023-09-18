@@ -13,7 +13,12 @@ const getExclusions = () => {
         /node_modules/,
         ...Object.keys(packageJson.dependencies),
         ...Object.keys(packageJson.devDependencies),
-        'react/jsx-runtime'
+        'react/jsx-runtime',
+        /lodash/,
+        /rc-util/,
+        /antd/,
+        /react-dom/,
+        /@ant-design/
     ];
 };
 
@@ -23,7 +28,8 @@ const plugins = [
     }),
     dts({
         insertTypesEntry: true,
-        exclude: ['stories', 'package.json']
+        exclude: ['stories', 'package.json'],
+        copyDtsFiles: true
     }),
     uglify()
 ];
@@ -47,9 +53,13 @@ export default defineConfig({
         lib: {
             entry: path.resolve(__dirname, 'src/index.tsx'),
             name: 'design-system',
-            formats: ['es'],
-            fileName: format => `index.${format}.js`
+            formats: ['es', 'umd'],
+            fileName: format => {
+                if (format === 'es') return `index.es.js`;
+                else return `index.js`;
+            }
         },
+        //minify: 'terser',
         rollupOptions: {
             external: getExclusions(),
             output: {

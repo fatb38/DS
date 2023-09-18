@@ -1,7 +1,3 @@
-import {KitDivider} from './Divider';
-import {KitGrid} from './Grid';
-import {KitSpace} from './Space';
-
-export {KitDivider};
-export {KitGrid};
-export {KitSpace};
+export {KitDivider} from './Divider';
+export {KitGrid} from './Grid';
+export {KitSpace} from './Space';

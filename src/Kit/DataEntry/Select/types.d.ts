@@ -1,7 +1,8 @@
 import {SelectProps} from 'antd';
 import {BaseOptionType, DefaultOptionType} from 'antd/es/select';
 import type {OptionProps} from 'rc-select/lib/Option';
-import {HTMLAttributes} from 'react';
+import {KitHTMLAttributes} from '../../../types';
+import {ReactNode} from 'react';
 
 export type AntdSelectTypesToOmit =
     | 'dropdownMatchSelectWidth'
@@ -31,7 +32,7 @@ export type AntdSelectTypesToOmit =
 
 export interface KitSelectProps
     extends Omit<SelectProps<any, DefaultOptionType | BaseOptionType>, AntdSelectTypesToOmit>,
-        HTMLAttributes<HTMLDivElement> {
+        KitHTMLAttributes<HTMLDivElement> {
     label?: string;
     helper?: string;
     allowClear?: boolean;
@@ -40,9 +41,9 @@ export interface KitSelectProps
     labelOnly?: boolean | null;
 }
 
-export interface KitOptionProps extends OptionProps {
+export interface KitOptionProps extends Omit<OptionProps, 'children'> {
     icon?: ReactNode;
     color?: string;
     label?: string;
-    children?: React.ReactNode;
+    children?: ReactNode;
 }

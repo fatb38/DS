@@ -54,7 +54,7 @@ export declare const StyledBadge: import("styled-components").IStyledComponent<"
     is?: string | undefined;
     'aria-activedescendant'?: string | undefined;
     'aria-atomic'?: (boolean | "false" | "true") | undefined;
-    'aria-autocomplete'?: "none" | "inline" | "both" | "list" | undefined;
+    'aria-autocomplete'?: "none" | "inline" | "list" | "both" | undefined;
     'aria-braillelabel'?: string | undefined;
     'aria-brailleroledescription'?: string | undefined;
     'aria-busy'?: (boolean | "false" | "true") | undefined;
@@ -64,7 +64,7 @@ export declare const StyledBadge: import("styled-components").IStyledComponent<"
     'aria-colindextext'?: string | undefined;
     'aria-colspan'?: number | undefined;
     'aria-controls'?: string | undefined;
-    'aria-current'?: boolean | "time" | "page" | "false" | "true" | "step" | "location" | "date" | undefined;
+    'aria-current'?: boolean | "time" | "step" | "page" | "false" | "true" | "location" | "date" | undefined;
     'aria-describedby'?: string | undefined;
     'aria-description'?: string | undefined;
     'aria-details'?: string | undefined;
@@ -326,7 +326,7 @@ export declare const StyledLabel: import("styled-components").IStyledComponent<"
     is?: string | undefined;
     'aria-activedescendant'?: string | undefined;
     'aria-atomic'?: (boolean | "false" | "true") | undefined;
-    'aria-autocomplete'?: "none" | "inline" | "both" | "list" | undefined;
+    'aria-autocomplete'?: "none" | "inline" | "list" | "both" | undefined;
     'aria-braillelabel'?: string | undefined;
     'aria-brailleroledescription'?: string | undefined;
     'aria-busy'?: (boolean | "false" | "true") | undefined;
@@ -336,7 +336,7 @@ export declare const StyledLabel: import("styled-components").IStyledComponent<"
     'aria-colindextext'?: string | undefined;
     'aria-colspan'?: number | undefined;
     'aria-controls'?: string | undefined;
-    'aria-current'?: boolean | "time" | "page" | "false" | "true" | "step" | "location" | "date" | undefined;
+    'aria-current'?: boolean | "time" | "step" | "page" | "false" | "true" | "location" | "date" | undefined;
     'aria-describedby'?: string | undefined;
     'aria-description'?: string | undefined;
     'aria-details'?: string | undefined;
