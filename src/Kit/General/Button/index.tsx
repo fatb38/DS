@@ -223,7 +223,18 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
 `;
 
 const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, KitButtonProps> = (
-    {iconSize, primaryModal, type, segmentedChecked, segmentedActived, segmentedColor, className, ...buttonProps},
+    {
+        iconSize,
+        primaryModal,
+        type,
+        segmentedChecked,
+        segmentedActived,
+        segmentedColor,
+        className,
+        wrapperClassName,
+        wrapperStyle,
+        ...buttonProps
+    },
     ref
 ) => {
     const {theme: kitTheme} = useKitTheme();
@@ -270,9 +281,11 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
 
     return (
         <div
+            className={wrapperClassName ?? ''}
             style={{
                 position: 'relative',
-                display: 'inline-block'
+                display: 'inline-block',
+                ...wrapperStyle
             }}
         >
             <StyledAntdButton
