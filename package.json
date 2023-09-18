@@ -1,7 +1,7 @@
 {
   "name": "aristid-ds",
   "private": false,
-  "version": "0.5.7",
+  "version": "0.5.13",
   "authors": [
     "e.voiron-levy@aristid.com",
     "p.chevieux@aristid.com",
@@ -9,7 +9,6 @@
   ],
   "license": "MIT",
   "homepage": "https://www.aristid.com",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "tsc": "tsc",
@@ -83,13 +82,13 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.es.js",
+  "main": "./dist/index.js",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.es.js"
+      "require": "./dist/index.js"
     }
   }
 }
