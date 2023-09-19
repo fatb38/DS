@@ -12,6 +12,7 @@ import {KitButtonTheme} from './components/General/Button';
 import {KitSliderTheme} from './components/DataEntry/Slider';
 import {KitCollapseTheme} from './components/DataDisplay/Collapse';
 import {kitImageTheme} from './components/DataDisplay/Image';
+import {kitItemListTheme} from './components/DataDisplay/ItemList';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -28,6 +29,7 @@ export const KitAristidTheme: KitTheme = {
         Badge: KitBadgeTheme,
         Card: KitCardTheme,
         Collapse: KitCollapseTheme,
-        Image: kitImageTheme
+        Image: kitImageTheme,
+        ItemList: kitItemListTheme
     }
 };
