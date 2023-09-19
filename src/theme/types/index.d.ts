@@ -13,6 +13,7 @@ import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avat
 import {KitBadgeTheme} from './components/DataDisplay/Badge';
 import {KitCardTheme} from './components/DataDisplay/Card';
 import {KitCollapseTheme} from './components/DataDisplay/Collapse';
+import {KitImageTheme} from './components/DataDisplay/Image';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -42,6 +43,7 @@ export interface KitTheme {
         Card: KitCardTheme;
         Slider: KitSliderTheme;
         Collapse: KitCollapseTheme;
+        Image: KitImageTheme;
     };
 }
 
