@@ -125,11 +125,6 @@ const theme: KitThemeConfig = {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize7
         },
-        Collapse: {
-            colorFillAlter: colorsPalette.neutral.background,
-            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey300,
-            borderRadius: 8
-        },
         Tree: {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize5,
