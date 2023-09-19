@@ -15,6 +15,7 @@ import {KitCardTheme} from './components/DataDisplay/Card';
 import {KitCollapseTheme} from './components/DataDisplay/Collapse';
 import {KitImageTheme} from './components/DataDisplay/Image';
 import {kitItemListTheme} from './components/DataDisplay/ItemList';
+import {KitTabsTheme} from './components/DataDisplay/Tabs';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -46,6 +47,7 @@ export interface KitTheme {
         Collapse: KitCollapseTheme;
         Image: KitImageTheme;
         ItemList: kitItemListTheme;
+        Tabs: KitTabsTheme;
     };
 }
 

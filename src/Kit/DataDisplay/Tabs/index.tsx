@@ -2,16 +2,17 @@ import React from 'react';
 import {Tabs as AntTabs} from 'antd';
 import styled from 'styled-components';
 import {KitTabsProps} from './types';
-import {KitTabsTheme} from './theme';
+import {useKitTheme} from '@theme/theme-context';
+import {KitTabsTheme} from '@theme/types/components/DataDisplay/Tabs';
 
-const StyledKitTabs = styled(AntTabs)`
+const StyledKitTabs = styled(AntTabs)<{$theme: KitTabsTheme}>`
     .ant-tabs-extra-content {
         .ant-btn {
-            border-radius: ${KitTabsTheme.extra.borderRadius}px;
-            border: 1px solid ${KitTabsTheme.extra.borderColor};
-            padding: ${KitTabsTheme.extra.padding};
-            height: ${KitTabsTheme.extra.height}px;
-            color: ${KitTabsTheme.extra.color};
+            border-radius: ${({$theme}) => $theme.extraContent.border.radius}px;
+            border: 1px solid ${({$theme}) => $theme.extraContent.colors.border.default};
+            padding: ${({$theme}) => $theme.extraContent.border.radius};
+            height: 34px;
+            color: ${({$theme}) => $theme.extraContent.colors.typography.default};
         }
     }
 
@@ -19,11 +20,11 @@ const StyledKitTabs = styled(AntTabs)`
     &.ant-tabs-bottom {
         .ant-tabs-nav .ant-tabs-extra-content:first-child {
             padding-left: 0px;
-            padding-right: ${KitTabsTheme.extra.horizontalMargin}px;
+            padding-right: ${({$theme}) => $theme.extraContent.margin.horizontal}px;
         }
 
         .ant-tabs-nav .ant-tabs-extra-content:last-child {
-            padding-left: ${KitTabsTheme.extra.horizontalMargin}px;
+            padding-left: ${({$theme}) => $theme.extraContent.margin.horizontal}px;
             padding-right: 0px;
         }
     }
@@ -32,26 +33,28 @@ const StyledKitTabs = styled(AntTabs)`
     &.ant-tabs-right {
         .ant-tabs-nav .ant-tabs-extra-content:first-child {
             padding-top: 0px;
-            padding-bottom: ${KitTabsTheme.extra.horizontalMargin}px;
+            padding-bottom: ${({$theme}) => $theme.extraContent.margin.horizontal}px;
         }
 
         .ant-tabs-nav .ant-tabs-extra-content:last-child {
-            padding-top: ${KitTabsTheme.extra.horizontalMargin}px;
+            padding-top: ${({$theme}) => $theme.extraContent.margin.horizontal}px;
             padding-bottom: 0px;
         }
     }
 
     &.ant-tabs-left .ant-tabs-nav .ant-tabs-extra-content {
-        padding-right: ${KitTabsTheme.extra.verticalMargin}px;
+        padding-right: ${({$theme}) => $theme.extraContent.margin.vertical}px;
     }
 
     &.ant-tabs-right .ant-tabs-nav .ant-tabs-extra-content {
-        padding-left: ${KitTabsTheme.extra.verticalMargin}px;
+        padding-left: ${({$theme}) => $theme.extraContent.margin.vertical}px;
     }
 `;
 
 const KitTabs: React.FunctionComponent<KitTabsProps> = props => {
-    return <StyledKitTabs {...props} />;
+    const {theme} = useKitTheme();
+
+    return <StyledKitTabs $theme={theme.components.Tabs} {...props} />;
 };
 
 export {KitTabs};
