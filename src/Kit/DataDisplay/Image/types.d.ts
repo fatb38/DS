@@ -7,8 +7,3 @@ export interface KitImageProps extends ImageProps, KitHTMLAttributes<HTMLDivElem
     bordered?: boolean;
     PreviewGroup?: ReactElement;
 }
-
-export interface themeProps {
-    borderRadius: number;
-    borderColor: string;
-}

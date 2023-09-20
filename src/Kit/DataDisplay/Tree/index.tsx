@@ -2,36 +2,37 @@ import React from 'react';
 import {Tree as AntdTree} from 'antd';
 import styled from 'styled-components';
 import {KitTreeProps} from './types';
-import theme from '@theme/index';
+import {useKitTheme} from '@theme/theme-context';
+import {KitTreeTheme} from '@theme/types/components/DataDisplay/Tree';
 
-const StyledTree = styled(AntdTree)`
+const StyledTree = styled(AntdTree)<{$theme: KitTreeTheme}>`
     .ant-tree-treenode {
         padding: 0;
-        font-weight: ${theme.typography.regularFontWeight};
+        font-weight: ${({$theme}) => $theme.treenode.typography.fontWeight};
 
         &:hover {
-            background-color: ${theme.color.primary.blue100};
-            color: ${theme.color.primary.blue400};
+            background-color: ${({$theme}) => $theme.treenode.colors.background.hover};
+            color: ${({$theme}) => $theme.treenode.colors.typography.hover};
         }
 
         &.ant-tree-treenode-selected {
-            background-color: ${theme.color.primary.blue100};
+            background-color: ${({$theme}) => $theme.treenode.colors.background.selected};
         }
 
         &.ant-tree-treenode-disabled {
-            color: ${theme.color.neutral.typography.black60};
+            color: ${({$theme}) => $theme.treenode.colors.typography.disabled};
 
-            &:hover {
+            &:hover:not(.ant-tree-treenode-selected) {
                 background-color: inherit;
             }
 
             .ant-tree-node-content-wrapper {
-                color: ${theme.color.neutral.typography.black60};
+                color: ${({$theme}) => $theme.treenode.colors.typography.disabled};
             }
         }
 
         .ant-tree-indent {
-            background-color: ${theme.color.neutral.typography.white};
+            background-color: ${({$theme}) => $theme.treenode.colors.background.indent};
         }
 
         .ant-tree-switcher {
@@ -40,49 +41,49 @@ const StyledTree = styled(AntdTree)`
         }
 
         .ant-tree-checkbox {
+            align-self: center;
+            margin-top: 0px;
             margin-inline-end: 0px;
 
             .ant-tree-checkbox-inner {
-                background-color: ${theme.color.neutral.typography.white};
-                border: 1px solid ${theme.color.neutral.typography.black60};
+                background-color: ${({$theme}) => $theme.checkbox.colors.background.default};
+                border: 1px solid ${({$theme}) => $theme.checkbox.colors.border.default};
             }
 
             .ant-tree-checkbox-inner:after {
-                border-color: ${theme.color.neutral.typography.black60};
+                border-color: ${({$theme}) => $theme.checkbox.colors.icon.default};
             }
 
             &:hover .ant-tree-checkbox-inner {
-                border: 1px solid ${theme.color.primary.blue400};
+                border: 1px solid ${({$theme}) => $theme.checkbox.colors.border.hover};
             }
 
             &.ant-tree-checkbox-checked {
-                color: ${theme.color.neutral.typography.white};
-
-                .ant-tree-checkbox-inner {
-                    background-color: ${theme.color.primary.blue400};
-                    border: 1px solid ${theme.color.primary.blue400};
+                .ant-tree-checkbox-inner:after {
+                    border-color: ${({$theme}) => $theme.checkbox.colors.icon.checked};
                 }
 
-                .ant-tree-checkbox-inner:after {
-                    border-color: ${theme.color.neutral.typography.white};
+                .ant-tree-checkbox-inner {
+                    background-color: ${({$theme}) => $theme.checkbox.colors.background.checked.default};
+                    border: 1px solid ${({$theme}) => $theme.checkbox.colors.border.checked.default};
                 }
 
                 &:hover .ant-tree-checkbox-inner {
-                    background-color: ${theme.color.primary.blue500};
-                    border-color: ${theme.color.primary.blue500};
+                    background-color: ${({$theme}) => $theme.checkbox.colors.background.checked.hover};
+                    border-color: ${({$theme}) => $theme.checkbox.colors.border.checked.hover};
                 }
             }
 
             &.ant-tree-checkbox-indeterminate {
                 &:not(.ant-tree-checkbox-disabled) {
                     .ant-tree-checkbox-inner {
-                        background-color: ${theme.color.primary.blue400};
-                        border-color: ${theme.color.primary.blue400};
+                        background-color: ${({$theme}) => $theme.checkbox.colors.background.checked.default};
+                        border-color: ${({$theme}) => $theme.checkbox.colors.border.checked.default};
                     }
 
                     &:hover .ant-tree-checkbox-inner {
-                        background-color: ${theme.color.primary.blue500};
-                        border-color: ${theme.color.primary.blue500};
+                        background-color: ${({$theme}) => $theme.checkbox.colors.background.checked.hover};
+                        border-color: ${({$theme}) => $theme.checkbox.colors.border.checked.hover};
                     }
 
                     .ant-tree-checkbox-inner:after {
@@ -95,15 +96,15 @@ const StyledTree = styled(AntdTree)`
             }
 
             &.ant-tree-checkbox-disabled {
-                color: ${theme.color.neutral.typography.black60};
+                color: ${({$theme}) => $theme.checkbox.colors.icon.disabled};
 
                 .ant-tree-checkbox-inner {
-                    background-color: ${theme.color.neutral.typography.white};
-                    border: 1px solid ${theme.color.neutral.typography.black60};
+                    background-color: ${({$theme}) => $theme.checkbox.colors.background.disabled};
+                    border: 1px solid ${({$theme}) => $theme.checkbox.colors.border.disabled};
                 }
 
                 .ant-tree-checkbox-inner:after {
-                    border-color: ${theme.color.neutral.typography.black60};
+                    border-color: ${({$theme}) => $theme.checkbox.colors.icon.disabled};
                 }
             }
         }
@@ -144,8 +145,11 @@ const StyledTree = styled(AntdTree)`
 `;
 
 export const KitTree: React.FunctionComponent<KitTreeProps> = ({...treeProps}) => {
+    const {theme} = useKitTheme();
+
     return (
         <StyledTree
+            $theme={theme.components.Tree}
             {...treeProps}
             blockNode={true}
             draggable={false}

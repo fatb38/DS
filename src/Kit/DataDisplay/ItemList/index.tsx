@@ -5,54 +5,38 @@ import theme from '@theme/index';
 import {KitCheckbox, KitTag} from '@kit/DataEntry/';
 import {KitTypography} from '@kit/General/';
 import {RightOutlined, EyeOutlined} from '@ant-design/icons';
+import {useKitTheme} from '@theme/theme-context';
+import {kitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
 
 const StyledItemList = styled.div<{
+    $theme: kitItemListTheme;
     $gridTemplateColumns: string;
-    $isDisabled: boolean;
-    $isClickable: boolean;
-    $shouldHaveGapBetweenText: boolean;
 }>`
     display: grid;
-    grid-template-columns: ${props => props.$gridTemplateColumns};
+    grid-template-columns: ${({$gridTemplateColumns}) => $gridTemplateColumns};
     align-items: center;
     min-height: 75px;
     padding: 0px 8px;
-    background-color: ${theme.color.neutral.typography.white};
+    background-color: ${({$theme}) => $theme.itemList.colors.background.default};
     box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
-    border: 1px solid ${theme.color.neutral.typography.white};
+    border: 1px solid ${({$theme}) => $theme.itemList.colors.border.default};
     border-radius: 7px;
 
     &:hover {
-        border: 1px solid ${theme.color.primary.blue400};
+        border: 1px solid ${({$theme}) => $theme.itemList.colors.border.hover};
     }
 
     &:focus {
         border-style: dashed;
     }
 
-    ${props =>
-        props.$isDisabled &&
-        css`
-            background-color: ${theme.color.primary.blue100};
-            border: 1px solid ${theme.color.primary.blue100};
-            pointer-events: none;
-
-            .kit-item-list-text-container .kit-item-list-text {
-                color: ${theme.color.primary.blue200};
-            }
-        `}
-
-    ${props =>
-        props.$isClickable &&
-        css`
-            cursor: pointer;
-        `}
+    &.kit-item-list-clickable {
+        cursor: pointer;
+    }
 
     .kit-item-list-picture-container {
-        width: 48px;
-        height: 48px;
-        border: 1px solid ${theme.color.neutral.typography.black60};
-        border-radius: 7px;
+        width: 50px;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -98,23 +82,23 @@ const StyledItemList = styled.div<{
         align-items: flex-start;
         flex: 1 0 0;
 
-        ${props =>
-            props.$shouldHaveGapBetweenText &&
-            css`
-                gap: 5px;
-            `}
+        &.kit-item-list-text-container-with-gap {
+            gap: 5px;
+        }
 
         .kit-item-list-text {
-            color: ${theme.color.primary.blue600};
-            font-size: ${theme.typography.fontSize5};
             margin-bottom: 0px;
 
             &.kit-item-list-title {
-                font-weight: ${theme.typography.boldFontWeight};
+                font-weight: ${({$theme}) => $theme.title.typography.fontWeight};
+                font-size: ${({$theme}) => $theme.title.typography.fontSize}px;
+                color: ${({$theme}) => $theme.title.colors.default};
             }
 
             &.kit-item-list-description {
-                font-weight: ${theme.typography.regularFontWeight};
+                font-weight: ${({$theme}) => $theme.description.typography.fontWeight};
+                font-size: ${({$theme}) => $theme.description.typography.fontSize}px;
+                color: ${({$theme}) => $theme.description.colors.default};
 
                 .ant-typography-expand {
                     visibility: hidden;
@@ -127,10 +111,10 @@ const StyledItemList = styled.div<{
         }
 
         .kit-item-list-description-collexp {
-            color: ${theme.color.primary.blue600};
+            color: ${({$theme}) => $theme.collexp.colors.default};
 
             &:hover {
-                color: ${theme.color.primary.blue400};
+                color: ${({$theme}) => $theme.collexp.colors.hover};
             }
 
             &.kit-item-list-description-collapse {
@@ -146,12 +130,6 @@ const StyledItemList = styled.div<{
     }
 
     .kit-item-list-tag {
-        ${props =>
-            props.$isDisabled &&
-            css`
-                opacity: 0.35;
-            `}
-
         &:last-child .ant-tag {
             margin-inline-end: 0px;
         }
@@ -162,12 +140,38 @@ const StyledItemList = styled.div<{
     }
 
     .kit-item-list-rafter {
-        color: ${theme.color.neutral.gray.gray400};
+        color: ${({$theme}) => $theme.rafter.colors.default};
         font-size: 14px;
 
         &:hover {
-            color: ${theme.color.primary.blue400};
+            color: ${({$theme}) => $theme.rafter.colors.hover};
             cursor: pointer;
+        }
+    }
+
+    &.kit-item-list-disabled {
+        background-color: ${({$theme}) => $theme.itemList.colors.background.disabled};
+        border: 1px solid ${({$theme}) => $theme.itemList.colors.border.disabled};
+        pointer-events: none;
+
+        .kit-item-list-text-container {
+            .kit-item-list-text {
+                &.kit-item-list-title {
+                    color: ${({$theme}) => $theme.title.colors.disabled};
+                }
+
+                &.kit-item-list-description {
+                    color: ${({$theme}) => $theme.description.colors.disabled};
+                }
+            }
+
+            .kit-item-list-description-collexp {
+                color: ${({$theme}) => $theme.collexp.colors.disabled};
+            }
+        }
+
+        .kit-item-list-tag {
+            opacity: 0.35;
         }
     }
 `;
@@ -181,8 +185,11 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
     onRafterClick,
     isDisabled = false,
     onClick,
+    className,
     ...props
 }) => {
+    const {theme} = useKitTheme();
+
     const [descriptionVisible, setDescriptionVisible] = useState(false);
     const [isDescriptionEllipsis, setIsDescriptionEllipsis] = useState(false);
 
@@ -250,6 +257,8 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
                     },
                     width: '100%',
                     height: '100%',
+                    bordered: true,
+                    rounded: true,
                     rootClassName: (pictureJsx.props.rootClassName || '') + ' kit-item-list-image-container'
                 };
                 wrapperClassName += ' kit-item-list-image';
@@ -271,8 +280,11 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
     };
 
     const getContent = () => {
+        let classes = 'kit-item-list-text-container';
+        classes += hasTitle && hasDescription ? ' kit-item-list-text-container-with-gap' : '';
+
         return (
-            <div className="kit-item-list-text-container">
+            <div className={classes}>
                 <KitTypography.Text
                     className="kit-item-list-text kit-item-list-title"
                     size="large"
@@ -352,16 +364,24 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
         );
     };
 
+    const getClasses = () => {
+        let classes = className;
+
+        classes += isDisabled ? ' kit-item-list-disabled' : '';
+        classes += isClickable ? ' kit-item-list-clickable' : '';
+
+        return classes;
+    };
+
     return (
         <StyledItemList
-            $isDisabled={isDisabled}
-            $isClickable={isClickable}
-            $shouldHaveGapBetweenText={hasTitle && hasDescription}
+            className={getClasses()}
+            $theme={theme.components.ItemList}
+            $gridTemplateColumns={generateGridTemplateColumns()}
             onClick={e => {
                 e.stopPropagation();
                 onClick && onClick();
             }}
-            $gridTemplateColumns={generateGridTemplateColumns()}
             {...props}
         >
             {getCheckbox()}

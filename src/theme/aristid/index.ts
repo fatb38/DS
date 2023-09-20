@@ -10,6 +10,11 @@ import {KitBadgeTheme} from './components/DataDisplay/Badge';
 import {KitCardTheme} from './components/DataDisplay/Card';
 import {KitButtonTheme} from './components/General/Button';
 import {KitSliderTheme} from './components/DataEntry/Slider';
+import {KitCollapseTheme} from './components/DataDisplay/Collapse';
+import {KitImageTheme} from './components/DataDisplay/Image';
+import {KitItemListTheme} from './components/DataDisplay/ItemList';
+import {KitTabsTheme} from './components/DataDisplay/Tabs';
+import {KitTreeTheme} from './components/DataDisplay/Tree';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -24,6 +29,11 @@ export const KitAristidTheme: KitTheme = {
         Avatar: KitAvatarTheme,
         AvatarGroup: KitAvatarGroupTheme,
         Badge: KitBadgeTheme,
-        Card: KitCardTheme
+        Card: KitCardTheme,
+        Collapse: KitCollapseTheme,
+        Image: KitImageTheme,
+        ItemList: KitItemListTheme,
+        Tabs: KitTabsTheme,
+        Tree: KitTreeTheme
     }
 };
