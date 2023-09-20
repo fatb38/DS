@@ -41,6 +41,20 @@ export const ModalArgTypes = {
             category: 'Modal'
         }
     },
+    height: {
+        name: 'height',
+        description: 'Height of the modal',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            defaultValue: {
+                summary: 'initial'
+            },
+            category: 'Modal'
+        }
+    },
     showCloseIcon: {
         name: 'showCloseIcon',
         description: 'Whether to show the close icon on top right of the modal',
