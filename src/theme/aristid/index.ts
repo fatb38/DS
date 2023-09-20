@@ -14,6 +14,7 @@ import {KitCollapseTheme} from './components/DataDisplay/Collapse';
 import {kitImageTheme} from './components/DataDisplay/Image';
 import {kitItemListTheme} from './components/DataDisplay/ItemList';
 import {KitTabsTheme} from './components/DataDisplay/Tabs';
+import {KitTreeTheme} from './components/DataDisplay/Tree';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -32,6 +33,7 @@ export const KitAristidTheme: KitTheme = {
         Collapse: KitCollapseTheme,
         Image: kitImageTheme,
         ItemList: kitItemListTheme,
-        Tabs: KitTabsTheme
+        Tabs: KitTabsTheme,
+        Tree: KitTreeTheme
     }
 };

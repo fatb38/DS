@@ -125,12 +125,6 @@ const theme: KitThemeConfig = {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize7
         },
-        Tree: {
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize5,
-            fontSizeIcon: Typography.fontSize5,
-            controlItemBgHover: colorsPalette.primary.blue100
-        },
         Pagination: {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize5,
