@@ -1,4 +1,4 @@
-export interface kitItemListThemeStyled {
+export interface KitItemListThemeStyled {
     itemList: {
         colors: {
             background: {
@@ -48,4 +48,4 @@ export interface kitItemListThemeStyled {
     };
 }
 
-export type kitItemListTheme = kitItemListThemeStyled;
+export type KitItemListTheme = KitItemListThemeStyled;

@@ -11,8 +11,8 @@ import {KitCardTheme} from './components/DataDisplay/Card';
 import {KitButtonTheme} from './components/General/Button';
 import {KitSliderTheme} from './components/DataEntry/Slider';
 import {KitCollapseTheme} from './components/DataDisplay/Collapse';
-import {kitImageTheme} from './components/DataDisplay/Image';
-import {kitItemListTheme} from './components/DataDisplay/ItemList';
+import {KitImageTheme} from './components/DataDisplay/Image';
+import {KitItemListTheme} from './components/DataDisplay/ItemList';
 import {KitTabsTheme} from './components/DataDisplay/Tabs';
 import {KitTreeTheme} from './components/DataDisplay/Tree';
 
@@ -31,8 +31,8 @@ export const KitAristidTheme: KitTheme = {
         Badge: KitBadgeTheme,
         Card: KitCardTheme,
         Collapse: KitCollapseTheme,
-        Image: kitImageTheme,
-        ItemList: kitItemListTheme,
+        Image: KitImageTheme,
+        ItemList: KitItemListTheme,
         Tabs: KitTabsTheme,
         Tree: KitTreeTheme
     }

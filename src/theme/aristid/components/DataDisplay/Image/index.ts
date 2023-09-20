@@ -18,6 +18,6 @@ const kitImageThemeStyled: KitImageThemeStyled = {
     }
 };
 
-export const kitImageTheme = {
+export const KitImageTheme = {
     ...kitImageThemeStyled
 };

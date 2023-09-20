@@ -14,7 +14,7 @@ import {KitBadgeTheme} from './components/DataDisplay/Badge';
 import {KitCardTheme} from './components/DataDisplay/Card';
 import {KitCollapseTheme} from './components/DataDisplay/Collapse';
 import {KitImageTheme} from './components/DataDisplay/Image';
-import {kitItemListTheme} from './components/DataDisplay/ItemList';
+import {KitItemListTheme} from './components/DataDisplay/ItemList';
 import {KitTabsTheme} from './components/DataDisplay/Tabs';
 import {KitTreeTheme} from './components/DataDisplay/Tree';
 
@@ -47,7 +47,7 @@ export interface KitTheme {
         Slider: KitSliderTheme;
         Collapse: KitCollapseTheme;
         Image: KitImageTheme;
-        ItemList: kitItemListTheme;
+        ItemList: KitItemListTheme;
         Tabs: KitTabsTheme;
         Tree: KitTreeTheme;
     };

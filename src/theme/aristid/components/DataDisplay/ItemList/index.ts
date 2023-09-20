@@ -1,7 +1,7 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
 import {kitItemListThemeStyled} from '@theme/types/components/DataDisplay/ItemList';
 
-const {colors, border, typography} = KitAristidThemeGeneral;
+const {colors, typography} = KitAristidThemeGeneral;
 
 const kitItemListThemeStyled: kitItemListThemeStyled = {
     itemList: {
@@ -53,6 +53,6 @@ const kitItemListThemeStyled: kitItemListThemeStyled = {
     }
 };
 
-export const kitItemListTheme = {
+export const KitItemListTheme = {
     ...kitItemListThemeStyled
 };

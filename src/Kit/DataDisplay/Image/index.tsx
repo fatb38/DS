@@ -15,13 +15,13 @@ const StyledImage = styled(AntdImage)<StyledKitImageProps>`
     border-radius: ${({$rounded, $theme}) =>
         $rounded ? $theme.border.radius.rounded : $theme.border.radius.default}px;
     border: ${({$bordered, $theme}) =>
-        $bordered ? '1px solid ' + $theme.colors.border.default : $theme.colors.border.none};
+        $bordered ? `1px solid ${$theme.colors.border.default}` : $theme.colors.border.none};
 
     + .ant-image-mask {
         border-radius: ${({$rounded, $theme}) =>
             $rounded ? $theme.border.radius.rounded : $theme.border.radius.default}px;
         border: ${({$bordered, $theme}) =>
-            $bordered ? '1px solid ' + $theme.colors.border.default : $theme.colors.border.none};
+            $bordered ? `1px solid ${$theme.colors.border.default}` : $theme.colors.border.none};
     }
 `;
 
