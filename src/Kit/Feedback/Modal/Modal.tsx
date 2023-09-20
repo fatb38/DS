@@ -99,16 +99,23 @@ const StyledKitModal = styled(ReactModal)<KitModalProps>`
     }
 `;
 
-const Modal: React.FC<KitModalProps> = ({width, title, ...props}: KitModalProps) => {
+const Modal: React.FC<KitModalProps> = ({
+    title,
+    style,
+    width = '520px',
+    height = 'initial',
+    ...props
+}: KitModalProps) => {
     const styles = {
-        content: {width: width || '520px'}
+        ...style,
+        content: {...style?.content, width: width, height: height}
     };
 
     const onOverlayClick = () => {
         props.showCloseIcon && props.close?.([true]);
     };
 
-    let mergedProps = {
+    const mergedProps = {
         ...props,
         style: styles,
         className: `kit-modal-wrapper ${props.className}`,
