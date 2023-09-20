@@ -1,6 +1,5 @@
 {
   "name": "aristid-ds",
-  "private": false,
   "version": "0.6.1",
   "authors": [
     "e.voiron-levy@aristid.com",
@@ -25,6 +24,7 @@
     "@ant-design/icons": "^5.2.5",
     "antd": "^5.8.1",
     "antd-img-crop": "^4.12.2",
+    "axe-core": "^4.8.1",
     "classnames": "^2.3.2",
     "copyfiles": "^2.4.1",
     "dayjs": "^1.11.9",
@@ -34,9 +34,11 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-modal": "^3.16.1",
+    "react-resize-detector": "^9.1.0",
     "react-sticky-box": "^2.0.4",
     "react-uuid": "^2.0.0",
     "remark-gfm": "^3.0.1",
+    "short-unique-id": "^5.0.2",
     "styled-components": "^6.0.7"
   },
   "devDependencies": {
