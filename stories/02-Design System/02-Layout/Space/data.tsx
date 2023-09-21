@@ -2,7 +2,7 @@ import React from 'react';
 import {KitSpace} from '@kit/Layout/';
 import {KitButton} from '@kit/General/';
 
-export const SpaceArgTypes = {
+export const argTypes = {
     compact: {
         name: 'compact',
         control: {type: 'boolean'},
@@ -86,11 +86,12 @@ export const SpaceArgTypes = {
     }
 };
 
-export const Template = ({compact, ...args}) => {
+export const Template = (args) => {
+    const {compact, ...props} = args;
     const Component = compact ? KitSpace.Compact : KitSpace;
 
     return (
-        <Component {...args}>
+        <Component {...props}>
             <KitButton type="primary">Primary</KitButton>
             <KitButton>Default</KitButton>
         </Component>

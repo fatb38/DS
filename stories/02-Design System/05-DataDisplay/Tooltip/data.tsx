@@ -20,7 +20,7 @@ const placement = [
 
 const trigger = ['hover', 'focus', 'click'];
 
-export const TooltipArgTypes = {
+export const argTypes = {
     title: {
         name: 'title',
         description: 'The text shown in the tooltip',
@@ -193,10 +193,11 @@ export const TooltipArgTypes = {
     }
 };
 
-export const Template = ({component, ...args}) => {
+export const Template = (args) => {
+    const {component, ...props} = args;
     return (
         <KitSpace>
-            <KitTooltip title="Default value" {...args}>
+            <KitTooltip title="Default value" {...props}>
                 <KitTypography.Paragraph size="medium" weight="regular">
                     Tooltip will show on mouse enter.
                 </KitTypography.Paragraph>

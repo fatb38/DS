@@ -4,7 +4,7 @@ import React from 'react';
 
 const color = ['default', 'green', 'red', 'blue'];
 
-export const RateArgTypes = {
+export const argTypes = {
     allowClear: {
         name: 'allowClear',
         description: 'Whether to allow clear when click again',

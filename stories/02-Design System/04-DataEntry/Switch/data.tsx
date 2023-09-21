@@ -176,6 +176,7 @@ export const getIcon = value => {
     }
 };
 
-export const Template = ({checkedChildren, unCheckedChildren, ...args}) => {
-    return <KitSwitch {...args}>Switch label</KitSwitch>;
+export const Template = (args) => {
+    const {checkedChildren, unCheckedChildren, ...props} = args;
+    return <KitSwitch {...props}>Switch label</KitSwitch>;
 };

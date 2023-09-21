@@ -1,5 +1,9 @@
 import React from 'react';
 
+export const KitTemplate: React.FunctionComponent = () => {
+    return null;
+};
+
 const TemplateArgTypes = {};
 
 export const argTypes = {

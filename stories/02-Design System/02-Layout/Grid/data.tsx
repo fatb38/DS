@@ -1,8 +1,13 @@
 import React from 'react';
 import {KitGrid} from '@kit/Layout/';
+import { KitColProps, KitRowProps } from '@kit/Layout/Grid/types';
+
+interface IFakeGrid extends KitRowProps, KitColProps {}
+
+export const FakeGrid: React.FunctionComponent<IFakeGrid> = () => null;
 
 export const argTypes = {
-    rowAlign: {
+    align: {
         name: 'align',
         description: 'Vertical alignement',
         table: {
@@ -15,7 +20,7 @@ export const argTypes = {
         },
         defaultValue: 'top'
     },
-    rowJustify: {
+    justify: {
         name: 'justify',
         description: 'Horizontal alignement',
         table: {
@@ -28,7 +33,7 @@ export const argTypes = {
         },
         defaultValue: 'start'
     },
-    rowWrap: {
+    wrap: {
         name: 'wrap',
         description: 'Auto wrap line',
         table: {
@@ -40,7 +45,7 @@ export const argTypes = {
         },
         defaultValue: true
     },
-    colFlex: {
+    flex: {
         name: 'flex',
         description: 'Flex layout style	',
         table: {
@@ -52,7 +57,7 @@ export const argTypes = {
         },
         defaultValue: '-'
     },
-    colOffset: {
+    offset: {
         name: 'offset',
         description: 'The number of cells to offset Col from the left',
         table: {
@@ -64,7 +69,7 @@ export const argTypes = {
         },
         defaultValue: 0
     },
-    colOrder: {
+    order: {
         name: 'order',
         description: 'Raster order',
         table: {
@@ -76,7 +81,7 @@ export const argTypes = {
         },
         defaultValue: 0
     },
-    colPull: {
+    pull: {
         name: 'pull',
         description: 'The number of cells that raster is moved to the left',
         table: {
@@ -88,7 +93,7 @@ export const argTypes = {
         },
         defaultValue: 0
     },
-    colPush: {
+    push: {
         name: 'push',
         description: 'The number of cells that raster is moved to the right',
         table: {
@@ -100,7 +105,7 @@ export const argTypes = {
         },
         defaultValue: 0
     },
-    colSpan: {
+    span: {
         name: 'span',
         description: 'Raster number of cells to occupy, 0 corresponds to `display: none`',
         table: {
@@ -112,7 +117,7 @@ export const argTypes = {
         },
         defaultValue: 'none'
     },
-    colXs: {
+    xs: {
         name: 'xs',
         description:
             '`screen < 576px` and also default setting, could be a `span` value or an object containing above props',
@@ -125,7 +130,7 @@ export const argTypes = {
         },
         defaultValue: '-'
     },
-    colSm: {
+    sm: {
         name: 'sm',
         description: '`screen ≥ 576px`, could be a `span` value or an object containing above props',
         table: {
@@ -137,7 +142,7 @@ export const argTypes = {
         },
         defaultValue: '-'
     },
-    colMd: {
+    md: {
         name: 'md',
         description: '`screen ≥ 768px`, could be a `span` value or an object containing above props',
         table: {
@@ -149,7 +154,7 @@ export const argTypes = {
         },
         defaultValue: '-'
     },
-    colLg: {
+    lg: {
         name: 'lg',
         description: '`screen ≥ 992px`, could be a `span` value or an object containing above props',
         table: {
@@ -161,7 +166,7 @@ export const argTypes = {
         },
         defaultValue: '-'
     },
-    colXl: {
+    xl: {
         name: 'xl',
         description: '`screen ≥ 1200px`, could be a `span` value or an object containing above props',
         table: {
@@ -173,7 +178,7 @@ export const argTypes = {
         },
         defaultValue: '-'
     },
-    colXxl: {
+    xxl: {
         name: 'xxl',
         description: '`screen ≥ 1600px`, could be a `span` value or an object containing above props',
         table: {

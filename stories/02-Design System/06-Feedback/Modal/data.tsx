@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {KitModal} from '@kit/Feedback/';
 import {KitButton} from '@kit/General/';
 
-export const ModalArgTypes = {
+export const argTypes = {
     isOpen: {
         name: 'isOpen',
         description: 'Boolean describing if the modal should be shown or not.',
@@ -361,7 +361,7 @@ export const ModalArgTypes = {
     }
 };
 
-export const Template = args => {
+export const Template = (args) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);

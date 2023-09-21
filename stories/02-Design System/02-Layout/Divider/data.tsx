@@ -2,7 +2,7 @@ import React from 'react';
 
 import {KitDivider} from '@kit/Layout/';
 
-export const DividerArgTypes = {
+export const argTypes = {
     dashed: {
         name: 'dashed',
         control: {type: 'boolean'},
@@ -101,6 +101,7 @@ export const DividerArgTypes = {
     }
 };
 
-export const Template = ({label, ...args}) => {
-    return <KitDivider {...args}>{label}</KitDivider>;
+export const Template = (args) => {
+    const {label, ...props} = args;
+    return <KitDivider {...props}>{label}</KitDivider>;
 };

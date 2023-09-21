@@ -1,0 +1,72 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitRateStories from './Rate.stories';
+
+<Meta of={KitRateStories} />
+
+# Rate
+
+Rate component.
+
+## Usage
+
+- Show evaluation.
+- A quick rating operation on something.
+
+## Examples
+
+##### Basic
+
+The simplest usage.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="rate-basic" />
+
+##### Half star
+
+Support select half star.
+
+<CustomCanvas content={Exemples.Half} source={Sources.Half} id="rate-half" />
+
+##### Show copywriting
+
+Add copywriting in rate components.
+
+<CustomCanvas content={Exemples.Copywriting} source={Sources.Copywriting} id="rate-copywriting" />
+
+##### Read only
+
+Read only, can't use mouse to interact.
+
+<CustomCanvas content={Exemples.Readonly} source={Sources.Readonly} id="rate-read-only" />
+
+##### Clear star
+
+Support set allow to clear star when click again.
+
+<CustomCanvas content={Exemples.Allowclear} source={Sources.Allowclear} id="rate-allow-clear" />
+
+##### Rate Color
+
+We preset a series of colorful Rate styles for use in different situations..
+
+<CustomCanvas content={Exemples.Color} source={Sources.Color} id="rate-color" />
+
+##### Other Character
+
+Replace the default star to other character like alphabet, digit, iconfont or even Chinese word.
+
+<CustomCanvas content={Exemples.Otherchar} source={Sources.Otherchar} id="rate-other-character" />
+
+##### Customize character
+
+Can customize each character using `(RateProps) => ReactNode`.
+
+<CustomCanvas content={Exemples.Customizechar} source={Sources.Customizechar} id="rate-custom-character" />
+
+## API
+
+<Canvas of={KitRateStories.Api} />
+
+<Controls of={KitRateStories.Api} />

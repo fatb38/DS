@@ -3,7 +3,7 @@ import {KitInputNumber} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import {CheckCircleOutlined, SearchOutlined} from '@ant-design/icons';
 
-export const InputNumberArgTypes = {
+export const argTypes = {
     label: {
         name: 'label',
         description: 'Label displayed above the field',
@@ -194,7 +194,6 @@ export const InputNumberArgTypes = {
     prefix: {
         name: 'prefix',
         description: 'Set the icon component of button (Not working for TextArea)',
-        type: {name: 'ReactNode', required: false},
         options: ['', 'SearchOutlined', 'CheckCircleOutlined'],
         control: {
             type: 'select'
@@ -287,12 +286,13 @@ export const getIcon = icon => {
     }
 };
 
-export const Template = ({component, ...args}) => {
+export const Template = (args) => {
+    const { component, ...props} = args;
     const prefix = getIcon(args.prefix);
 
     return (
         <KitSpace direction="vertical">
-            <KitInputNumber {...args} prefix={prefix} />
+            <KitInputNumber {...props} prefix={prefix} />
         </KitSpace>
     );
 };

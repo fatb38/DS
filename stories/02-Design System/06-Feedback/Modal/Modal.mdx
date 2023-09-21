@@ -1,0 +1,97 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { Source } from '@storybook/blocks';
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitModalStories from './Modal.stories';
+
+<Meta of={KitModalStories} />
+
+# Modal
+
+Modal dialogs.
+
+## Usage
+
+When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use `Modal` to create a new floating layer over the current page to get user feedback or display information.
+
+Additionally, if you need show a simple confirmation dialog, you can use `App.useApp` hooks.
+
+##### How to import
+
+<Source dark code={`
+import { KitModal } from "@kit/Feedback/";
+
+<KitModal title="Basic Modal" ... ></KitModal>
+
+OR
+
+KitModal.confirm({...});
+`} />
+
+## Examples
+
+##### Basic
+show basic modal
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="modal-basic" />
+
+### Show confirm dialog
+Show a confirm Dialog. There are 4 types of confirm : `info`, `warning`, `success`, `error`, `confirm`. A confirm can display an image and an icon
+
+<CustomCanvas content={Exemples.Confirm} source={Sources.Confirm} id="modal-confirm" />
+
+## Api
+
+<Canvas of={KitModalStories.Api} />
+
+<Controls of={KitModalStories.Api} />
+
+
+### Confirm dialog Properties
+You can pass any of the Modal properties plus : 
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| type | Dialog type, one of `info` | `success` | `warning` | `error` | `warn` | `confirm` | `string` | - |
+| image | url of image displayed on top the modal. if not specified, image is not shown | `string` | - |
+| icon | Icon to show on the left of the content. If not specified, show icon corresponding to specified type. If you set icon={null}, the modal won't show icon at all | `ReactNode` | - |
+| firstLine | first line of text to display | `ReactNode`| - |
+| secondLine | second line of text to display | `ReactNode`| - |
+| okCancel | Wether to display sCancel button or only Ok button | `boolean`| false |
+| title | Title to display | string | - |
+| cancelText | text to display in cancel button | string| 'Cancel' |
+| okText | text to display in Ok button | string| 'Ok' |
+| onCancel | Function to call on clicking Cancel button | string| - |
+| onOk | Function to call on clicking Ok button | string| - |
+| close | Function to call when closing the modal. If not set, the modal will never close | string| - |
+
+### Modal.method()
+
+There are five ways to display the information based on the content's nature:
+
+- `Modal.info`
+- `Modal.success`
+- `Modal.error`
+- `Modal.warning`
+- `Modal.confirm`
+
+The items listed above are all functions, expecting a settings object as parameter. The properties of the object are the same as dialog properties:
+All the `Modal.method`s will return a reference, and then we can update and close the modal dialog by the reference.
+
+```jsx
+const modal = Modal.info();
+
+modal.update({
+  title: 'Updated title',
+  content: 'Updated content',
+});
+
+// you can pass a function to update modal
+modal.update((prevConfig) => ({
+  ...prevConfig,
+  title: `${prevConfig.title} (New)`,
+}));
+
+modal.destroy();
+```

@@ -182,6 +182,7 @@ export const argTypes = {
     ...CheckboxGroupArgTypes
 };
 
-export const Template = ({label, ...args}) => {
-    return <KitCheckbox {...args}>{label}</KitCheckbox>;
+export const Template = (args) => {
+    const {label, ...props} = args;
+     return <KitCheckbox {...props}>{label}</KitCheckbox>;
 };

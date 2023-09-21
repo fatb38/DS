@@ -2,7 +2,7 @@ import React from 'react';
 import {DownloadOutlined, CheckCircleOutlined, SearchOutlined} from '@ant-design/icons';
 import {KitButton} from '@kit/General/';
 
-export const ButtonArgTypes = {
+export const argTypes = {
     block: {
         name: 'block',
         control: {type: 'boolean'},
@@ -69,7 +69,6 @@ export const ButtonArgTypes = {
     },
     icon: {
         name: 'icon',
-        type: {name: 'ReactNode', required: false},
         options: ['-', 'SearchOutlined', 'DownloadOutlined', 'CheckCircleOutlined'],
         control: {
             type: 'select'

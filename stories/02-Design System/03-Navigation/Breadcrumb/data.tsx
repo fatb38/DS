@@ -86,7 +86,8 @@ export const argTypes = {
     }
 };
 
-export const Template = ({items, separator}) => {
+export const Template = (args) => {
+    const {items, separator} = args;
     return (
         <KitBreadcrumb
             items={items || argTypes.items.control.value}

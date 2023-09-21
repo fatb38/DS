@@ -5,7 +5,7 @@ const direction = ['horizontal', 'vertical'];
 
 const status = ['process', 'wait', 'finish', 'error'];
 
-export const StepsArgTypes = {
+export const argTypes = {
     current: {
         name: 'current',
         description:
@@ -153,7 +153,8 @@ export const StepsArgTypes = {
     }
 };
 
-export const Template = ({component, ...args}) => {
+export const Template = (args) => {
+    const {component, ...props} = args;
     return (
         <KitSteps
             items={[
@@ -170,7 +171,7 @@ export const Template = ({component, ...args}) => {
                     description: 'This is a description'
                 }
             ]}
-            {...args}
+            {...props}
         />
     );
 };

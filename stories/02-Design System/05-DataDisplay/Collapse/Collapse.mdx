@@ -1,0 +1,66 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitCollapseStories from './Collapse.stories';
+
+<Meta of={KitCollapseStories} />
+
+# Collapse
+
+A content area which can be collapsed and expanded.
+
+## Usage
+
+- Can be used to group or hide complex regions to keep the page clean.
+- `Accordion` is a special kind of `Collapse`, which allows only one panel to be expanded at a time.
+
+## Examples
+
+##### Basic
+
+By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="collapse-basic" />
+
+##### Size
+
+If a large or small collapse is desired, set the `size` property to either `large` or `small` respectively. Omit the `size` property for a collapse with the default size.
+
+<CustomCanvas content={Exemples.Size} source={Sources.Size} id="collapse-size" />
+
+##### Accordion
+
+In accordion mode, only one panel can be expanded at a time.
+
+<CustomCanvas content={Exemples.Accordion} source={Sources.Accordion} id="collapse-acordion" />
+
+##### Nested panel
+
+`Collapse` is nested inside the `Collapse`.
+
+<CustomCanvas content={Exemples.Nested} source={Sources.Nested} id="collapse-nested" />
+
+##### Custom header content
+
+Render header content with a proper layout in the top-left corner of each panel. To do so, you can use `KitCollapse.Header`.
+
+<CustomCanvas content={Exemples.CustomHeaderContent} source={Sources.CustomHeaderContent} id="collapse-custom-header-content" />
+
+##### Custom header extra actions
+
+Render extra element in the top-right corner of each panel. To do so, you can use `KitCollapse.HeaderExtra`.
+
+<CustomCanvas content={Exemples.CustomHeaderExtra} source={Sources.CustomHeaderExtra} id="collapse-custom-header-extra" />
+
+##### Collapsible
+
+Specify the trigger area of collapsible by `collapsible`.
+
+<CustomCanvas content={Exemples.Collapsible} source={Sources.Collapsible} id="collapse-collapsible" />
+
+## API
+
+<Canvas of={KitCollapseStories.Api} />
+
+<Controls of={KitCollapseStories.Api} />

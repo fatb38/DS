@@ -1,0 +1,80 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitInputStories from './Input.stories';
+
+<Meta of={KitInputStories} />
+
+<style></style>
+
+# Input
+
+A basic widget for getting the user input is a text field. Keyboard and mouse can be used for providing or changing data.
+
+## Usage
+
+- A user input in a form field is needed.
+- A search input is required.
+
+## Examples
+
+##### Basic
+
+Basic usage example.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="input-basic" />
+
+##### Prefix and suffix
+
+Add a prefix or suffix icons inside input.
+
+<CustomCanvas content={Exemples.Prefixsuffix} source={Sources.Prefixsuffix} id="input-prefix-suffix" />
+
+##### Password box
+
+Input type of password.
+
+<CustomCanvas content={Exemples.Password} source={Sources.Password} id="input-password" />
+
+##### TextArea
+
+For multi-line input.
+
+<CustomCanvas content={Exemples.Textarea} source={Sources.Textarea} id="input-textarea" />
+
+##### Autosizing the height to fit the content
+
+`autoSize` prop for a `textarea` type of `Input` makes the height to automatically adjust based on the content. An option object can be provided to `autoSize` to specify the minimum and maximum number of lines the textarea will automatically adjust.
+
+<CustomCanvas content={Exemples.Autosizing} source={Sources.Autosizing} id="input-autosizing" />
+
+##### With character counting
+
+Show character counting.
+
+<CustomCanvas content={Exemples.Counting} source={Sources.Counting} id="input-counting" />
+
+##### With clear icon
+
+Input box with the remove icon, click the icon to delete everything.
+
+<CustomCanvas content={Exemples.Clearicon} source={Sources.Clearicon} id="input-icon" />
+
+##### Status
+
+Add status to Input with status, which could be error or warning.
+
+<CustomCanvas content={Exemples.Status} source={Sources.Status} id="input-status" />
+
+##### Label and Helper
+
+Add `label` and/or `helper` properties to give field context.
+
+<CustomCanvas content={Exemples.Wrapper} source={Sources.Wrapper} id="input-wrapper" />
+
+## Api
+
+<Canvas of={KitInputStories.Api} />
+
+<Controls of={KitInputStories.Api} />

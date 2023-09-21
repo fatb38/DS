@@ -1,0 +1,80 @@
+import { Meta, Canvas, Controls } from "@storybook/addon-docs";
+import Gallery from './data';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+
+import Exemples, { Sources } from './exemples';
+
+import * as KitIconStories from './Icons.stories';
+
+<Meta of={KitIconStories} />
+
+<style>
+    {`
+        .gallery {
+            margin: 40px 0;
+        }
+
+        .card {
+            width: 210px;
+            transition: color 0.3s ease-in-out,background-color 0.3s ease-in-out;
+        }
+
+        .icon-item {
+            text-align: center;
+            padding-bottom: .5rem;
+            font-size: 36px;
+            transition: transform 0.3s ease-in-out;
+            will-change: transform;
+        }
+
+        .card:hover {
+            background: #1677ff;
+            color: white;
+        }
+
+        .card:hover .icon-item {
+            transform: scale(1.4);
+            transition: transform 0.3s ease-in-out;
+            will-change: transform;
+        }
+
+        .icon-name {
+            text-align: center;
+        }
+    `}
+</style>
+
+# Icon
+
+Aristid Icon is a on/off state icon
+
+## Exemples
+
+##### Basic
+
+A basic Icon with on without `on` property.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="icon-basic" />
+
+##### Hoverable
+
+Show Icon with `on` property on hover state.
+
+<CustomCanvas content={Exemples.Hoverable} source={Sources.Hoverable} id="icon-hoverable" />
+
+##### Clickable
+
+Icon can be clickable using `onClick` property.
+
+<CustomCanvas content={Exemples.Clickable} source={Sources.Clickable} id="icon-clickable" />
+
+## Api
+
+<Canvas of={KitIconStories.Api} />
+
+<Controls  of={KitIconStories.Api} />
+
+# Available icons
+
+<Gallery />
+

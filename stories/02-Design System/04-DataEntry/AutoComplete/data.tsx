@@ -1,8 +1,7 @@
-import {KitAutoComplete, KitRate} from '@kit/DataEntry';
-import {FrownOutlined, MehOutlined, SmileOutlined} from '@ant-design/icons';
+import {KitAutoComplete} from '@kit/DataEntry';
 import React from 'react';
 
-export const AutoCompleteArgTypes = {
+export const argTypes = {
     label: {
         name: 'label',
         description: 'Label displayed above the field',

@@ -49,7 +49,6 @@ export const argTypes = {
     icon: {
         name: 'icon',
         description: 'Icon element of type ReactNode',
-        type: {name: 'ReactNode', required: false},
         options: ['SearchOutlined', 'DownloadOutlined', 'CheckCircleOutlined'],
         control: {
             type: 'select'

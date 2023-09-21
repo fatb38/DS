@@ -52,6 +52,7 @@ export const argTypes = {
     ...TagArgTypes
 };
 
-export const Template = ({label, ...args}) => {
-    return <KitTag {...args}>{label ? label : 'Default label'}</KitTag>;
+export const Template = (args) => {
+    const {label, ...props} = args;
+    return <KitTag {...props}>{label ? label : 'Default label'}</KitTag>;
 };
