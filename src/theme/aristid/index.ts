@@ -15,6 +15,7 @@ import {KitImageTheme} from './components/DataDisplay/Image';
 import {KitItemListTheme} from './components/DataDisplay/ItemList';
 import {KitTabsTheme} from './components/DataDisplay/Tabs';
 import {KitTreeTheme} from './components/DataDisplay/Tree';
+import {KitInputNumberTheme} from './components/DataEntry/InputNumber';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -25,6 +26,7 @@ export const KitAristidTheme: KitTheme = {
         Tag: KitTagTheme,
         InputWrapper: KitInputWrapperTheme,
         Input: KitInputTheme,
+        InputNumber: KitInputNumberTheme,
         Slider: KitSliderTheme,
         Avatar: KitAvatarTheme,
         AvatarGroup: KitAvatarGroupTheme,
