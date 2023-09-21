@@ -4,7 +4,7 @@ import {Source, Unstyled} from '@storybook/blocks';
 import cleanSource from './cleanSource';
 import ShortUniqueId from 'short-unique-id';
 import {AccessibilityContext} from './Accessibility/AccessibilityProvider';
-import { A11YPanel } from './Accessibility/A11YPanel';
+import {A11YPanel} from './Accessibility/A11YPanel';
 
 const StyledCanvas = styled.div`
     position: relative;
@@ -103,10 +103,10 @@ const CustomCanvas = ({id, withSource, content, source, backgroundColor, a11y = 
     const ref = useRef(null);
     const [showCode, setShowCode] = useState(withSource === 'always');
     const [showA11y, setShowA11y] = useState(false);
-    const storyId = useRef(id || uid.rnd());// uuidv4().split('-')[0]);
+    const storyId = useRef(id || uid.rnd());
 
     const {active, addItem, results} = useContext(AccessibilityContext);
-    const Component = content || 'div';
+    const Component = content ?? 'div';
     const cleanedSource = cleanSource(source || '');
     
     const showSourceToggle = !withSource || withSource === 'always' || withSource === 'auto';

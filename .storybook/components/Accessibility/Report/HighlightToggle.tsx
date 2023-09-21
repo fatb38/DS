@@ -1,22 +1,16 @@
-import React, { useContext } from 'react';
-import { styled } from '@storybook/theming';
+import React, {useContext} from 'react';
+import {styled} from '@storybook/theming';
+import type {NodeResult} from 'axe-core';
+import {AccessibilityContext} from '../AccessibilityProvider';
+import type {ToggleProps} from './types';
 
-import type { NodeResult } from 'axe-core';
-import { AccessibilityContext } from '../AccessibilityProvider';
-
-interface ToggleProps {
-  id: string;
-  elementsToHighlight: NodeResult[];
-  toggleId?: string;
-}
-
-enum CheckBoxStates {
+export enum CheckBoxStates {
   CHECKED,
   UNCHECKED,
   INDETERMINATE,
 }
 
-const Checkbox = styled.input<{ disabled: boolean }>(({ disabled }) => ({
+const Checkbox = styled.input<{ disabled: boolean }>(({disabled}) => ({
   cursor: disabled ? 'not-allowed' : 'pointer',
 }));
 
@@ -36,7 +30,7 @@ function areAllRequiredElementsHighlighted(
     : CheckBoxStates.INDETERMINATE;
 }
 
-const HighlightToggle: React.FC<ToggleProps> = ({ id, toggleId, elementsToHighlight = [] }) => {
+const HighlightToggle: React.FunctionComponent<ToggleProps> = ({id, toggleId, elementsToHighlight = []}) => {
   const { results,  toggleHighlight } = useContext(AccessibilityContext);
   const ResultSet = results[id];
   const checkBoxRef = React.useRef<HTMLInputElement>(null);

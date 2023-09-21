@@ -1,14 +1,11 @@
 import * as React from 'react';
-
-import { styled } from '@storybook/theming';
-import type { NodeResult, Result } from 'axe-core';
-import { useResizeDetector } from 'react-resize-detector';
+import {styled} from '@storybook/theming';
+import type {NodeResult, Result} from 'axe-core';
+import {useResizeDetector} from 'react-resize-detector';
 import HighlightToggle from './Report/HighlightToggle';
-
-import type { RuleType } from './A11YPanel';
-import { AccessibilityContext } from './AccessibilityProvider';
-
-// TODO: reuse the Tabs component from @storybook/theming instead of re-building identical functionality
+import type {RuleType} from './A11YPanel';
+import {AccessibilityContext} from './AccessibilityProvider';
+import { TabsProps } from './types';
 
 const Container = styled.div({
   width: '100%',
@@ -16,13 +13,13 @@ const Container = styled.div({
   minHeight: '100%',
 });
 
-const HighlightToggleLabel = styled.label(({ theme }) => ({
+const HighlightToggleLabel = styled.label(({theme}) => ({
   cursor: 'pointer',
   userSelect: 'none',
   color: theme.color.dark,
 }));
 
-const GlobalToggle = styled.div<{ elementWidth: number }>(({ elementWidth, theme }) => {
+const GlobalToggle = styled.div<{ elementWidth: number }>(({elementWidth, theme}) => {
   const maxWidthBeforeBreak = 450;
   return {
     cursor: 'pointer',
@@ -47,7 +44,7 @@ const GlobalToggle = styled.div<{ elementWidth: number }>(({ elementWidth, theme
   };
 });
 
-const Item = styled.button<{ active?: boolean }>(
+const Item = styled.button<{active?: boolean}>(
   ({ theme }) => ({
     textDecoration: 'none',
     padding: '10px 15px',
@@ -77,7 +74,7 @@ const Item = styled.button<{ active?: boolean }>(
 
 const TabsWrapper = styled.div({});
 
-const List = styled.div(({ theme }) => ({
+const List = styled.div(({theme}) => ({
   boxShadow: `${theme.appBorderColor} 0 -1px 0 0 inset`,
   background: theme.background.app,
   display: 'flex',
@@ -85,39 +82,30 @@ const List = styled.div(({ theme }) => ({
   whiteSpace: 'nowrap',
 }));
 
-interface TabsProps {
-  id: string;
-  tabs: {
-    label: JSX.Element;
-    panel: JSX.Element;
-    items: Result[];
-    type: RuleType;
-  }[];
-}
-
 function retrieveAllNodesFromResults(items: Result[]): NodeResult[] {
   return items.reduce((acc, item) => acc.concat(item.nodes), [] as NodeResult[]);
 }
 
-export const Tabs: React.FC<TabsProps> = ({ id, tabs }) => {
-  const { ref, width } = useResizeDetector({
+export const Tabs: React.FunctionComponent<TabsProps> = ({id, tabs}) => {
+  const {ref, width} = useResizeDetector({
     refreshMode: 'debounce',
     handleHeight: false,
     handleWidth: true,
   });
-  const {results, setTab } = React.useContext(AccessibilityContext);
+  const {results, setTab} = React.useContext(AccessibilityContext);
   const resultSet = results[id];
   const activeTab = resultSet?.tab;
 
   const handleToggle = React.useCallback(
     (event: React.SyntheticEvent) => {
-      setTab(id, parseInt(event.currentTarget.getAttribute('data-index') || '', 10));
+      setTab(id, parseInt(event.currentTarget.getAttribute('data-index') ?? '', 10));
     },
     [setTab, id]
   );
 
   const highlightToggleId = `${tabs[activeTab].type}-global-checkbox`;
   const highlightLabel = `Highlight results`;
+
   return (
     <Container ref={ref}>
       <List>
@@ -135,7 +123,7 @@ export const Tabs: React.FC<TabsProps> = ({ id, tabs }) => {
         </TabsWrapper>
       </List>
       {tabs[activeTab].items.length > 0 ? (
-        <GlobalToggle elementWidth={width || 451}>
+        <GlobalToggle elementWidth={width ?? 451}>
           <HighlightToggleLabel htmlFor={highlightToggleId}>{highlightLabel}</HighlightToggleLabel>
           <HighlightToggle
             id={id}

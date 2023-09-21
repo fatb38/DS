@@ -1,12 +1,9 @@
-import React, { useCallback, useContext, useMemo } from 'react';
-
-import { styled } from '@storybook/theming';
-
-import { ActionBar, Icons, ScrollArea } from '@storybook/components';
-
-import { Report } from './Report';
-import { Tabs } from './Tabs';
-import { AccessibilityContext } from './AccessibilityProvider';
+import React, {useCallback, useContext, useMemo} from 'react';
+import {styled} from '@storybook/theming';
+import {ActionBar, Icons, ScrollArea} from '@storybook/components';
+import {Report} from './Report';
+import {Tabs} from './Tabs';
+import {AccessibilityContext} from './AccessibilityProvider';
 
 export enum RuleType {
   VIOLATION,
@@ -20,19 +17,19 @@ const Icon = styled(Icons)({
   marginRight: 4,
 });
 
-const RotatingIcon = styled(Icon)(({ theme }) => ({
+const RotatingIcon = styled(Icon)(({theme}) => ({
   animation: `${theme.animation.rotate360} 1s linear infinite;`,
 }));
 
-const Passes = styled.span(({ theme }) => ({
+const Passes = styled.span(({theme}) => ({
   color: theme.color.positiveText,
 }));
 
-const Violations = styled.span(({ theme }) => ({
+const Violations = styled.span(({theme}) => ({
   color: theme.color.negativeText,
 }));
 
-const Incomplete = styled.span(({ theme }) => ({
+const Incomplete = styled.span(({theme}) => ({
   color: theme.color.warningText,
 }));
 
@@ -43,10 +40,11 @@ const Centered = styled.span({
   height: '100%',
 });
 
-export const A11YPanel: React.FC<{
+export const A11YPanel: React.FunctionComponent<{
   id: string
 }> = ({id}) => {
   const {results, rerun} = useContext(AccessibilityContext);
+
   const resultSet = results[id];
 
   const handleManual = useCallback(() => {
@@ -56,7 +54,7 @@ export const A11YPanel: React.FC<{
   }, [id, rerun, resultSet]);
 
   const manualActionItems = useMemo(
-    () => [{ title: 'Run test', onClick: handleManual }],
+    () => [{title: 'Run test', onClick: handleManual}],
     [handleManual]
   );
   const readyActionItems = useMemo(
@@ -71,13 +69,13 @@ export const A11YPanel: React.FC<{
             </>
           ),
         onClick: handleManual,
-      },
+     },
     ],
     [resultSet, handleManual]
   );
 
   const tabs = useMemo(() => {
-    const { passes, incomplete, violations } = resultSet || {};
+    const {passes, incomplete, violations} = resultSet ?? {};
     return [
       {
         label: <Violations>{violations?.length || 0} Violations</Violations>,

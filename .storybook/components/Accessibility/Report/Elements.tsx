@@ -1,19 +1,17 @@
-import type { FC } from 'react';
+import type { FunctionComponent } from 'react';
 import React from 'react';
-
 import { styled } from '@storybook/theming';
-
 import type { NodeResult } from 'axe-core';
 import { Rules } from './Rules';
-
 import type { RuleType } from '../A11YPanel';
 import HighlightToggle from './HighlightToggle';
+import { ElementProps, ElementsProps } from './types';
 
 const Item = styled.li({
   fontWeight: 600,
 });
 
-const ItemTitle = styled.span(({ theme }) => ({
+const ItemTitle = styled.span(({theme}) => ({
   borderBottom: `1px solid ${theme.appBorderColor}`,
   width: '100%',
   display: 'flex',
@@ -32,13 +30,7 @@ const HighlightToggleElement = styled.span({
   },
 });
 
-interface ElementProps {
-  id: string;
-  element: NodeResult;
-  type: RuleType;
-}
-
-const Element: FC<ElementProps> = ({ id, element, type }) => {
+const Element: FunctionComponent<ElementProps> = ({id, element, type}) => {
   const { any, all, none } = element;
   const rules = [...any, ...all, ...none];
   const highlightToggleId = `${type}-${element.target[0]}`;
@@ -56,13 +48,7 @@ const Element: FC<ElementProps> = ({ id, element, type }) => {
   );
 };
 
-interface ElementsProps {
-  id: string;
-  elements: NodeResult[];
-  type: RuleType;
-}
-
-export const Elements: FC<ElementsProps> = ({ id, elements, type }) => (
+export const Elements: FunctionComponent<ElementsProps> = ({id, elements, type}) => (
   <ol>
     {elements.map((element, index) => (
       // eslint-disable-next-line react/no-array-index-key

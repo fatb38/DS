@@ -1,16 +1,17 @@
-import type { FC } from 'react';
+import type {FunctionComponent} from 'react';
 import React from 'react';
-
-import { styled } from '@storybook/theming';
-import type { Result } from 'axe-core';
+import {styled} from '@storybook/theming';
+import {InfoProps} from './types';
 
 const Wrapper = styled.div({
   padding: 12,
   marginBottom: 10,
 });
+
 const Description = styled.p({
   margin: '0 0 12px',
 });
+
 const Link = styled.a({
   marginTop: 12,
   textDecoration: 'underline',
@@ -18,11 +19,8 @@ const Link = styled.a({
   display: 'block',
 });
 
-interface InfoProps {
-  item: Result;
-}
 
-export const Info: FC<InfoProps> = ({ item }) => {
+export const Info: FunctionComponent<InfoProps> = ({item}) => {
   return (
     <Wrapper>
       <Description>{item.description}</Description>

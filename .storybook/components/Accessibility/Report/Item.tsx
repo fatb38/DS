@@ -1,18 +1,13 @@
-import React, { Fragment, useState } from 'react';
-
-import { styled } from '@storybook/theming';
-import { Icons } from '@storybook/components';
-
-import type { Result } from 'axe-core';
-import { Info } from './Info';
-
-import { Elements } from './Elements';
-import { Tags } from './Tags';
-
-import type { RuleType } from '../A11YPanel';
+import React, {Fragment, FunctionComponent, useState} from 'react';
+import {styled} from '@storybook/theming';
+import {Icons} from '@storybook/components';
+import {Info} from './Info';
+import {Elements} from './Elements';
+import {Tags} from './Tags';
 import HighlightToggle from './HighlightToggle';
+import {ItemProps} from './types';
 
-const Wrapper = styled.div(({ theme }) => ({
+const Wrapper = styled.div(({theme}) => ({
   display: 'flex',
   width: '100%',
   borderBottom: `1px solid ${theme.appBorderColor}`,
@@ -21,7 +16,7 @@ const Wrapper = styled.div(({ theme }) => ({
   },
 }));
 
-const Icon = styled(Icons)(({ theme }) => ({
+const Icon = styled(Icons)(({theme}) => ({
   height: 10,
   width: 10,
   minWidth: 10,
@@ -32,7 +27,7 @@ const Icon = styled(Icons)(({ theme }) => ({
   display: 'inline-flex',
 }));
 
-const HeaderBar = styled.div(({ theme }) => ({
+const HeaderBar = styled.div(({theme}) => ({
   padding: theme.layoutMargin,
   paddingLeft: theme.layoutMargin - 3,
   lineHeight: '20px',
@@ -60,14 +55,8 @@ const HighlightToggleElement = styled.span({
   },
 });
 
-interface ItemProps {
-  id: string;
-  item: Result;
-  type: RuleType;
-}
-
 // export class Item extends Component<ItemProps, ItemState> {
-export const Item = (props: ItemProps) => {
+export const Item: FunctionComponent<ItemProps> = (props) => {
   const [open, onToggle] = useState(false);
 
   const { item, type } = props;
