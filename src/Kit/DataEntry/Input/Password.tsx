@@ -2,12 +2,14 @@ import React from 'react';
 import {Input as AntdInput} from 'antd';
 import {KitPasswordProps} from './types';
 import {styled} from 'styled-components';
-import theme from '@theme/index';
-import {KitTypography} from '@kit/General/';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
+import {useKitTheme} from '@theme/theme-context';
+import {KitInputTheme} from '@theme/types/components/DataEntry/Input/Input';
 
-const StyledAntdPassword = styled(AntdInput.Password)`
+const StyledAntdPassword = styled(AntdInput.Password)<{
+    $theme: KitInputTheme['Password'];
+}>`
     &.ant-input-affix-wrapper {
         padding: 0px 12px;
 
@@ -15,127 +17,143 @@ const StyledAntdPassword = styled(AntdInput.Password)`
             height: 38px;
             padding: 0px 10px 0px 0px;
             border-radius: 7px;
-            font-weight: ${theme.typography.mediumfontWeight};
+            font-weight: ${({$theme}) => $theme.typography.content.fontWeight};
 
             &::placeholder {
-                font-weight: ${theme.typography.regularFontWeight};
+                font-weight: ${({$theme}) => $theme.typography.placeholder.fontWeight};
             }
         }
 
         .ant-input-suffix {
             .ant-input-password-icon {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+                color: ${({$theme}) => $theme.colors.passwordIcon.default};
             }
 
             .ant-input-show-count-suffix {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey300};
-                font-size: ${theme.typography.fontSize7};
-                font-weight: ${theme.typography.regularFontWeight};
+                color: ${({$theme}) => $theme.colors.showCount.default};
+                font-size: ${({$theme}) => $theme.typography.showCount.fontSize}px;
+                font-weight: ${({$theme}) => $theme.typography.showCount.fontWeight};
             }
 
             .ant-input-clear-icon {
-                margin-top: 2px;
-                color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+                color: ${({$theme}) => $theme.colors.clearIcon.default};
+                display: flex;
             }
         }
 
         .ant-input-prefix {
             margin-inline-end: 10px;
-            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+            color: ${({$theme}) => $theme.colors.prefix.default};
         }
 
         &.ant-input-affix-wrapper-disabled {
-            border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
+            border-color: ${({$theme}) => $theme.colors.border.disabled};
 
             .ant-input {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+                color: ${({$theme}) => $theme.colors.typography.content.disabled};
 
                 &::placeholder {
-                    color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+                    color: ${({$theme}) => $theme.colors.typography.placeholder.disabled};
                 }
             }
 
-            .ant-input-prefix,
-            .ant-input-suffix,
-            .ant-input-suffix .anticon {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+            .ant-input-prefix .anticon {
+                color: ${({$theme}) => $theme.colors.prefix.disabled};
+            }
+
+            .ant-input-suffix {
+                color: ${({$theme}) => $theme.colors.suffix.disabled};
+
+                .ant-input-clear-icon {
+                    color: ${({$theme}) => $theme.colors.clearIcon.disabled};
+                }
+
+                .ant-input-show-count-suffix {
+                    color: ${({$theme}) => $theme.colors.showCount.disabled};
+                }
+
+                .ant-input-password-icon {
+                    color: ${({$theme}) => $theme.colors.passwordIcon.disabled};
+                }
             }
         }
 
         &.ant-input-affix-wrapper-status-error,
         &.ant-input-affix-wrapper-status-error .ant-input {
-            background-color: ${theme.color.secondary.red.red100};
-            color: ${theme.color.secondary.red.red400};
+            background-color: ${({$theme}) => $theme.colors.background.error};
+            color: ${({$theme}) => $theme.colors.typography.content.error};
 
             &:not(.ant-input-borderless):not(.ant-input-disabled) {
-                border-color: ${theme.color.secondary.red.red400};
+                border-color: ${({$theme}) => $theme.colors.border.error};
                 box-shadow: none;
 
                 &:hover,
                 &:focus {
-                    border-color: ${theme.color.secondary.red.red400};
+                    border-color: ${({$theme}) => $theme.colors.border.error};
                 }
             }
 
             &::placeholder {
-                color: ${theme.color.secondary.red.red400};
+                color: ${({$theme}) => $theme.colors.typography.placeholder.error};
             }
 
-            .ant-input-prefix,
-            .ant-input-suffix {
-                .anticon {
-                    color: ${theme.color.secondary.red.red400};
-                }
+            .ant-input-prefix .anticon {
+                color: ${({$theme}) => $theme.colors.prefix.error};
             }
 
             .ant-input-suffix {
-                .ant-input-show-count-suffix {
-                    color: ${theme.color.secondary.red.red300};
-                }
+                color: ${({$theme}) => $theme.colors.suffix.error};
 
                 .ant-input-clear-icon {
-                    .anticon {
-                        color: ${theme.color.secondary.red.red400};
-                    }
+                    color: ${({$theme}) => $theme.colors.clearIcon.error};
+                }
+
+                .ant-input-show-count-suffix {
+                    color: ${({$theme}) => $theme.colors.showCount.error};
+                }
+
+                .ant-input-password-icon {
+                    color: ${({$theme}) => $theme.colors.passwordIcon.error};
                 }
             }
         }
 
         &.ant-input-affix-wrapper-status-warning,
         &.ant-input-affix-wrapper-status-warning .ant-input {
-            background-color: ${theme.color.secondary.orange.orange100};
-            color: ${theme.color.secondary.orange.orange500};
+            background-color: ${({$theme}) => $theme.colors.background.warning};
+            color: ${({$theme}) => $theme.colors.typography.content.warning};
 
             &:not(.ant-input-borderless):not(.ant-input-disabled) {
-                border-color: ${theme.color.secondary.orange.orange400};
+                border-color: ${({$theme}) => $theme.colors.border.warning};
                 box-shadow: none;
 
                 &:hover,
                 &:focus {
-                    border-color: ${theme.color.secondary.orange.orange400};
+                    border-color: ${({$theme}) => $theme.colors.border.warning};
                 }
             }
 
             &::placeholder {
-                color: ${theme.color.secondary.orange.orange400};
+                color: ${({$theme}) => $theme.colors.typography.placeholder.warning};
             }
 
-            .ant-input-prefix,
-            .ant-input-suffix {
-                .anticon {
-                    color: ${theme.color.secondary.orange.orange400};
-                }
+            .ant-input-prefix .anticon {
+                color: ${({$theme}) => $theme.colors.prefix.warning};
             }
 
             .ant-input-suffix {
-                .ant-input-show-count-suffix {
-                    color: ${theme.color.secondary.orange.orange300};
-                }
+                color: ${({$theme}) => $theme.colors.suffix.warning};
 
                 .ant-input-clear-icon {
-                    .anticon {
-                        color: ${theme.color.secondary.orange.orange500};
-                    }
+                    color: ${({$theme}) => $theme.colors.clearIcon.warning};
+                }
+
+                .ant-input-show-count-suffix {
+                    color: ${({$theme}) => $theme.colors.showCount.warning};
+                }
+
+                .ant-input-password-icon {
+                    color: ${({$theme}) => $theme.colors.passwordIcon.warning};
                 }
             }
         }
@@ -157,9 +175,12 @@ const KitPassword: React.FunctionComponent<KitPasswordProps> = ({
     allowClear = true,
     ...passwordProps
 }) => {
+    const {theme} = useKitTheme();
+
     return (
         <KitInputWrapper label={label} helper={helper} disabled={passwordProps.disabled} status={passwordProps.status}>
             <StyledAntdPassword
+                $theme={theme.components.Input.Password}
                 {...passwordProps}
                 allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
             />

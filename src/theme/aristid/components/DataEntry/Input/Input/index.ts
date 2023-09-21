@@ -1,6 +1,11 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
 import {AntdThemeConfigWithRequiredComponents} from '@theme/types';
-import {KitInputThemeAntd, KitInputThemeStyled} from '@theme/types/components/DataEntry/Input/Input';
+import {
+    KitInputThemeAntd,
+    KitInputThemeStyled,
+    KitPasswordThemeStyled,
+    KitTextAreaThemeStyled
+} from '@theme/types/components/DataEntry/Input/Input';
 
 const {colors, typography, border} = KitAristidThemeGeneral;
 
@@ -90,6 +95,136 @@ const kitInputThemeStyled: KitInputThemeStyled = {
     }
 };
 
+const kitPasswordThemeStyled: KitPasswordThemeStyled = {
+    colors: {
+        background: {
+            warning: colors.secondary.orange.orange100,
+            error: colors.secondary.red.red100
+        },
+        prefix: {
+            default: colors.secondary.mediumGrey.mediumGrey500,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
+            warning: colors.secondary.orange.orange400,
+            error: colors.secondary.red.red400
+        },
+        suffix: {
+            default: colors.secondary.mediumGrey.mediumGrey500,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
+            warning: colors.secondary.orange.orange400,
+            error: colors.secondary.red.red400
+        },
+        clearIcon: {
+            default: colors.secondary.mediumGrey.mediumGrey500,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
+            warning: colors.secondary.orange.orange500,
+            error: colors.secondary.red.red400
+        },
+        passwordIcon: {
+            default: colors.secondary.mediumGrey.mediumGrey500,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
+            warning: colors.secondary.orange.orange500,
+            error: colors.secondary.red.red400
+        },
+        showCount: {
+            default: colors.secondary.mediumGrey.mediumGrey300,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
+            warning: colors.secondary.orange.orange300,
+            error: colors.secondary.red.red300
+        },
+        border: {
+            disabled: colors.secondary.mediumGrey.mediumGrey200,
+            warning: colors.secondary.orange.orange400,
+            error: colors.secondary.red.red400
+        },
+        typography: {
+            content: {
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
+                warning: colors.secondary.orange.orange500,
+                error: colors.secondary.red.red400
+            },
+            placeholder: {
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
+                warning: colors.secondary.orange.orange500,
+                error: colors.secondary.red.red400
+            }
+        }
+    },
+    typography: {
+        content: {
+            fontWeight: typography.mediumfontWeight
+        },
+        placeholder: {
+            fontWeight: typography.regularFontWeight
+        },
+        showCount: {
+            fontSize: typography.fontSize7,
+            fontWeight: typography.regularFontWeight
+        }
+    }
+};
+
+const kitTextAreaThemeStyled: KitTextAreaThemeStyled = {
+    colors: {
+        background: {
+            warning: colors.secondary.orange.orange100,
+            error: colors.secondary.red.red100
+        },
+        prefix: {
+            default: colors.secondary.mediumGrey.mediumGrey500,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
+            warning: colors.secondary.orange.orange400,
+            error: colors.secondary.red.red400
+        },
+        suffix: {
+            default: colors.secondary.mediumGrey.mediumGrey500,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
+            warning: colors.secondary.orange.orange400,
+            error: colors.secondary.red.red400
+        },
+        clearIcon: {
+            default: colors.secondary.mediumGrey.mediumGrey500,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
+            warning: colors.secondary.orange.orange500,
+            error: colors.secondary.red.red400
+        },
+        showCount: {
+            default: colors.secondary.mediumGrey.mediumGrey300,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
+            warning: colors.secondary.orange.orange300,
+            error: colors.secondary.red.red300
+        },
+        border: {
+            disabled: colors.secondary.mediumGrey.mediumGrey200,
+            warning: colors.secondary.orange.orange400,
+            error: colors.secondary.red.red400
+        },
+        typography: {
+            content: {
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
+                warning: colors.secondary.orange.orange500,
+                error: colors.secondary.red.red400
+            },
+            placeholder: {
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
+                warning: colors.secondary.orange.orange500,
+                error: colors.secondary.red.red400
+            }
+        }
+    },
+    typography: {
+        content: {
+            fontWeight: typography.mediumfontWeight
+        },
+        placeholder: {
+            fontWeight: typography.regularFontWeight
+        },
+        showCount: {
+            fontSize: typography.fontSize7,
+            fontWeight: typography.regularFontWeight
+        }
+    }
+};
+
 const formatKitTokenForAntdDesignTolen = (
     kitInputThemeAntd: KitInputThemeAntd
 ): AntdThemeConfigWithRequiredComponents['Input'] => {
@@ -110,5 +245,13 @@ const formatKitTokenForAntdDesignTolen = (
 
 export const KitInputTheme = {
     ...formatKitTokenForAntdDesignTolen(kitInputThemeAntd),
-    ...kitInputThemeStyled
+    Input: {
+        ...kitInputThemeStyled
+    },
+    Password: {
+        ...kitPasswordThemeStyled
+    },
+    TextArea: {
+        ...kitTextAreaThemeStyled
+    }
 };

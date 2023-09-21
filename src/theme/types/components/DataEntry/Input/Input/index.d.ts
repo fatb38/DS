@@ -29,31 +29,51 @@ interface KitInputThemeStateColor {
     error: string;
 }
 
-export interface KitInputThemeStyled {
-    colors: {
-        background: Omit<KitInputThemeStateColor, 'default' | 'disabled'>;
-        prefix: KitInputThemeStateColor;
-        suffix: KitInputThemeStateColor;
-        clearIcon: KitInputThemeStateColor;
-        showCount: KitInputThemeStateColor;
-        border: Omit<KitInputThemeStateColor, 'default'>;
-        typography: {
-            content: Omit<KitInputThemeStateColor, 'default'>;
-            placeholder: Omit<KitInputThemeStateColor, 'default'>;
-        };
-    };
+interface KitInputThemeColors {
+    background: Omit<KitInputThemeStateColor, 'default' | 'disabled'>;
+    prefix: KitInputThemeStateColor;
+    suffix: KitInputThemeStateColor;
+    clearIcon: KitInputThemeStateColor;
+    showCount: KitInputThemeStateColor;
+    border: Omit<KitInputThemeStateColor, 'default'>;
     typography: {
-        content: {
-            fontWeight: string | number;
-        };
-        placeholder: {
-            fontWeight: string | number;
-        };
-        showCount: {
-            fontSize: number;
-            fontWeight: string | number;
-        };
+        content: Omit<KitInputThemeStateColor, 'default'>;
+        placeholder: Omit<KitInputThemeStateColor, 'default'>;
     };
 }
 
-export type KitInputTheme = KitInputThemeAntd & KitInputThemeStyled;
+interface KitInputThemeTypography {
+    content: {
+        fontWeight: string | number;
+    };
+    placeholder: {
+        fontWeight: string | number;
+    };
+    showCount: {
+        fontSize: number;
+        fontWeight: string | number;
+    };
+}
+
+export interface KitInputThemeStyled {
+    colors: KitInputThemeColors;
+    typography: KitInputThemeTypography;
+}
+
+export interface KitPasswordThemeStyled {
+    colors: KitInputThemeColors & {
+        passwordIcon: KitInputThemeStateColor;
+    };
+    typography: KitInputThemeTypography;
+}
+
+export interface KitTextAreaThemeStyled {
+    colors: KitInputThemeColors;
+    typography: KitInputThemeTypography;
+}
+
+export type KitInputTheme = KitInputThemeAntd & {
+    Input: KitInputThemeStyled;
+    Password: KitPasswordThemeStyled;
+    TextArea: KitTextAreaThemeStyled;
+};
