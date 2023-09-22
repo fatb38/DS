@@ -36,14 +36,6 @@ const theme: KitThemeConfig = {
             dotSize: 12,
             dotColorDisabled: colorsPalette.primary.blue200
         },
-        Switch: {
-            fontSize: 20,
-            fontSizeIcon: 12,
-            lineHeight: 1,
-            colorPrimary: colorsPalette.primary.blue400,
-            colorTextQuaternary: colorsPalette.neutral.background,
-            colorWhite: colorsPalette.neutral.typography.white
-        },
         Divider: {
             colorText: colorsPalette.neutral.typography.black,
             colorTextHeading: colorsPalette.neutral.typography.black,

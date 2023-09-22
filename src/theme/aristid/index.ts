@@ -16,6 +16,7 @@ import {KitItemListTheme} from './components/DataDisplay/ItemList';
 import {KitTabsTheme} from './components/DataDisplay/Tabs';
 import {KitTreeTheme} from './components/DataDisplay/Tree';
 import {KitInputNumberTheme} from './components/DataEntry/InputNumber';
+import {KitSwitchTheme} from './components/DataEntry/Switch';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -36,6 +37,7 @@ export const KitAristidTheme: KitTheme = {
         Image: KitImageTheme,
         ItemList: KitItemListTheme,
         Tabs: KitTabsTheme,
-        Tree: KitTreeTheme
+        Tree: KitTreeTheme,
+        Switch: KitSwitchTheme
     }
 };
