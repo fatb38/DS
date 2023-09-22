@@ -1,6 +1,5 @@
 import React from 'react';
 import {KitTypography} from '@kit/General/';
-
 import {KitBreadcrumb} from '@kit/Navigation/';
 
 const menuItems = [
@@ -86,7 +85,7 @@ export const argTypes = {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {items, separator} = args;
     return (
         <KitBreadcrumb

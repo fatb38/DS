@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {KitDivider} from '@kit/Layout/';
 
 export const argTypes = {
@@ -101,7 +100,7 @@ export const argTypes = {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {label, ...props} = args;
     return <KitDivider {...props}>{label}</KitDivider>;
 };

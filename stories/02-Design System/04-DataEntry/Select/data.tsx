@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {KitSelect} from '@kit/DataEntry/';
 
 const SelectArgTypes = {
@@ -371,6 +370,6 @@ export const argTypes = {
     ...SelectArgTypes
 };
 
-export const Template = (args) => {
+export const Template = args => {
     return <KitSelect style={{width: '320px'}} {...args} />;
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import {KitGrid} from '@kit/Layout/';
-import { KitColProps, KitRowProps } from '@kit/Layout/Grid/types';
+import {KitColProps, KitRowProps} from '@kit/Layout/Grid/types';
 
 interface IFakeGrid extends KitRowProps, KitColProps {}
 

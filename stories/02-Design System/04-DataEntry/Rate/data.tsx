@@ -1,5 +1,4 @@
 import {KitRate} from '@kit/DataEntry';
-import {FrownOutlined, MehOutlined, SmileOutlined} from '@ant-design/icons';
 import React from 'react';
 
 const color = ['default', 'green', 'red', 'blue'];

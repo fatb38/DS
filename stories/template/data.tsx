@@ -10,6 +10,6 @@ export const argTypes = {
     ...TemplateArgTypes
 };
 
-export const Template = ({...props}) => {
+export const Template = props => {
     return <div {...props}>Component</div>;
 };
