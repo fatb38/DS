@@ -19,6 +19,7 @@ import {KitTabsTheme} from './components/DataDisplay/Tabs';
 import {KitTreeTheme} from './components/DataDisplay/Tree';
 import {KitInputNumberTheme} from './components/DataEntry/InputNumber';
 import {KitSwitchTheme} from './components/DataEntry/Switch';
+import {KitSelectTheme} from './components/DataEntry/Select';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -54,6 +55,7 @@ export interface KitTheme {
         Tabs: KitTabsTheme;
         Tree: KitTreeTheme;
         Switch: KitSwitchTheme;
+        Select: KitSelectTheme;
     };
 }
 

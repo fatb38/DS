@@ -50,19 +50,6 @@ const theme: KitThemeConfig = {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize6
         },
-        Select: {
-            borderRadius: 7,
-            controlHeight: 40,
-            colorBgContainer: colorsPalette.neutral.typography.white,
-            colorBgContainerDisabled: colorsPalette.secondary.mediumGrey.mediumGrey100,
-            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey200,
-            colorPrimaryHover: colorsPalette.primary.blue400,
-            colorTextPlaceholder: colorsPalette.secondary.mediumGrey.mediumGrey500,
-            colorBgElevated: colorsPalette.secondary.mediumGrey.mediumGrey100,
-            controlItemBgHover: colorsPalette.primary.blue100,
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize6
-        },
         Steps: {
             colorPrimary: colorsPalette.primary.blue400,
             colorError: colorsPalette.secondary.red.red400,
