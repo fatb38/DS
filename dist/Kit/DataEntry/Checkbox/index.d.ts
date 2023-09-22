@@ -1,6 +1,6 @@
 import type * as React from 'react';
 import { KitCheckboxProps } from './types';
-import { CheckboxGroupProps } from 'antd/es/checkbox';
+import { CheckboxGroupProps } from 'antd/lib/checkbox';
 export type { CheckboxChangeEvent } from 'antd/lib/checkbox/Checkbox';
 export type { CheckboxGroupProps, CheckboxOptionType } from 'antd/lib/checkbox/Group';
 type CompoundedComponent = React.ForwardRefExoticComponent<KitCheckboxProps> & {

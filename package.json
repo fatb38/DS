@@ -1,6 +1,7 @@
 {
   "name": "aristid-ds",
-  "version": "0.6.1",
+  "private": false,
+  "version": "0.6.7",
   "authors": [
     "e.voiron-levy@aristid.com",
     "p.chevieux@aristid.com",
@@ -90,7 +91,8 @@
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
     }
   }
 }

@@ -4,7 +4,7 @@ import * as React from 'react';
 import {ConfigContext} from 'antd/lib/config-provider/';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox/Checkbox';
 import Checkbox from './Checkbox';
-import {GroupContext} from 'antd/es/checkbox/Group';
+import {GroupContext} from 'antd/lib/checkbox/Group';
 
 import useStyle from 'antd/lib/checkbox/style';
 

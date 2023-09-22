@@ -1,6 +1,6 @@
 import type {BasicDataNode} from 'rc-tree';
 import {TreeProps} from 'antd';
-import {DataNode} from 'antd/es/tree';
+import {DataNode} from 'antd/lib/tree';
 import {KitHTMLAttributes} from '../../../types';
 
 type AntdTreeTypesToOmit =

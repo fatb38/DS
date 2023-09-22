@@ -6,10 +6,10 @@ import {KitCheckbox, KitTag} from '@kit/DataEntry/';
 import {KitTypography} from '@kit/General/';
 import {RightOutlined, EyeOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
-import {kitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
+import {KitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
 
 const StyledItemList = styled.div<{
-    $theme: kitItemListTheme;
+    $theme: KitItemListTheme;
     $gridTemplateColumns: string;
 }>`
     display: grid;

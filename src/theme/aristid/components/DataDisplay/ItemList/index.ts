@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {kitItemListThemeStyled} from '@theme/types/components/DataDisplay/ItemList';
+import {KitItemListThemeStyled} from '@theme/types/components/DataDisplay/ItemList';
 
 const {colors, typography} = KitAristidThemeGeneral;
 
-const kitItemListThemeStyled: kitItemListThemeStyled = {
+const kitItemListThemeStyled: KitItemListThemeStyled = {
     itemList: {
         colors: {
             background: {

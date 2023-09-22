@@ -1,5 +1,5 @@
 import {SliderSingleProps} from 'antd';
-import {SliderMarks, SliderRangeProps} from 'antd/es/slider';
+import {SliderMarks, SliderRangeProps} from 'antd/lib/slider';
 
 type AntdSliderTypesToOmit = 'vertical' | 'trackStyle' | 'railStyle' | 'handleStyle' | 'marks';
 

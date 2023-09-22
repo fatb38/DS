@@ -1,6 +1,6 @@
 import {KitHTMLAttributes} from '../../../types';
 import {ReactNode} from 'react';
-import {CheckboxChangeEvent} from 'antd/es/checkbox';
+import {CheckboxChangeEvent} from 'antd/lib/checkbox';
 
 export interface KitItemListProps extends KitHTMLAttributes<HTMLDivElement> {
     title?: string;
