@@ -11,16 +11,17 @@ import {KitSelectStyle, StyledBadge, StyledLabel} from './style';
 import {KitDropdownOutlined} from '@icons/index';
 import KitInputWrapper from '@kit/DataEntry/Input/InputWrapper';
 import {KitTag} from '@kit/DataEntry/';
+import {useKitTheme} from '@theme/theme-context';
 
 const StyledKitSelect = styled(AntdSelect)`
     ${KitSelectStyle}
 `;
 
-const getOptionLabel = props => (
+const getOptionLabel = (props, theme) => (
     <div className="kit-select-option">
         {props.icon && <KitIcon className="kit-select-option-icon" icon={props.icon} on />}
         {!props.icon && (
-            <StyledBadge className="kit-select-option-badge">
+            <StyledBadge $theme={theme.components.Select.Select.colorBadge} className="kit-select-option-badge">
                 {props.color && <div className="kit-select-option-color" style={{backgroundColor: props.color}} />}
             </StyledBadge>
         )}
@@ -28,16 +29,16 @@ const getOptionLabel = props => (
     </div>
 );
 
-const parseOptions = (list, labelOnly) => {
+const parseOptions = (list, labelOnly, theme) => {
     return list.map(({className, disabled, value, options, ...rest}) => {
         if (options) {
             return {
                 label: rest.label,
-                options: parseOptions(options, labelOnly)
+                options: parseOptions(options, labelOnly, theme)
             };
         }
         return {
-            label: labelOnly ? <StyledLabel>{rest.label}</StyledLabel> : getOptionLabel(rest),
+            label: labelOnly ? <StyledLabel>{rest.label}</StyledLabel> : getOptionLabel(rest, theme),
             className: rest.highlight ? `${className} kit-select-highlight-option` : className,
             disabled,
             value
@@ -84,7 +85,8 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
     allowClear = true,
     ...props
 }) => {
-    let [internalOptions, setOptions] = useState([]);
+    const {theme} = useKitTheme();
+    const [internalOptions, setOptions] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const selectRef = useRef<any>(null);
 
@@ -92,7 +94,7 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
         if (!options) {
             setOptions([]);
         } else {
-            setOptions(parseOptions(options, labelOnly));
+            setOptions(parseOptions(options, labelOnly, theme));
         }
     }, [options, labelOnly]);
 

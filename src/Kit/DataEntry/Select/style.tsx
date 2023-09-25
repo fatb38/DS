@@ -1,15 +1,18 @@
 import styled, {createGlobalStyle, css} from 'styled-components';
 import theme from '@theme/index';
+import {KitSelectTheme} from '@theme/types/components/DataEntry/Select';
 
-export const StyledBadge = styled.div`
+export const StyledBadge = styled.div<{
+    $theme: KitSelectTheme['Select']['colorBadge'];
+}>`
     display: inline-block;
     vertical-align: middle;
 
     div {
         margin-left: 4px;
-        width: 16px;
-        height: 16px;
-        border-radius: 2px;
+        width: ${({$theme}) => $theme.width}px;
+        height: ${({$theme}) => $theme.height}px;
+        border-radius: ${({$theme}) => $theme.border.radius}px;
     }
 `;
 
@@ -42,23 +45,25 @@ export const getPopupStyle = placement => {
     }
 };
 
-export const SelectDropDownStyle = createGlobalStyle`
+export const SelectDropDownStyle = createGlobalStyle<{
+    $theme: KitSelectTheme['DropDown'];
+}>`
     .ant-select-dropdown {
         background: transparent;
         overflow: visible;
         padding: 0;
         border-radius: 0;
         box-shadow: none;
-        font-family: ${theme.typography.fontFamily};
-        font-weight: ${theme.typography.mediumfontWeight};
-        color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+        font-family: ${({$theme}) => $theme.typography.fontFamily};
+        font-weight: ${({$theme}) => $theme.typography.fontWeight.default};
+        color: ${({$theme}) => $theme.colors.typography.default};
 
         .ant-select-item, .ant-select-item-option, .ant-select-item-option-selected {
             border-radius: 7px;
             border: none;
             min-height: 32px;
-            font-weight: ${theme.typography.mediumfontWeight};
-            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+            font-weight: ${({$theme}) => $theme.typography.fontWeight.selected};
+            color: ${({$theme}) => $theme.colors.typography.selected};
 
             .ant-select-item-option-content {
                 display: flex;
@@ -67,14 +72,14 @@ export const SelectDropDownStyle = createGlobalStyle`
         }
 
         .ant-select-item-group {
-            color: ${theme.color.neutral.typography.black};
-            font-weight: ${theme.typography.boldFontWeight};
+            color: ${({$theme}) => $theme.colors.typography.group};
+            font-weight: ${({$theme}) => $theme.typography.fontWeight.group};
             padding: 8px 0;
         }
     }
 
     .rc-virtual-list-holder {
-        background-color: ${theme.color.secondary.mediumGrey.mediumGrey100};
+        background-color: ${({$theme}) => $theme.colors.background.default};
         padding-left: 0px;
         overflow: hidden;
         border-radius: 7px ;
@@ -86,7 +91,7 @@ export const SelectDropDownStyle = createGlobalStyle`
 
     .kit-select-dropdown-content {
         box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
-        background-color: ${theme.color.secondary.mediumGrey.mediumGrey100};
+        background-color: ${({$theme}) => $theme.colors.background.default};
         padding: 10px;
         overflow: hidden;
 
@@ -127,24 +132,27 @@ export const SelectDropDownStyle = createGlobalStyle`
                 padding: 5px;
             }
         }
-        .ant-select-item.ant-select-item-option-selected, .ant-select-item.ant-select-item-option-active {
-            background: ${theme.color.primary.blue100};
-            font-weight: ${theme.typography.mediumfontWeight};
-            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+
+        .ant-select-item.ant-select-item-option-selected {
+            background: ${({$theme}) => $theme.colors.background.selected};
+            font-weight: ${({$theme}) => $theme.typography.fontWeight.selected};
+            color: ${({$theme}) => $theme.colors.typography.selected};
+        }
+
+        .ant-select-item.ant-select-item-option-active {
+            background: ${({$theme}) => $theme.colors.background.active};
+            font-weight: ${({$theme}) => $theme.typography.fontWeight.active};
+            color: ${({$theme}) => $theme.colors.typography.active};
         }
 
         .ant-select-item.ant-select-item-option-disabled {
             opacity: .5;
         }
-
-        .ant-select-item.ant-select-item-option-active {
-            color: ${theme.color.primary.blue400};
-        }
     }
 
     .kit-select-dropdown-bottom {
         .kit-select-dropdown-content {
-            border-radius: 0 0 7px 7px ;
+            border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
             transform: translateX(-1px) translateY(-3px);
         }
 
@@ -152,13 +160,13 @@ export const SelectDropDownStyle = createGlobalStyle`
         &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content,
         &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder,
         &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder {
-            border-radius: 7px 7px 0 0 ;
+            border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
         }
     }
 
     .kit-select-dropdown-top {
         .kit-select-dropdown-content {
-            border-radius: 7px 7px 0 0 ;
+            border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
             transform: translateX(-1px) translateY(3px);
         }
 
@@ -166,7 +174,7 @@ export const SelectDropDownStyle = createGlobalStyle`
         &.ant-select-dropdown-placement-bottomRight .kit-select-dropdown-content,
         &.ant-select-dropdown-placement-bottomLeft .rc-virtual-list-holder,
         &.ant-select-dropdown-placement-bottomRight .rc-virtual-list-holder {
-            border-radius: 0 0 7px 7px ;
+            border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
         }
     }
 `;
