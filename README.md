@@ -1,79 +1,38 @@
-<div className="git-intro">
-    <div style="text-align: center">
-        <img src="public/images/logo-aristid.png" alt="Logo" height="100px">
-        <p style="text-align: center">
-            ARiSTiD design system documentation.
-            <a href="https://storybook.aristid.com/?path=/docs/introduction-wip--docs">View Demo</a>
-            ·
-            <a href="https://gitlab.aristid.com/dev/design-system/-/issues">Report Bug</a>
-            ·
-            <a href="https://gitlab.aristid.com/dev/design-system/-/issues">Request Feature</a>
-        </p>
-    </div>
-    <br/>
-    <hr>
-    <details open className="toc-block">
-        <summary>Table of Contents</summary>
-        <ol>
-            <li>
-                <a href="#getting-started">Getting Started</a>
-                <ul>
-                    <li>
-                        <a href="#prerequisites">Prerequisites</a>
-                    </li>
-                    <li>
-                        <a href="#installation">Installation</a>
-                    </li>
-                    <li>
-                        <a href="#usage-in-a-project">Usage in a project</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#development">Development</a>
-                <ul>
-                    <li>
-                        <a href="#code-structure">Code structure</a>
-                    </li>
-                    <li>
-                        <a href="#creating-a-component">Creating a component</a>
-                        <ul>
-                            <li>
-                                <a href="#component-code">Component code</a>
-                            </li>
-                            <li>
-                                <a href="#component-documentation">Component documentation</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#contributing">Contributing</a>
-                <ul>
-                    <li>
-                        <a href="#commit">Commit</a>
-                    </li>
-                    <li>
-                        <a href="#gitflow">Gitflow</a>
-                        <ul>
-                            <li>
-                                <a href="#feature">Feature</a>
-                            </li>
-                            <li>
-                                <a href="#release">Release</a>
-                            </li>
-                            <li>
-                                <a href="#hotfix">Hotfix</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ol>
-    </details>
-    <hr>
+<div align="center" className="header-block">
+
+![Aristid logo](public/images/logo.png)
+
+ARiSTiD design system documentation.
+
+[View Demo](https://storybook.aristid.com/?path=/docs/introduction-wip--docs)
+·
+[Report Bug](https://gitlab.aristid.com/dev/design-system/-/issuess)
+·
+[Request Feature](https://gitlab.aristid.com/dev/design-system/-/issues)
 </div>
+
+<hr>
+
+<details open className="toc-block">
+    <summary>Table of Contents</summary>
+
+1. [Getting started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Usage in a project](#usage-in-a-project)
+2. [Development](#development)
+    - [Code structure](#code-structure)
+    - [Creating a component](#creating-a-component)
+        - [Component code](#component-code)
+        - [Component documentation](#component-documentation)
+2. [Contributing](#contributing)
+    - [Commit](#commit)
+    - [Gitflow](#gitflow)
+        - [Feature](#feature)
+        - [Release](#release)
+        - [Hotfix](#hotfix)
+</details>
+<hr>
 
 ## Getting Started
 ### Prerequisites
@@ -123,11 +82,42 @@ yarn storybook
 
 ### Usage in a project
 
-    ⚠️ TODO :
-    - How to import
-    - How to use
-    - How to use KitApp ?
-    - Internationalization / themes (?)
+1. How To Import
+
+```sh dark
+yarn add aristid-ds
+
+or npm install aristid-ds
+```
+
+2. How to use KitApp
+
+The **KitApp** is an essential context for the proper functioning of the **design system** components.
+
+The kitApp is mainly used to supply the various components with **style** overloads. For the moment, the KitApp provide a default **Aristid Theme**. In the futur, it will be possible to customize every component with theme tokens.
+
+> If you don't use KitApp, you'll get **missing styles** and **errors** when using components.
+
+```jsx dark
+import {KitApp} from "aristid-ds";
+
+<KitApp>
+    <App />
+</KitApp>
+```
+
+3. Usage
+
+All components are exported directly from 'aristid-ds' package.
+
+```jsx dark
+import {KitButton, Kitcheckbox} from "aristid-ds";
+```
+
+
+4. Internationalization / themes (?)
+
+> Work in progress
 
 <br/>
 

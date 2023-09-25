@@ -26,7 +26,7 @@ const config: StorybookConfig = {
         enableCrashReports: false,
         disableTelemetry: true
     },
-    staticDirs: ['../public'],
+    staticDirs: [{ from: '../public', to: '/public' }],
     docs: {
         autodocs: true,
         docsMode: true

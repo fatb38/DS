@@ -1,5 +1,6 @@
 {
   "name": "aristid-ds",
+  "description": "ARiSTiD design system",
   "private": false,
   "version": "0.6.8",
   "authors": [
@@ -83,7 +84,11 @@
     "styled-components": "^6.0.7"
   },
   "files": [
-    "dist"
+    "dist",
+    "public/images/logo.png",
+    "public/images/gitflow-release.png",
+    "public/images/gitflow-hotfix.png",
+    "public/images/gitflow-feature.png"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
