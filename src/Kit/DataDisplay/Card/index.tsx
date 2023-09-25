@@ -9,7 +9,7 @@ import {KitImageProps} from '@kit/DataDisplay/Image/types';
 import {KitIconProps} from '@kit/General/Icon/types';
 import {KitAvatarProps} from '../Avatar/types';
 import {KitCheckbox, KitTag} from '@kit/DataEntry';
-import type {CheckboxChangeEvent} from 'antd/es/checkbox';
+import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {KitCardTheme} from '@theme/types/components/DataDisplay/Card';
 import {useKitTheme} from '@theme/theme-context';
 

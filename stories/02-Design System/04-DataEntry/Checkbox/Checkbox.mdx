@@ -1,0 +1,84 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitCheckboxStories from './Checkbox.stories';
+
+<Meta of={KitCheckboxStories} />
+
+<style></style>
+
+# Checkbox
+
+Checkbox component.
+
+## Usage
+
+-   Used for selecting multiple values from several options.
+-   If you use only one checkbox, it is the same as using Switch to toggle between two states. The difference is that Switch will trigger the state change directly, but Checkbox just marks the state as changed and this needs to be submitted.
+
+## Examples
+
+##### Basic
+
+Basic usage of checkbox.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="checkbox-basic" />
+
+##### Controlled Checkbox
+
+Communicated with other components.
+
+<CustomCanvas content={Exemples.Controlled} source={Sources.Controlled} id="checkbox-controlled" />
+
+##### Check all
+
+The `indeterminate` property can help you to achieve a 'check all' effect.
+
+<CustomCanvas content={Exemples.CheckAll} source={Sources.CheckAll} id="checkbox-check-all" />
+
+##### Disabled
+
+Disabled checkbox.
+
+<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="checkbox-disabled" />
+
+##### Danger
+
+Danger checkbox.
+
+<CustomCanvas content={Exemples.Danger} source={Sources.Danger} id="checkbox-Danger" />
+
+##### Checkbox Group
+
+Generate a group of checkboxes from an array.
+
+<CustomCanvas content={Exemples.Group} source={Sources.Group} id="checkbox-group" />
+
+##### Use with grid
+
+We can use Checkbox and Grid in Checkbox.Group, to implement complex layout.
+
+<CustomCanvas content={Exemples.Grid} source={Sources.Grid} id="checkbox-grid" />
+
+## Api
+
+<Canvas of={KitCheckboxStories.Api} />
+
+<Controls of={KitCheckboxStories.Api} />
+##### Option
+
+```typescript
+interface Option {
+    label: string;
+    value: string;
+    disabled?: boolean;
+}
+```
+
+##### Methods
+
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |

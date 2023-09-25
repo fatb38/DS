@@ -1,0 +1,61 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitAlertStories from './Alert.stories';
+
+<Meta of={KitAlertStories} />
+
+# Alert
+
+`Alert` component for feedback.
+
+## Usage
+
+- When you need to show alert messages to users.
+
+- When you need a persistent static container which is closable by user actions.
+
+## Examples
+
+##### Basic
+
+The simplest usage for short messages.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="alert-basic" />
+
+##### More types
+
+There are 4 types of Alert: `success`, `info`, `warning`, `error`.
+
+<CustomCanvas content={Exemples.Types} source={Sources.Types} id="alert-types" />
+
+##### Closable
+
+To show close button.
+
+<CustomCanvas content={Exemples.Closable} source={Sources.Closable} id="alert-closable" />
+
+##### Description
+
+Additional description for alert message.
+
+<CustomCanvas content={Exemples.Description} source={Sources.Description} id="alert-description" />
+
+##### Icon
+
+A relevant icon will make information clearer and more friendly.
+
+<CustomCanvas content={Exemples.Icon} source={Sources.Icon} id="alert-icon" />
+
+##### Banner
+
+Display Alert as a banner at top of page.
+
+<CustomCanvas content={Exemples.Banner} source={Sources.Banner} id="alert-banner" />
+
+## Api
+
+<Canvas of={KitAlertStories.Api} />
+
+<Controls of={KitAlertStories.Api} />

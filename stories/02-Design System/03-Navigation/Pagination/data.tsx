@@ -3,7 +3,7 @@ import {KitPagination} from '@kit/Navigation/';
 
 const sizeOptions = ['default', 'small', 'default'];
 
-export const PaginationArgTypes = {
+export const argTypes = {
     current: {
         name: 'current',
         description: 'Current page number',
@@ -318,7 +318,8 @@ export const PaginationArgTypes = {
     }
 };
 
-export const Template = ({pageSizeOptions, ...args}) => {
+export const Template = (args) => {
+    const {pageSizeOptions, ...props} = args;
     const sizeOptions = pageSizeOptions ? pageSizeOptions.split(',') : null;
-    return <KitPagination pageSizeOptions={sizeOptions} {...args} />;
+    return <KitPagination pageSizeOptions={sizeOptions} {...props} />;
 };

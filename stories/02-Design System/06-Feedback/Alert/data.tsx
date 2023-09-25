@@ -3,7 +3,7 @@ import {KitAlert} from '@kit/Feedback/';
 
 const type = ['success', 'info', 'warning', 'error'];
 
-export const AlertArgTypes = {
+export const argTypes = {
     type: {
         name: 'type',
         description: 'Type of Alert styles, options: `success`, `info`, `warning`, `error`',
@@ -112,6 +112,6 @@ export const AlertArgTypes = {
     }
 };
 
-export const Template = ({component, ...args}) => {
+export const Template = (args) => {
     return <KitAlert message="Default message" {...args} />;
 };

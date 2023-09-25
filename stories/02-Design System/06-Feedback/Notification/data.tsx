@@ -10,11 +10,13 @@ import {
     DownloadOutlined,
     SearchOutlined
 } from '@ant-design/icons';
+import { KitNotificationArgsProps } from '@kit/Feedback/Notification/types';
 
-export const NotificationArgTypes = {
+export const FakeNotification: React.FunctionComponent<KitNotificationArgsProps> = () => null;
+
+export const argTypes = {
     btn: {
         name: 'btn',
-        type: {name: 'ReactNode'},
         description: 'Customized close button',
         table: {
             type: {
@@ -25,7 +27,6 @@ export const NotificationArgTypes = {
     },
     className: {
         name: 'className',
-        type: {name: 'string'},
         description: 'Customized CSS class',
         table: {
             type: {
@@ -36,7 +37,6 @@ export const NotificationArgTypes = {
     },
     closeIcon: {
         name: 'closeIcon',
-        type: {name: 'boolean | ReactNode'},
         options: ['-', 'CloseCircleOutlined', 'CloseOutlined', 'CloseSquareOutlined'],
         control: {
             type: 'select'
@@ -54,7 +54,6 @@ export const NotificationArgTypes = {
     },
     description: {
         name: 'description',
-        type: {name: 'string', required: true},
         description: 'The content of notification box **(required)**',
         control: {type: 'text'},
         table: {
@@ -66,7 +65,6 @@ export const NotificationArgTypes = {
     },
     duration: {
         name: 'duration',
-        type: {name: 'number'},
         description:
             'Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically',
         control: {type: 'number'},
@@ -82,7 +80,6 @@ export const NotificationArgTypes = {
     },
     icon: {
         name: 'icon',
-        type: {name: 'ReactNode'},
         options: ['-', 'SearchOutlined', 'DownloadOutlined', 'CheckCircleOutlined'],
         control: {
             type: 'select'
@@ -97,7 +94,6 @@ export const NotificationArgTypes = {
     },
     key: {
         name: 'key',
-        type: {name: 'string'},
         description: 'The unique identifier of the Notification',
         table: {
             type: {
@@ -108,7 +104,6 @@ export const NotificationArgTypes = {
     },
     message: {
         name: 'message',
-        type: {name: 'string', required: true},
         description: 'The title of notification box **(required)**',
         control: {type: 'text'},
         table: {
@@ -120,7 +115,6 @@ export const NotificationArgTypes = {
     },
     placement: {
         name: 'placement',
-        type: {name: 'string'},
         description: 'Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight`',
         options: ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'],
         control: {
@@ -136,7 +130,6 @@ export const NotificationArgTypes = {
     },
     style: {
         name: 'style',
-        type: {name: 'CSSProperties'},
         description: 'Customized inline style',
         table: {
             type: {
@@ -147,7 +140,6 @@ export const NotificationArgTypes = {
     },
     role: {
         name: 'role',
-        type: {name: 'alert | status'},
         description:
             'The semantics of notification content recognized by screen readers. The default value is alert. When set as the default value, the screen reader will promptly interrupt any ongoing content reading and prioritize the notification content for immediate attention.',
         table: {
@@ -162,7 +154,6 @@ export const NotificationArgTypes = {
     },
     onClick: {
         name: 'onClick',
-        type: {name: 'function'},
         description: 'Specify a function that will be called when the notification is clicked',
         table: {
             type: {
@@ -173,7 +164,6 @@ export const NotificationArgTypes = {
     },
     onClose: {
         name: 'onClose',
-        type: {name: 'function'},
         description: 'Trigger when notification closed',
         table: {
             type: {
@@ -184,7 +174,6 @@ export const NotificationArgTypes = {
     },
     props: {
         name: 'props',
-        type: {name: 'Object'},
         description:
             'An object that can contain data-*, aria-*, or role props, to be put on the notification div. This currently only allows data-testid instead of data-* in TypeScript',
         table: {
@@ -224,7 +213,7 @@ export const getCloseIcon = ({closeIcon}) => {
     }
 };
 
-export const Template = args => {
+export const Template = (args) => {
     const {kitNotification} = useKitNotification();
 
     const openNotification = (type: 'open' | 'info' | 'success' | 'warning' | 'error') => {

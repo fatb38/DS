@@ -2,7 +2,7 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import remarkGfm from 'remark-gfm';
 
 const config: StorybookConfig = {
-    stories: ['../**/01-Design/**/*.mdx', '../**/02-Design System/**/*.mdx', '../**/Root/**/*.mdx'],
+    stories: ['../stories/!(template)/**/*.mdx', '../stories/!(template)/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
     addons: [
         '@storybook/addon-links',
         {
@@ -26,7 +26,7 @@ const config: StorybookConfig = {
         enableCrashReports: false,
         disableTelemetry: true
     },
-    staticDirs: ['../public'],
+    staticDirs: [{ from: '../public', to: '/public' }],
     docs: {
         autodocs: true,
         docsMode: true

@@ -1,9 +1,17 @@
 import React from 'react';
-import type { FC } from 'react';
-import { styled } from '@storybook/theming';
-import { Badge } from '@storybook/components';
-import type { CheckResult } from 'axe-core';
-import { useResizeDetector } from 'react-resize-detector';
+import type {FunctionComponent} from 'react';
+import {styled} from '@storybook/theming';
+import {Badge} from '@storybook/components';
+import {useResizeDetector} from 'react-resize-detector';
+import {BadgeType, RuleProps, RulesProps} from './types';
+
+// eslint-disable-next-line react-refresh/only-export-components
+export enum ImpactValue {
+  MINOR = 'minor',
+  MODERATE = 'moderate',
+  SERIOUS = 'serious',
+  CRITICAL = 'critical',
+}
 
 const List = styled.div({
   display: 'flex',
@@ -14,7 +22,7 @@ const List = styled.div({
   fontWeight: 400,
 });
 
-const Item = styled.div<{ elementWidth: number }>(({ elementWidth }) => {
+const Item = styled.div<{ elementWidth: number }>(({elementWidth}) => {
   const maxWidthBeforeBreak = 407;
   return {
     flexDirection: elementWidth > maxWidthBeforeBreak ? 'row' : 'inherit',
@@ -37,25 +45,11 @@ const Message = styled.div({
   paddingRight: 23,
 });
 
-// eslint-disable-next-line react-refresh/only-export-components
-export enum ImpactValue {
-  MINOR = 'minor',
-  MODERATE = 'moderate',
-  SERIOUS = 'serious',
-  CRITICAL = 'critical',
-}
-
-interface RuleProps {
-  rule: CheckResult;
-}
-
-type BadgeType = 'positive' | 'negative' | 'neutral' | 'warning' | 'critical';
-
 const formatSeverityText = (severity: string) => {
   return severity.charAt(0).toUpperCase().concat(severity.slice(1));
 };
 
-const Rule: FC<RuleProps> = ({ rule }) => {
+const Rule: FunctionComponent<RuleProps> = ({ rule }) => {
   const { ref, width } = useResizeDetector({
     refreshMode: 'debounce',
     handleHeight: false,
@@ -86,11 +80,7 @@ const Rule: FC<RuleProps> = ({ rule }) => {
   );
 };
 
-interface RulesProps {
-  rules: CheckResult[];
-}
-
-export const Rules: FC<RulesProps> = ({ rules }) => {
+export const Rules: FunctionComponent<RulesProps> = ({rules}) => {
   return (
     <List>
       {rules.map((rule, index) => (

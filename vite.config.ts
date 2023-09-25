@@ -68,7 +68,8 @@ export default defineConfig({
                     'react-dom': 'ReactDOM',
                     'styled-components': 'styled',
                     'react/jsx-runtime': 'react/jsx-runtime'
-                }
+                },
+                interop: 'compat'
                 // preserveModules: true,
                 // preserveModulesRoot: "src",
                 // inlineDynamicImports: false,

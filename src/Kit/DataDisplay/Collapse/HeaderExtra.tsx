@@ -6,7 +6,7 @@ import {KitTooltip} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
 import {KitDropDown} from '@kit/Navigation/';
 import {MoreOutlined} from '@ant-design/icons';
-import {MenuItemType} from 'antd/es/menu/hooks/useItems';
+import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
 
 const StyledHeaderExtra = styled.div`
     margin-left: 4px;

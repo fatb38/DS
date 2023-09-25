@@ -10,7 +10,7 @@ const pophoverPlacement = ['top', 'bottom'];
 
 const pophoverTrigger = ['hover', 'click', 'focus'];
 
-export const AvatarArgTypes = {
+export const argTypes = {
     alt: {
         name: 'alt',
         description: 'This attribute defines the alternative text describing the image',
@@ -225,16 +225,17 @@ export const AvatarArgTypes = {
     }
 };
 
-export const Template = ({component, ...args}) => {
+export const Template = (args) => {
+    const {component, ...props} = args;
     return (
         <>
             <KitSpace>
-                <KitAvatar {...args}>U</KitAvatar>
+                <KitAvatar {...props}>U</KitAvatar>
             </KitSpace>
             <br />
             <br />
             <KitSpace>
-                <KitAvatar.Group {...args} size={args.sizeGroup}>
+                <KitAvatar.Group {...props} size={props.sizeGroup}>
                     <KitAvatar>G</KitAvatar>
                     <KitAvatar>R</KitAvatar>
                     <KitAvatar>E</KitAvatar>

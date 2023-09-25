@@ -5,7 +5,7 @@ import {CheckCircleOutlined, SearchOutlined} from '@ant-design/icons';
 
 const components = ['Input', 'TextArea', 'Password'];
 
-export const InputArgTypes = {
+export const argTypes = {
     component: {
         name: 'component',
         description: 'Choose the component to play with (not a prop)',
@@ -133,7 +133,6 @@ export const InputArgTypes = {
     prefix: {
         name: 'prefix',
         description: 'Set the icon component of button (Not working for TextArea)',
-        type: {name: 'ReactNode', required: false},
         options: ['', 'SearchOutlined', 'CheckCircleOutlined'],
         control: {
             type: 'select'
@@ -148,7 +147,6 @@ export const InputArgTypes = {
     suffix: {
         name: 'suffix',
         description: 'The suffix icon for the Input (Not working for TextArea and Password)',
-        type: {name: 'ReactNode', required: false},
         options: ['', 'SearchOutlined', 'CheckCircleOutlined'],
         control: {
             type: 'select'
@@ -314,6 +312,7 @@ const getComponent = (component, args) => {
     }
 };
 
-export const Template = ({component, ...args}) => {
-    return <KitSpace direction="vertical">{getComponent(component, args)}</KitSpace>;
+export const Template = (args) => {
+    const {component, ...props} = args;
+    return <KitSpace direction="vertical">{getComponent(component, props)}</KitSpace>;
 };

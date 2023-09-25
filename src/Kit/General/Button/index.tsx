@@ -2,7 +2,7 @@ import React from 'react';
 import {Button as AntdButton} from 'antd';
 import {styled} from 'styled-components';
 import type {KitButtonProps} from './types';
-import {ButtonType} from 'antd/es/button';
+import {ButtonType} from 'antd/lib/button';
 import {CheckCircleFilled} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
 import {KitButtonThemeStyled} from '@theme/types/components/General/Button';

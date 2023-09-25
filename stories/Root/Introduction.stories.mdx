@@ -1,14 +1,9 @@
-import { Meta, Markdown, Unstyled } from "@storybook/addon-docs";
-
-import ReadMe from '../../README.md?raw';
+import { Meta, Source } from "@storybook/addon-docs";
 
 <Meta title="Introduction" />
 
 <style>
 {`
-  .git-intro {
-    display: none;
-  }
   .header-block, .storybook-intro {
     margin-bottom: 30px;
   }
@@ -16,28 +11,64 @@ import ReadMe from '../../README.md?raw';
 </style>
 
 <div align="center" className="header-block">
-    <img src="public/images/logo-aristid.png" alt="Logo" height="100px" />
-    <span align="center">
-        ARiSTiD design system documentation.
-        <a href="https://storybook.aristid.com/?path=/docs/introduction-wip--docs">View Demo</a>
-        ·
-        <a href="https://gitlab.aristid.com/dev/design-system/-/issues">Report Bug</a>
-        ·
-        <a href="https://gitlab.aristid.com/dev/design-system/-/issues">Request Feature</a>
-    </span>
+    ![Aristid logo](public/images/logo.png)
+
+    ARiSTiD design system documentation.
+
+    [View Demo](https://storybook.aristid.com/?path=/docs/introduction-wip--docs)
+    ·
+    [Report Bug](https://gitlab.aristid.com/dev/design-system/-/issuess)
+    ·
+    [Request Feature](https://gitlab.aristid.com/dev/design-system/-/issues)
 </div>
 
+# Welcome to Storybook ARiSTiD
 
-<div className="storybook-intro">
-  <h1>Welcome to Storybook ARiSTiD</h1>
+This Storybook contains all the documentation relating to ARiSTiD's **Design System**.
+The aim of this interface is to centralize all current and future components for **Omnipublish**, **Brand&Shop** and **xStream** applications.
+All components are designed and developed to fit the needs of these applications.
 
-  <span>
-    This Storybook contains all the documentation relating to ARiSTiD's **Design System**.
-    The aim of this interface is to centralize all current and future components for **Omnipublish**, **Brand&Shop** and **xStream** applications.
-    All components are designed and developed to fit the needs of these applications.
-  </span>
+For more information on StoryBook's features, please read the [**documentation**](https://storybook.js.org/docs/react/get-started/install/).
 
-  For more information on StoryBook's features, please read the [**documentation**](https://storybook.js.org/docs/react/get-started/install/).
-</div>
+## Usage
 
-<Markdown>{ReadMe}</Markdown>
+### Import Package
+
+<Source dark language="bash" code={`
+yarn add aristid-ds
+
+or npm install aristid-ds
+`} />
+
+
+### Encapsulate your app in KitApp Component
+
+The **KitApp** is an essential context for the proper functioning of the **design system** components.
+
+The kitApp is mainly used to supply the various components with **style** overloads. For the moment, the KitApp provide a default **Aristid Theme**. In the futur, it will be possible to customize every component with theme tokens.
+
+    > **If you don't use KitApp, you'll get <mark>missing styles</mark> and <mark>errors</mark> when using components.**
+
+<Source dark language="jsx" code={`
+import {KitApp} from "aristid-ds";
+
+<KitApp>
+    <App />
+</KitApp>
+`}/>
+
+### Use components
+
+All components are exported directly from 'aristid-ds' package.
+
+<Source dark language="jsx" code={`
+import {KitButton, Kitcheckbox} from "aristid-ds";
+
+const App = (props) => {
+  return (<KitButton>My Button</KitButton>);
+}
+`}/>
+
+### Internationalization / themes (?)
+
+`Work in progress`

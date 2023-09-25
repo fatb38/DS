@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {KitRadio} from '@kit/DataEntry/';
 
 const RadioArgTypes = {

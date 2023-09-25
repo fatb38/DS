@@ -1,6 +1,8 @@
 {
   "name": "aristid-ds",
-  "version": "0.6.1",
+  "description": "ARiSTiD design system",
+  "private": false,
+  "version": "0.6.9",
   "authors": [
     "e.voiron-levy@aristid.com",
     "p.chevieux@aristid.com",
@@ -43,15 +45,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
-    "@storybook/addon-docs": "^7.2.1",
-    "@storybook/addon-essentials": "^7.2.1",
-    "@storybook/addon-interactions": "^7.2.1",
-    "@storybook/addon-links": "^7.2.1",
-    "@storybook/blocks": "^7.2.1",
-    "@storybook/manager-api": "^7.2.1",
-    "@storybook/react": "^7.2.1",
-    "@storybook/react-vite": "^7.2.1",
-    "@storybook/testing-library": "^0.2.0",
+    "@storybook/addon-docs": "^7.4.3",
+    "@storybook/addon-essentials": "^7.4.3",
+    "@storybook/addon-interactions": "^7.4.3",
+    "@storybook/addon-links": "^7.4.3",
+    "@storybook/blocks": "^7.4.3",
+    "@storybook/manager-api": "^7.4.3",
+    "@storybook/react": "^7.4.3",
+    "@storybook/react-vite": "^7.4.3",
+    "@storybook/testing-library": "^0.2.1",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -65,7 +67,7 @@
     "rollup-plugin-uglify": "^6.0.4",
     "rollup-plugin-visualizer": "^5.9.2",
     "rollup-plugin-webpack-stats": "^0.2.0",
-    "storybook": "^7.2.1",
+    "storybook": "^7.4.3",
     "storybook-docs-toc": "^1.7.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
@@ -82,7 +84,11 @@
     "styled-components": "^6.0.7"
   },
   "files": [
-    "dist"
+    "dist",
+    "public/images/logo.png",
+    "public/images/gitflow-release.png",
+    "public/images/gitflow-hotfix.png",
+    "public/images/gitflow-feature.png"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
@@ -90,7 +96,8 @@
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
     }
   }
 }

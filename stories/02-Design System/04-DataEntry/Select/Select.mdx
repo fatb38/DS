@@ -1,0 +1,88 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitSelectStories from './Select.stories';
+
+<Meta of={KitSelectStories} />
+
+# Select
+
+Select component to select value from options.
+
+## Usage
+
+- A dropdown menu for displaying choices - an elegant alternative to the native `<select>` element.
+- Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
+
+## Examples
+
+##### Basic
+Basic Usage.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="select-basic" />
+
+##### Disabled
+Disabled state.
+
+<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="select-disabled" />
+
+##### With Downlad Icon
+Code sample to display with a downlad icon.
+
+<CustomCanvas content={Exemples.Download} source={Sources.Download} id="select-download-icon" />
+
+##### Option Group
+Using `OptGroup` to group the options.
+
+<CustomCanvas content={Exemples.Group} source={Sources.Group} id="select-group" />
+
+##### Mode
+- `multiple` : selecting from existing items.
+- `tags`: selecting from existing items and transform input to tag.
+
+<CustomCanvas content={Exemples.Multipleandtags} source={Sources.Multipleandtags} id="select-multiple-tags" />
+
+##### Status
+Add status to KitSelect with `status`, which could be `error` or `warning`.
+
+<CustomCanvas content={Exemples.Status} source={Sources.Status} id="select-status" />
+
+##### Label and Helper
+
+Add `label` and/or `helper` properties to give field context.
+
+<CustomCanvas content={Exemples.Wrapper} source={Sources.Wrapper} id="select-wrapper" />
+
+## API
+
+<Canvas of={KitSelectStories.Api} />
+
+<Controls of={KitSelectStories.Api} />
+
+### Select props
+
+> Note, if you find that the drop-down menu scrolls with the page, or you need to trigger Select in other popup layers, please try to use `getPopupContainer={triggerNode => triggerNode.parentElement}` to fix the drop-down popup rendering node in the parent element of the trigger .
+
+### Select Methods
+
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
+
+### Option props
+
+| Property  | Description                          | Type             | Default | Version |
+| --------- | ------------------------------------ | ---------------- | ------- | ------- |
+| className | The additional class to option       | string           | -       |         |
+| disabled  | Disable this option                  | boolean          | false   |         |
+| title     | `title` attribute of Select Option   | string           | -       |         |
+| value     | Default to filter with this property | string \| number | -       |         |
+
+### OptGroup props
+
+| Property | Description | Type                    | Default | Version |
+| -------- | ----------- | ----------------------- | ------- | ------- |
+| key      | Group key   | string                  | -       |         |
+| label    | Group label | string \| React.Element | -       |         |

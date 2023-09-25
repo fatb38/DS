@@ -21,7 +21,7 @@ export const argTypes = {
         defaultValue: 'Paragraph'
     },
     content: {
-        name: 'component',
+        name: 'content',
         description: 'component content',
         control: {
             type: 'text'
@@ -168,6 +168,7 @@ const getComponent = (component, content, args) => {
     }
 };
 
-export const Template = ({component, content, ...args}) => {
-    return <KitSpace direction="vertical">{getComponent(component, content, args)}</KitSpace>;
+export const Template = (args) => {
+    const {component, content, ...props} = args;
+    return <KitSpace direction="vertical">{getComponent(component, content, props)}</KitSpace>;
 };

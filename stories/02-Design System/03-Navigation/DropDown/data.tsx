@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {KitButton} from '@kit/General/';
 import {KitDropDown} from '@kit/Navigation/';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitTabs} from '@kit/DataDisplay/';
 
-export const TabsArgTypes = {
+export const argTypes = {
     activeKey: {
         name: 'activeKey',
         description: "Current TabPane's key",
@@ -279,7 +279,7 @@ export const TabsArgTypes = {
     }
 };
 
-export const Template = args => {
+export const Template = (args) => {
     const items = [
         {
             key: '1',

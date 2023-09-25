@@ -32,11 +32,10 @@ export const fakeContent = {
     ]
 };
 
-export const CardArgTypes = {
+export const argTypes = {
     vertical: {
         name: 'vertical',
         description: 'Change Card layout to vertical',
-        type: {name: 'boolean', required: false},
         control: {
             type: 'boolean'
         },
@@ -50,7 +49,6 @@ export const CardArgTypes = {
     disabled: {
         name: 'disabled',
         description: 'Is Card disabled',
-        type: {name: 'boolean', required: false},
         control: {
             type: 'boolean'
         },
@@ -78,7 +76,6 @@ export const CardArgTypes = {
     colors: {
         name: 'colors',
         description: 'set list of colors to display. cardColor[]',
-        type: {name: 'cardColor[]', required: false},
         control: {
             type: 'boolean'
         },
@@ -131,7 +128,6 @@ export const CardArgTypes = {
     tags: {
         name: 'tags',
         description: 'set list of tags to display. string[]',
-        type: {name: 'string[]', required: false},
         control: {
             type: 'boolean'
         },
@@ -145,7 +141,6 @@ export const CardArgTypes = {
     actions: {
         name: 'actions',
         description: 'set list of actions to add. array of `Button`',
-        type: {name: 'Button[]', required: false},
         control: {
             type: 'boolean'
         },
@@ -202,13 +197,14 @@ const getPicture = picture => {
     }
 };
 
-export const Template = ({colors, picture, tags, actions, ...args}: KitCardProps) => {
+export const Template = (args: KitCardProps) => {
+    const {colors, picture, tags, actions, ...rest} = args;
     const props: KitCardProps = {
-        ...args,
+        ...rest,
         picture: getPicture(picture),
-        title: args.title || fakeContent.base.title,
-        description: args.description || fakeContent.base.description,
-        extrainfo: args.extrainfo || fakeContent.base.extrainfo
+        title: rest.title || fakeContent.base.title,
+        description: rest.description || fakeContent.base.description,
+        extrainfo: rest.extrainfo || fakeContent.base.extrainfo
     };
     if (colors) {
         props.colors = fakeContent.colors;

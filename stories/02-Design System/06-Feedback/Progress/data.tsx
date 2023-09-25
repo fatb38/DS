@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitProgress} from '@kit/Feedback/';
 
-export const ProgressArgTypes = {
+export const argTypes = {
     type: {
         name: 'type',
         description: 'To set the type, options: `line` `circle` `dashboard`',
@@ -296,6 +296,6 @@ export const ProgressArgTypes = {
     }
 };
 
-export const Template = ({...args}) => {
+export const Template = (args) => {
     return <KitProgress {...args} />;
 };
