@@ -37,7 +37,7 @@ const StyledSwitch = styled(AntdSwitch)<{
         inset-inline-start: 1px;
 
         .ant-switch-loading-icon {
-            top: ${(16 - 12) / 2 + 1}px;
+            top: 3px;
         }
     }
 
