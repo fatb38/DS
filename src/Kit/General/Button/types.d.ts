@@ -3,7 +3,7 @@ import {ButtonProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import {CSSProperties} from 'react';
 
-export type KitButtonType = 'primary' | 'default' | 'link' | 'segmented';
+export type KitButtonType = 'primary' | 'default' | 'text' | 'link' | 'segmented';
 
 export type AntdButtonTypesToOmit = 'type' | 'size' | 'ghost' | 'shape' | 'styles';
 

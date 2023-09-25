@@ -18,8 +18,11 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     box-shadow: none;
     color: ${({$theme}) => $theme.colors.typography.default};
     background-color: ${({$theme}) => $theme.colors.background.default};
-    border-color: ${({$theme}) => $theme.colors.border.default};
     font-weight: ${({$theme}) => $theme.typography.fontWeight};
+
+    &:not(.ant-btn-text) {
+        border-color: ${({$theme}) => $theme.colors.border.default};
+    }
 
     &.ant-btn .ant-btn-icon .anticon {
         font-size: ${({$theme, $iconSize}) =>
@@ -114,13 +117,19 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     &.ant-btn-loading:not(:disabled) {
         color: ${({$theme}) => $theme.colors.typography.disabled};
         background-color: ${({$theme}) => $theme.colors.background.disabled};
-        border-color: ${({$theme}) => $theme.colors.border.disabled};
         opacity: initial;
+
+        &:not(.ant-btn-text) {
+            border-color: ${({$theme}) => $theme.colors.border.disabled};
+        }
 
         &:hover {
             color: ${({$theme}) => $theme.colors.typography.disabled};
             background-color: ${({$theme}) => $theme.colors.background.disabled};
-            border-color: ${({$theme}) => $theme.colors.border.disabled};
+
+            &:not(.ant-btn-text) {
+                border-color: ${({$theme}) => $theme.colors.border.disabled};
+            }
         }
     }
 
@@ -179,22 +188,28 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
         color: ${({$theme}) => $theme.colors.typography.danger.default};
         background-color: ${({$theme}) => $theme.colors.background.danger.default};
 
-        &:not(.ant-btn-link) {
+        &:not(.ant-btn-text):not(.ant-btn-link) {
             border-color: ${({$theme}) => $theme.colors.border.danger.default};
         }
 
         &:disabled {
             color: ${({$theme}) => $theme.colors.typography.danger.disabled};
             background-color: ${({$theme}) => $theme.colors.background.danger.disabled};
-            border-color: ${({$theme}) => $theme.colors.border.danger.disabled};
             opacity: initial;
+
+            &:not(.ant-btn-text) {
+                border-color: ${({$theme}) => $theme.colors.border.danger.disabled};
+            }
         }
 
         &:not(.ant-btn-loading):not(:disabled) {
             &:hover {
                 color: ${({$theme}) => $theme.colors.typography.danger.default};
                 background-color: ${({$theme}) => $theme.colors.background.danger.hover};
-                border-color: ${({$theme}) => $theme.colors.border.danger.hover};
+
+                &:not(.ant-btn-text) {
+                    border-color: ${({$theme}) => $theme.colors.border.danger.hover};
+                }
 
                 &.ant-btn-link {
                     border-width: 0 0 1px 0;
@@ -249,6 +264,8 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
                 return theme.primary;
             case 'link':
                 return theme.link;
+            case 'text':
+                return theme.text;
             case 'segmented':
                 return !segmentedColor ? theme.segmented.default : theme.segmented[segmentedColor];
             case 'default':
@@ -268,6 +285,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
                 return 'default';
             case 'primary':
             case 'link':
+            case 'text':
             case 'default':
                 return type;
         }
