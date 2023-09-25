@@ -9,7 +9,7 @@ export type AntdButtonTypesToOmit = 'type' | 'size' | 'ghost' | 'shape' | 'style
 
 export type KitButtonIconSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
-export interface KitButtonProps extends Omit<ButtonProps, AntdButtonTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
+export interface IKitButtonProps extends Omit<ButtonProps, AntdButtonTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     type?: KitButtonType;
     segmentedActived?: boolean;
     segmentedChecked?: boolean;

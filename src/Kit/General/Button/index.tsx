@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button as AntdButton} from 'antd';
 import {styled} from 'styled-components';
-import type {KitButtonProps} from './types';
+import type {IKitButtonProps} from './types';
 import {ButtonType} from 'antd/lib/button';
 import {CheckCircleFilled} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
@@ -9,7 +9,7 @@ import {KitButtonThemeStyled} from '@theme/types/components/General/Button';
 
 interface StyledAntdButtonProps {
     $theme: KitButtonThemeStyled;
-    $iconSize: KitButtonProps['iconSize'];
+    $iconSize: IKitButtonProps['iconSize'];
 }
 
 const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
@@ -240,7 +240,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     }
 `;
 
-const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, KitButtonProps> = (
+const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IKitButtonProps> = (
     {
         iconSize,
         primaryModal,
@@ -325,9 +325,9 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
     );
 };
 
-type CompoundedComponent = React.ForwardRefExoticComponent<KitButtonProps & React.RefAttributes<HTMLElement>>;
+type CompoundedComponent = React.ForwardRefExoticComponent<IKitButtonProps & React.RefAttributes<HTMLElement>>;
 
-export const KitButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, KitButtonProps>(
+export const KitButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, IKitButtonProps>(
     Button
 ) as CompoundedComponent;
 
