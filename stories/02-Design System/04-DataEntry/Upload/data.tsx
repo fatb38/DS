@@ -376,6 +376,7 @@ export const argTypes = {
     ...UploadArgTypes
 };
 
-export const Template = ({listType, ...args}) => {
-    return <KitUpload listType={listType} {...args}></KitUpload>;
+export const Template = (args) => {
+    const {listType, ...props} = args;
+    return <KitUpload listType={listType} {...props}></KitUpload>;
 };

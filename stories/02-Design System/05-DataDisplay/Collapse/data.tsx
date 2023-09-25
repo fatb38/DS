@@ -4,7 +4,7 @@ import React from 'react';
 const collapsible = ['header', 'icon', 'disabled'];
 const size = ['large', 'middle', 'small'];
 
-export const CollapseArgTypes = {
+export const argTypes = {
     accordion: {
         name: 'accordion',
         description: 'If true, Collapse renders as Accordion',
@@ -192,7 +192,7 @@ export const CollapseArgTypes = {
     }
 };
 
-export const Template = ({...args}) => {
+export const Template = (args) => {
     return (
         <KitCollapse
             {...args}

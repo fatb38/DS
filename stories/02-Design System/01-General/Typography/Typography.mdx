@@ -1,0 +1,75 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitTypographyStories from './Typography.stories';
+
+<Meta of={KitTypographyStories} />
+
+# Typography
+
+Basic text writing, including headings, body text, lists, and more.
+
+## Usage
+
+-   When need to display a title or paragraph contents in Articles/Blogs/Notes.
+-   When you need copyable/editable/ellipsis texts.
+
+## Examples
+
+##### Title Component
+
+Display title in different level.
+
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="typography-basic" />
+
+##### Text and Link component
+
+Provides multiple types of text and link.
+
+<CustomCanvas content={Exemples.TextLink} source={Sources.TextLink} id="typography-link" />
+
+##### Ellipsis
+
+Multiple line ellipsis support. You can use tooltip to config ellipsis tooltip. Recommend `expandable` when have lots of content.
+
+<CustomCanvas content={Exemples.Ellispis} source={Sources.Ellispis} id="typography-ellipsis" />
+
+You can ellipsis content from middle by customize `ellipsis={{ suffix: ... }}`.
+
+<CustomCanvas content={Exemples.SuffixEllipsis} source={Sources.SuffixEllipsis} id="typography-suffix-ellipsis" />
+
+##### Suffix support
+
+<CustomCanvas content={Exemples.Suffix} source={Sources.Suffix} id="typography-suffix" />
+
+## API
+
+<Canvas of={KitTypographyStories.Api} />
+
+<Controls of={KitTypographyStories.Api} />
+
+### Ellipsis
+
+```typescript
+{
+    rows: number,
+    expandable: boolean,
+    suffix: string,
+    symbol: ReactNode,
+    tooltip: boolean | ReactNode | TooltipProps,
+    onExpand: function(event),
+    onEllipsis: function(ellipsis),
+}
+```
+
+| Property   | Description                               | Type                                                             | Default  |
+| ---------- | ----------------------------------------- | ---------------------------------------------------------------- | -------- |
+| expandable | Whether to be expandable                  | boolean                                                          | -        |
+| rows       | Max rows of content                       | number                                                           | -        |
+| suffix     | Suffix of ellipsis content                | string                                                           | -        |
+| symbol     | Custom description of ellipsis            | ReactNode                                                        | `Expand` |
+| tooltip    | Show tooltip when ellipsis                | boolean \| ReactNode \| [TooltipProps](/components/tooltip/#api) | -        |
+| onEllipsis | Called when enter or leave ellipsis state | function(ellipsis)                                               | -        |
+| onExpand   | Called when expand content                | function(event)                                                  | -        |

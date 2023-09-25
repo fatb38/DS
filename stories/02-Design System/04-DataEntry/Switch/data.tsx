@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {KitSwitch} from '@kit/DataEntry/';
 import {CheckOutlined, CloseOutlined} from '@ant-design/icons';
 
@@ -176,6 +175,7 @@ export const getIcon = value => {
     }
 };
 
-export const Template = ({checkedChildren, unCheckedChildren, ...args}) => {
-    return <KitSwitch {...args}>Switch label</KitSwitch>;
+export const Template = args => {
+    const {checkedChildren, unCheckedChildren, ...props} = args;
+    return <KitSwitch {...props}>Switch label</KitSwitch>;
 };

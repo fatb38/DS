@@ -5,7 +5,7 @@ import React from 'react';
 import {KitSliderRangeProps, KitSliderSingleProps} from './types';
 import {KitSliderTheme} from '@theme/types/components/DataEntry/Slider';
 import {useKitTheme} from '@theme/theme-context';
-import {SliderMarks} from 'antd/es/slider';
+import {SliderMarks} from 'antd/lib/slider';
 
 const KitSliderContainer = styled.div`
     position: relative;

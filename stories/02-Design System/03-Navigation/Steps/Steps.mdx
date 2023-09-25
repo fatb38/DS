@@ -1,0 +1,53 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import Exemples, { Sources } from './exemples';
+import * as KitStepsStories from './Steps.stories';
+
+<Meta of={KitStepsStories} />
+
+# Steps
+
+`Steps` is a navigation bar that guides users through the steps of a task.
+
+## Usage
+
+When a given task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
+
+## Examples
+
+##### Basic
+
+The most basic step bar.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="steps-basic" />
+
+##### Switch Step
+
+Cooperate with the content and buttons, to represent the progress of a process.
+
+<CustomCanvas content={Exemples.SwitchStep} source={Sources.SwitchStep} id="steps-switch" />
+
+##### Vertical
+
+A simple step bar in the vertical direction.
+
+<CustomCanvas content={Exemples.Vertical} source={Sources.Vertical} id="steps-vertical" />
+
+##### Status
+
+By using `status` of `Steps`, you can specify the state for current step.
+
+<CustomCanvas content={Exemples.Status} source={Sources.Status} id="steps-status" />
+
+##### Clickable
+
+Setting `onChange` makes Steps clickable.
+
+<CustomCanvas content={Exemples.Clickable} source={Sources.Clickable} id="steps-clickable" />
+
+## Api
+
+<Canvas of={KitStepsStories.Api} />
+
+<Controls of={KitStepsStories.Api} />

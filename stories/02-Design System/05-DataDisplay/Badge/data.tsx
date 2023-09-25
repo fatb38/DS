@@ -6,7 +6,7 @@ const status = ['error', 'default', 'success', 'processing', 'warning'];
 
 const countColor = ['default', 'green', 'blue', 'blueInvert', 'gray'];
 
-export const BadgeArgTypes = {
+export const argTypes = {
     count: {
         name: 'count',
         description: 'Number to show in badge',
@@ -103,13 +103,14 @@ export const BadgeArgTypes = {
     }
 };
 
-export const Template = ({component, ...args}) => {
+export const Template = (args) => {
+    const {component, ...props} = args;
     return (
         <KitSpace>
-            <KitBadge {...args} />
+            <KitBadge {...props} />
             <br />
             <br />
-            <KitBadge {...args}>
+            <KitBadge {...props}>
                 <KitAvatar shape="square" size="large" />
             </KitBadge>
         </KitSpace>

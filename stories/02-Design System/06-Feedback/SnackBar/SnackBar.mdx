@@ -1,0 +1,74 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { Source } from '@storybook/blocks';
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitSnackBarStories from './SnackBar.stories';
+
+<Meta of={KitSnackBarStories} />
+
+# SnackBar
+
+A snackbar is used to provide non-disruptive feedback about the outcome of an event.
+
+## Usage
+
+- Use snackbar to provide feedback about an operation and if necessary an optional action like "undo".
+
+- Use toast for system messaging and if you don't need to add optional action.
+
+- Only one snackbar may be displayed at a time. If multiple snackbars need to appear, the new one replaced the previous one. The snackbar can disappear automatically after a set of time or can be dismissed by the user.
+
+##### How to import
+
+Add the `KitSnackBarProvider` to your app and make sure it's placed at the top.
+
+There must be only one `KitSnackBarProvider` in your app.
+
+<Source dark code={`
+import { KitSnackBarProvider, openKitSnackBar, closeKitSnackBar } from "@kit/Feedback/";
+
+<div>
+    <KitSnackBarProvider/>
+</div>
+`} />
+
+Start using `openKitSnackBar` . You can call it from anywhere.
+
+<Source dark code={`
+openKitSnackBar("Hello World")
+`} />
+
+To manualy close the SnackBar you can use `closeKitSnackBar()`.
+
+<Source dark code={`
+closeKitSnackBar()
+`} />
+
+This components is based on [react-hot-toast](https://react-hot-toast.com/).
+
+## Examples
+
+##### Basic
+
+The simplest usage for short messages.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="snackbar-basic" />
+
+##### Closable
+
+To show close button.
+
+<CustomCanvas content={Exemples.Closable} source={Sources.Closable} id="snackbar-closable" />
+
+##### With a CTA
+
+To show call to action button.
+
+<CustomCanvas content={Exemples.CallToAction} source={Sources.CallToAction} id="snackbar-cta" />
+
+## Api
+
+<Canvas of={KitSnackBarStories.Api} />
+
+<Controls of={KitSnackBarStories.Api} />

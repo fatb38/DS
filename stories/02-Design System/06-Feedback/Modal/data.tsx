@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {KitModal} from '@kit/Feedback/';
 import {KitButton} from '@kit/General/';
 
-export const ModalArgTypes = {
+export const argTypes = {
     isOpen: {
         name: 'isOpen',
         description: 'Boolean describing if the modal should be shown or not.',
@@ -37,6 +37,20 @@ export const ModalArgTypes = {
             },
             defaultValue: {
                 summary: '520px'
+            },
+            category: 'Modal'
+        }
+    },
+    height: {
+        name: 'height',
+        description: 'Height of the modal',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            defaultValue: {
+                summary: 'initial'
             },
             category: 'Modal'
         }
@@ -347,7 +361,7 @@ export const ModalArgTypes = {
     }
 };
 
-export const Template = args => {
+export const Template = (args) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);

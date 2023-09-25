@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {KitSelect} from '@kit/DataEntry/';
 
 const SelectArgTypes = {

@@ -2,7 +2,7 @@ import React from 'react';
 import {KitImage} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 
-export const ImageArgTypes = {
+export const argTypes = {
     rounded: {
         name: 'rounded',
         control: {
@@ -166,7 +166,7 @@ export const ImageArgTypes = {
     }
 };
 
-export const Template = args => {
+export const Template = (args) => {
     return (
         <KitSpace>
             <KitImage {...args} />

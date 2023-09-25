@@ -184,7 +184,7 @@ export const mockData = {
     }
 };
 
-export const TreeArgTypes = {
+export const argTypes = {
     allowDrop: {
         name: 'allowDrop',
         description: 'Whether to allow dropping on the node',
@@ -644,6 +644,6 @@ export const TreeArgTypes = {
     }
 };
 
-export const Template = ({...args}) => {
+export const Template = (args) => {
     return <KitTree {...args} treeData={mockData.data.line} />;
 };

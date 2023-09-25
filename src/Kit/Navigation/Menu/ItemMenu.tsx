@@ -7,7 +7,7 @@ import {KitTypography, KitIcon} from '@kit/General/';
 import {RightOutlined, MoreOutlined} from '@ant-design/icons';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitDropDown} from '../DropDown';
-import {MenuItemType} from 'antd/es/menu/hooks/useItems';
+import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
 
 const StyledIemMenu = styled.div<{
     $isClickable: boolean;

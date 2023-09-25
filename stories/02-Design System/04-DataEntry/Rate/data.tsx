@@ -1,10 +1,9 @@
 import {KitRate} from '@kit/DataEntry';
-import {FrownOutlined, MehOutlined, SmileOutlined} from '@ant-design/icons';
 import React from 'react';
 
 const color = ['default', 'green', 'red', 'blue'];
 
-export const RateArgTypes = {
+export const argTypes = {
     allowClear: {
         name: 'allowClear',
         description: 'Whether to allow clear when click again',

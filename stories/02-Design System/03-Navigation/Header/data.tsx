@@ -157,14 +157,15 @@ export const argTypes = {
 
 const handleOnPlusClick = () => console.log('click "plus" button');
 
-export const Template = ({actions: showActions, breadcrumb: showBreadcrumb, onPlusClick, search, ...args}) => {
+export const Template = (args) => {
+    const {actions: showActions, breadcrumb: showBreadcrumb, onPlusClick, search, ...props} = args;
     return (
         <KitHeader
             actions={showActions ? actions : undefined}
             breadcrumb={showBreadcrumb ? breadcrumb : undefined}
             search={search ? searchProps : undefined}
             onPlusClick={onPlusClick ? handleOnPlusClick : undefined}
-            {...args}
+            {...props}
         />
     );
 };

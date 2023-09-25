@@ -2,7 +2,7 @@ import React from 'react';
 import {Space as AntdSpace} from 'antd';
 import type {KitSpaceProps} from './types';
 import {theme} from './theme';
-import {SpaceCompactProps} from 'antd/es/space/Compact';
+import {SpaceCompactProps} from 'antd/lib/space/Compact';
 
 const spaceSize: {
     small: number;

@@ -1,0 +1,70 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitItemListStories from './ItemList.stories';
+
+<Meta of={KitItemListStories} />
+
+# ItemList
+
+Simple rectangular container with text, icons, and images and components such as Checkbox and Rafter, among others.
+
+## Usage
+
+Use the ItemList to display a repeated piece of information in, for instance, a List component, to allow users to take possible actions.
+
+## Examples
+
+##### Basic
+
+A basic ItemList can contain a `title` and/or a `description`.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="itemlist-basic" />
+
+##### Selectable
+
+To mark an ItemList as selectable, use the `onSelectChange` property.
+
+<CustomCanvas content={Exemples.Selectable} source={Sources.Selectable} id="itemlist-selectable" />
+
+##### Picture
+
+ItemList can contain a picture using the `picture` property.
+
+<CustomCanvas content={Exemples.Picture} source={Sources.Picture} id="itemlist-picture" />
+
+##### Tag
+
+ItemList can display a tag using the `tagNumber` property.
+
+<CustomCanvas content={Exemples.Tag} source={Sources.Tag} id="itemlist-tag" />
+
+##### Rafter
+
+ItemList can display a rafter using the `onRafterClick` property.
+
+<CustomCanvas content={Exemples.Rafter} source={Sources.Rafter} id="itemlist-rafter" />
+
+##### With everything
+
+ItemList with all options to display.
+
+<CustomCanvas content={Exemples.All} source={Sources.All} id="itemlist-all" />
+
+##### Sizing
+
+ItemList has no defined width. It will take the width of its parent container
+
+<CustomCanvas content={Exemples.Sizing} source={Sources.Sizing} id="itemlist-sizing" />
+##### Disabled
+
+To mark an ItemList as disabled, add the `disabled` property.
+
+<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="itemlist-disabled" />
+
+## API
+
+<Canvas of={KitItemListStories.Api} />
+
+<Controls of={KitItemListStories.Api} />

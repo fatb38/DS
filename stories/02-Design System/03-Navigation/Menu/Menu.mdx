@@ -1,0 +1,120 @@
+import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import Exemples, { Sources } from './exemples';
+import * as KitMenuStories from './Menu.stories';
+
+<Meta of={KitMenuStories} />
+
+# Menu
+
+A versatile menu for navigation.
+
+## Usage
+
+Navigation is an important part of any website, as a good navigation setup allows users to move around the site quickly and efficiently.
+
+## Examples
+
+### ItemMenu
+
+##### Basic
+
+A basic ItemMenu can contain a `title` and/or an `icon`.
+
+<CustomCanvas content={Exemples.ItemMenuBasic} source={Sources.ItemMenuBasic} />
+
+##### Type
+
+ItemMenu provide 3 types of itemMenu such as :
+- `default` : indicate a series of itemMenu's.
+- `cta` : indicate an itemMenu with a call to action.
+- `ctaDanger`: indicate an itemMenu with a destructive call to action.
+
+<CustomCanvas content={Exemples.ItemMenuType} source={Sources.ItemMenuType} />
+
+##### Selectable
+
+To mark an ItemMenu as selectable, use the `onSelectChange` property. ItemMenu can also be mark as selected using `isSelected` property.
+
+<CustomCanvas content={Exemples.ItemMenuSelectable} source={Sources.ItemMenuSelectable} />
+
+##### Actions
+
+ItemMenu can display up to two actions. If there is more it will display a `DropDown`.
+
+<CustomCanvas content={Exemples.ItemMenuActions} source={Sources.ItemMenuActions} />
+
+Exemple of how `actions` property must be set :
+
+```tsx
+import { HomeOutlined, PlusOutlined, MinusOutlined, PercentageOutlined } from "@ant-design/icons";
+
+const actions = [
+    {
+        icon: PlusOutlined,
+        label: "Add",
+        onClick: () => console.log("on click add"),
+    },
+    {
+        icon: MinusOutlined,
+        label: "Subtract",
+        onClick: () => console.log("on click subtract"),
+    },
+    {
+        icon: PercentageOutlined,
+        label: "Percent",
+        onClick: () => console.log("on click percent"),
+    },
+];
+
+<KitMenu.Item title={"Item menu"} icon={HomeOutlined} actions={actions} />
+```
+
+##### Value
+
+ItemMenu can display a value using the `value` property.
+
+<CustomCanvas content={Exemples.ItemMenuValue} source={Sources.ItemMenuValue} />
+
+##### Rafter
+
+ItemList can display a rafter using the `onRafterClick` property.
+
+<CustomCanvas content={Exemples.ItemMenuRafter} source={Sources.ItemMenuRafter} />
+
+##### With everything
+
+ItemMenu with all options to display.
+
+<CustomCanvas content={Exemples.ItemMenuAll} source={Sources.ItemMenuAll} />
+
+### Menu
+
+##### Basic
+
+A basic Menu is just a container.
+
+<CustomCanvas content={Exemples.MenuBasic} source={Sources.MenuBasic} id="menu-basic" />
+
+##### Header
+
+Menu can display a header with a `title` and/or a close button.
+
+<CustomCanvas content={Exemples.MenuHeader} source={Sources.MenuHeader} id="menu-header" />
+
+The header can accept a `Button` and two `Input`s.
+
+<CustomCanvas content={Exemples.MenuHeaderButton} source={Sources.MenuHeaderButton} id="menu-header-button" />
+
+##### Exemple
+
+Menu with ItemMenu's as children
+
+<CustomCanvas content={Exemples.MenuExemple} source={Sources.MenuExemple} id="menu-exemple" />
+
+## Api
+
+<Canvas of={KitMenuStories.Api} />
+
+<Controls of={KitMenuStories.Api} />

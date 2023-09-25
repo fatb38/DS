@@ -788,14 +788,14 @@ const RangePickerArgs = {
     }
 };
 
-export const DatePickerArgTypes = {
+export const argTypes = {
     ...CommonArgs,
     ...DatePickerArgs,
     ...TimePickerArgs,
     ...RangePickerArgs
 };
 
-export const Template = ({...args}) => {
+export const Template = (args) => {
     return (
         <KitSpace direction="vertical">
             <KitDatePicker {...args} />

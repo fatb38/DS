@@ -4,6 +4,7 @@ import type {Preview} from '@storybook/react';
 import {KitApp} from '../src/Kit/App';
 import {DocsContainer} from '@storybook/blocks';
 import {BackToTop, TableOfContents} from 'storybook-docs-toc';
+import AccessibilityProvider from './components/Accessibility/AccessibilityProvider';
 
 const tocConfig = {
     tocSelector: '.js-toc',
@@ -15,7 +16,9 @@ const tocConfig = {
 const Container = ({children, ...props}) => {
     return (
         <DocsContainer {...props} context={props.context}>
-            {children}
+            <AccessibilityProvider active>
+                {children}
+            </AccessibilityProvider>
         </DocsContainer>
     );
 };

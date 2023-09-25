@@ -303,11 +303,12 @@ export const argTypes = {
     ...TooltipArgsType
 };
 
-export const Template = ({open, placement, range, ...args}) => {
+export const Template = (args) => {
+    const {open, placement, range, ...props} = args;
     return (
         <KitSpace direction="vertical" style={{width: '300px'}}>
-            <KitSlider tooltip={{open, placement}} {...args} />
-            <KitSlider range defaultValue={[0, 30]} tooltip={{open, placement}} {...args} />
+            <KitSlider tooltip={{open, placement}} {...props} />
+            <KitSlider range defaultValue={[0, 30]} tooltip={{open, placement}} {...props} />
         </KitSpace>
     );
 };

@@ -1,0 +1,65 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitBadgeStories from './Badge.stories';
+
+<Meta of={KitBadgeStories} />
+
+# Badge
+
+Small numerical value or status descriptor for UI elements.
+
+## Usage
+
+Badge normally appears in proximity to notifications or user avatars with eye-catching appeal, typically displaying unread messages count.
+
+## Examples
+
+##### Basic
+
+Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZero` to show it.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="badge-basic" />
+
+##### Standalone
+
+Used in standalone when children is empty.
+
+<CustomCanvas content={Exemples.Standalone} source={Sources.Standalone} id="badge-standalone" />
+
+##### Overflow Count
+
+`${overflowCount}+` is displayed when count is larger than `overflowCount`. The default value of `overflowCount` is `99`.
+
+<CustomCanvas content={Exemples.OverflowCount} source={Sources.OverflowCount} id="badge-overflow-count" />
+
+##### Red badge
+
+This will simply display a red badge, without a specific count. If count equals 0, it won't display the dot.
+
+<CustomCanvas content={Exemples.RedBadge} source={Sources.RedBadge} id="badge-red-badge" />
+
+##### Dynamic
+
+The count will be animated as it changes.
+
+<CustomCanvas content={Exemples.Dynamic} source={Sources.Dynamic} id="badge-dynamic" />
+
+##### Count Color
+
+We preset a series of colorful Badge styles for use in different situations.
+
+<CustomCanvas content={Exemples.CountColor} source={Sources.CountColor} id="badge-count-color" />
+
+##### Status
+
+Standalone badge with status.
+
+<CustomCanvas content={Exemples.Status} source={Sources.Status} id="badge-status" />
+
+## Api
+
+<Canvas of={KitBadgeStories.Api} />
+
+<Controls of={KitBadgeStories.Api} />

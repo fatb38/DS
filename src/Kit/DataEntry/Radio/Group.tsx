@@ -1,14 +1,14 @@
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React from 'react';
-import {ConfigContext} from 'antd/es/config-provider/';
-import SizeContext from 'antd/es/config-provider/SizeContext';
+import {ConfigContext} from 'antd/lib/config-provider/';
+import SizeContext from 'antd/lib/config-provider/SizeContext';
 import pickAttrs from 'rc-util/lib/pickAttrs';
-import {RadioGroupContextProvider} from 'antd/es/radio/context';
-import type {RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps} from 'antd/es/radio/interface';
+import {RadioGroupContextProvider} from 'antd/lib/radio/context';
+import type {RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps} from 'antd/lib/radio/interface';
 import Radio from './Radio';
 
-import useStyle from 'antd/es/radio/style';
+import useStyle from 'antd/lib/radio/style';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
     const {getPrefixCls, direction} = React.useContext(ConfigContext);

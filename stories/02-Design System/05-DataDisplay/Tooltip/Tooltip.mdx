@@ -1,0 +1,43 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitTootlipStories from './Tooltip.stories';
+
+<Meta of={KitTootlipStories} />
+
+# Tooltip
+
+A simple text popup tip.
+
+## Usage
+
+- The tip is shown on mouse enter, and is hidden on mouse leave. The Tooltip doesn't support complex text or operations.
+
+- To provide an explanation of a `button/text/operation`. It's often used instead of the html title attribute.
+
+## Examples
+
+##### Basic
+
+The simplest usage.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="tooltip-basic" />
+
+##### Placement
+
+There are 12 placement options available.
+
+<CustomCanvas content={Exemples.Placement} source={Sources.Placement} id="tooltip-placement" />
+
+##### Arrow
+
+Support show, hide or keep arrow in the center.
+
+<CustomCanvas content={Exemples.Arrow} source={Sources.Arrow} id="tooltip-arrow" />
+
+## Api
+
+<Canvas of={KitTootlipStories.Api} />
+
+<Controls of={KitTootlipStories.Api} />

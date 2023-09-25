@@ -1,0 +1,117 @@
+import { useState } from "react";
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitSpaceStories from './Space.stories';
+
+<Meta of={KitSpaceStories} />
+
+<style>
+    {`
+        .space-align-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        }
+        .space-align-block {
+        flex: none;
+        margin: 8px 4px;
+        padding: 4px;
+        border: 1px solid #40a9ff;
+        }
+        .space-align-block .mock-block {
+        display: inline-block;
+        padding: 32px 8px 16px;
+        background: rgba(150, 150, 150, 0.2);
+        }
+    `}
+</style>
+
+# Space
+
+Set components spacing.
+
+## When To Use
+
+- Avoid components clinging together and set a unified space.
+- Use Space.Compact when child form components are compactly connected and the border is collapsed (After version `antd@4.24.0` Supported).
+
+## Examples
+
+
+##### Basic
+Crowded components horizontal spacing.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="space-basic"/>
+
+##### Vertical Space
+Crowded components vertical spacing.
+
+<CustomCanvas content={Exemples.Vertical} source={Sources.Vertical} id="space-vertical"/>
+
+
+
+##### Space Size
+`large`, `middle` and `small` preset sizes.
+Set the size to `large` and `middle` by setting size to `large` and `middle` respectively. If size is not set, the spacing is `small`.
+
+<CustomCanvas content={Exemples.Size} source={Sources.Size} id="space-size"/>
+
+##### Align
+Config item align.
+
+<CustomCanvas content={Exemples.Align} source={Sources.Align} id="space-align"/>
+
+##### Customize size
+Custom spacing size.
+
+<CustomCanvas content={Exemples.CustomSize} source={Sources.CustomSize} id="space-custom-size"/>
+
+##### Wrap
+Auto wrap line.
+
+<CustomCanvas content={Exemples.Wrap} source={Sources.Wrap} id="space-wrap"/>
+
+##### Split
+Crowded components split.
+
+<CustomCanvas content={Exemples.Split} source={Sources.Split} id="space-split"/>
+
+##### Button Compact Mode
+Button component compact example.
+
+<CustomCanvas content={Exemples.CompactButton} source={Sources.CompactButton} id="space-compact"/>
+
+##### Vertical Compact Mode
+Vertical Mode for Space.Compact, support Button only.
+
+<CustomCanvas content={Exemples.VerticalCompact} source={Sources.Horizontal} id="space-vertical-compact"/>
+
+## API
+
+<Canvas  of={KitSpaceStories.Api} />
+
+<Controls  of={KitSpaceStories.Api} />
+### Size
+
+`'small' | 'middle' | 'large' | number`
+
+### Space.Compact
+
+Use Space.Compact when child form components are compactly connected and the border is collapsed. The supported components are：
+
+- Button
+- AutoComplete
+- Cascader
+- DatePicker
+- Input/Input.Search
+- Select
+- TimePicker
+- TreeSelect
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| block | Option to fit width to its parent\'s width | boolean | false |
+| direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` |
+| size | Set child component size | `large` \| `middle` \| `small` | `middle` |

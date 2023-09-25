@@ -1,0 +1,53 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitTreeStories from './Tree.stories';
+
+<Meta of={KitTreeStories} />
+
+# Tree
+
+A hierarchical list structure component.
+
+## Usage
+
+Almost anything can be represented in a tree structure. Examples include directories, organization hierarchies, biological classifications, countries, etc. The `KitTree` component is a way of representing the hierarchical relationship between these things. You can also expand, collapse, and select a treeNode within a `KitTree`.
+
+## Examples
+
+##### Basic
+
+The most basic usage, tell you how to use checkable, selectable, disabled, defaultExpandKeys, and etc.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="tree-basic" />
+
+##### Selectable
+
+You can select multiple nodes.
+
+<CustomCanvas content={Exemples.Selectable} source={Sources.Selectable} id="tree-selectable" />
+
+##### Customize Icon
+
+You can customize icons for different nodes.
+
+<CustomCanvas content={Exemples.CustomIcon} source={Sources.CustomIcon} id="tree-custom-icon" />
+
+##### Customize collapse/expand icon
+
+customize collapse/expand icon of tree node
+
+<CustomCanvas content={Exemples.CustomCollapseIcon} source={Sources.CustomCollapseIcon} id="tree-custom-collapse-icon" />
+
+##### Tree with line
+
+Tree with connected line between nodes, turn on by `showLine`, customize the preset icon by `switcherIcon`.
+
+<CustomCanvas content={Exemples.Line} source={Sources.Line} id="tree-line" />
+
+## Api
+
+<Canvas of={KitTreeStories.Api} />
+
+<Controls of={KitTreeStories.Api} />

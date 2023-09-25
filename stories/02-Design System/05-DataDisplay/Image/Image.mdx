@@ -1,0 +1,82 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitImageStories from './Image.stories';
+
+<Meta of={KitImageStories} />
+
+# Image
+
+Previewable image.
+
+## Usage
+
+- When you need to display pictures.
+- Display when loading a large image or fault tolerant handling when loading fail.
+
+## Examples
+
+##### Basic
+Click the image to zoom in.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="image-basic" />
+
+##### Bordered and rounded image
+Image can have a border radius, and / or a border.
+
+<CustomCanvas content={Exemples.Bordered} source={Sources.Bordered} id="image-bordered" />
+
+
+##### Fault Tolerant
+Load failed to display image placeholder.
+
+<CustomCanvas content={Exemples.FaultTolerant} source={Sources.FaultTolerant} id="image-fault-tolerant" />
+
+##### Progressive loading
+Progressive when large image loading.
+
+<CustomCanvas content={Exemples.Loading} source={Sources.Loading} id="image-loading" />
+
+##### Multiple image preview
+Click the left and right switch buttons to preview multiple images.
+
+<CustomCanvas content={Exemples.MultiplePreview} source={Sources.MultiplePreview} id="image-mutliple-preview" />
+
+##### Preview from one image
+Preview a collection from one image.
+
+<CustomCanvas content={Exemples.Preview} source={Sources.Preview} id="image-preview" />
+
+##### Custom preview image
+You can set different preview image.
+
+<CustomCanvas content={Exemples.Custom} source={Sources.Custom} id="image-custom" />
+
+##### Controlled preview
+You can make preview controlled.
+
+<CustomCanvas content={Exemples.Controlled} source={Sources.Controlled} id="image-controlled" />
+
+## Api
+
+<Canvas of={KitImageStories.Api} />
+
+<Controls of={KitImageStories.Api} />
+
+### PreviewType
+
+```typescript
+{
+  visible?: boolean;
+  onVisibleChange?: (visible, prevVisible, current: number) => void; // `current` only support after v5.3.0
+  getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0
+  src?: string; // v4.10.0
+  mask?: ReactNode; // v4.9.0
+  maskClassName?: string; // v4.11.0
+  current?: number; // v4.12.0 Only support PreviewGroup
+  countRender?: (current: number, total: number) => string  // v4.20.0 Only support PreviewGroup
+  scaleStep?: number;
+  onChange?: (current: number, prevCurrent: number) => void; // only support after v5.3.0
+}
+```

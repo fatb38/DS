@@ -21,7 +21,7 @@ export const mockData = {
     onClick: () => console.log('on click itemlist')
 };
 
-export const ItemListArgTypes = {
+export const argTypes = {
     displayCheckbox: {
         name: 'Display checkbox',
         description: '',
@@ -146,13 +146,14 @@ export const ItemListArgTypes = {
     }
 };
 
-export const Template = ({component, ...args}) => {
+export const Template = (args) => {
+    const {component, ...props} = args;
     return (
         <KitItemList
-            {...args}
-            onSelectChange={args.displayCheckbox ? () => console.log('select changer') : undefined}
-            onRafterClick={args.displayRafter ? () => console.log('click rafter') : undefined}
-            onClick={args.itemListClickable ? () => console.log('click itemList') : undefined}
+            {...props}
+            onSelectChange={props.displayCheckbox ? () => console.log('select changer') : undefined}
+            onRafterClick={props.displayRafter ? () => console.log('click rafter') : undefined}
+            onClick={props.itemListClickable ? () => console.log('click itemList') : undefined}
         />
     );
 };
