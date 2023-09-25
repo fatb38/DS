@@ -152,7 +152,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
         padding: 0px;
         border: none;
         border-radius: 0px;
-        border-bottom: 1px solid ${({$theme}) => $theme.colors.border.default};
+        border-bottom: 1px solid ${({$theme}) => $theme.colors.background.default};
 
         &:disabled {
             border-bottom: none;
@@ -161,7 +161,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
         &:not(.ant-btn-loading):not(:disabled) {
             &:hover {
                 color: ${({$theme}) => $theme.colors.typography.default};
-                border-bottom: 1px dashed ${({$theme}) => $theme.colors.border.hover};
+                border-bottom: 1px solid ${({$theme}) => $theme.colors.border.hover};
             }
 
             &:focus {
@@ -178,7 +178,10 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
         box-shadow: none;
         color: ${({$theme}) => $theme.colors.typography.danger.default};
         background-color: ${({$theme}) => $theme.colors.background.danger.default};
-        border-color: ${({$theme}) => $theme.colors.border.danger.default};
+
+        &:not(.ant-btn-link) {
+            border-color: ${({$theme}) => $theme.colors.border.danger.default};
+        }
 
         &:disabled {
             color: ${({$theme}) => $theme.colors.typography.danger.disabled};
