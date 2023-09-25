@@ -1,9 +1,9 @@
 import React from 'react';
-import {KitCard} from '@kit/DataDisplay/';
+import {KitItemCard} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {AntDesignOutlined, DownloadOutlined, FolderOpenOutlined} from '@ant-design/icons';
 import {KitAvatar, KitImage} from '@kit/DataDisplay';
-import KitCardProps from '@kit/DataDisplay/Card/types';
+import IKitItemCardProps from '@kit/DataDisplay/ItemCard/types';
 import {KitButton, KitIcon} from '@kit/General/';
 
 export const fakeContent = {
@@ -35,7 +35,7 @@ export const fakeContent = {
 export const argTypes = {
     vertical: {
         name: 'vertical',
-        description: 'Change Card layout to vertical',
+        description: 'Change ItemCard layout to vertical',
         control: {
             type: 'boolean'
         },
@@ -43,12 +43,12 @@ export const argTypes = {
             type: {
                 summary: 'boolean'
             },
-            category: 'Card'
+            category: 'ItemCard'
         }
     },
     disabled: {
         name: 'disabled',
-        description: 'Is Card disabled',
+        description: 'Is ItemCard disabled',
         control: {
             type: 'boolean'
         },
@@ -56,7 +56,7 @@ export const argTypes = {
             type: {
                 summary: 'boolean'
             },
-            category: 'Card'
+            category: 'ItemCard'
         }
     },
     picture: {
@@ -70,7 +70,7 @@ export const argTypes = {
             type: {
                 summary: 'ReactElement<KitAvatarProps> | ReactElement<KitIconProps> | ReactElement<KitImageProps>'
             },
-            category: 'Card'
+            category: 'ItemCard'
         }
     },
     colors: {
@@ -83,12 +83,12 @@ export const argTypes = {
             type: {
                 summary: 'boolean'
             },
-            category: 'Card'
+            category: 'ItemCard'
         }
     },
     title: {
         name: 'title',
-        description: 'Sets the Card title',
+        description: 'Sets the ItemCard title',
         control: {
             type: 'text'
         },
@@ -96,12 +96,12 @@ export const argTypes = {
             type: {
                 summary: 'string'
             },
-            category: 'Card'
+            category: 'ItemCard'
         }
     },
     description: {
         name: 'description',
-        description: 'Sets the Card description',
+        description: 'Sets the ItemCard description',
         control: {
             type: 'text'
         },
@@ -109,12 +109,12 @@ export const argTypes = {
             type: {
                 summary: 'string'
             },
-            category: 'Card'
+            category: 'ItemCard'
         }
     },
     extrainfo: {
         name: 'extrainfo',
-        description: 'Sets the Card extrainfo',
+        description: 'Sets the ItemCard extrainfo',
         control: {
             type: 'text'
         },
@@ -122,7 +122,7 @@ export const argTypes = {
             type: {
                 summary: 'string'
             },
-            category: 'Card'
+            category: 'ItemCard'
         }
     },
     tags: {
@@ -135,7 +135,7 @@ export const argTypes = {
             type: {
                 summary: 'boolean'
             },
-            category: 'Card'
+            category: 'ItemCard'
         }
     },
     actions: {
@@ -148,12 +148,13 @@ export const argTypes = {
             type: {
                 summary: 'boolean'
             },
-            category: 'Card'
+            category: 'ItemCard'
         }
     },
     onSelectChange: {
         name: 'onSelectChange',
-        description: 'The callback function that is triggered when the state change. When set makes Card selectable',
+        description:
+            'The callback function that is triggered when the state change. When set makes ItemCard selectable',
         control: {
             type: 'boolean'
         },
@@ -197,9 +198,9 @@ const getPicture = picture => {
     }
 };
 
-export const Template = (args: KitCardProps) => {
+export const Template = (args: IKitItemCardProps) => {
     const {colors, picture, tags, actions, ...rest} = args;
-    const props: KitCardProps = {
+    const props: IKitItemCardProps = {
         ...rest,
         picture: getPicture(picture),
         title: rest.title || fakeContent.base.title,
@@ -218,7 +219,7 @@ export const Template = (args: KitCardProps) => {
 
     return (
         <KitSpace>
-            <KitCard {...props} />
+            <KitItemCard {...props} />
         </KitSpace>
     );
 };

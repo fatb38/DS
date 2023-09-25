@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
-import KitCardProps from './types';
+import IKitItemCardProps from './types';
 import KitColorbar from './ColorBar';
 import {EditOutlined, EyeOutlined} from '@ant-design/icons';
 import {KitTypography, KitButton} from '@kit/General/';
@@ -10,11 +10,11 @@ import {KitIconProps} from '@kit/General/Icon/types';
 import {KitAvatarProps} from '../Avatar/types';
 import {KitCheckbox, KitTag} from '@kit/DataEntry';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
-import {KitCardTheme} from '@theme/types/components/DataDisplay/Card';
+import {IKitItemCardTheme} from '@theme/types/components/DataDisplay/ItemCard';
 import {useKitTheme} from '@theme/theme-context';
 
-const CardWrapper = styled.div<{
-    $theme: KitCardTheme;
+const ItemCardWrapper = styled.div<{
+    $theme: IKitItemCardTheme;
     $vertical?: boolean;
 }>`
     display: grid;
@@ -314,7 +314,7 @@ const getSWrapperClassName = (vertical, disabled, className) =>
         'kit-card-disabled': disabled
     });
 
-export const KitCard: React.FunctionComponent<KitCardProps> = ({
+export const KitItemCard: React.FunctionComponent<IKitItemCardProps> = ({
     vertical,
     disabled,
     colors,
@@ -333,8 +333,8 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
     const [isDescriptionEllipsis, setIsDescriptionEllipsis] = useState(false);
 
     return (
-        <CardWrapper
-            $theme={theme.components.Card}
+        <ItemCardWrapper
+            $theme={theme.components.ItemCard}
             className={getSWrapperClassName(vertical, disabled, props.className ?? '')}
             {...props}
         >
@@ -413,8 +413,8 @@ export const KitCard: React.FunctionComponent<KitCardProps> = ({
                     </div>
                 )}
             </div>
-        </CardWrapper>
+        </ItemCardWrapper>
     );
 };
 
-KitCard.displayName = 'KitCard';
+KitItemCard.displayName = 'KitItemCard';

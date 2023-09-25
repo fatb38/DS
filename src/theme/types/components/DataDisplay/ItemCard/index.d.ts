@@ -1,4 +1,4 @@
-export interface KitCardThemeStyled {
+export interface IKitItemCardThemeStyled {
     card: {
         colors: {
             background: {
@@ -100,4 +100,4 @@ export interface KitCardThemeStyled {
     };
 }
 
-export type KitCardTheme = KitCardThemeStyled;
+export type IKitItemCardTheme = IKitItemCardThemeStyled;

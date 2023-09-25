@@ -2,17 +2,17 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
-import * as KitCardStories from './Card.stories';
+import * as KitItemCardStories from './ItemCard.stories';
 
-<Meta of={KitCardStories} />
+<Meta of={KitItemCardStories} />
 
-# Card
+# ItemCard
 
 A component to display product informations
 
 ## Usage
 
-The Card is used to display a product identity Card - some basic informations - such as a preview, label colors and so on.
+The ItemCard is used to display a product identity Card - some basic informations - such as a preview, label colors and so on.
 It's also provides ability to select and / or edit product data
 
 ## Examples
@@ -71,6 +71,6 @@ Card element in disabled state.
 
 ## Api
 
-<Canvas of={KitCardStories.Api} />
+<Canvas of={KitItemCardStories.Api} />
 
-<Controls of={KitCardStories.Api} />
+<Controls of={KitItemCardStories.Api} />

@@ -1,13 +1,11 @@
 import React from 'react';
-import {KitCard, KitImage} from '@kit/DataDisplay/';
+import {KitItemCard, KitImage} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout';
-import {KitButton} from '@kit/General';
-import {DownloadOutlined, FolderOpenOutlined} from '@ant-design/icons';
 
 const App = () => {
     return (
         <KitSpace direction="vertical">
-            <KitCard
+            <KitItemCard
                 title="Tondeuse à gazon"
                 description="Tondeuse thermique Auto tractée 70 VL 55 TH"
                 extrainfo="550.00€"
@@ -19,19 +17,8 @@ const App = () => {
                 onSelectChange={e => {
                     console.log(e);
                 }}
-                onEdit={() => {
-                    console.log('onEdit');
-                }}
-                actions={[
-                    <KitButton onClick={() => console.log('download action')}>
-                        <DownloadOutlined />
-                    </KitButton>,
-                    <KitButton onClick={() => console.log('open action')}>
-                        <FolderOpenOutlined />
-                    </KitButton>
-                ]}
             />
-            <KitCard
+            <KitItemCard
                 vertical
                 title="Tondeuse à gazon"
                 description="Tondeuse thermique Auto tractée 70 VL 55 TH"
@@ -44,17 +31,6 @@ const App = () => {
                 onSelectChange={e => {
                     console.log(e);
                 }}
-                onEdit={() => {
-                    console.log('onEdit');
-                }}
-                actions={[
-                    <KitButton onClick={() => console.log('download action')}>
-                        <DownloadOutlined />
-                    </KitButton>,
-                    <KitButton onClick={() => console.log('open action')}>
-                        <FolderOpenOutlined />
-                    </KitButton>
-                ]}
             />
         </KitSpace>
     );

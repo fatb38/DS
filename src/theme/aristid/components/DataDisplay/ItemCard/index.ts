@@ -1,10 +1,10 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
 import {border} from '@theme/aristid/general/border';
-import {KitCardThemeStyled} from '@theme/types/components/DataDisplay/Card';
+import {IKitItemCardThemeStyled} from '@theme/types/components/DataDisplay/ItemCard';
 
 const {colors, typography} = KitAristidThemeGeneral;
 
-const kitCardThemeStyled: KitCardThemeStyled = {
+const kitCardThemeStyled: IKitItemCardThemeStyled = {
     card: {
         colors: {
             background: {
@@ -106,6 +106,6 @@ const kitCardThemeStyled: KitCardThemeStyled = {
     }
 };
 
-export const KitCardTheme = {
+export const KitItemCardTheme = {
     ...kitCardThemeStyled
 };

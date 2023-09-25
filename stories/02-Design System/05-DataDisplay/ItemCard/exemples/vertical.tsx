@@ -1,9 +1,9 @@
 import React from 'react';
-import {KitCard, KitImage} from '@kit/DataDisplay/';
+import {KitItemCard, KitImage} from '@kit/DataDisplay/';
 
 const App = () => {
     return (
-        <KitCard
+        <KitItemCard
             vertical
             title="Tondeuse à gazon"
             description="Tondeuse thermique Auto tractée 70 VL 55 TH"
