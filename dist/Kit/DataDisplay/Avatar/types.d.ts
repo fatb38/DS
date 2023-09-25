@@ -1,5 +1,5 @@
 import {AvatarProps} from 'antd';
-import {GroupProps} from 'antd/es/avatar';
+import {GroupProps} from 'antd/lib/avatar';
 import {KitHTMLAttributes} from '../../../types';
 
 type AntdAvatarTypesToOmit = '';

@@ -1,7 +1,7 @@
 import {CollapseProps} from 'antd';
 import {MouseEventHandler, ReactNode} from 'react';
 import {KitHTMLAttributes} from '../../../types';
-import {CheckboxChangeEvent} from 'antd/es/checkbox';
+import {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {MenuInfo} from '../../';
 
 type AntdCollapseTypesToOmit = 'bordered' | 'expandIconPosition' | 'ghost';

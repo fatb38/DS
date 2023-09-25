@@ -1,5 +1,5 @@
 import type {SpaceProps} from 'antd';
-import type {SpaceSize} from 'antd/es/space';
+import type {SpaceSize} from 'antd/lib/space';
 import {CSSProperties, ReactNode} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 
