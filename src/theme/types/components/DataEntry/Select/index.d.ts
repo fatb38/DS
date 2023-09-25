@@ -20,6 +20,57 @@ export interface KitSelectThemeStyled {
             radius: number;
         };
     };
+    border: {
+        radius: number;
+    };
+    colors: {
+        border: {
+            hover: string;
+            focused: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        typography: {
+            content: {
+                default: string;
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+            placeholder: {
+                default: string;
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+        };
+        icon: {
+            arrow: {
+                default: string;
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+            clear: {
+                default: string;
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+        };
+        background: {
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+    };
+    typography: {
+        fontWeight: {
+            content: string | number;
+            placeholder: string | number;
+        };
+    };
 }
 
 export interface KitSelectDropDownThemeStyled {

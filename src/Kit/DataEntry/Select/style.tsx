@@ -1,6 +1,6 @@
 import styled, {createGlobalStyle, css} from 'styled-components';
-import theme from '@theme/index';
 import {KitSelectTheme} from '@theme/types/components/DataEntry/Select';
+import {Select as AntdSelect} from 'antd';
 
 export const StyledBadge = styled.div<{
     $theme: KitSelectTheme['Select']['colorBadge'];
@@ -90,6 +90,7 @@ export const SelectDropDownStyle = createGlobalStyle<{
     }
 
     .kit-select-dropdown-content {
+        width: calc(100% + 42px);
         box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
         background-color: ${({$theme}) => $theme.colors.background.default};
         padding: 10px;
@@ -179,14 +180,16 @@ export const SelectDropDownStyle = createGlobalStyle<{
     }
 `;
 
-export const KitSelectStyle = css`
+export const StyledKitSelect = styled(AntdSelect)<{
+    $theme: KitSelectTheme['Select'];
+}>`
     &.ant-select.ant-select-compact-item {
         &:not(.ant-select-compact-last-item) {
             margin-inline-end: 0px;
         }
 
         &.ant-select-compact-first-item:not(.ant-select-compact-last-item):not(.ant-select-open) {
-            border-radius: 7px 0 0 7px;
+            border-radius: ${({$theme}) => $theme.border.radius}px 0 0 ${({$theme}) => $theme.border.radius}px;
         }
     }
 
@@ -199,31 +202,31 @@ export const KitSelectStyle = css`
     &.ant-select-open {
         &:not(.ant-select-compact-item) {
             &.ant-select-bottom {
-                border-radius: 7px 7px 0 0;
+                border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0;
             }
 
             &.ant-select-top {
-                border-radius: 0 0 7px 7px;
+                border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px;
             }
         }
 
         &.ant-select-compact-item {
             &.ant-select-bottom {
-                border-radius: 7px 7px 0 0;
+                border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0;
             }
 
             &.ant-select-top {
-                border-radius: 0 0 7px 7px;
+                border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px;
             }
         }
 
         &.ant-select-compact-item.ant-select-compact-first-item:not(.ant-select-compact-last-item) {
             &.ant-select-bottom {
-                border-radius: 7px 0 0 0;
+                border-radius: ${({$theme}) => $theme.border.radius}px 0 0 0;
             }
 
             &.ant-select-top {
-                border-radius: 0 0 0 7px;
+                border-radius: 0 0 0 ${({$theme}) => $theme.border.radius}7px;
             }
         }
     }
@@ -236,12 +239,15 @@ export const KitSelectStyle = css`
         position: relative;
         background-color: #ffffff;
         border: 1px solid #d1dfe9;
-        border-radius: 7px;
+        border-radius: ${({$theme}) => $theme.border.radius}px;
         transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-        &:hover,
+        &:hover {
+            border-color: ${({$theme}) => $theme.colors.border.hover};
+        }
+
         &.ant-select-focused {
-            border-color: ${theme.color.primary.blue400};
+            border-color: ${({$theme}) => $theme.colors.border.focused};
         }
 
         .ant-select-selector {
@@ -284,23 +290,22 @@ export const KitSelectStyle = css`
             .ant-select-selection-placeholder {
                 display: flex;
                 align-items: center;
-                font-weight: ${theme.typography.mediumfontWeight};
-                color: ${theme.color.primary.blue300};
                 padding-inline-end: 0;
             }
 
+            .ant-select-selection-item,
+            .ant-select-selection-search input {
+                font-weight: ${({$theme}) => $theme.typography.fontWeight.content};
+                color: ${({$theme}) => $theme.colors.typography.content.default};
+            }
+
             .ant-select-selection-placeholder {
-                font-weight: ${theme.typography.regularFontWeight};
-                color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+                font-weight: ${({$theme}) => $theme.typography.fontWeight.placeholder};
+                color: ${({$theme}) => $theme.colors.typography.placeholder.default};
             }
 
             .ant-select-selection-item .kit-icon {
                 padding: 5px;
-            }
-
-            .ant-select-selection-search input {
-                font-weight: ${theme.typography.mediumfontWeight};
-                color: ${theme.color.primary.blue300};
             }
 
             .kit-select-option {
@@ -330,7 +335,7 @@ export const KitSelectStyle = css`
             grid-area: arrow;
             position: relative;
             top: 48%;
-            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+            color: ${({$theme}) => $theme.colors.icon.arrow.default};
             inset-inline-end: 0;
         }
 
@@ -338,71 +343,83 @@ export const KitSelectStyle = css`
             grid-area: clear;
             position: relative;
             display: flex;
+            display: flex;
             inset-inline-end: 0;
             font-size: 12px;
             transform: none;
             transition: none;
             opacity: 1;
-            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+            color: ${({$theme}) => $theme.colors.icon.clear.default};
         }
 
         &.ant-select-disabled {
-            background-color: ${theme.color.secondary.mediumGrey.mediumGrey100};
-            color: ${theme.color.secondary.mediumGrey.mediumGrey400};
-            border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
+            background-color: ${({$theme}) => $theme.colors.background.disabled};
+            color: ${({$theme}) => $theme.colors.typography.content.disabled};
+            border-color: ${({$theme}) => $theme.colors.border.disabled};
             cursor: not-allowed;
 
             .ant-select-selection-item {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+                color: ${({$theme}) => $theme.colors.typography.content.disabled};
             }
 
             .ant-select-selection-placeholder {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+                color: ${({$theme}) => $theme.colors.typography.placeholder.disabled};
             }
 
-            .ant-select-arrow,
+            .ant-select-arrow {
+                color: ${({$theme}) => $theme.colors.icon.arrow.disabled};
+            }
+
             .ant-select-clear {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+                color: ${({$theme}) => $theme.colors.icon.clear.disabled};
             }
         }
 
         &.ant-select-status-warning {
-            background-color: ${theme.color.secondary.orange.orange100};
-            border-color: ${theme.color.secondary.orange.orange400};
-            color: ${theme.color.secondary.orange.orange400};
+            background-color: ${({$theme}) => $theme.colors.background.warning};
+            border-color: ${({$theme}) => $theme.colors.border.warning};
+            color: ${({$theme}) => $theme.colors.typography.content.warning};
 
             .ant-select-selection-item {
-                color: ${theme.color.secondary.orange.orange500};
+                color: ${({$theme}) => $theme.colors.typography.content.warning};
             }
 
             .ant-select-selection-placeholder {
-                color: ${theme.color.secondary.orange.orange400};
+                color: ${({$theme}) => $theme.colors.typography.placeholder.warning};
             }
 
-            .ant-select-arrow,
+            .ant-select-arrow {
+                color: ${({$theme}) => $theme.colors.icon.arrow.warning};
+                background-color: ${({$theme}) => $theme.colors.background.warning};
+            }
+
             .ant-select-clear {
-                color: ${theme.color.secondary.orange.orange400};
-                background-color: ${theme.color.secondary.orange.orange100};
+                color: ${({$theme}) => $theme.colors.icon.clear.warning};
+                background-color: ${({$theme}) => $theme.colors.background.warning};
             }
         }
 
         &.ant-select-status-error {
-            background-color: ${theme.color.secondary.red.red100};
-            border-color: ${theme.color.secondary.red.red400};
-            color: ${theme.color.secondary.red.red400};
+            background-color: ${({$theme}) => $theme.colors.background.error};
+            border-color: ${({$theme}) => $theme.colors.border.error};
+            color: ${({$theme}) => $theme.colors.typography.content.error};
 
             .ant-select-selection-item {
-                color: ${theme.color.secondary.red.red400};
+                color: ${({$theme}) => $theme.colors.typography.content.error};
             }
 
             .ant-select-selection-placeholder {
-                color: ${theme.color.secondary.red.red400};
+                color: ${({$theme}) => $theme.colors.typography.placeholder.error};
             }
 
-            .ant-select-arrow,
+            .ant-select-arrow {
+                color: ${({$theme}) => $theme.colors.icon.arrow.error};
+                background-color: ${({$theme}) => $theme.colors.background.error};
+            }
+
             .ant-select-clear {
-                color: ${theme.color.secondary.red.red400};
-                background-color: ${theme.color.secondary.red.red100};
+                color: ${({$theme}) => $theme.colors.icon.clear.error};
+                background-color: ${({$theme}) => $theme.colors.background.error};
             }
         }
 

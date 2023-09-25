@@ -1,21 +1,15 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Select as AntdSelect} from 'antd';
 import cn from 'classnames';
 import {CloseCircleOutlined} from '@ant-design/icons';
-import styled from 'styled-components';
 import {CheckOutlined} from '@ant-design/icons';
 import {KitIcon} from '../../General/';
 import {KitSelectProps} from './types';
 import type {CustomTagProps} from 'rc-select/lib/BaseSelect';
-import {KitSelectStyle, StyledBadge, StyledLabel} from './style';
+import {StyledBadge, StyledKitSelect, StyledLabel} from './style';
 import {KitDropdownOutlined} from '@icons/index';
 import KitInputWrapper from '@kit/DataEntry/Input/InputWrapper';
 import {KitTag} from '@kit/DataEntry/';
 import {useKitTheme} from '@theme/theme-context';
-
-const StyledKitSelect = styled(AntdSelect)`
-    ${KitSelectStyle}
-`;
 
 const getOptionLabel = (props, theme) => (
     <div className="kit-select-option">
@@ -85,10 +79,10 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
     allowClear = true,
     ...props
 }) => {
+    const selectRef = useRef<any>(null);
     const {theme} = useKitTheme();
     const [internalOptions, setOptions] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
-    const selectRef = useRef<any>(null);
 
     useEffect(() => {
         if (!options) {
@@ -140,6 +134,7 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
     return (
         <KitInputWrapper label={label} helper={helper} disabled={props.disabled} status={props.status}>
             <StyledKitSelect
+                $theme={theme.components.Select.Select}
                 {...props}
                 className={getClasses()}
                 popupClassName={getDropdownClasses()}

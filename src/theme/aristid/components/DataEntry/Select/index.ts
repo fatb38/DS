@@ -29,6 +29,57 @@ const kitSelectThemeStyled: KitSelectThemeStyled = {
         border: {
             radius: border.radius.xxs
         }
+    },
+    border: {
+        radius: border.radius.s
+    },
+    colors: {
+        border: {
+            hover: colors.primary.blue400,
+            focused: colors.primary.blue400,
+            disabled: colors.secondary.mediumGrey.mediumGrey200,
+            warning: colors.secondary.orange.orange400,
+            error: colors.secondary.red.red400
+        },
+        typography: {
+            content: {
+                default: colors.primary.blue300,
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
+                warning: colors.secondary.orange.orange500,
+                error: colors.secondary.red.red400
+            },
+            placeholder: {
+                default: colors.secondary.mediumGrey.mediumGrey500,
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
+                warning: colors.secondary.orange.orange400,
+                error: colors.secondary.red.red400
+            }
+        },
+        icon: {
+            arrow: {
+                default: colors.secondary.mediumGrey.mediumGrey500,
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
+                warning: colors.secondary.orange.orange400,
+                error: colors.secondary.red.red400
+            },
+            clear: {
+                default: colors.secondary.mediumGrey.mediumGrey500,
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
+                warning: colors.secondary.orange.orange400,
+                error: colors.secondary.red.red400
+            }
+        },
+        background: {
+            disabled: colors.secondary.mediumGrey.mediumGrey100,
+            warning: colors.secondary.orange.orange100,
+            error: colors.secondary.red.red100
+        }
+    },
+    typography: {
+        fontWeight: {
+            content: typography.mediumfontWeight,
+            placeholder: typography.regularFontWeight
+        }
     }
 };
 
