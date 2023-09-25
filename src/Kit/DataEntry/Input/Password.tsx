@@ -5,7 +5,7 @@ import {styled} from 'styled-components';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
-import {KitInputTheme} from '@theme/types/components/DataEntry/Input/Input';
+import {KitInputTheme} from '@theme/types/components/DataEntry/Input';
 
 const StyledAntdPassword = styled(AntdInput.Password)<{
     $theme: KitInputTheme['Password'];

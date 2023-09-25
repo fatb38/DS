@@ -6,7 +6,7 @@ import {KitButtonTheme} from './components/General/Button';
 import {KitRateTheme} from './components/DataEntry/Rate';
 import {KitTagTheme} from './components/DataEntry/Tag';
 import {KitInputWrapperTheme} from './components/DataEntry/Input';
-import {KitInputTheme} from './components/DataEntry/Input/Input';
+import {KitInputTheme} from './components/DataEntry/Input';
 import {KitSliderTheme} from './components/DataEntry/Slider';
 import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
 import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';

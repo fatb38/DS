@@ -5,9 +5,10 @@ import {
     KitInputThemeStyled,
     KitPasswordThemeStyled,
     KitTextAreaThemeStyled
-} from '@theme/types/components/DataEntry/Input/Input';
+} from '@theme/types/components/DataEntry/Input';
+import {KitInputWrapperThemeStyled} from '@theme/types/components/DataEntry/Input';
 
-const {colors, typography, border} = KitAristidThemeGeneral;
+const {colors, typography, border, spacing} = KitAristidThemeGeneral;
 
 const kitInputThemeAntd: KitInputThemeAntd = {
     colors: {
@@ -254,4 +255,23 @@ export const KitInputTheme = {
     TextArea: {
         ...kitTextAreaThemeStyled
     }
+};
+
+const kitInputWrapperStyled: KitInputWrapperThemeStyled = {
+    colors: {
+        typography: {
+            default: colors.secondary.mediumGrey.mediumGrey500,
+            disabled: colors.secondary.mediumGrey.mediumGrey400,
+            warning: colors.secondary.orange.orange400,
+            error: colors.secondary.red.red400
+        }
+    },
+    gap: {
+        label: spacing.xs,
+        helper: spacing.xs
+    }
+};
+
+export const KitInputWrapperTheme = {
+    ...kitInputWrapperStyled
 };

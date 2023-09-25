@@ -4,7 +4,7 @@ import {KitTextAreaProps} from './types';
 import {styled} from 'styled-components';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
-import {KitInputTheme} from '@theme/types/components/DataEntry/Input/Input';
+import {KitInputTheme} from '@theme/types/components/DataEntry/Input';
 import {useKitTheme} from '@theme/theme-context';
 
 const StyledAntdTextArea = styled(AntdInput.TextArea)<{
