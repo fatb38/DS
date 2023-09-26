@@ -21,17 +21,6 @@ export interface KitCheckboxThemeAntd {
 
 export interface KitCheckboxThemeStyled {
     colors: {
-        default: {
-            background: {
-                hover: string;
-            };
-        };
-        checked: {
-            background: {
-                hover: string;
-            };
-        };
-
         background: {
             check: string;
             hover: string;
