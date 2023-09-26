@@ -256,7 +256,6 @@ const ItemCardWrapper = styled.div<{
 `;
 
 // TODO Add More /less button to description
-
 const getPicture = picture => {
     if (!picture) {
         return null;

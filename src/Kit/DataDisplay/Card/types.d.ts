@@ -1,3 +1,20 @@
 import {CardProps} from 'antd';
 
-export default interface IKitCardProps extends CardProps {}
+type AntdCardTypesToOmit =
+    | 'size'
+    | 'type'
+    | 'bordered'
+    | 'bodyStyle'
+    | 'hoverable'
+    | 'tabProps'
+    | 'tabList'
+    | 'defaultActiveTabKey'
+    | 'tabBarExtraContent'
+    | 'onTabChange';
+
+export default interface IKitCardProps extends Omit<CardProps, AntdCardTypesToOmit> {
+    disabled?: boolean;
+    contentTitle?: string;
+    contentDescription?: string;
+    sideSpacing?: boolean;
+}

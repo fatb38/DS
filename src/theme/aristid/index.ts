@@ -15,6 +15,7 @@ import {KitImageTheme} from './components/DataDisplay/Image';
 import {KitItemListTheme} from './components/DataDisplay/ItemList';
 import {KitTabsTheme} from './components/DataDisplay/Tabs';
 import {KitTreeTheme} from './components/DataDisplay/Tree';
+import {KitCardTheme} from './components/DataDisplay/Card';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -23,6 +24,7 @@ export const KitAristidTheme: KitTheme = {
         Rate: KitRateTheme,
         Tooltip: KitTooltipTheme,
         Tag: KitTagTheme,
+        Card: KitCardTheme,
         InputWrapper: KitInputWrapperTheme,
         Input: KitInputTheme,
         Slider: KitSliderTheme,

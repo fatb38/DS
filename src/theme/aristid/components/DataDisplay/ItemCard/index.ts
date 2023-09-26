@@ -4,7 +4,7 @@ import {IKitItemCardThemeStyled} from '@theme/types/components/DataDisplay/ItemC
 
 const {colors, typography} = KitAristidThemeGeneral;
 
-const kitCardThemeStyled: IKitItemCardThemeStyled = {
+const kitItemCardThemeStyled: IKitItemCardThemeStyled = {
     card: {
         colors: {
             background: {
@@ -107,5 +107,5 @@ const kitCardThemeStyled: IKitItemCardThemeStyled = {
 };
 
 export const KitItemCardTheme = {
-    ...kitCardThemeStyled
+    ...kitItemCardThemeStyled
 };

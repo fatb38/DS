@@ -17,6 +17,7 @@ import {KitImageTheme} from './components/DataDisplay/Image';
 import {KitItemListTheme} from './components/DataDisplay/ItemList';
 import {KitTabsTheme} from './components/DataDisplay/Tabs';
 import {KitTreeTheme} from './components/DataDisplay/Tree';
+import {IKitCardTheme} from './components/DataDisplay/Card';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -35,6 +36,7 @@ export interface KitTheme {
     general: KitThemeGeneral;
     components: {
         Button: KitButtonTheme;
+        Card: IKitCardTheme;
         Rate: KitRateTheme;
         Tooltip: KitTooltipTheme;
         Tag: KitTagTheme;
