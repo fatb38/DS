@@ -16,18 +16,6 @@ const theme: KitThemeConfig = {
     typography: Typography,
     headersTypography: typographyHeaders,
     components: {
-        Checkbox: {
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize5,
-            fontSizeLG: Typography.fontSize5,
-            lineHeight: Typography.lineHeight5,
-            colorBorder: colorsPalette.neutral.typography.black60,
-            borderRadiusSM: 4,
-            lineWidth: 1, // border-width
-            controlInteractiveSize: 16,
-            colorPrimary: colorsPalette.primary.blue400,
-            colorPrimaryHover: colorsPalette.primary.blue500
-        },
         Radio: {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize5,
