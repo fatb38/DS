@@ -4,7 +4,7 @@ import React from 'react';
 import {ConfigContext} from 'antd/lib/config-provider/';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import pickAttrs from 'rc-util/lib/pickAttrs';
-import {RadioGroupContextProvider} from 'antd/lib/radio/context';
+import {RadioGroupContextProvider} from './context';
 import type {RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps} from 'antd/lib/radio/interface';
 import Radio from './Radio';
 
