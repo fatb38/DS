@@ -39,6 +39,7 @@ export interface IKitItemCardThemeStyled {
             typography: {
                 default: string;
                 hover: string;
+                disabled: string;
             };
         };
     };

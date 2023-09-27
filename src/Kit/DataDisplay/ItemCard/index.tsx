@@ -15,6 +15,7 @@ import {useKitTheme} from '@theme/theme-context';
 
 const ItemCardWrapper = styled.div<{
     $theme: IKitItemCardTheme;
+    $disabled: boolean;
     $vertical?: boolean;
 }>`
     display: grid;
@@ -148,6 +149,7 @@ const ItemCardWrapper = styled.div<{
         grid-area: picto;
         height: 64px;
         border-radius: ${({$theme}) => $theme.image.border.radius}px;
+        opacity: ${({$disabled}) => ($disabled ? 0.5 : 1)};
         display: flex;
         align-items: center;
         justify-content: center;
@@ -236,7 +238,8 @@ const ItemCardWrapper = styled.div<{
         }
 
         .kit-card-description-collexp {
-            color: ${({$theme}) => $theme.expend.colors.typography.default};
+            color: ${({$disabled, $theme}) =>
+                $disabled ? $theme.expend.colors.typography.disabled : $theme.expend.colors.typography.default};
 
             &:hover {
                 color: ${({$theme}) => $theme.expend.colors.typography.hover};
@@ -315,7 +318,6 @@ const getSWrapperClassName = (vertical, disabled, className) =>
 
 export const KitItemCard: React.FunctionComponent<IKitItemCardProps> = ({
     vertical,
-    disabled,
     colors,
     picture,
     title,
@@ -325,6 +327,7 @@ export const KitItemCard: React.FunctionComponent<IKitItemCardProps> = ({
     actions,
     onSelectChange,
     onEdit,
+    disabled = false,
     ...props
 }) => {
     const {theme} = useKitTheme();
@@ -334,6 +337,7 @@ export const KitItemCard: React.FunctionComponent<IKitItemCardProps> = ({
     return (
         <ItemCardWrapper
             $theme={theme.components.ItemCard}
+            $disabled={disabled}
             className={getSWrapperClassName(vertical, disabled, props.className ?? '')}
             {...props}
         >

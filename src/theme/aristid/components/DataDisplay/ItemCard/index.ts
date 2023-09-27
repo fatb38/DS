@@ -9,10 +9,10 @@ const kitItemCardThemeStyled: IKitItemCardThemeStyled = {
         colors: {
             background: {
                 default: colors.neutral.typography.white,
-                disabled: colors.primary.blue100
+                disabled: colors.secondary.mediumGrey.mediumGrey100
             },
             border: {
-                default: 'transparent',
+                default: colors.secondary.mediumGrey.mediumGrey200,
                 hover: colors.primary.blue400
             }
         },
@@ -32,11 +32,11 @@ const kitItemCardThemeStyled: IKitItemCardThemeStyled = {
     select: {
         colors: {
             background: {
-                disabled: colors.primary.blue100
+                disabled: colors.secondary.mediumGrey.mediumGrey100
             },
             typography: {
                 default: colors.primary.blue400,
-                disabled: colors.primary.blue200
+                disabled: colors.secondary.mediumGrey.mediumGrey400
             }
         }
     },
@@ -44,7 +44,8 @@ const kitItemCardThemeStyled: IKitItemCardThemeStyled = {
         colors: {
             typography: {
                 default: colors.primary.blue600,
-                hover: colors.primary.blue400
+                hover: colors.primary.blue400,
+                disabled: colors.secondary.mediumGrey.mediumGrey400
             }
         }
     },
@@ -72,7 +73,7 @@ const kitItemCardThemeStyled: IKitItemCardThemeStyled = {
         colors: {
             typography: {
                 default: colors.primary.blue600,
-                disabled: colors.primary.blue200
+                disabled: colors.secondary.mediumGrey.mediumGrey400
             }
         },
         typography: {
@@ -84,7 +85,7 @@ const kitItemCardThemeStyled: IKitItemCardThemeStyled = {
         colors: {
             typography: {
                 default: colors.primary.blue600,
-                disabled: colors.primary.blue200
+                disabled: colors.secondary.mediumGrey.mediumGrey400
             }
         },
         typography: {
@@ -96,7 +97,7 @@ const kitItemCardThemeStyled: IKitItemCardThemeStyled = {
         colors: {
             typography: {
                 default: colors.primary.blue600,
-                disabled: colors.primary.blue200
+                disabled: colors.secondary.mediumGrey.mediumGrey400
             }
         },
         typography: {
