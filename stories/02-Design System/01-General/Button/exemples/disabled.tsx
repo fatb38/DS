@@ -31,10 +31,10 @@ const App = () => {
                     Text(disabled)
                 </KitButton>
                 <KitButton type="text" danger>
-                    Text Link
+                    Text danger
                 </KitButton>
                 <KitButton type="text" danger disabled>
-                    Text Link(disabled)
+                    Text danger(disabled)
                 </KitButton>
             </KitSpace>
             <KitSpace>
