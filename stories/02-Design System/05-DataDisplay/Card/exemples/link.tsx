@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitCard} from '@kit/DataDisplay/Card';
+import {KitCard} from '@kit/DataDisplay';
 import {KitSpace} from '@kit/Layout';
 
 const App = () => {

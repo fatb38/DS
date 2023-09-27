@@ -1,14 +1,10 @@
 import {EditOutlined, EllipsisOutlined, SettingOutlined} from '@ant-design/icons';
-import {KitCard} from '@kit/DataDisplay/Card';
+import {KitCard} from '@kit/DataDisplay';
 import {KitSwitch} from '@kit/DataEntry';
 import {KitTypography} from '@kit/General';
 import KitLink from '@kit/General/Typography/Link';
 import {KitSpace} from '@kit/Layout';
 import React, {useState} from 'react';
-
-export const KitTemplate: React.FunctionComponent = () => {
-    return null;
-};
 
 const CardArgTypes = {
     actions: {

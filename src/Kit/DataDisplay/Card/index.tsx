@@ -137,7 +137,7 @@ const StyledCard = styled(AntdCard)<{
                 $disabled
                     ? $theme.colors.typography.contentTitle.disabled
                     : $theme.colors.typography.contentTitle.default};
-            font-size: 18px;
+            font-size: ${({$theme}) => $theme.typography.linkIcon.fontSize}px;
             padding: 0;
         }
 
@@ -190,7 +190,6 @@ const getExtra = (disabled: boolean, extra?: ReactNode) => {
 const getActions = (disabled: boolean, actions?: ReactNode[]) => {
     if (disabled && actions) {
         return actions?.reduce<ReactNode[]>((acc, action) => {
-            //todo
             const customAction = action as ReactElement;
             const disabledAction = cloneElement(customAction, {
                 onClick: undefined

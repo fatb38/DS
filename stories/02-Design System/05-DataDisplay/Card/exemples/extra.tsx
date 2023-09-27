@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitCard} from '@kit/DataDisplay/Card';
+import {KitCard} from '@kit/DataDisplay';
 import KitLink from '@kit/General/Typography/Link';
 
 const App = () => {

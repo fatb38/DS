@@ -62,6 +62,9 @@ const kitCardThemeStyled: IKitCardThemeStyled = {
         desciption: {
             fontSize: typography.fontSize5,
             fontWeight: typography.regularFontWeight
+        },
+        linkIcon: {
+            fontSize: typography.fontSize3
         }
     }
 };

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {KitCard} from '@kit/DataDisplay/Card';
+import {KitCard} from '@kit/DataDisplay';
 import {KitSpace} from '@kit/Layout';
 import {KitSwitch} from '@kit/DataEntry';
 import {KitTypography} from '@kit/General';

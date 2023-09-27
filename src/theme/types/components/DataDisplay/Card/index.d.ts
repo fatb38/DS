@@ -58,6 +58,9 @@ export interface IKitCardThemeStyled {
             fontSize: number;
             fontWeight: string | number;
         };
+        linkIcon: {
+            fontSize: number;
+        };
     };
 }
 
