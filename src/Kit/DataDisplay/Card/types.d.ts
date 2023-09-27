@@ -1,30 +1,22 @@
-import {KitHTMLAttributes} from '../../../types';
-import {KitTagProps} from '../../DataEntry/Tag/types';
-import {ReactNode} from 'react';
-import {CheckboxChangeEvent} from 'antd/lib/checkbox';
+import {CardProps} from 'antd';
 
-export type cardColor = {
-    label: string;
-    color: string;
-};
+type AntdCardTypesToOmit =
+    | 'size'
+    | 'type'
+    | 'bordered'
+    | 'bodyStyle'
+    | 'hoverable'
+    | 'tabProps'
+    | 'tabList'
+    | 'defaultActiveTabKey'
+    | 'tabBarExtraContent'
+    | 'onTabChange';
 
-export interface KitColorbarProps {
-    colors?: cardColor[] | null;
-    vertical?: boolean;
-    className?: string;
-}
-
-//TODO change title wording and delete omit<title>
-export default interface KitCardProps extends Omit<KitHTMLAttributes<HTMLDivElement>, 'title'> {
-    vertical?: boolean;
+export default interface IKitCardProps extends Omit<CardProps, AntdCardTypesToOmit> {
     disabled?: boolean;
-    colors?: cardColor[] | null;
-    picture?: ReactNode;
-    title?: ReactNode;
-    description?: ReactNode;
-    extrainfo?: ReactNode;
-    tags?: KitTagProps[] | string[];
-    actions?: ReactNode[];
-    onSelectChange?: (e: CheckboxChangeEvent) => void;
-    onEdit?: () => void;
+    contentTitle?: string;
+    contentDescription?: string;
+    sideSpacing?: boolean;
+    separator?: boolean;
+    onContentTitleClick?: () => void;
 }

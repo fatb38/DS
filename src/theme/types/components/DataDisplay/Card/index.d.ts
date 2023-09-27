@@ -1,103 +1,67 @@
-export interface KitCardThemeStyled {
-    card: {
-        colors: {
-            background: {
+export interface IKitCardThemeStyled {
+    colors: {
+        background: {
+            default: string;
+            disabled: string;
+        };
+        typography: {
+            headerTitle: {
                 default: string;
                 disabled: string;
             };
-            border: {
+            contentTitle: {
+                default: string;
+                disabled: string;
+            };
+            description: {
+                default: string;
+                disabled: string;
+            };
+            extra: {
                 default: string;
                 hover: string;
-            };
-        };
-        border: {
-            radius: number;
-        };
-        typography: {
-            fontFamily: string;
-        };
-    };
-    colorBar: {
-        thickness: number;
-        border: {
-            radius: number;
-        };
-    };
-    select: {
-        colors: {
-            background: {
-                disabled: string;
-            };
-            typography: {
-                default: string;
                 disabled: string;
             };
         };
-    };
-    expend: {
-        colors: {
-            typography: {
-                default: string;
-                hover: string;
-            };
-        };
-    };
-    image: {
-        colors: {
-            border: {
-                default: string;
-            };
-        };
         border: {
-            radius: number;
+            default: string;
+            focus: string;
+            hover: string;
+            disabled: string;
+        };
+        separator: {
+            default: string;
+        };
+        actions: {
+            default: string;
+            disabled: string;
+            hover: string;
+        };
+        shadow: {
+            default: string;
+            disabled: string;
+            hover: string;
+            focus: string;
         };
     };
-    icon: {
-        colors: {
-            border: {
-                default: string;
-            };
-        };
-        border: {
-            radius: number;
-        };
-    };
-    title: {
-        colors: {
-            typography: {
-                default: string;
-                disabled: string;
-            };
-        };
-        typography: {
+    typography: {
+        fontFamily: string;
+        headerTitle: {
             fontSize: number;
             fontWeight: string | number;
         };
-    };
-    description: {
-        colors: {
-            typography: {
-                default: string;
-                disabled: string;
-            };
-        };
-        typography: {
+        contentTitle: {
             fontSize: number;
             fontWeight: string | number;
         };
-    };
-    footer: {
-        colors: {
-            typography: {
-                default: string;
-                disabled: string;
-            };
-        };
-        typography: {
+        desciption: {
             fontSize: number;
             fontWeight: string | number;
+        };
+        linkIcon: {
+            fontSize: number;
         };
     };
 }
 
-export type KitCardTheme = KitCardThemeStyled;
+export type IKitCardTheme = IKitCardThemeStyled;

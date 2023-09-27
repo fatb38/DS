@@ -11,7 +11,7 @@ import {KitSliderTheme} from './components/DataEntry/Slider';
 import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
 import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
 import {KitBadgeTheme} from './components/DataDisplay/Badge';
-import {KitCardTheme} from './components/DataDisplay/Card';
+import {KitItemCardTheme} from './components/DataDisplay/ItemCard';
 import {KitCollapseTheme} from './components/DataDisplay/Collapse';
 import {KitImageTheme} from './components/DataDisplay/Image';
 import {KitItemListTheme} from './components/DataDisplay/ItemList';
@@ -20,6 +20,7 @@ import {KitTreeTheme} from './components/DataDisplay/Tree';
 import {KitInputNumberTheme} from './components/DataEntry/InputNumber';
 import {KitSwitchTheme} from './components/DataEntry/Switch';
 import {KitSelectTheme} from './components/DataEntry/Select';
+import {IKitCardTheme} from './components/DataDisplay/Card';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -38,6 +39,7 @@ export interface KitTheme {
     general: KitThemeGeneral;
     components: {
         Button: KitButtonTheme;
+        Card: IKitCardTheme;
         Rate: KitRateTheme;
         Tooltip: KitTooltipTheme;
         Tag: KitTagTheme;
@@ -47,7 +49,7 @@ export interface KitTheme {
         Avatar: KitAvatarTheme;
         AvatarGroup: KitAvatarGroupTheme;
         Badge: KitBadgeTheme;
-        Card: KitCardTheme;
+        ItemCard: KitItemCardTheme;
         Slider: KitSliderTheme;
         Collapse: KitCollapseTheme;
         Image: KitImageTheme;

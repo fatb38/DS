@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {KitCard} from '@kit/DataDisplay';
 import {argTypes, Template} from './data';
+import {KitCard} from '@kit/DataDisplay';
 
 const meta: Meta<typeof KitCard> = {
     component: KitCard,
