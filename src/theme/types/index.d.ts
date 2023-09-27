@@ -21,6 +21,7 @@ import {KitInputNumberTheme} from './components/DataEntry/InputNumber';
 import {KitSwitchTheme} from './components/DataEntry/Switch';
 import {KitSelectTheme} from './components/DataEntry/Select';
 import {KitCheckboxTheme} from './components/DataEntry/Checkbox';
+import {KitDatePickerTheme} from './components/DataEntry/DatePicker';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -58,6 +59,7 @@ export interface KitTheme {
         Switch: KitSwitchTheme;
         Select: KitSelectTheme;
         Checkbox: KitCheckboxTheme;
+        DatePicker: KitDatePickerTheme;
     };
 }
 

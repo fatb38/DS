@@ -18,6 +18,7 @@ import {KitInputNumberTheme} from './components/DataEntry/InputNumber';
 import {KitSwitchTheme} from './components/DataEntry/Switch';
 import {KitSelectTheme} from './components/DataEntry/Select';
 import {KitCheckboxTheme} from './components/DataEntry/Checkbox';
+import {KitDatePickerTheme} from './components/DataEntry/DatePicker';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -41,6 +42,7 @@ export const KitAristidTheme: KitTheme = {
         Tree: KitTreeTheme,
         Switch: KitSwitchTheme,
         Select: KitSelectTheme,
-        Checkbox: KitCheckboxTheme
+        Checkbox: KitCheckboxTheme,
+        DatePicker: KitDatePickerTheme
     }
 };

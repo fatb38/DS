@@ -1,17 +1,19 @@
 import {createGlobalStyle} from 'styled-components';
-import {theme} from '../../..';
+import {KitDatePickerTheme} from '@theme/types/components/DataEntry/DatePicker';
 
-export const DatePickerDropDownStyle = createGlobalStyle`
+export const DatePickerDropDownStyle = createGlobalStyle<{
+    $theme: KitDatePickerTheme['DropDown'];
+}>`
     .ant-picker-dropdown {
         ul.ant-picker-ranges {
             margin-block-start: 0px;
         }
 
         .ant-picker-now .ant-picker-now-btn {
-            color: ${theme.color.primary.blue400};
+            color: ${({$theme}) => $theme.colors.button.now.typography.default};
 
             &:hover {
-                color: ${theme.color.primary.blue500};
+                color: ${({$theme}) => $theme.colors.button.now.typography.hover};
             }
         }
 
@@ -20,24 +22,24 @@ export const DatePickerDropDownStyle = createGlobalStyle`
             padding: 0px 8px;
             box-shadow: none;
 
-            background-color: ${theme.color.primary.blue400};
-            border-color: ${theme.color.primary.blue400};
-            color: ${theme.color.neutral.typography.white};
+            background-color: ${({$theme}) => $theme.colors.button.ok.background.default};
+            border-color: ${({$theme}) => $theme.colors.button.ok.border.default};
+            color: ${({$theme}) => $theme.colors.button.ok.typography.default};
 
             &:hover:not(.ant-btn-disabled) {
-                background-color: ${theme.color.primary.blue500};
-                border-color: ${theme.color.primary.blue500};
+                background-color: ${({$theme}) => $theme.colors.button.ok.background.hover};
+                border-color: ${({$theme}) => $theme.colors.button.ok.border.hover};
             }
 
             &:active:not(.ant-btn-disabled) {
-                background-color: ${theme.color.primary.blue600};
-                border-color: ${theme.color.primary.blue600};
+                background-color: ${({$theme}) => $theme.colors.button.ok.background.active};
+                border-color: ${({$theme}) => $theme.colors.button.ok.border.active};
             }
 
             &[disabled] {
-                background-color: ${theme.color.primary.blue100};
-                border-color: ${theme.color.primary.blue100};
-                color: ${theme.color.primary.blue200};
+                background-color: ${({$theme}) => $theme.colors.button.ok.background.disabled};
+                border-color: ${({$theme}) => $theme.colors.button.ok.border.disabled};
+                color: ${({$theme}) => $theme.colors.button.ok.typography.disabled};
             }
         }
     }
