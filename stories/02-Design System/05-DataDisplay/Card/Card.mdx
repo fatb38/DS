@@ -1,5 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
+import { argTypes, Template } from "./data";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import * as KitCardStories from './Card.stories';
@@ -8,66 +9,53 @@ import * as KitCardStories from './Card.stories';
 
 # Card
 
-A component to display product informations
+Simple rectangular container.
 
 ## Usage
 
-The Card is used to display a product identity Card - some basic informations - such as a preview, label colors and so on.
-It's also provides ability to select and / or edit product data
+A card can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.
 
 ## Examples
 
 ##### Basic
-The simplest usage.
+This is a basic Card exemple.
 
-###### Horizontal layout (default)
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="template-basic"/>
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="card-basic" />
+##### Image
+Card with an image.
 
-###### Vertical layout
+<CustomCanvas content={Exemples.WithImage} source={Sources.WithImage} id="template-with-image"/>
 
-<CustomCanvas content={Exemples.Vertical} source={Sources.Vertical} id="card-vertical" />
+##### Content
+Card with a content.
 
-##### With icon
-display an icon instead of image
+<CustomCanvas content={Exemples.WithContent} source={Sources.WithContent} id="template-with-content"/>
 
-<CustomCanvas content={Exemples.Icon} source={Sources.Icon} id="card-icon" />
+##### Extra
+You can pass an extra action on the Header with props `extra`.
 
-##### With Avatar
-display an Avatar
+<CustomCanvas content={Exemples.Extra} source={Sources.Extra} id="template-extra"/>
 
-<CustomCanvas content={Exemples.Avatar} source={Sources.Avatar} id="card-avatar" />
+##### Actions
+You can pass some actions to the card with props `actions`.
 
-##### With Tags
-add tags in the Card
-
-<CustomCanvas content={Exemples.Tags} source={Sources.Tags} id="card-tags" />
-
-
-##### With colors
-show colors bar near image
-
-<CustomCanvas content={Exemples.Colors} source={Sources.Colors} id="card-colors" />
-
-##### Selectable
-set the card selectable. Simply provide the `onSelectChange` property to enable selection.
-
-<CustomCanvas content={Exemples.Selectable} source={Sources.Selectable} id="card-selectable" />
-
-##### Editable
-allow to edit the item assicated to the card. Simply provide the `onEdit` property to enable edition.
-
-<CustomCanvas content={Exemples.Editable} source={Sources.Editable} id="card-editable" />
-
-##### With actions
-add actions near select checkbox.
-
-<CustomCanvas content={Exemples.Actions} source={Sources.Actions} id="card-actions" />
+<CustomCanvas content={Exemples.Actions} source={Sources.Actions} id="template-actions"/>
 
 ##### Disabled
-Card element in disabled state.
+Card, extra and actions can be disabled with props `disabled`.
 
-<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="card-disabled" />
+<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="template-disabled"/>
+
+##### Separator
+Separator between title and content with the props `separator`.
+
+<CustomCanvas content={Exemples.Separator} source={Sources.Separator} id="template-separator"/>
+
+##### Redirection link
+Link icon is display when an action is pass to props `onContentTitleClick`.
+
+<CustomCanvas content={Exemples.Link} source={Sources.Link} id="template-link"/>
 
 ## Api
 

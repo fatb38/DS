@@ -700,7 +700,7 @@ const Do = ({ children: e }) => {
 }, ca = { ...da(ia), ...la }, { colors: z, typography: We } = q, sa = { colors: { background: { hover: z.primary.blue100 } }, typography: { fontFamily: We.fontFamily, fontSize: We.fontSize5 }, icon: { fontSize: We.fontSize5 } }, pa = { checkbox: { colors: { background: { default: z.neutral.typography.white, disabled: z.neutral.typography.white, checked: { default: z.primary.blue400, hover: z.primary.blue500 } }, border: { default: z.neutral.typography.black60, disabled: z.neutral.typography.black60, hover: z.primary.blue400, checked: { default: z.primary.blue400, hover: z.primary.blue500 } }, icon: { default: z.neutral.typography.black60, disabled: z.neutral.typography.black60, checked: z.neutral.typography.white } } }, treenode: { typography: { fontWeight: We.regularFontWeight }, colors: { typography: { hover: z.primary.blue400, disabled: z.neutral.typography.black60 }, background: { hover: z.primary.blue100, selected: z.primary.blue100, indent: z.neutral.typography.white } } } }, ma = (o) => {
   var { colors: o, typography: a, icon: i } = o;
   return { fontFamily: a.fontFamily, fontSize: a.fontSize, fontSizeIcon: i.fontSize, controlItemBgHover: o.background.hover };
-}, ua = { ...ma(sa), ...pa }, Oe = { general: q, components: { Button: Xt, Rate: pt, Tooltip: ht, Tag: xt, InputWrapper: vt, Input: Ft, Slider: Dt, Avatar: It, AvatarGroup: Tt, Badge: zt, Card: Vt, Collapse: ea, Image: ta, ItemList: na, Tabs: ca, Tree: ua } }, ga = { theme: Oe, overrideTheme: () => {
+}, ua = { ...ma(sa), ...pa }, Oe = { general: q, components: { Button: Xt, Rate: pt, Tooltip: ht, Tag: xt, InputWrapper: vt, Input: Ft, Slider: Dt, Avatar: It, AvatarGroup: Tt, Badge: zt, ItemCard: Vt, Collapse: ea, Image: ta, ItemList: na, Tabs: ca, Tree: ua } }, ga = { theme: Oe, overrideTheme: () => {
 } }, Ur = fr(ga), Z = () => {
   var e = t.useContext(Ur);
   if (e === void 0)
@@ -814,7 +814,7 @@ const Do = ({ children: e }) => {
 `), Ca = (e) => ({ background: e.color ?? "transparent" }), wa = (e) => {
   var a;
   var o = Z().theme;
-  return t.createElement(va, { $theme: o.components.Card, $column: e.vertical ?? !1, className: e.className }, (a = e.colors) == null ? void 0 : a.map((i, l) => t.createElement(ne, { key: i.label + "_" + l, title: i.label, placement: e.vertical ? "right" : "top" }, t.createElement("div", { style: Ca(i) }))));
+  return t.createElement(va, { $theme: o.components.ItemCard, $column: e.vertical ?? !1, className: e.className }, (a = e.colors) == null ? void 0 : a.map((i, l) => t.createElement(ne, { key: i.label + "_" + l, title: i.label, placement: e.vertical ? "right" : "top" }, t.createElement("div", { style: Ca(i) }))));
 }, Sa = G($r)`
     height: 40px;
     min-width: 40px;
@@ -3030,12 +3030,12 @@ const Do = ({ children: e }) => {
 }, li = (e, o) => e ? e.map((a, i) => t.cloneElement(a, { key: i, type: "default", disabled: o, className: `${a.props.className ?? ""} kit-card-select-button` })) : null, di = (e, o, a) => Ge(a, "kit-card-wrapper", { "kit-card-vertical": e, "kit-card-horizontal": !e, "kit-card-disabled": o }), ci = ({ vertical: e, disabled: o, colors: a, picture: i, title: l, description: c, extrainfo: s, tags: p, actions: h, onSelectChange: m, onEdit: x, ...K }) => {
   var S = Z().theme;
   const [A, T] = ue(!1), [C, U] = ue(!1);
-  return t.createElement(ni, { $theme: S.components.Card, className: di(e, o, K.className ?? ""), ...K }, (m || x) && t.createElement("div", { className: "kit-card-select" }, m && t.createElement(ve, { onChange: (w) => m && m(w), disabled: o }), x && t.createElement(te, { className: "kit-card-select-button", onClick: () => x && x(), disabled: o }, t.createElement(Io, null)), li(h, o)), ii(i), a && t.createElement(wa, { colors: a, vertical: !e, className: "kit-card-colorbar" }), t.createElement("div", { className: "kit-card-data" }, t.createElement(M.Text, { className: "kit-card-title", ellipsis: { rows: 1, tooltip: !0 } }, l), t.createElement("div", { className: "kit-card-description-container" }, t.createElement(M.Paragraph, { className: "kit-card-desc", ellipsis: !A && { rows: 2, expandable: !0, onEllipsis: () => U(!0) } }, c, A && t.createElement(M.Link, { className: "kit-card-description-collexp kit-card-description-collapse", onClick: (w) => {
+  return t.createElement(ni, { $theme: S.components.ItemCard, className: di(e, o, K.className ?? ""), ...K }, (m || x) && t.createElement("div", { className: "kit-card-select" }, m && t.createElement(ve, { onChange: (w) => m && m(w), disabled: o }), x && t.createElement(te, { className: "kit-card-select-button", onClick: () => x && x(), disabled: o }, t.createElement(Io, null)), li(h, o)), ii(i), a && t.createElement(wa, { colors: a, vertical: !e, className: "kit-card-colorbar" }), t.createElement("div", { className: "kit-card-data" }, t.createElement(M.Text, { className: "kit-card-title", ellipsis: { rows: 1, tooltip: !0 } }, l), t.createElement("div", { className: "kit-card-description-container" }, t.createElement(M.Paragraph, { className: "kit-card-desc", ellipsis: !A && { rows: 2, expandable: !0, onEllipsis: () => U(!0) } }, c, A && t.createElement(M.Link, { className: "kit-card-description-collexp kit-card-description-collapse", onClick: (w) => {
     w.stopPropagation(), T(!1);
   } }, "Less")), C && !A && t.createElement(M.Link, { className: "kit-card-description-collexp kit-card-description-expand", onClick: (w) => {
     w.stopPropagation(), T(!0);
   } }, "More")), t.createElement(M.Text, { className: "kit-card-footer" }, s), p && t.createElement("div", { className: "kit-card-tags" }, p.map((w) => t.createElement(we, { key: w, color: "blue" }, w)))));
-}, si = (ci.displayName = "KitCard", k(co)`
+}, si = (ci.displayName = "KitItemCard", k(co)`
     box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
 
     .ant-collapse-item .ant-collapse-header {
@@ -4268,7 +4268,6 @@ export {
   Aa as KitBadge,
   ui as KitBreadcrumb,
   te as KitButton,
-  ci as KitCard,
   ve as KitCheckbox,
   Xe as KitCollapse,
   ur as KitDatePicker,
@@ -4280,6 +4279,7 @@ export {
   je as KitImage,
   Ke as KitInput,
   _a as KitInputNumber,
+  ci as KitItemCard,
   Yi as KitItemList,
   yr as KitMenu,
   be as KitModal,

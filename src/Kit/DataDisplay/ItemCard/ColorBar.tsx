@@ -1,12 +1,12 @@
 import React from 'react';
-import {KitColorbarProps, cardColor} from './types';
+import {IKitColorbarProps, CardColor} from './types';
 import styled from 'styled-components';
 import {KitTooltip} from '../Tooltip';
 import {useKitTheme} from '@theme/theme-context';
-import {KitCardTheme} from '@theme/types/components/DataDisplay/Card';
+import {IKitItemCardTheme} from '@theme/types/components/DataDisplay/ItemCard';
 
 const Container = styled.div<{
-    $theme: KitCardTheme;
+    $theme: IKitItemCardTheme;
     $column: boolean;
 }>`
     width: ${({$column, $theme}) => ($column ? `${$theme.colorBar.thickness}px` : 'auto')};
@@ -21,16 +21,16 @@ const Container = styled.div<{
     }
 `;
 
-const getSwatchStyle = (item: cardColor) => {
+const getSwatchStyle = (item: CardColor) => {
     return {
         background: item.color ?? 'transparent'
     };
 };
 
-const KitColorbar = (props: KitColorbarProps) => {
+const KitColorbar = (props: IKitColorbarProps) => {
     const {theme} = useKitTheme();
     return (
-        <Container $theme={theme.components.Card} $column={props.vertical ?? false} className={props.className}>
+        <Container $theme={theme.components.ItemCard} $column={props.vertical ?? false} className={props.className}>
             {props.colors?.map((item, i) => (
                 <KitTooltip
                     key={`${item.label}_${i}`}

@@ -59,6 +59,7 @@ export type KitColoredSegmentedButtonThemesStyled = {[key in KitColorKeys]: KitB
 export type KitButtonTheme = KitButtonThemeAntd & {
     primary: KitButtonThemeStyled;
     default: KitButtonThemeStyled;
+    text: KitButtonThemeStyled;
     link: KitButtonThemeStyled;
     segmented: {
         default: KitButtonThemeStyled;

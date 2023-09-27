@@ -29,6 +29,9 @@ const App = () => {
                         Loading
                     </KitButton>
                     <KitButton loading>Loading</KitButton>
+                    <KitButton type="text" loading>
+                        Loading
+                    </KitButton>
                     <KitButton type="primary" icon={<PoweroffOutlined />} loading />
                     <KitButton type="segmented" icon={<PoweroffOutlined />} loading />
                 </KitSpace>
@@ -39,17 +42,20 @@ const App = () => {
                     <KitButton icon={<PoweroffOutlined />} loading={loadings[1]} onClick={() => enterLoading(1)}>
                         Click me!
                     </KitButton>
+                    <KitButton type="text" loading={loadings[2]} onClick={() => enterLoading(2)}>
+                        Click me!
+                    </KitButton>
                     <KitButton
                         type="primary"
                         icon={<PoweroffOutlined />}
-                        loading={loadings[2]}
-                        onClick={() => enterLoading(2)}
+                        loading={loadings[3]}
+                        onClick={() => enterLoading(3)}
                     />
                     <KitButton
                         type="segmented"
                         icon={<PoweroffOutlined />}
-                        loading={loadings[3]}
-                        onClick={() => enterLoading(3)}
+                        loading={loadings[4]}
+                        onClick={() => enterLoading(4)}
                     />
                 </KitSpace>
             </KitSpace>

@@ -1,107 +1,70 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {border} from '@theme/aristid/general/border';
-import {KitCardThemeStyled} from '@theme/types/components/DataDisplay/Card';
+import {IKitCardThemeStyled} from '@theme/types/components/DataDisplay/Card';
 
 const {colors, typography} = KitAristidThemeGeneral;
 
-const kitCardThemeStyled: KitCardThemeStyled = {
-    card: {
-        colors: {
-            background: {
-                default: colors.neutral.typography.white,
-                disabled: colors.primary.blue100
-            },
-            border: {
-                default: 'transparent',
-                hover: colors.primary.blue400
-            }
-        },
-        border: {
-            radius: border.radius.s
+const kitCardThemeStyled: IKitCardThemeStyled = {
+    colors: {
+        background: {
+            default: 'none',
+            disabled: colors.secondary.mediumGrey.mediumGrey100
         },
         typography: {
-            fontFamily: typography.fontFamily
-        }
-    },
-    colorBar: {
-        thickness: 8,
-        border: {
-            radius: border.radius.s
-        }
-    },
-    select: {
-        colors: {
-            background: {
-                disabled: colors.primary.blue100
-            },
-            typography: {
+            headerTitle: {
                 default: colors.primary.blue400,
-                disabled: colors.primary.blue200
-            }
-        }
-    },
-    expend: {
-        colors: {
-            typography: {
-                default: colors.primary.blue600,
-                hover: colors.primary.blue400
-            }
-        }
-    },
-    image: {
-        colors: {
-            border: {
-                default: colors.neutral.typography.black60
+                disabled: colors.secondary.mediumGrey.mediumGrey400
+            },
+            contentTitle: {
+                default: colors.primary.blue400,
+                disabled: colors.secondary.mediumGrey.mediumGrey400
+            },
+            description: {
+                default: colors.neutral.typography.black,
+                disabled: colors.secondary.mediumGrey.mediumGrey300
+            },
+            extra: {
+                default: colors.primary.blue400,
+                hover: colors.primary.blue300,
+                disabled: colors.secondary.mediumGrey.mediumGrey400
             }
         },
         border: {
-            radius: border.radius.s
+            default: colors.secondary.mediumGrey.mediumGrey200,
+            focus: colors.primary.blue400,
+            hover: colors.primary.blue400,
+            disabled: colors.secondary.mediumGrey.mediumGrey200
+        },
+        separator: {
+            default: colors.secondary.mediumGrey.mediumGrey200
+        },
+        actions: {
+            default: colors.secondary.mediumGrey.mediumGrey500,
+            disabled: colors.secondary.mediumGrey.mediumGrey300,
+            hover: colors.primary.blue400
+        },
+        shadow: {
+            default: colors.neutral.typography.black,
+            disabled: colors.primary.blue400,
+            hover: colors.primary.blue400,
+            focus: colors.primary.blue400
         }
     },
-    icon: {
-        colors: {
-            border: {
-                default: colors.neutral.typography.black60
-            }
-        },
-        border: {
-            radius: border.radius.s
-        }
-    },
-    title: {
-        colors: {
-            typography: {
-                default: colors.primary.blue600,
-                disabled: colors.primary.blue200
-            }
-        },
-        typography: {
-            fontSize: typography.fontSize6,
+    typography: {
+        fontFamily: typography.fontFamily,
+        headerTitle: {
+            fontSize: typography.fontSize3,
             fontWeight: typography.boldFontWeight
-        }
-    },
-    description: {
-        colors: {
-            typography: {
-                default: colors.primary.blue600,
-                disabled: colors.primary.blue200
-            }
         },
-        typography: {
+        contentTitle: {
+            fontSize: typography.fontSize2,
+            fontWeight: typography.boldFontWeight
+        },
+        desciption: {
             fontSize: typography.fontSize5,
             fontWeight: typography.regularFontWeight
-        }
-    },
-    footer: {
-        colors: {
-            typography: {
-                default: colors.primary.blue600,
-                disabled: colors.primary.blue200
-            }
         },
-        typography: {
-            fontSize: typography.fontSize5,
-            fontWeight: typography.boldFontWeight
+        linkIcon: {
+            fontSize: typography.fontSize3
         }
     }
 };

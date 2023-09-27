@@ -1,419 +1,258 @@
-import React, {useState} from 'react';
-import styled from 'styled-components';
-import cn from 'classnames';
-import KitCardProps from './types';
-import KitColorbar from './ColorBar';
-import {EditOutlined, EyeOutlined} from '@ant-design/icons';
-import {KitTypography, KitButton} from '@kit/General/';
-import {KitImageProps} from '@kit/DataDisplay/Image/types';
-import {KitIconProps} from '@kit/General/Icon/types';
-import {KitAvatarProps} from '../Avatar/types';
-import {KitCheckbox, KitTag} from '@kit/DataEntry';
-import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
-import {KitCardTheme} from '@theme/types/components/DataDisplay/Card';
+import React, {CSSProperties, ReactElement, ReactNode, cloneElement} from 'react';
+import {Card as AntdCard} from 'antd';
+import {styled} from 'styled-components';
+import IKitCardProps from './types';
+import {KitIcon, KitTypography} from '@kit/General';
+import {KitSpace} from '@kit/Layout';
 import {useKitTheme} from '@theme/theme-context';
+import {IKitCardTheme} from '@theme/types/components/DataDisplay/Card';
+import {LinkOutlined} from '@ant-design/icons';
 
-const CardWrapper = styled.div<{
-    $theme: KitCardTheme;
-    $vertical?: boolean;
+const StyledCard = styled(AntdCard)<{
+    $theme: IKitCardTheme;
+    $disabled: boolean;
+    $sideSpacing: boolean;
+    $separator: boolean;
 }>`
-    display: grid;
-    padding: 16px;
-    font-family: ${({$theme}) => $theme.card.typography.fontFamily};
-    background: ${({$theme}) => $theme.card.colors.background.default};
-    border-radius: ${({$theme}) => $theme.card.border.radius}px;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
-    min-width: 248px;
-    width: 248px;
-    border: 1px solid ${({$theme}) => $theme.card.colors.border.default};
+    font-family: ${({$theme}) => $theme.typography.fontFamily};
+    overflow: hidden;
 
-    &:not(.kit-card-disabled):hover {
-        border: 1px solid ${({$theme}) => $theme.card.colors.border.hover};
-    }
+    &.ant-card-bordered {
+        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+        border: 1px solid
+            ${({$theme, $disabled}) => ($disabled ? $theme.colors.border.disabled : $theme.colors.border.default)};
 
-    &:not(.kit-card-disabled) {
-        .kit-card-select-button {
-            border-radius: 3.5px;
-            font-size: 0.6rem;
-            padding: 0;
-            width: 16px;
-            height: 16px;
-            min-width: 16px;
-            color: ${({$theme}) => $theme.select.colors.typography.default};
+        &:focus,
+        &:focus-visible,
+        &:focus-within {
+            border: 1px dashed
+                ${({$theme, $disabled}) => ($disabled ? $theme.colors.border.disabled : $theme.colors.border.focus)};
+            box-shadow: 0px 0px 16px 0px
+                ${({$theme, $disabled}) =>
+                    $disabled ? `${$theme.colors.shadow.focus}14` : `${$theme.colors.shadow.focus}14`};
+        }
+
+        &:hover {
+            border: 1px solid
+                ${({$theme, $disabled}) => ($disabled ? $theme.colors.border.disabled : $theme.colors.border.hover)};
+            box-shadow: 0px 0px 24px 0px
+                ${({$theme, $disabled}) =>
+                    $disabled ? `${$theme.colors.shadow.disabled}14` : `${$theme.colors.shadow.hover}14`};
         }
     }
 
-    &.kit-card-disabled {
-        background: ${({$theme}) => $theme.card.colors.background.disabled};
-        pointer-events: none;
+    &.ant-card {
+        .ant-card-head {
+            padding: 24px 16px;
+            border-bottom: ${({$theme, $separator}) =>
+                $separator ? `1px solid ${$theme.colors.separator.default}` : 'none'};
+            background-color: ${({$theme, $disabled}) =>
+                $disabled ? $theme.colors.background.disabled : $theme.colors.background.default};
 
-        .kit-card-data {
-            .kit-card-title {
-                color: ${({$theme}) => $theme.title.colors.typography.disabled};
-            }
-            .kit-card-desc {
-                color: ${({$theme}) => $theme.description.colors.typography.disabled};
-            }
-            .kit-card-footer {
-                color: ${({$theme}) => $theme.footer.colors.typography.disabled};
-            }
-        }
+            .ant-card-head-wrapper {
+                gap: 16px;
 
-        .kit-card-select-button {
-            border-radius: 3.5px;
-            font-size: 0.6rem;
-            background: ${({$theme}) => $theme.select.colors.background.disabled};
-            padding: 0;
-            width: 16px;
-            height: 16px;
-            min-width: 16px;
-            color: ${({$theme}) => $theme.select.colors.typography.disabled};
-        }
-    }
-
-    &.kit-card-vertical {
-        grid-template:
-            'picto picto'
-            'select colors'
-            'content content';
-        grid-template-columns: max-content 1fr;
-
-        .kit-card-select,
-        .kit-card-image,
-        .kit-card-icon,
-        .kit-card-colorbar {
-            margin-bottom: 8px;
-        }
-
-        .kit-card-image,
-        .kit-card-icon,
-        .kit-card-icon .kit-icon {
-            width: 100%;
-            height: 80px;
-        }
-
-        .kit-card-select {
-            grid-auto-columns: min-content;
-            column-gap: 8px;
-            margin-right: 8px;
-            display: flex;
-            flex-direction: row;
-        }
-    }
-
-    &.kit-card-horizontal {
-        grid-template: 'select picto colors content';
-        grid-template-columns: min-content min-content min-content 1fr;
-
-        .kit-card-select,
-        .kit-card-image,
-        .kit-card-icon,
-        .kit-card-colorbar {
-            margin-right: 8px;
-        }
-
-        .kit-card-select {
-            grid-auto-rows: min-content;
-            row-gap: 8px;
-        }
-
-        .kit-card-image,
-        .kit-card-icon .kit-icon {
-            width: 64px;
-        }
-
-        .kit-card-icon .kit-icon {
-            height: 64px;
-        }
-
-        .kit-card-colorbar {
-            height: 60px;
-            flex-basis: 1fr;
-        }
-    }
-
-    .kit-card-select,
-    .kit-card-image,
-    .kit-card-picto,
-    .kit-card-colorbar {
-        flex: 0 0 auto;
-    }
-
-    .kit-card-select {
-        grid-area: select;
-        display: grid;
-    }
-
-    .kit-card-image {
-        grid-area: picto;
-        height: 64px;
-        border-radius: ${({$theme}) => $theme.image.border.radius}px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        border: 1px solid ${({$theme}) => $theme.image.colors.border.default};
-
-        .kit-card-image-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            img {
-                width: auto;
-                max-width: 100%;
-                max-height: 100%;
+                .ant-card-head-title {
+                    color: ${({$theme, $disabled}) =>
+                        $disabled
+                            ? $theme.colors.typography.headerTitle.disabled
+                            : $theme.colors.typography.headerTitle.default};
+                    font-size: ${({$theme}) => `${$theme.typography.headerTitle.fontSize}px`};
+                    font-weight: ${({$theme}) => $theme.typography.headerTitle.fontWeight};
+                }
             }
         }
-    }
+        .ant-card-cover {
+            padding: ${({$sideSpacing}) => ($sideSpacing ? '0px 16px' : '0px')};
+            height: 252px;
+            overflow: hidden;
+            background-color: ${({$theme, $disabled}) =>
+                $disabled ? $theme.colors.background.disabled : $theme.colors.background.default};
 
-    .kit-card-icon {
-        grid-area: picto;
-        height: 64px;
-        width: 64px;
-        border-radius: ${({$theme}) => $theme.icon.border.radius}px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        border: 1px solid ${({$theme}) => $theme.icon.colors.border.default};
-
-        &.noBorder {
-            border-color: transparent;
+            & img {
+                border-radius: 0;
+            }
+        }
+        .ant-card-body {
+            padding: 24px 16px;
+            background-color: ${({$theme, $disabled}) =>
+                $disabled ? $theme.colors.background.disabled : $theme.colors.background.default};
         }
 
-        .anticon {
-            font-size: 2rem;
-            text-align: center;
+        .card-content-title {
+            color: ${({$theme, $disabled}) =>
+                $disabled
+                    ? $theme.colors.typography.contentTitle.disabled
+                    : $theme.colors.typography.contentTitle.default};
+            font-size: ${({$theme}) => `${$theme.typography.contentTitle.fontSize}px`};
+            font-weight: ${({$theme}) => $theme.typography.contentTitle.fontWeight};
+            line-height: normal;
+        }
+
+        .card-content-description {
+            color: ${({$theme, $disabled}) =>
+                $disabled
+                    ? $theme.colors.typography.description.disabled
+                    : $theme.colors.typography.description.default};
+            font-size: ${({$theme}) => `${$theme.typography.desciption.fontSize}px`};
+            line-height: normal;
+            font-weight: ${({$theme}) => $theme.typography.desciption.fontWeight};
+        }
+
+        .ant-card-cover {
+            margin-top: 0px;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+
+        .ant-card-actions {
+            border-top: none;
+            background-color: ${({$theme, $disabled}) =>
+                $disabled ? $theme.colors.background.disabled : $theme.colors.background.default};
+
+            & > li:not(:last-child) {
+                border-color: ${({$theme, $disabled}) =>
+                    $disabled ? $theme.colors.actions.disabled : $theme.colors.actions.default};
+            }
+            & li span span {
+                color: ${({$theme, $disabled}) =>
+                    $disabled ? $theme.colors.actions.disabled : $theme.colors.actions.default};
+
+                &:hover {
+                    cursor: ${({$disabled}) => ($disabled ? 'not-allowed' : 'inherit')};
+                    color: ${({$theme, $disabled}) =>
+                        $disabled ? $theme.colors.actions.disabled : $theme.colors.actions.hover};
+                }
+            }
+        }
+
+        .kit-card-cover {
             width: 100%;
             height: 100%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            opacity: ${({$disabled}) => ($disabled ? 0.4 : 1)};
         }
 
-        .kit-icon {
-            padding: 0px;
-        }
-    }
-
-    .kit-card-colorbar {
-        grid-area: colors;
-    }
-
-    .kit-card-data {
-        grid-area: content;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-
-        > :not(:last-child) {
-            margin-bottom: 5px;
+        .kit-card-content-title-icon {
+            color: ${({$theme, $disabled}) =>
+                $disabled
+                    ? $theme.colors.typography.contentTitle.disabled
+                    : $theme.colors.typography.contentTitle.default};
+            font-size: ${({$theme}) => $theme.typography.linkIcon.fontSize}px;
+            padding: 0;
         }
 
-        .kit-card-description-container {
-            position: relative;
-        }
-
-        .kit-card-title {
-            font-size: ${({$theme}) => $theme.title.typography.fontSize}px;
-            font-weight: ${({$theme}) => $theme.title.typography.fontWeight};
-            color: ${({$theme}) => $theme.title.colors.typography.default};
-        }
-        .kit-card-desc {
-            font-size: ${({$theme}) => $theme.description.typography.fontSize}px;
-            font-weight: ${({$theme}) => $theme.description.typography.fontWeight};
-            color: ${({$theme}) => $theme.description.colors.typography.default};
-
-            .ant-typography-expand {
-                visibility: hidden;
-            }
-        }
-        .kit-card-footer {
-            font-size: ${({$theme}) => $theme.footer.typography.fontSize}px;
-            font-weight: ${({$theme}) => $theme.footer.typography.fontWeight};
-            color: ${({$theme}) => $theme.footer.colors.typography.default};
-        }
-
-        .kit-card-description-collexp {
-            color: ${({$theme}) => $theme.expend.colors.typography.default};
+        .kit-card-extra {
+            color: ${({$theme, $disabled}) =>
+                $disabled ? $theme.colors.typography.extra.disabled : $theme.colors.typography.extra.default};
 
             &:hover {
-                color: ${({$theme}) => $theme.expend.colors.typography.hover};
-            }
-
-            &.kit-card-description-collapse {
-                float: right;
-            }
-
-            &.kit-card-description-expand {
-                position: absolute;
-                right: 0;
-                bottom: 0;
+                color: ${({$theme, $disabled}) =>
+                    $disabled ? $theme.colors.typography.extra.disabled : $theme.colors.typography.extra.hover};
+                cursor: ${({$disabled}) => ($disabled ? 'not-allowed' : 'cursor')};
             }
         }
     }
 `;
 
-// TODO Add More /less button to description
+const ContentTitleContainer = styled.div<{$isContentTitleClick: boolean; $disabled: boolean}>`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: ${({$isContentTitleClick, $disabled}) =>
+        $disabled ? 'not-allowed' : $isContentTitleClick ? 'pointer' : 'inherit'};
+`;
 
-const getPicture = picture => {
-    if (!picture) {
-        return null;
+const getCover = (cover?: ReactNode) => {
+    let cardCover: null | ReactElement = null;
+
+    if (cover) {
+        const customCover = cover as ReactElement;
+        cardCover = cloneElement(customCover, {className: `kit-card-cover ${customCover.props.className ?? ''}`});
     }
 
-    let noBorder = false;
-    let cloneProps = {};
-    let wrapperClassName = 'kit-card-icon';
-    switch (picture.type.displayName) {
-        case 'KitImage':
-            cloneProps = {
-                preview: {
-                    mask: <EyeOutlined />
-                },
-                width: '100%',
-                height: '100%',
-                rootClassName: (picture.props.rootClassName ?? '') + ' kit-card-image-image'
-            };
-            wrapperClassName = 'kit-card-image';
-            break;
-        case 'KitIcon':
-            noBorder = true;
-            cloneProps = {
-                on: true
-            };
-            break;
-        case 'KitAvatar':
-            break;
-        default:
-            return null;
-    }
-    const Component = React.cloneElement(picture, cloneProps as KitImageProps & KitIconProps & KitAvatarProps);
-    return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
+    return cardCover;
 };
 
-const getActions = (actions, disabled) => {
-    if (!actions) {
-        return null;
+const getExtra = (disabled: boolean, extra?: ReactNode) => {
+    let cardExtra: null | ReactElement = null;
+
+    if (extra) {
+        const customExtra = extra as ReactElement;
+        cardExtra = cloneElement(customExtra, {
+            className: `kit-card-extra ${customExtra.props.className ?? ''}`,
+            href: disabled ? null : customExtra.props.href
+        });
     }
 
-    return actions.map((button, index) =>
-        React.cloneElement(button, {
-            key: index,
-            type: 'default',
-            disabled: disabled,
-            className: `${button.props.className ?? ''} kit-card-select-button`
-        })
-    );
+    return cardExtra;
 };
 
-const getSWrapperClassName = (vertical, disabled, className) =>
-    cn(className, 'kit-card-wrapper', {
-        'kit-card-vertical': vertical,
-        'kit-card-horizontal': !vertical,
-        'kit-card-disabled': disabled
-    });
+const getActions = (disabled: boolean, actions?: ReactNode[]) => {
+    if (disabled && actions) {
+        return actions?.reduce<ReactNode[]>((acc, action) => {
+            const customAction = action as ReactElement;
+            const disabledAction = cloneElement(customAction, {
+                onClick: undefined
+            });
+            acc.push(disabledAction);
+            return acc;
+        }, []);
+    }
+    return actions;
+};
 
-export const KitCard: React.FunctionComponent<KitCardProps> = ({
-    vertical,
-    disabled,
-    colors,
-    picture,
-    title,
-    description,
-    extrainfo,
-    tags,
+export const KitCard: React.FunctionComponent<IKitCardProps> = ({
+    style,
+    cover,
+    extra,
+    contentTitle,
+    contentDescription,
     actions,
-    onSelectChange,
-    onEdit,
+    onContentTitleClick,
+    separator = false,
+    sideSpacing = true,
+    disabled = false,
     ...props
 }) => {
     const {theme} = useKitTheme();
-    const [descriptionVisible, setDescriptionVisible] = useState(false);
-    const [isDescriptionEllipsis, setIsDescriptionEllipsis] = useState(false);
+
+    const customStyle: CSSProperties = {
+        width: style?.width ?? '340px'
+    };
 
     return (
-        <CardWrapper
+        <StyledCard
             $theme={theme.components.Card}
-            className={getSWrapperClassName(vertical, disabled, props.className ?? '')}
+            $disabled={disabled}
+            $sideSpacing={sideSpacing}
+            $separator={separator}
+            style={customStyle}
+            extra={getExtra(disabled, extra)}
+            cover={getCover(cover)}
+            bodyStyle={contentTitle || contentDescription ? {} : {padding: 0, height: 0}}
+            actions={getActions(disabled, actions)}
             {...props}
         >
-            {(onSelectChange || onEdit) && (
-                <div className="kit-card-select">
-                    {onSelectChange && (
-                        <KitCheckbox
-                            onChange={(e: CheckboxChangeEvent) => onSelectChange && onSelectChange(e)}
-                            disabled={disabled}
-                        />
-                    )}
-                    {onEdit && (
-                        <KitButton
-                            className="kit-card-select-button"
-                            onClick={() => onEdit && onEdit()}
-                            disabled={disabled}
-                        >
-                            <EditOutlined />
-                        </KitButton>
-                    )}
-                    {getActions(actions, disabled)}
-                </div>
-            )}
-            {getPicture(picture)}
-            {colors && <KitColorbar colors={colors} vertical={!vertical} className={`kit-card-colorbar`} />}
-            <div className="kit-card-data">
-                <KitTypography.Text className="kit-card-title" ellipsis={{rows: 1, tooltip: true}}>
-                    {title}
-                </KitTypography.Text>
-                <div className="kit-card-description-container">
-                    <KitTypography.Paragraph
-                        className="kit-card-desc"
-                        ellipsis={
-                            descriptionVisible
-                                ? false
-                                : {
-                                      rows: 2,
-                                      expandable: true,
-                                      onEllipsis: () => setIsDescriptionEllipsis(true)
-                                  }
-                        }
+            <KitSpace direction="vertical">
+                {(contentTitle || onContentTitleClick) && (
+                    <ContentTitleContainer
+                        $disabled={disabled}
+                        $isContentTitleClick={!!onContentTitleClick}
+                        onClick={disabled ? undefined : onContentTitleClick}
                     >
-                        {description}
-                        {descriptionVisible && (
-                            <KitTypography.Link
-                                className="kit-card-description-collexp kit-card-description-collapse"
-                                onClick={e => {
-                                    e.stopPropagation();
-                                    setDescriptionVisible(false);
-                                }}
-                            >
-                                Less
-                            </KitTypography.Link>
+                        {onContentTitleClick && (
+                            <KitIcon className="kit-card-content-title-icon" icon={<LinkOutlined />} />
                         )}
-                    </KitTypography.Paragraph>
-                    {isDescriptionEllipsis && !descriptionVisible && (
-                        <KitTypography.Link
-                            className="kit-card-description-collexp kit-card-description-expand"
-                            onClick={e => {
-                                e.stopPropagation();
-                                setDescriptionVisible(true);
-                            }}
-                        >
-                            More
-                        </KitTypography.Link>
-                    )}
-                </div>
-                <KitTypography.Text className="kit-card-footer">{extrainfo}</KitTypography.Text>
-                {tags && (
-                    <div className="kit-card-tags">
-                        {tags.map(tag => (
-                            <KitTag key={tag as string} color="blue">
-                                {tag}
-                            </KitTag>
-                        ))}
-                    </div>
+                        {contentTitle && (
+                            <KitTypography.Text className="card-content-title">{contentTitle}</KitTypography.Text>
+                        )}
+                    </ContentTitleContainer>
                 )}
-            </div>
-        </CardWrapper>
+                {contentDescription && (
+                    <KitTypography.Text className="card-content-description">{contentDescription}</KitTypography.Text>
+                )}
+            </KitSpace>
+        </StyledCard>
     );
 };
 

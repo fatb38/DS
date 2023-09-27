@@ -1,47 +1,39 @@
 import Basic from './basic';
-import Vertical from './vertical';
-import Icon from './icon';
-import Avatar from './avatar';
-import Tags from './tags';
-import Colors from './colors';
-import Selectable from './selectable';
-import Editable from './editable';
-import Actions from './actions';
+import WithImage from './withImage';
+import WithContent from './withContent';
 import Disabled from './disabled';
+import Separator from './separator';
+import Link from './link';
+import Actions from './actions';
+import Extra from './extra';
 
 import BasicSource from './basic?raw';
-import VerticalSource from './vertical?raw';
-import IconSource from './icon?raw';
-import AvatarSource from './avatar?raw';
-import TagsSource from './tags?raw';
-import ColorsSource from './colors?raw';
-import SelectableSource from './selectable?raw';
-import EditableSource from './editable?raw';
-import ActionsSource from './actions?raw';
+import WithImageSource from './withImage?raw';
+import WithContentSource from './withContent?raw';
 import DisabledSource from './disabled?raw';
+import SeparatorSource from './separator?raw';
+import LinkSource from './link?raw';
+import ActionsSource from './actions?raw';
+import ExtraSource from './extra?raw';
 
 export const Sources = {
     Basic: BasicSource,
-    Vertical: VerticalSource,
-    Icon: IconSource,
-    Avatar: AvatarSource,
-    Tags: TagsSource,
-    Colors: ColorsSource,
-    Selectable: SelectableSource,
-    Editable: EditableSource,
+    WithImage: WithImageSource,
+    WithContent: WithContentSource,
+    Disabled: DisabledSource,
+    Separator: SeparatorSource,
+    Link: LinkSource,
     Actions: ActionsSource,
-    Disabled: DisabledSource
+    Extra: ExtraSource
 };
 
 export default {
     Basic,
-    Vertical,
-    Icon,
-    Avatar,
-    Tags,
-    Colors,
-    Selectable,
-    Editable,
+    WithImage,
+    WithContent,
+    Disabled,
+    Separator,
+    Link,
     Actions,
-    Disabled
+    Extra
 };

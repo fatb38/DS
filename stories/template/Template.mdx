@@ -2,12 +2,10 @@ import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import { argTypes, Template } from "./data";
 import Exemples, { Sources } from './exemples';
-import CustomCanvas from '../../.storybook/components/CustomCanvas.jsx';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as Template from './Template.stories';
 
-<Meta
-    title="Design System/DataEntry/Template"
-    argTypes={argTypes}
-/>
+<Meta of={KitCardStories} />
 
 # Template
 
@@ -18,12 +16,10 @@ Template's description
 ##### Basic
 Exemple description
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="template-basic"/>
 
-## API
+## Api
 
-<Canvas>
-    <Story name="Template">{Template.bind({})}</Story>
-</Canvas>
+<Canvas of={Template.Api} />
 
-<Controls story="Template" />
+<Controls of={Template.Api} />
