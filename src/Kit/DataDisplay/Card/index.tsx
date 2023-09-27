@@ -8,7 +8,12 @@ import {useKitTheme} from '@theme/theme-context';
 import {IKitCardTheme} from '@theme/types/components/DataDisplay/Card';
 import {LinkOutlined} from '@ant-design/icons';
 
-const StyledCard = styled(AntdCard)<{$theme: IKitCardTheme; $disabled: boolean; $sideSpacing: boolean}>`
+const StyledCard = styled(AntdCard)<{
+    $theme: IKitCardTheme;
+    $disabled: boolean;
+    $sideSpacing: boolean;
+    $separator: boolean;
+}>`
     font-family: ${({$theme}) => $theme.typography.fontFamily};
     overflow: hidden;
 
@@ -22,18 +27,23 @@ const StyledCard = styled(AntdCard)<{$theme: IKitCardTheme; $disabled: boolean; 
         &:focus-within {
             border: 1px dashed
                 ${({$theme, $disabled}) => ($disabled ? $theme.colors.border.disabled : $theme.colors.border.focus)};
+            box-shadow: 0px 0px 16px 0px
+                ${({$theme, $disabled}) => ($disabled ? $theme.colors.shadow.focus : $theme.colors.shadow.focus)};
         }
 
         &:hover {
             border: 1px solid
                 ${({$theme, $disabled}) => ($disabled ? $theme.colors.border.disabled : $theme.colors.border.hover)};
+            box-shadow: 0px 0px 24px 0px
+                ${({$theme, $disabled}) => ($disabled ? $theme.colors.shadow.disabled : $theme.colors.shadow.hover)};
         }
     }
 
     &.ant-card {
         .ant-card-head {
             padding: 24px 16px;
-            border-bottom: none;
+            border-bottom: ${({$theme, $separator}) =>
+                $separator ? `1px solid ${$theme.colors.separator.default}` : 'none'};
             background-color: ${({$theme, $disabled}) =>
                 $disabled ? $theme.colors.background.disabled : $theme.colors.background.default};
 
@@ -88,6 +98,7 @@ const StyledCard = styled(AntdCard)<{$theme: IKitCardTheme; $disabled: boolean; 
         }
 
         .ant-card-cover {
+            margin-top: 0px;
             margin-inline-start: 0px;
             margin-inline-end: 0px;
         }
@@ -96,6 +107,21 @@ const StyledCard = styled(AntdCard)<{$theme: IKitCardTheme; $disabled: boolean; 
             border-top: none;
             background-color: ${({$theme, $disabled}) =>
                 $disabled ? $theme.colors.background.disabled : $theme.colors.background.default};
+
+            & > li:not(:last-child) {
+                border-color: ${({$theme, $disabled}) =>
+                    $disabled ? $theme.colors.actions.disabled : $theme.colors.actions.default};
+            }
+            & li span span {
+                color: ${({$theme, $disabled}) =>
+                    $disabled ? $theme.colors.actions.disabled : $theme.colors.actions.default};
+
+                &:hover {
+                    cursor: ${({$disabled}) => ($disabled ? 'not-allowed' : 'inherit')};
+                    color: ${({$theme, $disabled}) =>
+                        $disabled ? $theme.colors.actions.disabled : $theme.colors.actions.hover};
+                }
+            }
         }
 
         .kit-card-cover {
@@ -126,10 +152,12 @@ const StyledCard = styled(AntdCard)<{$theme: IKitCardTheme; $disabled: boolean; 
     }
 `;
 
-const ContentTitleContainer = styled.div`
+const ContentTitleContainer = styled.div<{$isContentTitleClick: boolean; $disabled: boolean}>`
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: ${({$isContentTitleClick, $disabled}) =>
+        $disabled ? 'not-allowed' : $isContentTitleClick ? 'pointer' : 'inherit'};
 `;
 
 const getCover = (cover?: ReactNode) => {
@@ -157,6 +185,21 @@ const getExtra = (disabled: boolean, extra?: ReactNode) => {
     return cardExtra;
 };
 
+const getActions = (disabled: boolean, actions?: ReactNode[]) => {
+    if (disabled && actions) {
+        return actions?.reduce<ReactNode[]>((acc, action) => {
+            //todo
+            const customAction = action as ReactElement;
+            const disabledAction = cloneElement(customAction, {
+                onClick: undefined
+            });
+            acc.push(disabledAction);
+            return acc;
+        }, []);
+    }
+    return actions;
+};
+
 export const KitCard: React.FunctionComponent<IKitCardProps> = ({
     style,
     cover,
@@ -164,6 +207,8 @@ export const KitCard: React.FunctionComponent<IKitCardProps> = ({
     contentTitle,
     contentDescription,
     actions,
+    onContentTitleClick,
+    separator = false,
     sideSpacing = true,
     disabled = false,
     ...props
@@ -179,17 +224,27 @@ export const KitCard: React.FunctionComponent<IKitCardProps> = ({
             $theme={theme.components.Card}
             $disabled={disabled}
             $sideSpacing={sideSpacing}
+            $separator={separator}
             style={customStyle}
             extra={getExtra(disabled, extra)}
             cover={getCover(cover)}
-            bodyStyle={contentTitle || contentDescription || actions ? {} : {padding: 0, height: 0}}
+            bodyStyle={contentTitle || contentDescription ? {} : {padding: 0, height: 0}}
+            actions={getActions(disabled, actions)}
             {...props}
         >
             <KitSpace direction="vertical">
-                {contentTitle && (
-                    <ContentTitleContainer>
-                        <KitIcon className="kit-card-content-title-icon" icon={<LinkOutlined />} />
-                        <KitTypography.Text className="card-content-title">{contentTitle}</KitTypography.Text>
+                {(contentTitle || onContentTitleClick) && (
+                    <ContentTitleContainer
+                        $disabled={disabled}
+                        $isContentTitleClick={!!onContentTitleClick}
+                        onClick={disabled ? undefined : onContentTitleClick}
+                    >
+                        {onContentTitleClick && (
+                            <KitIcon className="kit-card-content-title-icon" icon={<LinkOutlined />} />
+                        )}
+                        {contentTitle && (
+                            <KitTypography.Text className="card-content-title">{contentTitle}</KitTypography.Text>
+                        )}
                     </ContentTitleContainer>
                 )}
                 {contentDescription && (

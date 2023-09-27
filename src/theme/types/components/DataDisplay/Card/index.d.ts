@@ -29,6 +29,20 @@ export interface IKitCardThemeStyled {
             hover: string;
             disabled: string;
         };
+        separator: {
+            default: string;
+        };
+        actions: {
+            default: string;
+            disabled: string;
+            hover: string;
+        };
+        shadow: {
+            default: string;
+            disabled: string;
+            hover: string;
+            focus: string;
+        };
     };
     typography: {
         fontFamily: string;

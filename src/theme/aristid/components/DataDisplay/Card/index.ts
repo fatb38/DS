@@ -6,7 +6,7 @@ const {colors, typography} = KitAristidThemeGeneral;
 const kitCardThemeStyled: IKitCardThemeStyled = {
     colors: {
         background: {
-            default: colors.neutral.typography.white,
+            default: 'none',
             disabled: colors.secondary.mediumGrey.mediumGrey100
         },
         typography: {
@@ -33,6 +33,20 @@ const kitCardThemeStyled: IKitCardThemeStyled = {
             focus: colors.primary.blue400,
             hover: colors.primary.blue400,
             disabled: colors.secondary.mediumGrey.mediumGrey200
+        },
+        separator: {
+            default: colors.secondary.mediumGrey.mediumGrey200
+        },
+        actions: {
+            default: colors.secondary.mediumGrey.mediumGrey500,
+            disabled: colors.secondary.mediumGrey.mediumGrey300,
+            hover: colors.primary.blue400
+        },
+        shadow: {
+            default: colors.neutral.typography.black,
+            disabled: colors.primary.blue400,
+            hover: colors.primary.blue400,
+            focus: colors.primary.blue400
         }
     },
     typography: {

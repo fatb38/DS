@@ -1,5 +1,10 @@
+import {EditOutlined, EllipsisOutlined, SettingOutlined} from '@ant-design/icons';
 import {KitCard} from '@kit/DataDisplay/Card';
-import React from 'react';
+import {KitSwitch} from '@kit/DataEntry';
+import {KitTypography} from '@kit/General';
+import KitLink from '@kit/General/Typography/Link';
+import {KitSpace} from '@kit/Layout';
+import React, {useState} from 'react';
 
 export const KitTemplate: React.FunctionComponent = () => {
     return null;
@@ -66,6 +71,7 @@ const CardArgTypes = {
             type: {
                 summary: 'boolean'
             },
+            defaultValue: {summary: false},
             category: 'Card'
         }
     },
@@ -89,6 +95,16 @@ const CardArgTypes = {
             category: 'Card'
         }
     },
+    onContentTitleClick: {
+        name: 'onContentTitleClick',
+        description: 'Action on content title click (link icon is display when this props is fullfill)',
+        table: {
+            type: {
+                summary: '() => void'
+            },
+            category: 'Card'
+        }
+    },
     title: {
         name: 'title',
         description: 'Card title',
@@ -100,6 +116,18 @@ const CardArgTypes = {
             category: 'Card'
         }
     },
+    separator: {
+        name: 'separator',
+        description: 'Display separator between title and content',
+        control: {type: 'boolean'},
+        table: {
+            type: {
+                summary: 'Boolean'
+            },
+            defaultValue: {summary: false},
+            category: 'Card'
+        }
+    },
     sideSpacing: {
         name: 'sideSpacing',
         description: 'Space around Card image',
@@ -108,6 +136,7 @@ const CardArgTypes = {
             type: {
                 summary: 'Boolean'
             },
+            defaultValue: {summary: true},
             category: 'Card'
         }
     }
@@ -118,5 +147,35 @@ export const argTypes = {
 };
 
 export const Template = args => {
-    return <KitCard {...args} />;
+    const [isCover, setCover] = useState(true);
+    const [isActions, setActions] = useState(true);
+    const [isExtra, setExtra] = useState(true);
+
+    return (
+        <KitSpace direction="vertical">
+            <KitSpace>
+                <KitTypography.Text>
+                    Cover: <KitSwitch defaultChecked onChange={setCover} />
+                </KitTypography.Text>
+                <KitTypography.Text>
+                    Actions: <KitSwitch defaultChecked onChange={setActions} />
+                </KitTypography.Text>
+                <KitTypography.Text>
+                    Extra: <KitSwitch defaultChecked onChange={setExtra} />
+                </KitTypography.Text>
+            </KitSpace>
+            <KitCard
+                {...args}
+                cover={isCover && <img alt="example" src="public/images/free-copyright.jpeg" />}
+                extra={isExtra && <KitLink href="#">More</KitLink>}
+                actions={
+                    isActions && [
+                        <SettingOutlined key="setting" onClick={() => console.log('click button settings')} />,
+                        <EditOutlined key="edit" onClick={() => console.log('click button edit')} />,
+                        <EllipsisOutlined key="ellipsis" onClick={() => console.log('click button ellipsis')} />
+                    ]
+                }
+            />
+        </KitSpace>
+    );
 };

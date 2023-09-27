@@ -17,4 +17,6 @@ export default interface IKitCardProps extends Omit<CardProps, AntdCardTypesToOm
     contentTitle?: string;
     contentDescription?: string;
     sideSpacing?: boolean;
+    separator?: boolean;
+    onContentTitleClick?: () => void;
 }
