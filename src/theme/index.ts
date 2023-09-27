@@ -16,14 +16,6 @@ const theme: KitThemeConfig = {
     typography: Typography,
     headersTypography: typographyHeaders,
     components: {
-        Radio: {
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize5,
-            lineHeight: Typography.lineHeight5,
-            fontSizeLG: typographyHeaders.fontSize4,
-            dotSize: 12,
-            dotColorDisabled: colorsPalette.primary.blue200
-        },
         Divider: {
             colorText: colorsPalette.neutral.typography.black,
             colorTextHeading: colorsPalette.neutral.typography.black,

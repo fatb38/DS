@@ -20,6 +20,7 @@ import {KitSelectTheme} from './components/DataEntry/Select';
 import {KitCheckboxTheme} from './components/DataEntry/Checkbox';
 import {KitDatePickerTheme} from './components/DataEntry/DatePicker';
 import {KitUploadTheme} from './components/DataEntry/Upload';
+import {KitRadioTheme} from './components/DataEntry/Radio';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -45,6 +46,7 @@ export const KitAristidTheme: KitTheme = {
         Select: KitSelectTheme,
         Checkbox: KitCheckboxTheme,
         DatePicker: KitDatePickerTheme,
-        Upload: KitUploadTheme
+        Upload: KitUploadTheme,
+        Radio: KitRadioTheme
     }
 };

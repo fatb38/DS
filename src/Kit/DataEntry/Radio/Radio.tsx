@@ -1,24 +1,27 @@
 import React, {useContext} from 'react';
 import {Radio, RadioChangeEvent, RadioProps} from 'antd';
 import styled from 'styled-components';
-import theme from './theme';
-import {KitRadioProps, StyledKitRadioProps} from './types';
+import {KitRadioProps} from './types';
 import RadioGroupContext from './context';
+import {useKitTheme} from '@theme/theme-context';
+import {KitRadioTheme} from '@theme/types/components/DataEntry/Radio';
 
-const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
-    font-weight: ${theme.fontWeight.default};
+const StyledKitRadio = styled(Radio)<{
+    $theme: KitRadioTheme;
+}>`
+    font-weight: ${({$theme}) => $theme.typography.fontWeight};
 
     // Uncheked
     .ant-radio {
         .ant-radio-inner {
-            border: ${theme.borderWidth} solid ${theme.borderColor.default};
-            background-color: ${theme.backgroundColor.default};
+            border: 1px solid ${({$theme}) => $theme.colors.border.default};
+            background-color: ${({$theme}) => $theme.colors.background.default};
         }
 
         .ant-radio-inner:after {
             transform: scale(0.6);
             visibility: hidden;
-            background-color: ${theme.bulletColor.default};
+            background-color: ${({$theme}) => $theme.colors.bullet.default};
         }
     }
 
@@ -27,55 +30,55 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
     }
 
     &.ant-radio-wrapper-disabled .ant-radio .ant-radio-inner {
-        border: ${theme.borderWidth} solid ${theme.borderColor.disabled};
-        background-color: ${theme.backgroundColor.disabled};
+        border: 1px solid ${({$theme}) => $theme.colors.border.disabled};
+        background-color: ${({$theme}) => $theme.colors.background.disabled};
 
         &:after {
-            background-color: ${theme.bulletColor.disabled};
+            background-color: ${({$theme}) => $theme.colors.bullet.disabled};
         }
     }
 
     &.ant-radio-wrapper-danger .ant-radio {
         .ant-radio-inner {
-            border: ${theme.borderWidth} solid ${theme.borderColor.danger.default};
-            background-color: ${theme.backgroundColor.danger.default};
+            border: 1px solid ${({$theme}) => $theme.colors.border.danger.default};
+            background-color: ${({$theme}) => $theme.colors.background.danger.default};
 
             &:after {
-                background-color: ${theme.bulletColor.danger.default};
+                background-color: ${({$theme}) => $theme.colors.bullet.danger.default};
             }
         }
 
         .ant-radio-input:hover + .ant-radio-inner {
-            border-color: ${theme.borderColor.danger.hover};
-            background-color: ${theme.backgroundColor.danger.hover};
+            border-color: ${({$theme}) => $theme.colors.border.danger.hover};
+            background-color: ${({$theme}) => $theme.colors.background.danger.hover};
 
             &:after {
-                background-color: ${theme.bulletColor.danger.hover};
+                background-color: ${({$theme}) => $theme.colors.bullet.danger.hover};
             }
         }
     }
 
     &.ant-radio-wrapper-danger.ant-radio-wrapper-disabled .ant-radio .ant-radio-inner {
-        border: ${theme.borderWidth} solid ${theme.borderColor.danger.default};
-        background-color: ${theme.backgroundColor.danger.default};
+        border: 1px solid ${({$theme}) => $theme.colors.border.danger.default};
+        background-color: ${({$theme}) => $theme.colors.background.danger.default};
 
         &:after {
-            background-color: ${theme.bulletColor.danger.default};
+            background-color: ${({$theme}) => $theme.colors.bullet.danger.default};
         }
     }
 
     &:not(.ant-radio-wrapper-danger):not(.ant-radio-wrapper-disabled) {
         .ant-radio-checked .ant-radio-inner {
-            border-color: ${theme.borderColor.checked};
-            background-color: ${theme.backgroundColor.checked};
+            border-color: ${({$theme}) => $theme.colors.border.checked};
+            background-color: ${({$theme}) => $theme.colors.background.checked};
         }
 
         .ant-radio-input:hover + .ant-radio-inner {
-            border-color: ${theme.borderColor.hover};
-            background-color: ${theme.backgroundColor.hover};
+            border-color: ${({$theme}) => $theme.colors.border.hover};
+            background-color: ${({$theme}) => $theme.colors.background.hover};
 
             &:after {
-                background-color: ${theme.bulletColor.hover};
+                background-color: ${({$theme}) => $theme.colors.bullet.hover};
             }
         }
     }
@@ -90,7 +93,7 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
     }
 
     &:not(.ant-radio-wrapper-disabled):not(.ant-radio-wrapper-danger) .ant-radio-input:focus + .ant-radio-inner {
-        border-color: ${theme.borderColor.checked};
+        border-color: ${({$theme}) => $theme.colors.border.checked};
     }
 
     &:not(.ant-radio-wrapper-disabled) .ant-radio-input:focus-within + .ant-radio-inner::after {
@@ -98,32 +101,32 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
     }
 
     // active
-
     &:not(.ant-radio-wrapper-danger) {
         .ant-radio-disabled + span {
-            color: ${theme.color.disabled};
+            color: ${({$theme}) => $theme.colors.typography.disabled};
         }
     }
 
     .ant-radio-disabled {
-        color: ${theme.color.disabled};
+        color: ${({$theme}) => $theme.colors.typography.disabled};
     }
 
     &.ant-radio-wrapper-danger {
         .ant-radio {
             &.ant-radio-disabled + span {
-                color: ${theme.color.danger.disabled};
+                color: ${({$theme}) => $theme.colors.typography.danger.disabled};
             }
         }
     }
 
     .ant-radio-checked + span {
-        font-weight: ${theme.fontWeight.default};
+        font-weight: ${({$theme}) => $theme.typography.fontWeight};
     }
 `;
 
 const KitRadio = React.forwardRef<any, KitRadioProps>((props, ref) => {
     const groupContext = useContext(RadioGroupContext);
+    const {theme} = useKitTheme();
     const {className, danger, ...rest} = props;
 
     const onChange = (e: RadioChangeEvent) => {
@@ -141,6 +144,7 @@ const KitRadio = React.forwardRef<any, KitRadioProps>((props, ref) => {
 
     return (
         <StyledKitRadio
+            $theme={theme.components.Radio}
             ref={ref}
             className={danger ? (className || '') + ' ant-radio-wrapper-danger' : className}
             {...radioProps}
