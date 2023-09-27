@@ -15,7 +15,7 @@ const getOptionLabel = (props, theme) => (
     <div className="kit-select-option">
         {props.icon && <KitIcon className="kit-select-option-icon" icon={props.icon} on />}
         {!props.icon && (
-            <StyledBadge $theme={theme.components.Select.Select.colorBadge} className="kit-select-option-badge">
+            <StyledBadge $theme={theme.components.Select.ColorBadge} className="kit-select-option-badge">
                 {props.color && <div className="kit-select-option-color" style={{backgroundColor: props.color}} />}
             </StyledBadge>
         )}
@@ -134,7 +134,7 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
     return (
         <KitInputWrapper label={label} helper={helper} disabled={props.disabled} status={props.status}>
             <StyledKitSelect
-                $theme={theme.components.Select.Select}
+                $theme={theme.components.Select}
                 {...props}
                 className={getClasses()}
                 popupClassName={getDropdownClasses()}
