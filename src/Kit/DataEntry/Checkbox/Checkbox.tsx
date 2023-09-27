@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext, useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import {Checkbox} from 'antd';
 import {KitCheckboxProps} from './types';
 import {useKitTheme} from '@theme/theme-context';
 import {KitCheckboxTheme} from '@theme/types/components/DataEntry/Checkbox';
+import {GroupContext} from './Group';
 
 const StyledKitCheckbox = styled(Checkbox)<{
     $theme: KitCheckboxTheme;
@@ -157,11 +158,52 @@ const StyledKitCheckbox = styled(Checkbox)<{
 `;
 
 const KitCheckbox = React.forwardRef<any, KitCheckboxProps>(({danger, ...props}, ref) => {
+    const checkboxGroup = useContext(GroupContext);
     const {theme} = useKitTheme();
+    const mergedDisabled = checkboxGroup?.disabled || props.disabled;
+    const prevValue = useRef(props.value);
+
+    useEffect(() => {
+        checkboxGroup?.registerValue(props.value);
+    }, []);
+
+    useEffect(() => {
+        if (props.skipGroup) {
+            return;
+        }
+        if (props.value !== prevValue.current) {
+            checkboxGroup?.cancelValue(prevValue.current);
+            checkboxGroup?.registerValue(props.value);
+            prevValue.current = props.value;
+        }
+        return () => checkboxGroup?.cancelValue(props.value);
+    }, [props.value]);
+
+    const checkboxProps = {...props};
+    if (checkboxGroup && !props.skipGroup) {
+        checkboxProps.onChange = (...args) => {
+            if (props.onChange) {
+                props.onChange(...args);
+            }
+            if (checkboxGroup.toggleOption) {
+                checkboxGroup.toggleOption({label: props.children, value: props.value});
+            }
+        };
+        checkboxProps.name = checkboxGroup.name;
+        checkboxProps.checked = checkboxGroup.value.includes(props.value);
+    }
 
     const className = danger ? (props.className || '') + ' ant-checkbox-wrapper-danger' : props.className;
 
-    return <StyledKitCheckbox $theme={theme.components.Checkbox} {...props} ref={ref} className={className} />;
+    return (
+        <StyledKitCheckbox
+            $theme={theme.components.Checkbox}
+            {...checkboxProps}
+            ref={ref}
+            disabled={mergedDisabled}
+            className={className}
+        />
+    );
 });
 
 export default KitCheckbox;

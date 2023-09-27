@@ -1,8 +1,9 @@
-import React from 'react';
-import {Radio} from 'antd';
+import React, {useContext} from 'react';
+import {Radio, RadioChangeEvent, RadioProps} from 'antd';
 import styled from 'styled-components';
 import theme from './theme';
 import {KitRadioProps, StyledKitRadioProps} from './types';
+import RadioGroupContext from './context';
 
 const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
     font-weight: ${theme.fontWeight.default};
@@ -122,13 +123,27 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
 `;
 
 const KitRadio = React.forwardRef<any, KitRadioProps>((props, ref) => {
+    const groupContext = useContext(RadioGroupContext);
     const {className, danger, ...rest} = props;
+
+    const onChange = (e: RadioChangeEvent) => {
+        props.onChange?.(e);
+        groupContext?.onChange?.(e);
+    };
+
+    const radioProps: RadioProps = {...rest};
+    if (groupContext) {
+        radioProps.name = groupContext.name;
+        radioProps.onChange = onChange;
+        radioProps.checked = props.value === groupContext.value;
+        radioProps.disabled = radioProps.disabled ?? groupContext.disabled;
+    }
 
     return (
         <StyledKitRadio
             ref={ref}
             className={danger ? (className || '') + ' ant-radio-wrapper-danger' : className}
-            {...rest}
+            {...radioProps}
         />
     );
 });

@@ -1,10 +1,10 @@
+import {useContext, useEffect, useState} from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import {ConfigContext} from 'antd/lib/config-provider/';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox/Checkbox';
 import Checkbox from './Checkbox';
-import {GroupContext} from 'antd/lib/checkbox/Group';
 
 import useStyle from 'antd/lib/checkbox/style';
 
@@ -37,6 +37,17 @@ export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
     children?: React.ReactNode;
 }
 
+export interface CheckboxGroupContext {
+    name?: string;
+    toggleOption?: (option: CheckboxOptionType) => void;
+    value?: any;
+    disabled?: boolean;
+    registerValue: (val: string) => void;
+    cancelValue: (val: string) => void;
+}
+
+export const GroupContext = React.createContext<CheckboxGroupContext | null>(null);
+
 export const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGroupProps> = (
     {
         defaultValue,
@@ -51,12 +62,12 @@ export const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElemen
     },
     ref
 ) => {
-    const {getPrefixCls, direction} = React.useContext(ConfigContext);
+    const {getPrefixCls, direction} = useContext(ConfigContext);
 
-    const [value, setValue] = React.useState<CheckboxValueType[]>(restProps.value || defaultValue || []);
+    const [value, setValue] = useState<CheckboxValueType[]>(restProps.value || defaultValue || []);
     const [registeredValues, setRegisteredValues] = React.useState<CheckboxValueType[]>([]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         if ('value' in restProps) {
             setValue(restProps.value || []);
         }
