@@ -3,13 +3,13 @@ import {ButtonProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import {CSSProperties} from 'react';
 
-export type KitButtonType = 'primary' | 'default' | 'link' | 'segmented';
+export type KitButtonType = 'primary' | 'default' | 'text' | 'link' | 'segmented';
 
 export type AntdButtonTypesToOmit = 'type' | 'size' | 'ghost' | 'shape' | 'styles';
 
 export type KitButtonIconSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
-export interface KitButtonProps extends Omit<ButtonProps, AntdButtonTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
+export interface IKitButtonProps extends Omit<ButtonProps, AntdButtonTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     type?: KitButtonType;
     segmentedActived?: boolean;
     segmentedChecked?: boolean;

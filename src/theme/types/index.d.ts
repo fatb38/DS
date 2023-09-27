@@ -6,7 +6,7 @@ import {KitButtonTheme} from './components/General/Button';
 import {KitRateTheme} from './components/DataEntry/Rate';
 import {KitTagTheme} from './components/DataEntry/Tag';
 import {KitInputWrapperTheme} from './components/DataEntry/Input';
-import {KitInputTheme} from './components/DataEntry/Input/Input';
+import {KitInputTheme} from './components/DataEntry/Input';
 import {KitSliderTheme} from './components/DataEntry/Slider';
 import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
 import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
@@ -17,6 +17,9 @@ import {KitImageTheme} from './components/DataDisplay/Image';
 import {KitItemListTheme} from './components/DataDisplay/ItemList';
 import {KitTabsTheme} from './components/DataDisplay/Tabs';
 import {KitTreeTheme} from './components/DataDisplay/Tree';
+import {KitInputNumberTheme} from './components/DataEntry/InputNumber';
+import {KitSwitchTheme} from './components/DataEntry/Switch';
+import {KitSelectTheme} from './components/DataEntry/Select';
 import {IKitCardTheme} from './components/DataDisplay/Card';
 
 type DeepPartial<T> = T extends object
@@ -42,6 +45,7 @@ export interface KitTheme {
         Tag: KitTagTheme;
         InputWrapper: KitInputWrapperTheme;
         Input: KitInputTheme;
+        InputNumber: KitInputNumberTheme;
         Avatar: KitAvatarTheme;
         AvatarGroup: KitAvatarGroupTheme;
         Badge: KitBadgeTheme;
@@ -52,6 +56,8 @@ export interface KitTheme {
         ItemList: KitItemListTheme;
         Tabs: KitTabsTheme;
         Tree: KitTreeTheme;
+        Switch: KitSwitchTheme;
+        Select: KitSelectTheme;
     };
 }
 

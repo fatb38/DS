@@ -9,8 +9,10 @@ const App = () => {
                 Primary
             </KitButton>
             <KitButton danger>Default</KitButton>
+            <KitButton type="text" danger>
+                Text
+            </KitButton>
             <KitButton type="link" danger>
-                {' '}
                 Link
             </KitButton>
             <KitButton type="segmented" icon={<SearchOutlined />} danger />

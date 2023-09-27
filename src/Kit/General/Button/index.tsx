@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button as AntdButton} from 'antd';
 import {styled} from 'styled-components';
-import type {KitButtonProps} from './types';
+import type {IKitButtonProps} from './types';
 import {ButtonType} from 'antd/lib/button';
 import {CheckCircleFilled} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
@@ -9,7 +9,7 @@ import {KitButtonThemeStyled} from '@theme/types/components/General/Button';
 
 interface StyledAntdButtonProps {
     $theme: KitButtonThemeStyled;
-    $iconSize: KitButtonProps['iconSize'];
+    $iconSize: IKitButtonProps['iconSize'];
 }
 
 const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
@@ -18,8 +18,11 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     box-shadow: none;
     color: ${({$theme}) => $theme.colors.typography.default};
     background-color: ${({$theme}) => $theme.colors.background.default};
-    border-color: ${({$theme}) => $theme.colors.border.default};
     font-weight: ${({$theme}) => $theme.typography.fontWeight};
+
+    &:not(.ant-btn-text) {
+        border-color: ${({$theme}) => $theme.colors.border.default};
+    }
 
     &.ant-btn .ant-btn-icon .anticon {
         font-size: ${({$theme, $iconSize}) =>
@@ -114,13 +117,19 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     &.ant-btn-loading:not(:disabled) {
         color: ${({$theme}) => $theme.colors.typography.disabled};
         background-color: ${({$theme}) => $theme.colors.background.disabled};
-        border-color: ${({$theme}) => $theme.colors.border.disabled};
         opacity: initial;
+
+        &:not(.ant-btn-text) {
+            border-color: ${({$theme}) => $theme.colors.border.disabled};
+        }
 
         &:hover {
             color: ${({$theme}) => $theme.colors.typography.disabled};
             background-color: ${({$theme}) => $theme.colors.background.disabled};
-            border-color: ${({$theme}) => $theme.colors.border.disabled};
+
+            &:not(.ant-btn-text) {
+                border-color: ${({$theme}) => $theme.colors.border.disabled};
+            }
         }
     }
 
@@ -152,7 +161,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
         padding: 0px;
         border: none;
         border-radius: 0px;
-        border-bottom: 1px solid ${({$theme}) => $theme.colors.border.default};
+        border-bottom: 1px solid ${({$theme}) => $theme.colors.background.default};
 
         &:disabled {
             border-bottom: none;
@@ -161,7 +170,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
         &:not(.ant-btn-loading):not(:disabled) {
             &:hover {
                 color: ${({$theme}) => $theme.colors.typography.default};
-                border-bottom: 1px dashed ${({$theme}) => $theme.colors.border.hover};
+                border-bottom: 1px solid ${({$theme}) => $theme.colors.border.hover};
             }
 
             &:focus {
@@ -178,20 +187,29 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
         box-shadow: none;
         color: ${({$theme}) => $theme.colors.typography.danger.default};
         background-color: ${({$theme}) => $theme.colors.background.danger.default};
-        border-color: ${({$theme}) => $theme.colors.border.danger.default};
+
+        &:not(.ant-btn-text):not(.ant-btn-link) {
+            border-color: ${({$theme}) => $theme.colors.border.danger.default};
+        }
 
         &:disabled {
             color: ${({$theme}) => $theme.colors.typography.danger.disabled};
             background-color: ${({$theme}) => $theme.colors.background.danger.disabled};
-            border-color: ${({$theme}) => $theme.colors.border.danger.disabled};
             opacity: initial;
+
+            &:not(.ant-btn-text) {
+                border-color: ${({$theme}) => $theme.colors.border.danger.disabled};
+            }
         }
 
         &:not(.ant-btn-loading):not(:disabled) {
             &:hover {
                 color: ${({$theme}) => $theme.colors.typography.danger.default};
                 background-color: ${({$theme}) => $theme.colors.background.danger.hover};
-                border-color: ${({$theme}) => $theme.colors.border.danger.hover};
+
+                &:not(.ant-btn-text) {
+                    border-color: ${({$theme}) => $theme.colors.border.danger.hover};
+                }
 
                 &.ant-btn-link {
                     border-width: 0 0 1px 0;
@@ -222,7 +240,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     }
 `;
 
-const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, KitButtonProps> = (
+const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IKitButtonProps> = (
     {
         iconSize,
         primaryModal,
@@ -246,6 +264,8 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
                 return theme.primary;
             case 'link':
                 return theme.link;
+            case 'text':
+                return theme.text;
             case 'segmented':
                 return !segmentedColor ? theme.segmented.default : theme.segmented[segmentedColor];
             case 'default':
@@ -265,6 +285,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
                 return 'default';
             case 'primary':
             case 'link':
+            case 'text':
             case 'default':
                 return type;
         }
@@ -304,9 +325,9 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
     );
 };
 
-type CompoundedComponent = React.ForwardRefExoticComponent<KitButtonProps & React.RefAttributes<HTMLElement>>;
+type CompoundedComponent = React.ForwardRefExoticComponent<IKitButtonProps & React.RefAttributes<HTMLElement>>;
 
-export const KitButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, KitButtonProps>(
+export const KitButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, IKitButtonProps>(
     Button
 ) as CompoundedComponent;
 

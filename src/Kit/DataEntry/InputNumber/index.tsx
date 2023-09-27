@@ -2,20 +2,22 @@ import React from 'react';
 import {InputNumber as AntdInputNumber} from 'antd';
 import {KitInputNumberProps} from './types';
 import {styled} from 'styled-components';
-import theme from '@theme/index';
-import {KitTypography} from '@kit/General/';
 import KitInputWrapper from '../Input/InputWrapper';
+import {KitInputNumberTheme} from '@theme/types/components/DataEntry/InputNumber';
+import {useKitTheme} from '@theme/theme-context';
 
-const StyledAntdInputNumber = styled(AntdInputNumber)`
-    font-weight: ${theme.typography.regularFontWeight};
+const StyledAntdInputNumber = styled(AntdInputNumber)<{
+    $theme: KitInputNumberTheme;
+}>`
+    font-weight: ${({$theme}) => $theme.typography.placeholder.fontWeight};
     height: 40px;
     line-height: 40px;
 
     .ant-input-number-input {
-        font-weight: ${theme.typography.mediumfontWeight};
+        font-weight: ${({$theme}) => $theme.typography.content.fontWeight};
 
         &::placeholder {
-            font-weight: ${theme.typography.regularFontWeight};
+            font-weight: ${({$theme}) => $theme.typography.placeholder.fontWeight};
         }
     }
 
@@ -23,7 +25,7 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
         line-height: 38px;
 
         .ant-input-number-input-wrap {
-            border-radius: 7px;
+            border-radius: ${({$theme}) => $theme.border.radius}px;
         }
     }
 
@@ -31,7 +33,7 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
     &.ant-input-number-focused,
     &.ant-input-number-affix-wrapper:focus-within {
         border-style: dashed;
-        border-color: ${theme.color.primary.blue400};
+        border-color: ${({$theme}) => $theme.colors.border.focused};
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
             box-shadow: none;
@@ -48,18 +50,18 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
 
     &.ant-input-number-disabled,
     &.ant-input-number-affix-wrapper-disabled {
-        border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
+        border-color: ${({$theme}) => $theme.colors.border.disabled};
 
         .ant-input-number-input {
-            color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+            color: ${({$theme}) => $theme.colors.typography.content.disabled};
 
             &::placeholder {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+                color: ${({$theme}) => $theme.colors.typography.placeholder.disabled};
             }
         }
 
         &.ant-input-number-affix-wrapper .ant-input-number-prefix {
-            color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+            color: ${({$theme}) => $theme.colors.prefix.disabled};
         }
     }
 
@@ -72,7 +74,7 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
 
         .ant-input-number-prefix {
             margin-inline-end: 10px;
-            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+            color: ${({$theme}) => $theme.colors.prefix.default};
         }
 
         .ant-input-number {
@@ -92,31 +94,31 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
 
     &.ant-input-number-status-warning,
     &.ant-input-number-affix-wrapper-status-warning {
-        background-color: ${theme.color.secondary.orange.orange100};
+        background-color: ${({$theme}) => $theme.colors.background.warning};
         box-shadow: none;
 
         .ant-input-number-input-wrap {
-            background-color: ${theme.color.secondary.orange.orange100};
+            background-color: ${({$theme}) => $theme.colors.background.warning};
         }
 
         .ant-input-number-input {
-            color: ${theme.color.secondary.orange.orange400};
+            color: ${({$theme}) => $theme.colors.typography.content.warning};
 
             &::placeholder {
-                color: ${theme.color.secondary.orange.orange400};
+                color: ${({$theme}) => $theme.colors.typography.placeholder.warning};
             }
         }
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
-            border-color: ${theme.color.secondary.orange.orange400};
+            border-color: ${({$theme}) => $theme.colors.border.warning};
 
             &:hover,
             &:focus {
-                border-color: ${theme.color.secondary.orange.orange400};
+                border-color: ${({$theme}) => $theme.colors.border.warning};
             }
 
             &.ant-input-number-affix-wrapper .ant-input-number-prefix {
-                color: ${theme.color.secondary.orange.orange400};
+                color: ${({$theme}) => $theme.colors.prefix.warning};
             }
         }
     }
@@ -124,37 +126,39 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
     &.ant-input-number-status-error,
     &.ant-input-number-out-of-range,
     &.ant-input-number-affix-wrapper-status-error {
-        background-color: ${theme.color.secondary.red.red100};
+        background-color: ${({$theme}) => $theme.colors.background.error};
         box-shadow: none;
 
         .ant-input-number-input-wrap {
-            background-color: ${theme.color.secondary.red.red100};
+            background-color: ${({$theme}) => $theme.colors.background.error};
         }
 
         .ant-input-number-input {
-            color: ${theme.color.secondary.red.red400};
+            color: ${({$theme}) => $theme.colors.typography.content.error};
 
             &::placeholder {
-                color: ${theme.color.secondary.red.red400};
+                color: ${({$theme}) => $theme.colors.typography.placeholder.error};
             }
         }
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
-            border-color: ${theme.color.secondary.red.red400};
+            border-color: ${({$theme}) => $theme.colors.border.error};
 
             &:hover,
             &:focus {
-                border-color: ${theme.color.secondary.red.red400};
+                border-color: ${({$theme}) => $theme.colors.border.error};
             }
 
             &.ant-input-number-affix-wrapper .ant-input-number-prefix {
-                color: ${theme.color.secondary.red.red400};
+                color: ${({$theme}) => $theme.colors.prefix.error};
             }
         }
     }
 `;
 
 export const KitInputNumber: React.FunctionComponent<KitInputNumberProps> = ({label, helper, ...inputNumberProps}) => {
+    const {theme} = useKitTheme();
+
     return (
         <KitInputWrapper
             label={label}
@@ -162,7 +166,7 @@ export const KitInputNumber: React.FunctionComponent<KitInputNumberProps> = ({la
             disabled={inputNumberProps.disabled}
             status={inputNumberProps.status}
         >
-            <StyledAntdInputNumber {...inputNumberProps} />
+            <StyledAntdInputNumber $theme={theme.components.InputNumber} {...inputNumberProps} />
         </KitInputWrapper>
     );
 };

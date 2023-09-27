@@ -186,7 +186,7 @@ export const argTypes = {
         control: {type: 'none'},
         table: {
             type: {
-                summary: 'ReactElement<KitButtonProps>'
+                summary: 'ReactElement<IKitButtonProps>'
             },
             category: 'Menu'
         }

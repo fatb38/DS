@@ -123,9 +123,9 @@ export const argTypes = {
     },
     type: {
         name: 'type',
-        options: ['primary', 'link', 'default', 'segmented'],
+        options: ['primary', 'default', 'text', 'link', 'segmented'],
         control: {type: 'select'},
-        description: 'Can be set to `primary` | `link` | `default` | `segmented`',
+        description: 'Can be set to `primary` | `default` | `text` | `link` | `segmented`',
         table: {
             type: {
                 summary: 'string'

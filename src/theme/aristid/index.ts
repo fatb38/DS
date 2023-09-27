@@ -3,8 +3,7 @@ import {KitAristidThemeGeneral} from './general';
 import {KitRateTheme} from './components/DataEntry/Rate';
 import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
 import {KitTagTheme} from './components/DataEntry/Tag';
-import {KitInputWrapperTheme} from './components/DataEntry/Input/InputWrapper';
-import {KitInputTheme} from './components/DataEntry/Input/Input';
+import {KitInputWrapperTheme, KitInputTheme} from './components/DataEntry/Input/';
 import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
 import {KitBadgeTheme} from './components/DataDisplay/Badge';
 import {KitItemCardTheme} from './components/DataDisplay/ItemCard';
@@ -15,6 +14,9 @@ import {KitImageTheme} from './components/DataDisplay/Image';
 import {KitItemListTheme} from './components/DataDisplay/ItemList';
 import {KitTabsTheme} from './components/DataDisplay/Tabs';
 import {KitTreeTheme} from './components/DataDisplay/Tree';
+import {KitInputNumberTheme} from './components/DataEntry/InputNumber';
+import {KitSwitchTheme} from './components/DataEntry/Switch';
+import {KitSelectTheme} from './components/DataEntry/Select';
 import {KitCardTheme} from './components/DataDisplay/Card';
 
 export const KitAristidTheme: KitTheme = {
@@ -27,6 +29,7 @@ export const KitAristidTheme: KitTheme = {
         Card: KitCardTheme,
         InputWrapper: KitInputWrapperTheme,
         Input: KitInputTheme,
+        InputNumber: KitInputNumberTheme,
         Slider: KitSliderTheme,
         Avatar: KitAvatarTheme,
         AvatarGroup: KitAvatarGroupTheme,
@@ -36,6 +39,8 @@ export const KitAristidTheme: KitTheme = {
         Image: KitImageTheme,
         ItemList: KitItemListTheme,
         Tabs: KitTabsTheme,
-        Tree: KitTreeTheme
+        Tree: KitTreeTheme,
+        Switch: KitSwitchTheme,
+        Select: KitSelectTheme
     }
 };

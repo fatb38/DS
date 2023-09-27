@@ -2,25 +2,27 @@ import React from 'react';
 import {Input as AntdInput} from 'antd';
 import {KitTextAreaProps} from './types';
 import {styled} from 'styled-components';
-import theme from '@theme/index';
 import {CloseCircleOutlined} from '@ant-design/icons';
-import {KitTypography} from '@kit/General/';
 import KitInputWrapper from './InputWrapper';
+import {KitInputTheme} from '@theme/types/components/DataEntry/Input';
+import {useKitTheme} from '@theme/theme-context';
 
-const StyledAntdTextArea = styled(AntdInput.TextArea)`
+const StyledAntdTextArea = styled(AntdInput.TextArea)<{
+    $theme: KitInputTheme['TextArea'];
+}>`
     &.ant-input,
     .ant-input {
         padding: 4px 10px;
-        font-weight: ${theme.typography.mediumfontWeight};
+        font-weight: ${({$theme}) => $theme.typography.content.fontWeight};
 
         &::placeholder {
-            font-weight: ${theme.typography.regularFontWeight};
+            font-weight: ${({$theme}) => $theme.typography.placeholder.fontWeight};
         }
     }
 
     .ant-input-suffix {
         .ant-input-clear-icon {
-            color: ${theme.color.secondary.mediumGrey.mediumGrey500};
+            color: ${({$theme}) => $theme.colors.clearIcon.default};
         }
     }
 
@@ -34,113 +36,112 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
         &.ant-input-textarea-show-count {
             .ant-input-data-count {
                 bottom: -23px;
-                color: ${theme.color.secondary.mediumGrey.mediumGrey300};
-                font-size: ${theme.typography.fontSize7}px;
-                font-weight: ${theme.typography.regularFontWeight};
-                line-height: ${theme.typography.lineHeight7};
+                color: ${({$theme}) => $theme.colors.showCount.default};
+                font-size: ${({$theme}) => $theme.typography.showCount.fontSize}px;
+                font-weight: ${({$theme}) => $theme.typography.showCount.fontWeight};
             }
         }
 
         &.ant-input-affix-wrapper-disabled {
             .ant-input-data-count {
-                color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+                color: ${({$theme}) => $theme.colors.showCount.disabled};
             }
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+                    color: ${({$theme}) => $theme.colors.clearIcon.disabled};
                 }
             }
         }
 
         &.ant-input-affix-wrapper-status-error {
             .ant-input-data-count {
-                color: ${theme.color.secondary.red.red300};
+                color: ${({$theme}) => $theme.colors.showCount.error};
             }
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${theme.color.secondary.red.red400};
+                    color: ${({$theme}) => $theme.colors.clearIcon.error};
                 }
             }
 
             &:hover,
             &:focus {
-                border-color: ${theme.color.secondary.red.red400};
+                border-color: ${({$theme}) => $theme.colors.border.error};
             }
         }
 
         &.ant-input-affix-wrapper-status-warning {
             .ant-input-data-count {
-                color: ${theme.color.secondary.orange.orange300};
+                color: ${({$theme}) => $theme.colors.showCount.warning};
             }
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${theme.color.secondary.orange.orange500};
+                    color: ${({$theme}) => $theme.colors.clearIcon.warning};
                 }
             }
 
             &:hover,
             &:focus {
-                border-color: ${theme.color.secondary.orange.orange400};
+                border-color: ${({$theme}) => $theme.colors.border.warning};
             }
         }
     }
 
     &.ant-input-disabled,
     .ant-input-disabled {
-        border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
-        color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+        border-color: ${({$theme}) => $theme.colors.border.disabled};
+        color: ${({$theme}) => $theme.colors.typography.content.disabled};
 
         &:hover {
-            border-color: ${theme.color.secondary.mediumGrey.mediumGrey200};
+            border-color: ${({$theme}) => $theme.colors.border.disabled};
         }
 
         &::placeholder {
-            color: ${theme.color.secondary.mediumGrey.mediumGrey400};
+            color: ${({$theme}) => $theme.colors.typography.placeholder.disabled};
         }
     }
 
     &.ant-input-status-error,
     &.ant-input-affix-wrapper-status-error,
     .ant-input-status-error {
-        background-color: ${theme.color.secondary.red.red100};
-        color: ${theme.color.secondary.red.red400};
+        background-color: ${({$theme}) => $theme.colors.background.error};
+        color: ${({$theme}) => $theme.colors.typography.content.error};
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
-            border-color: ${theme.color.secondary.red.red400};
+            border-color: ${({$theme}) => $theme.colors.border.error};
             box-shadow: none;
 
             &:hover,
             &:focus {
-                border-color: ${theme.color.secondary.red.red400};
+                border-color: ${({$theme}) => $theme.colors.border.error};
             }
         }
 
         &::placeholder {
-            color: ${theme.color.secondary.red.red400};
+            color: ${({$theme}) => $theme.colors.typography.placeholder.error};
         }
     }
 
     &.ant-input-status-warning,
     &.ant-input-affix-wrapper-status-warning,
     .ant-input-status-warning {
-        background-color: ${theme.color.secondary.orange.orange100};
-        color: ${theme.color.secondary.orange.orange500};
+        background-color: ${({$theme}) => $theme.colors.background.warning};
+        color: ${({$theme}) => $theme.colors.typography.content.warning};
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
-            border-color: ${theme.color.secondary.orange.orange400};
+            border-color: ${({$theme}) => $theme.colors.border.warning};
             box-shadow: none;
 
             &:hover,
             &:focus {
-                border-color: ${theme.color.secondary.orange.orange400};
+                border-color: ${({$theme}) => $theme.colors.border.warning};
             }
         }
 
         &::placeholder {
-            color: ${theme.color.secondary.orange.orange400};
+            color: ${({$theme}) => $theme.colors.typography.placeholder.warning};
         }
     }
 
@@ -161,9 +162,12 @@ const KitTextArea: React.FunctionComponent<KitTextAreaProps> = ({
     allowClear = true,
     ...textAreaProps
 }) => {
+    const {theme} = useKitTheme();
+
     return (
         <KitInputWrapper label={label} helper={helper} disabled={textAreaProps.disabled} status={textAreaProps.status}>
             <StyledAntdTextArea
+                $theme={theme.components.Input.TextArea}
                 {...textAreaProps}
                 allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
             />

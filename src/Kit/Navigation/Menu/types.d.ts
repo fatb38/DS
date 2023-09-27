@@ -1,10 +1,10 @@
 import {KitInputProps} from '../../DataEntry/Input/types';
-import {KitButtonProps} from '../../General/Button/types';
+import {IKitButtonProps} from '../../General/Button/types';
 import {HTMLAttributes, ReactElement, ReactNode} from 'react';
 
 export interface KitMenuProps extends HTMLAttributes<HTMLDivElement> {
     title?: string;
-    segmentedButton?: ReactElement<KitButtonProps>;
+    segmentedButton?: ReactElement<IKitButtonProps>;
     primaryInput?: ReactElement<KitInputProps>;
     secondaryInput?: ReactElement<KitInputProps>;
     onCloseClick?: Function;
