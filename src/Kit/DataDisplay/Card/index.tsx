@@ -28,14 +28,16 @@ const StyledCard = styled(AntdCard)<{
             border: 1px dashed
                 ${({$theme, $disabled}) => ($disabled ? $theme.colors.border.disabled : $theme.colors.border.focus)};
             box-shadow: 0px 0px 16px 0px
-                ${({$theme, $disabled}) => ($disabled ? $theme.colors.shadow.focus : $theme.colors.shadow.focus)};
+                ${({$theme, $disabled}) =>
+                    $disabled ? `${$theme.colors.shadow.focus}14` : `${$theme.colors.shadow.focus}14`};
         }
 
         &:hover {
             border: 1px solid
                 ${({$theme, $disabled}) => ($disabled ? $theme.colors.border.disabled : $theme.colors.border.hover)};
             box-shadow: 0px 0px 24px 0px
-                ${({$theme, $disabled}) => ($disabled ? $theme.colors.shadow.disabled : $theme.colors.shadow.hover)};
+                ${({$theme, $disabled}) =>
+                    $disabled ? `${$theme.colors.shadow.disabled}14` : `${$theme.colors.shadow.hover}14`};
         }
     }
 
