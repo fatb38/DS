@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Radio, RadioChangeEvent, RadioProps} from 'antd';
 import styled from 'styled-components';
 import theme from './theme';
@@ -123,7 +123,7 @@ const StyledKitRadio = styled(Radio)<StyledKitRadioProps>`
 `;
 
 const KitRadio = React.forwardRef<any, KitRadioProps>((props, ref) => {
-    const groupContext = React.useContext(RadioGroupContext);
+    const groupContext = useContext(RadioGroupContext);
     const {className, danger, ...rest} = props;
 
     const onChange = (e: RadioChangeEvent) => {

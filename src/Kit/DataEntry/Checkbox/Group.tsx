@@ -1,3 +1,4 @@
+import {useContext, useEffect, useState} from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
@@ -61,12 +62,12 @@ export const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElemen
     },
     ref
 ) => {
-    const {getPrefixCls, direction} = React.useContext(ConfigContext);
+    const {getPrefixCls, direction} = useContext(ConfigContext);
 
-    const [value, setValue] = React.useState<CheckboxValueType[]>(restProps.value || defaultValue || []);
+    const [value, setValue] = useState<CheckboxValueType[]>(restProps.value || defaultValue || []);
     const [registeredValues, setRegisteredValues] = React.useState<CheckboxValueType[]>([]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         if ('value' in restProps) {
             setValue(restProps.value || []);
         }
