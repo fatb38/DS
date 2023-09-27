@@ -16,26 +16,6 @@ const theme: KitThemeConfig = {
     typography: Typography,
     headersTypography: typographyHeaders,
     components: {
-        Checkbox: {
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize5,
-            fontSizeLG: Typography.fontSize5,
-            lineHeight: Typography.lineHeight5,
-            colorBorder: colorsPalette.neutral.typography.black60,
-            borderRadiusSM: 4,
-            lineWidth: 1, // border-width
-            controlInteractiveSize: 16,
-            colorPrimary: colorsPalette.primary.blue400,
-            colorPrimaryHover: colorsPalette.primary.blue500
-        },
-        Radio: {
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize5,
-            lineHeight: Typography.lineHeight5,
-            fontSizeLG: typographyHeaders.fontSize4,
-            dotSize: 12,
-            dotColorDisabled: colorsPalette.primary.blue200
-        },
         Divider: {
             colorText: colorsPalette.neutral.typography.black,
             colorTextHeading: colorsPalette.neutral.typography.black,
@@ -106,23 +86,6 @@ const theme: KitThemeConfig = {
             colorPrimaryHover: colorsPalette.primary.blue400,
             controlHeight: 32,
             controlHeightSM: 24
-        },
-        DatePicker: {
-            colorBgContainer: colorsPalette.neutral.typography.white,
-            colorBgContainerDisabled: colorsPalette.secondary.mediumGrey.mediumGrey100,
-            colorBorder: colorsPalette.secondary.mediumGrey.mediumGrey200,
-            colorPrimary: colorsPalette.primary.blue400,
-            colorPrimaryHover: colorsPalette.primary.blue400,
-            colorLink: colorsPalette.primary.blue400,
-            colorLinkHover: colorsPalette.primary.blue500,
-            controlItemBgHover: colorsPalette.secondary.mediumGrey.mediumGrey100,
-            controlItemBgActive: colorsPalette.primary.blue100,
-            colorTextPlaceholder: colorsPalette.secondary.mediumGrey.mediumGrey500,
-            colorText: colorsPalette.primary.blue300,
-            borderRadius: 7,
-            borderRadiusSM: 2,
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize5
         }
     }
 };

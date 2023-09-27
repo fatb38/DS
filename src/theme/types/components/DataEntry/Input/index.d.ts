@@ -72,11 +72,11 @@ export interface KitTextAreaThemeStyled {
     typography: KitInputThemeTypography;
 }
 
-export type KitInputTheme = KitInputThemeAntd & {
-    Input: KitInputThemeStyled;
-    Password: KitPasswordThemeStyled;
-    TextArea: KitTextAreaThemeStyled;
-};
+export type KitInputTheme = KitInputThemeAntd &
+    KitInputThemeStyled & {
+        Password: KitPasswordThemeStyled;
+        TextArea: KitTextAreaThemeStyled;
+    };
 
 export interface KitInputWrapperThemeStyled {
     colors: {

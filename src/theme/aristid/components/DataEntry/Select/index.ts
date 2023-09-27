@@ -1,6 +1,7 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
 import {AntdThemeConfigWithRequiredComponents} from '@theme/types';
 import {
+    KitSelectColorBarThemeStyled,
     KitSelectDropDownThemeStyled,
     KitSelectThemeAntd,
     KitSelectThemeStyled
@@ -23,13 +24,6 @@ const kitSelectThemeAntd: KitSelectThemeAntd = {
 };
 
 const kitSelectThemeStyled: KitSelectThemeStyled = {
-    colorBadge: {
-        height: 16,
-        width: 16,
-        border: {
-            radius: border.radius.xxs
-        }
-    },
     border: {
         radius: border.radius.s
     },
@@ -111,6 +105,14 @@ const kitDropDownThemeStyled: KitSelectDropDownThemeStyled = {
     }
 };
 
+const kitSelectColorBarThemeStyled: KitSelectColorBarThemeStyled = {
+    height: 16,
+    width: 16,
+    border: {
+        radius: border.radius.xxs
+    }
+};
+
 const formatKitTokenForAntdDesignTolen = (
     kitSelectThemeAntd: KitSelectThemeAntd
 ): AntdThemeConfigWithRequiredComponents['Select'] => {
@@ -127,6 +129,7 @@ const formatKitTokenForAntdDesignTolen = (
 
 export const KitSelectTheme = {
     ...formatKitTokenForAntdDesignTolen(kitSelectThemeAntd),
-    Select: {...kitSelectThemeStyled},
-    DropDown: {...kitDropDownThemeStyled}
+    ...kitSelectThemeStyled,
+    DropDown: {...kitDropDownThemeStyled},
+    ColorBadge: {...kitSelectColorBarThemeStyled}
 };

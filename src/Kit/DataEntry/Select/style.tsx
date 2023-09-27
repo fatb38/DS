@@ -3,7 +3,7 @@ import {KitSelectTheme} from '@theme/types/components/DataEntry/Select';
 import {Select as AntdSelect} from 'antd';
 
 export const StyledBadge = styled.div<{
-    $theme: KitSelectTheme['Select']['colorBadge'];
+    $theme: KitSelectTheme['ColorBadge'];
 }>`
     display: inline-block;
     vertical-align: middle;
@@ -181,7 +181,7 @@ export const SelectDropDownStyle = createGlobalStyle<{
 `;
 
 export const StyledKitSelect = styled(AntdSelect)<{
-    $theme: KitSelectTheme['Select'];
+    $theme: KitSelectTheme;
 }>`
     &.ant-select.ant-select-compact-item {
         &:not(.ant-select-compact-last-item) {

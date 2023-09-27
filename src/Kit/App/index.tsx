@@ -51,7 +51,7 @@ const KitAppConfig: React.FunctionComponent<React.PropsWithChildren<{customTheme
                 <GlobalStyles />
                 <DropDownStyle />
                 <SelectDropDownStyle $theme={tmpBigMergeTheme.components.Select.DropDown} />
-                <DatePickerDropDownStyle />
+                <DatePickerDropDownStyle $theme={tmpBigMergeTheme.components.DatePicker.DropDown} />
                 <NotificationStyle />
                 {children}
             </KitNotificationProvider>

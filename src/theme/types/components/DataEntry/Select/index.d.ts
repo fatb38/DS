@@ -13,13 +13,6 @@ export interface KitSelectThemeAntd {
 }
 
 export interface KitSelectThemeStyled {
-    colorBadge: {
-        height: number;
-        width: number;
-        border: {
-            radius: number;
-        };
-    };
     border: {
         radius: number;
     };
@@ -101,7 +94,16 @@ export interface KitSelectDropDownThemeStyled {
     };
 }
 
-export type KitSelectTheme = KitSelectThemeAntd & {
-    Select: KitSelectThemeStyled;
-    DropDown: KitSelectDropDownThemeStyled;
-};
+export interface KitSelectColorBarThemeStyled {
+    height: number;
+    width: number;
+    border: {
+        radius: number;
+    };
+}
+
+export type KitSelectTheme = KitSelectThemeAntd &
+    KitSelectThemeStyled & {
+        DropDown: KitSelectDropDownThemeStyled;
+        ColorBadge: KitSelectColorBarThemeStyled;
+    };
