@@ -246,9 +246,7 @@ const formatKitTokenForAntdDesignTolen = (
 
 export const KitInputTheme = {
     ...formatKitTokenForAntdDesignTolen(kitInputThemeAntd),
-    Input: {
-        ...kitInputThemeStyled
-    },
+    ...kitInputThemeStyled,
     Password: {
         ...kitPasswordThemeStyled
     },

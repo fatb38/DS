@@ -8,7 +8,7 @@ import {KitInputTheme} from '@theme/types/components/DataEntry/Input';
 import {useKitTheme} from '@theme/theme-context';
 
 const StyledAntdInput = styled(AntdInput)<{
-    $theme: KitInputTheme['Input'];
+    $theme: KitInputTheme;
 }>`
     &.ant-input,
     .ant-input {
@@ -186,7 +186,7 @@ const KitInput = React.forwardRef<any, KitInputProps>(({label, helper, allowClea
         <KitInputWrapper label={label} helper={helper} disabled={inputProps.disabled} status={inputProps.status}>
             <StyledAntdInput
                 ref={ref}
-                $theme={theme.components.Input.Input}
+                $theme={theme.components.Input}
                 {...inputProps}
                 allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
             />
