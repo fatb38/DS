@@ -1,15 +1,17 @@
 import React from 'react';
 import {KitItemMenuProps, KitItemMenuType} from './types';
 import {css, styled} from 'styled-components';
-import theme from '@theme/index';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTypography, KitIcon} from '@kit/General/';
 import {RightOutlined, MoreOutlined} from '@ant-design/icons';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitDropDown} from '../DropDown';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
+import {useKitTheme} from '@theme/theme-context';
+import {KitMenuTheme} from '@theme/types/components/Navigation/Menu';
 
 const StyledIemMenu = styled.div<{
+    $theme: KitMenuTheme;
     $isClickable: boolean;
     $isSelected: boolean;
     $type: KitItemMenuType;
@@ -19,30 +21,30 @@ const StyledIemMenu = styled.div<{
     grid-template: 'select icon title actions value rafter';
     grid-template-columns: min-content min-content minmax(0px, auto) min-content min-content min-content;
     padding: 4px 8px 4px 0px;
-    background-color: ${theme.color.neutral.typography.white};
+    background-color: ${({$theme}) => $theme.itemMenu.colors.background.default};
     align-items: center;
 
-    ${props =>
-        props.$isClickable &&
+    ${({$isClickable}) =>
+        $isClickable &&
         css`
             cursor: pointer;
         `}
 
-    ${props =>
-        props.$isSelected &&
+    ${({$theme, $isSelected}) =>
+        $isSelected &&
         css`
-            background-color: ${theme.color.primary.blue100};
-            border-right: 3px solid ${theme.color.primary.blue400};
+            background-color: ${$theme.itemMenu.colors.background.active};
+            border-right: 3px solid ${$theme.itemMenu.colors.border.active};
             padding-inline-end: 5px;
 
             .kit-item-menu-title span,
             .kit-item-menu-icon span {
-                color: ${theme.color.primary.blue400};
+                color: ${$theme.itemMenu.colors.title.default};
             }
         `}
 
     &:hover {
-        background-color: ${theme.color.primary.blue100};
+        background-color: ${({$theme}) => $theme.itemMenu.colors.background.hover};
     }
 
     .kit-item-menu-checkbox {
@@ -55,7 +57,7 @@ const StyledIemMenu = styled.div<{
         grid-area: icon;
 
         span {
-            color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+            color: ${({$theme}) => $theme.itemMenu.colors.icon.default};
         }
     }
 
@@ -77,24 +79,28 @@ const StyledIemMenu = styled.div<{
         }
     }
 
-    ${props => {
-        switch (props.$type) {
+    ${({$theme, $type}) => {
+        switch ($type) {
             case 'cta':
                 return css`
-                    .kit-item-menu-title span,
+                    .kit-item-menu-title span {
+                        color: ${$theme.itemMenu.colors.title.default};
+                    }
                     .kit-item-menu-icon span {
-                        color: ${theme.color.primary.blue400};
+                        color: ${$theme.itemMenu.colors.icon.default};
                     }
                 `;
             case 'ctaDanger':
                 return css`
-                    .kit-item-menu-title span,
+                    .kit-item-menu-title span {
+                        color: ${$theme.itemMenu.colors.title.danger};
+                    }
                     .kit-item-menu-icon span {
-                        color: ${theme.color.secondary.red.red400};
+                        color: ${$theme.itemMenu.colors.icon.danger};
                     }
 
                     &:hover {
-                        background-color: ${theme.color.secondary.red.red100};
+                        background-color: ${$theme.itemMenu.colors.background.danger};
                     }
                 `;
             case 'default':
@@ -107,18 +113,18 @@ const StyledIemMenu = styled.div<{
         margin-left: 8px;
 
         span {
-            color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+            color: ${({$theme}) => $theme.itemMenu.colors.value.default};
         }
     }
 
     .kit-item-menu-rafter {
         grid-area: rafter;
-        color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+        color: ${({$theme}) => $theme.itemMenu.colors.rafter.default};
         font-size: 12px;
         margin-left: 8px;
 
         &:hover {
-            color: ${theme.color.primary.blue400};
+            color: ${({$theme}) => $theme.itemMenu.colors.rafter.hover};
             cursor: pointer;
         }
     }
@@ -136,6 +142,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
     onClick,
     ...props
 }) => {
+    const {theme} = useKitTheme();
     const isClickable = onClick !== undefined;
     const isSelectable = onSelectChange !== undefined;
     const hasRafter = onRafterClick !== undefined;
@@ -276,7 +283,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
                         onRafterClick && onRafterClick();
                     }}
                 >
-                    <RightOutlined rev="" />
+                    <RightOutlined />
                 </div>
             )
         );
@@ -284,6 +291,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
 
     return (
         <StyledIemMenu
+            $theme={theme.components.Menu}
             $isClickable={isClickable}
             $isSelected={isSelected}
             $type={type}

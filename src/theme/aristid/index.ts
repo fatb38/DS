@@ -22,6 +22,9 @@ import {KitCheckboxTheme} from './components/DataEntry/Checkbox';
 import {KitDatePickerTheme} from './components/DataEntry/DatePicker';
 import {KitUploadTheme} from './components/DataEntry/Upload';
 import {KitRadioTheme} from './components/DataEntry/Radio';
+import {KitStepsTheme} from './components/Navigation/Steps';
+import {KitPaginationTheme} from './components/Navigation/Pagination';
+import {KitMenuTheme} from './components/Navigation/Menu';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -49,6 +52,9 @@ export const KitAristidTheme: KitTheme = {
         Checkbox: KitCheckboxTheme,
         DatePicker: KitDatePickerTheme,
         Upload: KitUploadTheme,
-        Radio: KitRadioTheme
+        Radio: KitRadioTheme,
+        Steps: KitStepsTheme,
+        Pagination: KitPaginationTheme,
+        Menu: KitMenuTheme
     }
 };

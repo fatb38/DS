@@ -30,17 +30,6 @@ const theme: KitThemeConfig = {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize6
         },
-        Steps: {
-            colorPrimary: colorsPalette.primary.blue400,
-            colorError: colorsPalette.secondary.red.red400,
-            fontFamily: Typography.fontFamily,
-            fontSizeLG: Typography.fontSize5,
-            fontSize: Typography.fontSize6,
-            colorText: colorsPalette.neutral.typography.black,
-            colorTextDescription: colorsPalette.neutral.typography.black60,
-            colorSplit: colorsPalette.neutral.background,
-            marginSM: 8
-        },
         Alert: {
             colorSuccessBg: colorsPalette.secondary.green.green100,
             colorSuccessBorder: colorsPalette.secondary.green.green300,
@@ -71,21 +60,6 @@ const theme: KitThemeConfig = {
             colorSuccess: colorsPalette.secondary.green.green400,
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize7
-        },
-        Pagination: {
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize5,
-            fontSizeSM: Typography.fontSize5,
-            fontWeightStrong: Typography.mediumfontWeight as number,
-            colorBgContainer: colorsPalette.neutral.typography.white,
-            colorBgContainerDisabled: colorsPalette.neutral.background,
-            colorBgTextActive: colorsPalette.neutral.typography.black60,
-            colorTextDisabled: colorsPalette.neutral.typography.black60,
-            colorPrimary: colorsPalette.primary.blue400,
-            colorPrimaryBorder: colorsPalette.primary.blue400,
-            colorPrimaryHover: colorsPalette.primary.blue400,
-            controlHeight: 32,
-            controlHeightSM: 24
         }
     }
 };
