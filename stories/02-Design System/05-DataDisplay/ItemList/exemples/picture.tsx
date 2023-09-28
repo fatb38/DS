@@ -18,7 +18,7 @@ const App = () => {
                 <KitItemList
                     title="Tondeuse à gazon"
                     description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                    picture={<KitImage src="images/tondeuse.png" />}
+                    picture={<KitImage src="public/images/tondeuse.png" />}
                 />
             </div>
         </KitSpace>

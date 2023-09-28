@@ -253,6 +253,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
             case 'KitImage':
                 cloneProps = {
                     preview: {
+                        ...(pictureJsx.props?.preview ?? {}),
                         mask: <EyeOutlined />
                     },
                     width: '100%',
