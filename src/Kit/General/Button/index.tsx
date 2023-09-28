@@ -20,6 +20,12 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     background-color: ${({$theme}) => $theme.colors.background.default};
     font-weight: ${({$theme}) => $theme.typography.fontWeight};
 
+    &[href].ant-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     &:not(.ant-btn-text) {
         border-color: ${({$theme}) => $theme.colors.border.default};
     }
