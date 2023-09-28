@@ -4,9 +4,7 @@ import {KitIcon} from '@kit/General/Icon';
 import notification from 'antd/lib/notification';
 import {NotificationInstance} from 'antd/lib/notification/interface';
 import {KitNotification, KitNotificationArgsProps} from './types';
-import theme from '@theme/index';
-
-const {color} = theme;
+import {useKitTheme} from '@theme/theme-context';
 
 interface KitNotificationContext {
     kitNotification: KitNotification;
@@ -33,14 +31,17 @@ const KitNotificationProvider = ({children}) => {
 };
 
 const useKitNotificationProvider = (api: NotificationInstance) => {
+    const {theme} = useKitTheme();
+    const notificationTheme = theme.components.Notification;
+
     const error = (args: KitNotificationArgsProps) => {
         api.error({
             ...args,
             icon: (
                 <KitIcon
                     style={{
-                        color: color.secondary.red.red400,
-                        backgroundColor: color.secondary.red.red100
+                        color: notificationTheme.colors.icon.error,
+                        backgroundColor: notificationTheme.colors.icon.background.error
                     }}
                     icon={<CloseCircleOutlined />}
                     on
@@ -54,8 +55,8 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
             icon: (
                 <KitIcon
                     style={{
-                        color: color.secondary.orange.orange400,
-                        backgroundColor: color.secondary.orange.orange100
+                        color: notificationTheme.colors.icon.warning,
+                        backgroundColor: notificationTheme.colors.icon.background.warning
                     }}
                     icon={<WarningOutlined />}
                     on
@@ -69,8 +70,8 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
             icon: (
                 <KitIcon
                     style={{
-                        color: color.secondary.green.green400,
-                        backgroundColor: color.secondary.green.green100
+                        color: notificationTheme.colors.icon.success,
+                        backgroundColor: notificationTheme.colors.icon.background.success
                     }}
                     icon={<CheckCircleOutlined />}
                     on
@@ -84,8 +85,8 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
             icon: (
                 <KitIcon
                     style={{
-                        color: color.primary.blue400,
-                        backgroundColor: color.primary.blue100
+                        color: notificationTheme.colors.icon.info,
+                        backgroundColor: notificationTheme.colors.icon.background.info
                     }}
                     icon={<ExclamationCircleOutlined />}
                     on

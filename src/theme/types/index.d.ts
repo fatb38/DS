@@ -27,6 +27,7 @@ import {KitUploadTheme} from './components/DataEntry/Upload';
 import {KitRadioTheme} from './components/DataEntry/Radio';
 import {KitAlertTheme} from './components/Feedback/Alert';
 import {KitModalTheme} from './components/Feedback/Modal';
+import {KitNotificatiobTheme} from './components/Feedback/Notification';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -70,6 +71,7 @@ export interface KitTheme {
         Radio: KitRadioTheme;
         Alert: KitAlertTheme;
         Modal: KitModalTheme;
+        Notification: KitNotificatiobTheme;
     };
 }
 
