@@ -26,6 +26,7 @@ import {KitAlertTheme} from './components/Feedback/Alert';
 import {KitModalTheme} from './components/Feedback/Modal';
 import {KitNotificationTheme} from './components/Feedback/Notification';
 import {KitProgressTheme} from './components/Feedback/Progress';
+import {KitSnackBarTheme} from './components/Feedback/SnackBar';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -57,6 +58,7 @@ export const KitAristidTheme: KitTheme = {
         Alert: KitAlertTheme,
         Modal: KitModalTheme,
         Notification: KitNotificationTheme,
-        Progress: KitProgressTheme
+        Progress: KitProgressTheme,
+        SnackBar: KitSnackBarTheme
     }
 };

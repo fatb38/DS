@@ -29,6 +29,7 @@ import {KitAlertTheme} from './components/Feedback/Alert';
 import {KitModalTheme} from './components/Feedback/Modal';
 import {KitNotificatiobTheme} from './components/Feedback/Notification';
 import {KitProgressTheme} from './components/Feedback/Progress';
+import {KitSnackBarTheme} from './components/Feedback/SnackBar';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -74,6 +75,7 @@ export interface KitTheme {
         Modal: KitModalTheme;
         Notification: KitNotificatiobTheme;
         Progress: KitProgressTheme;
+        SnackBar: KitSnackBarTheme;
     };
 }
 
