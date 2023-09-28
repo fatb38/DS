@@ -49,7 +49,7 @@ const App = () => {
                 <KitSelect
                     options={options}
                     labelOnly
-                    style={{width: '120px'}}
+                    style={{width: '200px'}}
                     defaultValue={modalType}
                     onChange={value => setModalType(value as string)}
                 />
