@@ -23,6 +23,7 @@ import {KitDatePickerTheme} from './components/DataEntry/DatePicker';
 import {KitUploadTheme} from './components/DataEntry/Upload';
 import {KitRadioTheme} from './components/DataEntry/Radio';
 import {KitAlertTheme} from './components/Feedback/Alert';
+import {KitModalTheme} from './components/Feedback/Modal';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -51,6 +52,7 @@ export const KitAristidTheme: KitTheme = {
         DatePicker: KitDatePickerTheme,
         Upload: KitUploadTheme,
         Radio: KitRadioTheme,
-        Alert: KitAlertTheme
+        Alert: KitAlertTheme,
+        Modal: KitModalTheme
     }
 };

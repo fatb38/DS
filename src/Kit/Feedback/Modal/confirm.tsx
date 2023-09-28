@@ -3,8 +3,7 @@ import {createRoot} from 'react-dom/client';
 import {ConfigUpdate, confirmDialogProps} from './types';
 import ConfirmDialog from './ConfirmDialog';
 import uuid from 'react-uuid';
-import {ConfigProvider} from 'antd';
-import theme from '../../../theme';
+import {KitApp} from '@kit/App';
 
 export default function confirm(config: confirmDialogProps) {
     const container = document.createDocumentFragment();
@@ -33,7 +32,7 @@ export default function confirm(config: confirmDialogProps) {
         timeoutId = setTimeout(() => {
             const okCancel = props.showSecondaryCta;
             root.render(
-                <ConfigProvider theme={theme}>
+                <KitApp>
                     <ConfirmDialog
                         {...props}
                         appElement={document.body}
@@ -42,7 +41,7 @@ export default function confirm(config: confirmDialogProps) {
                         okText={okText}
                         cancelText={cancelText}
                     />
-                </ConfigProvider>
+                </KitApp>
             );
         }) as unknown as NodeJS.Timeout;
     }

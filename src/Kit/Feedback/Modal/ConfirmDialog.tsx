@@ -1,14 +1,12 @@
 import React from 'react';
 import Modal from './Modal';
-import {} from './theme';
 import {KitInfoOutlined, KitWarningOutlined} from '../../../icons';
 import {CheckOutlined, ExclamationOutlined} from '@ant-design/icons';
 import {KitButton, KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
-import {modalTheme} from './theme';
 import {confirmDialogProps} from './types';
-
 import {useLocale} from 'antd/lib/locale';
+import {useKitTheme} from '@theme/theme-context';
 
 const ConfirmDialog = ({
     icon,
@@ -28,6 +26,7 @@ const ConfirmDialog = ({
     close,
     ...props
 }: confirmDialogProps) => {
+    const {theme} = useKitTheme();
     const [locale] = useLocale('Modal');
 
     let mergedIcon: React.ReactNode = icon;
@@ -75,7 +74,8 @@ const ConfirmDialog = ({
         <Modal
             isOpen={isOpen}
             showCloseIcon={false}
-            width={width || '350px'}
+            width={width || 'auto'}
+            style={{content: {minWidth: '350px'}}}
             portalClassName={portalClassName}
             footer={
                 <>
@@ -85,13 +85,13 @@ const ConfirmDialog = ({
             }
             {...props}
         >
-            <KitSpace direction="vertical" size={modalTheme.itemsVerticalSpacing}>
+            <KitSpace direction="vertical" size={theme.components.Modal.spacing.vertical.items}>
                 {image && (
                     <div className="kit-confirm-image-wrapper" style={{backgroundImage: 'url(' + image + ')'}}></div>
                 )}
-                <KitSpace size={modalTheme.itemsVerticalSpacing}>
+                <KitSpace size={theme.components.Modal.spacing.vertical.items}>
                     {mergedIcon}
-                    <KitSpace direction="vertical" size={modalTheme.textVerticalSpacing}>
+                    <KitSpace direction="vertical" size={theme.components.Modal.spacing.vertical.text}>
                         <div className="ant-modal-title">{title}</div>
                         <div className="ant-modal-body">{firstLine}</div>
                         {secondLine && <div className="ant-modal-body">{secondLine}</div>}
