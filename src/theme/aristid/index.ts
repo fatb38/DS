@@ -25,6 +25,7 @@ import {KitRadioTheme} from './components/DataEntry/Radio';
 import {KitAlertTheme} from './components/Feedback/Alert';
 import {KitModalTheme} from './components/Feedback/Modal';
 import {KitNotificationTheme} from './components/Feedback/Notification';
+import {KitProgressTheme} from './components/Feedback/Progress';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -55,6 +56,7 @@ export const KitAristidTheme: KitTheme = {
         Radio: KitRadioTheme,
         Alert: KitAlertTheme,
         Modal: KitModalTheme,
-        Notification: KitNotificationTheme
+        Notification: KitNotificationTheme,
+        Progress: KitProgressTheme
     }
 };

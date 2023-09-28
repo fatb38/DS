@@ -52,14 +52,6 @@ const theme: KitThemeConfig = {
             lastItemColor: colorsPalette.primary.blue400,
             colorBgTextHover: 'transparent'
         },
-        Progress: {
-            colorBgContainer: colorsPalette.neutral.background,
-            colorError: colorsPalette.secondary.red.red400,
-            colorInfo: colorsPalette.primary.blue400,
-            colorSuccess: colorsPalette.secondary.green.green400,
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize7
-        },
         Pagination: {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize5,
