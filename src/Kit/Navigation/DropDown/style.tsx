@@ -6,10 +6,10 @@ export const DropDownStyle = createGlobalStyle<{$theme: KitDropDownTheme}>`
     .ant-dropdown-menu.ant-dropdown-menu-submenu {
         padding: 10px;
         border-radius: 7px;
-        font-family: ${({$theme}) => $theme.dropDown.typography.fontFamily};
-        font-weight: ${({$theme}) => $theme.dropDown.typography.fontWeight};
-        background-color: ${({$theme}) => $theme.dropDown.colors.background.default};
-        color: ${({$theme}) => $theme.dropDown.colors.typography.default};
+        font-family: ${({$theme}) => $theme.typography.fontFamily};
+        font-weight: ${({$theme}) => $theme.typography.fontWeight};
+        background-color: ${({$theme}) => $theme.colors.background.default};
+        color: ${({$theme}) => $theme.colors.typography.default};
         box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
 
         .ant-dropdown-arrow {

@@ -1,17 +1,15 @@
 export interface KitDropDownThemeStyled {
-    dropDown: {
-        colors: {
-            background: {
-                default: string;
-            };
-            typography: {
-                default: string;
-            };
+    colors: {
+        background: {
+            default: string;
         };
         typography: {
-            fontFamily: string;
-            fontWeight: number | string;
+            default: string;
         };
+    };
+    typography: {
+        fontFamily: string;
+        fontWeight: number | string;
     };
     menu: {
         colors: {

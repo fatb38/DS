@@ -5,19 +5,17 @@ import {KitPaginationThemeAntd, KitPaginationThemeStyled} from '@theme/types/com
 const {colors, typography} = KitAristidThemeGeneral;
 
 const kitPaginationThemeAntd: KitPaginationThemeAntd = {
-    pagination: {
-        colors: {
-            background: {
-                container: {
-                    default: colors.neutral.typography.white,
-                    disabled: colors.neutral.background
-                }
+    colors: {
+        background: {
+            container: {
+                default: colors.neutral.typography.white,
+                disabled: colors.neutral.background
             }
-        },
-        typography: {
-            fontFamily: typography.fontFamily,
-            fontSize: typography.fontSize5
         }
+    },
+    typography: {
+        fontFamily: typography.fontFamily,
+        fontSize: typography.fontSize5
     }
 };
 
@@ -76,14 +74,14 @@ const kitPaginationThemeStyled: KitPaginationThemeStyled = {
 const formatKitTokenForAntdDesignTolen = (
     kitPaginationThemeAntd: KitPaginationThemeAntd
 ): AntdThemeConfigWithRequiredComponents['Pagination'] => {
-    const {pagination} = kitPaginationThemeAntd;
+    const {typography, colors} = kitPaginationThemeAntd;
 
     return {
-        fontFamily: pagination.typography.fontFamily,
-        fontSize: pagination.typography.fontSize,
+        fontFamily: typography.fontFamily,
+        fontSize: typography.fontSize,
         fontSizeSM: KitAristidThemeGeneral.typography.fontSize5,
-        colorBgContainer: pagination.colors.background.container.default,
-        colorBgContainerDisabled: pagination.colors.background.container.disabled,
+        colorBgContainer: colors.background.container.default,
+        colorBgContainerDisabled: colors.background.container.disabled,
         fontWeightStrong: KitAristidThemeGeneral.typography.mediumfontWeight as number,
         controlHeight: 32,
         controlHeightSM: 24,

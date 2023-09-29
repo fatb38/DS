@@ -1,9 +1,7 @@
 export interface KitMenuThemeStyled {
-    menu: {
-        colors: {
-            background: {
-                default: string;
-            };
+    colors: {
+        background: {
+            default: string;
         };
     };
     itemMenu: {

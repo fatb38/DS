@@ -4,19 +4,17 @@ import {KitDropDownThemeStyled} from '@theme/types/components/Navigation/DropDow
 const {colors, typography} = KitAristidThemeGeneral;
 
 const kitDropDownThemeStyled: KitDropDownThemeStyled = {
-    dropDown: {
-        colors: {
-            background: {
-                default: colors.secondary.mediumGrey.mediumGrey100
-            },
-            typography: {
-                default: colors.secondary.mediumGrey.mediumGrey500
-            }
+    colors: {
+        background: {
+            default: colors.secondary.mediumGrey.mediumGrey100
         },
         typography: {
-            fontFamily: typography.fontFamily,
-            fontWeight: typography.mediumfontWeight
+            default: colors.secondary.mediumGrey.mediumGrey500
         }
+    },
+    typography: {
+        fontFamily: typography.fontFamily,
+        fontWeight: typography.mediumfontWeight
     },
     menu: {
         colors: {

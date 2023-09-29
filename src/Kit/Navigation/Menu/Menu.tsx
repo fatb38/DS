@@ -8,7 +8,7 @@ import {KitMenuTheme} from '@theme/types/components/Navigation/Menu';
 
 const StyledMenu = styled.div<{$theme: KitMenuTheme}>`
     padding: 16px 19px;
-    background-color: ${({$theme}) => $theme.menu.colors.background.default};
+    background-color: ${({$theme}) => $theme.colors.background.default};
 
     display: grid;
     grid-template-areas: 'header' 'content';

@@ -1,17 +1,15 @@
 export interface KitPaginationThemeAntd {
-    pagination: {
-        colors: {
-            background: {
-                container: {
-                    default: string;
-                    disabled: string;
-                };
+    colors: {
+        background: {
+            container: {
+                default: string;
+                disabled: string;
             };
         };
-        typography: {
-            fontFamily: string;
-            fontSize: number;
-        };
+    };
+    typography: {
+        fontFamily: string;
+        fontSize: number;
     };
 }
 

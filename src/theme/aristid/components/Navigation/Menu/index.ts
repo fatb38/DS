@@ -4,11 +4,9 @@ import {KitMenuThemeStyled} from '@theme/types/components/Navigation/Menu';
 const {colors} = KitAristidThemeGeneral;
 
 const kitMenuThemeStyled: KitMenuThemeStyled = {
-    menu: {
-        colors: {
-            background: {
-                default: colors.neutral.typography.white
-            }
+    colors: {
+        background: {
+            default: colors.neutral.typography.white
         }
     },
     itemMenu: {
