@@ -127,7 +127,7 @@ const itemsGroups = [
 
 const App = () => {
     return (
-        <KitSpace size="large">
+        <KitSpace size="m">
             <KitDropDown menu={{items}}>
                 <KitButton type="link">
                     Cascading <DownOutlined />

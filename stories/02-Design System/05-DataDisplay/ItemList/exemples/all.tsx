@@ -6,7 +6,7 @@ import {UserOutlined} from '@ant-design/icons';
 
 const App = () => {
     return (
-        <KitSpace direction="vertical" size="large">
+        <KitSpace direction="vertical" size="m">
             <div style={{width: '350px'}}>
                 <KitItemList
                     onSelectChange={e => console.log('selected', e.target.checked)}

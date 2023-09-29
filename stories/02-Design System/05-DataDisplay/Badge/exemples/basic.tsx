@@ -6,7 +6,7 @@ import theme from '@theme/index';
 
 const App = () => {
     return (
-        <KitSpace size="middle">
+        <KitSpace size="s">
             <KitBadge count={5}>
                 <KitAvatar shape="square" size="large" />
             </KitBadge>

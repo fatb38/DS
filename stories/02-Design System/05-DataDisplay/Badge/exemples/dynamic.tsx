@@ -32,7 +32,7 @@ const App = () => {
 
     return (
         <KitSpace direction="vertical">
-            <KitSpace size="large">
+            <KitSpace size="m">
                 <KitBadge count={count}>
                     <KitAvatar shape="square" size="large" />
                 </KitBadge>
@@ -41,7 +41,7 @@ const App = () => {
                 <KitButton onClick={random} icon={<QuestionOutlined />} />
             </KitSpace>
             <br />
-            <KitSpace size="large">
+            <KitSpace size="m">
                 <KitBadge dot={show}>
                     <KitAvatar shape="square" size="large" />
                 </KitBadge>
