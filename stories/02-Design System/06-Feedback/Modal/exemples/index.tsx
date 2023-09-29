@@ -1,7 +1,7 @@
 import Basic from './basic';
 import Confirm from './confirm';
 import BasicSource from './basic?raw';
-import ConfirmSource from './confirm?raw'
+import ConfirmSource from './confirmSource?raw'
 
 export const Sources = {
     Basic: BasicSource,

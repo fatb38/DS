@@ -23,7 +23,7 @@ export interface KitModalProps
 }
 
 export interface confirmDialogProps extends KitModalProps {
-    type: 'info' | 'success' | 'warning' | 'error' | 'warn' | 'confirm';
+    type?: 'info' | 'success' | 'warning' | 'error' | 'warn' | 'confirm';
     image?: string;
     icon?: ReactNode;
     firstLine?: ReactNode;
