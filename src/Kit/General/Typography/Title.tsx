@@ -1,76 +1,81 @@
-import * as React from 'react';
+import React, {useMemo} from 'react';
 import {styled} from 'styled-components';
 import Base from 'antd/lib/typography/Base';
 import {TITLE_ELE_LIST, fontBaseCss} from './commons';
-import type {KitTitleProps} from './types';
-import theme from '@theme/index';
-import {typographyHeaders} from '@theme/typography';
+import {KitTypographyTheme} from '@theme/types/components/General/Typography';
+import {KitTitleProps} from './types';
+import {useKitTheme} from '@theme/theme-context';
 
-const StyledH1 = styled.h1`
-    ${fontBaseCss};
+// TODO: global style
+
+const StyledH1 = styled.h1<{$theme: KitTypographyTheme}>`
+    ${({$theme}) => fontBaseCss($theme)};
+
     &.ant-typography {
-        font-size: ${typographyHeaders.fontSize1}px;
-        line-height: ${typographyHeaders.lineHeight1};
+        font-size: ${({$theme}) => $theme.Title.level1.typography.fontSize}px;
+        line-height: ${({$theme}) => $theme.Title.level1.typography.lineHeight};
     }
 `;
 
-const StyledH2 = styled.h1`
-    ${fontBaseCss};
+const StyledH2 = styled.h2<{$theme: KitTypographyTheme}>`
+    ${({$theme}) => fontBaseCss($theme)};
+
     &.ant-typography {
-        font-size: ${typographyHeaders.fontSize2}px;
-        line-height: ${typographyHeaders.lineHeight2};
+        font-size: ${({$theme}) => $theme.Title.level2.typography.fontSize}px;
+        line-height: ${({$theme}) => $theme.Title.level2.typography.lineHeight};
     }
 `;
 
-const StyledH3 = styled.h3`
-    ${fontBaseCss};
+const StyledH3 = styled.h3<{$theme: KitTypographyTheme}>`
+    ${({$theme}) => fontBaseCss($theme)};
+
     &.ant-typography {
-        font-size: ${typographyHeaders.fontSize3}px;
-        line-height: ${typographyHeaders.lineHeight3};
+        font-size: ${({$theme}) => $theme.Title.level3.typography.fontSize}px;
+        line-height: ${({$theme}) => $theme.Title.level3.typography.lineHeight};
     }
 `;
 
-const StyledH4 = styled.h4`
-    ${fontBaseCss};
+const StyledH4 = styled.h4<{$theme: KitTypographyTheme}>`
+    ${({$theme}) => fontBaseCss($theme)};
+
     &.ant-typography {
-        font-size: ${typographyHeaders.fontSize4}px;
-        line-height: ${typographyHeaders.lineHeight4};
+        font-size: ${({$theme}) => $theme.Title.level4.typography.fontSize}px;
+        line-height: ${({$theme}) => $theme.Title.level4.typography.lineHeight};
     }
 `;
-
-const StyledH5 = styled.h5<KitTitleProps>`
-    ${fontBaseCss};
-    &.ant-typography {
-        font-size: ${theme.typography.fontSize5}px;
-        line-height: ${theme.typography.lineHeight5};
-        font-weight: ${props =>
-            props.regular ? theme.typography.regularFontWeight : theme.typography.mediumfontWeight};
-    }
-`;
-
-const StyledH6 = styled.h6<KitTitleProps>`
-    ${fontBaseCss};
-    &.ant-typography {
-        font-size: ${theme.typography.fontSize6}px;
-        line-height: ${theme.typography.lineHeight6};
-        font-weight: ${props =>
-            props.regular ? theme.typography.regularFontWeight : theme.typography.mediumfontWeight};
-    }
-`;
-
-const StyledH7 = styled.p<KitTitleProps>`
-    ${fontBaseCss};
-    &.ant-typography {
-        font-size: ${theme.typography.fontSize7}px;
-        line-height: ${theme.typography.lineHeight7};
-        font-weight: ${props =>
-            props.regular ? theme.typography.regularFontWeight : theme.typography.mediumfontWeight};
-    }
-`;
-
-const levels = [StyledH1, StyledH2, StyledH3, StyledH4, StyledH5, StyledH6, StyledH7];
 
 const KitTitle = React.forwardRef<HTMLElement, KitTitleProps>((props, ref) => {
+    const {theme: kitTheme} = useKitTheme();
+    const theme = kitTheme.components.Typography;
+
+    // TODO: renvoyer h1, h2, h3  et h4
+    const levels = useMemo(
+        () => [
+            // <StyledH1 $theme={theme} />,
+            // <StyledH2 $theme={theme} />,
+            // <StyledH3 $theme={theme} />,
+            // <StyledH4 $theme={theme} />,
+            // <StyledH5 $theme={theme} />,
+            // <StyledH6 $theme={theme} />,
+            // <StyledH7 $theme={theme} />
+            // StyledH1({$theme: theme}),
+            // StyledH2({$theme: theme}),
+            // StyledH3({$theme: theme}),
+            // StyledH4({$theme: theme}),
+            // StyledH5({$theme: theme}),
+            // StyledH6({$theme: theme}),
+            // StyledH7({$theme: theme})
+            // StyledH1,
+            // StyledH2,
+            // StyledH3,
+            // StyledH4,
+            // StyledH5,
+            // StyledH6,
+            // StyledH7
+        ],
+        [theme]
+    );
+
     const {level = 1, ...restProps} = props;
     let component: keyof JSX.IntrinsicElements = levels[0] as unknown as keyof JSX.IntrinsicElements;
 

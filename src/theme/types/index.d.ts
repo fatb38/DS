@@ -38,6 +38,7 @@ import {KitNotificatiobTheme} from './components/Feedback/Notification';
 import {KitProgressTheme} from './components/Feedback/Progress';
 import {KitSnackBarTheme} from './components/Feedback/SnackBar';
 import {KitIconTheme} from './components/General/Icon';
+import {KitTypographyTheme} from './components/General/Typography';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -92,6 +93,7 @@ export interface KitTheme {
         DropDown: KitDropDownTheme;
         Breadcrumb: KitBreadcrumbTheme;
         Icon: KitIconTheme;
+        Typography: KitTypographyTheme;
     };
 }
 

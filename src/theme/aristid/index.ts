@@ -35,6 +35,7 @@ import {KitNotificationTheme} from './components/Feedback/Notification';
 import {KitProgressTheme} from './components/Feedback/Progress';
 import {KitSnackBarTheme} from './components/Feedback/SnackBar';
 import {KitIconTheme} from './components/General/Icon';
+import {KitTypographyTheme} from './components/General/Typography';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -75,6 +76,7 @@ export const KitAristidTheme: KitTheme = {
         Progress: KitProgressTheme,
         SnackBar: KitSnackBarTheme,
         Divider: KitDividerTheme,
-        Icon: KitIconTheme
+        Icon: KitIconTheme,
+        Typography: KitTypographyTheme
     }
 };
