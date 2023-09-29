@@ -48,16 +48,16 @@ export const argTypes = {
     size: {
         name: 'size',
         control: {type: 'select'},
-        options: ['small', 'middle', 'large', 25],
-        description: ' The space size. `Size` | `Size`[]',
+        options: ['none', 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'huge', 'veryHuge'],
+        description: ' The space size. `KitSpaceSize` | `KitSpaceSize`[]',
         table: {
             type: {
                 summary: 'string'
             },
-            defaultValue: {summary: 'small'},
+            defaultValue: {summary: 'xs'},
             category: 'Space'
         },
-        defaultValue: 'small'
+        defaultValue: 'xs'
     },
     split: {
         name: 'split',
@@ -86,7 +86,7 @@ export const argTypes = {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {compact, ...props} = args;
     const Component = compact ? KitSpace.Compact : KitSpace;
 

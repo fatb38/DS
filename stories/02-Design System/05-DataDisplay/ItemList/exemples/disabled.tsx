@@ -4,7 +4,7 @@ import {KitImage, KitItemList} from '@kit/DataDisplay';
 
 const App = () => {
     return (
-        <KitSpace direction="vertical" size="large">
+        <KitSpace direction="vertical" size="m">
             <div style={{width: '350px'}}>
                 <KitItemList
                     isDisabled
