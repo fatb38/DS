@@ -14,7 +14,7 @@ const ConfirmDialog = ({
     firstLine,
     secondLine,
     image,
-    type,
+    type = "confirm",
     isOpen,
     width,
     portalClassName,

@@ -30,6 +30,17 @@ const App = () => {
                     U
                 </KitAvatar>
             </KitSpace>
+            <KitSpace wrap size={16}>
+                <KitAvatar size="small" color="#36acaa">
+                    U
+                </KitAvatar>
+                <KitAvatar color="#d1dfe9">
+                    U
+                </KitAvatar>
+                <KitAvatar size="large" color="#2e3438">
+                    U
+                </KitAvatar>
+            </KitSpace>
         </KitSpace>
     );
 };
