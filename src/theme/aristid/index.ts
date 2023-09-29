@@ -22,6 +22,12 @@ import {KitCheckboxTheme} from './components/DataEntry/Checkbox';
 import {KitDatePickerTheme} from './components/DataEntry/DatePicker';
 import {KitUploadTheme} from './components/DataEntry/Upload';
 import {KitRadioTheme} from './components/DataEntry/Radio';
+import {KitStepsTheme} from './components/Navigation/Steps';
+import {KitPaginationTheme} from './components/Navigation/Pagination';
+import {KitMenuTheme} from './components/Navigation/Menu';
+import {KitHeaderTheme} from './components/Navigation/Header';
+import {KitDropDownTheme} from './components/Navigation/DropDown';
+import {KitBreadcrumbTheme} from './components/Navigation/Breadcrumb';
 import {KitDividerTheme} from './components/Layout/Divider';
 import {KitAlertTheme} from './components/Feedback/Alert';
 import {KitModalTheme} from './components/Feedback/Modal';
@@ -56,6 +62,12 @@ export const KitAristidTheme: KitTheme = {
         DatePicker: KitDatePickerTheme,
         Upload: KitUploadTheme,
         Radio: KitRadioTheme,
+        Steps: KitStepsTheme,
+        Pagination: KitPaginationTheme,
+        Menu: KitMenuTheme,
+        Header: KitHeaderTheme,
+        DropDown: KitDropDownTheme,
+        Breadcrumb: KitBreadcrumbTheme,
         Alert: KitAlertTheme,
         Modal: KitModalTheme,
         Notification: KitNotificationTheme,

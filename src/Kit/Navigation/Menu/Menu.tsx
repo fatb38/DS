@@ -1,13 +1,14 @@
 import React from 'react';
 import {KitMenuProps} from './types';
 import {styled} from 'styled-components';
-import theme from '@theme/index';
 import {KitTypography, KitIcon} from '@kit/General';
 import {CloseOutlined} from '@ant-design/icons';
+import {useKitTheme} from '@theme/theme-context';
+import {KitMenuTheme} from '@theme/types/components/Navigation/Menu';
 
-const StyledMenu = styled.div`
+const StyledMenu = styled.div<{$theme: KitMenuTheme}>`
     padding: 16px 19px;
-    background-color: ${theme.color.neutral.typography.white};
+    background-color: ${({$theme}) => $theme.colors.background.default};
 
     display: grid;
     grid-template-areas: 'header' 'content';
@@ -74,6 +75,7 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
     children,
     ...props
 }) => {
+    const {theme} = useKitTheme();
     const isClosable = onCloseClick !== undefined;
     const shouldDisplayHeaderTopbar = title !== undefined || isClosable;
     const shouldDisplayHeaderPrimary = segmentedButton !== undefined || primaryInput !== undefined;
@@ -129,7 +131,7 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
     };
 
     return (
-        <StyledMenu {...props}>
+        <StyledMenu $theme={theme.components.Menu} {...props}>
             <div className="kit-menu-header">
                 {shouldDisplayHeaderTopbar && (
                     <div className="kit-menu-header-topbar">

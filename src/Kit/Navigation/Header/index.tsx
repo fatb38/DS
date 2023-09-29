@@ -1,15 +1,16 @@
 import React, {useMemo} from 'react';
 import styled from 'styled-components';
-import theme from './theme';
 import {PlusOutlined, SearchOutlined} from '@ant-design/icons';
 import {KitTypography, KitButton} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {KitInput} from '@kit/DataEntry/';
 import {HeaderProps} from './types';
+import {useKitTheme} from '@theme/theme-context';
+import {KitHeaderTheme} from '@theme/types/components/Navigation/Header';
 
-const StyledHeaderWrapper = styled.div`
+const StyledHeaderWrapper = styled.div<{$theme: KitHeaderTheme}>`
     padding: 16px 32px;
-    background: ${theme.backgroundColor};
+    background: ${({$theme}) => $theme.colors.background.default};
     display: grid;
     grid-template-areas:
         'breadcrumb breadcrumb breadcrumb'
@@ -34,7 +35,7 @@ const StyledHeaderWrapper = styled.div`
         max-width: 422px;
 
         input::placeholder {
-            color: ${theme.inputColor};
+            color: ${({$theme}) => $theme.colors.typography.input.default};
         }
     }
 
@@ -106,6 +107,8 @@ export const KitHeader: React.FunctionComponent<HeaderProps> = ({
     onPlusClick,
     ...props
 }) => {
+    const {theme} = useKitTheme();
+
     const breadcrumbToDisplay = breadcrumb
         ? React.cloneElement(breadcrumb, {
               className: 'kit-header-breadcrumb'
@@ -117,7 +120,7 @@ export const KitHeader: React.FunctionComponent<HeaderProps> = ({
     }, [actions, onPlusClick]);
 
     return (
-        <StyledHeaderWrapper {...props}>
+        <StyledHeaderWrapper $theme={theme.components.Header} {...props}>
             {title && (
                 <KitTypography.Title level={2} className="kit-header-title">
                     {title}
