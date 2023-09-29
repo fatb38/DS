@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {KitSpace, KitButton, KitRadio} from '@kit/index';
-import {KitSpacing} from '@theme/types/general/spacing';
+import {KitSpaceProps} from '@kit/Layout/Space/types';
 
 const App = () => {
-    const [size, setSize] = useState('m');
+    const [size, setSize] = useState<KitSpaceProps['size']>('m');
 
     return (
         <>
@@ -21,7 +21,7 @@ const App = () => {
             </KitRadio.Group>
             <br />
             <br />
-            <KitSpace size={size as keyof KitSpacing}>
+            <KitSpace size={size}>
                 <KitButton type="primary">Primary</KitButton>
                 <KitButton>Default</KitButton>
                 <KitButton type="link">Link</KitButton>

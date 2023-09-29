@@ -49,7 +49,7 @@ export const argTypes = {
         name: 'size',
         control: {type: 'select'},
         options: ['none', 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'huge', 'veryHuge'],
-        description: ' The space size. `KitSpaceSize` | `KitSpaceSize`[]',
+        description: ' The space size. `KitSpaceSize` | [`KitSpaceSize`, `KitSpaceSize`]',
         table: {
             type: {
                 summary: 'string'
