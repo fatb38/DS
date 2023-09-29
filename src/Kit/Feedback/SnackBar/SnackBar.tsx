@@ -1,9 +1,10 @@
 import React from 'react';
 import {styled} from 'styled-components';
 import toast from 'react-hot-toast';
-import theme from '@theme/index';
 import {KitOpenSnackBarProps, KitSnackBarProps} from './types';
 import {CloseOutlined} from '@ant-design/icons';
+import {KitSnackBarTheme} from '@theme/types/components/Feedback/SnackBar';
+import {useKitTheme} from '@theme/theme-context';
 
 const DEFAULT_DURATION = 4000;
 
@@ -27,21 +28,23 @@ export const closeSnackBar = () => {
 };
 
 const StyledSnackBar = styled.div<{
+    $theme: KitSnackBarTheme;
     $showCtaContainer: boolean;
     $showCloseContainer: boolean;
 }>`
     display: grid;
-    grid-template-columns: auto ${props => (props.$showCtaContainer ? 'min-content' : '')} ${props =>
-            props.$showCloseContainer ? '12px' : ''};
+    grid-template-columns: auto ${({$showCtaContainer}) => ($showCtaContainer ? 'min-content' : '')} ${({
+            $showCloseContainer
+        }) => ($showCloseContainer ? '12px' : '')};
     column-gap: 8px;
     align-items: center;
     min-height: 24px;
     padding: 8px 16px;
-    background-color: ${theme.color.neutral.gray.gray700};
-    border: 1px solid ${theme.color.neutral.gray.gray700};
+    background-color: ${({$theme}) => $theme.colors.background};
+    border: 1px solid ${({$theme}) => $theme.colors.border};
     border-radius: 7px;
     box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.3);
-    font-family: ${theme.typography.fontFamily};
+    font-family: ${({$theme}) => $theme.typography.fontFamily};
 
     .kit-snackbar-grid-one {
         min-width: 150px;
@@ -53,14 +56,14 @@ const StyledSnackBar = styled.div<{
     }
 
     .kit-snackbar-grid-three {
-        grid-column: ${props => (!props.$showCtaContainer ? '2' : '3')};
+        grid-column: ${({$showCtaContainer}) => (!$showCtaContainer ? '2' : '3')};
     }
 
     .kit-snackbar-grid {
         .kit-snackbar-title {
-            color: ${theme.color.neutral.gray.gray400};
-            font-size: ${theme.typography.fontSize5};
-            font-weight: ${theme.typography.regularFontWeight};
+            color: ${({$theme}) => $theme.colors.typography.title};
+            font-size: ${({$theme}) => $theme.typography.title.fontSize};
+            font-weight: ${({$theme}) => $theme.typography.title.fontWeight};
         }
 
         .kit-snackbar-cta-container {
@@ -68,44 +71,49 @@ const StyledSnackBar = styled.div<{
             line-height: 23px;
             width: fit-content;
             padding: 0px 12px;
-            border: 0.499px solid ${theme.color.neutral.gray.gray200};
+            border: 0.499px solid ${({$theme}) => $theme.colors.cta.border.default};
             border-radius: 14px;
             cursor: pointer;
 
             .kit-snackbar-cta {
-                color: ${theme.color.neutral.gray.gray200};
+                color: ${({$theme}) => $theme.colors.cta.typography.default};
                 font-size: 10px;
-                font-weight: ${theme.typography.mediumfontWeight};
+                font-weight: ${({$theme}) => $theme.typography.cta.fontWeight};
                 text-transform: uppercase;
             }
 
             &:hover {
-                border-color: ${theme.color.neutral.gray.gray400};
+                border-color: ${({$theme}) => $theme.colors.cta.border.hover};
 
                 .kit-snackbar-cta {
-                    color: ${theme.color.neutral.gray.gray400};
+                    color: ${({$theme}) => $theme.colors.cta.typography.hover};
                 }
             }
         }
 
         .kit-snackbar-close-container {
-            color: ${theme.color.neutral.gray.gray400};
+            color: ${({$theme}) => $theme.colors.closeIcon.default};
             font-size: 12px;
             cursor: pointer;
 
             &:hover {
-                color: ${theme.color.neutral.gray.gray500};
+                color: ${({$theme}) => $theme.colors.closeIcon.hover};
             }
         }
     }
 `;
 
 const KitSnackBar: React.FunctionComponent<KitSnackBarProps> = ({message, ctaText, ctaOnClick, closable}) => {
+    const {theme} = useKitTheme();
     const showCtaContainer = ctaText !== undefined && ctaOnClick !== undefined;
     const showCloseContainer = closable !== undefined;
 
     return (
-        <StyledSnackBar $showCtaContainer={showCtaContainer} $showCloseContainer={showCloseContainer}>
+        <StyledSnackBar
+            $theme={theme.components.SnackBar}
+            $showCtaContainer={showCtaContainer}
+            $showCloseContainer={showCloseContainer}
+        >
             <div className="kit-snackbar-grid kit-snackbar-grid-one">
                 <div className="kit-snackbar-title">{message}</div>
             </div>

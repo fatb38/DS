@@ -32,18 +32,6 @@ const theme: KitThemeConfig = {
             colorSplit: colorsPalette.neutral.background,
             marginSM: 8
         },
-        Alert: {
-            colorSuccessBg: colorsPalette.secondary.green.green100,
-            colorSuccessBorder: colorsPalette.secondary.green.green300,
-            colorInfoBg: colorsPalette.secondary.blue.blue100,
-            colorInfoBorder: colorsPalette.secondary.blue.blue300,
-            colorWarningBg: colorsPalette.secondary.yellow.yellow100,
-            colorWarningBorder: colorsPalette.secondary.yellow.yellow300,
-            colorErrorBg: colorsPalette.secondary.red.red100,
-            colorErrorBorder: colorsPalette.secondary.red.red400,
-            colorText: colorsPalette.neutral.typography.black,
-            fontFamily: Typography.fontFamily
-        },
         Breadcrumb: {
             fontFamily: Typography.fontFamily,
             fontSize: Typography.fontSize5,
@@ -54,14 +42,6 @@ const theme: KitThemeConfig = {
             linkHoverColor: colorsPalette.neutral.typography.black,
             lastItemColor: colorsPalette.primary.blue400,
             colorBgTextHover: 'transparent'
-        },
-        Progress: {
-            colorBgContainer: colorsPalette.neutral.background,
-            colorError: colorsPalette.secondary.red.red400,
-            colorInfo: colorsPalette.primary.blue400,
-            colorSuccess: colorsPalette.secondary.green.green400,
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize7
         },
         Pagination: {
             fontFamily: Typography.fontFamily,

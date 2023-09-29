@@ -1,17 +1,22 @@
 import React from 'react';
 import {Progress} from 'antd';
 import styled from 'styled-components';
-import {progressTheme} from './theme';
 import {KitProgressProps} from './types';
+import {KitProgressTheme} from '@theme/types/components/Feedback/Progress';
+import {useKitTheme} from '@theme/theme-context';
 
-const StyledProgress = styled(Progress)<KitProgressProps>`
+const StyledProgress = styled(Progress)<{
+    $theme: KitProgressTheme;
+}>`
     &.ant-progress-circle .ant-progress-text {
-        font-size: ${progressTheme.circleFontSize}px;
-        font-weight: ${progressTheme.circleFontWeight};
+        font-size: ${({$theme}) => $theme.circle.typography.fontSize}px;
+        font-weight: ${({$theme}) => $theme.circle.typography.fontWeight};
     }
 `;
 
 export const KitProgress: React.FunctionComponent<KitProgressProps> = props => {
-    return <StyledProgress {...props} />;
+    const {theme} = useKitTheme();
+
+    return <StyledProgress $theme={theme.components.Progress} {...props} />;
 };
 KitProgress.displayName = 'KitProgress';
