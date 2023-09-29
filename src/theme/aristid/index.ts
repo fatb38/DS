@@ -25,6 +25,9 @@ import {KitRadioTheme} from './components/DataEntry/Radio';
 import {KitStepsTheme} from './components/Navigation/Steps';
 import {KitPaginationTheme} from './components/Navigation/Pagination';
 import {KitMenuTheme} from './components/Navigation/Menu';
+import {KitHeaderTheme} from './components/Navigation/Header';
+import {KitDropDownTheme} from './components/Navigation/DropDown';
+import {KitBreadcrumbTheme} from './components/Navigation/Breadcrumb';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -55,6 +58,9 @@ export const KitAristidTheme: KitTheme = {
         Radio: KitRadioTheme,
         Steps: KitStepsTheme,
         Pagination: KitPaginationTheme,
-        Menu: KitMenuTheme
+        Menu: KitMenuTheme,
+        Header: KitHeaderTheme,
+        DropDown: KitDropDownTheme,
+        Breadcrumb: KitBreadcrumbTheme
     }
 };

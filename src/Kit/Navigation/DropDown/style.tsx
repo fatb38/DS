@@ -1,22 +1,20 @@
 import {createGlobalStyle} from 'styled-components';
-import theme from '@theme/index';
+import {KitDropDownTheme} from '@theme/types/components/Navigation/DropDown';
 
-const {typography, color} = theme;
-
-export const DropDownStyle = createGlobalStyle`
+export const DropDownStyle = createGlobalStyle<{$theme: KitDropDownTheme}>`
     .ant-dropdown,
     .ant-dropdown-menu.ant-dropdown-menu-submenu {
         padding: 10px;
         border-radius: 7px;
-        font-family: ${typography.fontFamily};
-        font-weight: ${typography.mediumfontWeight};
-        background-color: ${color.secondary.mediumGrey.mediumGrey100};
-        color: ${color.secondary.mediumGrey.mediumGrey500};
+        font-family: ${({$theme}) => $theme.dropDown.typography.fontFamily};
+        font-weight: ${({$theme}) => $theme.dropDown.typography.fontWeight};
+        background-color: ${({$theme}) => $theme.dropDown.colors.background.default};
+        color: ${({$theme}) => $theme.dropDown.colors.typography.default};
         box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
 
         .ant-dropdown-arrow {
             &::before, &::after {
-                background-color: ${color.secondary.mediumGrey.mediumGrey100};
+                background-color: ${({$theme}) => $theme.subMenu.expIcon.colors.background.default};
                 box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.15);
             }
         }
@@ -24,7 +22,7 @@ export const DropDownStyle = createGlobalStyle`
         .ant-dropdown-menu {
             overflow: visible;
             padding: 0px;
-            background-color: ${color.secondary.mediumGrey.mediumGrey100};
+            background-color: ${({$theme}) => $theme.menu.colors.background.default};
             box-shadow: none;
 
             .ant-dropdown-menu-item-group:first-of-type .ant-dropdown-menu-item-group-title {
@@ -33,9 +31,9 @@ export const DropDownStyle = createGlobalStyle`
 
             .ant-dropdown-menu-item-group-title {
                 padding: 8px 0;
-                color: ${color.neutral.typography.black};
-                font-size: ${typography.fontSize7}px;
-                font-weight: ${typography.boldFontWeight};
+                color: ${({$theme}) => $theme.menuItemGroup.title.colors.typography.default};
+                font-size: ${({$theme}) => $theme.menuItemGroup.title.typography.fontSize}px;
+                font-weight: ${({$theme}) => $theme.menuItemGroup.title.typography.fontWeight};
             }
 
             .ant-dropdown-menu-item-group-list {
@@ -47,8 +45,8 @@ export const DropDownStyle = createGlobalStyle`
                 border-radius: 7px;
                 border: none;
                 min-height: 32px;
-                font-weight: ${typography.mediumfontWeight};
-                color: ${color.secondary.mediumGrey.mediumGrey500};
+                font-weight: ${({$theme}) => $theme.menuItem.typography.fontWeight};
+                color: ${({$theme}) => $theme.menuItem.colors.typography.default};
                 padding: 0 10px;
 
                 &:not(:last-child) {
@@ -56,17 +54,17 @@ export const DropDownStyle = createGlobalStyle`
                 }
 
                 &.ant-dropdown-menu-item-active {
-                    background-color: ${color.primary.blue100};
-                    color: ${color.primary.blue400};
+                    background-color: ${({$theme}) => $theme.menuItem.colors.background.active};
+                    color: ${({$theme}) => $theme.menuItem.colors.typography.active};
                 }
 
                 &.ant-dropdown-menu-item-selected {
-                    background-color: ${color.primary.blue100};
+                    background-color: ${({$theme}) => $theme.menuItem.colors.background.selected};
                 }
 
                 &.ant-dropdown-menu-item-disabled {
-                    background-color: ${color.secondary.mediumGrey.mediumGrey100};
-                    color: ${color.secondary.mediumGrey.mediumGrey400};
+                    background-color: ${({$theme}) => $theme.menuItem.colors.background.disabled};
+                    color: ${({$theme}) => $theme.menuItem.colors.typography.disabled};
                     cursor: not-allowed;
                 }
             }
@@ -78,8 +76,8 @@ export const DropDownStyle = createGlobalStyle`
                 .ant-dropdown-menu-submenu-title {
                     background-color: initial;
                     padding: 0;
-                    font-weight: ${typography.mediumfontWeight};
-                    color: ${color.secondary.mediumGrey.mediumGrey500};
+                    font-weight: ${({$theme}) => $theme.subMenu.title.typography.fontWeight};
+                    color: ${({$theme}) => $theme.subMenu.title.colors.typography.default};
                     width: 100%;
 
                     .ant-dropdown-menu-title-content {
@@ -91,37 +89,40 @@ export const DropDownStyle = createGlobalStyle`
                         float: right;
 
                         .anticon {
-                            color: ${color.secondary.mediumGrey.mediumGrey500};
+                            color: ${({$theme}) => $theme.subMenu.expIcon.colors.typography.default};
                         }
                     }
                 }
 
                 &.ant-dropdown-menu-submenu-active {
-                    background-color: ${color.primary.blue100};
-                    color: ${color.primary.blue400};
+                    background-color: ${({$theme}) => $theme.subMenu.colors.background.active};
+                    color: ${({$theme}) => $theme.subMenu.colors.typography.active};
 
-                    .ant-dropdown-menu-submenu-title,
+                    .ant-dropdown-menu-submenu-title {
+                        color: ${({$theme}) => $theme.subMenu.title.colors.typography.active};
+                    }
+
                     .ant-dropdown-menu-submenu-expand-icon .anticon {
-                        color: ${color.primary.blue400};
+                        color: ${({$theme}) => $theme.subMenu.expIcon.colors.typography.active};
                     }
                 }
 
                 &.ant-dropdown-menu-submenu-disabled {
                     .ant-dropdown-menu-submenu-title {
-                        background-color: ${color.secondary.mediumGrey.mediumGrey100};
-                        color: ${color.secondary.mediumGrey.mediumGrey400};
+                        background-color: ${({$theme}) => $theme.subMenu.title.colors.background.disabled};
+                        color: ${({$theme}) => $theme.subMenu.title.colors.typography.disabled};
                         cursor: not-allowed;
 
                         .ant-dropdown-menu-submenu-expand-icon .anticon {
-                            background-color: ${color.secondary.mediumGrey.mediumGrey100};
-                            color: ${color.secondary.mediumGrey.mediumGrey400};
+                            background-color: ${({$theme}) => $theme.subMenu.expIcon.colors.background.disabled};
+                            color: ${({$theme}) => $theme.subMenu.expIcon.colors.typography.disabled};
                         }
                     }
                 }
             }
 
             .ant-dropdown-menu-item-divider {
-                background-color: ${color.secondary.mediumGrey.mediumGrey200};
+                background-color: ${({$theme}) => $theme.menuItem.divider.colors.background.default};
             }
 
             a {
