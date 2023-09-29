@@ -26,7 +26,9 @@ const ConfirmDialog = ({
     close,
     ...props
 }: confirmDialogProps) => {
-    const {theme} = useKitTheme();
+    const {theme: kitTheme} = useKitTheme();
+    const theme = kitTheme.components.Modal;
+
     const [locale] = useLocale('Modal');
 
     let mergedIcon: React.ReactNode = icon;
@@ -74,7 +76,7 @@ const ConfirmDialog = ({
         <Modal
             isOpen={isOpen}
             showCloseIcon={false}
-            width={width || 'auto'}
+            width={width ?? 'auto'}
             style={{content: {minWidth: '350px'}}}
             portalClassName={portalClassName}
             footer={
@@ -85,13 +87,13 @@ const ConfirmDialog = ({
             }
             {...props}
         >
-            <KitSpace direction="vertical" size={theme.components.Modal.spacing.vertical.items}>
+            <KitSpace direction="vertical" size={theme.spacing.vertical.items}>
                 {image && (
                     <div className="kit-confirm-image-wrapper" style={{backgroundImage: 'url(' + image + ')'}}></div>
                 )}
-                <KitSpace size={theme.components.Modal.spacing.vertical.items}>
+                <KitSpace size={theme.spacing.vertical.items}>
                     {mergedIcon}
-                    <KitSpace direction="vertical" size={theme.components.Modal.spacing.vertical.text}>
+                    <KitSpace direction="vertical" size={theme.spacing.vertical.text}>
                         <div className="ant-modal-title">{title}</div>
                         <div className="ant-modal-body">{firstLine}</div>
                         {secondLine && <div className="ant-modal-body">{secondLine}</div>}
