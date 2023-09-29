@@ -25,6 +25,7 @@ import {KitCheckboxTheme} from './components/DataEntry/Checkbox';
 import {KitDatePickerTheme} from './components/DataEntry/DatePicker';
 import {KitUploadTheme} from './components/DataEntry/Upload';
 import {KitRadioTheme} from './components/DataEntry/Radio';
+import {KitDividerTheme} from './components/Layout/Divider';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -66,6 +67,7 @@ export interface KitTheme {
         DatePicker: KitDatePickerTheme;
         Upload: KitUploadTheme;
         Radio: KitRadioTheme;
+        Divider: KitDividerTheme;
     };
 }
 

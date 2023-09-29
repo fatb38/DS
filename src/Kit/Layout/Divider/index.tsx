@@ -3,24 +3,27 @@ import {Divider as AntdDivider} from 'antd';
 import {css, styled} from 'styled-components';
 import {KitDividerColor, KitDividerProps} from './types';
 import theme from '@theme/index';
+import {useKitTheme} from '@theme/theme-context';
+import {KitDividerTheme} from '@theme/types/components/Layout/Divider';
 
 const StyledAntdDivider = styled(AntdDivider)<{
+    $theme: KitDividerTheme;
     $noMargin: boolean;
     $color: KitDividerColor;
 }>`
     &.ant-divider {
-        font-weight: ${theme.typography.mediumfontWeight};
+        font-weight: ${({$theme}) => $theme.typography.fontWeight};
 
-        ${props =>
-            props.$noMargin &&
+        ${({$noMargin}) =>
+            $noMargin &&
             css`
                 margin: 0px;
             `}
 
-        ${props =>
-            props.$color === 'lightGrey' &&
+        ${({$color, $theme}) =>
+            $color === 'lightGrey' &&
             css`
-                border-color: ${theme.color.secondary.mediumGrey.mediumGrey100};
+                border-color: ${$theme.colors.split.lightGrey};
             `}
     }
 `;
@@ -30,7 +33,16 @@ export const KitDivider: React.FunctionComponent<KitDividerProps> = ({
     color = 'default',
     ...dividerProps
 }) => {
-    return <StyledAntdDivider {...dividerProps} $noMargin={noMargin} $color={color}></StyledAntdDivider>;
+    const {theme} = useKitTheme();
+
+    return (
+        <StyledAntdDivider
+            $theme={theme.components.Divider}
+            {...dividerProps}
+            $noMargin={noMargin}
+            $color={color}
+        ></StyledAntdDivider>
+    );
 };
 
 KitDivider.displayName = 'KitDivider';
