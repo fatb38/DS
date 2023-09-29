@@ -6,7 +6,7 @@ import {NotificationOutlined} from '@ant-design/icons';
 
 const App = () => {
     return (
-        <KitSpace size="middle">
+        <KitSpace size="s">
             <KitBadge dot>
                 <NotificationOutlined style={{fontSize: 16}} />
             </KitBadge>

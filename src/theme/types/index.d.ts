@@ -25,6 +25,7 @@ import {KitCheckboxTheme} from './components/DataEntry/Checkbox';
 import {KitDatePickerTheme} from './components/DataEntry/DatePicker';
 import {KitUploadTheme} from './components/DataEntry/Upload';
 import {KitRadioTheme} from './components/DataEntry/Radio';
+import {KitDividerTheme} from './components/Layout/Divider';
 import {KitAlertTheme} from './components/Feedback/Alert';
 import {KitModalTheme} from './components/Feedback/Modal';
 import {KitNotificatiobTheme} from './components/Feedback/Notification';
@@ -76,6 +77,7 @@ export interface KitTheme {
         Notification: KitNotificatiobTheme;
         Progress: KitProgressTheme;
         SnackBar: KitSnackBarTheme;
+        Divider: KitDividerTheme;
     };
 }
 

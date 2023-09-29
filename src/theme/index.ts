@@ -16,15 +16,6 @@ const theme: KitThemeConfig = {
     typography: Typography,
     headersTypography: typographyHeaders,
     components: {
-        Divider: {
-            colorText: colorsPalette.neutral.typography.black,
-            colorTextHeading: colorsPalette.neutral.typography.black,
-            fontFamily: Typography.fontFamily,
-            fontSize: Typography.fontSize6,
-            fontSizeLG: Typography.fontSize6,
-            lineHeight: Typography.lineHeight6,
-            colorSplit: colorsPalette.neutral.typography.black60
-        },
         Dropdown: {
             borderRadius: 7,
             fontFamily: Typography.fontFamily,

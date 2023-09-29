@@ -197,6 +197,14 @@ const ItemCardWrapper = styled.div<{
         .kit-icon {
             padding: 0px;
         }
+
+        .avatar-full {
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+        }
     }
 
     .kit-card-colorbar {
@@ -259,7 +267,7 @@ const ItemCardWrapper = styled.div<{
 `;
 
 // TODO Add More /less button to description
-const getPicture = picture => {
+const getPicture = (picture, fullWidthAvatar) => {
     if (!picture) {
         return null;
     }
@@ -267,10 +275,12 @@ const getPicture = picture => {
     let noBorder = false;
     let cloneProps = {};
     let wrapperClassName = 'kit-card-icon';
+
     switch (picture.type.displayName) {
         case 'KitImage':
             cloneProps = {
                 preview: {
+                    ...(picture.props?.preview ?? {}),
                     mask: <EyeOutlined />
                 },
                 width: '100%',
@@ -286,6 +296,11 @@ const getPicture = picture => {
             };
             break;
         case 'KitAvatar':
+            if (fullWidthAvatar) {
+                cloneProps = {
+                    className: (picture.props?.className || '') + ' avatar-full'
+                };
+            }
             break;
         default:
             return null;
@@ -319,6 +334,7 @@ const getSWrapperClassName = (vertical, disabled, className) =>
 export const KitItemCard: React.FunctionComponent<IKitItemCardProps> = ({
     vertical,
     colors,
+    fullWidthAvatar,
     picture,
     title,
     description,
@@ -341,7 +357,7 @@ export const KitItemCard: React.FunctionComponent<IKitItemCardProps> = ({
             className={getSWrapperClassName(vertical, disabled, props.className ?? '')}
             {...props}
         >
-            {(onSelectChange || onEdit) && (
+            {(onSelectChange || onEdit || actions) && (
                 <div className="kit-card-select">
                     {onSelectChange && (
                         <KitCheckbox
@@ -352,7 +368,7 @@ export const KitItemCard: React.FunctionComponent<IKitItemCardProps> = ({
                     {onEdit && (
                         <KitButton
                             className="kit-card-select-button"
-                            onClick={() => onEdit && onEdit()}
+                            onClick={e => onEdit && onEdit(e)}
                             disabled={disabled}
                         >
                             <EditOutlined />
@@ -361,7 +377,7 @@ export const KitItemCard: React.FunctionComponent<IKitItemCardProps> = ({
                     {getActions(actions, disabled)}
                 </div>
             )}
-            {getPicture(picture)}
+            {getPicture(picture, fullWidthAvatar)}
             {colors && <KitColorbar colors={colors} vertical={!vertical} className={`kit-card-colorbar`} />}
             <div className="kit-card-data">
                 <KitTypography.Text className="kit-card-title" ellipsis={{rows: 1, tooltip: true}}>

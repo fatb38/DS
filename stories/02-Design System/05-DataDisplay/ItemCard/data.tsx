@@ -17,7 +17,7 @@ export const fakeContent = {
         {label: 'toto', color: '#009876'}
     ],
     tags: ['3 opérations'],
-    image: <KitImage src="images/tondeuse.png" />,
+    image: <KitImage src="public/images/tondeuse.png" />,
     icon: <KitIcon icon={<AntDesignOutlined />} />,
     avatar: <KitAvatar>G</KitAvatar>,
     onSeectChange: '',
@@ -69,6 +69,19 @@ export const argTypes = {
         table: {
             type: {
                 summary: 'ReactElement<KitAvatarProps> | ReactElement<KitIconProps> | ReactElement<KitImageProps>'
+            },
+            category: 'ItemCard'
+        }
+    },
+    fullWidthAvatar: {
+        name: 'fullWidthAvatar',
+        description: 'Sets wether the avatar should fill the entire picture area',
+        control: {
+            type: 'boolean'
+        },
+        table: {
+            type: {
+                summary: 'boolean'
             },
             category: 'ItemCard'
         }

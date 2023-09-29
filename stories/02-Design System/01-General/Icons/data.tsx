@@ -117,7 +117,7 @@ const Gallery = () => {
 
     return (
         <div className="gallery">
-            <KitSpace size="small">
+            <KitSpace size="xs">
                 <KitRadio.Group options={options} onChange={onChange} value={type} size="small" optionType="button" />
                 <KitInput
                     prefix="TwoTone color"
@@ -129,7 +129,7 @@ const Gallery = () => {
             </KitSpace>
             <br />
             <br />
-            <KitSpace wrap size="middle">
+            <KitSpace wrap size="s">
                 {sorted[type].map(IconName => {
                     const Component = type === 'aristid' ? AristidIcons[IconName] : Icons[IconName];
                     return (

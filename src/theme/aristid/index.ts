@@ -22,6 +22,7 @@ import {KitCheckboxTheme} from './components/DataEntry/Checkbox';
 import {KitDatePickerTheme} from './components/DataEntry/DatePicker';
 import {KitUploadTheme} from './components/DataEntry/Upload';
 import {KitRadioTheme} from './components/DataEntry/Radio';
+import {KitDividerTheme} from './components/Layout/Divider';
 import {KitAlertTheme} from './components/Feedback/Alert';
 import {KitModalTheme} from './components/Feedback/Modal';
 import {KitNotificationTheme} from './components/Feedback/Notification';
@@ -59,6 +60,7 @@ export const KitAristidTheme: KitTheme = {
         Modal: KitModalTheme,
         Notification: KitNotificationTheme,
         Progress: KitProgressTheme,
-        SnackBar: KitSnackBarTheme
+        SnackBar: KitSnackBarTheme,
+        Divider: KitDividerTheme
     }
 };
