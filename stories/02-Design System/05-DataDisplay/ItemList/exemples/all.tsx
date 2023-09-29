@@ -6,7 +6,7 @@ import {UserOutlined} from '@ant-design/icons';
 
 const App = () => {
     return (
-        <KitSpace direction="vertical" size="large">
+        <KitSpace direction="vertical" size="m">
             <div style={{width: '350px'}}>
                 <KitItemList
                     onSelectChange={e => console.log('selected', e.target.checked)}
@@ -21,7 +21,7 @@ const App = () => {
             <div style={{width: '350px'}}>
                 <KitItemList
                     onSelectChange={e => console.log('selected', e.target.checked)}
-                    picture={<KitImage src="images/tondeuse.png" />}
+                    picture={<KitImage src="public/images/tondeuse.png" />}
                     title="Tondeuse à gazon"
                     description="Tondeuse thermique Auto tractée 70 VL 55 TH"
                     tagNumber={4}

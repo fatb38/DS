@@ -31,6 +31,12 @@ import {KitMenuTheme} from './components/Navigation/Menu';
 import {KitHeaderTheme} from './components/Navigation/Header';
 import {KitDropDownTheme} from './components/Navigation/DropDown';
 import {KitBreadcrumbTheme} from './components/Navigation/Breadcrumb';
+import {KitDividerTheme} from './components/Layout/Divider';
+import {KitAlertTheme} from './components/Feedback/Alert';
+import {KitModalTheme} from './components/Feedback/Modal';
+import {KitNotificatiobTheme} from './components/Feedback/Notification';
+import {KitProgressTheme} from './components/Feedback/Progress';
+import {KitSnackBarTheme} from './components/Feedback/SnackBar';
 
 type DeepPartial<T> = T extends object
     ? {
@@ -72,6 +78,12 @@ export interface KitTheme {
         DatePicker: KitDatePickerTheme;
         Upload: KitUploadTheme;
         Radio: KitRadioTheme;
+        Alert: KitAlertTheme;
+        Modal: KitModalTheme;
+        Notification: KitNotificatiobTheme;
+        Progress: KitProgressTheme;
+        SnackBar: KitSnackBarTheme;
+        Divider: KitDividerTheme;
         Steps: KitStepsTheme;
         Pagination: KitPaginationTheme;
         Menu: KitMenuTheme;

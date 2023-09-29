@@ -2,6 +2,9 @@ import type {SpaceProps} from 'antd';
 import type {SpaceSize} from 'antd/lib/space';
 import {CSSProperties, ReactNode} from 'react';
 import {KitHTMLAttributes} from '../../../types';
+import {KitSpacing} from '@theme/types/general/spacing';
+
+type KitSpaceSize = keyof KitSpacing | number;
 
 export interface KitSpaceProps extends SpaceProps, KitHTMLAttributes<HTMLDivElement> {
     displayName?: string;
@@ -10,6 +13,5 @@ export interface KitSpaceProps extends SpaceProps, KitHTMLAttributes<HTMLDivElem
     align?: 'start' | 'end' | 'center' | 'baseline';
     style?: CSSProperties;
     className?: string;
+    size?: KitSpaceSize | [KitSpaceSize, KitSpaceSize];
 }
-
-export {SpaceSize};

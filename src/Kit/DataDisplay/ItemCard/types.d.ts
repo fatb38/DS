@@ -19,6 +19,7 @@ export default interface IKitItemCardProps extends Omit<KitHTMLAttributes<HTMLDi
     vertical?: boolean;
     disabled?: boolean;
     colors?: CardColor[] | null;
+    fullWidthAvatar?: boolean;
     picture?: ReactNode;
     title?: ReactNode;
     description?: ReactNode;
@@ -26,5 +27,5 @@ export default interface IKitItemCardProps extends Omit<KitHTMLAttributes<HTMLDi
     tags?: KitTagProps[] | string[];
     actions?: ReactNode[];
     onSelectChange?: (e: CheckboxChangeEvent) => void;
-    onEdit?: () => void;
+    onEdit?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
 }

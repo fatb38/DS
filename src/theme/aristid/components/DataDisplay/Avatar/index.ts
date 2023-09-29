@@ -11,7 +11,8 @@ const kitAvatarStyled: KitAvatarThemeStyled = {
         },
         typography: {
             default: colors.neutral.typography.white,
-            blueInvert: colors.secondary.blue.blue200
+            blueInvert: colors.secondary.blue.blue200,
+            dark: colors.neutral.typography.black
         }
     }
 };

@@ -7,6 +7,7 @@ export interface KitAvatarThemeStyled {
         typography: {
             default: string;
             blueInvert: string;
+            dark: string;
         };
     };
 }

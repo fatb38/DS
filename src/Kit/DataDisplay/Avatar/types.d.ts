@@ -5,7 +5,7 @@ import {KitHTMLAttributes} from '../../../types';
 type AntdAvatarTypesToOmit = '';
 type AntdAvatarGroupTypesToOmit = 'maxStyle';
 
-export type KitAvatarColorType = 'default' | 'blueInvert';
+export type KitAvatarColorType = 'default' | 'blueInvert' | string;
 
 export interface KitAvatarProps extends Omit<AvatarProps, AntdAvatarTypesToOmit>, KitHTMLAttributes<HTMLSpanElement> {
     color?: KitAvatarColorType;
@@ -13,4 +13,4 @@ export interface KitAvatarProps extends Omit<AvatarProps, AntdAvatarTypesToOmit>
 
 export interface KitAvatarGroupProps
     extends Omit<GroupProps, AntdAvatarGroupTypesToOmit>,
-        KitHTMLAttributes<HTMLDivElement> {}
+    KitHTMLAttributes<HTMLDivElement> {}

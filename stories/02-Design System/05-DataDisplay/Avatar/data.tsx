@@ -4,7 +4,7 @@ import {KitSpace} from '@kit/Layout';
 
 const shape = ['circle', 'square'];
 
-const color = ['default', 'blueInvert'];
+const color = ['default', 'blueInvert', 'yellow', 'brown', 'darkblue'];
 
 const pophoverPlacement = ['top', 'bottom'];
 
@@ -67,7 +67,8 @@ export const argTypes = {
     },
     color: {
         name: 'color',
-        description: 'The color of avatar',
+        description:
+            'The color of avatar. If custom color provided, the text color will adapt to maintain sufficient contrast.',
         options: color,
         control: {
             type: 'select',
@@ -75,7 +76,7 @@ export const argTypes = {
         },
         table: {
             type: {
-                summary: 'default | blueInvert'
+                summary: 'default | blueInvert | `string`'
             },
             category: 'Avatar'
         }
@@ -225,7 +226,7 @@ export const argTypes = {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {component, ...props} = args;
     return (
         <>

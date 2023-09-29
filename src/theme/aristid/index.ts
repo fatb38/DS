@@ -28,6 +28,12 @@ import {KitMenuTheme} from './components/Navigation/Menu';
 import {KitHeaderTheme} from './components/Navigation/Header';
 import {KitDropDownTheme} from './components/Navigation/DropDown';
 import {KitBreadcrumbTheme} from './components/Navigation/Breadcrumb';
+import {KitDividerTheme} from './components/Layout/Divider';
+import {KitAlertTheme} from './components/Feedback/Alert';
+import {KitModalTheme} from './components/Feedback/Modal';
+import {KitNotificationTheme} from './components/Feedback/Notification';
+import {KitProgressTheme} from './components/Feedback/Progress';
+import {KitSnackBarTheme} from './components/Feedback/SnackBar';
 
 export const KitAristidTheme: KitTheme = {
     general: KitAristidThemeGeneral,
@@ -61,6 +67,12 @@ export const KitAristidTheme: KitTheme = {
         Menu: KitMenuTheme,
         Header: KitHeaderTheme,
         DropDown: KitDropDownTheme,
-        Breadcrumb: KitBreadcrumbTheme
+        Breadcrumb: KitBreadcrumbTheme,
+        Alert: KitAlertTheme,
+        Modal: KitModalTheme,
+        Notification: KitNotificationTheme,
+        Progress: KitProgressTheme,
+        SnackBar: KitSnackBarTheme,
+        Divider: KitDividerTheme
     }
 };

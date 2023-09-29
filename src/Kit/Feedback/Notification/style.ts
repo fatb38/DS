@@ -1,23 +1,23 @@
 import {createGlobalStyle} from 'styled-components';
-import theme from '@theme/index';
+import {KitNotificatiobTheme} from '@theme/types/components/Feedback/Notification';
 
-const {color, headersTypography, typography} = theme;
-
-export const NotificationStyle = createGlobalStyle`
+export const NotificationStyle = createGlobalStyle<{
+    $theme: KitNotificatiobTheme;
+}>`
     .ant-notification-notice-info .ant-notification-notice-content .ant-notification-notice-message {
-        color: ${color.primary.blue400};
+        color: ${({$theme}) => $theme.colors.typography.message.info};
     }
 
     .ant-notification-notice-success .ant-notification-notice-content .ant-notification-notice-message {
-        color: ${color.secondary.green.green400};
+        color: ${({$theme}) => $theme.colors.typography.message.success};
     }
 
     .ant-notification-notice-error .ant-notification-notice-content .ant-notification-notice-message {
-        color: ${color.secondary.red.red400};
+        color: ${({$theme}) => $theme.colors.typography.message.error};
     }
 
     .ant-notification-notice-warning .ant-notification-notice-content .ant-notification-notice-message {
-        color: ${color.secondary.orange.orange400};
+        color: ${({$theme}) => $theme.colors.typography.message.warning};
     }
 
     .ant-notification {
@@ -27,19 +27,19 @@ export const NotificationStyle = createGlobalStyle`
         }
 
         .ant-notification-notice {
-            font-family: ${typography.fontFamily};
+            font-family: ${({$theme}) => $theme.typography.fontFamily};
             padding: 16px;
             font-size: 10px;
             .ant-notification-notice-with-icon {
                 .ant-notification-notice-message {
-                    font-size: ${headersTypography.fontSize4}px;
-                    font-weight: ${typography.mediumfontWeight};
+                    font-size: ${({$theme}) => $theme.typography.fontSize.message}px;
+                    font-weight: ${({$theme}) => $theme.typography.fontWeight.message};
                     margin-inline-start: 48px;
                     padding-right: 32px;
                 }
                 .ant-notification-notice-description {
                     margin-inline-start: 48px;
-                    font-size: ${typography.fontSize5}px;
+                    font-size: ${({$theme}) => $theme.typography.fontSize.content}px;
                     line-height: 22px;
                     margin-bottom: 8px;
                 }

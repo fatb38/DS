@@ -1,7 +1,7 @@
 import Align from './align';
 import Basic from './basic';
 import CompactButton from './compactButton';
-import customSize from './customSize';
+import CustomSize from './customSize';
 import Size from './size';
 import Split from './split';
 import Vertical from './vertical';
@@ -11,7 +11,7 @@ import Wrap from './wrap';
 import AlignSource from './align?raw';
 import BasicSource from './basic?raw';
 import CompactButtonSource from './compactButton?raw';
-import customSizeSource from './customSize?raw';
+import CustomSizeSource from './customSize?raw';
 import SizeSource from './size?raw';
 import SplitSource from './split?raw';
 import VerticalSource from './vertical?raw';
@@ -22,7 +22,7 @@ export const Sources = {
     Align: AlignSource,
     Basic: BasicSource,
     CompactButton: CompactButtonSource,
-    customSize: customSizeSource,
+    CustomSize: CustomSizeSource,
     Size: SizeSource,
     Split: SplitSource,
     Vertical: VerticalSource,
@@ -34,7 +34,7 @@ export default {
     Align,
     Basic,
     CompactButton,
-    customSize,
+    CustomSize,
     Size,
     Split,
     Vertical,
