@@ -25,7 +25,14 @@ export interface KitTypographyThemeStyled {
     Text: {
         fontWeight: {
             regular: number | string;
-            mediul: number | string;
+            medium: number | string;
+            bold: number | string;
+        };
+    };
+    Paragraph: {
+        fontWeight: {
+            regular: number | string;
+            medium: number | string;
             bold: number | string;
         };
     };

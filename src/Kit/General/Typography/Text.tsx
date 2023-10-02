@@ -20,7 +20,7 @@ const StyledKitText = styled(Typography.Text)<{
     }
 
     &.ant-typography-medium {
-        font-weight: ${({$theme}) => $theme.Text.fontWeight.mediul};
+        font-weight: ${({$theme}) => $theme.Text.fontWeight.medium};
     }
 
     &.ant-typography-bold {

@@ -43,7 +43,14 @@ const KitTypographyThemeStyled: KitTypographyThemeStyled = {
     Text: {
         fontWeight: {
             regular: typography.regularFontWeight,
-            mediul: typography.mediumfontWeight,
+            medium: typography.mediumfontWeight,
+            bold: typography.boldFontWeight
+        }
+    },
+    Paragraph: {
+        fontWeight: {
+            regular: typography.regularFontWeight,
+            medium: typography.mediumfontWeight,
             bold: typography.boldFontWeight
         }
     }
