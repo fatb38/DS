@@ -1,4 +1,4 @@
-import {KitTheme} from '@theme/types';
+import {IKitTheme} from '@theme/types';
 import {KitAristidThemeGeneral} from './general';
 import {KitRateTheme} from './components/DataEntry/Rate';
 import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
@@ -37,7 +37,7 @@ import {KitSnackBarTheme} from './components/Feedback/SnackBar';
 import {KitIconTheme} from './components/General/Icon';
 import {KitTypographyTheme} from './components/General/Typography';
 
-export const KitAristidTheme: KitTheme = {
+export const KitAristidTheme: IKitTheme = {
     general: KitAristidThemeGeneral,
     components: {
         Button: KitButtonTheme,

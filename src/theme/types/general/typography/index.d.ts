@@ -1,4 +1,4 @@
-export interface KitTypography {
+export interface IKitTypography {
     fontFamily: string;
     fontStyle: string;
     defaultFontWeight: string | number;

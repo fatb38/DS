@@ -4,11 +4,11 @@ import {KitBadgeProps, KitBadgeCountColor} from './types';
 import {css, styled} from 'styled-components';
 import {IKitBadgeTheme} from '@theme/types/components/DataDisplay/Badge';
 import {useKitTheme} from '@theme/theme-context';
-import {KitTypography} from '@theme/types/general/typography';
+import {IKitTypography} from '@theme/types/general/typography';
 
 const StyledAntdBadge = styled(AntdBadge)<{
     $theme: IKitBadgeTheme;
-    $typographyTheme: KitTypography;
+    $typographyTheme: IKitTypography;
     $countColor: KitBadgeCountColor;
 }>`
     height: 16px;

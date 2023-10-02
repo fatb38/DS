@@ -1,4 +1,4 @@
-export interface KitColorsPalette {
+export interface IKitColorsPalette {
     primary: {
         blue100: string;
         blue200: string;
@@ -93,4 +93,4 @@ export interface KitColorsPalette {
     };
 }
 
-export type KitColorKeys = keyof KitColorsPalette['secondary'];
+export type KitColorKeys = keyof IKitColorsPalette['secondary'];

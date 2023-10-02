@@ -3,7 +3,7 @@ import React, {ReactNode, createContext, useState} from 'react';
 // TODO: Later add option to have more arisitd themes
 import {KitAristidTheme} from './aristid';
 import {merge} from 'lodash';
-import {KitCustomTheme, KitTheme} from './types';
+import {IKitCustomTheme, IKitTheme} from './types';
 
 const defaultValue = {
     theme: KitAristidTheme,
@@ -11,8 +11,8 @@ const defaultValue = {
 };
 
 const KitThemeContext = createContext<{
-    theme: KitTheme;
-    overrideTheme: (customTheme?: KitCustomTheme) => void;
+    theme: IKitTheme;
+    overrideTheme: (customTheme?: IKitCustomTheme) => void;
 }>(defaultValue);
 
 export const useKitTheme = () => {
@@ -31,7 +31,7 @@ export const KitThemeProvider = ({children}: {children: ReactNode}) => {
 const useKitThemeProvider = () => {
     const [theme, setTheme] = useState(KitAristidTheme);
 
-    const overrideTheme = (customTheme?: KitCustomTheme) => {
+    const overrideTheme = (customTheme?: IKitCustomTheme) => {
         const mergedTheme = merge(KitAristidTheme, customTheme);
         setTheme(mergedTheme);
     };

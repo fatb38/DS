@@ -5,11 +5,11 @@ import {KitTextProps, kitTextSize} from './types';
 import {sizeTofontSize, getWeightClassname} from './commons';
 import {IKitTypographyTheme} from '@theme/types/components/General/Typography';
 import {useKitTheme} from '@theme/theme-context';
-import {KitTypography} from '@theme/types/general/typography';
+import {IKitTypography} from '@theme/types/general/typography';
 
 const StyledKitText = styled(Typography.Text)<{
     $theme: IKitTypographyTheme;
-    $typographyTheme: KitTypography;
+    $typographyTheme: IKitTypography;
     size: kitTextSize;
 }>`
     font-size: ${({$typographyTheme, size}) => $typographyTheme['fontSize' + sizeTofontSize[size] ?? 6]}px;

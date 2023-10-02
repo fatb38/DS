@@ -1,6 +1,6 @@
-import {KitColorsPalette} from '@theme/types/general/colors';
+import {IKitColorsPalette} from '@theme/types/general/colors';
 
-export const colorsPalette: KitColorsPalette = {
+export const colorsPalette: IKitColorsPalette = {
     primary: {
         blue100: '#E7EDFF',
         blue200: '#97B9FD',

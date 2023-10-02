@@ -1,44 +1,44 @@
-import {KitBorder} from './general/border';
-import {KitColorsPalette} from './general/colors';
-import {KitSpacing} from './general/spacing';
-import {KitTypography} from './general/typography';
-import {KitButtonTheme} from './components/General/Button';
-import {KitRateTheme} from './components/DataEntry/Rate';
-import {KitTagTheme} from './components/DataEntry/Tag';
-import {KitInputWrapperTheme} from './components/DataEntry/Input';
-import {KitInputTheme} from './components/DataEntry/Input';
-import {KitSliderTheme} from './components/DataEntry/Slider';
-import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
-import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
-import {KitBadgeTheme} from './components/DataDisplay/Badge';
-import {KitItemCardTheme} from './components/DataDisplay/ItemCard';
-import {KitCollapseTheme} from './components/DataDisplay/Collapse';
-import {KitImageTheme} from './components/DataDisplay/Image';
-import {KitItemListTheme} from './components/DataDisplay/ItemList';
-import {KitTabsTheme} from './components/DataDisplay/Tabs';
-import {KitTreeTheme} from './components/DataDisplay/Tree';
-import {KitInputNumberTheme} from './components/DataEntry/InputNumber';
-import {KitSwitchTheme} from './components/DataEntry/Switch';
-import {KitSelectTheme} from './components/DataEntry/Select';
+import {IKitBorder} from './general/border';
+import {IKitColorsPalette} from './general/colors';
+import {IKitSpacing} from './general/spacing';
+import {IKitTypography} from './general/typography';
+import {IKitButtonTheme} from './components/General/Button';
+import {IKitRateTheme} from './components/DataEntry/Rate';
+import {IKitTagTheme} from './components/DataEntry/Tag';
+import {IKitInputWrapperTheme} from './components/DataEntry/Input';
+import {IKitInputTheme} from './components/DataEntry/Input';
+import {IKitSliderTheme} from './components/DataEntry/Slider';
+import {IKitTooltipTheme} from './components/DataDisplay/Tooltip';
+import {IKitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
+import {IKitBadgeTheme} from './components/DataDisplay/Badge';
+import {IKitItemCardTheme} from './components/DataDisplay/ItemCard';
+import {IKitCollapseTheme} from './components/DataDisplay/Collapse';
+import {IKitImageTheme} from './components/DataDisplay/Image';
+import {IKitItemListTheme} from './components/DataDisplay/ItemList';
+import {IKitTabsTheme} from './components/DataDisplay/Tabs';
+import {IKitTreeTheme} from './components/DataDisplay/Tree';
+import {IKitInputNumberTheme} from './components/DataEntry/InputNumber';
+import {IKitSwitchTheme} from './components/DataEntry/Switch';
+import {IKitSelectTheme} from './components/DataEntry/Select';
 import {IKitCardTheme} from './components/DataDisplay/Card';
-import {KitCheckboxTheme} from './components/DataEntry/Checkbox';
-import {KitDatePickerTheme} from './components/DataEntry/DatePicker';
-import {KitUploadTheme} from './components/DataEntry/Upload';
-import {KitRadioTheme} from './components/DataEntry/Radio';
-import {KitStepsTheme} from './components/Navigation/Steps';
-import {KitPaginationTheme} from './components/Navigation/Pagination';
-import {KitMenuTheme} from './components/Navigation/Menu';
-import {KitHeaderTheme} from './components/Navigation/Header';
-import {KitDropDownTheme} from './components/Navigation/DropDown';
-import {KitBreadcrumbTheme} from './components/Navigation/Breadcrumb';
-import {KitDividerTheme} from './components/Layout/Divider';
-import {KitAlertTheme} from './components/Feedback/Alert';
-import {KitModalTheme} from './components/Feedback/Modal';
-import {KitNotificatiobTheme} from './components/Feedback/Notification';
-import {KitProgressTheme} from './components/Feedback/Progress';
-import {KitSnackBarTheme} from './components/Feedback/SnackBar';
-import {KitIconTheme} from './components/General/Icon';
-import {KitTypographyTheme} from './components/General/Typography';
+import {IKitCheckboxTheme} from './components/DataEntry/Checkbox';
+import {IKitDatePickerTheme} from './components/DataEntry/DatePicker';
+import {IKitUploadTheme} from './components/DataEntry/Upload';
+import {IKitRadioTheme} from './components/DataEntry/Radio';
+import {IKitStepsTheme} from './components/Navigation/Steps';
+import {IKitPaginationTheme} from './components/Navigation/Pagination';
+import {IKitMenuTheme} from './components/Navigation/Menu';
+import {IKitHeaderTheme} from './components/Navigation/Header';
+import {IKitDropDownTheme} from './components/Navigation/DropDown';
+import {IKitBreadcrumbTheme} from './components/Navigation/Breadcrumb';
+import {IKitDividerTheme} from './components/Layout/Divider';
+import {IKitAlertTheme} from './components/Feedback/Alert';
+import {IKitModalTheme} from './components/Feedback/Modal';
+import {IKitNotificatiobTheme} from './components/Feedback/Notification';
+import {IKitProgressTheme} from './components/Feedback/Progress';
+import {IKitSnackBarTheme} from './components/Feedback/SnackBar';
+import {IKitIconTheme} from './components/General/Icon';
+import {IKitTypographyTheme} from './components/General/Typography';
 import {ThemeConfig} from 'antd';
 
 type DeepPartial<T> = T extends object
@@ -47,58 +47,58 @@ type DeepPartial<T> = T extends object
       }
     : T;
 
-export interface KitThemeGeneral {
-    colors: KitColorsPalette;
-    border: KitBorder;
-    spacing: KitSpacing;
-    typography: KitTypography;
+export interface IKitThemeGeneral {
+    colors: IKitColorsPalette;
+    border: IKitBorder;
+    spacing: IKitSpacing;
+    typography: IKitTypography;
 }
 
-export interface KitTheme {
-    general: KitThemeGeneral;
+export interface IKitTheme {
+    general: IKitThemeGeneral;
     components: {
-        Button: KitButtonTheme;
+        Button: IKitButtonTheme;
         Card: IKitCardTheme;
-        Rate: KitRateTheme;
-        Tooltip: KitTooltipTheme;
-        Tag: KitTagTheme;
-        InputWrapper: KitInputWrapperTheme;
-        Input: KitInputTheme;
-        InputNumber: KitInputNumberTheme;
-        Avatar: KitAvatarTheme;
-        AvatarGroup: KitAvatarGroupTheme;
-        Badge: KitBadgeTheme;
-        ItemCard: KitItemCardTheme;
-        Slider: KitSliderTheme;
-        Collapse: KitCollapseTheme;
-        Image: KitImageTheme;
-        ItemList: KitItemListTheme;
-        Tabs: KitTabsTheme;
-        Tree: KitTreeTheme;
-        Switch: KitSwitchTheme;
-        Select: KitSelectTheme;
-        Checkbox: KitCheckboxTheme;
-        DatePicker: KitDatePickerTheme;
-        Upload: KitUploadTheme;
-        Radio: KitRadioTheme;
-        Alert: KitAlertTheme;
-        Modal: KitModalTheme;
-        Notification: KitNotificatiobTheme;
-        Progress: KitProgressTheme;
-        SnackBar: KitSnackBarTheme;
-        Divider: KitDividerTheme;
-        Steps: KitStepsTheme;
-        Pagination: KitPaginationTheme;
-        Menu: KitMenuTheme;
-        Header: KitHeaderTheme;
-        DropDown: KitDropDownTheme;
-        Breadcrumb: KitBreadcrumbTheme;
-        Icon: KitIconTheme;
-        Typography: KitTypographyTheme;
+        Rate: IKitRateTheme;
+        Tooltip: IKitTooltipTheme;
+        Tag: IKitTagTheme;
+        InputWrapper: IKitInputWrapperTheme;
+        Input: IKitInputTheme;
+        InputNumber: IKitInputNumberTheme;
+        Avatar: IKitAvatarTheme;
+        AvatarGroup: IKitAvatarGroupTheme;
+        Badge: IKitBadgeTheme;
+        ItemCard: IKitItemCardTheme;
+        Slider: IKitSliderTheme;
+        Collapse: IKitCollapseTheme;
+        Image: IKitImageTheme;
+        ItemList: IKitItemListTheme;
+        Tabs: IKitTabsTheme;
+        Tree: IKitTreeTheme;
+        Switch: IKitSwitchTheme;
+        Select: IKitSelectTheme;
+        Checkbox: IKitCheckboxTheme;
+        DatePicker: IKitDatePickerTheme;
+        Upload: IKitUploadTheme;
+        Radio: IKitRadioTheme;
+        Alert: IKitAlertTheme;
+        Modal: IKitModalTheme;
+        Notification: IKitNotificatiobTheme;
+        Progress: IKitProgressTheme;
+        SnackBar: IKitSnackBarTheme;
+        Divider: IKitDividerTheme;
+        Steps: IKitStepsTheme;
+        Pagination: IKitPaginationTheme;
+        Menu: IKitMenuTheme;
+        Header: IKitHeaderTheme;
+        DropDown: IKitDropDownTheme;
+        Breadcrumb: IKitBreadcrumbTheme;
+        Icon: IKitIconTheme;
+        Typography: IKitTypographyTheme;
     };
 }
 
-export interface KitCustomTheme extends DeepPartial<KitTheme> {}
+export interface IKitCustomTheme extends DeepPartial<IKitTheme> {}
 
 // This function can set an optional attribute to be required
 type SetRequired<T, K extends keyof T> = T & {[P in K]-?: T[P]};

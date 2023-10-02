@@ -8,11 +8,11 @@ import {SelectDropDownStyle} from '@kit/DataEntry/Select/style';
 import {DatePickerDropDownStyle} from '@kit/DataEntry/DatePicker/style';
 import {NotificationStyle} from '@kit/Feedback/Notification/style';
 import {KitThemeProvider, useKitTheme} from '@theme/theme-context';
-import {KitCustomTheme} from '@theme/types';
+import {IKitCustomTheme} from '@theme/types';
 import {TypographyStyle} from '@kit/General/Typography/style';
 import {mapKitThemeToAntdTheme} from '@theme/utils/antd-mapper';
 
-export const KitApp: React.FunctionComponent<React.PropsWithChildren<{customTheme?: KitCustomTheme}>> = ({
+export const KitApp: React.FunctionComponent<{customTheme?: IKitCustomTheme; children?: any}> = ({
     children,
     customTheme
 }) => {
@@ -23,7 +23,7 @@ export const KitApp: React.FunctionComponent<React.PropsWithChildren<{customThem
     );
 };
 
-const KitAppConfig: React.FunctionComponent<React.PropsWithChildren<{customTheme?: KitCustomTheme}>> = ({
+const KitAppConfig: React.FunctionComponent<React.PropsWithChildren<{customTheme?: IKitCustomTheme}>> = ({
     children,
     customTheme
 }) => {

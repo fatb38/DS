@@ -1,4 +1,4 @@
-import {KitTheme} from '@theme/types';
+import {IKitTheme} from '@theme/types';
 import {ThemeConfig} from 'antd';
 import {
     mapBadgeKitTokenToAntdToken,
@@ -23,7 +23,7 @@ import {mapDividerKitTokenToAntdToken} from './Layout';
 import {mapStepsKitTokenToAntdToken} from './Navigation';
 import {mapButtonKitTokenToAntdToken} from './General';
 
-export const mapKitThemeToAntdTheme = (theme: KitTheme): ThemeConfig => {
+export const mapKitThemeToAntdTheme = (theme: IKitTheme): ThemeConfig => {
     const {components} = theme;
     return {
         components: {

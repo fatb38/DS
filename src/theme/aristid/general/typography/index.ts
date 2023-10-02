@@ -1,6 +1,6 @@
-import {KitTypography} from '@theme/types/general/typography';
+import {IKitTypography} from '@theme/types/general/typography';
 
-export const typography: KitTypography = {
+export const typography: IKitTypography = {
     fontFamily: 'Inter',
     fontStyle: 'normal',
     defaultFontWeight: 500,

@@ -1,6 +1,6 @@
-import {KitBorder} from '@theme/types/general/border';
+import {IKitBorder} from '@theme/types/general/border';
 
-export const border: KitBorder = {
+export const border: IKitBorder = {
     radius: {
         square: 0,
         xxs: 2,
