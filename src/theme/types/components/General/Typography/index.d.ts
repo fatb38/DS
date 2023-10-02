@@ -1,11 +1,11 @@
-interface TypographyTitleLevel {
+interface ITypographyTitleLevel {
     typography: {
         fontSize: number;
         lineHeight: number;
     };
 }
 
-export interface KitTypographyThemeStyled {
+export interface IKitTypographyTheme {
     colors: {
         typography: {
             default: string;
@@ -17,10 +17,10 @@ export interface KitTypographyThemeStyled {
         lineHeight: number;
     };
     Title: {
-        level1: TypographyTitleLevel;
-        level2: TypographyTitleLevel;
-        level3: TypographyTitleLevel;
-        level4: TypographyTitleLevel;
+        level1: ITypographyTitleLevel;
+        level2: ITypographyTitleLevel;
+        level3: ITypographyTitleLevel;
+        level4: ITypographyTitleLevel;
     };
     Text: {
         fontWeight: {
@@ -50,5 +50,3 @@ export interface KitTypographyThemeStyled {
         };
     };
 }
-
-export type KitTypographyTheme = KitTypographyThemeStyled;

@@ -3,9 +3,9 @@ import {Breadcrumb} from 'antd';
 import styled from 'styled-components';
 import {KitBreadcrumbProps} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {KitBreadcrumbTheme} from '@theme/types/components/Navigation/Breadcrumb';
+import {IKitBreadcrumbTheme} from '@theme/types/components/Navigation/Breadcrumb';
 
-const StyledBreadcrumb = styled(Breadcrumb)<{$theme: KitBreadcrumbTheme}>`
+const StyledBreadcrumb = styled(Breadcrumb)<{$theme: IKitBreadcrumbTheme}>`
     li:not(:last-child) a,
     li:not(:last-child) .ant-breadcrumb-link,
     li:not(:last-child) .ant-breadcrumb-link a {

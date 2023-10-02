@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitIconThemeStyled} from '@theme/types/components/General/Icon';
+import {IKitIconTheme} from '@theme/types/components/General/Icon';
 
 const {colors, border} = KitAristidThemeGeneral;
 
-const kitIconThemeStyled: KitIconThemeStyled = {
+export const KitIconTheme: IKitIconTheme = {
     colors: {
         icon: {
             default: colors.neutral.typography.black,
@@ -20,8 +20,4 @@ const kitIconThemeStyled: KitIconThemeStyled = {
             on: border.radius.s
         }
     }
-};
-
-export const KitIconTheme = {
-    ...kitIconThemeStyled
 };

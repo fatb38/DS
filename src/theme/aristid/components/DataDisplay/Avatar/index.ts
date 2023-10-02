@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitAvatarGroupThemeStyled, KitAvatarThemeStyled} from '@theme/types/components/DataDisplay/Avatar';
+import {IKitAvatarGroupTheme, IKitAvatarTheme} from '@theme/types/components/DataDisplay/Avatar';
 
 const {colors} = KitAristidThemeGeneral;
 
-const kitAvatarStyled: KitAvatarThemeStyled = {
+export const KitAvatarTheme: IKitAvatarTheme = {
     colors: {
         background: {
             default: colors.neutral.typography.black60,
@@ -17,11 +17,7 @@ const kitAvatarStyled: KitAvatarThemeStyled = {
     }
 };
 
-export const KitAvatarTheme = {
-    ...kitAvatarStyled
-};
-
-const kitAvatarGroupStyled: KitAvatarGroupThemeStyled = {
+export const KitAvatarGroupTheme: IKitAvatarGroupTheme = {
     colors: {
         background: {
             default: colors.primary.blue100
@@ -30,8 +26,4 @@ const kitAvatarGroupStyled: KitAvatarGroupThemeStyled = {
             default: colors.secondary.blue.blue200
         }
     }
-};
-
-export const KitAvatarGroupTheme = {
-    ...kitAvatarGroupStyled
 };

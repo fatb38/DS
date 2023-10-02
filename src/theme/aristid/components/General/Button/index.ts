@@ -1,26 +1,10 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {AntdThemeConfigWithRequiredComponents} from '@theme/types';
-import {
-    KitButtonThemeAntd,
-    KitButtonThemeStyled,
-    KitColoredSegmentedButtonThemesStyled
-} from '@theme/types/components/General/Button';
+import {IKitButtonTheme, KitColoredSegmentedButtonThemes} from '@theme/types/components/General/Button';
 import {KitColorKeys} from '@theme/types/general/colors';
 
 const {colors, typography, border} = KitAristidThemeGeneral;
 
-const kitButtonThemeAntd: KitButtonThemeAntd = {
-    typography: {
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize5,
-        lineHeight: typography.lineHeight5
-    },
-    border: {
-        radius: border.radius.pills
-    }
-};
-
-const kitPrimaryButtonThemeStyled: KitButtonThemeStyled = {
+const KitPrimaryButtonTheme: IKitButtonTheme['primary'] = {
     colors: {
         typography: {
             default: colors.neutral.typography.white,
@@ -81,7 +65,7 @@ const kitPrimaryButtonThemeStyled: KitButtonThemeStyled = {
     }
 };
 
-const kitDefaultButtonThemeStyled: KitButtonThemeStyled = {
+const KitDefaultButtonTheme: IKitButtonTheme['default'] = {
     colors: {
         typography: {
             default: colors.primary.blue400,
@@ -140,7 +124,7 @@ const kitDefaultButtonThemeStyled: KitButtonThemeStyled = {
     }
 };
 
-const kitTextButtonThemeStyled: KitButtonThemeStyled = {
+const KitTextButtonTheme: IKitButtonTheme['text'] = {
     colors: {
         typography: {
             default: colors.primary.blue400,
@@ -199,7 +183,7 @@ const kitTextButtonThemeStyled: KitButtonThemeStyled = {
     }
 };
 
-const kitLinkButtonThemeStyled: KitButtonThemeStyled = {
+const KitLinkButtonTheme: IKitButtonTheme['link'] = {
     colors: {
         typography: {
             default: colors.primary.blue400,
@@ -258,7 +242,7 @@ const kitLinkButtonThemeStyled: KitButtonThemeStyled = {
     }
 };
 
-const kitSegmentedButtonThemeStyled: KitButtonThemeStyled = {
+const KitSegmentedButtonTheme: IKitButtonTheme['segmented']['default'] = {
     colors: {
         typography: {
             default: colors.primary.blue500,
@@ -318,10 +302,10 @@ const kitSegmentedButtonThemeStyled: KitButtonThemeStyled = {
     }
 };
 
-const generateColoredSegmentedButtonThemesStyled = (): KitColoredSegmentedButtonThemesStyled => {
+const generateColoredSegmentedButtonThemes = (): KitColoredSegmentedButtonThemes => {
     const colorKeys: KitColorKeys[] = Object.keys(colors.secondary) as KitColorKeys[];
 
-    const colorThemes = colorKeys.reduce<KitColoredSegmentedButtonThemesStyled>((acc, color) => {
+    const colorThemes = colorKeys.reduce<KitColoredSegmentedButtonThemes>((acc, color) => {
         const theme = {
             colors: {
                 typography: {
@@ -383,43 +367,26 @@ const generateColoredSegmentedButtonThemesStyled = (): KitColoredSegmentedButton
         };
 
         return {...acc, [color]: theme};
-    }, {} as KitColoredSegmentedButtonThemesStyled);
+    }, {} as KitColoredSegmentedButtonThemes);
 
     return colorThemes;
 };
 
-const formatKitTokenForAntdDesignTolen = (
-    kitButtonThemeAntd: KitButtonThemeAntd
-): AntdThemeConfigWithRequiredComponents['Button'] => {
-    const {typography, border} = kitButtonThemeAntd;
-
-    return {
+export const KitButtonTheme: IKitButtonTheme = {
+    typography: {
         fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize,
-        fontSizeLG: typography.fontSize,
-        lineHeight: typography.lineHeight,
-        borderRadius: border.radius
-    };
-};
-
-export const KitButtonTheme = {
-    ...formatKitTokenForAntdDesignTolen(kitButtonThemeAntd),
-    primary: {
-        ...kitPrimaryButtonThemeStyled
+        fontSize: typography.fontSize5,
+        lineHeight: typography.lineHeight5
     },
-    default: {
-        ...kitDefaultButtonThemeStyled
+    border: {
+        radius: border.radius.pills
     },
-    text: {
-        ...kitTextButtonThemeStyled
-    },
-    link: {
-        ...kitLinkButtonThemeStyled
-    },
+    primary: KitPrimaryButtonTheme,
+    default: KitDefaultButtonTheme,
+    text: KitTextButtonTheme,
+    link: KitLinkButtonTheme,
     segmented: {
-        default: {
-            ...kitSegmentedButtonThemeStyled
-        },
-        ...generateColoredSegmentedButtonThemesStyled()
+        default: KitSegmentedButtonTheme,
+        ...generateColoredSegmentedButtonThemes()
     }
 };

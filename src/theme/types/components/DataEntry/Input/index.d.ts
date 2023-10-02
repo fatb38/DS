@@ -1,48 +1,32 @@
-export interface KitInputThemeAntd {
-    colors: {
-        background: {
-            default: string;
-            disabled: string;
-        };
-        border: {
-            default: string;
-            hover: string;
-        };
-        typography: {
-            content: string;
-            placeholder: string;
-        };
-    };
-    border: {
-        radius: number;
-    };
-    typography: {
-        fontFamily: string;
-        fontSize: number;
-    };
-}
-
-interface KitInputThemeStateColor {
+interface IKitInputThemeStateColor {
     default: string;
     disabled: string;
     warning: string;
     error: string;
 }
 
-interface KitInputThemeColors {
-    background: Omit<KitInputThemeStateColor, 'default' | 'disabled'>;
-    prefix: KitInputThemeStateColor;
-    suffix: KitInputThemeStateColor;
-    clearIcon: KitInputThemeStateColor;
-    showCount: KitInputThemeStateColor;
-    border: Omit<KitInputThemeStateColor, 'default'>;
+interface IKitInputThemeColors {
+    background: IKitInputThemeStateColor;
+    prefix: IKitInputThemeStateColor;
+    suffix: IKitInputThemeStateColor;
+    clearIcon: IKitInputThemeStateColor;
+    showCount: IKitInputThemeStateColor;
+    border: Omit<IKitInputThemeStateColor, 'default'>;
     typography: {
-        content: Omit<KitInputThemeStateColor, 'default'>;
-        placeholder: Omit<KitInputThemeStateColor, 'default'>;
+        content: Omit<IKitInputThemeStateColor, 'default'>;
+        placeholder: Omit<IKitInputThemeStateColor, 'default'>;
     };
 }
 
-interface KitInputThemeTypography {
+interface IKitPasswordThemeColors extends IKitInputThemeColors {
+    background: Omit<IKitInputThemeStateColor, 'default' | 'disabled'>;
+}
+
+interface IKitTextAreaThemeColors extends IKitInputThemeColors {
+    background: Omit<IKitInputThemeStateColor, 'default' | 'disabled'>;
+}
+
+interface IKitInputThemeTypography {
     content: {
         fontWeight: string | number;
     };
@@ -55,30 +39,41 @@ interface KitInputThemeTypography {
     };
 }
 
-export interface KitInputThemeStyled {
-    colors: KitInputThemeColors;
-    typography: KitInputThemeTypography;
-}
-
-export interface KitPasswordThemeStyled {
-    colors: KitInputThemeColors & {
-        passwordIcon: KitInputThemeStateColor;
+export interface IKitInputTheme {
+    colors: {
+        background: IKitInputThemeStateColor;
+        border: IKitInputThemeStateColor & {
+            hover: string;
+        };
+        prefix: IKitInputThemeStateColor;
+        suffix: IKitInputThemeStateColor;
+        clearIcon: IKitInputThemeStateColor;
+        showCount: IKitInputThemeStateColor;
+        typography: {
+            content: IKitInputThemeStateColor;
+            placeholder: IKitInputThemeStateColor;
+        };
     };
-    typography: KitInputThemeTypography;
-}
-
-export interface KitTextAreaThemeStyled {
-    colors: KitInputThemeColors;
-    typography: KitInputThemeTypography;
-}
-
-export type KitInputTheme = KitInputThemeAntd &
-    KitInputThemeStyled & {
-        Password: KitPasswordThemeStyled;
-        TextArea: KitTextAreaThemeStyled;
+    border: {
+        radius: number;
     };
+    typography: IKitInputThemeTypography & {
+        fontFamily: string;
+        fontSize: number;
+    };
+    Password: {
+        colors: IKitPasswordThemeColors & {
+            passwordIcon: IKitInputThemeStateColor;
+        };
+        typography: IKitInputThemeTypography;
+    };
+    TextArea: {
+        colors: IKitTextAreaThemeColors;
+        typography: IKitInputThemeTypography;
+    };
+}
 
-export interface KitInputWrapperThemeStyled {
+export interface IKitInputWrapperTheme {
     colors: {
         typography: {
             default: string;
@@ -92,5 +87,3 @@ export interface KitInputWrapperThemeStyled {
         helper: number;
     };
 }
-
-export interface KitInputWrapperTheme extends KitInputWrapperThemeStyled {}

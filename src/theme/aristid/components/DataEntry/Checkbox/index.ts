@@ -1,31 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {AntdThemeConfigWithRequiredComponents} from '@theme/types';
-import {KitCheckboxThemeAntd, KitCheckboxThemeStyled} from '@theme/types/components/DataEntry/Checkbox';
+import {IKitCheckboxTheme} from '@theme/types/components/DataEntry/Checkbox';
 
 const {colors, typography, border} = KitAristidThemeGeneral;
 
-const kitCheckboxThemeAntd: KitCheckboxThemeAntd = {
-    typography: {
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize5,
-        lineHeight: typography.lineHeight5,
-        lineWidth: 1
-    },
-    border: {
-        radius: border.radius.xs
-    },
-    colors: {
-        border: {
-            default: colors.neutral.typography.black60
-        },
-        background: {
-            check: colors.primary.blue400,
-            hover: colors.primary.blue500
-        }
-    }
-};
-
-const kitCheckboxThemeStyled: KitCheckboxThemeStyled = {
+export const KitCheckboxTheme: IKitCheckboxTheme = {
     colors: {
         background: {
             check: colors.primary.blue400,
@@ -38,6 +16,7 @@ const kitCheckboxThemeStyled: KitCheckboxThemeStyled = {
             }
         },
         border: {
+            default: colors.neutral.typography.black60,
             check: colors.primary.blue400,
             hover: colors.primary.blue400,
             focus: colors.primary.blue400,
@@ -56,29 +35,13 @@ const kitCheckboxThemeStyled: KitCheckboxThemeStyled = {
         }
     },
     typography: {
-        fontWeight: typography.mediumfontWeight
-    }
-};
-
-const formatKitTokenForAntdDesignTolen = (
-    kitCheckboxThemeAntd: KitCheckboxThemeAntd
-): AntdThemeConfigWithRequiredComponents['Checkbox'] => {
-    const {colors, typography, border} = kitCheckboxThemeAntd;
-
-    return {
+        fontWeight: typography.mediumfontWeight,
         fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize,
-        fontSizeLG: typography.fontSize,
-        lineHeight: typography.lineHeight,
-        lineWidth: typography.lineWidth,
-        borderRadiusSM: border.radius,
-        colorBorder: colors.border.default,
-        colorPrimary: colors.background.check,
-        colorPrimaryHover: colors.background.hover
-    };
-};
-
-export const KitCheckboxTheme = {
-    ...formatKitTokenForAntdDesignTolen(kitCheckboxThemeAntd),
-    ...kitCheckboxThemeStyled
+        fontSize: typography.fontSize5,
+        lineHeight: typography.lineHeight5,
+        lineWidth: 1
+    },
+    border: {
+        radius: border.radius.xs
+    }
 };

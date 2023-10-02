@@ -3,10 +3,10 @@ import {Alert as AntdAlert} from 'antd';
 import {KitAlertProps} from './types';
 import {styled} from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {KitAlertTheme} from '@theme/types/components/Feedback/Alert';
+import {IKitAlertTheme} from '@theme/types/components/Feedback/Alert';
 
 const StyledAntdAlert = styled(AntdAlert)<{
-    $theme: KitAlertTheme;
+    $theme: IKitAlertTheme;
 }>`
     &.ant-alert-with-description {
         padding-inline: 0px;

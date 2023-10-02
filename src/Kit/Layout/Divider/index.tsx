@@ -2,12 +2,11 @@ import React from 'react';
 import {Divider as AntdDivider} from 'antd';
 import {css, styled} from 'styled-components';
 import {KitDividerColor, KitDividerProps} from './types';
-import theme from '@theme/index';
 import {useKitTheme} from '@theme/theme-context';
-import {KitDividerTheme} from '@theme/types/components/Layout/Divider';
+import {IKitDividerTheme} from '@theme/types/components/Layout/Divider';
 
 const StyledAntdDivider = styled(AntdDivider)<{
-    $theme: KitDividerTheme;
+    $theme: IKitDividerTheme;
     $noMargin: boolean;
     $color: KitDividerColor;
 }>`

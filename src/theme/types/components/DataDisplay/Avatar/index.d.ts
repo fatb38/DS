@@ -1,4 +1,4 @@
-export interface KitAvatarThemeStyled {
+export interface IKitAvatarTheme {
     colors: {
         background: {
             default: string;
@@ -12,9 +12,7 @@ export interface KitAvatarThemeStyled {
     };
 }
 
-export type KitAvatarTheme = KitAvatarThemeStyled;
-
-export interface KitAvatarGroupThemeStyled {
+export interface IKitAvatarGroupTheme {
     colors: {
         background: {
             default: string;
@@ -24,5 +22,3 @@ export interface KitAvatarGroupThemeStyled {
         };
     };
 }
-
-export type KitAvatarGroupTheme = KitAvatarGroupThemeStyled;

@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import {InboxOutlined} from '@ant-design/icons';
 import {KitDraggerProps} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {KitUploadTheme} from '@theme/types/components/DataEntry/Upload';
+import {IKitUploadTheme} from '@theme/types/components/DataEntry/Upload';
 
 const StyledDragger = styled(AntdUpload.Dragger)<{
-    $theme: KitUploadTheme['Dragger'];
+    $theme: IKitUploadTheme['Dragger'];
 }>`
     .ant-upload {
         border-radius: 2px;

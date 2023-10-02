@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitNotificatiobThemeStyled} from '@theme/types/components/Feedback/Notification';
+import {IKitNotificationTheme} from '@theme/types/components/Feedback/Notification';
 
-const {colors, typography, border, spacing} = KitAristidThemeGeneral;
+const {colors, typography} = KitAristidThemeGeneral;
 
-const kitNotificationThemeStyled: KitNotificatiobThemeStyled = {
+export const KitNotificationTheme: IKitNotificationTheme = {
     colors: {
         typography: {
             message: {
@@ -36,8 +36,4 @@ const kitNotificationThemeStyled: KitNotificatiobThemeStyled = {
             message: typography.mediumfontWeight
         }
     }
-};
-
-export const KitNotificationTheme = {
-    ...kitNotificationThemeStyled
 };

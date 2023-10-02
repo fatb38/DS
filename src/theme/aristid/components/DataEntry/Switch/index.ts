@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitSwitchThemeStyled} from '@theme/types/components/DataEntry/Switch';
+import {IKitSwitchTheme} from '@theme/types/components/DataEntry/Switch';
 
 const {colors} = KitAristidThemeGeneral;
 
-const kitSwitchThemeStyled: KitSwitchThemeStyled = {
+export const KitSwitchTheme: IKitSwitchTheme = {
     colors: {
         background: {
             default: {
@@ -29,8 +29,4 @@ const kitSwitchThemeStyled: KitSwitchThemeStyled = {
             }
         }
     }
-};
-
-export const KitSwitchTheme = {
-    ...kitSwitchThemeStyled
 };

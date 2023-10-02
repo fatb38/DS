@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {IKitCardThemeStyled} from '@theme/types/components/DataDisplay/Card';
+import {IKitCardTheme} from '@theme/types/components/DataDisplay/Card';
 
 const {colors, typography} = KitAristidThemeGeneral;
 
-const kitCardThemeStyled: IKitCardThemeStyled = {
+export const KitCardTheme: IKitCardTheme = {
     colors: {
         background: {
             default: 'none',
@@ -67,8 +67,4 @@ const kitCardThemeStyled: IKitCardThemeStyled = {
             fontSize: typography.fontSize3
         }
     }
-};
-
-export const KitCardTheme = {
-    ...kitCardThemeStyled
 };

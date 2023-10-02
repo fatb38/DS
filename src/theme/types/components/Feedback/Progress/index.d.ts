@@ -1,4 +1,4 @@
-export interface KitProgressThemeAntd {
+export interface IKitProgressTheme {
     colors: {
         background: string;
         progress: {
@@ -11,9 +11,6 @@ export interface KitProgressThemeAntd {
         fontFamily: string;
         fontSize: number;
     };
-}
-
-export interface KitProgressThemeStyled {
     circle: {
         typography: {
             fontWeight: string | number;
@@ -21,5 +18,3 @@ export interface KitProgressThemeStyled {
         };
     };
 }
-
-export type KitProgressTheme = KitProgressThemeAntd & KitProgressThemeStyled;

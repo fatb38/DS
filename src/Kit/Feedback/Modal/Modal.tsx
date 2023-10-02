@@ -5,10 +5,10 @@ import {KitModalProps} from './types';
 import {CloseOutlined} from '@ant-design/icons';
 import {KitSpace} from '@kit/Layout/';
 import {useKitTheme} from '@theme/theme-context';
-import {KitModalTheme} from '@theme/types/components/Feedback/Modal';
+import {IKitModalTheme} from '@theme/types/components/Feedback/Modal';
 
 const StyledOverlay = styled.div<{
-    $theme: KitModalTheme['Overlay'];
+    $theme: IKitModalTheme['Overlay'];
 }>`
     &.kit-modal-overlay {
         background: ${({$theme}) => $theme.colors.background.default};
@@ -22,7 +22,7 @@ const StyledOverlay = styled.div<{
 `;
 
 const StyledKitModal = styled.div<{
-    $theme: KitModalTheme;
+    $theme: IKitModalTheme;
 }>`
     font-family: ${({$theme}) => $theme.typography.fontFamily};
     font-size: ${({$theme}) => $theme.typography.fontSize.content}px;

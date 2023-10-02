@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
-import {css, styled} from 'styled-components';
+import {styled} from 'styled-components';
 import {KitItemListProps} from './types';
-import theme from '@theme/index';
 import {KitCheckbox, KitTag} from '@kit/DataEntry/';
 import {KitTypography} from '@kit/General/';
 import {RightOutlined, EyeOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
-import {KitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
+import {IKitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
 
 const StyledItemList = styled.div<{
-    $theme: KitItemListTheme;
+    $theme: IKitItemListTheme;
     $gridTemplateColumns: string;
 }>`
     display: grid;

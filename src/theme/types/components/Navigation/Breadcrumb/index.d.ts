@@ -1,4 +1,4 @@
-export interface KitBreadcrumbThemeStyled {
+export interface IKitBreadcrumbTheme {
     link: {
         colors: {
             typography: {
@@ -11,5 +11,3 @@ export interface KitBreadcrumbThemeStyled {
         };
     };
 }
-
-export type KitBreadcrumbTheme = KitBreadcrumbThemeStyled;

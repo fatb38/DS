@@ -1,8 +1,8 @@
 import {createGlobalStyle} from 'styled-components';
-import {KitDatePickerTheme} from '@theme/types/components/DataEntry/DatePicker';
+import {IKitDatePickerTheme} from '@theme/types/components/DataEntry/DatePicker';
 
 export const DatePickerDropDownStyle = createGlobalStyle<{
-    $theme: KitDatePickerTheme['DropDown'];
+    $theme: IKitDatePickerTheme['DropDown'];
 }>`
     .ant-picker-dropdown {
         ul.ant-picker-ranges {

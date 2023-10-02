@@ -1,7 +1,7 @@
-import {KitTypographyTheme} from '@theme/types/components/General/Typography';
+import {IKitTypographyTheme} from '@theme/types/components/General/Typography';
 import {createGlobalStyle, css} from 'styled-components';
 
-const fontBaseCss = ($theme: KitTypographyTheme) => css`
+const fontBaseCss = ($theme: IKitTypographyTheme) => css`
     font-family: 'Inter';
     line-height: ${$theme.typography.lineHeight};
     font-weight: ${$theme.typography.fontWeight};
@@ -9,7 +9,7 @@ const fontBaseCss = ($theme: KitTypographyTheme) => css`
 `;
 
 export const TypographyStyle = createGlobalStyle<{
-    $theme: KitTypographyTheme;
+    $theme: IKitTypographyTheme;
 }>`
     .ant-typography {
         ${({$theme}) => fontBaseCss($theme)};

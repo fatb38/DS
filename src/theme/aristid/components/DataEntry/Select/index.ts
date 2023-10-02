@@ -1,29 +1,50 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {AntdThemeConfigWithRequiredComponents} from '@theme/types';
 import {
-    KitSelectColorBarThemeStyled,
-    KitSelectDropDownThemeStyled,
-    KitSelectThemeAntd,
-    KitSelectThemeStyled
+    IKitSelectColorBarTheme,
+    IKitSelectDropDownTheme,
+    IKitSelectTheme
 } from '@theme/types/components/DataEntry/Select';
 
 const {colors, typography, border} = KitAristidThemeGeneral;
 
-const kitSelectThemeAntd: KitSelectThemeAntd = {
-    border: {
-        radius: border.radius.s
-    },
-    height: 40,
+const kitDropDownTheme: IKitSelectDropDownTheme = {
     colors: {
-        background: colors.neutral.typography.white
+        typography: {
+            default: colors.secondary.mediumGrey.mediumGrey500,
+            selected: colors.secondary.mediumGrey.mediumGrey500,
+            active: colors.primary.blue400,
+            group: colors.neutral.typography.black
+        },
+        background: {
+            default: colors.secondary.mediumGrey.mediumGrey100,
+            selected: colors.primary.blue100,
+            active: colors.primary.blue100
+        }
     },
     typography: {
         fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize6
+        fontWeight: {
+            default: typography.mediumfontWeight,
+            selected: typography.mediumfontWeight,
+            active: typography.mediumfontWeight,
+            group: typography.boldFontWeight
+        }
+    },
+    border: {
+        radius: border.radius.s
     }
 };
 
-const kitSelectThemeStyled: KitSelectThemeStyled = {
+const kitSelectColorBarTheme: IKitSelectColorBarTheme = {
+    height: 16,
+    width: 16,
+    border: {
+        radius: border.radius.xxs
+    }
+};
+
+export const KitSelectTheme: IKitSelectTheme = {
+    height: 40,
     border: {
         radius: border.radius.s
     },
@@ -64,72 +85,20 @@ const kitSelectThemeStyled: KitSelectThemeStyled = {
             }
         },
         background: {
+            default: colors.neutral.typography.white,
             disabled: colors.secondary.mediumGrey.mediumGrey100,
             warning: colors.secondary.orange.orange100,
             error: colors.secondary.red.red100
         }
     },
     typography: {
+        fontFamily: typography.fontFamily,
+        fontSize: typography.fontSize6,
         fontWeight: {
             content: typography.mediumfontWeight,
             placeholder: typography.regularFontWeight
         }
-    }
-};
-
-const kitDropDownThemeStyled: KitSelectDropDownThemeStyled = {
-    colors: {
-        typography: {
-            default: colors.secondary.mediumGrey.mediumGrey500,
-            selected: colors.secondary.mediumGrey.mediumGrey500,
-            active: colors.primary.blue400,
-            group: colors.neutral.typography.black
-        },
-        background: {
-            default: colors.secondary.mediumGrey.mediumGrey100,
-            selected: colors.primary.blue100,
-            active: colors.primary.blue100
-        }
     },
-    typography: {
-        fontFamily: typography.fontFamily,
-        fontWeight: {
-            default: typography.mediumfontWeight,
-            selected: typography.mediumfontWeight,
-            active: typography.mediumfontWeight,
-            group: typography.boldFontWeight
-        }
-    },
-    border: {
-        radius: border.radius.s
-    }
-};
-
-const kitSelectColorBarThemeStyled: KitSelectColorBarThemeStyled = {
-    height: 16,
-    width: 16,
-    border: {
-        radius: border.radius.xxs
-    }
-};
-
-const formatKitTokenForAntdDesignTolen = (
-    kitSelectThemeAntd: KitSelectThemeAntd
-): AntdThemeConfigWithRequiredComponents['Select'] => {
-    const {colors, border, height, typography} = kitSelectThemeAntd;
-
-    return {
-        borderRadius: border.radius,
-        controlHeight: height,
-        colorBgContainer: colors.background,
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize
-    };
-};
-
-export const KitSelectTheme = {
-    ...formatKitTokenForAntdDesignTolen(kitSelectThemeAntd),
-    ...kitSelectThemeStyled,
-    DropDown: {...kitDropDownThemeStyled},
-    ColorBadge: {...kitSelectColorBarThemeStyled}
+    DropDown: kitDropDownTheme,
+    ColorBadge: kitSelectColorBarTheme
 };

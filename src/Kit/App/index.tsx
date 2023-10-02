@@ -1,7 +1,6 @@
 import React from 'react';
 import {ConfigProvider} from 'antd';
 import GlobalStyles from './style';
-import theme from '@theme/index';
 import KitSnackBarProvider from '@kit/Feedback/SnackBar/SnackBarProvider';
 import {KitNotificationProvider} from '@kit/Feedback/Notification/useKitNotification';
 import {DropDownStyle} from '@kit/Navigation/DropDown/style';
@@ -9,9 +8,9 @@ import {SelectDropDownStyle} from '@kit/DataEntry/Select/style';
 import {DatePickerDropDownStyle} from '@kit/DataEntry/DatePicker/style';
 import {NotificationStyle} from '@kit/Feedback/Notification/style';
 import {KitThemeProvider, useKitTheme} from '@theme/theme-context';
-import {merge} from 'lodash';
 import {KitCustomTheme} from '@theme/types';
 import {TypographyStyle} from '@kit/General/Typography/style';
+import {mapKitThemeToAntdTheme} from '@theme/utils/antd-mapper';
 
 export const KitApp: React.FunctionComponent<React.PropsWithChildren<{customTheme?: KitCustomTheme}>> = ({
     children,
@@ -29,32 +28,22 @@ const KitAppConfig: React.FunctionComponent<React.PropsWithChildren<{customTheme
     customTheme
 }) => {
     //TODO: rename contextTheme -> theme
-    const {theme: contextTheme, overrideTheme} = useKitTheme();
-
-    // Temporary -------
-    const tmpMergedTheme = merge(theme, contextTheme);
-    // Temporary -------
+    const {theme, overrideTheme} = useKitTheme();
 
     if (customTheme !== undefined) {
         overrideTheme(customTheme);
     }
 
-    // Temporary -------
-    const tmpBigMergeTheme = merge(tmpMergedTheme, customTheme);
-    // Temporary -------
-
-    // TODO: Give to all the providers contextTheme
-
     return (
-        <ConfigProvider theme={tmpBigMergeTheme}>
+        <ConfigProvider theme={mapKitThemeToAntdTheme(theme)}>
             <KitNotificationProvider>
                 <KitSnackBarProvider />
                 <GlobalStyles />
-                <DropDownStyle $theme={tmpBigMergeTheme.components.DropDown} />
-                <SelectDropDownStyle $theme={tmpBigMergeTheme.components.Select.DropDown} />
-                <DatePickerDropDownStyle $theme={tmpBigMergeTheme.components.DatePicker.DropDown} />
-                <NotificationStyle $theme={tmpBigMergeTheme.components.Notification} />
-                <TypographyStyle $theme={tmpBigMergeTheme.components.Typography} />
+                <DropDownStyle $theme={theme.components.DropDown} />
+                <SelectDropDownStyle $theme={theme.components.Select.DropDown} />
+                <DatePickerDropDownStyle $theme={theme.components.DatePicker.DropDown} />
+                <NotificationStyle $theme={theme.components.Notification} />
+                <TypographyStyle $theme={theme.components.Typography} />
                 {children}
             </KitNotificationProvider>
         </ConfigProvider>

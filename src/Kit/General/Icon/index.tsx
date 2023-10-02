@@ -2,10 +2,10 @@ import React from 'react';
 import {css, styled} from 'styled-components';
 import {KitIconProps} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {KitIconTheme} from '@theme/types/components/General/Icon';
+import {IKitIconTheme} from '@theme/types/components/General/Icon';
 
 interface StyledKitIconProps extends Omit<KitIconProps, 'icon'> {
-    $theme: KitIconTheme;
+    $theme: IKitIconTheme;
     $on?: boolean;
     $hoverable?: boolean;
     $isClickable?: boolean;

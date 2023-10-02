@@ -1,40 +1,4 @@
-export interface KitSliderThemeAntd {
-    rail: {
-        colors: {
-            background: {
-                default: string;
-                hover: string;
-            };
-        };
-        size: number;
-    };
-    handle: {
-        colors: {
-            default: string;
-        };
-        size: number;
-        border: number;
-    };
-    track: {
-        colors: {
-            background: {
-                default: string;
-                hover: string;
-            };
-        };
-    };
-    dot: {
-        colors: {
-            border: {
-                default: string;
-                active: string;
-            };
-        };
-        size: number;
-    };
-}
-
-export interface KitSliderStyled {
+export interface IKitSliderTheme {
     handle: {
         colors: {
             background: {
@@ -46,11 +10,32 @@ export interface KitSliderStyled {
                 disabled: string;
             };
         };
+        size: number;
+        border: number;
+    };
+    rail: {
+        colors: {
+            background: {
+                default: string;
+                hover: string;
+            };
+        };
+        size: number;
     };
     dot: {
         colors: {
             border: {
                 default: string;
+                active: string;
+            };
+        };
+        size: number;
+    };
+    track: {
+        colors: {
+            background: {
+                default: string;
+                hover: string;
             };
         };
     };
@@ -65,5 +50,3 @@ export interface KitSliderStyled {
         };
     };
 }
-
-export type KitSliderTheme = KitSliderThemeAntd & KitSliderStyled;

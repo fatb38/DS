@@ -2,9 +2,10 @@ import React from 'react';
 import {KitAvatar, KitBadge} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {ClockCircleOutlined} from '@ant-design/icons';
-import theme from '@theme/index';
+import {useKitTheme} from '@theme/theme-context';
 
 const App = () => {
+    const {theme} = useKitTheme();
     return (
         <KitSpace size="s">
             <KitBadge count={5}>
@@ -13,7 +14,7 @@ const App = () => {
             <KitBadge count={0} showZero>
                 <KitAvatar shape="square" size="large" />
             </KitBadge>
-            <KitBadge count={<ClockCircleOutlined style={{color: theme.color.secondary.red.red400}} />}>
+            <KitBadge count={<ClockCircleOutlined style={{color: theme.general.colors.secondary.red.red400}} />}>
                 <KitAvatar shape="square" size="large" />
             </KitBadge>
         </KitSpace>

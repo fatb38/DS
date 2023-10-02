@@ -1,4 +1,4 @@
-export interface KitImageThemeStyled {
+export interface IKitImageTheme {
     colors: {
         border: {
             none: string;
@@ -12,5 +12,3 @@ export interface KitImageThemeStyled {
         };
     };
 }
-
-export type KitImageTheme = KitImageThemeStyled;

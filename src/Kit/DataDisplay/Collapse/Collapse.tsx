@@ -3,10 +3,10 @@ import {Collapse as AntdCollapse} from 'antd';
 import {KitCollapseProps} from './types';
 import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {KitCollapseTheme} from '@theme/types/components/DataDisplay/Collapse';
+import {IKitCollapseTheme} from '@theme/types/components/DataDisplay/Collapse';
 
 const StyledCollapse = styled(AntdCollapse)<{
-    $theme: KitCollapseTheme;
+    $theme: IKitCollapseTheme;
 }>`
     box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
 

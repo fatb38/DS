@@ -3,10 +3,10 @@ import {Image as AntdImage} from 'antd';
 import {KitImageProps} from './types';
 import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {KitImageTheme} from '@theme/types/components/DataDisplay/Image';
+import {IKitImageTheme} from '@theme/types/components/DataDisplay/Image';
 
 interface StyledKitImageProps extends KitImageProps {
-    $theme: KitImageTheme;
+    $theme: IKitImageTheme;
     $rounded?: boolean;
     $bordered?: boolean;
 }

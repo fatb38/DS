@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitHeaderThemeStyled} from '@theme/types/components/Navigation/Header';
+import {IKitHeaderTheme} from '@theme/types/components/Navigation/Header';
 
 const {colors} = KitAristidThemeGeneral;
 
-const kitHeaderThemeStyled: KitHeaderThemeStyled = {
+export const KitHeaderTheme: IKitHeaderTheme = {
     colors: {
         background: {
             default: colors.neutral.typography.white
@@ -14,8 +14,4 @@ const kitHeaderThemeStyled: KitHeaderThemeStyled = {
             }
         }
     }
-};
-
-export const KitHeaderTheme = {
-    ...kitHeaderThemeStyled
 };

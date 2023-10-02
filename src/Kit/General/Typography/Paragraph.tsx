@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import {Typography} from 'antd';
 import {KitTextProps, kitTextSize} from './types';
 import {sizeTofontSize, getWeightClassname} from './commons';
-import {KitTypographyTheme} from '@theme/types/components/General/Typography';
-import {KitTypography} from '@theme/typography';
+import {IKitTypographyTheme} from '@theme/types/components/General/Typography';
 import {useKitTheme} from '@theme/theme-context';
+import {KitTypography} from '@theme/types/general/typography';
 
 const StyledKitParagraph = styled(Typography.Paragraph)<{
-    $theme: KitTypographyTheme;
+    $theme: IKitTypographyTheme;
     $typographyTheme: KitTypography;
     size: kitTextSize;
 }>`

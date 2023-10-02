@@ -3,9 +3,9 @@ import {Pagination} from 'antd';
 import styled from 'styled-components';
 import {KitPaginationProps} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {KitPaginationTheme} from '@theme/types/components/Navigation/Pagination';
+import {IKitPaginationTheme} from '@theme/types/components/Navigation/Pagination';
 
-const StyledAntdPagination = styled(Pagination)<{$theme: KitPaginationTheme}>`
+const StyledAntdPagination = styled(Pagination)<{$theme: IKitPaginationTheme}>`
     &.kit-pagination-bordered:not(.ant-pagination-mini) {
         .ant-pagination-item:not(.ant-pagination-item-active) {
             border-color: ${({$theme}) => $theme.pagination.border.default};

@@ -4,9 +4,9 @@ import {styled} from 'styled-components';
 import {KitTypography, KitIcon} from '@kit/General';
 import {CloseOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
-import {KitMenuTheme} from '@theme/types/components/Navigation/Menu';
+import {IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
 
-const StyledMenu = styled.div<{$theme: KitMenuTheme}>`
+const StyledMenu = styled.div<{$theme: IKitMenuTheme}>`
     padding: 16px 19px;
     background-color: ${({$theme}) => $theme.colors.background.default};
 

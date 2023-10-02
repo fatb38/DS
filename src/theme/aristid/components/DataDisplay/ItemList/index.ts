@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitItemListThemeStyled} from '@theme/types/components/DataDisplay/ItemList';
+import {IKitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
 
 const {colors, typography} = KitAristidThemeGeneral;
 
-const kitItemListThemeStyled: KitItemListThemeStyled = {
+export const KitItemListTheme: IKitItemListTheme = {
     itemList: {
         colors: {
             background: {
@@ -51,8 +51,4 @@ const kitItemListThemeStyled: KitItemListThemeStyled = {
             hover: colors.primary.blue400
         }
     }
-};
-
-export const KitItemListTheme = {
-    ...kitItemListThemeStyled
 };

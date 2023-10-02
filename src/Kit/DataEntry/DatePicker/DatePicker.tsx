@@ -5,10 +5,10 @@ import {KitDatePickerProps} from './types';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from '../Input/InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
-import {KitDatePickerTheme} from '@theme/types/components/DataEntry/DatePicker';
+import {IKitDatePickerTheme} from '@theme/types/components/DataEntry/DatePicker';
 
 const StyledDatePicker = styled.div<{
-    $theme: KitDatePickerTheme;
+    $theme: IKitDatePickerTheme;
 }>`
     .ant-picker {
         height: 40px;

@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import {KitRadioProps} from './types';
 import RadioGroupContext from './context';
 import {useKitTheme} from '@theme/theme-context';
-import {KitRadioTheme} from '@theme/types/components/DataEntry/Radio';
+import {IKitRadioTheme} from '@theme/types/components/DataEntry/Radio';
 
 const StyledKitRadio = styled(Radio)<{
-    $theme: KitRadioTheme;
+    $theme: IKitRadioTheme;
 }>`
     font-weight: ${({$theme}) => $theme.typography.fontWeight};
 

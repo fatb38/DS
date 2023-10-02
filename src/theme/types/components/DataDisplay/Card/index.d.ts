@@ -1,4 +1,4 @@
-export interface IKitCardThemeStyled {
+export interface IKitCardTheme {
     colors: {
         background: {
             default: string;
@@ -63,5 +63,3 @@ export interface IKitCardThemeStyled {
         };
     };
 }
-
-export type IKitCardTheme = IKitCardThemeStyled;

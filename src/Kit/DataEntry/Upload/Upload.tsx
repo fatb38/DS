@@ -5,11 +5,11 @@ import {KitUploadProps} from './types';
 import {LoadingOutlined, PlusOutlined, UploadOutlined} from '@ant-design/icons';
 import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {KitUploadTheme} from '@theme/types/components/DataEntry/Upload';
+import {IKitUploadTheme} from '@theme/types/components/DataEntry/Upload';
 
 const StyledUpload = styled(AntdUpload)<{
     $listType: String;
-    $theme: KitUploadTheme;
+    $theme: IKitUploadTheme;
 }>`
     &.ant-upload-wrapper {
         &.ant-upload-picture-card-wrapper {

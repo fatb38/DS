@@ -5,10 +5,10 @@ import type {IKitButtonProps} from './types';
 import {ButtonType} from 'antd/lib/button';
 import {CheckCircleFilled} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
-import {KitButtonThemeStyled} from '@theme/types/components/General/Button';
+import {IKitButtonThemePropeties} from '@theme/types/components/General/Button';
 
 interface StyledAntdButtonProps {
-    $theme: KitButtonThemeStyled;
+    $theme: IKitButtonThemePropeties;
     $iconSize: IKitButtonProps['iconSize'];
 }
 

@@ -1,18 +1,41 @@
-export interface KitSelectThemeAntd {
-    border: {
-        radius: number;
-    };
-    height: number;
+export interface IKitSelectDropDownTheme {
     colors: {
-        background: string;
+        typography: {
+            default: string;
+            selected: string;
+            active: string;
+            group: string;
+        };
+        background: {
+            default: string;
+            selected: string;
+            active: string;
+        };
     };
     typography: {
         fontFamily: string;
-        fontSize: number;
+        fontWeight: {
+            default: string | number;
+            selected: string | number;
+            active: string | number;
+            group: string | number;
+        };
+    };
+    border: {
+        radius: number;
     };
 }
 
-export interface KitSelectThemeStyled {
+export interface IKitSelectColorBarTheme {
+    height: number;
+    width: number;
+    border: {
+        radius: number;
+    };
+}
+
+export interface IKitSelectTheme {
+    height: number;
     border: {
         radius: number;
     };
@@ -53,57 +76,20 @@ export interface KitSelectThemeStyled {
             };
         };
         background: {
+            default: string;
             disabled: string;
             warning: string;
             error: string;
         };
     };
     typography: {
+        fontFamily: string;
+        fontSize: number;
         fontWeight: {
             content: string | number;
             placeholder: string | number;
         };
     };
+    DropDown: IKitSelectDropDownThemeStyled;
+    ColorBadge: IKitSelectColorBarThemeStyled;
 }
-
-export interface KitSelectDropDownThemeStyled {
-    colors: {
-        typography: {
-            default: string;
-            selected: string;
-            active: string;
-            group: string;
-        };
-        background: {
-            default: string;
-            selected: string;
-            active: string;
-        };
-    };
-    typography: {
-        fontFamily: string;
-        fontWeight: {
-            default: string | number;
-            selected: string | number;
-            active: string | number;
-            group: string | number;
-        };
-    };
-    border: {
-        radius: number;
-    };
-}
-
-export interface KitSelectColorBarThemeStyled {
-    height: number;
-    width: number;
-    border: {
-        radius: number;
-    };
-}
-
-export type KitSelectTheme = KitSelectThemeAntd &
-    KitSelectThemeStyled & {
-        DropDown: KitSelectDropDownThemeStyled;
-        ColorBadge: KitSelectColorBarThemeStyled;
-    };

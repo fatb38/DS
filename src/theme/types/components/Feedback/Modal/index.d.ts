@@ -1,4 +1,4 @@
-export interface KitModalThemeStyled {
+export interface IKitModalTheme {
     typography: {
         fontFamily: string;
         fontSize: {
@@ -43,5 +43,3 @@ export interface KitModalThemeStyled {
         };
     };
 }
-
-export type KitModalTheme = KitModalThemeStyled;

@@ -1,25 +1,18 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {AntdThemeConfigWithRequiredComponents} from '@theme/types';
-import {KitTagThemeAntd, KitTagThemeStyled} from '@theme/types/components/DataEntry/Tag';
+import {IKitTagTheme} from '@theme/types/components/DataEntry/Tag';
 
 const {colors, typography, border} = KitAristidThemeGeneral;
 
-const kitTagThemeAntd: KitTagThemeAntd = {
+export const KitTagTheme: IKitTagTheme = {
     colors: {
-        background: {
-            default: colors.primary.blue100
+        default: {
+            background: {
+                default: colors.primary.blue100
+            },
+            typography: {
+                default: colors.neutral.typography.black
+            }
         },
-        typography: {
-            default: colors.neutral.typography.black
-        }
-    },
-    border: {
-        radius: border.radius.s
-    }
-};
-
-const kitTagThemeStyled: KitTagThemeStyled = {
-    colors: {
         red: {
             background: {
                 default: colors.secondary.red.red400
@@ -65,22 +58,8 @@ const kitTagThemeStyled: KitTagThemeStyled = {
         fontFamily: typography.fontFamily,
         fontSize: typography.fontSize7,
         fontWeight: typography.regularFontWeight
+    },
+    border: {
+        radius: border.radius.s
     }
-};
-
-const formatKitTokenForAntdDesignTolen = (
-    kitTagThemeAntd: KitTagThemeAntd
-): AntdThemeConfigWithRequiredComponents['Tag'] => {
-    const {colors, border} = kitTagThemeAntd;
-
-    return {
-        defaultBg: colors.background.default,
-        defaultColor: colors.typography.default,
-        borderRadiusSM: border.radius
-    };
-};
-
-export const KitTagTheme = {
-    ...formatKitTokenForAntdDesignTolen(kitTagThemeAntd),
-    ...kitTagThemeStyled
 };

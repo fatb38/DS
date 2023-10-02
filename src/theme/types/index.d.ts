@@ -39,6 +39,7 @@ import {KitProgressTheme} from './components/Feedback/Progress';
 import {KitSnackBarTheme} from './components/Feedback/SnackBar';
 import {KitIconTheme} from './components/General/Icon';
 import {KitTypographyTheme} from './components/General/Typography';
+import {ThemeConfig} from 'antd';
 
 type DeepPartial<T> = T extends object
     ? {

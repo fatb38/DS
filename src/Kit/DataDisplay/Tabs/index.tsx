@@ -3,9 +3,9 @@ import {Tabs as AntTabs} from 'antd';
 import styled from 'styled-components';
 import {KitTabsProps} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {KitTabsTheme} from '@theme/types/components/DataDisplay/Tabs';
+import {IKitTabsTheme} from '@theme/types/components/DataDisplay/Tabs';
 
-const StyledKitTabs = styled(AntTabs)<{$theme: KitTabsTheme}>`
+const StyledKitTabs = styled(AntTabs)<{$theme: IKitTabsTheme}>`
     .ant-tabs-extra-content {
         .ant-btn {
             border-radius: ${({$theme}) => $theme.extraContent.border.radius}px;

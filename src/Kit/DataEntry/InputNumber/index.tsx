@@ -3,11 +3,11 @@ import {InputNumber as AntdInputNumber} from 'antd';
 import {KitInputNumberProps} from './types';
 import {styled} from 'styled-components';
 import KitInputWrapper from '../Input/InputWrapper';
-import {KitInputNumberTheme} from '@theme/types/components/DataEntry/InputNumber';
+import {IKitInputNumberTheme} from '@theme/types/components/DataEntry/InputNumber';
 import {useKitTheme} from '@theme/theme-context';
 
 const StyledAntdInputNumber = styled(AntdInputNumber)<{
-    $theme: KitInputNumberTheme;
+    $theme: IKitInputNumberTheme;
 }>`
     font-weight: ${({$theme}) => $theme.typography.placeholder.fontWeight};
     height: 40px;

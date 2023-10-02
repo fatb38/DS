@@ -1,28 +1,17 @@
-export interface KitDividerThemeAntd {
+export interface IKitDividerTheme {
     colors: {
         typography: {
             default: string;
         };
         split: {
             default: string;
-        };
-    };
-    typography: {
-        fontFamily: string;
-        fontSize: number;
-        lineHeight: number;
-    };
-}
-
-export interface KitDividerThemeStyled {
-    colors: {
-        split: {
             lightGrey: string;
         };
     };
     typography: {
+        fontFamily: string;
         fontWeight: string | number;
+        fontSize: number;
+        lineHeight: number;
     };
 }
-
-export type KitDividerTheme = KitDividerThemeAntd & KitDividerThemeStyled;

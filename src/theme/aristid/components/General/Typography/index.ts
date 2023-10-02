@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitTypographyThemeStyled} from '@theme/types/components/General/Typography';
+import {IKitTypographyTheme} from '@theme/types/components/General/Typography';
 
 const {colors, typography} = KitAristidThemeGeneral;
 
-const KitTypographyThemeStyled: KitTypographyThemeStyled = {
+export const KitTypographyTheme: IKitTypographyTheme = {
     colors: {
         typography: {
             default: colors.neutral.typography.black
@@ -67,8 +67,4 @@ const KitTypographyThemeStyled: KitTypographyThemeStyled = {
             bold: typography.boldFontWeight
         }
     }
-};
-
-export const KitTypographyTheme = {
-    ...KitTypographyThemeStyled
 };

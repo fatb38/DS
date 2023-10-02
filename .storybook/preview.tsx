@@ -1,5 +1,4 @@
 import * as React from 'react';
-import theme from '../src/theme';
 import type {Preview} from '@storybook/react';
 import {KitApp} from '../src/Kit/App';
 import {DocsContainer} from '@storybook/blocks';
@@ -16,9 +15,7 @@ const tocConfig = {
 const Container = ({children, ...props}) => {
     return (
         <DocsContainer {...props} context={props.context}>
-            <AccessibilityProvider active>
-                {children}
-            </AccessibilityProvider>
+            <AccessibilityProvider active>{children}</AccessibilityProvider>
         </DocsContainer>
     );
 };

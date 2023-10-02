@@ -1,4 +1,4 @@
-export interface KitIconThemeStyled {
+export interface IKitIconTheme {
     colors: {
         icon: {
             default: string;
@@ -16,5 +16,3 @@ export interface KitIconThemeStyled {
         };
     };
 }
-
-export type KitIconTheme = KitIconThemeStyled;

@@ -1,4 +1,4 @@
-export interface KitPaginationThemeAntd {
+export interface IKitPaginationTheme {
     colors: {
         background: {
             container: {
@@ -11,9 +11,6 @@ export interface KitPaginationThemeAntd {
         fontFamily: string;
         fontSize: number;
     };
-}
-
-export interface KitPaginationThemeStyled {
     pagination: {
         colors: {
             background: {
@@ -64,5 +61,3 @@ export interface KitPaginationThemeStyled {
         };
     };
 }
-
-export type KitPaginationTheme = KitPaginationThemeAntd & KitPaginationThemeStyled;

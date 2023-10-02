@@ -1,18 +1,4 @@
-export interface KitTagThemeAntd {
-    colors: {
-        background: {
-            default: string;
-        };
-        typography: {
-            default: string;
-        };
-    };
-    border: {
-        radius: number;
-    };
-}
-
-interface KitTagThemeColor {
+interface IKitTagThemeColor {
     background: {
         default: string;
     };
@@ -23,8 +9,16 @@ interface KitTagThemeColor {
     };
 }
 
-export interface KitTagThemeStyled {
+export interface IKitTagTheme {
     colors: {
+        default: {
+            background: {
+                default: string;
+            };
+            typography: {
+                default: string;
+            };
+        };
         red: KitTagThemeColor;
         green: KitTagThemeColor;
         blue: KitTagThemeColor;
@@ -35,6 +29,7 @@ export interface KitTagThemeStyled {
         fontSize: number;
         fontWeight: number | string;
     };
+    border: {
+        radius: number;
+    };
 }
-
-export type KitTagTheme = KitTagThemeAntd & KitTagThemeStyled;

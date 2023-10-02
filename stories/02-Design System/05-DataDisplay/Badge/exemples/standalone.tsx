@@ -3,9 +3,11 @@ import {KitBadge} from '@kit/DataDisplay/';
 import {KitSwitch} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout/';
 import {ClockCircleOutlined} from '@ant-design/icons';
-import theme from '@theme/index';
+import {useKitTheme} from '@theme/theme-context';
 
 const App = () => {
+    const {theme} = useKitTheme();
+
     const [show, setShow] = useState(true);
 
     return (
@@ -17,7 +19,9 @@ const App = () => {
                 <KitBadge count={show ? 11 : 0} showZero />
                 <KitBadge count={show ? 25 : 0} />
                 <KitBadge
-                    count={show ? <ClockCircleOutlined style={{color: theme.color.secondary.red.red400}} /> : 0}
+                    count={
+                        show ? <ClockCircleOutlined style={{color: theme.general.colors.secondary.red.red400}} /> : 0
+                    }
                 />
             </KitSpace>
         </KitSpace>

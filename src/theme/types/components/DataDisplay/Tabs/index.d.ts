@@ -1,4 +1,4 @@
-export interface KitTabsThemeAntd {
+export interface IKitTabsTheme {
     card: {
         colors: {
             background: {
@@ -17,9 +17,9 @@ export interface KitTabsThemeAntd {
     typography: {
         fontFamily: string;
         fontSize: {
-            s: string | number;
-            m: string | number;
-            l: string | number;
+            s: number;
+            m: number;
+            l: number;
         };
         colors: {
             disabled: string;
@@ -28,9 +28,6 @@ export interface KitTabsThemeAntd {
             selected: string;
         };
     };
-}
-
-export interface KitTabsThemeStyled {
     extraContent: {
         colors: {
             border: {
@@ -50,5 +47,3 @@ export interface KitTabsThemeStyled {
         };
     };
 }
-
-export type KitTabsTheme = KitTabsThemeAntd & KitTabsThemeStyled;

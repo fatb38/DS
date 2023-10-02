@@ -1,10 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {AntdThemeConfigWithRequiredComponents} from '@theme/types';
-import {KitPaginationThemeAntd, KitPaginationThemeStyled} from '@theme/types/components/Navigation/Pagination';
+import {IKitPaginationTheme} from '@theme/types/components/Navigation/Pagination';
 
 const {colors, typography} = KitAristidThemeGeneral;
 
-const kitPaginationThemeAntd: KitPaginationThemeAntd = {
+export const KitPaginationTheme: IKitPaginationTheme = {
     colors: {
         background: {
             container: {
@@ -16,10 +15,7 @@ const kitPaginationThemeAntd: KitPaginationThemeAntd = {
     typography: {
         fontFamily: typography.fontFamily,
         fontSize: typography.fontSize5
-    }
-};
-
-const kitPaginationThemeStyled: KitPaginationThemeStyled = {
+    },
     pagination: {
         colors: {
             background: {
@@ -69,31 +65,4 @@ const kitPaginationThemeStyled: KitPaginationThemeStyled = {
             }
         }
     }
-};
-
-const formatKitTokenForAntdDesignTolen = (
-    kitPaginationThemeAntd: KitPaginationThemeAntd
-): AntdThemeConfigWithRequiredComponents['Pagination'] => {
-    const {typography, colors} = kitPaginationThemeAntd;
-
-    return {
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize,
-        fontSizeSM: KitAristidThemeGeneral.typography.fontSize5,
-        colorBgContainer: colors.background.container.default,
-        colorBgContainerDisabled: colors.background.container.disabled,
-        fontWeightStrong: KitAristidThemeGeneral.typography.mediumfontWeight as number,
-        controlHeight: 32,
-        controlHeightSM: 24,
-        colorPrimary: KitAristidThemeGeneral.colors.primary.blue400,
-        colorPrimaryBorder: KitAristidThemeGeneral.colors.primary.blue400,
-        colorPrimaryHover: KitAristidThemeGeneral.colors.primary.blue400,
-        colorBgTextActive: KitAristidThemeGeneral.colors.neutral.typography.black60,
-        colorTextDisabled: KitAristidThemeGeneral.colors.neutral.typography.black60
-    };
-};
-
-export const KitPaginationTheme = {
-    ...formatKitTokenForAntdDesignTolen(kitPaginationThemeAntd),
-    ...kitPaginationThemeStyled
 };
