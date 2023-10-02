@@ -1,17 +1,5 @@
-import {css} from 'styled-components';
 import cn from 'classnames';
-import {KitTypographyTheme} from '@theme/types/components/General/Typography';
-
-export const TITLE_ELE_LIST = [1, 2, 3, 4, 5, 6, 7] as const;
-
-export const fontBaseCss = ($theme: KitTypographyTheme) => css`
-    &.ant-typography {
-        font-family: 'Inter';
-        line-height: ${$theme.typography.lineHeight};
-        font-weight: ${$theme.typography.fontWeight};
-        color: ${$theme.colors.typography.default};
-    }
-`;
+import {TitleLevel} from './types';
 
 export const sizeTofontSize = {
     large: 5,
@@ -25,3 +13,10 @@ export const getWeightClassname = ({className, weight}) =>
         'ant-typography-medium': weight === 'medium',
         'ant-typography-bold': weight === 'bold'
     });
+
+export const TITLE_LEVEL: TitleLevel = {
+    h1: 'h1',
+    h2: 'h2',
+    h3: 'h3',
+    h4: 'h4'
+};

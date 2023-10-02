@@ -10,6 +10,7 @@ const KitTypographyThemeStyled: KitTypographyThemeStyled = {
         }
     },
     typography: {
+        fontFamily: typography.fontFamily,
         fontWeight: typography.defaultFontWeight,
         lineHeight: typography.lineHeight1
     },

@@ -12,6 +12,7 @@ export interface KitTypographyThemeStyled {
         };
     };
     typography: {
+        fontFamily: string;
         fontWeight: number | string;
         lineHeight: number;
     };

@@ -1,5 +1,4 @@
 import type {BlockProps, EllipsisConfig} from 'antd/lib/typography/Base';
-import {TITLE_ELE_LIST} from './commons';
 import {AllHTMLAttributes} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 
@@ -11,7 +10,7 @@ export interface KitTitleProps
             KitHTMLAttributes<HTMLHeadElement>,
             antdTitleTypesToOmit | keyof BlockProps<'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'>
         > {
-    level?: (typeof TITLE_ELE_LIST)[number];
+    level?: TitleLevelKeys;
     regular?: boolean;
 }
 
@@ -39,3 +38,7 @@ export interface KitLinkProps
 export interface KitBaseProps {
     component: keyof JSX.IntrinsicElements;
 }
+
+type TitleLevelKeys = 'h1' | 'h2' | 'h3' | 'h4';
+
+export type TitleLevel = Record<TitleLevelKeys, string>;

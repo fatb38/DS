@@ -11,6 +11,7 @@ import {NotificationStyle} from '@kit/Feedback/Notification/style';
 import {KitThemeProvider, useKitTheme} from '@theme/theme-context';
 import {merge} from 'lodash';
 import {KitCustomTheme} from '@theme/types';
+import {TypographyStyle} from '@kit/General/Typography/style';
 
 export const KitApp: React.FunctionComponent<React.PropsWithChildren<{customTheme?: KitCustomTheme}>> = ({
     children,
@@ -53,6 +54,7 @@ const KitAppConfig: React.FunctionComponent<React.PropsWithChildren<{customTheme
                 <SelectDropDownStyle $theme={tmpBigMergeTheme.components.Select.DropDown} />
                 <DatePickerDropDownStyle $theme={tmpBigMergeTheme.components.DatePicker.DropDown} />
                 <NotificationStyle $theme={tmpBigMergeTheme.components.Notification} />
+                <TypographyStyle $theme={tmpBigMergeTheme.components.Typography} />
                 {children}
             </KitNotificationProvider>
         </ConfigProvider>

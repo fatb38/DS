@@ -122,7 +122,7 @@ export const KitHeader: React.FunctionComponent<HeaderProps> = ({
     return (
         <StyledHeaderWrapper $theme={theme.components.Header} {...props}>
             {title && (
-                <KitTypography.Title level={2} className="kit-header-title">
+                <KitTypography.Title level="h2" className="kit-header-title">
                     {title}
                 </KitTypography.Title>
             )}
