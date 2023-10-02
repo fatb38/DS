@@ -61,7 +61,7 @@ export const KitHeaderExtra: React.FunctionComponent<KitHeaderExtraProps> = ({on
                 key: index,
                 icon: item.icon,
                 label: item.label,
-                onClick: item.onClick
+                onClick: item.onClick as MenuItemType['onClick']
             };
         });
 

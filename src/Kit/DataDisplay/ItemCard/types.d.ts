@@ -1,6 +1,6 @@
 import {KitHTMLAttributes} from '../../../types';
 import {KitTagProps} from '../../DataEntry/Tag/types';
-import {ReactNode} from 'react';
+import {ReactNode, MouseEvent} from 'react';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
 
 export type CardColor = {
@@ -27,5 +27,5 @@ export default interface IKitItemCardProps extends Omit<KitHTMLAttributes<HTMLDi
     tags?: KitTagProps[] | string[];
     actions?: ReactNode[];
     onSelectChange?: (e: CheckboxChangeEvent) => void;
-    onEdit?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
+    onEdit?: (e: MouseEvent<HTMLElement>) => void;
 }

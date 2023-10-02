@@ -1,6 +1,7 @@
 import type {PaginationProps} from 'antd';
+import {KitHTMLAttributes} from '../../../types';
 
-export interface KitPaginationProps extends PaginationProps, HTMLAttributes<HTMLDivElement> {
+export interface KitPaginationProps extends PaginationProps, Omit<KitHTMLAttributes<HTMLDivElement>, 'role'> {
     bordered?: boolean;
 }
 

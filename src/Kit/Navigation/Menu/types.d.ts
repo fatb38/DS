@@ -1,8 +1,10 @@
 import {KitInputProps} from '../../DataEntry/Input/types';
 import {IKitButtonProps} from '../../General/Button/types';
-import {HTMLAttributes, ReactElement, ReactNode} from 'react';
+import {ReactElement, ReactNode} from 'react';
+import {KitHTMLAttributes} from '../../../types';
+import {CheckboxChangeEvent} from 'antd/lib/checkbox';
 
-export interface KitMenuProps extends HTMLAttributes<HTMLDivElement> {
+export interface KitMenuProps extends KitHTMLAttributes<HTMLDivElement> {
     title?: string;
     segmentedButton?: ReactElement<IKitButtonProps>;
     primaryInput?: ReactElement<KitInputProps>;
@@ -21,7 +23,7 @@ export interface KitItemMenuActions extends Array<KitItemMenuAction> {}
 
 export type KitItemMenuType = 'default' | 'cta' | 'ctaDanger';
 
-export interface KitItemMenuProps extends HTMLAttributes<HTMLDivElement> {
+export interface KitItemMenuProps extends KitHTMLAttributes<HTMLDivElement> {
     type?: KitItemMenuType;
     title?: string;
     icon?: ReactNode;

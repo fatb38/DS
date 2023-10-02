@@ -1,4 +1,4 @@
-import {KitColorsPalette} from '@theme/types/general/colors';
+import {IKitColorsPalette} from '@theme/types/general/colors';
 import {ButtonProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import {CSSProperties} from 'react';
@@ -13,7 +13,7 @@ export interface IKitButtonProps extends Omit<ButtonProps, AntdButtonTypesToOmit
     type?: KitButtonType;
     segmentedActived?: boolean;
     segmentedChecked?: boolean;
-    segmentedColor?: keyof KitColorsPalette['secondary'];
+    segmentedColor?: keyof IKitColorsPalette['secondary'];
     primaryModal?: boolean;
     iconSize?: KitButtonIconSize;
     wrapperClassName?: string;

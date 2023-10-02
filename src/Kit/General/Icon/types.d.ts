@@ -27,7 +27,7 @@ export interface KitIconProps extends IconComponentProps, KitHTMLAttributes<HTML
     displayName?: string;
     icon: ReactNode;
     className?: string;
-    onClick?: MouseEventHandler<HTMLSpanElement>;
+    onClick?: React.MouseEventHandler<HTMLSpanElement>;
 }
 
 export interface StyledKitIconProps extends KitIconProps {

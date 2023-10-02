@@ -1,4 +1,4 @@
-import styled, {createGlobalStyle, css} from 'styled-components';
+import styled, {createGlobalStyle} from 'styled-components';
 import {IKitSelectTheme} from '@theme/types/components/DataEntry/Select';
 import {Select as AntdSelect} from 'antd';
 
