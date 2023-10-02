@@ -1,36 +1,45 @@
 import React from 'react';
 import {styled} from 'styled-components';
 import {Typography} from 'antd';
-import {KitTextProps} from './types';
+import {KitTextProps, kitTextSize} from './types';
 import {sizeTofontSize, getWeightClassname} from './commons';
-import theme from '@theme/index';
+import {KitTypographyTheme} from '@theme/types/components/General/Typography';
+import {useKitTheme} from '@theme/theme-context';
+import {KitTypography} from '@theme/types/general/typography';
 
-const StyledKitText = styled(Typography.Text)<KitTextProps>`
-    &.ant-typography {
-        font-family: 'Inter';
-        line-height: 1.2;
-        font-weight: ${theme.typography.defaultFontWeight};
-        color: ${theme.color.neutral.typography.black};
-    }
+const StyledKitText = styled(Typography.Text)<{
+    $theme: KitTypographyTheme;
+    $typographyTheme: KitTypography;
+    size: kitTextSize;
+}>`
+    font-size: ${({$typographyTheme, size}) => $typographyTheme['fontSize' + sizeTofontSize[size] ?? 6]}px;
+    line-height: ${({$typographyTheme, size}) => $typographyTheme['lineHeight' + sizeTofontSize[size] ?? 6]};
 
     &.ant-typography-regular {
-        font-weight: ${theme.typography.regularFontWeight};
-    }
-    &.ant-typography-medium {
-        font-weight: ${theme.typography.mediumfontWeight};
-    }
-    &.ant-typography-bold {
-        font-weight: ${theme.typography.boldFontWeight};
+        font-weight: ${({$theme}) => $theme.Text.fontWeight.regular};
     }
 
-    font-size: ${props =>
-        props.size ? theme.typography['fontSize' + sizeTofontSize[props.size]] : theme.typography.fontSize6}px;
-    line-height: ${props =>
-        props.size ? theme.typography['lineHeight' + sizeTofontSize[props.size]] : theme.typography.lineHeight6};
+    &.ant-typography-medium {
+        font-weight: ${({$theme}) => $theme.Text.fontWeight.mediul};
+    }
+
+    &.ant-typography-bold {
+        font-weight: ${({$theme}) => $theme.Text.fontWeight.bold};
+    }
 `;
 
-const KitText = React.forwardRef<HTMLElement, KitTextProps>((props, ref) => {
-    return <StyledKitText ref={ref} {...props} className={getWeightClassname(props)} />;
+const KitText = React.forwardRef<HTMLElement, KitTextProps>(({size = 'medium', ...props}, ref) => {
+    const {theme} = useKitTheme();
+    return (
+        <StyledKitText
+            ref={ref}
+            $theme={theme.components.Typography}
+            $typographyTheme={theme.general.typography}
+            size={size}
+            {...props}
+            className={getWeightClassname(props)}
+        />
+    );
 });
 
 export default KitText;

@@ -11,6 +11,10 @@ const fontBaseCss = ($theme: KitTypographyTheme) => css`
 export const TypographyStyle = createGlobalStyle<{
     $theme: KitTypographyTheme;
 }>`
+    .ant-typography {
+        ${({$theme}) => fontBaseCss($theme)};
+    }
+
     h1.ant-typography {
         ${({$theme}) => fontBaseCss($theme)};
 

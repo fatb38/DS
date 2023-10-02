@@ -42,3 +42,7 @@ export interface KitBaseProps {
 type TitleLevelKeys = 'h1' | 'h2' | 'h3' | 'h4';
 
 export type TitleLevel = Record<TitleLevelKeys, string>;
+
+export type TypographyWeightKeys = 'medium' | 'regular' | 'bold';
+
+export type TypographyWeight = Record<TypographyWeightKeys, string>;

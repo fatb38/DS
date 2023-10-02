@@ -39,6 +39,13 @@ const KitTypographyThemeStyled: KitTypographyThemeStyled = {
                 lineHeight: typography.lineHeight4
             }
         }
+    },
+    Text: {
+        fontWeight: {
+            regular: typography.regularFontWeight,
+            mediul: typography.mediumfontWeight,
+            bold: typography.boldFontWeight
+        }
     }
 };
 
