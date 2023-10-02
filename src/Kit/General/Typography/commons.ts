@@ -1,17 +1,5 @@
-import {css} from 'styled-components';
-import theme from '@theme/index';
 import cn from 'classnames';
-
-export const TITLE_ELE_LIST = [1, 2, 3, 4, 5, 6, 7] as const;
-
-export const fontBaseCss = css`
-    &.ant-typography {
-        font-family: 'Inter';
-        line-height: 1.2;
-        font-weight: ${theme.typography.defaultFontWeight};
-        color: ${theme.color.neutral.typography.black};
-    }
-`;
+import {TitleLevel, TypographyWeight, TypographyWeightKeys} from './types';
 
 export const sizeTofontSize = {
     large: 5,
@@ -19,20 +7,28 @@ export const sizeTofontSize = {
     small: 7
 };
 
-export const getWeightClassname = props =>
-    cn(props.className, {
-        'ant-typography-regular': props.weight === 'regular',
-        'ant-typography-medium': props.weight === 'medium',
-        'ant-typography-bold': props.weight === 'bold'
+export const getWeightClassname = ({
+    className = '',
+    weight = 'regular'
+}: {
+    className?: string;
+    weight?: TypographyWeightKeys;
+}) =>
+    cn(className, {
+        'ant-typography-regular': weight === TYPOGRAPHY_WEIGHT['regular'],
+        'ant-typography-medium': weight === TYPOGRAPHY_WEIGHT['medium'],
+        'ant-typography-bold': weight === TYPOGRAPHY_WEIGHT['bold']
     });
 
-export const textStyles = css<{
-    size: number;
-    weight: string;
-}>`
-    ${fontBaseCss};
-    font-size: ${props =>
-        props.size ? theme.typography['fontSize' + sizeTofontSize[props.size]] : theme.typography.fontSize6}px;
-    line-height: ${props =>
-        props.size ? theme.typography['lineHeight' + sizeTofontSize[props.size]] : theme.typography.lineHeight6};
-`;
+export const TYPOGRAPHY_WEIGHT: TypographyWeight = {
+    regular: 'regular',
+    medium: 'medium',
+    bold: 'bold'
+};
+
+export const TITLE_LEVEL: TitleLevel = {
+    h1: 'h1',
+    h2: 'h2',
+    h3: 'h3',
+    h4: 'h4'
+};

@@ -1,7 +1,7 @@
 import {createGlobalStyle} from 'styled-components';
-import {KitDropDownTheme} from '@theme/types/components/Navigation/DropDown';
+import {IKitDropDownTheme} from '@theme/types/components/Navigation/DropDown';
 
-export const DropDownStyle = createGlobalStyle<{$theme: KitDropDownTheme}>`
+export const DropDownStyle = createGlobalStyle<{$theme: IKitDropDownTheme}>`
     .ant-dropdown,
     .ant-dropdown-menu.ant-dropdown-menu-submenu {
         padding: 10px;

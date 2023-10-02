@@ -3,7 +3,7 @@ import {Avatar as AntdAvatar} from 'antd';
 import {KitAvatarProps, KitAvatarColorType} from './types';
 import {css, styled} from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {KitAvatarTheme} from '@theme/types/components/DataDisplay/Avatar';
+import {IKitAvatarTheme} from '@theme/types/components/DataDisplay/Avatar';
 import colorString from 'color-string';
 
 export const getContrastColor = (color, light, dark) => {
@@ -14,7 +14,7 @@ export const getContrastColor = (color, light, dark) => {
 };
 
 const StyledAntdAvatar = styled(AntdAvatar)<{
-    $theme: KitAvatarTheme;
+    $theme: IKitAvatarTheme;
     $color: KitAvatarColorType;
 }>`
     &:not(.ant-avatar-image) {

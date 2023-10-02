@@ -6,9 +6,9 @@ import {KitSpace} from '@kit/Layout/';
 import {KitInput} from '@kit/DataEntry/';
 import {HeaderProps} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {KitHeaderTheme} from '@theme/types/components/Navigation/Header';
+import {IKitHeaderTheme} from '@theme/types/components/Navigation/Header';
 
-const StyledHeaderWrapper = styled.div<{$theme: KitHeaderTheme}>`
+const StyledHeaderWrapper = styled.div<{$theme: IKitHeaderTheme}>`
     padding: 16px 32px;
     background: ${({$theme}) => $theme.colors.background.default};
     display: grid;
@@ -122,7 +122,7 @@ export const KitHeader: React.FunctionComponent<HeaderProps> = ({
     return (
         <StyledHeaderWrapper $theme={theme.components.Header} {...props}>
             {title && (
-                <KitTypography.Title level={2} className="kit-header-title">
+                <KitTypography.Title level="h2" className="kit-header-title">
                     {title}
                 </KitTypography.Title>
             )}

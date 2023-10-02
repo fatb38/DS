@@ -3,7 +3,7 @@ import {styled} from 'styled-components';
 import toast from 'react-hot-toast';
 import {KitOpenSnackBarProps, KitSnackBarProps} from './types';
 import {CloseOutlined} from '@ant-design/icons';
-import {KitSnackBarTheme} from '@theme/types/components/Feedback/SnackBar';
+import {IKitSnackBarTheme} from '@theme/types/components/Feedback/SnackBar';
 import {useKitTheme} from '@theme/theme-context';
 
 const DEFAULT_DURATION = 4000;
@@ -28,7 +28,7 @@ export const closeSnackBar = () => {
 };
 
 const StyledSnackBar = styled.div<{
-    $theme: KitSnackBarTheme;
+    $theme: IKitSnackBarTheme;
     $showCtaContainer: boolean;
     $showCloseContainer: boolean;
 }>`

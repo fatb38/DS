@@ -1,23 +1,11 @@
-export interface KitCollapseThemeAntd {
+export interface IKitCollapseTheme {
     colors: {
         background: {
             default: string;
-        };
-        border: {
-            default: string;
-        };
-    };
-    border: {
-        radius: number;
-    };
-}
-
-export interface KitCollapseThemeStyled {
-    colors: {
-        background: {
             active: string;
         };
         border: {
+            default: string;
             active: string;
         };
     };
@@ -25,5 +13,3 @@ export interface KitCollapseThemeStyled {
         radius: number;
     };
 }
-
-export type KitCollapseTheme = KitCollapseThemeAntd & KitCollapseThemeStyled;

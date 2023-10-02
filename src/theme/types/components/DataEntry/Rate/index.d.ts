@@ -1,19 +1,10 @@
-export interface KitRateThemeAntd {
-    colors: {
-        star: {
-            active: {
-                default: string;
-            };
-        };
-    };
-}
-
-export interface KitRateThemeStyled {
+export interface IKitRateTheme {
     colors: {
         star: {
             default: string;
             disabled: string;
             active: {
+                default: string;
                 red: string;
                 green: string;
                 blue: string;
@@ -21,5 +12,3 @@ export interface KitRateThemeStyled {
         };
     };
 }
-
-export type KitRateTheme = KitRateThemeAntd & KitRateThemeStyled;

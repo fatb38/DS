@@ -3,9 +3,9 @@ import {Tree as AntdTree} from 'antd';
 import styled from 'styled-components';
 import {KitTreeProps} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {KitTreeTheme} from '@theme/types/components/DataDisplay/Tree';
+import {IKitTreeTheme} from '@theme/types/components/DataDisplay/Tree';
 
-const StyledTree = styled(AntdTree)<{$theme: KitTreeTheme}>`
+const StyledTree = styled(AntdTree)<{$theme: IKitTreeTheme}>`
     .ant-tree-treenode {
         padding: 0;
         font-weight: ${({$theme}) => $theme.treenode.typography.fontWeight};

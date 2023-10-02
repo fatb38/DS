@@ -3,10 +3,10 @@ import {Tag} from 'antd';
 import styled, {css} from 'styled-components';
 import {KitTagProps, KitTagColor} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {KitTagTheme} from '@theme/types/components/DataEntry/Tag';
+import {IKitTagTheme} from '@theme/types/components/DataEntry/Tag';
 
 const StyledAntdTag = styled(Tag)<{
-    $theme: KitTagTheme;
+    $theme: IKitTagTheme;
     $color: KitTagColor;
 }>`
     padding: 4px 8px;

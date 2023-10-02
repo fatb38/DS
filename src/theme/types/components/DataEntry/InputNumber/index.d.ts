@@ -1,34 +1,14 @@
-export interface KitInputNumberThemeAntd {
+export interface IKitInputNumberTheme {
     colors: {
-        border: {
-            default: string;
-            hover: string;
-        };
         background: {
             default: string;
             disabled: string;
-        };
-        typography: {
-            content: string;
-            placeholder: string;
-        };
-    };
-    typography: {
-        fontFamily: string;
-        fontSize: number;
-    };
-    border: {
-        radius: number;
-    };
-}
-
-export interface KitInputNumberThemeStyled {
-    colors: {
-        background: {
             error: string;
             warning: string;
         };
         border: {
+            default: string;
+            hover: string;
             focused: string;
             disabled: string;
             error: string;
@@ -42,11 +22,13 @@ export interface KitInputNumberThemeStyled {
         };
         typography: {
             content: {
+                default: string;
                 disabled: string;
                 error: string;
                 warning: string;
             };
             placeholder: {
+                default: string;
                 disabled: string;
                 error: string;
                 warning: string;
@@ -54,6 +36,8 @@ export interface KitInputNumberThemeStyled {
         };
     };
     typography: {
+        fontFamily: string;
+        fontSize: number;
         content: {
             fontWeight: string | number;
         };
@@ -65,5 +49,3 @@ export interface KitInputNumberThemeStyled {
         radius: number;
     };
 }
-
-export type KitInputNumberTheme = KitInputNumberThemeAntd & KitInputNumberThemeStyled;

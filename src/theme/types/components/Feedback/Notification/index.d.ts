@@ -1,4 +1,4 @@
-export interface KitNotificatiobThemeStyled {
+export interface IKitNotificationTheme {
     colors: {
         typography: {
             message: {
@@ -32,5 +32,3 @@ export interface KitNotificatiobThemeStyled {
         };
     };
 }
-
-export type KitNotificatiobTheme = KitNotificatiobThemeStyled;

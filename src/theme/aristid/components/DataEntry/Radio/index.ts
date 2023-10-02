@@ -1,21 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {AntdThemeConfigWithRequiredComponents} from '@theme/types';
-import {KitRadioThemeAntd, KitRadioThemeStyled} from '@theme/types/components/DataEntry/Radio';
+import {IKitRadioTheme} from '@theme/types/components/DataEntry/Radio';
 
-const {colors, typography, border} = KitAristidThemeGeneral;
+const {colors, typography} = KitAristidThemeGeneral;
 
-const kitRadioThemeAntd: KitRadioThemeAntd = {
-    typography: {
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize5,
-        lineHeight: typography.lineHeight5
-    }
-};
-
-const kitRadioThemeStyled: KitRadioThemeStyled = {
-    typography: {
-        fontWeight: typography.mediumfontWeight
-    },
+export const KitRadioTheme: IKitRadioTheme = {
     colors: {
         border: {
             default: colors.neutral.typography.black60,
@@ -52,23 +40,11 @@ const kitRadioThemeStyled: KitRadioThemeStyled = {
                 disabled: colors.secondary.red.red200
             }
         }
-    }
-};
-
-const formatKitTokenForAntdDesignTolen = (
-    kitRadioThemeAntd: KitRadioThemeAntd
-): AntdThemeConfigWithRequiredComponents['Radio'] => {
-    const {typography} = kitRadioThemeAntd;
-
-    return {
+    },
+    typography: {
+        fontWeight: typography.mediumfontWeight,
         fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize,
-        lineHeight: typography.lineHeight,
-        fontSizeLG: KitAristidThemeGeneral.typography.fontSize4
-    };
-};
-
-export const KitRadioTheme = {
-    ...formatKitTokenForAntdDesignTolen(kitRadioThemeAntd),
-    ...kitRadioThemeStyled
+        fontSize: typography.fontSize5,
+        lineHeight: typography.lineHeight5
+    }
 };

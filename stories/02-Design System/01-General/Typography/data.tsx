@@ -62,19 +62,18 @@ export const argTypes = {
     },
     level: {
         name: 'level',
-        description: 'Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `h7`',
-        options: [1, 2, 3, 4, 5, 6, 7],
+        description: 'Set content importance. Match with `h1`, `h2`, `h3`, `h4`',
+        options: ['h1', 'h2', 'h3', 'h4'],
         control: {
             type: 'select'
         },
         table: {
             type: {
-                summary: 'number'
+                summary: 'TitleLevelKeys'
             },
-            defaultValue: 1,
+            defaultValue: {summary: 'h1'},
             category: 'Typography.Title'
-        },
-        defaultValue: 1
+        }
     },
     copyable: {
         name: 'copyable',
@@ -168,7 +167,7 @@ const getComponent = (component, content, args) => {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {component, content, ...props} = args;
     return <KitSpace direction="vertical">{getComponent(component, content, props)}</KitSpace>;
 };

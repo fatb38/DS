@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitMenuThemeStyled} from '@theme/types/components/Navigation/Menu';
+import {IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
 
 const {colors} = KitAristidThemeGeneral;
 
-const kitMenuThemeStyled: KitMenuThemeStyled = {
+export const KitMenuTheme: IKitMenuTheme = {
     colors: {
         background: {
             default: colors.neutral.typography.white
@@ -37,8 +37,4 @@ const kitMenuThemeStyled: KitMenuThemeStyled = {
             }
         }
     }
-};
-
-export const KitMenuTheme = {
-    ...kitMenuThemeStyled
 };

@@ -1,4 +1,4 @@
-export interface KitTooltipThemeAntd {
+export interface IKitTooltip {
     colors: {
         background: {
             default: string;
@@ -15,5 +15,3 @@ export interface KitTooltipThemeAntd {
         fontSize: number;
     };
 }
-
-export interface KitTooltipTheme extends KitTooltipThemeAntd {}

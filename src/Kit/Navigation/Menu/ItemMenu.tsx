@@ -8,10 +8,10 @@ import {KitTooltip} from '@kit/DataDisplay/';
 import {KitDropDown} from '../DropDown';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
 import {useKitTheme} from '@theme/theme-context';
-import {KitMenuTheme} from '@theme/types/components/Navigation/Menu';
+import {IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
 
 const StyledIemMenu = styled.div<{
-    $theme: KitMenuTheme;
+    $theme: IKitMenuTheme;
     $isClickable: boolean;
     $isSelected: boolean;
     $type: KitItemMenuType;

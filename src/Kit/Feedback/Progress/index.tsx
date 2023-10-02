@@ -2,11 +2,11 @@ import React from 'react';
 import {Progress} from 'antd';
 import styled from 'styled-components';
 import {KitProgressProps} from './types';
-import {KitProgressTheme} from '@theme/types/components/Feedback/Progress';
+import {IKitProgressTheme} from '@theme/types/components/Feedback/Progress';
 import {useKitTheme} from '@theme/theme-context';
 
 const StyledProgress = styled(Progress)<{
-    $theme: KitProgressTheme;
+    $theme: IKitProgressTheme;
 }>`
     &.ant-progress-circle .ant-progress-text {
         font-size: ${({$theme}) => $theme.circle.typography.fontSize}px;

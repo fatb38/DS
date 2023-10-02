@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitSnackBarThemeStyled} from '@theme/types/components/Feedback/SnackBar';
+import {IKitSnackBarTheme} from '@theme/types/components/Feedback/SnackBar';
 
 const {colors, typography} = KitAristidThemeGeneral;
 
-const kitSnackBarThemeStyled: KitSnackBarThemeStyled = {
+export const KitSnackBarTheme: IKitSnackBarTheme = {
     colors: {
         background: colors.neutral.gray.gray700,
         border: colors.neutral.gray.gray700,
@@ -35,8 +35,4 @@ const kitSnackBarThemeStyled: KitSnackBarThemeStyled = {
             fontWeight: typography.mediumfontWeight
         }
     }
-};
-
-export const KitSnackBarTheme = {
-    ...kitSnackBarThemeStyled
 };

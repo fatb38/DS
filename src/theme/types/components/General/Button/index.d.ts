@@ -1,17 +1,6 @@
-import {KitColorKeys, KitColorsPalette} from '../../../general/colors/index';
+import {KitColorKeys} from '../../../general/colors/index';
 
-export interface KitButtonThemeAntd {
-    typography: {
-        fontFamily: string;
-        fontSize: number;
-        lineHeight: number;
-    };
-    border: {
-        radius: number;
-    };
-}
-
-interface KitButtonThemeStateColor {
+interface IKitButtonThemeStateColor {
     default: string;
     hover: string;
     active: string;
@@ -26,16 +15,16 @@ interface KitButtonThemeStateColor {
     };
 }
 
-export interface KitButtonThemeStyled {
+export interface IKitButtonThemePropeties {
     colors: {
-        typography: Omit<KitButtonThemeStateColor, 'danger'> & {
-            danger: Omit<KitButtonThemeStateColor['danger'], 'hover' | 'active' | 'focus'>;
+        typography: Omit<IKitButtonThemeStateColor, 'danger'> & {
+            danger: Omit<IKitButtonThemeStateColor['danger'], 'hover' | 'active' | 'focus'>;
         } & {
             iconCheck?: string;
             ghost?: string;
         };
-        background: KitButtonThemeStateColor & {ghost?: string};
-        border: KitButtonThemeStateColor;
+        background: IKitButtonThemeStateColor & {ghost?: string};
+        border: IKitButtonThemeStateColor;
     };
     typography: {
         fontWeight: string | number;
@@ -54,14 +43,22 @@ export interface KitButtonThemeStyled {
     };
 }
 
-export type KitColoredSegmentedButtonThemesStyled = {[key in KitColorKeys]: KitButtonThemeStyled};
+export type KitColoredSegmentedButtonThemes = {[key in KitColorKeys]: IKitButtonThemePropeties};
 
-export type KitButtonTheme = KitButtonThemeAntd & {
-    primary: KitButtonThemeStyled;
-    default: KitButtonThemeStyled;
-    text: KitButtonThemeStyled;
-    link: KitButtonThemeStyled;
+export interface IKitButtonTheme {
+    typography: {
+        fontFamily: string;
+        fontSize: number;
+        lineHeight: number;
+    };
+    border: {
+        radius: number;
+    };
+    primary: IKitButtonThemePropeties;
+    default: IKitButtonThemePropeties;
+    text: IKitButtonThemePropeties;
+    link: IKitButtonThemePropeties;
     segmented: {
-        default: KitButtonThemeStyled;
-    } & KitColoredSegmentedButtonThemesStyled;
-};
+        default: IKitButtonThemePropeties;
+    } & KitColoredSegmentedButtonThemes;
+}

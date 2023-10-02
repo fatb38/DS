@@ -1,4 +1,4 @@
-export interface KitHeaderThemeStyled {
+export interface IKitHeaderTheme {
     colors: {
         background: {
             default: string;
@@ -10,5 +10,3 @@ export interface KitHeaderThemeStyled {
         };
     };
 }
-
-export type KitHeaderTheme = KitHeaderThemeStyled;

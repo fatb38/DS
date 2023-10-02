@@ -1,4 +1,4 @@
-export interface KitDropDownThemeStyled {
+export interface IKitDropDownTheme {
     colors: {
         background: {
             default: string;
@@ -94,5 +94,3 @@ export interface KitDropDownThemeStyled {
         };
     };
 }
-
-export type KitDropDownTheme = KitDropDownThemeStyled;

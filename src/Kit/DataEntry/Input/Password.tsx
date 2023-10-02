@@ -5,10 +5,10 @@ import {styled} from 'styled-components';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
-import {KitInputTheme} from '@theme/types/components/DataEntry/Input';
+import {IKitInputTheme} from '@theme/types/components/DataEntry/Input';
 
 const StyledAntdPassword = styled(AntdInput.Password)<{
-    $theme: KitInputTheme['Password'];
+    $theme: IKitInputTheme['Password'];
 }>`
     &.ant-input-affix-wrapper {
         padding: 0px 12px;

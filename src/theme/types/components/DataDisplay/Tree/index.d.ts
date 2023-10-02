@@ -1,4 +1,4 @@
-export interface KitTreeThemeAntd {
+export interface IKitTreeTheme {
     colors: {
         background: {
             hover: string;
@@ -11,9 +11,6 @@ export interface KitTreeThemeAntd {
     icon: {
         fontSize: number;
     };
-}
-
-export interface KitTreeThemeStyled {
     checkbox: {
         colors: {
             background: {
@@ -57,5 +54,3 @@ export interface KitTreeThemeStyled {
         };
     };
 }
-
-export type KitTreeTheme = KitTreeThemeAntd & KitTreeThemeStyled;

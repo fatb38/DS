@@ -17,6 +17,6 @@ export const KitTypography = {
     Text: InternalText,
     Link: InternalLink,
     Paragraph: InternalParagraph
-} as unknown as CompoundedComponent;
+} as CompoundedComponent;
 
 KitTypography.displayName = 'KitTypography';

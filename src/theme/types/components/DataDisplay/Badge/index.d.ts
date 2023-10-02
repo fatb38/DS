@@ -1,18 +1,4 @@
-export interface KitBadgeThemeAntd {
-    colors: {
-        background: {
-            primary: string;
-            error: string;
-            success: string;
-            warning: string;
-        };
-    };
-    typography: {
-        fontFamily: string;
-    };
-}
-
-export interface KitBadgeThemeStyled {
+export interface IKitBadgeTheme {
     colors: {
         background: {
             default: string;
@@ -20,6 +6,10 @@ export interface KitBadgeThemeStyled {
             blue: string;
             blueInvert: string;
             gray: string;
+            primary: string;
+            error: string;
+            success: string;
+            warning: string;
         };
         typography: {
             default: string;
@@ -29,6 +19,7 @@ export interface KitBadgeThemeStyled {
             gray: string;
         };
     };
+    typography: {
+        fontFamily: string;
+    };
 }
-
-export type KitBadgeTheme = KitBadgeThemeAntd & KitBadgeThemeStyled;

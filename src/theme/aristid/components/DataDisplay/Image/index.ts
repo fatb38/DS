@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitImageThemeStyled} from '@theme/types/components/DataDisplay/Image';
+import {IKitImageTheme} from '@theme/types/components/DataDisplay/Image';
 
 const {colors, border} = KitAristidThemeGeneral;
 
-const kitImageThemeStyled: KitImageThemeStyled = {
+export const KitImageTheme: IKitImageTheme = {
     colors: {
         border: {
             none: 'none',
@@ -16,8 +16,4 @@ const kitImageThemeStyled: KitImageThemeStyled = {
             rounded: border.radius.s
         }
     }
-};
-
-export const KitImageTheme = {
-    ...kitImageThemeStyled
 };

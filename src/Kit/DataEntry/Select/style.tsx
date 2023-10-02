@@ -1,9 +1,9 @@
 import styled, {createGlobalStyle, css} from 'styled-components';
-import {KitSelectTheme} from '@theme/types/components/DataEntry/Select';
+import {IKitSelectTheme} from '@theme/types/components/DataEntry/Select';
 import {Select as AntdSelect} from 'antd';
 
 export const StyledBadge = styled.div<{
-    $theme: KitSelectTheme['ColorBadge'];
+    $theme: IKitSelectTheme['ColorBadge'];
 }>`
     display: inline-block;
     vertical-align: middle;
@@ -46,7 +46,7 @@ export const getPopupStyle = placement => {
 };
 
 export const SelectDropDownStyle = createGlobalStyle<{
-    $theme: KitSelectTheme['DropDown'];
+    $theme: IKitSelectTheme['DropDown'];
 }>`
     .ant-select-dropdown {
         background: transparent;
@@ -181,7 +181,7 @@ export const SelectDropDownStyle = createGlobalStyle<{
 `;
 
 export const StyledKitSelect = styled(AntdSelect)<{
-    $theme: KitSelectTheme;
+    $theme: IKitSelectTheme;
 }>`
     &.ant-select.ant-select-compact-item {
         &:not(.ant-select-compact-last-item) {

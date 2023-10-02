@@ -1,4 +1,4 @@
-export interface KitMenuThemeStyled {
+export interface IKitMenuTheme {
     colors: {
         background: {
             default: string;
@@ -33,5 +33,3 @@ export interface KitMenuThemeStyled {
         };
     };
 }
-
-export type KitMenuTheme = KitMenuThemeStyled;

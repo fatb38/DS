@@ -2,11 +2,11 @@ import React from 'react';
 import {Rate as AntdRate} from 'antd';
 import {KitRateColor, KitRateProps} from './types';
 import styled, {css} from 'styled-components';
-import {KitRateTheme} from '@theme/types/components/DataEntry/Rate';
+import {IKitRateTheme} from '@theme/types/components/DataEntry/Rate';
 import {useKitTheme} from '@theme/theme-context';
 
 const StyledRate = styled(AntdRate)<{
-    $theme: KitRateTheme;
+    $theme: IKitRateTheme;
     $color: KitRateColor;
     $disabledStarTransparency: string;
 }>`

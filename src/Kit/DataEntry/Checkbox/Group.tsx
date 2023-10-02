@@ -1,7 +1,7 @@
 import {useContext, useEffect, useState} from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+import React from 'react';
 import {ConfigContext} from 'antd/lib/config-provider/';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox/Checkbox';
 import Checkbox from './Checkbox';

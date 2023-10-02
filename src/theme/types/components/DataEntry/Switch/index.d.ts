@@ -1,4 +1,4 @@
-export interface KitSwitchThemeStyled {
+export interface IKitSwitchTheme {
     colors: {
         background: {
             default: {
@@ -25,5 +25,3 @@ export interface KitSwitchThemeStyled {
         };
     };
 }
-
-export type KitSwitchTheme = KitSwitchThemeStyled;

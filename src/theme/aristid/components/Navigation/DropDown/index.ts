@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitDropDownThemeStyled} from '@theme/types/components/Navigation/DropDown';
+import {IKitDropDownTheme} from '@theme/types/components/Navigation/DropDown';
 
 const {colors, typography} = KitAristidThemeGeneral;
 
-const kitDropDownThemeStyled: KitDropDownThemeStyled = {
+export const KitDropDownTheme: IKitDropDownTheme = {
     colors: {
         background: {
             default: colors.secondary.mediumGrey.mediumGrey100
@@ -98,8 +98,4 @@ const kitDropDownThemeStyled: KitDropDownThemeStyled = {
             }
         }
     }
-};
-
-export const KitDropDownTheme = {
-    ...kitDropDownThemeStyled
 };

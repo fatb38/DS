@@ -1,11 +1,5 @@
-export interface KitAlertThemeAntd {
+export interface IKitAlertTheme {
     colors: {
-        border: {
-            success: string;
-            info: string;
-            warning: string;
-            error: string;
-        };
         background: {
             success: string;
             info: string;
@@ -15,17 +9,26 @@ export interface KitAlertThemeAntd {
         typography: {
             default: string;
         };
+        border: {
+            success: string;
+            info: string;
+            warning: string;
+            error: string;
+        };
+        icon: {
+            alert: {
+                success: string;
+                info: string;
+                warning: string;
+                error: string;
+            };
+        };
     };
-    typography: {
-        fontFamily: string;
-    };
-}
-
-export interface KitAlertThemeStyled {
     border: {
         radius: number;
     };
     typography: {
+        fontFamily: string;
         fontSize: {
             message: number;
             description: number;
@@ -39,16 +42,4 @@ export interface KitAlertThemeStyled {
             size: number;
         };
     };
-    colors: {
-        icon: {
-            alert: {
-                success: string;
-                info: string;
-                warning: string;
-                error: string;
-            };
-        };
-    };
 }
-
-export type KitAlertTheme = KitAlertThemeAntd & KitAlertThemeStyled;

@@ -5,10 +5,10 @@ import styled from 'styled-components';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from '../Input/InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
-import {KitDatePickerTheme} from '@theme/types/components/DataEntry/DatePicker';
+import {IKitDatePickerTheme} from '@theme/types/components/DataEntry/DatePicker';
 
 const StyledRangePicker = styled.div<{
-    $theme: KitDatePickerTheme['RangePicker'];
+    $theme: IKitDatePickerTheme['RangePicker'];
 }>`
     .ant-picker.ant-picker-range {
         display: grid;

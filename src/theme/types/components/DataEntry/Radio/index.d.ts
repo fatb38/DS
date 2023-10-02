@@ -1,15 +1,4 @@
-export interface KitRadioThemeAntd {
-    typography: {
-        fontFamily: string;
-        fontSize: number;
-        lineHeight: number;
-    };
-}
-
-export interface KitRadioThemeStyled {
-    typography: {
-        fontWeight: string | number;
-    };
+export interface IKitRadioTheme {
     colors: {
         border: {
             default: string;
@@ -47,6 +36,10 @@ export interface KitRadioThemeStyled {
             };
         };
     };
+    typography: {
+        fontWeight: string | number;
+        fontFamily: string;
+        fontSize: number;
+        lineHeight: number;
+    };
 }
-
-export type KitRadioTheme = KitRadioThemeAntd & KitRadioThemeStyled;

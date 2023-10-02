@@ -1,10 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {AntdThemeConfigWithRequiredComponents} from '@theme/types';
-import {KitTreeThemeAntd, KitTreeThemeStyled} from '@theme/types/components/DataDisplay/Tree';
+import {IKitTreeTheme} from '@theme/types/components/DataDisplay/Tree';
 
 const {colors, typography} = KitAristidThemeGeneral;
 
-const kitTreeThemeAntd: KitTreeThemeAntd = {
+export const KitTreeTheme: IKitTreeTheme = {
     colors: {
         background: {
             hover: colors.primary.blue100
@@ -16,10 +15,7 @@ const kitTreeThemeAntd: KitTreeThemeAntd = {
     },
     icon: {
         fontSize: typography.fontSize5
-    }
-};
-
-const kitTreeThemeStyled: KitTreeThemeStyled = {
+    },
     checkbox: {
         colors: {
             background: {
@@ -62,22 +58,4 @@ const kitTreeThemeStyled: KitTreeThemeStyled = {
             }
         }
     }
-};
-
-const formatKitTokenForAntdDesignTolen = (
-    kitTreeThemeAntd: KitTreeThemeAntd
-): AntdThemeConfigWithRequiredComponents['Tree'] => {
-    const {colors, typography, icon} = kitTreeThemeAntd;
-
-    return {
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize,
-        fontSizeIcon: icon.fontSize,
-        controlItemBgHover: colors.background.hover
-    };
-};
-
-export const KitTreeTheme = {
-    ...formatKitTokenForAntdDesignTolen(kitTreeThemeAntd),
-    ...kitTreeThemeStyled
 };

@@ -1,14 +1,19 @@
-export interface KitStepsThemeAntd {
+export interface IKitStepsTheme {
     colors: {
+        dot: {
+            default: string;
+        };
         split: {
             default: string;
         };
         typography: {
             description: {
                 default: string;
+                active: string;
             };
             text: {
                 default: string;
+                active: string;
             };
         };
     };
@@ -17,19 +22,3 @@ export interface KitStepsThemeAntd {
         fontSize: number;
     };
 }
-
-export interface KitStepsThemeStyled {
-    colors: {
-        dot: {
-            default: string;
-        };
-        title: {
-            default: string;
-        };
-        description: {
-            default: string;
-        };
-    };
-}
-
-export type KitStepsTheme = KitStepsThemeAntd & KitStepsThemeStyled;

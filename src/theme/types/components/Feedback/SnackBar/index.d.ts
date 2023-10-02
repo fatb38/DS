@@ -1,4 +1,4 @@
-export interface KitSnackBarThemeStyled {
+export interface IKitSnackBarTheme {
     colors: {
         background: string;
         border: string;
@@ -31,5 +31,3 @@ export interface KitSnackBarThemeStyled {
         };
     };
 }
-
-export type KitSnackBarTheme = KitSnackBarThemeStyled;

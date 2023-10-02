@@ -1,41 +1,4 @@
-export interface KitDatePickerThemeAntd {
-    colors: {
-        background: {
-            default: string;
-            disabled: string;
-        };
-        border: {
-            default: string;
-            hover: string;
-            active: string;
-        };
-        typography: {
-            content: {
-                default: string;
-            };
-            placeholder: {
-                default: string;
-            };
-        };
-        link: {
-            default: string;
-            hover: string;
-        };
-        item: {
-            hover: string;
-            active: string;
-        };
-    };
-    typography: {
-        fontFamily: string;
-        fontSize: number;
-    };
-    border: {
-        radius: number;
-    };
-}
-
-export interface KitDatePickerThemeStyled {
+export interface IKitDatePickerTheme {
     colors: {
         icon: {
             default: string;
@@ -50,21 +13,36 @@ export interface KitDatePickerThemeStyled {
             error: string;
         };
         background: {
-            warning: string;
-            error: string;
-        };
-        border: {
+            default: string;
             disabled: string;
             warning: string;
             error: string;
         };
+        border: {
+            default: string;
+            hover: string;
+            active: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        link: {
+            default: string;
+            hover: string;
+        };
+        item: {
+            hover: string;
+            active: string;
+        };
         typography: {
             content: {
+                default: string;
                 disabled: string;
                 warning: string;
                 error: string;
             };
             placeholder: {
+                default: string;
                 disabled: string;
                 warning: string;
                 error: string;
@@ -73,10 +51,14 @@ export interface KitDatePickerThemeStyled {
     };
     typography: {
         fontFamily: string;
+        fontSize: number;
         fontWeight: {
             content: string | number;
             placeholder: string | number;
         };
+    };
+    border: {
+        radius: number;
     };
     RangePicker: {
         colors: {
@@ -159,5 +141,3 @@ export interface KitDatePickerThemeStyled {
         };
     };
 }
-
-export type KitDatePickerTheme = KitDatePickerThemeAntd & KitDatePickerThemeStyled;

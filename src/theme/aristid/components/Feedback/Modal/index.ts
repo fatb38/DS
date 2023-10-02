@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitModalThemeStyled} from '@theme/types/components/Feedback/Modal';
+import {IKitModalTheme} from '@theme/types/components/Feedback/Modal';
 
 const {colors, typography, border, spacing} = KitAristidThemeGeneral;
 
-const kitModalThemeStyled: KitModalThemeStyled = {
+export const KitModalTheme: IKitModalTheme = {
     typography: {
         fontFamily: typography.fontFamily,
         fontSize: {
@@ -47,8 +47,4 @@ const kitModalThemeStyled: KitModalThemeStyled = {
             }
         }
     }
-};
-
-export const KitModalTheme = {
-    ...kitModalThemeStyled
 };

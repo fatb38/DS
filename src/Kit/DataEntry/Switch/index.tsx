@@ -3,10 +3,10 @@ import {Switch as AntdSwitch} from 'antd';
 import styled from 'styled-components';
 import {KitSwitchProps} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {KitSwitchTheme} from '@theme/types/components/DataEntry/Switch';
+import {IKitSwitchTheme} from '@theme/types/components/DataEntry/Switch';
 
 const StyledSwitch = styled(AntdSwitch)<{
-    $theme: KitSwitchTheme;
+    $theme: IKitSwitchTheme;
 }>`
     & {
         background: ${({$theme}) => $theme.colors.background.default.off};

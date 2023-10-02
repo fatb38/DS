@@ -1,9 +1,9 @@
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitBreadcrumbThemeStyled} from '@theme/types/components/Navigation/Breadcrumb';
+import {IKitBreadcrumbTheme} from '@theme/types/components/Navigation/Breadcrumb';
 
 const {colors, typography} = KitAristidThemeGeneral;
 
-const kitBreadcrumbThemeStyled: KitBreadcrumbThemeStyled = {
+export const KitBreadcrumbTheme: IKitBreadcrumbTheme = {
     link: {
         colors: {
             typography: {
@@ -15,8 +15,4 @@ const kitBreadcrumbThemeStyled: KitBreadcrumbThemeStyled = {
             fontWeight: typography.regularFontWeight
         }
     }
-};
-
-export const KitBreadcrumbTheme = {
-    ...kitBreadcrumbThemeStyled
 };

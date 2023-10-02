@@ -1,25 +1,4 @@
-export interface KitCheckboxThemeAntd {
-    typography: {
-        fontFamily: string;
-        fontSize: number;
-        lineHeight: number;
-        lineWidth: number;
-    };
-    border: {
-        radius: number;
-    };
-    colors: {
-        border: {
-            default: string;
-        };
-        background: {
-            check: string;
-            hover: string;
-        };
-    };
-}
-
-export interface KitCheckboxThemeStyled {
+export interface IKitCheckboxTheme {
     colors: {
         background: {
             check: string;
@@ -32,6 +11,7 @@ export interface KitCheckboxThemeStyled {
             };
         };
         border: {
+            default: string;
             check: string;
             hover: string;
             focus: string;
@@ -51,7 +31,12 @@ export interface KitCheckboxThemeStyled {
     };
     typography: {
         fontWeight: string | number;
+        fontFamily: string;
+        fontSize: number;
+        lineHeight: number;
+        lineWidth: number;
+    };
+    border: {
+        radius: number;
     };
 }
-
-export type KitCheckboxTheme = KitCheckboxThemeAntd & KitCheckboxThemeStyled;

@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import {Checkbox} from 'antd';
 import {KitCheckboxProps} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {KitCheckboxTheme} from '@theme/types/components/DataEntry/Checkbox';
+import {IKitCheckboxTheme} from '@theme/types/components/DataEntry/Checkbox';
 import {GroupContext} from './Group';
 
 const StyledKitCheckbox = styled(Checkbox)<{
-    $theme: KitCheckboxTheme;
+    $theme: IKitCheckboxTheme;
 }>`
     font-weight: ${({$theme}) => $theme.typography.fontWeight};
 
