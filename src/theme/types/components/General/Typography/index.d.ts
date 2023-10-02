@@ -36,6 +36,19 @@ export interface KitTypographyThemeStyled {
             bold: number | string;
         };
     };
+    Link: {
+        colors: {
+            typography: {
+                default: string;
+                hover: string;
+            };
+        };
+        fontWeight: {
+            regular: number | string;
+            medium: number | string;
+            bold: number | string;
+        };
+    };
 }
 
 export type KitTypographyTheme = KitTypographyThemeStyled;

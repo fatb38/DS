@@ -15,6 +15,14 @@ export const TypographyStyle = createGlobalStyle<{
         ${({$theme}) => fontBaseCss($theme)};
     }
 
+    a.ant-typography {
+        color: ${({$theme}) => $theme.Link.colors.typography.default};
+
+        &:hover {
+            color: ${({$theme}) => $theme.Link.colors.typography.hover};
+        }
+    }
+
     h1.ant-typography {
         ${({$theme}) => fontBaseCss($theme)};
 

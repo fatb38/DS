@@ -53,6 +53,19 @@ const KitTypographyThemeStyled: KitTypographyThemeStyled = {
             medium: typography.mediumfontWeight,
             bold: typography.boldFontWeight
         }
+    },
+    Link: {
+        colors: {
+            typography: {
+                default: colors.primary.blue400,
+                hover: colors.primary.blue300
+            }
+        },
+        fontWeight: {
+            regular: typography.regularFontWeight,
+            medium: typography.mediumfontWeight,
+            bold: typography.boldFontWeight
+        }
     }
 };
 
