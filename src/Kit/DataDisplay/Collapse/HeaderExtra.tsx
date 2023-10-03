@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {KitHeaderExtraProps} from './types';
+import {IKitMenuInfo, KitHeaderExtraProps} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
@@ -56,14 +56,12 @@ export const KitHeaderExtra: React.FunctionComponent<KitHeaderExtraProps> = ({on
         // Remove first action because we don't want it to be duplicated
         newActions.splice(0, 1);
 
-        const dropDownActions = newActions.map((item, index) => {
-            return {
-                key: index,
-                icon: item.icon,
-                label: item.label,
-                onClick: e => item.onClick && item.onClick(e)
-            };
-        });
+        const dropDownActions = newActions.map((item, index) => ({
+            key: index,
+            icon: item.icon,
+            label: item.label,
+            onClick: (e: IKitMenuInfo) => item.onClick && item.onClick(e)
+        }));
 
         return dropDownActions;
     };

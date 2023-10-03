@@ -17,10 +17,18 @@ export interface KitHeaderProps {
     tagContent?: ReactNode;
 }
 
+export interface IKitMenuInfo {
+    key: string;
+    keyPath: string[];
+    /** @deprecated This will not support in future. You should avoid to use this */
+    item: React.ReactInstance;
+    domEvent: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>;
+}
+
 interface KitHeaderExtraAction {
     icon: ReactNode;
     label: string;
-    onClick?: (e: MouseEvent<HTMLElement>) => void;
+    onClick?: (e: MouseEvent<HTMLElement> | IKitMenuInfo) => void;
 }
 
 export interface KitHeaderExtraActions extends Array<KitHeaderExtraAction> {}

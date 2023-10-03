@@ -1,5 +1,5 @@
-import React from 'react';
-import {KitItemMenuProps, KitItemMenuType} from './types';
+import React, {MouseEvent} from 'react';
+import {IKitMenuInfo, KitItemMenuActions, KitItemMenuProps, KitItemMenuType} from './types';
 import {css, styled} from 'styled-components';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTypography, KitIcon} from '@kit/General/';
@@ -249,14 +249,12 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         // Remove first action because we don't want it to be duplicated
         newActions.splice(0, 1);
 
-        const dropDownActions = newActions.map((item, index) => {
-            return {
-                key: index,
-                icon: item.icon,
-                label: item.label,
-                onClick: e => item.onClick(e)
-            };
-        });
+        const dropDownActions: MenuItemType[] = newActions.map((item, index) => ({
+            key: index,
+            icon: item.icon,
+            label: item.label,
+            onClick: (e: IKitMenuInfo) => item.onClick(e)
+        }));
 
         return dropDownActions;
     };
