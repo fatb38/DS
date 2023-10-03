@@ -1,27 +1,27 @@
 import {DeepPartial, IKitTheme, IKitThemeComponents, IKitThemeGeneral} from '@theme/types';
 import {KitAristidThemeGeneral} from './general';
-import {KitRateTheme} from './components/DataEntry/Rate';
-import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
-import {KitTagTheme} from './components/DataEntry/Tag';
-import {KitInputWrapperTheme, KitInputTheme} from './components/DataEntry/Input/';
-import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
-import {KitBadgeTheme} from './components/DataDisplay/Badge';
-import {KitItemCardTheme} from './components/DataDisplay/ItemCard';
+import {getKitRateTokens} from './components/DataEntry/Rate';
+import {getKitTooltipTokens} from './components/DataDisplay/Tooltip';
+import {getKitTagTokens} from './components/DataEntry/Tag';
+import {getKitInputTokens, getKitInputWrapperTokens} from './components/DataEntry/Input/';
+import {getKitAvatarGroupTokens, getKitAvatarTokens} from './components/DataDisplay/Avatar';
+import {getKitBadgeTokens} from './components/DataDisplay/Badge';
+import {getKitItemCardTokens} from './components/DataDisplay/ItemCard';
 import {getButtonTokens} from './components/General/Button';
-import {KitSliderTheme} from './components/DataEntry/Slider';
-import {KitCollapseTheme} from './components/DataDisplay/Collapse';
-import {KitImageTheme} from './components/DataDisplay/Image';
-import {KitItemListTheme} from './components/DataDisplay/ItemList';
+import {getKitSliderTokens} from './components/DataEntry/Slider';
+import {getKitCollapseTokens} from './components/DataDisplay/Collapse';
+import {getKitImageTokens} from './components/DataDisplay/Image';
+import {getKitItemListTokens} from './components/DataDisplay/ItemList';
+import {getKitInputNumberTokens} from './components/DataEntry/InputNumber';
+import {getKitCardTokens} from './components/DataDisplay/Card';
 import {getKitTabsTokens} from './components/DataDisplay/Tabs';
 import {getKitTreeTokens} from './components/DataDisplay/Tree';
-import {KitInputNumberTheme} from './components/DataEntry/InputNumber';
 import {getKitSwitchTokens} from './components/DataEntry/Switch';
 import {getKitSelectTokens} from './components/DataEntry/Select';
-import {KitCardTheme} from './components/DataDisplay/Card';
 import {getKitCheckboxTokens} from './components/DataEntry/Checkbox';
 import {getKitDatePickerTokens} from './components/DataEntry/DatePicker';
-import {getKitUploadTokens} from './components/DataEntry/Upload';
 import {getKitRadioTokens} from './components/DataEntry/Radio';
+import {getKitUploadTokens} from './components/DataEntry/Upload';
 import {getKitStepsTokens} from './components/Navigation/Steps';
 import {getKitPaginationTokens} from './components/Navigation/Pagination';
 import {getKitMenuTokens} from './components/Navigation/Menu';
@@ -40,22 +40,22 @@ import {getKitTypographyTokens} from './components/General/Typography';
 
 const _getKitComponentsTokens = (generalTokens: IKitThemeGeneral): IKitThemeComponents => {
     return {
-        Button: getButtonTokens(generalTokens),
-        Rate: KitRateTheme,
-        Tooltip: KitTooltipTheme,
-        Tag: KitTagTheme,
-        Card: KitCardTheme,
-        InputWrapper: KitInputWrapperTheme,
-        Input: KitInputTheme,
-        InputNumber: KitInputNumberTheme,
-        Slider: KitSliderTheme,
-        Avatar: KitAvatarTheme,
-        AvatarGroup: KitAvatarGroupTheme,
-        Badge: KitBadgeTheme,
-        ItemCard: KitItemCardTheme,
-        Collapse: KitCollapseTheme,
-        Image: KitImageTheme,
-        ItemList: KitItemListTheme,
+        Button: getKitButtonTokens(generalTokens),
+        Rate: getKitRateTokens(generalTokens),
+        Tooltip: getKitTooltipTokens(generalTokens),
+        Tag: getKitTagTokens(generalTokens),
+        Card: getKitCardTokens(generalTokens),
+        InputWrapper: getKitInputWrapperTokens(generalTokens),
+        Input: getKitInputTokens(generalTokens),
+        InputNumber: getKitInputNumberTokens(generalTokens),
+        Slider: getKitSliderTokens(generalTokens),
+        Avatar: getKitAvatarTokens(generalTokens),
+        AvatarGroup: getKitAvatarGroupTokens(generalTokens),
+        Badge: getKitBadgeTokens(generalTokens),
+        ItemCard: getKitItemCardTokens(generalTokens),
+        Collapse: getKitCollapseTokens(generalTokens),
+        Image: getKitImageTokens(generalTokens),
+        ItemList: getKitItemListTokens(generalTokens),
         Tabs: getKitTabsTokens(generalTokens),
         Tree: getKitTreeTokens(generalTokens),
         Switch: getKitSwitchTokens(generalTokens),

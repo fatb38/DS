@@ -2,7 +2,7 @@ import {IKitThemeGeneral} from '@theme/types';
 import {IKitButtonTheme, KitColoredSegmentedButtonThemes} from '@theme/types/components/General/Button';
 import {KitColorKeys} from '@theme/types/general/colors';
 
-const getPrimaryButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['primary'] => {
+const _getPrimaryKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['primary'] => {
     const {typography, border, colors} = generalTokens;
 
     return {
@@ -67,7 +67,7 @@ const getPrimaryButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonThem
     };
 };
 
-const getDefaultButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['default'] => {
+const _getDefaultKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['default'] => {
     const {typography, border, colors} = generalTokens;
 
     return {
@@ -130,7 +130,7 @@ const getDefaultButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonThem
     };
 };
 
-const getTextButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['text'] => {
+const _getTextKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['text'] => {
     const {typography, border, colors} = generalTokens;
 
     return {
@@ -193,7 +193,7 @@ const getTextButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['
     };
 };
 
-const getLinkButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['link'] => {
+const _getLinkKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['link'] => {
     const {typography, border, colors} = generalTokens;
 
     return {
@@ -256,7 +256,7 @@ const getLinkButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['
     };
 };
 
-const getSegmentedButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['default'] => {
+const _getSegmentedKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['default'] => {
     const {typography, border, colors} = generalTokens;
 
     return {
@@ -320,7 +320,7 @@ const getSegmentedButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTh
     };
 };
 
-const generateColoredSegmentedButtonThemes = (generalTokens: IKitThemeGeneral): KitColoredSegmentedButtonThemes => {
+const _generateColoredSegmentedKitButtonThemes = (generalTokens: IKitThemeGeneral): KitColoredSegmentedButtonThemes => {
     const {typography, border, colors} = generalTokens;
     const colorKeys: KitColorKeys[] = Object.keys(colors.secondary) as KitColorKeys[];
 
@@ -391,7 +391,7 @@ const generateColoredSegmentedButtonThemes = (generalTokens: IKitThemeGeneral): 
     return colorThemes;
 };
 
-export const getButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme => {
+export const getKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme => {
     const {typography, border} = generalTokens;
 
     return {
@@ -403,13 +403,13 @@ export const getButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonThem
         border: {
             radius: border.radius.pills
         },
-        primary: getPrimaryButtonTokens(generalTokens),
-        default: getDefaultButtonTokens(generalTokens),
-        text: getTextButtonTokens(generalTokens),
-        link: getLinkButtonTokens(generalTokens),
+        primary: _getPrimaryKitButtonTokens(generalTokens),
+        default: _getDefaultKitButtonTokens(generalTokens),
+        text: _getTextKitButtonTokens(generalTokens),
+        link: _getLinkKitButtonTokens(generalTokens),
         segmented: {
-            default: getSegmentedButtonTokens(generalTokens),
-            ...generateColoredSegmentedButtonThemes(generalTokens)
+            default: _getSegmentedKitButtonTokens(generalTokens),
+            ..._generateColoredSegmentedKitButtonThemes(generalTokens)
         }
     };
 };

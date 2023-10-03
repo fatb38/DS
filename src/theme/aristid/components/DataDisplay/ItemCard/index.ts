@@ -1,108 +1,109 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {border} from '@theme/aristid/general/border';
+import {IKitThemeGeneral} from '@theme/types';
 import {IKitItemCardTheme} from '@theme/types/components/DataDisplay/ItemCard';
 
-const {colors, typography} = KitAristidThemeGeneral;
+export const getKitItemCardTokens = (generalTokens: IKitThemeGeneral): IKitItemCardTheme => {
+    const {colors, border, typography} = generalTokens;
 
-export const KitItemCardTheme: IKitItemCardTheme = {
-    card: {
-        colors: {
-            background: {
-                default: colors.neutral.typography.white,
-                disabled: colors.secondary.mediumGrey.mediumGrey100
+    return {
+        card: {
+            colors: {
+                background: {
+                    default: colors.neutral.typography.white,
+                    disabled: colors.secondary.mediumGrey.mediumGrey100
+                },
+                border: {
+                    default: colors.secondary.mediumGrey.mediumGrey200,
+                    hover: colors.primary.blue400
+                }
             },
             border: {
-                default: colors.secondary.mediumGrey.mediumGrey200,
-                hover: colors.primary.blue400
-            }
-        },
-        border: {
-            radius: border.radius.s
-        },
-        typography: {
-            fontFamily: typography.fontFamily
-        }
-    },
-    colorBar: {
-        thickness: 8,
-        border: {
-            radius: border.radius.s
-        }
-    },
-    select: {
-        colors: {
-            background: {
-                disabled: colors.secondary.mediumGrey.mediumGrey100
+                radius: border.radius.s
             },
             typography: {
-                default: colors.primary.blue400,
-                disabled: colors.secondary.mediumGrey.mediumGrey400
+                fontFamily: typography.fontFamily
             }
-        }
-    },
-    expend: {
-        colors: {
-            typography: {
-                default: colors.primary.blue600,
-                hover: colors.primary.blue400,
-                disabled: colors.secondary.mediumGrey.mediumGrey400
-            }
-        }
-    },
-    image: {
-        colors: {
+        },
+        colorBar: {
+            thickness: 8,
             border: {
-                default: colors.neutral.typography.black60
+                radius: border.radius.s
             }
         },
-        border: {
-            radius: border.radius.s
-        }
-    },
-    icon: {
-        colors: {
+        select: {
+            colors: {
+                background: {
+                    disabled: colors.secondary.mediumGrey.mediumGrey100
+                },
+                typography: {
+                    default: colors.primary.blue400,
+                    disabled: colors.secondary.mediumGrey.mediumGrey400
+                }
+            }
+        },
+        expend: {
+            colors: {
+                typography: {
+                    default: colors.primary.blue600,
+                    hover: colors.primary.blue400,
+                    disabled: colors.secondary.mediumGrey.mediumGrey400
+                }
+            }
+        },
+        image: {
+            colors: {
+                border: {
+                    default: colors.neutral.typography.black60
+                }
+            },
             border: {
-                default: colors.neutral.typography.black60
+                radius: border.radius.s
             }
         },
-        border: {
-            radius: border.radius.s
-        }
-    },
-    title: {
-        colors: {
+        icon: {
+            colors: {
+                border: {
+                    default: colors.neutral.typography.black60
+                }
+            },
+            border: {
+                radius: border.radius.s
+            }
+        },
+        title: {
+            colors: {
+                typography: {
+                    default: colors.primary.blue600,
+                    disabled: colors.secondary.mediumGrey.mediumGrey400
+                }
+            },
             typography: {
-                default: colors.primary.blue600,
-                disabled: colors.secondary.mediumGrey.mediumGrey400
+                fontSize: typography.fontSize6,
+                fontWeight: typography.boldFontWeight
             }
         },
-        typography: {
-            fontSize: typography.fontSize6,
-            fontWeight: typography.boldFontWeight
-        }
-    },
-    description: {
-        colors: {
+        description: {
+            colors: {
+                typography: {
+                    default: colors.primary.blue600,
+                    disabled: colors.secondary.mediumGrey.mediumGrey400
+                }
+            },
             typography: {
-                default: colors.primary.blue600,
-                disabled: colors.secondary.mediumGrey.mediumGrey400
+                fontSize: typography.fontSize5,
+                fontWeight: typography.regularFontWeight
             }
         },
-        typography: {
-            fontSize: typography.fontSize5,
-            fontWeight: typography.regularFontWeight
-        }
-    },
-    footer: {
-        colors: {
+        footer: {
+            colors: {
+                typography: {
+                    default: colors.primary.blue600,
+                    disabled: colors.secondary.mediumGrey.mediumGrey400
+                }
+            },
             typography: {
-                default: colors.primary.blue600,
-                disabled: colors.secondary.mediumGrey.mediumGrey400
+                fontSize: typography.fontSize5,
+                fontWeight: typography.boldFontWeight
             }
-        },
-        typography: {
-            fontSize: typography.fontSize5,
-            fontWeight: typography.boldFontWeight
         }
-    }
+    };
 };

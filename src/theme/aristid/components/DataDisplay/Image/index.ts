@@ -1,19 +1,21 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
+import {IKitThemeGeneral} from '@theme/types';
 import {IKitImageTheme} from '@theme/types/components/DataDisplay/Image';
 
-const {colors, border} = KitAristidThemeGeneral;
+export const getKitImageTokens = (generalTokens: IKitThemeGeneral): IKitImageTheme => {
+    const {colors, border} = generalTokens;
 
-export const KitImageTheme: IKitImageTheme = {
-    colors: {
+    return {
+        colors: {
+            border: {
+                none: 'none',
+                default: colors.neutral.typography.black60
+            }
+        },
         border: {
-            none: 'none',
-            default: colors.neutral.typography.black60
+            radius: {
+                default: border.radius.square,
+                rounded: border.radius.s
+            }
         }
-    },
-    border: {
-        radius: {
-            default: border.radius.square,
-            rounded: border.radius.s
-        }
-    }
+    };
 };
