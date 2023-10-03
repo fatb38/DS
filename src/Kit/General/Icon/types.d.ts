@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import {ReactNode, MouseEvent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {IconComponentProps} from '@ant-design/icons/lib/components/Icon';
 
@@ -27,7 +27,7 @@ export interface KitIconProps extends IconComponentProps, KitHTMLAttributes<HTML
     displayName?: string;
     icon: ReactNode;
     className?: string;
-    onClick?: React.MouseEventHandler<HTMLSpanElement>;
+    onClick?: (e: MouseEvent<HTMLSpanElement>) => void;
 }
 
 export interface StyledKitIconProps extends KitIconProps {

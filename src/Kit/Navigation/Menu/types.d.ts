@@ -1,6 +1,6 @@
 import {KitInputProps} from '../../DataEntry/Input/types';
 import {IKitButtonProps} from '../../General/Button/types';
-import {ReactElement, ReactNode} from 'react';
+import {ReactElement, ReactNode, MouseEvent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
 
@@ -16,7 +16,7 @@ interface KitItemMenuAction {
     icon: ReactNode;
     isActive?: boolean;
     label: string;
-    onClick: MenuClickEventHandler;
+    onClick: (e: MouseEvent<HTMLElement>) => void;
 }
 
 export interface KitItemMenuActions extends Array<KitItemMenuAction> {}

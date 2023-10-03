@@ -197,9 +197,9 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
                                 <KitIcon
                                     icon={firstAction.icon}
                                     hoverable
-                                    onClick={(e: MouseEvent) => {
+                                    onClick={e => {
                                         e.stopPropagation();
-                                        firstAction.onClick();
+                                        firstAction.onClick(e);
                                     }}
                                 />
                             </KitTooltip>
@@ -209,9 +209,9 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
                                 <KitIcon
                                     icon={secondAction.icon}
                                     hoverable
-                                    onClick={(e: MouseEvent) => {
+                                    onClick={e => {
                                         e.stopPropagation();
-                                        secondAction.onClick();
+                                        secondAction.onClick(e);
                                     }}
                                 />
                             </KitTooltip>
@@ -254,7 +254,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
                 key: index,
                 icon: item.icon,
                 label: item.label,
-                onClick: item.onClick
+                onClick: e => item.onClick(e)
             };
         });
 

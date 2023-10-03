@@ -2,7 +2,6 @@ import {CollapseProps} from 'antd';
 import {ReactNode, MouseEvent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
-import {MenuItemType} from 'antd/es/menu/hooks/useItems';
 
 type AntdCollapseTypesToOmit = 'bordered' | 'expandIconPosition' | 'ghost';
 
@@ -21,7 +20,7 @@ export interface KitHeaderProps {
 interface KitHeaderExtraAction {
     icon: ReactNode;
     label: string;
-    onClick?: (e: MouseEvent<HTMLElement> | MenuItemType['onClick']) => void;
+    onClick?: (e: MouseEvent<HTMLElement>) => void;
 }
 
 export interface KitHeaderExtraActions extends Array<KitHeaderExtraAction> {}
