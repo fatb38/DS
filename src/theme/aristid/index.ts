@@ -1,13 +1,13 @@
 import {DeepPartial, IKitCustomTheme, IKitTheme, IKitThemeComponents, IKitThemeGeneral} from '@theme/types';
 import {KitAristidThemeGeneral} from './general';
-import {KitRateTheme} from './components/DataEntry/Rate';
+import {getKitRateTokens} from './components/DataEntry/Rate';
 import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
 import {KitTagTheme} from './components/DataEntry/Tag';
 import {KitInputWrapperTheme, KitInputTheme} from './components/DataEntry/Input/';
 import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
 import {KitBadgeTheme} from './components/DataDisplay/Badge';
 import {KitItemCardTheme} from './components/DataDisplay/ItemCard';
-import {getButtonTokens} from './components/General/Button';
+import {getKitButtonTokens} from './components/General/Button';
 import {KitSliderTheme} from './components/DataEntry/Slider';
 import {KitCollapseTheme} from './components/DataDisplay/Collapse';
 import {KitImageTheme} from './components/DataDisplay/Image';
@@ -40,8 +40,8 @@ import {overrideGeneralTokens} from '@theme/utils/theme-builder';
 
 const _getKitComponentsTokens = (generalTokens: IKitThemeGeneral): IKitThemeComponents => {
     return {
-        Button: getButtonTokens(generalTokens),
-        Rate: KitRateTheme,
+        Button: getKitButtonTokens(generalTokens),
+        Rate: getKitRateTokens(generalTokens),
         Tooltip: KitTooltipTheme,
         Tag: KitTagTheme,
         Card: KitCardTheme,
@@ -57,10 +57,10 @@ const _getKitComponentsTokens = (generalTokens: IKitThemeGeneral): IKitThemeComp
         Image: KitImageTheme,
         ItemList: KitItemListTheme,
         Tabs: KitTabsTheme,
-        Tree: KitTreeTheme,
+        Tree: KitTreeTheme, /////////////
         Switch: KitSwitchTheme,
         Select: KitSelectTheme,
-        Checkbox: KitCheckboxTheme,
+        Checkbox: KitCheckboxTheme, //////////
         DatePicker: KitDatePickerTheme,
         Upload: KitUploadTheme,
         Radio: KitRadioTheme,
