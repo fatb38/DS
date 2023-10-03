@@ -12,7 +12,7 @@ export const getKitTabsTokens = (generalTokens: IKitThemeGeneral): IKitTabsTheme
                 },
                 border: {
                     default: colors.neutral.gray.gray300,
-                    active: colors.primary.blue400
+                    active: colors.primary.primary400
                 }
             },
             border: {
@@ -29,9 +29,9 @@ export const getKitTabsTokens = (generalTokens: IKitThemeGeneral): IKitTabsTheme
             },
             colors: {
                 disabled: colors.neutral.gray.gray300,
-                active: colors.primary.blue600,
-                hover: colors.primary.blue400,
-                selected: colors.primary.blue400
+                active: colors.primary.primary600,
+                hover: colors.primary.primary400,
+                selected: colors.primary.primary400
             }
         },
         extraContent: {

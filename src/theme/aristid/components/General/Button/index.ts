@@ -13,17 +13,17 @@ const _getPrimaryKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButton
                 active: colors.neutral.typography.white,
                 focus: colors.neutral.typography.white,
                 disabled: colors.secondary.mediumGrey.mediumGrey400,
-                ghost: colors.primary.blue400,
+                ghost: colors.primary.primary400,
                 danger: {
                     default: colors.neutral.typography.white,
                     disabled: colors.secondary.mediumGrey.mediumGrey400
                 }
             },
             background: {
-                default: colors.primary.blue400,
-                hover: colors.primary.blue500,
-                active: colors.primary.blue600,
-                focus: colors.primary.blue400,
+                default: colors.primary.primary400,
+                hover: colors.primary.primary500,
+                active: colors.primary.primary600,
+                focus: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey100,
                 ghost: colors.neutral.typography.white,
                 danger: {
@@ -35,10 +35,10 @@ const _getPrimaryKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButton
                 }
             },
             border: {
-                default: colors.primary.blue400,
-                hover: colors.primary.blue500,
-                active: colors.primary.blue600,
-                focus: colors.primary.blue400,
+                default: colors.primary.primary400,
+                hover: colors.primary.primary500,
+                active: colors.primary.primary600,
+                focus: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey200,
                 danger: {
                     default: colors.secondary.red.red400,
@@ -73,10 +73,10 @@ const _getDefaultKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButton
     return {
         colors: {
             typography: {
-                default: colors.primary.blue400,
-                hover: colors.primary.blue400,
-                active: colors.primary.blue400,
-                focus: colors.primary.blue400,
+                default: colors.primary.primary400,
+                hover: colors.primary.primary400,
+                active: colors.primary.primary400,
+                focus: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey400,
                 danger: {
                     default: colors.secondary.red.red400,
@@ -86,7 +86,7 @@ const _getDefaultKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButton
             background: {
                 default: colors.neutral.typography.white,
                 hover: colors.neutral.typography.white,
-                active: colors.primary.blue100,
+                active: colors.primary.primary100,
                 focus: colors.neutral.typography.white,
                 disabled: colors.secondary.mediumGrey.mediumGrey100,
                 danger: {
@@ -98,10 +98,10 @@ const _getDefaultKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButton
                 }
             },
             border: {
-                default: colors.primary.blue100,
-                hover: colors.primary.blue400,
-                active: colors.primary.blue400,
-                focus: colors.primary.blue400,
+                default: colors.primary.primary100,
+                hover: colors.primary.primary400,
+                active: colors.primary.primary400,
+                focus: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey200,
                 danger: {
                     default: colors.secondary.red.red100,
@@ -136,10 +136,10 @@ const _getTextKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonThe
     return {
         colors: {
             typography: {
-                default: colors.primary.blue400,
-                hover: colors.primary.blue400,
-                active: colors.primary.blue400,
-                focus: colors.primary.blue400,
+                default: colors.primary.primary400,
+                hover: colors.primary.primary400,
+                active: colors.primary.primary400,
+                focus: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey400,
                 danger: {
                     default: colors.secondary.red.red400,
@@ -149,7 +149,7 @@ const _getTextKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonThe
             background: {
                 default: 'initial',
                 hover: colors.secondary.mediumGrey.mediumGrey100,
-                active: colors.primary.blue100,
+                active: colors.primary.primary100,
                 focus: colors.neutral.typography.white,
                 disabled: 'initial',
                 danger: {
@@ -163,8 +163,8 @@ const _getTextKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonThe
             border: {
                 default: 'initial',
                 hover: colors.secondary.mediumGrey.mediumGrey100,
-                active: colors.primary.blue100,
-                focus: colors.primary.blue400,
+                active: colors.primary.primary100,
+                focus: colors.primary.primary400,
                 disabled: 'initial',
                 danger: {
                     default: 'initial',
@@ -199,10 +199,10 @@ const _getLinkKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonThe
     return {
         colors: {
             typography: {
-                default: colors.primary.blue400,
-                hover: colors.primary.blue400,
-                active: colors.primary.blue400,
-                focus: colors.primary.blue400,
+                default: colors.primary.primary400,
+                hover: colors.primary.primary400,
+                active: colors.primary.primary400,
+                focus: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey400,
                 danger: {
                     default: colors.secondary.red.red400,
@@ -224,10 +224,10 @@ const _getLinkKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonThe
                 }
             },
             border: {
-                default: colors.primary.blue400,
-                hover: colors.primary.blue400,
-                active: colors.primary.blue400,
-                focus: colors.primary.blue400,
+                default: colors.primary.primary400,
+                hover: colors.primary.primary400,
+                active: colors.primary.primary400,
+                focus: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey200,
                 danger: {
                     default: colors.secondary.red.red400,
@@ -262,21 +262,21 @@ const _getSegmentedKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButt
     return {
         colors: {
             typography: {
-                default: colors.primary.blue500,
-                hover: colors.primary.blue500,
-                active: colors.primary.blue500,
-                focus: colors.primary.blue500,
+                default: colors.primary.primary500,
+                hover: colors.primary.primary500,
+                active: colors.primary.primary500,
+                focus: colors.primary.primary500,
                 disabled: colors.secondary.mediumGrey.mediumGrey400,
                 danger: {
                     default: colors.secondary.red.red500,
                     disabled: colors.secondary.mediumGrey.mediumGrey400
                 },
-                iconCheck: colors.primary.blue400
+                iconCheck: colors.primary.primary400
             },
             background: {
                 default: colors.neutral.typography.white,
                 hover: colors.neutral.typography.white,
-                active: colors.primary.blue100,
+                active: colors.primary.primary100,
                 focus: colors.neutral.typography.white,
                 disabled: colors.secondary.mediumGrey.mediumGrey100,
                 danger: {
@@ -288,10 +288,10 @@ const _getSegmentedKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButt
                 }
             },
             border: {
-                default: colors.primary.blue100,
-                hover: colors.primary.blue400,
-                active: colors.primary.blue400,
-                focus: colors.primary.blue400,
+                default: colors.primary.primary100,
+                hover: colors.primary.primary400,
+                active: colors.primary.primary400,
+                focus: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey200,
                 danger: {
                     default: colors.secondary.red.red100,

@@ -8,7 +8,7 @@ export const getKitStepsTokens = (generalTokens: IKitThemeGeneral): IKitStepsThe
     return {
         colors: {
             dot: {
-                default: colors.primary.blue300
+                default: colors.primary.primary300
             },
             split: {
                 default: colors.neutral.background
@@ -16,11 +16,11 @@ export const getKitStepsTokens = (generalTokens: IKitThemeGeneral): IKitStepsThe
             typography: {
                 description: {
                     default: colors.neutral.typography.black60,
-                    active: colors.primary.blue300
+                    active: colors.primary.primary300
                 },
                 text: {
                     default: colors.neutral.typography.black,
-                    active: colors.primary.blue300
+                    active: colors.primary.primary300
                 }
             }
         },

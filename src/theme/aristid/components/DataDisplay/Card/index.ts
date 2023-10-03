@@ -12,11 +12,11 @@ export const getKitCardTokens = (generalTokens: IKitThemeGeneral): IKitCardTheme
             },
             typography: {
                 headerTitle: {
-                    default: colors.primary.blue400,
+                    default: colors.primary.primary400,
                     disabled: colors.secondary.mediumGrey.mediumGrey400
                 },
                 contentTitle: {
-                    default: colors.primary.blue400,
+                    default: colors.primary.primary400,
                     disabled: colors.secondary.mediumGrey.mediumGrey400
                 },
                 description: {
@@ -24,15 +24,15 @@ export const getKitCardTokens = (generalTokens: IKitThemeGeneral): IKitCardTheme
                     disabled: colors.secondary.mediumGrey.mediumGrey300
                 },
                 extra: {
-                    default: colors.primary.blue400,
-                    hover: colors.primary.blue300,
+                    default: colors.primary.primary400,
+                    hover: colors.primary.primary300,
                     disabled: colors.secondary.mediumGrey.mediumGrey400
                 }
             },
             border: {
                 default: colors.secondary.mediumGrey.mediumGrey200,
-                focus: colors.primary.blue400,
-                hover: colors.primary.blue400,
+                focus: colors.primary.primary400,
+                hover: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey200
             },
             separator: {
@@ -41,13 +41,13 @@ export const getKitCardTokens = (generalTokens: IKitThemeGeneral): IKitCardTheme
             actions: {
                 default: colors.secondary.mediumGrey.mediumGrey500,
                 disabled: colors.secondary.mediumGrey.mediumGrey300,
-                hover: colors.primary.blue400
+                hover: colors.primary.primary400
             },
             shadow: {
                 default: colors.neutral.typography.black,
-                disabled: colors.primary.blue400,
-                hover: colors.primary.blue400,
-                focus: colors.primary.blue400
+                disabled: colors.primary.primary400,
+                hover: colors.primary.primary400,
+                focus: colors.primary.primary400
             }
         },
         typography: {

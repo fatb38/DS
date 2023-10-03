@@ -2,13 +2,13 @@ import {IKitColorsPalette} from '@theme/types/general/colors';
 
 export const colorsPalette: IKitColorsPalette = {
     primary: {
-        blue100: '#E7EDFF',
-        blue200: '#97B9FD',
-        blue300: '#5784FC',
-        blue400: '#0141EC',
-        blue500: '#0B37AF',
-        blue600: '#062064',
-        blue700: '#010819'
+        primary100: '#E7EDFF',
+        primary200: '#97B9FD',
+        primary300: '#5784FC',
+        primary400: '#0141EC',
+        primary500: '#0B37AF',
+        primary600: '#062064',
+        primary700: '#010819'
     },
     neutral: {
         typography: {

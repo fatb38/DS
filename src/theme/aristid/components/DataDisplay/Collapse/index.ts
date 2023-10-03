@@ -8,11 +8,11 @@ export const getKitCollapseTokens = (generalTokens: IKitThemeGeneral): IKitColla
         colors: {
             background: {
                 default: colors.neutral.background,
-                active: colors.primary.blue100
+                active: colors.primary.primary100
             },
             border: {
                 default: colors.secondary.mediumGrey.mediumGrey300,
-                active: colors.primary.blue400
+                active: colors.primary.primary400
             }
         },
         border: {

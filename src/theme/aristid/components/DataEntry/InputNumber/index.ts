@@ -14,8 +14,8 @@ export const getKitInputNumberTokens = (generalTokens: IKitThemeGeneral): IKitIn
             },
             border: {
                 default: colors.secondary.mediumGrey.mediumGrey200,
-                hover: colors.primary.blue400,
-                focused: colors.primary.blue400,
+                hover: colors.primary.primary400,
+                focused: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey200,
                 error: colors.secondary.red.red400,
                 warning: colors.secondary.orange.orange400
@@ -28,7 +28,7 @@ export const getKitInputNumberTokens = (generalTokens: IKitThemeGeneral): IKitIn
             },
             typography: {
                 content: {
-                    default: colors.primary.blue300,
+                    default: colors.primary.primary300,
                     disabled: colors.secondary.mediumGrey.mediumGrey400,
                     error: colors.secondary.red.red400,
                     warning: colors.secondary.orange.orange400

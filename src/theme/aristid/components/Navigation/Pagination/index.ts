@@ -29,7 +29,7 @@ export const getKitPaginationTokens = (generalTokens: IKitThemeGeneral): IKitPag
             },
             border: {
                 default: colors.neutral.typography.black60,
-                hover: colors.primary.blue400
+                hover: colors.primary.primary400
             }
         },
         prevNext: {
@@ -39,10 +39,10 @@ export const getKitPaginationTokens = (generalTokens: IKitThemeGeneral): IKitPag
                 },
                 border: {
                     default: 'transparent',
-                    hover: colors.primary.blue400
+                    hover: colors.primary.primary400
                 },
                 typography: {
-                    hover: colors.primary.blue400
+                    hover: colors.primary.primary400
                 }
             },
             typography: {

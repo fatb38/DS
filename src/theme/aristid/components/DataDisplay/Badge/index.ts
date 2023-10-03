@@ -9,10 +9,10 @@ export const getKitBadgeTokens = (generalTokens: IKitThemeGeneral): IKitBadgeThe
             background: {
                 default: colors.secondary.red.red400,
                 green: colors.secondary.green.green400,
-                blue: colors.primary.blue400,
-                blueInvert: colors.primary.blue100,
+                blue: colors.primary.primary400,
+                blueInvert: colors.primary.primary100,
                 gray: colors.neutral.background,
-                primary: colors.primary.blue400,
+                primary: colors.primary.primary400,
                 error: colors.secondary.red.red400,
                 success: colors.secondary.green.green400,
                 warning: colors.secondary.yellow.yellow400

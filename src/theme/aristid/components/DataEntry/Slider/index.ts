@@ -8,11 +8,11 @@ export const getKitSliderTokens = (generalTokens: IKitThemeGeneral): IKitSliderT
         handle: {
             colors: {
                 background: {
-                    hover: colors.primary.blue100,
-                    focus: colors.primary.blue400
+                    hover: colors.primary.primary100,
+                    focus: colors.primary.primary400
                 },
                 border: {
-                    default: colors.primary.blue400,
+                    default: colors.primary.primary400,
                     disabled: colors.secondary.mediumGrey.mediumGrey200
                 }
             },
@@ -32,7 +32,7 @@ export const getKitSliderTokens = (generalTokens: IKitThemeGeneral): IKitSliderT
             colors: {
                 border: {
                     default: colors.secondary.mediumGrey.mediumGrey200,
-                    active: colors.primary.blue400
+                    active: colors.primary.primary400
                 }
             },
             size: 8
@@ -40,8 +40,8 @@ export const getKitSliderTokens = (generalTokens: IKitThemeGeneral): IKitSliderT
         track: {
             colors: {
                 background: {
-                    default: colors.primary.blue400,
-                    hover: colors.primary.blue400
+                    default: colors.primary.primary400,
+                    hover: colors.primary.primary400
                 }
             }
         },

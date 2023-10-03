@@ -8,7 +8,7 @@ export const getKitProgressTokens = (generalTokens: IKitThemeGeneral): IKitProgr
         colors: {
             background: colors.neutral.background,
             progress: {
-                info: colors.primary.blue400,
+                info: colors.primary.primary400,
                 success: colors.secondary.green.green400,
                 error: colors.secondary.red.red400
             }

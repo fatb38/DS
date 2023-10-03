@@ -58,8 +58,8 @@ export const getKitTypographyTokens = (generalTokens: IKitThemeGeneral): IKitTyp
         Link: {
             colors: {
                 typography: {
-                    default: colors.primary.blue400,
-                    hover: colors.primary.blue300
+                    default: colors.primary.primary400,
+                    hover: colors.primary.primary300
                 }
             },
             fontWeight: {

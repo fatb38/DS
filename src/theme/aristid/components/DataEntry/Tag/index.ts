@@ -8,7 +8,7 @@ export const getKitTagTokens = (generalTokens: IKitThemeGeneral): IKitTagTheme =
         colors: {
             default: {
                 background: {
-                    default: colors.primary.blue100
+                    default: colors.primary.primary100
                 },
                 typography: {
                     default: colors.neutral.typography.black

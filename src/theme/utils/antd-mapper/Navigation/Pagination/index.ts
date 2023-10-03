@@ -13,9 +13,9 @@ export const mapPaginationKitTokenToAntdToken = (kitPaginationTheme: IKitPaginat
         fontWeightStrong: KitAristidThemeGeneral.typography.mediumfontWeight as number,
         controlHeight: 32,
         controlHeightSM: 24,
-        colorPrimary: KitAristidThemeGeneral.colors.primary.blue400,
-        colorPrimaryBorder: KitAristidThemeGeneral.colors.primary.blue400,
-        colorPrimaryHover: KitAristidThemeGeneral.colors.primary.blue400,
+        colorPrimary: KitAristidThemeGeneral.colors.primary.primary400,
+        colorPrimaryBorder: KitAristidThemeGeneral.colors.primary.primary400,
+        colorPrimaryHover: KitAristidThemeGeneral.colors.primary.primary400,
         colorBgTextActive: KitAristidThemeGeneral.colors.neutral.typography.black60,
         colorTextDisabled: KitAristidThemeGeneral.colors.neutral.typography.black60
     };

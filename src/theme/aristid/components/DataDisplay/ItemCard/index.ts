@@ -13,7 +13,7 @@ export const getKitItemCardTokens = (generalTokens: IKitThemeGeneral): IKitItemC
                 },
                 border: {
                     default: colors.secondary.mediumGrey.mediumGrey200,
-                    hover: colors.primary.blue400
+                    hover: colors.primary.primary400
                 }
             },
             border: {
@@ -35,7 +35,7 @@ export const getKitItemCardTokens = (generalTokens: IKitThemeGeneral): IKitItemC
                     disabled: colors.secondary.mediumGrey.mediumGrey100
                 },
                 typography: {
-                    default: colors.primary.blue400,
+                    default: colors.primary.primary400,
                     disabled: colors.secondary.mediumGrey.mediumGrey400
                 }
             }
@@ -43,8 +43,8 @@ export const getKitItemCardTokens = (generalTokens: IKitThemeGeneral): IKitItemC
         expend: {
             colors: {
                 typography: {
-                    default: colors.primary.blue600,
-                    hover: colors.primary.blue400,
+                    default: colors.primary.primary600,
+                    hover: colors.primary.primary400,
                     disabled: colors.secondary.mediumGrey.mediumGrey400
                 }
             }
@@ -72,7 +72,7 @@ export const getKitItemCardTokens = (generalTokens: IKitThemeGeneral): IKitItemC
         title: {
             colors: {
                 typography: {
-                    default: colors.primary.blue600,
+                    default: colors.primary.primary600,
                     disabled: colors.secondary.mediumGrey.mediumGrey400
                 }
             },
@@ -84,7 +84,7 @@ export const getKitItemCardTokens = (generalTokens: IKitThemeGeneral): IKitItemC
         description: {
             colors: {
                 typography: {
-                    default: colors.primary.blue600,
+                    default: colors.primary.primary600,
                     disabled: colors.secondary.mediumGrey.mediumGrey400
                 }
             },
@@ -96,7 +96,7 @@ export const getKitItemCardTokens = (generalTokens: IKitThemeGeneral): IKitItemC
         footer: {
             colors: {
                 typography: {
-                    default: colors.primary.blue600,
+                    default: colors.primary.primary600,
                     disabled: colors.secondary.mediumGrey.mediumGrey400
                 }
             },

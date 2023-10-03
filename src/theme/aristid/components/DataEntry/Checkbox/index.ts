@@ -7,8 +7,8 @@ export const getKitCheckboxTokens = (generalTokens: IKitThemeGeneral): IKitCheck
     return {
         colors: {
             background: {
-                check: colors.primary.blue400,
-                hover: colors.primary.blue500,
+                check: colors.primary.primary400,
+                hover: colors.primary.primary500,
                 focus: colors.neutral.typography.white,
                 disabled: colors.secondary.mediumGrey.mediumGrey100,
                 danger: {
@@ -18,9 +18,9 @@ export const getKitCheckboxTokens = (generalTokens: IKitThemeGeneral): IKitCheck
             },
             border: {
                 default: colors.neutral.typography.black60,
-                check: colors.primary.blue400,
-                hover: colors.primary.blue400,
-                focus: colors.primary.blue400,
+                check: colors.primary.primary400,
+                hover: colors.primary.primary400,
+                focus: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey200,
                 danger: {
                     default: colors.secondary.red.red400,

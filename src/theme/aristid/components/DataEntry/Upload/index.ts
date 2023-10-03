@@ -11,15 +11,15 @@ const getKitDraggerTokens = (generalTokens: IKitThemeGeneral): IKitUploadTheme['
             },
             border: {
                 default: colors.neutral.gray.gray400,
-                hover: colors.primary.blue400
+                hover: colors.primary.primary400
             },
             dragIcon: {
-                default: colors.primary.blue400
+                default: colors.primary.primary400
             },
             typography: {
                 text: colors.neutral.typography.black,
                 hint: colors.neutral.gray.gray400,
-                item: colors.primary.blue400
+                item: colors.primary.primary400
             }
         },
         typography: {
@@ -37,7 +37,7 @@ export const getKitUploadTokens = (generalTokens: IKitThemeGeneral): IKitUploadT
         colors: {
             card: {
                 border: {
-                    default: colors.primary.blue400
+                    default: colors.primary.primary400
                 },
                 background: {
                     default: colors.secondary.mediumGrey.mediumGrey100
@@ -49,11 +49,11 @@ export const getKitUploadTokens = (generalTokens: IKitThemeGeneral): IKitUploadT
                 },
                 border: {
                     default: colors.neutral.gray.gray400,
-                    uploading: colors.primary.blue400,
+                    uploading: colors.primary.primary400,
                     error: colors.secondary.red.red400
                 },
                 typography: {
-                    done: colors.primary.blue400,
+                    done: colors.primary.primary400,
                     error: colors.secondary.red.red400
                 }
             }

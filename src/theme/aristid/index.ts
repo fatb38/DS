@@ -7,7 +7,7 @@ import {getKitInputTokens, getKitInputWrapperTokens} from './components/DataEntr
 import {getKitAvatarGroupTokens, getKitAvatarTokens} from './components/DataDisplay/Avatar';
 import {getKitBadgeTokens} from './components/DataDisplay/Badge';
 import {getKitItemCardTokens} from './components/DataDisplay/ItemCard';
-import {getButtonTokens} from './components/General/Button';
+import {getKitButtonTokens} from './components/General/Button';
 import {getKitSliderTokens} from './components/DataEntry/Slider';
 import {getKitCollapseTokens} from './components/DataDisplay/Collapse';
 import {getKitImageTokens} from './components/DataDisplay/Image';

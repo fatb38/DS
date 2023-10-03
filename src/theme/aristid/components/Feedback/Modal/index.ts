@@ -29,13 +29,13 @@ export const getKitModalTokens = (generalTokens: IKitThemeGeneral): IKitModalThe
         colors: {
             background: {
                 default: colors.neutral.typography.white,
-                info: colors.primary.blue100,
+                info: colors.primary.primary100,
                 success: colors.secondary.green.green100,
                 warning: colors.secondary.orange.orange100,
                 error: colors.secondary.red.red100
             },
             icon: {
-                info: colors.primary.blue400,
+                info: colors.primary.primary400,
                 success: colors.secondary.green.green400,
                 warning: colors.secondary.orange.orange500,
                 error: colors.secondary.red.red400

@@ -8,8 +8,8 @@ export const getKitRadioTokens = (generalTokens: IKitThemeGeneral): IKitRadioThe
         colors: {
             border: {
                 default: colors.neutral.typography.black60,
-                checked: colors.primary.blue400,
-                hover: colors.primary.blue500,
+                checked: colors.primary.primary400,
+                hover: colors.primary.primary500,
                 disabled: colors.secondary.mediumGrey.mediumGrey200,
                 danger: {
                     default: colors.secondary.red.red400,
@@ -27,8 +27,8 @@ export const getKitRadioTokens = (generalTokens: IKitThemeGeneral): IKitRadioThe
                 }
             },
             bullet: {
-                default: colors.primary.blue400,
-                hover: colors.primary.blue500,
+                default: colors.primary.primary400,
+                hover: colors.primary.primary500,
                 disabled: colors.secondary.mediumGrey.mediumGrey200,
                 danger: {
                     default: colors.secondary.red.red400,

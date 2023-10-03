@@ -9,11 +9,11 @@ export const getKitIconTokens = (generalTokens: IKitThemeGeneral): IKitIconTheme
         colors: {
             icon: {
                 default: colors.neutral.typography.black,
-                on: colors.primary.blue400
+                on: colors.primary.primary400
             },
             background: {
                 default: 'transparent',
-                on: colors.primary.blue100
+                on: colors.primary.primary100
             }
         },
         border: {

@@ -7,7 +7,7 @@ export const getKitTooltipTokens = (generalTokens: IKitThemeGeneral): IKitToolti
     return {
         colors: {
             background: {
-                default: colors.primary.blue600
+                default: colors.primary.primary600
             },
             typography: {
                 default: colors.neutral.typography.white

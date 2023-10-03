@@ -9,12 +9,12 @@ export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemL
             colors: {
                 background: {
                     default: colors.neutral.typography.white,
-                    disabled: colors.primary.blue100
+                    disabled: colors.primary.primary100
                 },
                 border: {
                     default: colors.neutral.typography.white,
-                    disabled: colors.primary.blue100,
-                    hover: colors.primary.blue400
+                    disabled: colors.primary.primary100,
+                    hover: colors.primary.primary400
                 }
             }
         },
@@ -24,8 +24,8 @@ export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemL
                 fontSize: typography.fontSize5
             },
             colors: {
-                default: colors.primary.blue600,
-                disabled: colors.primary.blue200
+                default: colors.primary.primary600,
+                disabled: colors.primary.primary200
             }
         },
         description: {
@@ -34,22 +34,22 @@ export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemL
                 fontSize: typography.fontSize5
             },
             colors: {
-                default: colors.primary.blue600,
-                disabled: colors.primary.blue200
+                default: colors.primary.primary600,
+                disabled: colors.primary.primary200
             }
         },
         collexp: {
             colors: {
-                default: colors.primary.blue600,
-                disabled: colors.primary.blue200,
-                hover: colors.primary.blue400
+                default: colors.primary.primary600,
+                disabled: colors.primary.primary200,
+                hover: colors.primary.primary400
             }
         },
         rafter: {
             colors: {
                 default: colors.neutral.gray.gray400,
-                disabled: colors.primary.blue200,
-                hover: colors.primary.blue400
+                disabled: colors.primary.primary200,
+                hover: colors.primary.primary400
             }
         }
     };

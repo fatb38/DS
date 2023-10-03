@@ -26,23 +26,23 @@ export const getKitDatePickerTokens = (generalTokens: IKitThemeGeneral): IKitDat
             },
             border: {
                 default: colors.secondary.mediumGrey.mediumGrey200,
-                hover: colors.primary.blue400,
-                active: colors.primary.blue400,
+                hover: colors.primary.primary400,
+                active: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey200,
                 warning: colors.secondary.orange.orange400,
                 error: colors.secondary.red.red400
             },
             link: {
-                default: colors.primary.blue400,
-                hover: colors.primary.blue500
+                default: colors.primary.primary400,
+                hover: colors.primary.primary500
             },
             item: {
                 hover: colors.secondary.mediumGrey.mediumGrey100,
-                active: colors.primary.blue100
+                active: colors.primary.primary100
             },
             typography: {
                 content: {
-                    default: colors.primary.blue300,
+                    default: colors.primary.primary300,
                     disabled: colors.secondary.mediumGrey.mediumGrey400,
                     warning: colors.secondary.orange.orange400,
                     error: colors.secondary.red.red400
@@ -121,26 +121,26 @@ export const getKitDatePickerTokens = (generalTokens: IKitThemeGeneral): IKitDat
                 button: {
                     now: {
                         typography: {
-                            default: colors.primary.blue400,
-                            hover: colors.primary.blue500
+                            default: colors.primary.primary400,
+                            hover: colors.primary.primary500
                         }
                     },
                     ok: {
                         typography: {
                             default: colors.neutral.typography.white,
-                            disabled: colors.primary.blue200
+                            disabled: colors.primary.primary200
                         },
                         background: {
-                            default: colors.primary.blue400,
-                            hover: colors.primary.blue500,
-                            active: colors.primary.blue600,
-                            disabled: colors.primary.blue100
+                            default: colors.primary.primary400,
+                            hover: colors.primary.primary500,
+                            active: colors.primary.primary600,
+                            disabled: colors.primary.primary100
                         },
                         border: {
-                            default: colors.primary.blue400,
-                            hover: colors.primary.blue500,
-                            active: colors.primary.blue600,
-                            disabled: colors.primary.blue100
+                            default: colors.primary.primary400,
+                            hover: colors.primary.primary500,
+                            active: colors.primary.primary600,
+                            disabled: colors.primary.primary100
                         }
                     }
                 }

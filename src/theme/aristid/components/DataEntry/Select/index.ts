@@ -13,13 +13,13 @@ const getKitDropDownTokens = (generalTokens: IKitThemeGeneral): IKitSelectDropDo
             typography: {
                 default: colors.secondary.mediumGrey.mediumGrey500,
                 selected: colors.secondary.mediumGrey.mediumGrey500,
-                active: colors.primary.blue400,
+                active: colors.primary.primary400,
                 group: colors.neutral.typography.black
             },
             background: {
                 default: colors.secondary.mediumGrey.mediumGrey100,
-                selected: colors.primary.blue100,
-                active: colors.primary.blue100
+                selected: colors.primary.primary100,
+                active: colors.primary.primary100
             }
         },
         typography: {
@@ -58,15 +58,15 @@ export const getKitSelectTokens = (generalTokens: IKitThemeGeneral): IKitSelectT
         },
         colors: {
             border: {
-                hover: colors.primary.blue400,
-                focused: colors.primary.blue400,
+                hover: colors.primary.primary400,
+                focused: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey200,
                 warning: colors.secondary.orange.orange400,
                 error: colors.secondary.red.red400
             },
             typography: {
                 content: {
-                    default: colors.primary.blue300,
+                    default: colors.primary.primary300,
                     disabled: colors.secondary.mediumGrey.mediumGrey400,
                     warning: colors.secondary.orange.orange500,
                     error: colors.secondary.red.red400

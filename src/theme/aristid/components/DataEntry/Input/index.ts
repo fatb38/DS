@@ -179,11 +179,11 @@ export const getKitInputTokens = (generalTokens: IKitThemeGeneral): IKitInputThe
                 disabled: colors.secondary.mediumGrey.mediumGrey200,
                 warning: colors.secondary.orange.orange400,
                 error: colors.secondary.red.red400,
-                hover: colors.primary.blue400
+                hover: colors.primary.primary400
             },
             typography: {
                 content: {
-                    default: colors.primary.blue300,
+                    default: colors.primary.primary300,
                     disabled: colors.secondary.mediumGrey.mediumGrey400,
                     warning: colors.secondary.orange.orange500,
                     error: colors.secondary.red.red400

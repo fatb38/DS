@@ -8,7 +8,7 @@ export const getKitSwitchTokens = (generalTokens: IKitThemeGeneral): IKitSwitchT
         colors: {
             background: {
                 default: {
-                    on: colors.primary.blue400,
+                    on: colors.primary.primary400,
                     off: colors.neutral.background
                 },
                 disabled: colors.secondary.mediumGrey.mediumGrey100
@@ -23,7 +23,7 @@ export const getKitSwitchTokens = (generalTokens: IKitThemeGeneral): IKitSwitchT
                 },
                 border: {
                     default: {
-                        on: colors.primary.blue400,
+                        on: colors.primary.primary400,
                         off: colors.secondary.mediumGrey.mediumGrey400
                     },
                     disabled: colors.secondary.mediumGrey.mediumGrey200

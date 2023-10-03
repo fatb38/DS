@@ -21,7 +21,7 @@ const App = () => {
         },
         {
             value: 'todo',
-            color: theme.general.colors.primary.blue400,
+            color: theme.general.colors.primary.primary400,
             label: 'Todo by agency'
         },
         {

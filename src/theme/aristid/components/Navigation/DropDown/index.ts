@@ -27,13 +27,13 @@ export const getKitDropDownTokens = (generalTokens: IKitThemeGeneral): IKitDropD
         menuItem: {
             colors: {
                 background: {
-                    active: colors.primary.blue100,
-                    selected: colors.primary.blue100,
+                    active: colors.primary.primary100,
+                    selected: colors.primary.primary100,
                     disabled: colors.secondary.mediumGrey.mediumGrey100
                 },
                 typography: {
                     default: colors.secondary.mediumGrey.mediumGrey500,
-                    active: colors.primary.blue400,
+                    active: colors.primary.primary400,
                     disabled: colors.secondary.mediumGrey.mediumGrey400
                 }
             },
@@ -64,10 +64,10 @@ export const getKitDropDownTokens = (generalTokens: IKitThemeGeneral): IKitDropD
         subMenu: {
             colors: {
                 background: {
-                    active: colors.primary.blue100
+                    active: colors.primary.primary100
                 },
                 typography: {
-                    active: colors.primary.blue400
+                    active: colors.primary.primary400
                 }
             },
             title: {
@@ -77,7 +77,7 @@ export const getKitDropDownTokens = (generalTokens: IKitThemeGeneral): IKitDropD
                     },
                     typography: {
                         default: colors.secondary.mediumGrey.mediumGrey500,
-                        active: colors.primary.blue400,
+                        active: colors.primary.primary400,
                         disabled: colors.secondary.mediumGrey.mediumGrey400
                     }
                 },
@@ -93,7 +93,7 @@ export const getKitDropDownTokens = (generalTokens: IKitThemeGeneral): IKitDropD
                     },
                     typography: {
                         default: colors.secondary.mediumGrey.mediumGrey500,
-                        active: colors.primary.blue400,
+                        active: colors.primary.primary400,
                         disabled: colors.secondary.mediumGrey.mediumGrey400
                     }
                 }

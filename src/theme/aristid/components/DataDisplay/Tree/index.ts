@@ -7,7 +7,7 @@ export const getKitTreeTokens = (generalTokens: IKitThemeGeneral): IKitTreeTheme
     return {
         colors: {
             background: {
-                hover: colors.primary.blue100
+                hover: colors.primary.primary100
             }
         },
         typography: {
@@ -23,17 +23,17 @@ export const getKitTreeTokens = (generalTokens: IKitThemeGeneral): IKitTreeTheme
                     default: colors.neutral.typography.white,
                     disabled: colors.neutral.typography.white,
                     checked: {
-                        default: colors.primary.blue400,
-                        hover: colors.primary.blue500
+                        default: colors.primary.primary400,
+                        hover: colors.primary.primary500
                     }
                 },
                 border: {
                     default: colors.neutral.typography.black60,
                     disabled: colors.neutral.typography.black60,
-                    hover: colors.primary.blue400,
+                    hover: colors.primary.primary400,
                     checked: {
-                        default: colors.primary.blue400,
-                        hover: colors.primary.blue500
+                        default: colors.primary.primary400,
+                        hover: colors.primary.primary500
                     }
                 },
                 icon: {
@@ -49,12 +49,12 @@ export const getKitTreeTokens = (generalTokens: IKitThemeGeneral): IKitTreeTheme
             },
             colors: {
                 typography: {
-                    hover: colors.primary.blue400,
+                    hover: colors.primary.primary400,
                     disabled: colors.neutral.typography.black60
                 },
                 background: {
-                    hover: colors.primary.blue100,
-                    selected: colors.primary.blue100,
+                    hover: colors.primary.primary100,
+                    selected: colors.primary.primary100,
                     indent: colors.neutral.typography.white
                 }
             }
