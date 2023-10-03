@@ -23,11 +23,10 @@ export const KitApp: React.FunctionComponent<{customTheme?: IKitCustomTheme; chi
     );
 };
 
-const KitAppConfig: React.FunctionComponent<React.PropsWithChildren<{customTheme?: IKitCustomTheme}>> = ({
+const KitAppConfig: React.FunctionComponent<{customTheme?: IKitCustomTheme; children?: any}> = ({
     children,
     customTheme
 }) => {
-    //TODO: rename contextTheme -> theme
     const {theme, overrideTheme} = useKitTheme();
 
     if (customTheme !== undefined) {
