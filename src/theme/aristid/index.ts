@@ -1,23 +1,23 @@
-import {DeepPartial, IKitCustomTheme, IKitTheme, IKitThemeComponents, IKitThemeGeneral} from '@theme/types';
+import {DeepPartial, IKitTheme, IKitThemeComponents, IKitThemeGeneral} from '@theme/types';
 import {KitAristidThemeGeneral} from './general';
 import {getKitRateTokens} from './components/DataEntry/Rate';
-import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
-import {KitTagTheme} from './components/DataEntry/Tag';
-import {KitInputWrapperTheme, KitInputTheme} from './components/DataEntry/Input/';
-import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
-import {KitBadgeTheme} from './components/DataDisplay/Badge';
-import {KitItemCardTheme} from './components/DataDisplay/ItemCard';
+import {getKitTooltipTokens} from './components/DataDisplay/Tooltip';
+import {getKitTagTokens} from './components/DataEntry/Tag';
+import {getKitInputTokens, getKitInputWrapperTokens} from './components/DataEntry/Input/';
+import {getKitAvatarGroupTokens, getKitAvatarTokens} from './components/DataDisplay/Avatar';
+import {getKitBadgeTokens} from './components/DataDisplay/Badge';
+import {getKitItemCardTokens} from './components/DataDisplay/ItemCard';
 import {getKitButtonTokens} from './components/General/Button';
-import {KitSliderTheme} from './components/DataEntry/Slider';
-import {KitCollapseTheme} from './components/DataDisplay/Collapse';
-import {KitImageTheme} from './components/DataDisplay/Image';
-import {KitItemListTheme} from './components/DataDisplay/ItemList';
+import {getKitSliderTokens} from './components/DataEntry/Slider';
+import {getKitCollapseTokens} from './components/DataDisplay/Collapse';
+import {getKitImageTokens} from './components/DataDisplay/Image';
+import {getKitItemListTokens} from './components/DataDisplay/ItemList';
 import {KitTabsTheme} from './components/DataDisplay/Tabs';
 import {KitTreeTheme} from './components/DataDisplay/Tree';
-import {KitInputNumberTheme} from './components/DataEntry/InputNumber';
+import {getKitInputNumberTokens} from './components/DataEntry/InputNumber';
 import {KitSwitchTheme} from './components/DataEntry/Switch';
 import {KitSelectTheme} from './components/DataEntry/Select';
-import {KitCardTheme} from './components/DataDisplay/Card';
+import {getKitCardTokens} from './components/DataDisplay/Card';
 import {KitCheckboxTheme} from './components/DataEntry/Checkbox';
 import {KitDatePickerTheme} from './components/DataEntry/DatePicker';
 import {KitUploadTheme} from './components/DataEntry/Upload';
@@ -42,25 +42,25 @@ const _getKitComponentsTokens = (generalTokens: IKitThemeGeneral): IKitThemeComp
     return {
         Button: getKitButtonTokens(generalTokens),
         Rate: getKitRateTokens(generalTokens),
-        Tooltip: KitTooltipTheme,
-        Tag: KitTagTheme,
-        Card: KitCardTheme,
-        InputWrapper: KitInputWrapperTheme,
-        Input: KitInputTheme,
-        InputNumber: KitInputNumberTheme,
-        Slider: KitSliderTheme,
-        Avatar: KitAvatarTheme,
-        AvatarGroup: KitAvatarGroupTheme,
-        Badge: KitBadgeTheme,
-        ItemCard: KitItemCardTheme,
-        Collapse: KitCollapseTheme,
-        Image: KitImageTheme,
-        ItemList: KitItemListTheme,
+        Tooltip: getKitTooltipTokens(generalTokens),
+        Tag: getKitTagTokens(generalTokens),
+        Card: getKitCardTokens(generalTokens),
+        InputWrapper: getKitInputWrapperTokens(generalTokens),
+        Input: getKitInputTokens(generalTokens),
+        InputNumber: getKitInputNumberTokens(generalTokens),
+        Slider: getKitSliderTokens(generalTokens),
+        Avatar: getKitAvatarTokens(generalTokens),
+        AvatarGroup: getKitAvatarGroupTokens(generalTokens),
+        Badge: getKitBadgeTokens(generalTokens),
+        ItemCard: getKitItemCardTokens(generalTokens),
+        Collapse: getKitCollapseTokens(generalTokens),
+        Image: getKitImageTokens(generalTokens),
+        ItemList: getKitItemListTokens(generalTokens),
         Tabs: KitTabsTheme,
-        Tree: KitTreeTheme, /////////////
+        Tree: KitTreeTheme,
         Switch: KitSwitchTheme,
         Select: KitSelectTheme,
-        Checkbox: KitCheckboxTheme, //////////
+        Checkbox: KitCheckboxTheme,
         DatePicker: KitDatePickerTheme,
         Upload: KitUploadTheme,
         Radio: KitRadioTheme,
