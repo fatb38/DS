@@ -41,7 +41,7 @@ import {IKitIconTheme} from './components/General/Icon';
 import {IKitTypographyTheme} from './components/General/Typography';
 import {ThemeConfig} from 'antd';
 
-type DeepPartial<T> = T extends object
+export type DeepPartial<T> = T extends object
     ? {
           [P in keyof T]?: DeepPartial<T[P]>;
       }
@@ -54,48 +54,50 @@ export interface IKitThemeGeneral {
     typography: IKitTypography;
 }
 
+export interface IKitThemeComponents {
+    Button: IKitButtonTheme;
+    Card: IKitCardTheme;
+    Rate: IKitRateTheme;
+    Tooltip: IKitTooltipTheme;
+    Tag: IKitTagTheme;
+    InputWrapper: IKitInputWrapperTheme;
+    Input: IKitInputTheme;
+    InputNumber: IKitInputNumberTheme;
+    Avatar: IKitAvatarTheme;
+    AvatarGroup: IKitAvatarGroupTheme;
+    Badge: IKitBadgeTheme;
+    ItemCard: IKitItemCardTheme;
+    Slider: IKitSliderTheme;
+    Collapse: IKitCollapseTheme;
+    Image: IKitImageTheme;
+    ItemList: IKitItemListTheme;
+    Tabs: IKitTabsTheme;
+    Tree: IKitTreeTheme;
+    Switch: IKitSwitchTheme;
+    Select: IKitSelectTheme;
+    Checkbox: IKitCheckboxTheme;
+    DatePicker: IKitDatePickerTheme;
+    Upload: IKitUploadTheme;
+    Radio: IKitRadioTheme;
+    Alert: IKitAlertTheme;
+    Modal: IKitModalTheme;
+    Notification: IKitNotificatiobTheme;
+    Progress: IKitProgressTheme;
+    SnackBar: IKitSnackBarTheme;
+    Divider: IKitDividerTheme;
+    Steps: IKitStepsTheme;
+    Pagination: IKitPaginationTheme;
+    Menu: IKitMenuTheme;
+    Header: IKitHeaderTheme;
+    DropDown: IKitDropDownTheme;
+    Breadcrumb: IKitBreadcrumbTheme;
+    Icon: IKitIconTheme;
+    Typography: IKitTypographyTheme;
+}
+
 export interface IKitTheme {
     general: IKitThemeGeneral;
-    components: {
-        Button: IKitButtonTheme;
-        Card: IKitCardTheme;
-        Rate: IKitRateTheme;
-        Tooltip: IKitTooltipTheme;
-        Tag: IKitTagTheme;
-        InputWrapper: IKitInputWrapperTheme;
-        Input: IKitInputTheme;
-        InputNumber: IKitInputNumberTheme;
-        Avatar: IKitAvatarTheme;
-        AvatarGroup: IKitAvatarGroupTheme;
-        Badge: IKitBadgeTheme;
-        ItemCard: IKitItemCardTheme;
-        Slider: IKitSliderTheme;
-        Collapse: IKitCollapseTheme;
-        Image: IKitImageTheme;
-        ItemList: IKitItemListTheme;
-        Tabs: IKitTabsTheme;
-        Tree: IKitTreeTheme;
-        Switch: IKitSwitchTheme;
-        Select: IKitSelectTheme;
-        Checkbox: IKitCheckboxTheme;
-        DatePicker: IKitDatePickerTheme;
-        Upload: IKitUploadTheme;
-        Radio: IKitRadioTheme;
-        Alert: IKitAlertTheme;
-        Modal: IKitModalTheme;
-        Notification: IKitNotificatiobTheme;
-        Progress: IKitProgressTheme;
-        SnackBar: IKitSnackBarTheme;
-        Divider: IKitDividerTheme;
-        Steps: IKitStepsTheme;
-        Pagination: IKitPaginationTheme;
-        Menu: IKitMenuTheme;
-        Header: IKitHeaderTheme;
-        DropDown: IKitDropDownTheme;
-        Breadcrumb: IKitBreadcrumbTheme;
-        Icon: IKitIconTheme;
-        Typography: IKitTypographyTheme;
-    };
+    components: IKitThemeComponents;
 }
 
 export interface IKitCustomTheme extends DeepPartial<IKitTheme> {}

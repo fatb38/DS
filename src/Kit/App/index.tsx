@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {ConfigProvider} from 'antd';
 import GlobalStyles from './style';
 import KitSnackBarProvider from '@kit/Feedback/SnackBar/SnackBarProvider';
@@ -27,11 +27,13 @@ const KitAppConfig: React.FunctionComponent<{customTheme?: IKitCustomTheme; chil
     children,
     customTheme
 }) => {
-    const {theme, overrideTheme} = useKitTheme();
+    const {theme, setCustomTheme} = useKitTheme();
 
-    if (customTheme !== undefined) {
-        overrideTheme(customTheme);
-    }
+    useEffect(() => {
+        if (customTheme !== undefined) {
+            setCustomTheme(customTheme);
+        }
+    }, [customTheme]);
 
     return (
         <ConfigProvider theme={mapKitThemeToAntdTheme(theme)}>

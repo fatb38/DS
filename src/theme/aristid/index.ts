@@ -1,4 +1,4 @@
-import {IKitTheme} from '@theme/types';
+import {DeepPartial, IKitCustomTheme, IKitTheme, IKitThemeComponents, IKitThemeGeneral} from '@theme/types';
 import {KitAristidThemeGeneral} from './general';
 import {KitRateTheme} from './components/DataEntry/Rate';
 import {KitTooltipTheme} from './components/DataDisplay/Tooltip';
@@ -7,7 +7,7 @@ import {KitInputWrapperTheme, KitInputTheme} from './components/DataEntry/Input/
 import {KitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
 import {KitBadgeTheme} from './components/DataDisplay/Badge';
 import {KitItemCardTheme} from './components/DataDisplay/ItemCard';
-import {KitButtonTheme} from './components/General/Button';
+import {getButtonTokens} from './components/General/Button';
 import {KitSliderTheme} from './components/DataEntry/Slider';
 import {KitCollapseTheme} from './components/DataDisplay/Collapse';
 import {KitImageTheme} from './components/DataDisplay/Image';
@@ -36,11 +36,11 @@ import {KitProgressTheme} from './components/Feedback/Progress';
 import {KitSnackBarTheme} from './components/Feedback/SnackBar';
 import {KitIconTheme} from './components/General/Icon';
 import {KitTypographyTheme} from './components/General/Typography';
+import {overrideGeneralTokens} from '@theme/utils/theme-builder';
 
-export const KitAristidTheme: IKitTheme = {
-    general: KitAristidThemeGeneral,
-    components: {
-        Button: KitButtonTheme,
+const _getKitComponentsTokens = (generalTokens: IKitThemeGeneral): IKitThemeComponents => {
+    return {
+        Button: getButtonTokens(generalTokens),
         Rate: KitRateTheme,
         Tooltip: KitTooltipTheme,
         Tag: KitTagTheme,
@@ -78,5 +78,15 @@ export const KitAristidTheme: IKitTheme = {
         Divider: KitDividerTheme,
         Icon: KitIconTheme,
         Typography: KitTypographyTheme
-    }
+    };
+};
+
+export const getKitAristidTheme = (customTokens?: DeepPartial<IKitThemeGeneral>): IKitTheme => {
+    const generalTokens = overrideGeneralTokens({...KitAristidThemeGeneral}, customTokens);
+    const components = _getKitComponentsTokens(generalTokens);
+
+    return {
+        general: generalTokens,
+        components
+    };
 };

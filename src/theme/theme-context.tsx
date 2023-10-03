@@ -1,19 +1,18 @@
-import React, {ReactNode, createContext, useState} from 'react';
+import React, {Dispatch, ReactNode, SetStateAction, createContext, useEffect, useState} from 'react';
 
 // TODO: Later add option to have more arisitd themes
-import {KitAristidTheme} from './aristid';
-import {merge} from 'lodash';
+import {getKitAristidTheme} from './aristid';
 import {IKitCustomTheme, IKitTheme} from './types';
+import {merge} from 'lodash';
 
-const defaultValue = {
-    theme: KitAristidTheme,
-    overrideTheme: () => {}
-};
+type KitThemeContext =
+    | {
+          theme: IKitTheme;
+          setCustomTheme: Dispatch<SetStateAction<IKitCustomTheme | undefined>>;
+      }
+    | undefined;
 
-const KitThemeContext = createContext<{
-    theme: IKitTheme;
-    overrideTheme: (customTheme?: IKitCustomTheme) => void;
-}>(defaultValue);
+const KitThemeContext = createContext<KitThemeContext>(undefined);
 
 export const useKitTheme = () => {
     const context = React.useContext(KitThemeContext);
@@ -28,13 +27,20 @@ export const KitThemeProvider = ({children}: {children: ReactNode}) => {
     return <KitThemeContext.Provider value={value}>{children}</KitThemeContext.Provider>;
 };
 
+const defaultKitAristidTheme = getKitAristidTheme();
+
 const useKitThemeProvider = () => {
-    const [theme, setTheme] = useState(KitAristidTheme);
+    const [theme, setTheme] = useState<IKitTheme>(defaultKitAristidTheme);
+    const [customTheme, setCustomTheme] = useState<IKitCustomTheme>();
 
-    const overrideTheme = (customTheme?: IKitCustomTheme) => {
-        const mergedTheme = merge(KitAristidTheme, customTheme);
-        setTheme(mergedTheme);
-    };
+    useEffect(() => {
+        if (customTheme !== undefined) {
+            const kitTheme = getKitAristidTheme(customTheme['general']);
+            const kitComponentsTheme = merge(kitTheme['components'], customTheme['components']);
 
-    return {theme, overrideTheme};
+            setTheme({...kitTheme, components: kitComponentsTheme});
+        }
+    }, [customTheme]);
+
+    return {theme, setCustomTheme};
 };
