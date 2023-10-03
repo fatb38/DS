@@ -1,50 +1,52 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
+import {IKitThemeGeneral} from '@theme/types';
 import {IKitAlertTheme} from '@theme/types/components/Feedback/Alert';
 
-const {colors, typography, border} = KitAristidThemeGeneral;
+export const getKitAlertTokens = (generalTokens: IKitThemeGeneral): IKitAlertTheme => {
+    const {colors, typography, border} = generalTokens;
 
-export const KitAlertTheme: IKitAlertTheme = {
-    colors: {
-        border: {
-            success: colors.secondary.green.green300,
-            info: colors.secondary.blue.blue300,
-            warning: colors.secondary.yellow.yellow300,
-            error: colors.secondary.red.red400
+    return {
+        colors: {
+            border: {
+                success: colors.secondary.green.green300,
+                info: colors.secondary.blue.blue300,
+                warning: colors.secondary.yellow.yellow300,
+                error: colors.secondary.red.red400
+            },
+            background: {
+                success: colors.secondary.green.green100,
+                info: colors.secondary.blue.blue100,
+                warning: colors.secondary.yellow.yellow100,
+                error: colors.secondary.red.red100
+            },
+            typography: {
+                default: colors.neutral.typography.black
+            },
+            icon: {
+                alert: {
+                    success: colors.secondary.green.green400,
+                    info: colors.primary.primary400,
+                    warning: colors.secondary.yellow.yellow400,
+                    error: colors.secondary.red.red400
+                }
+            }
         },
-        background: {
-            success: colors.secondary.green.green100,
-            info: colors.secondary.blue.blue100,
-            warning: colors.secondary.yellow.yellow100,
-            error: colors.secondary.red.red100
+        border: {
+            radius: border.radius.s
         },
         typography: {
-            default: colors.neutral.typography.black
+            fontFamily: typography.fontFamily,
+            fontSize: {
+                message: typography.fontSize5,
+                description: typography.fontSize7
+            }
         },
         icon: {
             alert: {
-                success: colors.secondary.green.green400,
-                info: colors.primary.blue400,
-                warning: colors.secondary.yellow.yellow400,
-                error: colors.secondary.red.red400
+                size: typography.fontSize4
+            },
+            close: {
+                size: 10
             }
         }
-    },
-    border: {
-        radius: border.radius.s
-    },
-    typography: {
-        fontFamily: typography.fontFamily,
-        fontSize: {
-            message: typography.fontSize5,
-            description: typography.fontSize7
-        }
-    },
-    icon: {
-        alert: {
-            size: typography.fontSize4
-        },
-        close: {
-            size: 10
-        }
-    }
+    };
 };

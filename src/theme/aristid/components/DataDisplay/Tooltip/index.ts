@@ -1,22 +1,24 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
+import {IKitThemeGeneral} from '@theme/types';
 import {IKitTooltip} from '@theme/types/components/DataDisplay/Tooltip';
 
-const {colors, typography, border} = KitAristidThemeGeneral;
+export const getKitTooltipTokens = (generalTokens: IKitThemeGeneral): IKitTooltip => {
+    const {colors, border, typography} = generalTokens;
 
-export const KitTooltipTheme: IKitTooltip = {
-    colors: {
-        background: {
-            default: colors.primary.blue600
+    return {
+        colors: {
+            background: {
+                default: colors.primary.primary600
+            },
+            typography: {
+                default: colors.neutral.typography.white
+            }
+        },
+        border: {
+            radius: border.radius.s
         },
         typography: {
-            default: colors.neutral.typography.white
+            fontFamily: typography.fontFamily,
+            fontSize: typography.fontSize7
         }
-    },
-    border: {
-        radius: border.radius.s
-    },
-    typography: {
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize7
-    }
+    };
 };

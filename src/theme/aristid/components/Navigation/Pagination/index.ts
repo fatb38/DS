@@ -1,68 +1,70 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
+import {IKitThemeGeneral} from '@theme/types';
 import {IKitPaginationTheme} from '@theme/types/components/Navigation/Pagination';
 
-const {colors, typography} = KitAristidThemeGeneral;
+export const getKitPaginationTokens = (generalTokens: IKitThemeGeneral): IKitPaginationTheme => {
+    const {colors, typography} = generalTokens;
 
-export const KitPaginationTheme: IKitPaginationTheme = {
-    colors: {
-        background: {
-            container: {
-                default: colors.neutral.typography.white,
-                disabled: colors.neutral.background
-            }
-        }
-    },
-    typography: {
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize5
-    },
-    pagination: {
+    return {
         colors: {
             background: {
-                default: 'transparent',
-                hover: colors.neutral.typography.white
-            },
-            typography: {
-                disabledActive: colors.neutral.typography.white
-            }
-        },
-        border: {
-            default: colors.neutral.typography.black60,
-            hover: colors.primary.blue400
-        }
-    },
-    prevNext: {
-        colors: {
-            background: {
-                default: 'transparent'
-            },
-            border: {
-                default: 'transparent',
-                hover: colors.primary.blue400
-            },
-            typography: {
-                hover: colors.primary.blue400
+                container: {
+                    default: colors.neutral.typography.white,
+                    disabled: colors.neutral.background
+                }
             }
         },
         typography: {
+            fontFamily: typography.fontFamily,
             fontSize: typography.fontSize5
-        }
-    },
-    selector: {
-        colors: {
-            background: {
-                default: colors.neutral.typography.white
+        },
+        pagination: {
+            colors: {
+                background: {
+                    default: 'transparent',
+                    hover: colors.neutral.typography.white
+                },
+                typography: {
+                    disabledActive: colors.neutral.typography.white
+                }
             },
             border: {
-                default: colors.neutral.typography.black60
+                default: colors.neutral.typography.black60,
+                hover: colors.primary.primary400
+            }
+        },
+        prevNext: {
+            colors: {
+                background: {
+                    default: 'transparent'
+                },
+                border: {
+                    default: 'transparent',
+                    hover: colors.primary.primary400
+                },
+                typography: {
+                    hover: colors.primary.primary400
+                }
+            },
+            typography: {
+                fontSize: typography.fontSize5
+            }
+        },
+        selector: {
+            colors: {
+                background: {
+                    default: colors.neutral.typography.white
+                },
+                border: {
+                    default: colors.neutral.typography.black60
+                }
+            }
+        },
+        quickJumper: {
+            colors: {
+                border: {
+                    default: colors.neutral.typography.black60
+                }
             }
         }
-    },
-    quickJumper: {
-        colors: {
-            border: {
-                default: colors.neutral.typography.black60
-            }
-        }
-    }
+    };
 };

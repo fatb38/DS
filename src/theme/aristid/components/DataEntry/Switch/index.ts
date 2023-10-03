@@ -1,32 +1,34 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
+import {IKitThemeGeneral} from '@theme/types';
 import {IKitSwitchTheme} from '@theme/types/components/DataEntry/Switch';
 
-const {colors} = KitAristidThemeGeneral;
+export const getKitSwitchTokens = (generalTokens: IKitThemeGeneral): IKitSwitchTheme => {
+    const {colors} = generalTokens;
 
-export const KitSwitchTheme: IKitSwitchTheme = {
-    colors: {
-        background: {
-            default: {
-                on: colors.primary.blue400,
-                off: colors.neutral.background
-            },
-            disabled: colors.secondary.mediumGrey.mediumGrey100
-        },
-        handle: {
+    return {
+        colors: {
             background: {
                 default: {
-                    on: colors.neutral.typography.white,
-                    off: colors.secondary.mediumGrey.mediumGrey400
+                    on: colors.primary.primary400,
+                    off: colors.neutral.background
                 },
                 disabled: colors.secondary.mediumGrey.mediumGrey100
             },
-            border: {
-                default: {
-                    on: colors.primary.blue400,
-                    off: colors.secondary.mediumGrey.mediumGrey400
+            handle: {
+                background: {
+                    default: {
+                        on: colors.neutral.typography.white,
+                        off: colors.secondary.mediumGrey.mediumGrey400
+                    },
+                    disabled: colors.secondary.mediumGrey.mediumGrey100
                 },
-                disabled: colors.secondary.mediumGrey.mediumGrey200
+                border: {
+                    default: {
+                        on: colors.primary.primary400,
+                        off: colors.secondary.mediumGrey.mediumGrey400
+                    },
+                    disabled: colors.secondary.mediumGrey.mediumGrey200
+                }
             }
         }
-    }
+    };
 };

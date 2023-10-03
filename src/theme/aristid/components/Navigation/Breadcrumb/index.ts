@@ -1,18 +1,20 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
+import {IKitThemeGeneral} from '@theme/types';
 import {IKitBreadcrumbTheme} from '@theme/types/components/Navigation/Breadcrumb';
 
-const {colors, typography} = KitAristidThemeGeneral;
+export const getKitBreadcrumbTokens = (generalTokens: IKitThemeGeneral): IKitBreadcrumbTheme => {
+    const {colors, typography} = generalTokens;
 
-export const KitBreadcrumbTheme: IKitBreadcrumbTheme = {
-    link: {
-        colors: {
+    return {
+        link: {
+            colors: {
+                typography: {
+                    default: colors.neutral.gray.gray500
+                }
+            },
             typography: {
-                default: colors.neutral.gray.gray500
+                fontFamily: typography.fontFamily,
+                fontWeight: typography.regularFontWeight
             }
-        },
-        typography: {
-            fontFamily: typography.fontFamily,
-            fontWeight: typography.regularFontWeight
         }
-    }
+    };
 };
