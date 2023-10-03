@@ -1,25 +1,27 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
+import {IKitThemeGeneral} from '@theme/types';
 import {IKitProgressTheme} from '@theme/types/components/Feedback/Progress';
 
-const {colors, typography} = KitAristidThemeGeneral;
+export const getKitProgressTokens = (generalTokens: IKitThemeGeneral): IKitProgressTheme => {
+    const {colors, typography} = generalTokens;
 
-export const KitProgressTheme: IKitProgressTheme = {
-    colors: {
-        background: colors.neutral.background,
-        progress: {
-            info: colors.primary.blue400,
-            success: colors.secondary.green.green400,
-            error: colors.secondary.red.red400
-        }
-    },
-    typography: {
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize7
-    },
-    circle: {
+    return {
+        colors: {
+            background: colors.neutral.background,
+            progress: {
+                info: colors.primary.blue400,
+                success: colors.secondary.green.green400,
+                error: colors.secondary.red.red400
+            }
+        },
         typography: {
-            fontWeight: typography.boldFontWeight,
-            fontSize: typography.fontSize2
+            fontFamily: typography.fontFamily,
+            fontSize: typography.fontSize7
+        },
+        circle: {
+            typography: {
+                fontWeight: typography.boldFontWeight,
+                fontSize: typography.fontSize2
+            }
         }
-    }
+    };
 };

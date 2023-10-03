@@ -1,22 +1,24 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
+import {IKitThemeGeneral} from '@theme/types';
 import {IKitDividerTheme} from '@theme/types/components/Layout/Divider';
 
-const {colors, typography} = KitAristidThemeGeneral;
+export const getKitDividerTokens = (generalTokens: IKitThemeGeneral): IKitDividerTheme => {
+    const {colors, typography} = generalTokens;
 
-export const KitDividerTheme: IKitDividerTheme = {
-    colors: {
-        typography: {
-            default: colors.neutral.typography.black
+    return {
+        colors: {
+            typography: {
+                default: colors.neutral.typography.black
+            },
+            split: {
+                default: colors.neutral.typography.black60,
+                lightGrey: colors.secondary.mediumGrey.mediumGrey100
+            }
         },
-        split: {
-            default: colors.neutral.typography.black60,
-            lightGrey: colors.secondary.mediumGrey.mediumGrey100
+        typography: {
+            fontWeight: typography.mediumfontWeight,
+            fontFamily: typography.fontFamily,
+            fontSize: typography.fontSize6,
+            lineHeight: typography.lineHeight6
         }
-    },
-    typography: {
-        fontWeight: typography.mediumfontWeight,
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize6,
-        lineHeight: typography.lineHeight6
-    }
+    };
 };

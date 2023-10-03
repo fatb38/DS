@@ -1,77 +1,34 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
+import {IKitThemeGeneral} from '@theme/types';
 import {IKitDropDownTheme} from '@theme/types/components/Navigation/DropDown';
 
-const {colors, typography} = KitAristidThemeGeneral;
+export const getKitDropDownTokens = (generalTokens: IKitThemeGeneral): IKitDropDownTheme => {
+    const {colors, typography} = generalTokens;
 
-export const KitDropDownTheme: IKitDropDownTheme = {
-    colors: {
-        background: {
-            default: colors.secondary.mediumGrey.mediumGrey100
-        },
-        typography: {
-            default: colors.secondary.mediumGrey.mediumGrey500
-        }
-    },
-    typography: {
-        fontFamily: typography.fontFamily,
-        fontWeight: typography.mediumfontWeight
-    },
-    menu: {
+    return {
         colors: {
             background: {
                 default: colors.secondary.mediumGrey.mediumGrey100
-            }
-        }
-    },
-    menuItem: {
-        colors: {
-            background: {
-                active: colors.primary.blue100,
-                selected: colors.primary.blue100,
-                disabled: colors.secondary.mediumGrey.mediumGrey100
             },
             typography: {
-                default: colors.secondary.mediumGrey.mediumGrey500,
-                active: colors.primary.blue400,
-                disabled: colors.secondary.mediumGrey.mediumGrey400
+                default: colors.secondary.mediumGrey.mediumGrey500
             }
         },
         typography: {
+            fontFamily: typography.fontFamily,
             fontWeight: typography.mediumfontWeight
         },
-        divider: {
+        menu: {
             colors: {
                 background: {
-                    default: colors.secondary.mediumGrey.mediumGrey200
+                    default: colors.secondary.mediumGrey.mediumGrey100
                 }
-            }
-        }
-    },
-    menuItemGroup: {
-        title: {
-            colors: {
-                typography: {
-                    default: colors.neutral.typography.black
-                }
-            },
-            typography: {
-                fontSize: typography.fontSize7,
-                fontWeight: typography.boldFontWeight
-            }
-        }
-    },
-    subMenu: {
-        colors: {
-            background: {
-                active: colors.primary.blue100
-            },
-            typography: {
-                active: colors.primary.blue400
             }
         },
-        title: {
+        menuItem: {
             colors: {
                 background: {
+                    active: colors.primary.blue100,
+                    selected: colors.primary.blue100,
                     disabled: colors.secondary.mediumGrey.mediumGrey100
                 },
                 typography: {
@@ -82,20 +39,65 @@ export const KitDropDownTheme: IKitDropDownTheme = {
             },
             typography: {
                 fontWeight: typography.mediumfontWeight
+            },
+            divider: {
+                colors: {
+                    background: {
+                        default: colors.secondary.mediumGrey.mediumGrey200
+                    }
+                }
             }
         },
-        expIcon: {
-            colors: {
-                background: {
-                    default: colors.secondary.mediumGrey.mediumGrey100,
-                    disabled: colors.secondary.mediumGrey.mediumGrey100
+        menuItemGroup: {
+            title: {
+                colors: {
+                    typography: {
+                        default: colors.neutral.typography.black
+                    }
                 },
                 typography: {
-                    default: colors.secondary.mediumGrey.mediumGrey500,
-                    active: colors.primary.blue400,
-                    disabled: colors.secondary.mediumGrey.mediumGrey400
+                    fontSize: typography.fontSize7,
+                    fontWeight: typography.boldFontWeight
+                }
+            }
+        },
+        subMenu: {
+            colors: {
+                background: {
+                    active: colors.primary.blue100
+                },
+                typography: {
+                    active: colors.primary.blue400
+                }
+            },
+            title: {
+                colors: {
+                    background: {
+                        disabled: colors.secondary.mediumGrey.mediumGrey100
+                    },
+                    typography: {
+                        default: colors.secondary.mediumGrey.mediumGrey500,
+                        active: colors.primary.blue400,
+                        disabled: colors.secondary.mediumGrey.mediumGrey400
+                    }
+                },
+                typography: {
+                    fontWeight: typography.mediumfontWeight
+                }
+            },
+            expIcon: {
+                colors: {
+                    background: {
+                        default: colors.secondary.mediumGrey.mediumGrey100,
+                        disabled: colors.secondary.mediumGrey.mediumGrey100
+                    },
+                    typography: {
+                        default: colors.secondary.mediumGrey.mediumGrey500,
+                        active: colors.primary.blue400,
+                        disabled: colors.secondary.mediumGrey.mediumGrey400
+                    }
                 }
             }
         }
-    }
+    };
 };

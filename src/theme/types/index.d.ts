@@ -34,7 +34,7 @@ import {IKitBreadcrumbTheme} from './components/Navigation/Breadcrumb';
 import {IKitDividerTheme} from './components/Layout/Divider';
 import {IKitAlertTheme} from './components/Feedback/Alert';
 import {IKitModalTheme} from './components/Feedback/Modal';
-import {IKitNotificatiobTheme} from './components/Feedback/Notification';
+import {IKitNotificationTheme} from './components/Feedback/Notification';
 import {IKitProgressTheme} from './components/Feedback/Progress';
 import {IKitSnackBarTheme} from './components/Feedback/SnackBar';
 import {IKitIconTheme} from './components/General/Icon';
@@ -81,7 +81,7 @@ export interface IKitThemeComponents {
     Radio: IKitRadioTheme;
     Alert: IKitAlertTheme;
     Modal: IKitModalTheme;
-    Notification: IKitNotificatiobTheme;
+    Notification: IKitNotificationTheme;
     Progress: IKitProgressTheme;
     SnackBar: IKitSnackBarTheme;
     Divider: IKitDividerTheme;
