@@ -36,25 +36,7 @@ export const parameters = {
         // Decorate the docs area content with antd's ConfigProvider, in order to use theme in all pages ant components
         container: ({children, context}) => {
             return (
-                <KitApp
-                    customTheme={{
-                        general: {
-                            colors: {primary: {blue400: 'red', blue500: 'red', blue600: 'red'}},
-                            border: {radius: {pills: 0}}
-                        },
-                        components: {
-                            Button: {
-                                primary: {
-                                    colors: {
-                                        background: {
-                                            default: 'green'
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }}
-                >
+                <KitApp>
                     <Container context={context}>{children}</Container>
                     <TableOfContents config={tocConfig} />
                     <BackToTop />
@@ -68,25 +50,7 @@ const preview: Preview = {
     decorators: [
         Story => {
             return (
-                <KitApp
-                    customTheme={{
-                        general: {
-                            colors: {primary: {blue400: 'red', blue500: 'red', blue600: 'red'}},
-                            border: {radius: {pills: 0}}
-                        },
-                        components: {
-                            Button: {
-                                primary: {
-                                    colors: {
-                                        background: {
-                                            default: 'green'
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }}
-                >
+                <KitApp>
                     <Story />
                 </KitApp>
             );
