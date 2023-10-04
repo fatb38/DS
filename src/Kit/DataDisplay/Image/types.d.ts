@@ -1,5 +1,5 @@
 import type {ImageProps} from 'antd';
-import {ReactElement} from 'react';
+import {FunctionComponent, ReactElement} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {IKitImageTheme} from '@theme/types/components/DataDisplay/Image';
 import {Image as AntdImage} from 'antd';

@@ -46,9 +46,9 @@ export interface IStyledKitModalOverlay {
     $theme: IKitModalTheme['Overlay'];
 }
 
-export type ConfigUpdate = confirmDialogProps | ((prevConfig: confirmDialogProps) => confirmDialogProps);
+export type ConfigUpdate = IKitConfirmDialog | ((prevConfig: IKitConfirmDialog) => IKitConfirmDialog);
 
-type ModalFunc = (props: confirmDialogProps) => {
+type ModalFunc = (props: IKitConfirmDialog) => {
     destroy: () => void;
     update: (configUpdate: ConfigUpdate) => void;
 };
