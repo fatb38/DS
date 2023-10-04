@@ -7,7 +7,7 @@ export const getKitRadioTokens = (generalTokens: IKitThemeGeneral): IKitRadioThe
     return {
         colors: {
             border: {
-                default: colors.neutral.typography.black60,
+                default: colors.neutral.black60,
                 checked: colors.primary.primary400,
                 hover: colors.primary.primary500,
                 disabled: colors.secondary.mediumGrey.mediumGrey200,
@@ -17,9 +17,9 @@ export const getKitRadioTokens = (generalTokens: IKitThemeGeneral): IKitRadioThe
                 }
             },
             background: {
-                default: colors.neutral.typography.white,
-                checked: colors.neutral.typography.white,
-                hover: colors.neutral.typography.white,
+                default: colors.neutral.white,
+                checked: colors.neutral.white,
+                hover: colors.neutral.white,
                 disabled: colors.secondary.mediumGrey.mediumGrey100,
                 danger: {
                     default: colors.secondary.red.red200,

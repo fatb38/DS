@@ -25,7 +25,7 @@ const _getPrimaryKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButton
                 active: colors.primary.primary600,
                 focus: colors.primary.primary400,
                 disabled: colors.secondary.mediumGrey.mediumGrey100,
-                ghost: colors.neutral.typography.white,
+                ghost: colors.neutral.white,
                 danger: {
                     default: colors.secondary.red.red400,
                     hover: colors.secondary.red.red500,
@@ -84,16 +84,16 @@ const _getDefaultKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButton
                 }
             },
             background: {
-                default: colors.neutral.typography.white,
-                hover: colors.neutral.typography.white,
+                default: colors.neutral.white,
+                hover: colors.neutral.white,
                 active: colors.primary.primary100,
-                focus: colors.neutral.typography.white,
+                focus: colors.neutral.white,
                 disabled: colors.secondary.mediumGrey.mediumGrey100,
                 danger: {
-                    default: colors.neutral.typography.white,
-                    hover: colors.neutral.typography.white,
+                    default: colors.neutral.white,
+                    hover: colors.neutral.white,
                     active: colors.secondary.red.red100,
-                    focus: colors.neutral.typography.white,
+                    focus: colors.neutral.white,
                     disabled: colors.secondary.mediumGrey.mediumGrey100
                 }
             },
@@ -150,13 +150,13 @@ const _getTextKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonThe
                 default: 'initial',
                 hover: colors.secondary.mediumGrey.mediumGrey100,
                 active: colors.primary.primary100,
-                focus: colors.neutral.typography.white,
+                focus: colors.neutral.white,
                 disabled: 'initial',
                 danger: {
                     default: 'initial',
                     hover: colors.secondary.red.red100,
                     active: colors.secondary.red.red100,
-                    focus: colors.neutral.typography.white,
+                    focus: colors.neutral.white,
                     disabled: 'initial'
                 }
             },
@@ -210,17 +210,17 @@ const _getLinkKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonThe
                 }
             },
             background: {
-                default: colors.neutral.typography.white,
-                hover: colors.neutral.typography.white,
-                active: colors.neutral.typography.white,
-                focus: colors.neutral.typography.white,
-                disabled: colors.neutral.typography.white,
+                default: colors.neutral.white,
+                hover: colors.neutral.white,
+                active: colors.neutral.white,
+                focus: colors.neutral.white,
+                disabled: colors.neutral.white,
                 danger: {
-                    default: colors.neutral.typography.white,
-                    hover: colors.neutral.typography.white,
-                    active: colors.neutral.typography.white,
-                    focus: colors.neutral.typography.white,
-                    disabled: colors.neutral.typography.white
+                    default: colors.neutral.white,
+                    hover: colors.neutral.white,
+                    active: colors.neutral.white,
+                    focus: colors.neutral.white,
+                    disabled: colors.neutral.white
                 }
             },
             border: {
@@ -274,16 +274,16 @@ const _getSegmentedKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButt
                 iconCheck: colors.primary.primary400
             },
             background: {
-                default: colors.neutral.typography.white,
-                hover: colors.neutral.typography.white,
+                default: colors.neutral.white,
+                hover: colors.neutral.white,
                 active: colors.primary.primary100,
-                focus: colors.neutral.typography.white,
+                focus: colors.neutral.white,
                 disabled: colors.secondary.mediumGrey.mediumGrey100,
                 danger: {
-                    default: colors.neutral.typography.white,
-                    hover: colors.neutral.typography.white,
+                    default: colors.neutral.white,
+                    hover: colors.neutral.white,
                     active: colors.secondary.red.red100,
-                    focus: colors.neutral.typography.white,
+                    focus: colors.neutral.white,
                     disabled: colors.secondary.mediumGrey.mediumGrey100
                 }
             },
@@ -340,16 +340,16 @@ const _generateColoredSegmentedKitButtonThemes = (generalTokens: IKitThemeGenera
                     iconCheck: colors.secondary[color][color + '400']
                 },
                 background: {
-                    default: colors.neutral.typography.white,
-                    hover: colors.neutral.typography.white,
+                    default: colors.neutral.white,
+                    hover: colors.neutral.white,
                     active: colors.secondary[color][color + '100'],
-                    focus: colors.neutral.typography.white,
+                    focus: colors.neutral.white,
                     disabled: colors.secondary.mediumGrey.mediumGrey100,
                     danger: {
-                        default: colors.neutral.typography.white,
-                        hover: colors.neutral.typography.white,
+                        default: colors.neutral.white,
+                        hover: colors.neutral.white,
                         active: colors.secondary.red.red100,
-                        focus: colors.neutral.typography.white,
+                        focus: colors.neutral.white,
                         disabled: colors.secondary.mediumGrey.mediumGrey100
                     }
                 },

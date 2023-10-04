@@ -10,7 +10,7 @@ export const getKitDividerTokens = (generalTokens: IKitThemeGeneral): IKitDivide
                 default: colors.neutral.typography.black
             },
             split: {
-                default: colors.neutral.typography.black60,
+                default: colors.neutral.black60,
                 lightGrey: colors.secondary.mediumGrey.mediumGrey100
             }
         },

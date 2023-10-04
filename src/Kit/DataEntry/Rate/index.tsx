@@ -80,7 +80,7 @@ export const KitRate: FunctionComponent<IKitRate> = ({color = 'default', disable
         <StyledRate
             $theme={theme.components.Rate}
             $color={color}
-            $disabledStarTransparency={disabledStarTransparency ?? theme.general.colors.neutral.typography.white}
+            $disabledStarTransparency={disabledStarTransparency ?? theme.general.colors.neutral.white}
             {...rateProps}
         />
     );

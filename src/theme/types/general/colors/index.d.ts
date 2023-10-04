@@ -25,6 +25,9 @@ export interface IKitColorsPalette {
             gray600: string;
             gray700: string;
         };
+        black: string;
+        white: string;
+        black60: string;
     };
     secondary: {
         mediumGrey: {

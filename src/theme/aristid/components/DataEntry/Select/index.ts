@@ -93,7 +93,7 @@ export const getKitSelectTokens = (generalTokens: IKitThemeGeneral): IKitSelectT
                 }
             },
             background: {
-                default: colors.neutral.typography.white,
+                default: colors.neutral.white,
                 disabled: colors.secondary.mediumGrey.mediumGrey100,
                 warning: colors.secondary.orange.orange100,
                 error: colors.secondary.red.red100

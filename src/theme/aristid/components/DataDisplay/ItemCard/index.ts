@@ -8,7 +8,7 @@ export const getKitItemCardTokens = (generalTokens: IKitThemeGeneral): IKitItemC
         card: {
             colors: {
                 background: {
-                    default: colors.neutral.typography.white,
+                    default: colors.neutral.white,
                     disabled: colors.secondary.mediumGrey.mediumGrey100
                 },
                 border: {
@@ -52,7 +52,7 @@ export const getKitItemCardTokens = (generalTokens: IKitThemeGeneral): IKitItemC
         image: {
             colors: {
                 border: {
-                    default: colors.neutral.typography.black60
+                    default: colors.neutral.black60
                 }
             },
             border: {
@@ -62,7 +62,7 @@ export const getKitItemCardTokens = (generalTokens: IKitThemeGeneral): IKitItemC
         icon: {
             colors: {
                 border: {
-                    default: colors.neutral.typography.black60
+                    default: colors.neutral.black60
                 }
             },
             border: {

@@ -8,7 +8,7 @@ export const getKitImageTokens = (generalTokens: IKitThemeGeneral): IKitImageThe
         colors: {
             border: {
                 none: 'none',
-                default: colors.neutral.typography.black60
+                default: colors.neutral.black60
             }
         },
         border: {
