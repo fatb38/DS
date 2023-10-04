@@ -7,7 +7,7 @@ export const getKitHeaderTokens = (generalTokens: IKitThemeGeneral): IKitHeaderT
     return {
         colors: {
             background: {
-                default: colors.neutral.typography.white
+                default: colors.neutral.white
             },
             typography: {
                 input: {

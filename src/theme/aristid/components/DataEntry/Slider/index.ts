@@ -47,12 +47,12 @@ export const getKitSliderTokens = (generalTokens: IKitThemeGeneral): IKitSliderT
         },
         startIcon: {
             colors: {
-                default: colors.neutral.typography.black60
+                default: colors.neutral.black60
             }
         },
         endIcon: {
             colors: {
-                default: colors.neutral.typography.black60
+                default: colors.neutral.black60
             }
         }
     };

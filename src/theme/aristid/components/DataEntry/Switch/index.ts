@@ -16,7 +16,7 @@ export const getKitSwitchTokens = (generalTokens: IKitThemeGeneral): IKitSwitchT
             handle: {
                 background: {
                     default: {
-                        on: colors.neutral.typography.white,
+                        on: colors.neutral.white,
                         off: colors.secondary.mediumGrey.mediumGrey400
                     },
                     disabled: colors.secondary.mediumGrey.mediumGrey100

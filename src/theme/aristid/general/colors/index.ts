@@ -26,7 +26,10 @@ export const colorsPalette: IKitColorsPalette = {
             gray500: '#868E96',
             gray600: '#495057',
             gray700: '#212529'
-        }
+        },
+        black: '#000000',
+        white: '#FFFFFF',
+        black60: '#BABABA'
     },
     secondary: {
         mediumGrey: {

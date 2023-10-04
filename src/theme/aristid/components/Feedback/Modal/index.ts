@@ -28,7 +28,7 @@ export const getKitModalTokens = (generalTokens: IKitThemeGeneral): IKitModalThe
         },
         colors: {
             background: {
-                default: colors.neutral.typography.white,
+                default: colors.neutral.white,
                 info: colors.primary.primary100,
                 success: colors.secondary.green.green100,
                 warning: colors.secondary.orange.orange100,

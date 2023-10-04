@@ -20,16 +20,16 @@ export const getKitTreeTokens = (generalTokens: IKitThemeGeneral): IKitTreeTheme
         checkbox: {
             colors: {
                 background: {
-                    default: colors.neutral.typography.white,
-                    disabled: colors.neutral.typography.white,
+                    default: colors.neutral.white,
+                    disabled: colors.neutral.white,
                     checked: {
                         default: colors.primary.primary400,
                         hover: colors.primary.primary500
                     }
                 },
                 border: {
-                    default: colors.neutral.typography.black60,
-                    disabled: colors.neutral.typography.black60,
+                    default: colors.neutral.black60,
+                    disabled: colors.neutral.black60,
                     hover: colors.primary.primary400,
                     checked: {
                         default: colors.primary.primary400,
@@ -37,9 +37,9 @@ export const getKitTreeTokens = (generalTokens: IKitThemeGeneral): IKitTreeTheme
                     }
                 },
                 icon: {
-                    default: colors.neutral.typography.black60,
-                    disabled: colors.neutral.typography.black60,
-                    checked: colors.neutral.typography.white
+                    default: colors.neutral.black60,
+                    disabled: colors.neutral.black60,
+                    checked: colors.neutral.white
                 }
             }
         },
@@ -55,7 +55,7 @@ export const getKitTreeTokens = (generalTokens: IKitThemeGeneral): IKitTreeTheme
                 background: {
                     hover: colors.primary.primary100,
                     selected: colors.primary.primary100,
-                    indent: colors.neutral.typography.white
+                    indent: colors.neutral.white
                 }
             }
         }

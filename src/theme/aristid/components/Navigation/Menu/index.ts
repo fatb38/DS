@@ -7,13 +7,13 @@ export const getKitMenuTokens = (generalTokens: IKitThemeGeneral): IKitMenuTheme
     return {
         colors: {
             background: {
-                default: colors.neutral.typography.white
+                default: colors.neutral.white
             }
         },
         itemMenu: {
             colors: {
                 background: {
-                    default: colors.neutral.typography.white,
+                    default: colors.neutral.white,
                     active: colors.primary.primary100,
                     hover: colors.primary.primary100,
                     danger: colors.secondary.red.red100
