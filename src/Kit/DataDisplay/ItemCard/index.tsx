@@ -375,7 +375,7 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
             {_getPicture(picture, fullWidthAvatar)}
             {colors && <KitColorbar colors={colors} vertical={!vertical} className={`kit-card-colorbar`} />}
             <div className="kit-card-data">
-                <KitTypography.Text className="kit-card-title" ellipsis={{rows: 1, tooltip: true}}>
+                <KitTypography.Text className="kit-card-title" ellipsis={{tooltip: true}}>
                     {title}
                 </KitTypography.Text>
                 <div className="kit-card-description-container">
