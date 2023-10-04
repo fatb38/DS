@@ -3,6 +3,7 @@ import {BaseOptionType, DefaultOptionType} from 'antd/lib/select';
 import type {OptionProps} from 'rc-select/lib/Option';
 import {KitHTMLAttributes} from '../../../types';
 import {ReactNode} from 'react';
+import {IKitSelectTheme} from '@theme/types/components/DataEntry/Select';
 
 type AntdSelectTypesToOmit =
     | 'dropdownMatchSelectWidth'
@@ -46,4 +47,16 @@ interface IKitOption extends Omit<OptionProps, 'children'> {
     color?: string;
     label?: string;
     children?: ReactNode;
+}
+
+export interface IStyledKitSelectColorBadge {
+    $theme: IKitSelectTheme['ColorBadge'];
+}
+
+export interface IStyledKitSelectDropDown {
+    $theme: IKitSelectTheme['DropDown'];
+}
+
+export interface IStyledKitSelect {
+    $theme: IKitSelectTheme;
 }
