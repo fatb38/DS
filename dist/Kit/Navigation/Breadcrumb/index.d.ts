@@ -1,3 +1,3 @@
-import React from 'react';
-import { KitBreadcrumbProps } from './types';
-export declare const KitBreadcrumb: React.FunctionComponent<KitBreadcrumbProps>;
+import { FunctionComponent } from 'react';
+import { IKitBreadcrumb } from './types';
+export declare const KitBreadcrumb: FunctionComponent<IKitBreadcrumb>;

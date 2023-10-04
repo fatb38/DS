@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import styled from 'styled-components';
-import {IKitMenuInfo, KitHeaderExtraProps} from './types';
+import {IKitMenuInfo, IKitHeaderExtra} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
@@ -30,8 +30,8 @@ const StyledHeaderExtra = styled.div`
     }
 `;
 
-export const KitHeaderExtra: React.FunctionComponent<KitHeaderExtraProps> = ({onSelectChange, actions}) => {
-    const getCheckbox = () => {
+export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({onSelectChange, actions}) => {
+    const _getCheckbox = () => {
         return (
             onSelectChange !== undefined && (
                 <div className="kit-collapse-header-extra-checkbox">
@@ -46,7 +46,7 @@ export const KitHeaderExtra: React.FunctionComponent<KitHeaderExtraProps> = ({on
         );
     };
 
-    const getMoreActionsDropDownItems = (): MenuItemType[] | undefined => {
+    const _getMoreActionsDropDownItems = (): MenuItemType[] | undefined => {
         if (actions === undefined || actions.length === 0) {
             return undefined;
         }
@@ -66,7 +66,7 @@ export const KitHeaderExtra: React.FunctionComponent<KitHeaderExtraProps> = ({on
         return dropDownActions;
     };
 
-    const getActions = () => {
+    const _getActions = () => {
         if (actions !== undefined) {
             const firstAction = actions[0] ? actions[0] : null;
             const secondAction = actions.length <= 2 && actions[1] ? actions[1] : null;
@@ -106,7 +106,7 @@ export const KitHeaderExtra: React.FunctionComponent<KitHeaderExtraProps> = ({on
                             >
                                 <KitDropDown
                                     menu={{
-                                        items: getMoreActionsDropDownItems()
+                                        items: _getMoreActionsDropDownItems()
                                     }}
                                 >
                                     <KitTooltip title="More">
@@ -123,8 +123,8 @@ export const KitHeaderExtra: React.FunctionComponent<KitHeaderExtraProps> = ({on
 
     return (
         <StyledHeaderExtra>
-            {getCheckbox()}
-            {getActions()}
+            {_getCheckbox()}
+            {_getActions()}
         </StyledHeaderExtra>
     );
 };

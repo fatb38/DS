@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitTagProps } from './types';
-declare const KitTag: React.FunctionComponent<KitTagProps>;
+import { FunctionComponent } from 'react';
+import { IKitTag } from './types';
+declare const KitTag: FunctionComponent<IKitTag>;
 export default KitTag;

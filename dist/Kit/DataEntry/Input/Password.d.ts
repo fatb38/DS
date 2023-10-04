@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitPasswordProps } from './types';
-declare const KitPassword: React.FunctionComponent<KitPasswordProps>;
+import { FunctionComponent } from 'react';
+import { IKitPassword } from './types';
+declare const KitPassword: FunctionComponent<IKitPassword>;
 export default KitPassword;

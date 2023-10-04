@@ -1,3 +1,3 @@
-import React from 'react';
-import { KitSwitchProps } from './types';
-export declare const KitSwitch: React.FunctionComponent<KitSwitchProps>;
+import { FunctionComponent } from 'react';
+import { IKitSwitch } from './types';
+export declare const KitSwitch: FunctionComponent<IKitSwitch>;

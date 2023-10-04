@@ -1,8 +1,8 @@
-import type * as React from 'react';
 import Tag from './Tag';
-import {KitTagProps} from './types';
+import {IKitTag} from './types';
+import {ForwardRefExoticComponent} from 'react';
 
-type CompoundedComponent = React.ForwardRefExoticComponent<KitTagProps> & {};
+type CompoundedComponent = ForwardRefExoticComponent<IKitTag> & {};
 
 export const KitTag = Tag as unknown as CompoundedComponent;
 KitTag.displayName = 'KitTag';

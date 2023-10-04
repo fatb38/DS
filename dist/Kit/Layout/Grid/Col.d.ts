@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitColProps } from './types';
-declare const KitCol: React.FunctionComponent<KitColProps>;
+import { FunctionComponent } from 'react';
+import { IKitCol } from './types';
+declare const KitCol: FunctionComponent<IKitCol>;
 export default KitCol;

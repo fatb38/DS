@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 import {DownOutlined} from '@ant-design/icons';
-import {KitDropdownMenuProps} from '@kit/Navigation/DropDown/types';
+import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
 import {KitButton} from '@kit/General';
 
-const items: KitDropdownMenuProps['items'] = [
+const items: IKitDropdownMenu['items'] = [
     {
         key: '1',
         label: 'Clicking me will not close the menu.'
@@ -23,7 +23,7 @@ const items: KitDropdownMenuProps['items'] = [
 const App = () => {
     const [open, setOpen] = useState(false);
 
-    const handleMenuClick: KitDropdownMenuProps['onClick'] = e => {
+    const handleMenuClick: IKitDropdownMenu['onClick'] = e => {
         if (e.key === '3') {
             setOpen(false);
         }

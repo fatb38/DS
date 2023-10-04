@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Tooltip as AntdTooltip} from 'antd';
-import {KitTooltipProps} from './types';
+import {IKitTooltip} from './types';
 
 //TODO: Add a globalStyle to reduce padding (top and bottom)
 
-export const KitTooltip: React.FunctionComponent<KitTooltipProps> = tooltipProps => {
+export const KitTooltip: FunctionComponent<IKitTooltip> = tooltipProps => {
     return <AntdTooltip {...tooltipProps} />;
 };
 

@@ -1,15 +1,12 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Input as AntdInput} from 'antd';
-import {KitTextAreaProps} from './types';
+import {IKitTextArea, IStyledAntdTextArea} from './types';
 import {styled} from 'styled-components';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
-import {IKitInputTheme} from '@theme/types/components/DataEntry/Input';
 import {useKitTheme} from '@theme/theme-context';
 
-const StyledAntdTextArea = styled(AntdInput.TextArea)<{
-    $theme: IKitInputTheme['TextArea'];
-}>`
+const StyledAntdTextArea = styled(AntdInput.TextArea)<IStyledAntdTextArea>`
     &.ant-input,
     .ant-input {
         padding: 4px 10px;
@@ -156,12 +153,7 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)<{
     }
 `;
 
-const KitTextArea: React.FunctionComponent<KitTextAreaProps> = ({
-    label,
-    helper,
-    allowClear = true,
-    ...textAreaProps
-}) => {
+const KitTextArea: FunctionComponent<IKitTextArea> = ({label, helper, allowClear = true, ...textAreaProps}) => {
     const {theme} = useKitTheme();
 
     return (

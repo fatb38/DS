@@ -1,11 +1,11 @@
 import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
-import {KitDropdownMenuProps} from '@kit/Navigation/DropDown/types';
+import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
 import {KitTypography} from '@kit/General';
 import {useKitTheme} from '@theme/theme-context';
 
-const items: KitDropdownMenuProps['items'] = [
+const items: IKitDropdownMenu['items'] = [
     {
         key: '1',
         label: (

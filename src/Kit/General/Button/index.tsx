@@ -1,18 +1,12 @@
-import React from 'react';
+import React, {ForwardRefRenderFunction, forwardRef} from 'react';
 import {Button as AntdButton} from 'antd';
 import {styled} from 'styled-components';
-import type {IKitButtonProps} from './types';
+import type {IKitButton, IStyledKitButton, KitButtonCompoundedComponent} from './types';
 import {ButtonType} from 'antd/lib/button';
 import {CheckCircleFilled} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitButtonThemePropeties} from '@theme/types/components/General/Button';
 
-interface StyledAntdButtonProps {
-    $theme: IKitButtonThemePropeties;
-    $iconSize: IKitButtonProps['iconSize'];
-}
-
-const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
+const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
     height: 40px;
     min-width: 40px;
     box-shadow: none;
@@ -246,7 +240,7 @@ const StyledAntdButton = styled(AntdButton)<StyledAntdButtonProps>`
     }
 `;
 
-const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IKitButtonProps> = (
+const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IKitButton> = (
     {
         iconSize,
         primaryModal,
@@ -264,7 +258,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
     const {theme: kitTheme} = useKitTheme();
     const theme = kitTheme.components.Button;
 
-    const getTheme = () => {
+    const _getTheme = () => {
         switch (type) {
             case 'primary':
                 return theme.primary;
@@ -280,7 +274,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
         }
     };
 
-    const getAntdType = (): ButtonType => {
+    const _getAntdType = (): ButtonType => {
         if (primaryModal) {
             return 'primary';
         }
@@ -297,7 +291,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
         }
     };
 
-    const getClasses = () => {
+    const _getClasses = () => {
         let classes = className || '';
 
         classes += type === 'segmented' ? ' kit-btn-segmented' : '';
@@ -316,12 +310,12 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
             }}
         >
             <StyledAntdButton
-                $theme={getTheme()}
+                $theme={_getTheme()}
                 $iconSize={iconSize}
                 {...buttonProps}
-                className={getClasses()}
+                className={_getClasses()}
                 ghost={primaryModal}
-                type={getAntdType()}
+                type={_getAntdType()}
                 ref={ref}
             ></StyledAntdButton>
             {type === 'segmented' && segmentedChecked && (
@@ -331,10 +325,8 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorEleme
     );
 };
 
-type CompoundedComponent = React.ForwardRefExoticComponent<IKitButtonProps & React.RefAttributes<HTMLElement>>;
-
-export const KitButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, IKitButtonProps>(
+export const KitButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, IKitButton>(
     Button
-) as CompoundedComponent;
+) as KitButtonCompoundedComponent;
 
 KitButton.displayName = 'KitButton';

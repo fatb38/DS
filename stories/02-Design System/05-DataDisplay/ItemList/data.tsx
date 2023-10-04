@@ -88,7 +88,7 @@ export const argTypes = {
         },
         table: {
             type: {
-                summary: 'ReactElement<KitAvatarProps> | ReactElement<KitIconProps> | ReactElement<KitImageProps>'
+                summary: 'ReactElement<IKitAvatar> | ReactElement<IKitIcon> | ReactElement<IKitImage>'
             },
             category: 'ItemList'
         }

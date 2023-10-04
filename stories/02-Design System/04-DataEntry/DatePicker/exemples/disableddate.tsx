@@ -2,7 +2,7 @@ import React from 'react';
 import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import dayjs from 'dayjs';
-import type {KitRangePickerProps} from '@kit/DataEntry/DatePicker/types';
+import type {IKitRangePicker} from '@kit/DataEntry/DatePicker/types';
 
 const App = () => {
     const range = (start: number, end: number) => {
@@ -13,7 +13,7 @@ const App = () => {
         return result;
     };
 
-    const disabledDate: KitRangePickerProps['disabledDate'] = current => {
+    const disabledDate: IKitRangePicker['disabledDate'] = current => {
         return current && current < dayjs().endOf('day');
     };
 
@@ -23,7 +23,7 @@ const App = () => {
         disabledSeconds: () => [55, 56]
     });
 
-    const disabledRangeTime: KitRangePickerProps['disabledTime'] = (_, type) => {
+    const disabledRangeTime: IKitRangePicker['disabledTime'] = (_, type) => {
         if (type === 'start') {
             return {
                 disabledHours: () => range(0, 60).splice(4, 20),

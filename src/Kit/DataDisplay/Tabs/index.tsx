@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Tabs as AntTabs} from 'antd';
 import styled from 'styled-components';
-import {KitTabsProps} from './types';
+import {IKitTabs, IStyledKitTabs} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitTabsTheme} from '@theme/types/components/DataDisplay/Tabs';
 
-const StyledKitTabs = styled(AntTabs)<{$theme: IKitTabsTheme}>`
+const StyledKitTabs = styled(AntTabs)<IStyledKitTabs>`
     .ant-tabs-extra-content {
         .ant-btn {
             border-radius: ${({$theme}) => $theme.extraContent.border.radius}px;
@@ -51,7 +50,7 @@ const StyledKitTabs = styled(AntTabs)<{$theme: IKitTabsTheme}>`
     }
 `;
 
-const KitTabs: React.FunctionComponent<KitTabsProps> = props => {
+const KitTabs: FunctionComponent<IKitTabs> = props => {
     const {theme} = useKitTheme();
 
     return <StyledKitTabs $theme={theme.components.Tabs} {...props} />;

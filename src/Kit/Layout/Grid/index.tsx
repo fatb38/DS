@@ -1,10 +1,11 @@
 import InternalRow from './Row';
 import InternalCol from './Col';
-import {KitColProps, KitRowProps} from './types';
+import {IKitCol, IKitRow} from './types';
+import {FunctionComponent} from 'react';
 
 type CompoundedComponent = {
-    Row: React.FunctionComponent<KitRowProps>;
-    Col: React.FunctionComponent<KitColProps>;
+    Row: FunctionComponent<IKitRow>;
+    Col: FunctionComponent<IKitCol>;
     displayName?: string;
 };
 

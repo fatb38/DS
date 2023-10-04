@@ -10,9 +10,9 @@ import {
     DownloadOutlined,
     SearchOutlined
 } from '@ant-design/icons';
-import { KitNotificationArgsProps } from '@kit/Feedback/Notification/types';
+import {IKitNotificationArgs} from '@kit/Feedback/Notification/types';
 
-export const FakeNotification: React.FunctionComponent<KitNotificationArgsProps> = () => null;
+export const FakeNotification: React.FunctionComponent<IKitNotificationArgs> = () => null;
 
 export const argTypes = {
     btn: {
@@ -213,7 +213,7 @@ export const getCloseIcon = ({closeIcon}) => {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {kitNotification} = useKitNotification();
 
     const openNotification = (type: 'open' | 'info' | 'success' | 'warning' | 'error') => {

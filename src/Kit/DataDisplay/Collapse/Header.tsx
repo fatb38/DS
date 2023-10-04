@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import styled from 'styled-components';
 import {EyeOutlined} from '@ant-design/icons';
-import {KitHeaderProps} from './types';
+import {IKitHeader} from './types';
 import {KitTypography} from '@kit/General/';
 import {KitImage} from '@kit/DataDisplay';
 import {KitTag} from '@kit/DataEntry/';
@@ -50,18 +50,12 @@ const StyledHeader = styled.div`
     }
 `;
 
-export const KitHeader: React.FunctionComponent<KitHeaderProps> = ({
-    icon,
-    imageSrc,
-    title,
-    description,
-    tagContent
-}) => {
-    const getIcon = () => {
+export const KitHeader: FunctionComponent<IKitHeader> = ({icon, imageSrc, title, description, tagContent}) => {
+    const _getIcon = () => {
         return icon !== undefined && <div className="kit-collapse-header-icon">{icon}</div>;
     };
 
-    const getImage = () => {
+    const _getImage = () => {
         return (
             imageSrc !== undefined && (
                 <div
@@ -85,7 +79,7 @@ export const KitHeader: React.FunctionComponent<KitHeaderProps> = ({
         );
     };
 
-    const getContent = () => {
+    const _getContent = () => {
         let classes = 'kit-collapse-header-content';
         classes += title !== undefined && description !== undefined ? ' kit-collapse-header-content-rows' : '';
 
@@ -117,7 +111,7 @@ export const KitHeader: React.FunctionComponent<KitHeaderProps> = ({
         );
     };
 
-    const getTag = () => {
+    const _getTag = () => {
         return (
             tagContent !== undefined && (
                 <div className="kit-collapse-header-tag">
@@ -129,10 +123,10 @@ export const KitHeader: React.FunctionComponent<KitHeaderProps> = ({
 
     return (
         <StyledHeader>
-            {getIcon()}
-            {getImage()}
-            {getContent()}
-            {getTag()}
+            {_getIcon()}
+            {_getImage()}
+            {_getContent()}
+            {_getTag()}
         </StyledHeader>
     );
 };

@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Tree as AntdTree} from 'antd';
 import styled from 'styled-components';
-import {KitTreeProps} from './types';
+import {IKitTree, IStyledKitTree} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitTreeTheme} from '@theme/types/components/DataDisplay/Tree';
 
-const StyledTree = styled(AntdTree)<{$theme: IKitTreeTheme}>`
+const StyledTree = styled(AntdTree)<IStyledKitTree>`
     .ant-tree-treenode {
         padding: 0;
         font-weight: ${({$theme}) => $theme.treenode.typography.fontWeight};
@@ -144,7 +143,7 @@ const StyledTree = styled(AntdTree)<{$theme: IKitTreeTheme}>`
     }
 `;
 
-export const KitTree: React.FunctionComponent<KitTreeProps> = ({...treeProps}) => {
+export const KitTree: FunctionComponent<IKitTree> = ({...treeProps}) => {
     const {theme} = useKitTheme();
 
     return (

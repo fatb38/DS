@@ -1,11 +1,12 @@
 import InternalInput from './Input';
 import InternalTextArea from './TextArea';
 import InternalPassword from './Password';
-import {KitInputProps, KitPasswordProps, KitTextAreaProps} from './types';
+import {IKitInput, IKitPassword, IKitTextArea} from './types';
+import {FunctionComponent} from 'react';
 
-type CompoundedComponent = React.FunctionComponent<KitInputProps> & {
-    TextArea: React.FunctionComponent<KitTextAreaProps>;
-    Password: React.FunctionComponent<KitPasswordProps>;
+type CompoundedComponent = FunctionComponent<IKitInput> & {
+    TextArea: FunctionComponent<IKitTextArea>;
+    Password: FunctionComponent<IKitPassword>;
 };
 
 export const KitInput = InternalInput as unknown as CompoundedComponent;

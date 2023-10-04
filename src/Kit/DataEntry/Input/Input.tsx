@@ -1,15 +1,12 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import {Input as AntdInput} from 'antd';
-import {KitInputProps} from './types';
+import {IKitInput, IStyledAntdInput} from './types';
 import {styled} from 'styled-components';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
-import {IKitInputTheme} from '@theme/types/components/DataEntry/Input';
 import {useKitTheme} from '@theme/theme-context';
 
-const StyledAntdInput = styled(AntdInput)<{
-    $theme: IKitInputTheme;
-}>`
+const StyledAntdInput = styled(AntdInput)<IStyledAntdInput>`
     &.ant-input,
     .ant-input {
         height: 40px;
@@ -179,7 +176,7 @@ const StyledAntdInput = styled(AntdInput)<{
     }
 `;
 
-const KitInput = React.forwardRef<any, KitInputProps>(({label, helper, allowClear = true, ...inputProps}, ref) => {
+const KitInput = forwardRef<any, IKitInput>(({label, helper, allowClear = true, ...inputProps}, ref) => {
     const {theme} = useKitTheme();
 
     return (

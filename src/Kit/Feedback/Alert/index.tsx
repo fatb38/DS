@@ -1,13 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Alert as AntdAlert} from 'antd';
-import {KitAlertProps} from './types';
+import {IKitAlert, IStyledKitAlert} from './types';
 import {styled} from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitAlertTheme} from '@theme/types/components/Feedback/Alert';
 
-const StyledAntdAlert = styled(AntdAlert)<{
-    $theme: IKitAlertTheme;
-}>`
+const StyledAntdAlert = styled(AntdAlert)<IStyledKitAlert>`
     &.ant-alert-with-description {
         padding-inline: 0px;
         padding-block: 0px;
@@ -70,7 +67,7 @@ const StyledAntdAlert = styled(AntdAlert)<{
     }
 `;
 
-export const KitAlert: React.FunctionComponent<KitAlertProps> = alertProps => {
+export const KitAlert: FunctionComponent<IKitAlert> = alertProps => {
     const {theme} = useKitTheme();
 
     return <StyledAntdAlert $theme={theme.components.Alert} {...alertProps} />;

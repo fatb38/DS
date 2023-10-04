@@ -1,15 +1,12 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Input as AntdInput} from 'antd';
-import {KitPasswordProps} from './types';
+import {IKitPassword, IStyledAntdPassword} from './types';
 import {styled} from 'styled-components';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitInputTheme} from '@theme/types/components/DataEntry/Input';
 
-const StyledAntdPassword = styled(AntdInput.Password)<{
-    $theme: IKitInputTheme['Password'];
-}>`
+const StyledAntdPassword = styled(AntdInput.Password)<IStyledAntdPassword>`
     &.ant-input-affix-wrapper {
         padding: 0px 12px;
 
@@ -169,12 +166,7 @@ const StyledAntdPassword = styled(AntdInput.Password)<{
     }
 `;
 
-const KitPassword: React.FunctionComponent<KitPasswordProps> = ({
-    label,
-    helper,
-    allowClear = true,
-    ...passwordProps
-}) => {
+const KitPassword: FunctionComponent<IKitPassword> = ({label, helper, allowClear = true, ...passwordProps}) => {
     const {theme} = useKitTheme();
 
     return (

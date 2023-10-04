@@ -4,7 +4,7 @@ import type {OptionProps} from 'rc-select/lib/Option';
 import {KitHTMLAttributes} from '../../../types';
 import {ReactNode} from 'react';
 
-export type AntdSelectTypesToOmit =
+type AntdSelectTypesToOmit =
     | 'dropdownMatchSelectWidth'
     | 'options'
     | 'bordered'
@@ -30,18 +30,18 @@ export type AntdSelectTypesToOmit =
     | 'dropdownStyle'
     | 'menuItemSelectedIcon';
 
-export interface KitSelectProps
+export interface IKitSelect
     extends Omit<SelectProps<any, DefaultOptionType | BaseOptionType>, AntdSelectTypesToOmit>,
         KitHTMLAttributes<HTMLDivElement> {
     label?: string;
     helper?: string;
     allowClear?: boolean;
     oneLineTags?: boolean;
-    options?: KitOptionProps[];
+    options?: IKitOption[];
     labelOnly?: boolean | null;
 }
 
-export interface KitOptionProps extends Omit<OptionProps, 'children'> {
+interface IKitOption extends Omit<OptionProps, 'children'> {
     icon?: ReactNode;
     color?: string;
     label?: string;

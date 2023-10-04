@@ -186,7 +186,7 @@ export const argTypes = {
         control: {type: 'none'},
         table: {
             type: {
-                summary: 'ReactElement<IKitButtonProps>'
+                summary: 'ReactElement<IKitButton>'
             },
             category: 'Menu'
         }
@@ -197,7 +197,7 @@ export const argTypes = {
         control: {type: 'none'},
         table: {
             type: {
-                summary: 'ReactElement<KitInputProps>'
+                summary: 'ReactElement<IKitInput>'
             },
             category: 'Menu'
         }
@@ -208,7 +208,7 @@ export const argTypes = {
         control: {type: 'none'},
         table: {
             type: {
-                summary: 'ReactElement<KitInputProps>'
+                summary: 'ReactElement<IKitInput>'
             },
             category: 'Menu'
         }
@@ -250,7 +250,7 @@ export const argTypes = {
         description: 'Actions list to display at the end of the item',
         table: {
             type: {
-                summary: 'KitItemMenuActions'
+                summary: 'IKitItemMenuActions'
             },
             category: 'ItemMenu'
         }

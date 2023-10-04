@@ -1,13 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Collapse as AntdCollapse} from 'antd';
-import {KitCollapseProps} from './types';
+import {IKitCollapse, IStyledKitCollapse} from './types';
 import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitCollapseTheme} from '@theme/types/components/DataDisplay/Collapse';
 
-const StyledCollapse = styled(AntdCollapse)<{
-    $theme: IKitCollapseTheme;
-}>`
+const StyledCollapse = styled(AntdCollapse)<IStyledKitCollapse>`
     box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
 
     .ant-collapse-item .ant-collapse-header {
@@ -47,7 +44,7 @@ const StyledCollapse = styled(AntdCollapse)<{
     }
 `;
 
-export const KitCollapse: React.FunctionComponent<KitCollapseProps> = collapseProps => {
+export const KitCollapse: FunctionComponent<IKitCollapse> = collapseProps => {
     const {theme} = useKitTheme();
 
     return <StyledCollapse $theme={theme.components.Collapse} {...collapseProps} />;

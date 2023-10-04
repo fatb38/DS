@@ -1,14 +1,13 @@
-import React, {useMemo} from 'react';
+import React, {FunctionComponent, cloneElement, useMemo} from 'react';
 import styled from 'styled-components';
 import {PlusOutlined, SearchOutlined} from '@ant-design/icons';
 import {KitTypography, KitButton} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {KitInput} from '@kit/DataEntry/';
-import {HeaderProps} from './types';
+import {IHeader, IStyledHeaderWrapper} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitHeaderTheme} from '@theme/types/components/Navigation/Header';
 
-const StyledHeaderWrapper = styled.div<{$theme: IKitHeaderTheme}>`
+const StyledHeaderWrapper = styled.div<IStyledHeaderWrapper>`
     padding: 16px 32px;
     background: ${({$theme}) => $theme.colors.background.default};
     display: grid;
@@ -62,7 +61,7 @@ const StyledHeaderWrapper = styled.div<{$theme: IKitHeaderTheme}>`
     }
 `;
 
-const getActions = (actions, onPlusClick) => {
+const _getActions = (actions, onPlusClick) => {
     if (!actions && !onPlusClick) {
         return null;
     }
@@ -99,24 +98,17 @@ const getActions = (actions, onPlusClick) => {
     );
 };
 
-export const KitHeader: React.FunctionComponent<HeaderProps> = ({
-    title,
-    search,
-    breadcrumb,
-    actions,
-    onPlusClick,
-    ...props
-}) => {
+export const KitHeader: FunctionComponent<IHeader> = ({title, search, breadcrumb, actions, onPlusClick, ...props}) => {
     const {theme} = useKitTheme();
 
     const breadcrumbToDisplay = breadcrumb
-        ? React.cloneElement(breadcrumb, {
+        ? cloneElement(breadcrumb, {
               className: 'kit-header-breadcrumb'
           })
         : null;
 
     const actionsToDisplay = useMemo(() => {
-        return getActions(actions, onPlusClick);
+        return _getActions(actions, onPlusClick);
     }, [actions, onPlusClick]);
 
     return (

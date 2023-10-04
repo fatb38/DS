@@ -1,15 +1,12 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {DatePicker as AntdDatePicker} from 'antd';
-import {KitRangePickerProps} from './types';
+import {IStyledRangePicker, IKitRangePicker} from './types';
 import styled from 'styled-components';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from '../Input/InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitDatePickerTheme} from '@theme/types/components/DataEntry/DatePicker';
 
-const StyledRangePicker = styled.div<{
-    $theme: IKitDatePickerTheme['RangePicker'];
-}>`
+export const StyledRangePicker = styled.div<IStyledRangePicker>`
     .ant-picker.ant-picker-range {
         display: grid;
         grid-template-areas: 'icon input1 separator input2 clear';
@@ -178,15 +175,10 @@ const StyledRangePicker = styled.div<{
     }
 `;
 
-const KitDatePicker: React.FunctionComponent<KitRangePickerProps> = ({
-    label,
-    helper,
-    allowClear = true,
-    ...rangePickerProps
-}) => {
+const KitDatePicker: FunctionComponent<IKitRangePicker> = ({label, helper, allowClear = true, ...rangePickerProps}) => {
     const {theme} = useKitTheme();
 
-    const isRangePickerDisabled = () => {
+    const _isRangePickerDisabled = () => {
         if (rangePickerProps.disabled === undefined) {
             return false;
         }
@@ -202,7 +194,7 @@ const KitDatePicker: React.FunctionComponent<KitRangePickerProps> = ({
         <KitInputWrapper
             label={label}
             helper={helper}
-            disabled={isRangePickerDisabled()}
+            disabled={_isRangePickerDisabled()}
             status={rangePickerProps.status}
         >
             <StyledRangePicker $theme={theme.components.DatePicker.RangePicker}>

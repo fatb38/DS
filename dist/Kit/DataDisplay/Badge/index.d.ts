@@ -1,3 +1,3 @@
-import React from 'react';
-import { KitBadgeProps } from './types';
-export declare const KitBadge: React.FunctionComponent<KitBadgeProps>;
+import { FunctionComponent } from 'react';
+import { IKitBadge } from './types';
+export declare const KitBadge: FunctionComponent<IKitBadge>;

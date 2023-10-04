@@ -1,5 +1,5 @@
-import React, {MouseEvent} from 'react';
-import {IKitMenuInfo, KitItemMenuActions, KitItemMenuProps, KitItemMenuType} from './types';
+import React, {FunctionComponent} from 'react';
+import {IKitMenuInfo, IStyledIemMenu, IKitItemMenu} from './types';
 import {css, styled} from 'styled-components';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTypography, KitIcon} from '@kit/General/';
@@ -8,14 +8,8 @@ import {KitTooltip} from '@kit/DataDisplay/';
 import {KitDropDown} from '../DropDown';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
 
-const StyledIemMenu = styled.div<{
-    $theme: IKitMenuTheme;
-    $isClickable: boolean;
-    $isSelected: boolean;
-    $type: KitItemMenuType;
-}>`
+const StyledIemMenu = styled.div<IStyledIemMenu>`
     height: 32px;
     display: grid;
     grid-template: 'select icon title actions value rafter';
@@ -130,7 +124,7 @@ const StyledIemMenu = styled.div<{
     }
 `;
 
-const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
+const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
     type = 'default',
     title,
     icon,
@@ -147,7 +141,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
     const isSelectable = onSelectChange !== undefined;
     const hasRafter = onRafterClick !== undefined;
 
-    const getCheckbox = () => {
+    const _getCheckbox = () => {
         return (
             isSelectable && (
                 <div className="kit-item-menu-checkbox">
@@ -162,7 +156,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         );
     };
 
-    const getIcon = () => {
+    const _getIcon = () => {
         return (
             icon && (
                 <div className="kit-item-menu-icon">
@@ -172,7 +166,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         );
     };
 
-    const getTitle = () => {
+    const _getTitle = () => {
         return (
             title && (
                 <div className="kit-item-menu-title">
@@ -184,7 +178,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         );
     };
 
-    const getActions = () => {
+    const _getActions = () => {
         if (actions) {
             const firstAction = actions[0] ? actions[0] : null;
             const secondAction = actions.length <= 2 && actions[1] ? actions[1] : null;
@@ -259,7 +253,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         return dropDownActions;
     };
 
-    const getValue = () => {
+    const _getValue = () => {
         return (
             value && (
                 <div className="kit-item-menu-value">
@@ -271,7 +265,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         );
     };
 
-    const getRafter = () => {
+    const _getRafter = () => {
         return (
             hasRafter && (
                 <div
@@ -299,12 +293,12 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
             }}
             {...props}
         >
-            {getCheckbox()}
-            {getIcon()}
-            {getTitle()}
-            {getActions()}
-            {getValue()}
-            {getRafter()}
+            {_getCheckbox()}
+            {_getIcon()}
+            {_getTitle()}
+            {_getActions()}
+            {_getValue()}
+            {_getRafter()}
         </StyledIemMenu>
     );
 };

@@ -1,9 +1,7 @@
 import {createGlobalStyle} from 'styled-components';
-import {IKitDatePickerTheme} from '@theme/types/components/DataEntry/DatePicker';
+import {IStyledDatePickerDropDown} from './types';
 
-export const DatePickerDropDownStyle = createGlobalStyle<{
-    $theme: IKitDatePickerTheme['DropDown'];
-}>`
+export const DatePickerDropDownStyle = createGlobalStyle<IStyledDatePickerDropDown>`
     .ant-picker-dropdown {
         ul.ant-picker-ranges {
             margin-block-start: 0px;

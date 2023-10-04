@@ -2,11 +2,11 @@ import type {SpaceProps} from 'antd';
 import type {SpaceSize} from 'antd/lib/space';
 import {CSSProperties, ReactNode} from 'react';
 import {KitHTMLAttributes} from '../../../types';
-import {KitSpacing} from '@theme/types/general/spacing';
+import {IKitSpacing} from '@theme/types/general/spacing';
 
-type KitSpaceSize = keyof KitSpacing | number;
+type KitSpaceSize = keyof IKitSpacing | number;
 
-export interface KitSpaceProps extends SpaceProps, KitHTMLAttributes<HTMLDivElement> {
+export interface IKitSpace extends SpaceProps, KitHTMLAttributes<HTMLDivElement> {
     displayName?: string;
     children?: ReactNode;
     direction?: 'horizontal' | 'vertical';

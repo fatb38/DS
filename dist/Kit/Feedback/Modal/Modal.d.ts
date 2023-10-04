@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitModalProps } from './types';
-declare const Modal: React.FC<KitModalProps>;
+import { FunctionComponent } from 'react';
+import { IKitModal } from './types';
+declare const Modal: FunctionComponent<IKitModal>;
 export default Modal;

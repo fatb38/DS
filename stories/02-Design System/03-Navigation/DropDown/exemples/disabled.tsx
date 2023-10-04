@@ -2,10 +2,10 @@ import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 import {DownOutlined} from '@ant-design/icons';
-import {KitDropdownMenuProps} from '@kit/Navigation/DropDown/types';
+import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
 import {KitButton} from '@kit/General';
 
-const items: KitDropdownMenuProps['items'] = [
+const items: IKitDropdownMenu['items'] = [
     {
         key: '1',
         label: (
@@ -28,7 +28,7 @@ const items: KitDropdownMenuProps['items'] = [
     }
 ];
 
-const itemsGroups: KitDropdownMenuProps['items'] = [
+const itemsGroups: IKitDropdownMenu['items'] = [
     {
         key: 'Group-1',
         type: 'group',

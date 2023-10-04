@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import Modal from './Modal';
 import {KitInfoOutlined, KitWarningOutlined} from '../../../icons';
 import {CheckOutlined, ExclamationOutlined} from '@ant-design/icons';
 import {KitButton, KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
-import {confirmDialogProps} from './types';
+import {IKitConfirmDialog} from './types';
 import {useLocale} from 'antd/lib/locale';
 import {useKitTheme} from '@theme/theme-context';
 
@@ -25,13 +25,13 @@ const ConfirmDialog = ({
     okText,
     close,
     ...props
-}: confirmDialogProps) => {
+}: IKitConfirmDialog) => {
     const {theme: kitTheme} = useKitTheme();
     const theme = kitTheme.components.Modal;
-
     const [locale] = useLocale('Modal');
 
-    let mergedIcon: React.ReactNode = icon;
+    let mergedIcon: ReactNode = icon;
+
     if (icon === true || icon === undefined) {
         switch (type) {
             case 'info':
@@ -57,17 +57,17 @@ const ConfirmDialog = ({
     }
     const mergedOkCancel = okCancel ?? type === 'confirm';
 
-    const onClick = actionFn => () => {
+    const _onClick = actionFn => () => {
         actionFn && actionFn();
         close?.();
     };
 
     const cancelButton = mergedOkCancel && (
-        <KitButton onClick={onClick(onCancel)}>{cancelText || locale?.cancelText}</KitButton>
+        <KitButton onClick={_onClick(onCancel)}>{cancelText || locale?.cancelText}</KitButton>
     );
 
     const OkButton = (
-        <KitButton primaryModal onClick={onClick(onOk)}>
+        <KitButton primaryModal onClick={_onClick(onOk)}>
             {okText || (mergedOkCancel ? locale?.okText : locale?.justOkText)}
         </KitButton>
     );

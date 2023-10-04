@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitTextAreaProps } from './types';
-declare const KitTextArea: React.FunctionComponent<KitTextAreaProps>;
+import { FunctionComponent } from 'react';
+import { IKitTextArea } from './types';
+declare const KitTextArea: FunctionComponent<IKitTextArea>;
 export default KitTextArea;

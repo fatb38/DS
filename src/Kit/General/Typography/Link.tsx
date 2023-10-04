@@ -1,17 +1,11 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import styled from 'styled-components';
 import {Typography} from 'antd';
-import {KitLinkProps, kitTextSize} from './types';
+import {IKitLink, IStyledKitLink} from './types';
 import {sizeTofontSize, getWeightClassname} from './commons';
-import {IKitTypographyTheme} from '@theme/types/components/General/Typography';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitTypography} from '@theme/types/general/typography';
 
-const StyledKitLink = styled(Typography.Link)<{
-    $theme: IKitTypographyTheme;
-    $typographyTheme: IKitTypography;
-    size: kitTextSize;
-}>`
+const StyledKitLink = styled(Typography.Link)<IStyledKitLink>`
     font-size: ${({$typographyTheme, size}) => $typographyTheme['fontSize' + sizeTofontSize[size] ?? 6]}px;
     line-height: ${({$typographyTheme, size}) => $typographyTheme['lineHeight' + sizeTofontSize[size] ?? 6]};
 
@@ -28,7 +22,7 @@ const StyledKitLink = styled(Typography.Link)<{
     }
 `;
 
-const KitLink = React.forwardRef<HTMLElement, KitLinkProps>(({size = 'medium', ...props}, ref) => {
+const KitLink = forwardRef<HTMLElement, IKitLink>(({size = 'medium', ...props}, ref) => {
     const {theme} = useKitTheme();
 
     return (

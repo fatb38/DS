@@ -1,3 +1,3 @@
-import React from 'react';
-declare const KitSnackBarProvider: React.FunctionComponent;
+import { FunctionComponent } from 'react';
+declare const KitSnackBarProvider: FunctionComponent;
 export default KitSnackBarProvider;

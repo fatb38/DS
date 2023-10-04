@@ -1,14 +1,11 @@
-import React, {useContext} from 'react';
+import React, {forwardRef, useContext} from 'react';
 import {Radio, RadioChangeEvent, RadioProps} from 'antd';
 import styled from 'styled-components';
-import {KitRadioProps} from './types';
+import {IStyledKitRadio, KitRadioProps} from './types';
 import RadioGroupContext from './context';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitRadioTheme} from '@theme/types/components/DataEntry/Radio';
 
-const StyledKitRadio = styled(Radio)<{
-    $theme: IKitRadioTheme;
-}>`
+const StyledKitRadio = styled(Radio)<IStyledKitRadio>`
     font-weight: ${({$theme}) => $theme.typography.fontWeight};
 
     // Uncheked
@@ -124,12 +121,12 @@ const StyledKitRadio = styled(Radio)<{
     }
 `;
 
-const KitRadio = React.forwardRef<any, KitRadioProps>((props, ref) => {
+const KitRadio = forwardRef<any, KitRadioProps>((props, ref) => {
     const groupContext = useContext(RadioGroupContext);
     const {theme} = useKitTheme();
     const {className, danger, ...rest} = props;
 
-    const onChange = (e: RadioChangeEvent) => {
+    const _onChange = (e: RadioChangeEvent) => {
         props.onChange?.(e);
         groupContext?.onChange?.(e);
     };
@@ -137,7 +134,7 @@ const KitRadio = React.forwardRef<any, KitRadioProps>((props, ref) => {
     const radioProps: RadioProps = {...rest};
     if (groupContext) {
         radioProps.name = groupContext.name;
-        radioProps.onChange = onChange;
+        radioProps.onChange = _onChange;
         radioProps.checked = props.value === groupContext.value;
         radioProps.disabled = radioProps.disabled ?? groupContext.disabled;
     }

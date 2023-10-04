@@ -1,17 +1,11 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import {styled} from 'styled-components';
 import {Typography} from 'antd';
-import {KitTextProps, kitTextSize} from './types';
+import {IKitText, IStyledKitText} from './types';
 import {sizeTofontSize, getWeightClassname} from './commons';
-import {IKitTypographyTheme} from '@theme/types/components/General/Typography';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitTypography} from '@theme/types/general/typography';
 
-const StyledKitText = styled(Typography.Text)<{
-    $theme: IKitTypographyTheme;
-    $typographyTheme: IKitTypography;
-    size: kitTextSize;
-}>`
+const StyledKitText = styled(Typography.Text)<IStyledKitText>`
     font-size: ${({$typographyTheme, size}) => $typographyTheme['fontSize' + sizeTofontSize[size] ?? 6]}px;
     line-height: ${({$typographyTheme, size}) => $typographyTheme['lineHeight' + sizeTofontSize[size] ?? 6]};
 
@@ -28,8 +22,9 @@ const StyledKitText = styled(Typography.Text)<{
     }
 `;
 
-const KitText = React.forwardRef<HTMLElement, KitTextProps>(({size = 'medium', ...props}, ref) => {
+const KitText = forwardRef<HTMLElement, IKitText>(({size = 'medium', ...props}, ref) => {
     const {theme} = useKitTheme();
+
     return (
         <StyledKitText
             ref={ref}

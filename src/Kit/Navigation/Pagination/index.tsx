@@ -1,11 +1,10 @@
 import React from 'react';
 import {Pagination} from 'antd';
 import styled from 'styled-components';
-import {KitPaginationProps} from './types';
+import {IKitPagination, IStyledAntdPagination} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitPaginationTheme} from '@theme/types/components/Navigation/Pagination';
 
-const StyledAntdPagination = styled(Pagination)<{$theme: IKitPaginationTheme}>`
+const StyledAntdPagination = styled(Pagination)<IStyledAntdPagination>`
     &.kit-pagination-bordered:not(.ant-pagination-mini) {
         .ant-pagination-item:not(.ant-pagination-item-active) {
             border-color: ${({$theme}) => $theme.pagination.border.default};
@@ -118,10 +117,10 @@ const StyledAntdPagination = styled(Pagination)<{$theme: IKitPaginationTheme}>`
     }
 `;
 
-export const KitPagination: React.FunctionComponent<KitPaginationProps> = paginationProps => {
+export const KitPagination: React.FunctionComponent<IKitPagination> = paginationProps => {
     const {theme} = useKitTheme();
 
-    const itemRender: KitPaginationProps['itemRender'] = (_, type, originalElement) => {
+    const _itemRender: IKitPagination['itemRender'] = (_, type, originalElement) => {
         // if (type === 'prev') {
         //     return <KitIcon icon={<KitDropdownOutlined />} className="kit-pagination-prev"/>;
         // }
@@ -133,7 +132,7 @@ export const KitPagination: React.FunctionComponent<KitPaginationProps> = pagina
 
     const mergedProps = {
         ...paginationProps,
-        itemRender,
+        itemRender: _itemRender,
         className: `${paginationProps.bordered ? 'kit-pagination-bordered' : ''} ${paginationProps.className || ''}`
     };
     return <StyledAntdPagination $theme={theme.components.Pagination} {...mergedProps} />;

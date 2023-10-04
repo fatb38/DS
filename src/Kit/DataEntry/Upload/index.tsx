@@ -1,11 +1,12 @@
 import {Upload as AntdUpload} from 'antd';
 import InternalUpload from './Upload';
 import InternalDragger from './Dragger';
-import {KitDraggerProps, KitUploadProps} from './types';
+import {IKitDragger, IKitUpload} from './types';
+import {FunctionComponent} from 'react';
 
-type UploadCompoundedComponent = React.FunctionComponent<KitUploadProps> & {
-    KitDragger: React.FunctionComponent<KitDraggerProps>;
-    LIST_IGNORE: String;
+type UploadCompoundedComponent = FunctionComponent<IKitUpload> & {
+    KitDragger: FunctionComponent<IKitDragger>;
+    LIST_IGNORE: string;
 };
 
 export const KitUpload = InternalUpload as unknown as UploadCompoundedComponent;

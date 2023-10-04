@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {KitSpace, KitButton, KitRadio} from '@kit/index';
-import {KitSpaceProps} from '@kit/Layout/Space/types';
+import {IKitSpace} from '@kit/Layout/Space/types';
 
 const App = () => {
-    const [size, setSize] = useState<KitSpaceProps['size']>('m');
+    const [size, setSize] = useState<IKitSpace['size']>('m');
 
     return (
         <>

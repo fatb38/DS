@@ -1,4 +1,4 @@
 import React from 'react';
-import { KitCheckboxProps } from './types';
-declare const KitCheckbox: React.ForwardRefExoticComponent<KitCheckboxProps & React.RefAttributes<any>>;
+import { IKitCheckbox } from './types';
+declare const KitCheckbox: React.ForwardRefExoticComponent<IKitCheckbox & React.RefAttributes<any>>;
 export default KitCheckbox;
