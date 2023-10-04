@@ -91,7 +91,7 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({icon, imageSrc, title,
                             className="kit-collapse-header-content-title"
                             size="large"
                             weight="medium"
-                            ellipsis={{rows: 1, tooltip: true}}
+                            ellipsis={{tooltip: true}}
                         >
                             {title}
                         </KitTypography.Text>
@@ -101,7 +101,7 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({icon, imageSrc, title,
                             className="kit-collapse-header-content-description"
                             size="large"
                             weight="regular"
-                            ellipsis={{rows: 1, tooltip: true}}
+                            ellipsis={{tooltip: true}}
                         >
                             {description}
                         </KitTypography.Text>
