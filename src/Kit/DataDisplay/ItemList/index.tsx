@@ -149,6 +149,10 @@ const StyledItemList = styled.div<IStyledKitItemList>`
         border: 1px solid ${({$theme}) => $theme.itemList.colors.border.disabled};
         pointer-events: none;
 
+        .kit-item-list-image-container img {
+            opacity: 0.5;
+        }
+
         .kit-item-list-text-container {
             .kit-item-list-text {
                 &.kit-item-list-title {

@@ -9,11 +9,11 @@ export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemL
             colors: {
                 background: {
                     default: colors.neutral.typography.white,
-                    disabled: colors.primary.primary100
+                    disabled: colors.secondary.mediumGrey.mediumGrey100
                 },
                 border: {
                     default: colors.neutral.typography.white,
-                    disabled: colors.primary.primary100,
+                    disabled: colors.secondary.mediumGrey.mediumGrey100,
                     hover: colors.primary.primary400
                 }
             }
@@ -25,7 +25,7 @@ export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemL
             },
             colors: {
                 default: colors.primary.primary600,
-                disabled: colors.primary.primary200
+                disabled: colors.secondary.mediumGrey.mediumGrey400
             }
         },
         description: {
@@ -35,20 +35,20 @@ export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemL
             },
             colors: {
                 default: colors.primary.primary600,
-                disabled: colors.primary.primary200
+                disabled: colors.secondary.mediumGrey.mediumGrey400
             }
         },
         collexp: {
             colors: {
                 default: colors.primary.primary600,
-                disabled: colors.primary.primary200,
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
                 hover: colors.primary.primary400
             }
         },
         rafter: {
             colors: {
                 default: colors.neutral.gray.gray400,
-                disabled: colors.primary.primary200,
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
                 hover: colors.primary.primary400
             }
         }
