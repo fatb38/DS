@@ -12,8 +12,8 @@ export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemL
                     disabled: colors.secondary.mediumGrey.mediumGrey100
                 },
                 border: {
-                    default: colors.neutral.typography.white,
-                    disabled: colors.secondary.mediumGrey.mediumGrey100,
+                    default: colors.secondary.mediumGrey.mediumGrey200,
+                    disabled: colors.secondary.mediumGrey.mediumGrey200,
                     hover: colors.primary.primary400
                 }
             }
