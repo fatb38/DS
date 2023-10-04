@@ -289,7 +289,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
                     className="kit-item-list-text kit-item-list-title"
                     size="large"
                     weight="bold"
-                    ellipsis={{rows: 1, tooltip: true}}
+                    ellipsis={{tooltip: true}}
                 >
                     {title}
                 </KitTypography.Text>
