@@ -8,11 +8,11 @@ export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemL
         itemList: {
             colors: {
                 background: {
-                    default: colors.neutral.typography.white,
+                    default: colors.neutral.white,
                     disabled: colors.primary.primary100
                 },
                 border: {
-                    default: colors.neutral.typography.white,
+                    default: colors.neutral.white,
                     disabled: colors.primary.primary100,
                     hover: colors.primary.primary400
                 }

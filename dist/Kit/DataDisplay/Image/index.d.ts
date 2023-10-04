@@ -1,1 +1,2 @@
-export declare const KitImage: any;
+import { KitImageCompoundedComponent } from './types';
+export declare const KitImage: KitImageCompoundedComponent;

@@ -8,7 +8,7 @@ export const getKitPaginationTokens = (generalTokens: IKitThemeGeneral): IKitPag
         colors: {
             background: {
                 container: {
-                    default: colors.neutral.typography.white,
+                    default: colors.neutral.white,
                     disabled: colors.neutral.background
                 }
             }
@@ -21,14 +21,14 @@ export const getKitPaginationTokens = (generalTokens: IKitThemeGeneral): IKitPag
             colors: {
                 background: {
                     default: 'transparent',
-                    hover: colors.neutral.typography.white
+                    hover: colors.neutral.white
                 },
                 typography: {
                     disabledActive: colors.neutral.typography.white
                 }
             },
             border: {
-                default: colors.neutral.typography.black60,
+                default: colors.neutral.black60,
                 hover: colors.primary.primary400
             }
         },
@@ -52,17 +52,17 @@ export const getKitPaginationTokens = (generalTokens: IKitThemeGeneral): IKitPag
         selector: {
             colors: {
                 background: {
-                    default: colors.neutral.typography.white
+                    default: colors.neutral.white
                 },
                 border: {
-                    default: colors.neutral.typography.black60
+                    default: colors.neutral.black60
                 }
             }
         },
         quickJumper: {
             colors: {
                 border: {
-                    default: colors.neutral.typography.black60
+                    default: colors.neutral.black60
                 }
             }
         }

@@ -16,7 +16,7 @@ export const mapPaginationKitTokenToAntdToken = (kitPaginationTheme: IKitPaginat
         colorPrimary: KitAristidThemeGeneral.colors.primary.primary400,
         colorPrimaryBorder: KitAristidThemeGeneral.colors.primary.primary400,
         colorPrimaryHover: KitAristidThemeGeneral.colors.primary.primary400,
-        colorBgTextActive: KitAristidThemeGeneral.colors.neutral.typography.black60,
-        colorTextDisabled: KitAristidThemeGeneral.colors.neutral.typography.black60
+        colorBgTextActive: KitAristidThemeGeneral.colors.neutral.black60,
+        colorTextDisabled: KitAristidThemeGeneral.colors.neutral.black60
     };
 };
