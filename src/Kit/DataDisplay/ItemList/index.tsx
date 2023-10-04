@@ -149,6 +149,10 @@ const StyledItemList = styled.div<IStyledKitItemList>`
         border: 1px solid ${({$theme}) => $theme.itemList.colors.border.disabled};
         pointer-events: none;
 
+        .kit-item-list-image-container img {
+            opacity: 0.5;
+        }
+
         .kit-item-list-text-container {
             .kit-item-list-text {
                 &.kit-item-list-title {
@@ -178,7 +182,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
     onSelectChange,
     tagNumber,
     onRafterClick,
-    isDisabled = false,
+    disabled = false,
     onClick,
     className,
     ...props
@@ -222,7 +226,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
             isSelectable && (
                 <div>
                     <KitCheckbox
-                        disabled={isDisabled}
+                        disabled={disabled}
                         onClick={e => e.stopPropagation()}
                         onChange={e => {
                             onSelectChange && onSelectChange(e);
@@ -363,7 +367,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
     const _getClasses = () => {
         let classes = className;
 
-        classes += isDisabled ? ' kit-item-list-disabled' : '';
+        classes += disabled ? ' kit-item-list-disabled' : '';
         classes += isClickable ? ' kit-item-list-clickable' : '';
 
         return classes;

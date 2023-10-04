@@ -7,7 +7,7 @@ const App = () => {
         <KitSpace direction="vertical" size="m">
             <div style={{width: '350px'}}>
                 <KitItemList
-                    isDisabled
+                    disabled
                     onSelectChange={e => console.log('selected', e.target.checked)}
                     picture={<KitImage src="public/images/tondeuse.png" />}
                     title="Tondeuse à gazon"

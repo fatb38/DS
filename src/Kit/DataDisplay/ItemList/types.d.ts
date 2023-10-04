@@ -10,7 +10,7 @@ export interface IKitItemList extends KitHTMLAttributes<HTMLDivElement> {
     onSelectChange?: (e: CheckboxChangeEvent) => void;
     tagNumber?: number;
     onRafterClick?: Function;
-    isDisabled?: boolean;
+    disabled?: boolean;
     onClick?: Function;
 }
 

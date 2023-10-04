@@ -126,8 +126,8 @@ export const argTypes = {
             category: 'ItemList'
         }
     },
-    isDisabled: {
-        name: 'isDisabled',
+    disabled: {
+        name: 'disabled',
         description: 'Disabled state of ItemList',
         control: {
             type: 'boolean'
