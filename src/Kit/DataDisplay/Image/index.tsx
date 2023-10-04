@@ -1,17 +1,15 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Image as AntdImage} from 'antd';
-import {KitImageProps} from './types';
+import {IKitImage} from './types';
 import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
 import {IKitImageTheme} from '@theme/types/components/DataDisplay/Image';
 
-interface StyledKitImageProps extends KitImageProps {
+const StyledImage = styled(AntdImage)<{
     $theme: IKitImageTheme;
     $rounded?: boolean;
     $bordered?: boolean;
-}
-
-const StyledImage = styled(AntdImage)<StyledKitImageProps>`
+}>`
     border-radius: ${({$rounded, $theme}) =>
         $rounded ? $theme.border.radius.rounded : $theme.border.radius.default}px;
     border: ${({$bordered, $theme}) =>
@@ -25,11 +23,11 @@ const StyledImage = styled(AntdImage)<StyledKitImageProps>`
     }
 `;
 
-type CompoundedComponent = React.FunctionComponent<KitImageProps> & {
+type CompoundedComponent = FunctionComponent<IKitImage> & {
     PreviewGroup: typeof AntdImage.PreviewGroup;
 };
 
-const Image: React.FunctionComponent<KitImageProps> = ({rounded, bordered, ...props}) => {
+const Image: FunctionComponent<IKitImage> = ({rounded, bordered, ...props}) => {
     const {theme} = useKitTheme();
 
     return <StyledImage $theme={theme.components.Image} $rounded={rounded} $bordered={bordered} {...props} />;

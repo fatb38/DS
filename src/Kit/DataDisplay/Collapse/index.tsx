@@ -1,11 +1,12 @@
+import {FunctionComponent} from 'react';
 import InternalCollapse from './Collapse';
 import InternalHeader from './Header';
 import InternalHeaderExtra from './HeaderExtra';
-import {KitHeaderProps, KitCollapseProps, KitHeaderExtraProps} from './types';
+import {IKitHeader, IKitCollapse, IKitHeaderExtra} from './types';
 
-type CompoundedComponent = React.FunctionComponent<KitCollapseProps> & {
-    Header: React.FunctionComponent<KitHeaderProps>;
-    HeaderExtra: React.FunctionComponent<KitHeaderExtraProps>;
+type CompoundedComponent = FunctionComponent<IKitCollapse> & {
+    Header: FunctionComponent<IKitHeader>;
+    HeaderExtra: FunctionComponent<IKitHeaderExtra>;
 };
 
 export const KitCollapse = InternalCollapse as unknown as CompoundedComponent;

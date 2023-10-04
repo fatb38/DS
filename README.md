@@ -175,9 +175,9 @@ touch types.d.ts
 ```tsx dark
 import React from 'react';
 import {Tooltip as AntdTooltip} from 'antd';
-import {KitTooltipProps} from './types';
+import {IKitTooltip} from './types';
 
-export const KitTooltip: React.FunctionComponent<KitTooltipProps> = tooltipProps => {
+export const KitTooltip: React.FunctionComponent<IKitTooltip> = tooltipProps => {
     return <AntdTooltip {...tooltipProps} />;
 };
 
@@ -192,7 +192,7 @@ import {HTMLAttributes} from 'react';
 
 type AntdTooltipTypesToOmit = 'color' | 'overlayClassName' | 'overlayStyle' | 'overlayInnerStyle';
 
-export interface KitTooltipProps extends Omit<TooltipProps, AntdTooltipTypesToOmit>, HTMLAttributes<HTMLDivElement> {}
+export interface IKitTooltip extends Omit<TooltipProps, AntdTooltipTypesToOmit>, HTMLAttributes<HTMLDivElement> {}
 ```
 
 5. Export your component in `/Kit/05-DataDisplay/index.tsx`

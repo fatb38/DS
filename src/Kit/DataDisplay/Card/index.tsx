@@ -1,7 +1,7 @@
-import React, {CSSProperties, ReactElement, ReactNode, cloneElement} from 'react';
+import React, {CSSProperties, FunctionComponent, ReactElement, ReactNode, cloneElement} from 'react';
 import {Card as AntdCard} from 'antd';
 import {styled} from 'styled-components';
-import IKitCardProps from './types';
+import IKitCard from './types';
 import {KitIcon, KitTypography} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
 import {useKitTheme} from '@theme/theme-context';
@@ -201,7 +201,7 @@ const getActions = (disabled: boolean, actions?: ReactNode[]) => {
     return actions;
 };
 
-export const KitCard: React.FunctionComponent<IKitCardProps> = ({
+export const KitCard: FunctionComponent<IKitCard> = ({
     style,
     cover,
     extra,

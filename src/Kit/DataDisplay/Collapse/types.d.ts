@@ -1,15 +1,13 @@
 import {CollapseProps} from 'antd';
-import {ReactNode, MouseEvent} from 'react';
+import {ReactNode, MouseEvent, ReactInstance, KeyboardEvent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
 
 type AntdCollapseTypesToOmit = 'bordered' | 'expandIconPosition' | 'ghost';
 
-export interface KitCollapseProps
-    extends Omit<CollapseProps, AntdCollapseTypesToOmit>,
-        KitHTMLAttributes<HTMLDivElement> {}
+export interface IKitCollapse extends Omit<CollapseProps, AntdCollapseTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {}
 
-export interface KitHeaderProps {
+export interface IKitHeader {
     icon?: ReactNode;
     imageSrc?: string;
     title?: string;
@@ -21,19 +19,19 @@ export interface IKitMenuInfo {
     key: string;
     keyPath: string[];
     /** @deprecated This will not support in future. You should avoid to use this */
-    item: React.ReactInstance;
-    domEvent: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>;
+    item: ReactInstance;
+    domEvent: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>;
 }
 
-interface KitHeaderExtraAction {
+interface IKitHeaderExtraAction {
     icon: ReactNode;
     label: string;
     onClick?: (e: MouseEvent<HTMLElement> | IKitMenuInfo) => void;
 }
 
-export interface KitHeaderExtraActions extends Array<KitHeaderExtraAction> {}
+export interface IKitHeaderExtraActions extends Array<IKitHeaderExtraAction> {}
 
-export interface KitHeaderExtraProps {
+export interface IKitHeaderExtra {
     onSelectChange?: (e: CheckboxChangeEvent) => void;
-    actions?: KitHeaderExtraActions;
+    actions?: IKitHeaderExtraActions;
 }

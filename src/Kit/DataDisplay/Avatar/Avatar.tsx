@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Avatar as AntdAvatar} from 'antd';
-import {KitAvatarProps, KitAvatarColorType} from './types';
+import {IKitAvatar, KitAvatarColorType} from './types';
 import {css, styled} from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
 import {IKitAvatarTheme} from '@theme/types/components/DataDisplay/Avatar';
@@ -44,7 +44,7 @@ const StyledAntdAvatar = styled(AntdAvatar)<{
     }
 `;
 
-const KitAvatar: React.FunctionComponent<KitAvatarProps> = ({color = 'default', ...avatarProps}) => {
+const KitAvatar: FunctionComponent<IKitAvatar> = ({color = 'default', ...avatarProps}) => {
     const {theme} = useKitTheme();
     return <StyledAntdAvatar $theme={theme.components.Avatar} $color={color} {...avatarProps} />;
 };

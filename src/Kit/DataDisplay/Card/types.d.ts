@@ -12,7 +12,7 @@ type AntdCardTypesToOmit =
     | 'tabBarExtraContent'
     | 'onTabChange';
 
-export default interface IKitCardProps extends Omit<CardProps, AntdCardTypesToOmit> {
+export default interface IKitCard extends Omit<CardProps, AntdCardTypesToOmit> {
     disabled?: boolean;
     contentTitle?: string;
     contentDescription?: string;

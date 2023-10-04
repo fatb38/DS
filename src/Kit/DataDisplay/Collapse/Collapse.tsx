@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Collapse as AntdCollapse} from 'antd';
-import {KitCollapseProps} from './types';
+import {IKitCollapse} from './types';
 import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
 import {IKitCollapseTheme} from '@theme/types/components/DataDisplay/Collapse';
@@ -47,7 +47,7 @@ const StyledCollapse = styled(AntdCollapse)<{
     }
 `;
 
-export const KitCollapse: React.FunctionComponent<KitCollapseProps> = collapseProps => {
+export const KitCollapse: FunctionComponent<IKitCollapse> = collapseProps => {
     const {theme} = useKitTheme();
 
     return <StyledCollapse $theme={theme.components.Collapse} {...collapseProps} />;

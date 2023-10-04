@@ -1,5 +1,5 @@
 import React from 'react';
-import {IKitColorbarProps, CardColor} from './types';
+import {IKitColorbar, CardColor} from './types';
 import styled from 'styled-components';
 import {KitTooltip} from '../Tooltip';
 import {useKitTheme} from '@theme/theme-context';
@@ -27,7 +27,7 @@ const getSwatchStyle = (item: CardColor) => {
     };
 };
 
-const KitColorbar = (props: IKitColorbarProps) => {
+const KitColorbar = (props: IKitColorbar) => {
     const {theme} = useKitTheme();
     return (
         <Container $theme={theme.components.ItemCard} $column={props.vertical ?? false} className={props.className}>

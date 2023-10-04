@@ -1,9 +1,10 @@
+import {FunctionComponent} from 'react';
 import InternalAvatar from './Avatar';
 import InternalAvatarGroup from './AvatarGroup';
-import {KitAvatarGroupProps, KitAvatarProps} from './types';
+import {IKitAvatarGroup, IKitAvatar} from './types';
 
-type CompoundedComponent = React.FunctionComponent<KitAvatarProps> & {
-    Group: React.FunctionComponent<KitAvatarGroupProps>;
+type CompoundedComponent = FunctionComponent<IKitAvatar> & {
+    Group: FunctionComponent<IKitAvatarGroup>;
 };
 
 export const KitAvatar = InternalAvatar as unknown as CompoundedComponent;

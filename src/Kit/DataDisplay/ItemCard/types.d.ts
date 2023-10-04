@@ -8,14 +8,14 @@ export type CardColor = {
     color: string;
 };
 
-export interface IKitColorbarProps {
+export interface IKitColorbar {
     colors?: CardColor[] | null;
     vertical?: boolean;
     className?: string;
 }
 
 //TODO change title wording and delete omit<title>
-export default interface IKitItemCardProps extends Omit<KitHTMLAttributes<HTMLDivElement>, 'title'> {
+export default interface IKitItemCard extends Omit<KitHTMLAttributes<HTMLDivElement>, 'title'> {
     vertical?: boolean;
     disabled?: boolean;
     colors?: CardColor[] | null;

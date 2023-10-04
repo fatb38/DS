@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import styled from 'styled-components';
 import {EyeOutlined} from '@ant-design/icons';
-import {KitHeaderProps} from './types';
+import {IKitHeader} from './types';
 import {KitTypography} from '@kit/General/';
 import {KitImage} from '@kit/DataDisplay';
 import {KitTag} from '@kit/DataEntry/';
@@ -50,13 +50,7 @@ const StyledHeader = styled.div`
     }
 `;
 
-export const KitHeader: React.FunctionComponent<KitHeaderProps> = ({
-    icon,
-    imageSrc,
-    title,
-    description,
-    tagContent
-}) => {
+export const KitHeader: FunctionComponent<IKitHeader> = ({icon, imageSrc, title, description, tagContent}) => {
     const getIcon = () => {
         return icon !== undefined && <div className="kit-collapse-header-icon">{icon}</div>;
     };

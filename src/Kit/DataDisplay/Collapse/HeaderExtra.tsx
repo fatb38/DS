@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import styled from 'styled-components';
-import {IKitMenuInfo, KitHeaderExtraProps} from './types';
+import {IKitMenuInfo, IKitHeaderExtra} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
@@ -30,7 +30,7 @@ const StyledHeaderExtra = styled.div`
     }
 `;
 
-export const KitHeaderExtra: React.FunctionComponent<KitHeaderExtraProps> = ({onSelectChange, actions}) => {
+export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({onSelectChange, actions}) => {
     const getCheckbox = () => {
         return (
             onSelectChange !== undefined && (

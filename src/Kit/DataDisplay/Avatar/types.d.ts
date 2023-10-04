@@ -7,10 +7,10 @@ type AntdAvatarGroupTypesToOmit = 'maxStyle';
 
 export type KitAvatarColorType = 'default' | 'blueInvert' | string;
 
-export interface KitAvatarProps extends Omit<AvatarProps, AntdAvatarTypesToOmit>, KitHTMLAttributes<HTMLSpanElement> {
+export interface IKitAvatar extends Omit<AvatarProps, AntdAvatarTypesToOmit>, KitHTMLAttributes<HTMLSpanElement> {
     color?: KitAvatarColorType;
 }
 
-export interface KitAvatarGroupProps
+export interface IKitAvatarGroup
     extends Omit<GroupProps, AntdAvatarGroupTypesToOmit>,
-    KitHTMLAttributes<HTMLDivElement> {}
+        KitHTMLAttributes<HTMLDivElement> {}

@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, {FunctionComponent, cloneElement, useState} from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
-import IKitItemCardProps from './types';
+import IKitItemCard from './types';
 import KitColorbar from './ColorBar';
 import {EditOutlined, EyeOutlined} from '@ant-design/icons';
 import {KitTypography, KitButton} from '@kit/General/';
-import {KitImageProps} from '@kit/DataDisplay/Image/types';
+import {IKitImage} from '@kit/DataDisplay/Image/types';
 import {KitIconProps} from '@kit/General/Icon/types';
-import {KitAvatarProps} from '../Avatar/types';
+import {IKitAvatar} from '../Avatar/types';
 import {KitCheckbox, KitTag} from '@kit/DataEntry';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {IKitItemCardTheme} from '@theme/types/components/DataDisplay/ItemCard';
@@ -305,7 +305,7 @@ const getPicture = (picture, fullWidthAvatar) => {
         default:
             return null;
     }
-    const Component = React.cloneElement(picture, cloneProps as KitImageProps & KitIconProps & KitAvatarProps);
+    const Component = cloneElement(picture, cloneProps as IKitImage & KitIconProps & IKitAvatar);
     return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
 };
 
@@ -315,7 +315,7 @@ const getActions = (actions, disabled) => {
     }
 
     return actions.map((button, index) =>
-        React.cloneElement(button, {
+        cloneElement(button, {
             key: index,
             type: 'default',
             disabled: disabled,
@@ -331,7 +331,7 @@ const getSWrapperClassName = (vertical, disabled, className) =>
         'kit-card-disabled': disabled
     });
 
-export const KitItemCard: React.FunctionComponent<IKitItemCardProps> = ({
+export const KitItemCard: FunctionComponent<IKitItemCard> = ({
     vertical,
     colors,
     fullWidthAvatar,

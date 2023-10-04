@@ -14,6 +14,6 @@ type AntdTreeTypesToOmit =
     | 'onDrop'
     | 'filterTreeNode';
 
-export interface KitTreeProps
+export interface IKitTree
     extends Omit<TreeProps<BasicDataNode | DataNode>, AntdTreeTypesToOmit>,
         KitHTMLAttributes<HTMLDivElement> {}

@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {FunctionComponent, cloneElement, useState} from 'react';
 import {styled} from 'styled-components';
-import {KitItemListProps} from './types';
+import {IKitItemList} from './types';
 import {KitCheckbox, KitTag} from '@kit/DataEntry/';
 import {KitTypography} from '@kit/General/';
 import {RightOutlined, EyeOutlined} from '@ant-design/icons';
@@ -175,7 +175,7 @@ const StyledItemList = styled.div<{
     }
 `;
 
-export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
+export const KitItemList: FunctionComponent<IKitItemList> = ({
     title,
     description,
     picture,
@@ -274,7 +274,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
                 break;
         }
 
-        let Component = React.cloneElement(pictureJsx, cloneProps);
+        let Component = cloneElement(pictureJsx, cloneProps);
 
         return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
     };
