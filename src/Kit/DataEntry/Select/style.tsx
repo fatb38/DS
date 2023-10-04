@@ -1,10 +1,8 @@
 import styled, {createGlobalStyle} from 'styled-components';
-import {IKitSelectTheme} from '@theme/types/components/DataEntry/Select';
 import {Select as AntdSelect} from 'antd';
+import {IStyledKitSelect, IStyledKitSelectColorBadge, IStyledKitSelectDropDown} from './types';
 
-export const StyledBadge = styled.div<{
-    $theme: IKitSelectTheme['ColorBadge'];
-}>`
+export const StyledBadge = styled.div<IStyledKitSelectColorBadge>`
     display: inline-block;
     vertical-align: middle;
 
@@ -45,9 +43,7 @@ export const getPopupStyle = placement => {
     }
 };
 
-export const SelectDropDownStyle = createGlobalStyle<{
-    $theme: IKitSelectTheme['DropDown'];
-}>`
+export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
     .ant-select-dropdown {
         background: transparent;
         overflow: visible;
@@ -90,7 +86,10 @@ export const SelectDropDownStyle = createGlobalStyle<{
     }
 
     .kit-select-dropdown-content {
-        width: calc(100% + 42px);
+        width: calc(100% + 62px);
+    }
+
+    .rc-virtual-list-holder {
         box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
         background-color: ${({$theme}) => $theme.colors.background.default};
         padding: 10px;
@@ -152,37 +151,43 @@ export const SelectDropDownStyle = createGlobalStyle<{
     }
 
     .kit-select-dropdown-bottom {
-        .kit-select-dropdown-content {
+        .rc-virtual-list-holder {
             border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
-            transform: translateX(-1px) translateY(-3px);
+            transform: translate(0px, -4px);
+        }
+
+        .kit-select-dropdown-content {
+            .rc-virtual-list-holder {
+                transform: translate(-1px, -3px);
+            }
         }
 
         &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content,
-        &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content,
-        &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder,
         &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder {
             border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
         }
     }
 
     .kit-select-dropdown-top {
-        .kit-select-dropdown-content {
+        .rc-virtual-list-holder {
             border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
-            transform: translateX(-1px) translateY(3px);
+            transform: translate(0px, 4px);
+        }
+
+        .kit-select-dropdown-content {
+            .rc-virtual-list-holder {
+                transform: translate(-1px, 3px);
+            }
         }
 
         &.ant-select-dropdown-placement-bottomLeft .kit-select-dropdown-content,
-        &.ant-select-dropdown-placement-bottomRight .kit-select-dropdown-content,
-        &.ant-select-dropdown-placement-bottomLeft .rc-virtual-list-holder,
         &.ant-select-dropdown-placement-bottomRight .rc-virtual-list-holder {
             border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
         }
     }
 `;
 
-export const StyledKitSelect = styled(AntdSelect)<{
-    $theme: IKitSelectTheme;
-}>`
+export const StyledKitSelect = styled(AntdSelect)<IStyledKitSelect>`
     &.ant-select.ant-select-compact-item {
         &:not(.ant-select-compact-last-item) {
             margin-inline-end: 0px;

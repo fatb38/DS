@@ -4,6 +4,16 @@ import {SearchOutlined} from '@ant-design/icons';
 import {KitInput} from '@kit/DataEntry/';
 import type {IKitAutoComplete} from './types';
 import KitInputWrapper from '../Input/InputWrapper';
+import styled from 'styled-components';
+
+export const StyledKitAutoComplete = styled(AntdAutoComplete)`
+    &.ant-select-auto-complete.ant-select-open {
+        .ant-input-affix-wrapper {
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+    }
+`;
 
 export const KitAutoComplete: FunctionComponent<IKitAutoComplete> = ({
     allowClear,
@@ -22,7 +32,7 @@ export const KitAutoComplete: FunctionComponent<IKitAutoComplete> = ({
 }) => {
     return (
         <KitInputWrapper label={label} helper={helper} disabled={disabled} status={status}>
-            <AntdAutoComplete
+            <StyledKitAutoComplete
                 {...props}
                 disabled={disabled}
                 popupClassName={`ant-select-dropdown kit-select-dropdown-bottom ${popupClassName || ''}`}
@@ -37,7 +47,7 @@ export const KitAutoComplete: FunctionComponent<IKitAutoComplete> = ({
                     value={value}
                     onBlur={onBlur}
                 />
-            </AntdAutoComplete>
+            </StyledKitAutoComplete>
         </KitInputWrapper>
     );
 };
