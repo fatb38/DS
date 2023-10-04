@@ -153,12 +153,12 @@ export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
     .kit-select-dropdown-bottom {
         .rc-virtual-list-holder {
             border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
-            transform: translateX(0px) translateY(-4px);
+            transform: translate(0px, -4px);
         }
 
         .kit-select-dropdown-content {
             .rc-virtual-list-holder {
-                transform: translateX(-1px) translateY(-3px);
+                transform: translate(-1px, -3px);
             }
         }
 
@@ -171,12 +171,12 @@ export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
     .kit-select-dropdown-top {
         .rc-virtual-list-holder {
             border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
-            transform: translateX(0px) translateY(4px);
+            transform: translate(0px, 4px);
         }
 
         .kit-select-dropdown-content {
             .rc-virtual-list-holder {
-                transform: translateX(-1px) translateY(3px);
+                transform: translate(-1px, 3px);
             }
         }
 
