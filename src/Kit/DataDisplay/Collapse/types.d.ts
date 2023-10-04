@@ -1,5 +1,5 @@
 import {CollapseProps} from 'antd';
-import {ReactNode, MouseEvent, ReactInstance, KeyboardEvent} from 'react';
+import {ReactNode, MouseEvent, ReactInstance, KeyboardEvent, FunctionComponent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {IKitCollapseTheme} from '@theme/types/components/DataDisplay/Collapse';
@@ -40,3 +40,8 @@ export interface IKitHeaderExtra {
 export interface IStyledKitCollapse {
     $theme: IKitCollapseTheme;
 }
+
+export type KitCollapseCompoundedComponent = FunctionComponent<IKitCollapse> & {
+    Header: FunctionComponent<IKitHeader>;
+    HeaderExtra: FunctionComponent<IKitHeaderExtra>;
+};

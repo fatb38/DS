@@ -2,6 +2,7 @@ import {AvatarProps} from 'antd';
 import {GroupProps} from 'antd/lib/avatar';
 import {KitHTMLAttributes} from '../../../types';
 import {IKitAvatarTheme} from '@theme/types/components/DataDisplay/Avatar';
+import {FunctionComponent} from 'react';
 
 type AntdAvatarTypesToOmit = '';
 type AntdAvatarGroupTypesToOmit = 'maxStyle';
@@ -20,3 +21,7 @@ export interface IStyledKitAvatar {
 export interface IKitAvatarGroup
     extends Omit<GroupProps, AntdAvatarGroupTypesToOmit>,
         KitHTMLAttributes<HTMLDivElement> {}
+
+export type KitAvatarCompoundedComponent = FunctionComponent<IKitAvatar> & {
+    Group: FunctionComponent<IKitAvatarGroup>;
+};

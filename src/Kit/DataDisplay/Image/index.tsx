@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {Image as AntdImage} from 'antd';
-import {IKitImage, IStyledKitImage} from './types';
+import {IKitImage, IStyledKitImage, KitImageCompoundedComponent} from './types';
 import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
 
@@ -18,17 +18,13 @@ const StyledImage = styled(AntdImage)<IStyledKitImage>`
     }
 `;
 
-type CompoundedComponent = FunctionComponent<IKitImage> & {
-    PreviewGroup: typeof AntdImage.PreviewGroup;
-};
-
 const Image: FunctionComponent<IKitImage> = ({rounded, bordered, ...props}) => {
     const {theme} = useKitTheme();
 
     return <StyledImage $theme={theme.components.Image} $rounded={rounded} $bordered={bordered} {...props} />;
 };
 
-export const KitImage = Image as unknown as CompoundedComponent;
+export const KitImage = Image as KitImageCompoundedComponent;
 
 // TODO find out why it says previewGroup isn't in type, because it is
 // @ts-ignore
