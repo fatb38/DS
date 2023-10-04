@@ -1,7 +1,8 @@
 import {IKitColorsPalette} from '@theme/types/general/colors';
 import {ButtonProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
-import {CSSProperties} from 'react';
+import {CSSProperties, ForwardRefExoticComponent, RefAttributes} from 'react';
+import {IKitButtonThemePropeties} from '@theme/types/components/General/Button';
 
 export type KitButtonType = 'primary' | 'default' | 'text' | 'link' | 'segmented';
 
@@ -9,7 +10,7 @@ export type AntdButtonTypesToOmit = 'type' | 'size' | 'ghost' | 'shape' | 'style
 
 export type KitButtonIconSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
-export interface IKitButtonProps extends Omit<ButtonProps, AntdButtonTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
+export interface IKitButton extends Omit<ButtonProps, AntdButtonTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     type?: KitButtonType;
     segmentedActived?: boolean;
     segmentedChecked?: boolean;
@@ -19,3 +20,10 @@ export interface IKitButtonProps extends Omit<ButtonProps, AntdButtonTypesToOmit
     wrapperClassName?: string;
     wrapperStyle?: CSSProperties;
 }
+
+export interface IStyledKitButton {
+    $theme: IKitButtonThemePropeties;
+    $iconSize?: KitButtonIconSize;
+}
+
+export type KitButtonCompoundedComponent = ForwardRefExoticComponent<IKitButton & RefAttributes<HTMLElement>>;

@@ -1,5 +1,6 @@
 import {IKitTypographyTheme} from '@theme/types/components/General/Typography';
 import {createGlobalStyle, css} from 'styled-components';
+import {IStyledKitTypography} from './types';
 
 const fontBaseCss = ($theme: IKitTypographyTheme) => css`
     font-family: 'Inter';
@@ -8,9 +9,7 @@ const fontBaseCss = ($theme: IKitTypographyTheme) => css`
     color: ${$theme.colors.typography.default};
 `;
 
-export const TypographyStyle = createGlobalStyle<{
-    $theme: IKitTypographyTheme;
-}>`
+export const TypographyStyle = createGlobalStyle<IStyledKitTypography>`
     .ant-typography {
         ${({$theme}) => fontBaseCss($theme)};
     }

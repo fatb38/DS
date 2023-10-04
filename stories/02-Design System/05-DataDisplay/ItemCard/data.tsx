@@ -68,7 +68,7 @@ export const argTypes = {
         },
         table: {
             type: {
-                summary: 'ReactElement<IKitAvatar> | ReactElement<KitIconProps> | ReactElement<IKitImage>'
+                summary: 'ReactElement<IKitAvatar> | ReactElement<IKitIcon> | ReactElement<IKitImage>'
             },
             category: 'ItemCard'
         }
