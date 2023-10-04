@@ -6,7 +6,7 @@ import KitColorbar from './ColorBar';
 import {EditOutlined, EyeOutlined} from '@ant-design/icons';
 import {KitTypography, KitButton} from '@kit/General/';
 import {IKitImage} from '@kit/DataDisplay/Image/types';
-import {KitIconProps} from '@kit/General/Icon/types';
+import {IKitIcon} from '@kit/General/Icon/types';
 import {IKitAvatar} from '../Avatar/types';
 import {KitCheckbox, KitTag} from '@kit/DataEntry';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
@@ -300,7 +300,7 @@ const _getPicture = (picture, fullWidthAvatar) => {
         default:
             return null;
     }
-    const Component = cloneElement(picture, cloneProps as IKitImage & KitIconProps & IKitAvatar);
+    const Component = cloneElement(picture, cloneProps as IKitImage & IKitIcon & IKitAvatar);
     return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
 };
 

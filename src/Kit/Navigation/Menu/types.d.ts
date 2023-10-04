@@ -1,14 +1,14 @@
 import {IKitInput} from '../../DataEntry/Input/types';
-import {IKitButtonProps} from '../../General/Button/types';
 import {ReactElement, ReactNode, MouseEvent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
+import {IKitButton} from '@kit/General/Button/types';
 import {IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
 
 export interface IKitMenu extends KitHTMLAttributes<HTMLDivElement> {
     title?: string;
-    segmentedButton?: ReactElement<IKitButtonProps>;
+    segmentedButton?: ReactElement<IKitButton>;
     primaryInput?: ReactElement<IKitInput>;
     secondaryInput?: ReactElement<IKitInput>;
     onCloseClick?: Function;
