@@ -1,11 +1,11 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
-import {ConfigUpdate, confirmDialogProps} from './types';
+import {ConfigUpdate, IKitConfirmDialog} from './types';
 import ConfirmDialog from './ConfirmDialog';
 import uuid from 'react-uuid';
 import {KitApp} from '@kit/App';
 
-export default function confirm(config: confirmDialogProps) {
+export default function confirm(config: IKitConfirmDialog) {
     const container = document.createDocumentFragment();
     const root = createRoot(container);
     let portalClassName = 'reactPortal-' + uuid();
@@ -52,7 +52,7 @@ export default function confirm(config: confirmDialogProps) {
         destroy(args);
     }
 
-    function update(configUpdate: ConfigUpdate) {
+    function _update(configUpdate: ConfigUpdate) {
         if (typeof configUpdate === 'function') {
             currentConfig = configUpdate(currentConfig);
         } else {
@@ -61,45 +61,47 @@ export default function confirm(config: confirmDialogProps) {
                 ...configUpdate
             };
         }
+
         render(currentConfig);
     }
+
     render(currentConfig);
 
     return {
         destroy: close,
-        update
+        update: _update
     };
 }
 
-export function withWarn(props: confirmDialogProps): confirmDialogProps {
+export function withWarn(props: IKitConfirmDialog): IKitConfirmDialog {
     return {
         ...props,
         type: 'warning'
     };
 }
 
-export function withInfo(props: confirmDialogProps): confirmDialogProps {
+export function withInfo(props: IKitConfirmDialog): IKitConfirmDialog {
     return {
         ...props,
         type: 'info'
     };
 }
 
-export function withSuccess(props: confirmDialogProps): confirmDialogProps {
+export function withSuccess(props: IKitConfirmDialog): IKitConfirmDialog {
     return {
         ...props,
         type: 'success'
     };
 }
 
-export function withError(props: confirmDialogProps): confirmDialogProps {
+export function withError(props: IKitConfirmDialog): IKitConfirmDialog {
     return {
         ...props,
         type: 'error'
     };
 }
 
-export function withConfirm(props: confirmDialogProps): confirmDialogProps {
+export function withConfirm(props: IKitConfirmDialog): IKitConfirmDialog {
     return {
         ...props,
         type: 'confirm'

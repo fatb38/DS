@@ -1,16 +1,12 @@
-import React, {useState} from 'react';
+import React, {FunctionComponent, cloneElement, useState} from 'react';
 import {styled} from 'styled-components';
-import {KitItemListProps} from './types';
+import {IKitItemList, IStyledKitItemList} from './types';
 import {KitCheckbox, KitTag} from '@kit/DataEntry/';
 import {KitTypography} from '@kit/General/';
 import {RightOutlined, EyeOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
 
-const StyledItemList = styled.div<{
-    $theme: IKitItemListTheme;
-    $gridTemplateColumns: string;
-}>`
+const StyledItemList = styled.div<IStyledKitItemList>`
     display: grid;
     grid-template-columns: ${({$gridTemplateColumns}) => $gridTemplateColumns};
     align-items: center;
@@ -175,7 +171,7 @@ const StyledItemList = styled.div<{
     }
 `;
 
-export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
+export const KitItemList: FunctionComponent<IKitItemList> = ({
     title,
     description,
     picture,
@@ -200,7 +196,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
     const isSelectable = onSelectChange !== undefined;
     const hasRafter = onRafterClick !== undefined;
 
-    const generateGridTemplateColumns = () => {
+    const _generateGridTemplateColumns = () => {
         let gridTemplateColumns = '';
 
         // Checkbox
@@ -221,7 +217,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
         return gridTemplateColumns;
     };
 
-    const getCheckbox = () => {
+    const _getCheckbox = () => {
         return (
             isSelectable && (
                 <div>
@@ -237,7 +233,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
         );
     };
 
-    const getPicture = () => {
+    const _getPicture = () => {
         const pictureJsx = picture as JSX.Element;
 
         if (!pictureJsx || !pictureJsx.type) {
@@ -274,12 +270,12 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
                 break;
         }
 
-        let Component = React.cloneElement(pictureJsx, cloneProps);
+        let Component = cloneElement(pictureJsx, cloneProps);
 
         return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
     };
 
-    const getContent = () => {
+    const _getContent = () => {
         let classes = 'kit-item-list-text-container';
         classes += hasTitle && hasDescription ? ' kit-item-list-text-container-with-gap' : '';
 
@@ -338,7 +334,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
         );
     };
 
-    const getTag = () => {
+    const _getTag = () => {
         return (
             hasTag && (
                 <div className="kit-item-list-tag">
@@ -348,7 +344,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
         );
     };
 
-    const getRafter = () => {
+    const _getRafter = () => {
         return (
             hasRafter && (
                 <div
@@ -364,7 +360,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
         );
     };
 
-    const getClasses = () => {
+    const _getClasses = () => {
         let classes = className;
 
         classes += isDisabled ? ' kit-item-list-disabled' : '';
@@ -375,20 +371,20 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
 
     return (
         <StyledItemList
-            className={getClasses()}
+            className={_getClasses()}
             $theme={theme.components.ItemList}
-            $gridTemplateColumns={generateGridTemplateColumns()}
+            $gridTemplateColumns={_generateGridTemplateColumns()}
             onClick={e => {
                 e.stopPropagation();
                 onClick && onClick();
             }}
             {...props}
         >
-            {getCheckbox()}
-            {getPicture()}
-            {getContent()}
-            {getTag()}
-            {getRafter()}
+            {_getCheckbox()}
+            {_getPicture()}
+            {_getContent()}
+            {_getTag()}
+            {_getRafter()}
         </StyledItemList>
     );
 };

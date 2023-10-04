@@ -1,8 +1,9 @@
 import {KitHTMLAttributes} from '../../../types';
 import {ReactNode} from 'react';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
+import {IKitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
 
-export interface KitItemListProps extends KitHTMLAttributes<HTMLDivElement> {
+export interface IKitItemList extends KitHTMLAttributes<HTMLDivElement> {
     title?: string;
     description?: string;
     picture?: ReactNode;
@@ -11,4 +12,9 @@ export interface KitItemListProps extends KitHTMLAttributes<HTMLDivElement> {
     onRafterClick?: Function;
     isDisabled?: boolean;
     onClick?: Function;
+}
+
+export interface IStyledKitItemList {
+    $theme: IKitItemListTheme;
+    $gridTemplateColumns: string;
 }

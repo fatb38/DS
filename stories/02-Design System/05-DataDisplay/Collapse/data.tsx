@@ -185,14 +185,14 @@ export const argTypes = {
         description: '',
         table: {
             type: {
-                summary: 'KitHeaderExtraActions'
+                summary: 'IKitHeaderExtraActions'
             },
             category: 'Collapse.HeaderExtra'
         }
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     return (
         <KitCollapse
             {...args}

@@ -1,6 +1,7 @@
-import {HTMLAttributes, ReactNode} from 'react';
+import {FunctionComponent, HTMLAttributes, ReactNode} from 'react';
 import type ReactModal from 'react-modal';
 import {KitHTMLAttributes} from '../../../types';
+import {IKitModalTheme} from '@theme/types/components/Feedback/Modal';
 
 type propsToOmit =
     | 'bodyOpenClassName'
@@ -12,7 +13,7 @@ type propsToOmit =
     | 'contentElement';
 
 //todo delete Omit<title role className style>
-export interface KitModalProps
+export interface IKitModal
     extends Omit<ReactModal.Props, propsToOmit>,
         Omit<KitHTMLAttributes<HTMLDivElement>, 'title' | 'role' | 'className' | 'style'> {
     width?: string;
@@ -22,7 +23,7 @@ export interface KitModalProps
     footer?: ReactNode;
 }
 
-export interface confirmDialogProps extends KitModalProps {
+export interface IKitConfirmDialog extends IKitModal {
     type: 'info' | 'success' | 'warning' | 'error' | 'warn' | 'confirm';
     image?: string;
     icon?: ReactNode;
@@ -37,9 +38,25 @@ export interface confirmDialogProps extends KitModalProps {
     onOk?: () => {};
 }
 
+export interface IStyledKitModal {
+    $theme: IKitModalTheme;
+}
+
+export interface IStyledKitModalOverlay {
+    $theme: IKitModalTheme['Overlay'];
+}
+
 export type ConfigUpdate = confirmDialogProps | ((prevConfig: confirmDialogProps) => confirmDialogProps);
 
-export type ModalFunc = (props: confirmDialogProps) => {
+type ModalFunc = (props: confirmDialogProps) => {
     destroy: () => void;
     update: (configUpdate: ConfigUpdate) => void;
+};
+
+export type KitModalCompoundedComponent = FunctionComponent<IKitModal> & {
+    info: ModalFunc;
+    success: ModalFunc;
+    error: ModalFunc;
+    warning: ModalFunc;
+    confirm: ModalFunc;
 };

@@ -1,16 +1,12 @@
-import React, {createContext, useContext} from 'react';
+import React, {Key, createContext, useContext} from 'react';
 import {CheckCircleOutlined, CloseCircleOutlined, ExclamationCircleOutlined, WarningOutlined} from '@ant-design/icons';
 import {KitIcon} from '@kit/General/Icon';
 import notification from 'antd/lib/notification';
 import {NotificationInstance} from 'antd/lib/notification/interface';
-import {KitNotification, KitNotificationArgsProps} from './types';
+import {IKitNotificationArgs, IKitNotificationContext} from './types';
 import {useKitTheme} from '@theme/theme-context';
 
-interface KitNotificationContext {
-    kitNotification: KitNotification;
-}
-
-const KitNotificationContext = createContext<KitNotificationContext | undefined>(undefined);
+const KitNotificationContext = createContext<IKitNotificationContext | undefined>(undefined);
 
 function useKitNotification() {
     const context = useContext(KitNotificationContext);
@@ -34,7 +30,7 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
     const {theme: kitTheme} = useKitTheme();
     const theme = kitTheme.components.Notification;
 
-    const error = (args: KitNotificationArgsProps) => {
+    const error = (args: IKitNotificationArgs) => {
         api.error({
             ...args,
             icon: (
@@ -49,7 +45,7 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
             )
         });
     };
-    const warning = (args: KitNotificationArgsProps) => {
+    const warning = (args: IKitNotificationArgs) => {
         api.warning({
             ...args,
             icon: (
@@ -64,7 +60,7 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
             )
         });
     };
-    const success = (args: KitNotificationArgsProps) => {
+    const success = (args: IKitNotificationArgs) => {
         api.success({
             ...args,
             icon: (
@@ -79,7 +75,7 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
             )
         });
     };
-    const info = (args: KitNotificationArgsProps) => {
+    const info = (args: IKitNotificationArgs) => {
         api.info({
             ...args,
             icon: (
@@ -95,11 +91,11 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
         });
     };
 
-    const open = (args: KitNotificationArgsProps) => {
+    const open = (args: IKitNotificationArgs) => {
         api.open({...args});
     };
 
-    const destroy = (key?: React.Key) => {
+    const destroy = (key?: Key) => {
         api.destroy(key);
     };
 

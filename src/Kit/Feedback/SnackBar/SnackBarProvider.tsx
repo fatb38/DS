@@ -1,4 +1,4 @@
-import React, {CSSProperties} from 'react';
+import React, {CSSProperties, FunctionComponent} from 'react';
 import {Toaster} from 'react-hot-toast';
 
 const resetReactHotToastStyle: CSSProperties = {
@@ -12,7 +12,7 @@ const resetReactHotToastStyle: CSSProperties = {
     borderRadius: 'initial'
 };
 
-const KitSnackBarProvider: React.FunctionComponent = () => {
+const KitSnackBarProvider: FunctionComponent = () => {
     return <Toaster position="bottom-center" toastOptions={{style: resetReactHotToastStyle}} />;
 };
 

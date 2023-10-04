@@ -279,7 +279,7 @@ export const argTypes = {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const items = [
         {
             key: '1',

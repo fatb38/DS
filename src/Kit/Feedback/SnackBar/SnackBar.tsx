@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {styled} from 'styled-components';
 import toast from 'react-hot-toast';
-import {KitOpenSnackBarProps, KitSnackBarProps} from './types';
+import {IKitOpenSnackBar, IKitSnackBar, IStyledKitSnackBar} from './types';
 import {CloseOutlined} from '@ant-design/icons';
-import {IKitSnackBarTheme} from '@theme/types/components/Feedback/SnackBar';
 import {useKitTheme} from '@theme/theme-context';
 
 const DEFAULT_DURATION = 4000;
@@ -14,7 +13,7 @@ export const openSnackBar = ({
     ctaText,
     ctaOnClick,
     duration = DEFAULT_DURATION
-}: KitOpenSnackBarProps) => {
+}: IKitOpenSnackBar) => {
     // Close all snackbar
     closeSnackBar();
 
@@ -27,11 +26,7 @@ export const closeSnackBar = () => {
     toast.remove();
 };
 
-const StyledSnackBar = styled.div<{
-    $theme: IKitSnackBarTheme;
-    $showCtaContainer: boolean;
-    $showCloseContainer: boolean;
-}>`
+const StyledSnackBar = styled.div<IStyledKitSnackBar>`
     display: grid;
     grid-template-columns: auto ${({$showCtaContainer}) => ($showCtaContainer ? 'min-content' : '')} ${({
             $showCloseContainer
@@ -103,7 +98,7 @@ const StyledSnackBar = styled.div<{
     }
 `;
 
-const KitSnackBar: React.FunctionComponent<KitSnackBarProps> = ({message, ctaText, ctaOnClick, closable}) => {
+const KitSnackBar: FunctionComponent<IKitSnackBar> = ({message, ctaText, ctaOnClick, closable}) => {
     const {theme} = useKitTheme();
     const showCtaContainer = ctaText !== undefined && ctaOnClick !== undefined;
     const showCloseContainer = closable !== undefined;

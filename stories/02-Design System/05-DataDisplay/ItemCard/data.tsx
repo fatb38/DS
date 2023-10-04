@@ -3,7 +3,7 @@ import {KitItemCard} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {AntDesignOutlined, DownloadOutlined, FolderOpenOutlined} from '@ant-design/icons';
 import {KitAvatar, KitImage} from '@kit/DataDisplay';
-import IKitItemCardProps from '@kit/DataDisplay/ItemCard/types';
+import IKitItemCard from '@kit/DataDisplay/ItemCard/types';
 import {KitButton, KitIcon} from '@kit/General/';
 
 export const fakeContent = {
@@ -68,7 +68,7 @@ export const argTypes = {
         },
         table: {
             type: {
-                summary: 'ReactElement<KitAvatarProps> | ReactElement<KitIconProps> | ReactElement<KitImageProps>'
+                summary: 'ReactElement<IKitAvatar> | ReactElement<KitIconProps> | ReactElement<IKitImage>'
             },
             category: 'ItemCard'
         }
@@ -211,9 +211,9 @@ const getPicture = picture => {
     }
 };
 
-export const Template = (args: IKitItemCardProps) => {
+export const Template = (args: IKitItemCard) => {
     const {colors, picture, tags, actions, ...rest} = args;
-    const props: IKitItemCardProps = {
+    const props: IKitItemCard = {
         ...rest,
         picture: getPicture(picture),
         title: rest.title || fakeContent.base.title,
