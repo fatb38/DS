@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Steps as AntdSteps} from 'antd';
-import {KitStepsProps} from './types';
+import {IStyledAntdSteps, IKitSteps} from './types';
 import {styled} from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitStepsTheme} from '@theme/types/components/Navigation/Steps';
 
-const StyledAntdSteps = styled(AntdSteps)<{$theme: IKitStepsTheme}>`
+const StyledAntdSteps = styled(AntdSteps)<IStyledAntdSteps>`
     .ant-steps-item:not(.ant-steps-item-active) {
         .ant-steps-item-container[role='button']:hover {
             .ant-steps-item-icon {
@@ -29,7 +28,7 @@ const StyledAntdSteps = styled(AntdSteps)<{$theme: IKitStepsTheme}>`
     }
 `;
 
-export const KitSteps: React.FunctionComponent<KitStepsProps> = stepsProps => {
+export const KitSteps: FunctionComponent<IKitSteps> = stepsProps => {
     const {theme} = useKitTheme();
 
     return <StyledAntdSteps $theme={theme.components.Steps} progressDot {...stepsProps} />;

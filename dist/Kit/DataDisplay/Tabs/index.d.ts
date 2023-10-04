@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitTabsProps } from './types';
-declare const KitTabs: React.FunctionComponent<KitTabsProps>;
+import { FunctionComponent } from 'react';
+import { IKitTabs } from './types';
+declare const KitTabs: FunctionComponent<IKitTabs>;
 export { KitTabs };

@@ -1,3 +1,3 @@
-import React from 'react';
-import { KitItemListProps } from './types';
-export declare const KitItemList: React.FunctionComponent<KitItemListProps>;
+import { FunctionComponent } from 'react';
+import { IKitItemList } from './types';
+export declare const KitItemList: FunctionComponent<IKitItemList>;

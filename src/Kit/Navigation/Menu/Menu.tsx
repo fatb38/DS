@@ -1,5 +1,5 @@
-import React from 'react';
-import {KitMenuProps} from './types';
+import React, {FunctionComponent} from 'react';
+import {IKitMenu} from './types';
 import {styled} from 'styled-components';
 import {KitTypography, KitIcon} from '@kit/General';
 import {CloseOutlined} from '@ant-design/icons';
@@ -66,7 +66,7 @@ const StyledMenu = styled.div<{$theme: IKitMenuTheme}>`
     }
 `;
 
-const KitMenu: React.FunctionComponent<KitMenuProps> = ({
+const KitMenu: FunctionComponent<IKitMenu> = ({
     title,
     onCloseClick,
     segmentedButton,
@@ -81,7 +81,7 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
     const shouldDisplayHeaderPrimary = segmentedButton !== undefined || primaryInput !== undefined;
     const shouldDisplayHeaderSecondary = secondaryInput !== undefined;
 
-    const getTitle = () => {
+    const _getTitle = () => {
         return (
             title && (
                 <div className="kit-menu-header-title">
@@ -93,7 +93,7 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
         );
     };
 
-    const getCloseIcon = () => {
+    const _getCloseIcon = () => {
         return (
             isClosable && (
                 <KitIcon
@@ -106,7 +106,7 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
         );
     };
 
-    const getSegmentedButton = () => {
+    const _getSegmentedButton = () => {
         if (segmentedButton === undefined) return;
 
         return (
@@ -118,13 +118,13 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
         );
     };
 
-    const getPrimaryInput = () => {
+    const _getPrimaryInput = () => {
         if (primaryInput === undefined) return;
 
         return <div className="kit-menu-header-primary-input">{primaryInput}</div>;
     };
 
-    const getSecondaryInput = () => {
+    const _getSecondaryInput = () => {
         if (secondaryInput === undefined) return;
 
         return <div className="kit-menu-header-secondary-input">{secondaryInput}</div>;
@@ -135,17 +135,19 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
             <div className="kit-menu-header">
                 {shouldDisplayHeaderTopbar && (
                     <div className="kit-menu-header-topbar">
-                        {getTitle()}
-                        {getCloseIcon()}
+                        {_getTitle()}
+                        {_getCloseIcon()}
                     </div>
                 )}
                 {shouldDisplayHeaderPrimary && (
                     <div className="kit-menu-header-primary">
-                        {getSegmentedButton()}
-                        {getPrimaryInput()}
+                        {_getSegmentedButton()}
+                        {_getPrimaryInput()}
                     </div>
                 )}
-                {shouldDisplayHeaderSecondary && <div className="kit-menu-header-secondary">{getSecondaryInput()}</div>}
+                {shouldDisplayHeaderSecondary && (
+                    <div className="kit-menu-header-secondary">{_getSecondaryInput()}</div>
+                )}
             </div>
             <div className="menu-content">{children}</div>
         </StyledMenu>

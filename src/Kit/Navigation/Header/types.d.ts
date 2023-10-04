@@ -1,11 +1,16 @@
 import {IKitInput} from '@kit/DataEntry/Input/types';
 import {KitHTMLAttributes} from '../../../types';
-import {ReactElement, ReactNode} from 'react';
+import {ReactElement, ReactNode, MouseEventHandler} from 'react';
+import {IKitHeaderTheme} from '@theme/types/components/Navigation/Header';
 
-export interface HeaderProps extends KitHTMLAttributes<HTMLDivElement> {
+export interface IHeader extends KitHTMLAttributes<HTMLDivElement> {
     title?: string;
     search?: IKitInput;
     actions?: ReactNode[];
     breadcrumb?: ReactElement;
-    onPlusClick?: React.MouseEventHandler<HTMLButtonElement>;
+    onPlusClick?: MouseEventHandler<HTMLButtonElement>;
+}
+
+export interface IStyledHeaderWrapper {
+    $theme: IKitHeaderTheme;
 }

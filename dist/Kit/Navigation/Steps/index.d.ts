@@ -1,3 +1,3 @@
-import React from 'react';
-import { KitStepsProps } from './types';
-export declare const KitSteps: React.FunctionComponent<KitStepsProps>;
+import { FunctionComponent } from 'react';
+import { IKitSteps } from './types';
+export declare const KitSteps: FunctionComponent<IKitSteps>;

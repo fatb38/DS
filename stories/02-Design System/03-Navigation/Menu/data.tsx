@@ -250,7 +250,7 @@ export const argTypes = {
         description: 'Actions list to display at the end of the item',
         table: {
             type: {
-                summary: 'KitItemMenuActions'
+                summary: 'IKitItemMenuActions'
             },
             category: 'ItemMenu'
         }

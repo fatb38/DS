@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Breadcrumb} from 'antd';
 import styled from 'styled-components';
-import {KitBreadcrumbProps} from './types';
+import {IKitBreadcrumb, IStyledBreadcrumb} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitBreadcrumbTheme} from '@theme/types/components/Navigation/Breadcrumb';
 
-const StyledBreadcrumb = styled(Breadcrumb)<{$theme: IKitBreadcrumbTheme}>`
+const StyledBreadcrumb = styled(Breadcrumb)<IStyledBreadcrumb>`
     li:not(:last-child) a,
     li:not(:last-child) .ant-breadcrumb-link,
     li:not(:last-child) .ant-breadcrumb-link a {
@@ -15,8 +14,9 @@ const StyledBreadcrumb = styled(Breadcrumb)<{$theme: IKitBreadcrumbTheme}>`
     }
 `;
 
-export const KitBreadcrumb: React.FunctionComponent<KitBreadcrumbProps> = props => {
+export const KitBreadcrumb: FunctionComponent<IKitBreadcrumb> = props => {
     const {theme} = useKitTheme();
+
     return <StyledBreadcrumb $theme={theme.components.Breadcrumb} {...props} />;
 };
 

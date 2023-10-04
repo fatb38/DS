@@ -1,7 +1,7 @@
-/// <reference types="react" />
-import { KitItemMenuProps, KitMenuProps } from './types';
-type CompoundedComponent = React.FunctionComponent<KitMenuProps> & {
-    Item: React.FunctionComponent<KitItemMenuProps>;
+import { IKitItemMenu, IKitMenu } from './types';
+import { FunctionComponent } from 'react';
+type CompoundedComponent = FunctionComponent<IKitMenu> & {
+    Item: FunctionComponent<IKitItemMenu>;
 };
 export declare const KitMenu: CompoundedComponent;
 export {};

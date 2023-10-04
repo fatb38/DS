@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitHeaderExtraProps } from './types';
-export declare const KitHeaderExtra: React.FunctionComponent<KitHeaderExtraProps>;
+import { FunctionComponent } from 'react';
+import { IKitHeaderExtra } from './types';
+export declare const KitHeaderExtra: FunctionComponent<IKitHeaderExtra>;
 export default KitHeaderExtra;
