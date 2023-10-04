@@ -51,11 +51,11 @@ const StyledHeader = styled.div`
 `;
 
 export const KitHeader: FunctionComponent<IKitHeader> = ({icon, imageSrc, title, description, tagContent}) => {
-    const getIcon = () => {
+    const _getIcon = () => {
         return icon !== undefined && <div className="kit-collapse-header-icon">{icon}</div>;
     };
 
-    const getImage = () => {
+    const _getImage = () => {
         return (
             imageSrc !== undefined && (
                 <div
@@ -79,7 +79,7 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({icon, imageSrc, title,
         );
     };
 
-    const getContent = () => {
+    const _getContent = () => {
         let classes = 'kit-collapse-header-content';
         classes += title !== undefined && description !== undefined ? ' kit-collapse-header-content-rows' : '';
 
@@ -111,7 +111,7 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({icon, imageSrc, title,
         );
     };
 
-    const getTag = () => {
+    const _getTag = () => {
         return (
             tagContent !== undefined && (
                 <div className="kit-collapse-header-tag">
@@ -123,10 +123,10 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({icon, imageSrc, title,
 
     return (
         <StyledHeader>
-            {getIcon()}
-            {getImage()}
-            {getContent()}
-            {getTag()}
+            {_getIcon()}
+            {_getImage()}
+            {_getContent()}
+            {_getTag()}
         </StyledHeader>
     );
 };

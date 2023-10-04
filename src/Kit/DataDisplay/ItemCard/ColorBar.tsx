@@ -1,14 +1,10 @@
 import React from 'react';
-import {IKitColorbar, CardColor} from './types';
+import {IKitColorbar, CardColor, IStyledKitColorbar} from './types';
 import styled from 'styled-components';
 import {KitTooltip} from '../Tooltip';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitItemCardTheme} from '@theme/types/components/DataDisplay/ItemCard';
 
-const Container = styled.div<{
-    $theme: IKitItemCardTheme;
-    $column: boolean;
-}>`
+const Container = styled.div<IStyledKitColorbar>`
     width: ${({$column, $theme}) => ($column ? `${$theme.colorBar.thickness}px` : 'auto')};
     height: ${({$column, $theme}) => ($column ? 'auto' : `${$theme.colorBar.thickness}px`)};
     border-radius: ${({$theme}) => $theme.colorBar.border.radius}px;
@@ -21,7 +17,7 @@ const Container = styled.div<{
     }
 `;
 
-const getSwatchStyle = (item: CardColor) => {
+const _getSwatchStyle = (item: CardColor) => {
     return {
         background: item.color ?? 'transparent'
     };
@@ -37,7 +33,7 @@ const KitColorbar = (props: IKitColorbar) => {
                     title={item.label}
                     placement={props.vertical ?? false ? 'right' : 'top'}
                 >
-                    <div style={getSwatchStyle(item)} />
+                    <div style={_getSwatchStyle(item)} />
                 </KitTooltip>
             ))}
         </Container>

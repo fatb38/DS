@@ -1,19 +1,13 @@
 import React, {CSSProperties, FunctionComponent, ReactElement, ReactNode, cloneElement} from 'react';
 import {Card as AntdCard} from 'antd';
 import {styled} from 'styled-components';
-import IKitCard from './types';
+import IKitCard, {IStyledKitCard, IStyledKitCardContentTitleContainer} from './types';
 import {KitIcon, KitTypography} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitCardTheme} from '@theme/types/components/DataDisplay/Card';
 import {LinkOutlined} from '@ant-design/icons';
 
-const StyledCard = styled(AntdCard)<{
-    $theme: IKitCardTheme;
-    $disabled: boolean;
-    $sideSpacing: boolean;
-    $separator: boolean;
-}>`
+const StyledCard = styled(AntdCard)<IStyledKitCard>`
     font-family: ${({$theme}) => $theme.typography.fontFamily};
     overflow: hidden;
 
@@ -154,7 +148,7 @@ const StyledCard = styled(AntdCard)<{
     }
 `;
 
-const ContentTitleContainer = styled.div<{$isContentTitleClick: boolean; $disabled: boolean}>`
+const ContentTitleContainer = styled.div<IStyledKitCardContentTitleContainer>`
     display: flex;
     align-items: center;
     gap: 8px;
@@ -162,7 +156,7 @@ const ContentTitleContainer = styled.div<{$isContentTitleClick: boolean; $disabl
         $disabled ? 'not-allowed' : $isContentTitleClick ? 'pointer' : 'inherit'};
 `;
 
-const getCover = (cover?: ReactNode) => {
+const _getCover = (cover?: ReactNode) => {
     let cardCover: null | ReactElement = null;
 
     if (cover) {
@@ -173,7 +167,7 @@ const getCover = (cover?: ReactNode) => {
     return cardCover;
 };
 
-const getExtra = (disabled: boolean, extra?: ReactNode) => {
+const _getExtra = (disabled: boolean, extra?: ReactNode) => {
     let cardExtra: null | ReactElement = null;
 
     if (extra) {
@@ -187,7 +181,7 @@ const getExtra = (disabled: boolean, extra?: ReactNode) => {
     return cardExtra;
 };
 
-const getActions = (disabled: boolean, actions?: ReactNode[]) => {
+const _getActions = (disabled: boolean, actions?: ReactNode[]) => {
     if (disabled && actions) {
         return actions?.reduce<ReactNode[]>((acc, action) => {
             const customAction = action as ReactElement;
@@ -227,10 +221,10 @@ export const KitCard: FunctionComponent<IKitCard> = ({
             $sideSpacing={sideSpacing}
             $separator={separator}
             style={customStyle}
-            extra={getExtra(disabled, extra)}
-            cover={getCover(cover)}
+            extra={_getExtra(disabled, extra)}
+            cover={_getCover(cover)}
             bodyStyle={contentTitle || contentDescription ? {} : {padding: 0, height: 0}}
-            actions={getActions(disabled, actions)}
+            actions={_getActions(disabled, actions)}
             {...props}
         >
             <KitSpace direction="vertical">

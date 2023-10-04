@@ -1,16 +1,10 @@
 import React, {FunctionComponent} from 'react';
 import {Badge as AntdBadge} from 'antd';
-import {IKitBadge, KitBadgeCountColor} from './types';
+import {IKitBadge, IStyledKitBadge} from './types';
 import {css, styled} from 'styled-components';
-import {IKitBadgeTheme} from '@theme/types/components/DataDisplay/Badge';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitTypography} from '@theme/types/general/typography';
 
-const StyledAntdBadge = styled(AntdBadge)<{
-    $theme: IKitBadgeTheme;
-    $typographyTheme: IKitTypography;
-    $countColor: KitBadgeCountColor;
-}>`
+const StyledAntdBadge = styled(AntdBadge)<IStyledKitBadge>`
     height: 16px;
     min-width: 16px;
     line-height: 16px;

@@ -1,15 +1,10 @@
 import React, {FunctionComponent} from 'react';
 import {Image as AntdImage} from 'antd';
-import {IKitImage} from './types';
+import {IKitImage, IStyledKitImage} from './types';
 import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitImageTheme} from '@theme/types/components/DataDisplay/Image';
 
-const StyledImage = styled(AntdImage)<{
-    $theme: IKitImageTheme;
-    $rounded?: boolean;
-    $bordered?: boolean;
-}>`
+const StyledImage = styled(AntdImage)<IStyledKitImage>`
     border-radius: ${({$rounded, $theme}) =>
         $rounded ? $theme.border.radius.rounded : $theme.border.radius.default}px;
     border: ${({$bordered, $theme}) =>

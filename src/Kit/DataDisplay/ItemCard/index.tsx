@@ -1,7 +1,7 @@
 import React, {FunctionComponent, cloneElement, useState} from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
-import IKitItemCard from './types';
+import IKitItemCard, {IStyledKitItemCard} from './types';
 import KitColorbar from './ColorBar';
 import {EditOutlined, EyeOutlined} from '@ant-design/icons';
 import {KitTypography, KitButton} from '@kit/General/';
@@ -10,14 +10,9 @@ import {KitIconProps} from '@kit/General/Icon/types';
 import {IKitAvatar} from '../Avatar/types';
 import {KitCheckbox, KitTag} from '@kit/DataEntry';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
-import {IKitItemCardTheme} from '@theme/types/components/DataDisplay/ItemCard';
 import {useKitTheme} from '@theme/theme-context';
 
-const ItemCardWrapper = styled.div<{
-    $theme: IKitItemCardTheme;
-    $disabled: boolean;
-    $vertical?: boolean;
-}>`
+const ItemCardWrapper = styled.div<IStyledKitItemCard>`
     display: grid;
     padding: 16px;
     font-family: ${({$theme}) => $theme.card.typography.fontFamily};
@@ -267,7 +262,7 @@ const ItemCardWrapper = styled.div<{
 `;
 
 // TODO Add More /less button to description
-const getPicture = (picture, fullWidthAvatar) => {
+const _getPicture = (picture, fullWidthAvatar) => {
     if (!picture) {
         return null;
     }
@@ -309,7 +304,7 @@ const getPicture = (picture, fullWidthAvatar) => {
     return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
 };
 
-const getActions = (actions, disabled) => {
+const _getActions = (actions, disabled) => {
     if (!actions) {
         return null;
     }
@@ -324,7 +319,7 @@ const getActions = (actions, disabled) => {
     );
 };
 
-const getSWrapperClassName = (vertical, disabled, className) =>
+const _getSWrapperClassName = (vertical, disabled, className) =>
     cn(className, 'kit-card-wrapper', {
         'kit-card-vertical': vertical,
         'kit-card-horizontal': !vertical,
@@ -354,7 +349,7 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
         <ItemCardWrapper
             $theme={theme.components.ItemCard}
             $disabled={disabled}
-            className={getSWrapperClassName(vertical, disabled, props.className ?? '')}
+            className={_getSWrapperClassName(vertical, disabled, props.className ?? '')}
             {...props}
         >
             {(onSelectChange || onEdit || actions) && (
@@ -374,10 +369,10 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
                             <EditOutlined />
                         </KitButton>
                     )}
-                    {getActions(actions, disabled)}
+                    {_getActions(actions, disabled)}
                 </div>
             )}
-            {getPicture(picture, fullWidthAvatar)}
+            {_getPicture(picture, fullWidthAvatar)}
             {colors && <KitColorbar colors={colors} vertical={!vertical} className={`kit-card-colorbar`} />}
             <div className="kit-card-data">
                 <KitTypography.Text className="kit-card-title" ellipsis={{rows: 1, tooltip: true}}>
