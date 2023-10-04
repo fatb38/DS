@@ -1,5 +1,5 @@
 import {KitHTMLAttributes} from '../../../types';
-import {KitTagProps} from '../../DataEntry/Tag/types';
+import {IKitTag} from '../../DataEntry/Tag/types';
 import {ReactNode, MouseEvent} from 'react';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
 
@@ -24,7 +24,7 @@ export default interface IKitItemCardProps extends Omit<KitHTMLAttributes<HTMLDi
     title?: ReactNode;
     description?: ReactNode;
     extrainfo?: ReactNode;
-    tags?: KitTagProps[] | string[];
+    tags?: IKitTag[] | string[];
     actions?: ReactNode[];
     onSelectChange?: (e: CheckboxChangeEvent) => void;
     onEdit?: (e: MouseEvent<HTMLElement>) => void;

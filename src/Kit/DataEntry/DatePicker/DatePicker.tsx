@@ -1,15 +1,12 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import styled from 'styled-components';
 import {DatePicker as AntdDatePicker} from 'antd';
-import {KitDatePickerProps} from './types';
+import {IKitDatePicker, IStyledDatePicker} from './types';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from '../Input/InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitDatePickerTheme} from '@theme/types/components/DataEntry/DatePicker';
 
-const StyledDatePicker = styled.div<{
-    $theme: IKitDatePickerTheme;
-}>`
+const StyledDatePicker = styled.div<IStyledDatePicker>`
     .ant-picker {
         height: 40px;
         padding: 0px 12px 0px 8px;
@@ -140,12 +137,7 @@ const StyledDatePicker = styled.div<{
     }
 `;
 
-const KitDatePicker: React.FunctionComponent<KitDatePickerProps> = ({
-    label,
-    helper,
-    allowClear = true,
-    ...datePickerProps
-}) => {
+const KitDatePicker: FunctionComponent<IKitDatePicker> = ({label, helper, allowClear = true, ...datePickerProps}) => {
     const {theme} = useKitTheme();
 
     return (

@@ -1,16 +1,12 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitButton} from '@kit/General';
 import {Upload as AntdUpload} from 'antd';
-import {KitUploadProps} from './types';
+import {IKitUpload, IStyledUpload} from './types';
 import {LoadingOutlined, PlusOutlined, UploadOutlined} from '@ant-design/icons';
 import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitUploadTheme} from '@theme/types/components/DataEntry/Upload';
 
-const StyledUpload = styled(AntdUpload)<{
-    $listType: String;
-    $theme: IKitUploadTheme;
-}>`
+const StyledUpload = styled(AntdUpload)<IStyledUpload>`
     &.ant-upload-wrapper {
         &.ant-upload-picture-card-wrapper {
             .ant-upload.ant-upload-select {
@@ -79,7 +75,7 @@ const StyledUpload = styled(AntdUpload)<{
     }
 `;
 
-const KitUpload: React.FunctionComponent<KitUploadProps> = ({
+const KitUpload: FunctionComponent<IKitUpload> = ({
     listType = 'text',
     loading,
     imageUrl,

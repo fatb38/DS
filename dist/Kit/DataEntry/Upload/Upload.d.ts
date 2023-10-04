@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitUploadProps } from './types';
-declare const KitUpload: React.FunctionComponent<KitUploadProps>;
+import { FunctionComponent } from 'react';
+import { IKitUpload } from './types';
+declare const KitUpload: FunctionComponent<IKitUpload>;
 export default KitUpload;

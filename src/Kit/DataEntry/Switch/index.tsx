@@ -1,13 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Switch as AntdSwitch} from 'antd';
 import styled from 'styled-components';
-import {KitSwitchProps} from './types';
+import {IKitSwitch, IStyledSwitch} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitSwitchTheme} from '@theme/types/components/DataEntry/Switch';
 
-const StyledSwitch = styled(AntdSwitch)<{
-    $theme: IKitSwitchTheme;
-}>`
+const StyledSwitch = styled(AntdSwitch)<IStyledSwitch>`
     & {
         background: ${({$theme}) => $theme.colors.background.default.off};
         border: 1.3px solid ${({$theme}) => $theme.colors.handle.border.default.off};
@@ -99,7 +96,7 @@ const StyledSwitch = styled(AntdSwitch)<{
     }
 `;
 
-export const KitSwitch: React.FunctionComponent<KitSwitchProps> = props => {
+export const KitSwitch: FunctionComponent<IKitSwitch> = props => {
     const {theme} = useKitTheme();
 
     return (

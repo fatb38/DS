@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {AutoComplete as AntdAutoComplete} from 'antd';
 import {SearchOutlined} from '@ant-design/icons';
 import {KitInput} from '@kit/DataEntry/';
-import type {KitAutoCompleteProps} from './types';
+import type {IKitAutoComplete} from './types';
 import KitInputWrapper from '../Input/InputWrapper';
 
-export const KitAutoComplete: React.FunctionComponent<KitAutoCompleteProps> = ({
+export const KitAutoComplete: FunctionComponent<IKitAutoComplete> = ({
     allowClear,
     label,
     helper,

@@ -1,3 +1,3 @@
-import React from 'react';
+import { FunctionComponent } from 'react';
 import { KitInputNumberProps } from './types';
-export declare const KitInputNumber: React.FunctionComponent<KitInputNumberProps>;
+export declare const KitInputNumber: FunctionComponent<KitInputNumberProps>;

@@ -197,7 +197,7 @@ export const argTypes = {
         control: {type: 'none'},
         table: {
             type: {
-                summary: 'ReactElement<KitInputProps>'
+                summary: 'ReactElement<IKitInput>'
             },
             category: 'Menu'
         }
@@ -208,7 +208,7 @@ export const argTypes = {
         control: {type: 'none'},
         table: {
             type: {
-                summary: 'ReactElement<KitInputProps>'
+                summary: 'ReactElement<IKitInput>'
             },
             category: 'Menu'
         }

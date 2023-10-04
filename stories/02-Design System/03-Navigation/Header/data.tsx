@@ -108,7 +108,7 @@ export const argTypes = {
         description: 'If set, show a search input. Accepts [Input] porps',
         table: {
             type: {
-                summary: 'KitInputProps'
+                summary: 'IKitInput'
             },
             defaultValue: {summary: '-'},
             category: 'Header'
@@ -157,7 +157,7 @@ export const argTypes = {
 
 const handleOnPlusClick = () => console.log('click "plus" button');
 
-export const Template = (args) => {
+export const Template = args => {
     const {actions: showActions, breadcrumb: showBreadcrumb, onPlusClick, search, ...props} = args;
     return (
         <KitHeader

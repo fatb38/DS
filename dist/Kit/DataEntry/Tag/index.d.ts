@@ -1,3 +1,3 @@
-import type * as React from 'react';
-import { KitTagProps } from './types';
-export declare const KitTag: React.ForwardRefExoticComponent<KitTagProps>;
+import { IKitTag } from './types';
+import { ForwardRefExoticComponent } from 'react';
+export declare const KitTag: ForwardRefExoticComponent<IKitTag>;

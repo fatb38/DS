@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, {useContext} from 'react';
+import React, {forwardRef, memo, useContext} from 'react';
 import {ConfigContext} from 'antd/lib/config-provider/';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import pickAttrs from 'rc-util/lib/pickAttrs';
@@ -10,7 +10,7 @@ import Radio from './Radio';
 
 import useStyle from 'antd/lib/radio/style';
 
-const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
+const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
     const {getPrefixCls, direction} = useContext(ConfigContext);
     const size = useContext(SizeContext);
 
@@ -18,7 +18,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
         value: props.value
     });
 
-    const onRadioChange = (ev: RadioChangeEvent) => {
+    const _onRadioChange = (ev: RadioChangeEvent) => {
         const lastValue = value;
         const val = ev.target.value;
         if (!('value' in props)) {
@@ -113,7 +113,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
         >
             <RadioGroupContextProvider
                 value={{
-                    onChange: onRadioChange,
+                    onChange: _onRadioChange,
                     value,
                     disabled: props.disabled,
                     name: props.name
@@ -125,4 +125,4 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     );
 });
 
-export default React.memo(RadioGroup);
+export default memo(RadioGroup);

@@ -1,8 +1,8 @@
-/// <reference types="react" />
-import { KitDraggerProps, KitUploadProps } from './types';
-type UploadCompoundedComponent = React.FunctionComponent<KitUploadProps> & {
-    KitDragger: React.FunctionComponent<KitDraggerProps>;
-    LIST_IGNORE: String;
+import { IKitDragger, IKitUpload } from './types';
+import { FunctionComponent } from 'react';
+type UploadCompoundedComponent = FunctionComponent<IKitUpload> & {
+    KitDragger: FunctionComponent<IKitDragger>;
+    LIST_IGNORE: string;
 };
 export declare const KitUpload: UploadCompoundedComponent;
 export {};

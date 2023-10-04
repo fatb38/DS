@@ -1,19 +1,13 @@
-import React from 'react';
-import {KitInputWrapperProps} from './types';
+import React, {FunctionComponent} from 'react';
+import {IKitInputWrapper} from './types';
 import {KitTypography} from '@kit/General/';
 import {useKitTheme} from '@theme/theme-context';
 
-const KitInputWrapper: React.FunctionComponent<KitInputWrapperProps> = ({
-    label,
-    helper,
-    disabled,
-    status,
-    children
-}) => {
+const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({label, helper, disabled, status, children}) => {
     const {theme: kitTheme} = useKitTheme();
     const {colors, gap} = kitTheme.components.InputWrapper;
 
-    const getKitInputWrapperTextColor = () => {
+    const _getKitInputWrapperTextColor = () => {
         if (disabled) {
             return colors.typography.disabled;
         }
@@ -28,7 +22,7 @@ const KitInputWrapper: React.FunctionComponent<KitInputWrapperProps> = ({
         }
     };
 
-    const textColor = getKitInputWrapperTextColor();
+    const textColor = _getKitInputWrapperTextColor();
 
     return (
         <div className="kit-input-wrapper">

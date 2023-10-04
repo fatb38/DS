@@ -1,14 +1,11 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Upload as AntdUpload} from 'antd';
 import styled from 'styled-components';
 import {InboxOutlined} from '@ant-design/icons';
-import {KitDraggerProps} from './types';
+import {IKitDragger, IStyledDragger} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitUploadTheme} from '@theme/types/components/DataEntry/Upload';
 
-const StyledDragger = styled(AntdUpload.Dragger)<{
-    $theme: IKitUploadTheme['Dragger'];
-}>`
+const StyledDragger = styled(AntdUpload.Dragger)<IStyledDragger>`
     .ant-upload {
         border-radius: 2px;
 
@@ -49,8 +46,9 @@ const StyledDragger = styled(AntdUpload.Dragger)<{
     }
 `;
 
-const KitDragger: React.FunctionComponent<KitDraggerProps> = ({title, description, ...draggerProps}) => {
+const KitDragger: FunctionComponent<IKitDragger> = ({title, description, ...draggerProps}) => {
     const {theme} = useKitTheme();
+
     const draggerTitle = title ?? 'Click or drag file to this area to upload';
     const draggerDescription =
         description ??

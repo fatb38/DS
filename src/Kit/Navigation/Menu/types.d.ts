@@ -1,4 +1,4 @@
-import {KitInputProps} from '../../DataEntry/Input/types';
+import {IKitInput} from '../../DataEntry/Input/types';
 import {IKitButtonProps} from '../../General/Button/types';
 import {ReactElement, ReactNode, MouseEvent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
@@ -8,8 +8,8 @@ import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
 export interface KitMenuProps extends KitHTMLAttributes<HTMLDivElement> {
     title?: string;
     segmentedButton?: ReactElement<IKitButtonProps>;
-    primaryInput?: ReactElement<KitInputProps>;
-    secondaryInput?: ReactElement<KitInputProps>;
+    primaryInput?: ReactElement<IKitInput>;
+    secondaryInput?: ReactElement<IKitInput>;
     onCloseClick?: Function;
 }
 

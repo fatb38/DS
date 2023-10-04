@@ -1,14 +1,11 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {InputNumber as AntdInputNumber} from 'antd';
-import {KitInputNumberProps} from './types';
+import {IStyledAntdInputNumber, KitInputNumberProps} from './types';
 import {styled} from 'styled-components';
 import KitInputWrapper from '../Input/InputWrapper';
-import {IKitInputNumberTheme} from '@theme/types/components/DataEntry/InputNumber';
 import {useKitTheme} from '@theme/theme-context';
 
-const StyledAntdInputNumber = styled(AntdInputNumber)<{
-    $theme: IKitInputNumberTheme;
-}>`
+const StyledAntdInputNumber = styled(AntdInputNumber)<IStyledAntdInputNumber>`
     font-weight: ${({$theme}) => $theme.typography.placeholder.fontWeight};
     height: 40px;
     line-height: 40px;
@@ -156,7 +153,7 @@ const StyledAntdInputNumber = styled(AntdInputNumber)<{
     }
 `;
 
-export const KitInputNumber: React.FunctionComponent<KitInputNumberProps> = ({label, helper, ...inputNumberProps}) => {
+export const KitInputNumber: FunctionComponent<KitInputNumberProps> = ({label, helper, ...inputNumberProps}) => {
     const {theme} = useKitTheme();
 
     return (

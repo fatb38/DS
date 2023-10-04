@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitInputWrapperProps } from './types';
-declare const KitInputWrapper: React.FunctionComponent<KitInputWrapperProps>;
+import { FunctionComponent } from 'react';
+import { IKitInputWrapper } from './types';
+declare const KitInputWrapper: FunctionComponent<IKitInputWrapper>;
 export default KitInputWrapper;

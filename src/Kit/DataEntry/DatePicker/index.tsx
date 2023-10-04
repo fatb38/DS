@@ -1,9 +1,10 @@
+import {FunctionComponent} from 'react';
 import InternalDatePicker from './DatePicker';
 import InternalRangePicker from './RangePicker';
-import {KitDatePickerProps, KitRangePickerProps} from './types';
+import {IKitDatePicker, IKitRangePicker} from './types';
 
-type CompoundedComponent = React.FunctionComponent<KitDatePickerProps> & {
-    RangePicker: React.FunctionComponent<KitRangePickerProps>;
+type CompoundedComponent = FunctionComponent<IKitDatePicker> & {
+    RangePicker: FunctionComponent<IKitRangePicker>;
 };
 
 export const KitDatePicker = InternalDatePicker as unknown as CompoundedComponent;

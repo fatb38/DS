@@ -1,3 +1,3 @@
-import React from 'react';
-import type { KitAutoCompleteProps } from './types';
-export declare const KitAutoComplete: React.FunctionComponent<KitAutoCompleteProps>;
+import { FunctionComponent } from 'react';
+import type { IKitAutoComplete } from './types';
+export declare const KitAutoComplete: FunctionComponent<IKitAutoComplete>;

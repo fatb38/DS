@@ -1,4 +1,4 @@
 import React from 'react';
-import { KitInputProps } from './types';
-declare const KitInput: React.ForwardRefExoticComponent<KitInputProps & React.RefAttributes<any>>;
+import { IKitInput } from './types';
+declare const KitInput: React.ForwardRefExoticComponent<IKitInput & React.RefAttributes<any>>;
 export default KitInput;
