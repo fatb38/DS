@@ -1,11 +1,18 @@
 import {DividerProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
+import {IKitDividerTheme} from '@theme/types/components/Layout/Divider';
 
-export type AntdDividerTypesToOmit = 'style' | 'plain';
+type AntdDividerTypesToOmit = 'style' | 'plain';
 
-export type KitDividerColor = 'default' | 'lightGrey';
+type KitDividerColor = 'default' | 'lightGrey';
 
-export interface KitDividerProps extends Omit<DividerProps, AntdDividerTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
+export interface IKitDivider extends Omit<DividerProps, AntdDividerTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     noMargin?: boolean;
     color?: KitDividerColor;
+}
+
+export interface IStyledAntdDivider {
+    $theme: IKitDividerTheme;
+    $noMargin: boolean;
+    $color: KitDividerColor;
 }

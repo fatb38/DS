@@ -6,7 +6,7 @@ import {KitSpacing} from '@theme/types/general/spacing';
 
 type KitSpaceSize = keyof KitSpacing | number;
 
-export interface KitSpaceProps extends SpaceProps, KitHTMLAttributes<HTMLDivElement> {
+export interface IKitSpace extends SpaceProps, KitHTMLAttributes<HTMLDivElement> {
     displayName?: string;
     children?: ReactNode;
     direction?: 'horizontal' | 'vertical';

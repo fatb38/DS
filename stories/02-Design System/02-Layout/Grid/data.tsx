@@ -1,8 +1,8 @@
 import React from 'react';
 import {KitGrid} from '@kit/Layout/';
-import {KitColProps, KitRowProps} from '@kit/Layout/Grid/types';
+import {IKitCol, IKitRow} from '@kit/Layout/Grid/types';
 
-interface IFakeGrid extends KitRowProps, KitColProps {}
+interface IFakeGrid extends IKitRow, IKitCol {}
 
 export const FakeGrid: React.FunctionComponent<IFakeGrid> = () => null;
 

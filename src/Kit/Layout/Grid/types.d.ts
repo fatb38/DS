@@ -5,8 +5,8 @@ type KitGridJustify = 'start' | 'end' | 'center';
 
 type AntdRowTypesToOmit = 'gutter' | 'justify';
 
-export interface KitRowProps extends Omit<RowProps, AntdRowTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
+export interface IKitRow extends Omit<RowProps, AntdRowTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     justify?: KitGridJustify;
 }
 
-export interface KitColProps extends ColProps, KitHTMLAttributes<HTMLDivElement> {}
+export interface IKitCol extends ColProps, KitHTMLAttributes<HTMLDivElement> {}
