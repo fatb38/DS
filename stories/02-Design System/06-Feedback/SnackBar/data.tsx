@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitSnackBarProvider, openKitSnackBar, closeKitSnackBar} from '@kit/Feedback/';
 import {KitButton} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
-import { KitOpenSnackBarProps } from '@kit/Feedback/SnackBar/types';
+import {IKitOpenSnackBar} from '@kit/Feedback/SnackBar/types';
 
-export const FakeSnackbar: React.FunctionComponent<KitOpenSnackBarProps> = () => null;
+export const FakeSnackbar: FunctionComponent<IKitOpenSnackBar> = () => null;
 
 export const argTypes = {
     message: {
@@ -77,7 +77,7 @@ export const argTypes = {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     return (
         <div>
             <KitSnackBarProvider />

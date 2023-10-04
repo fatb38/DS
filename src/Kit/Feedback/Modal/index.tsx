@@ -1,34 +1,26 @@
 import Modal from './Modal';
-import type {ModalFunc, KitModalProps, confirmDialogProps} from './types';
+import type {IKitConfirmDialog, KitModalCompoundedComponent} from './types';
 import confirm, {withWarn, withError, withInfo, withSuccess, withConfirm} from './confirm';
 
-type CompoundedComponent = React.FunctionComponent<KitModalProps> & {
-    info: ModalFunc;
-    success: ModalFunc;
-    error: ModalFunc;
-    warning: ModalFunc;
-    confirm: ModalFunc;
-};
-
-export const KitModal = Modal as unknown as CompoundedComponent;
+export const KitModal = Modal as KitModalCompoundedComponent;
 KitModal.displayName = 'KitModal';
 
-KitModal.info = function infoFn(props: confirmDialogProps) {
+KitModal.info = function infoFn(props: IKitConfirmDialog) {
     return confirm(withInfo(props));
 };
 
-KitModal.success = function successFn(props: confirmDialogProps) {
+KitModal.success = function successFn(props: IKitConfirmDialog) {
     return confirm(withSuccess(props));
 };
 
-KitModal.error = function errorFn(props: confirmDialogProps) {
+KitModal.error = function errorFn(props: IKitConfirmDialog) {
     return confirm(withError(props));
 };
 
-KitModal.warning = function warningFn(props: confirmDialogProps) {
+KitModal.warning = function warningFn(props: IKitConfirmDialog) {
     return confirm(withWarn(props));
 };
 
-KitModal.confirm = function confirmFn(props: confirmDialogProps) {
+KitModal.confirm = function confirmFn(props: IKitConfirmDialog) {
     return confirm(withConfirm(props));
 };

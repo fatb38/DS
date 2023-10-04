@@ -1,9 +1,7 @@
 import {createGlobalStyle} from 'styled-components';
-import {IKitNotificationTheme} from '@theme/types/components/Feedback/Notification';
+import {IStyledKitNotification} from './types';
 
-export const NotificationStyle = createGlobalStyle<{
-    $theme: IKitNotificationTheme;
-}>`
+export const NotificationStyle = createGlobalStyle<IStyledKitNotification>`
     .ant-notification-notice-info .ant-notification-notice-content .ant-notification-notice-message {
         color: ${({$theme}) => $theme.colors.typography.message.info};
     }

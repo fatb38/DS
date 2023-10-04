@@ -1,15 +1,12 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
-import {KitModalProps} from './types';
+import {IKitModal, IStyledKitModal, IStyledKitModalOverlay} from './types';
 import {CloseOutlined} from '@ant-design/icons';
 import {KitSpace} from '@kit/Layout/';
 import {useKitTheme} from '@theme/theme-context';
-import {IKitModalTheme} from '@theme/types/components/Feedback/Modal';
 
-const StyledOverlay = styled.div<{
-    $theme: IKitModalTheme['Overlay'];
-}>`
+const StyledOverlay = styled.div<IStyledKitModalOverlay>`
     &.kit-modal-overlay {
         background: ${({$theme}) => $theme.colors.background.default};
         inset: 0px;
@@ -21,9 +18,7 @@ const StyledOverlay = styled.div<{
     }
 `;
 
-const StyledKitModal = styled.div<{
-    $theme: IKitModalTheme;
-}>`
+const StyledKitModal = styled.div<IStyledKitModal>`
     font-family: ${({$theme}) => $theme.typography.fontFamily};
     font-size: ${({$theme}) => $theme.typography.fontSize.content}px;
     font-weight: ${({$theme}) => $theme.typography.fontWeight.content};
@@ -105,13 +100,13 @@ const StyledKitModal = styled.div<{
     }
 `;
 
-const Modal: React.FunctionComponent<KitModalProps> = ({
+const Modal: FunctionComponent<IKitModal> = ({
     title,
     style,
     width = '520px',
     height = 'initial',
     ...props
-}: KitModalProps) => {
+}: IKitModal) => {
     const {theme} = useKitTheme();
 
     const styles = {
@@ -119,7 +114,7 @@ const Modal: React.FunctionComponent<KitModalProps> = ({
         content: {...style?.content, width: width, height: height}
     };
 
-    const onOverlayClick = () => {
+    const _onOverlayClick = () => {
         props.showCloseIcon && props.close?.([true]);
     };
 
@@ -128,7 +123,7 @@ const Modal: React.FunctionComponent<KitModalProps> = ({
         style: styles,
         className: `kit-modal-wrapper ${props.className}`,
         overlayElement: (overlayProps, contentElement) => (
-            <StyledOverlay $theme={theme.components.Modal.Overlay} {...overlayProps} onClick={onOverlayClick}>
+            <StyledOverlay $theme={theme.components.Modal.Overlay} {...overlayProps} onClick={_onOverlayClick}>
                 {contentElement}
             </StyledOverlay>
         ),
@@ -136,10 +131,10 @@ const Modal: React.FunctionComponent<KitModalProps> = ({
     };
 
     return (
-        <ReactModal {...mergedProps} shouldCloseOnOverlayClick={props.showCloseIcon} onRequestClose={onOverlayClick}>
+        <ReactModal {...mergedProps} shouldCloseOnOverlayClick={props.showCloseIcon} onRequestClose={_onOverlayClick}>
             <StyledKitModal $theme={theme.components.Modal}>
                 <div className="kit-modal-content-wrapper">
-                    {props.showCloseIcon && <CloseOutlined className="kit-modal-close" onClick={onOverlayClick} />}
+                    {props.showCloseIcon && <CloseOutlined className="kit-modal-close" onClick={_onOverlayClick} />}
                     <div className="kit-modal-title">{title}</div>
                     <div className="kit-modal-content">{props.children}</div>
                     {props.footer && (
