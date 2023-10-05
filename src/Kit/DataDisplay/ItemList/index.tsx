@@ -5,6 +5,7 @@ import {KitCheckbox, KitTag} from '@kit/DataEntry/';
 import {KitTypography} from '@kit/General/';
 import {RightOutlined, EyeOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
+import {useKitLocale} from '@translation/locale-context';
 
 const StyledItemList = styled.div<IStyledKitItemList>`
     display: grid;
@@ -184,6 +185,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
     ...props
 }) => {
     const {theme} = useKitTheme();
+    const {locale} = useKitLocale();
 
     const [descriptionVisible, setDescriptionVisible] = useState(false);
     const [isDescriptionEllipsis, setIsDescriptionEllipsis] = useState(false);
@@ -314,7 +316,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
                                     setDescriptionVisible(false);
                                 }}
                             >
-                                Less
+                                {locale.ItemList?.less}
                             </KitTypography.Link>
                         )}
                     </KitTypography.Paragraph>
@@ -326,7 +328,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
                                 setDescriptionVisible(true);
                             }}
                         >
-                            More
+                            {locale.ItemList?.more}
                         </KitTypography.Link>
                     )}
                 </div>

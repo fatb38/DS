@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {FunctionComponent, ReactNode, useEffect} from 'react';
 import {ConfigProvider} from 'antd';
 import GlobalStyles from './style';
 import KitSnackBarProvider from '@kit/Feedback/SnackBar/SnackBarProvider';
@@ -11,23 +11,33 @@ import {KitThemeProvider, useKitTheme} from '@theme/theme-context';
 import {IKitCustomTheme} from '@theme/types';
 import {TypographyStyle} from '@kit/General/Typography/style';
 import {mapKitThemeToAntdTheme} from '@theme/utils/antd-mapper';
+import {IKitLocale} from '@translation/types';
+import {KitLocaleProvider, useKitLocale} from '@translation/locale-context';
+import {mapKitLocaleToAntdLocale} from '@translation/utils';
 
-export const KitApp: React.FunctionComponent<{customTheme?: IKitCustomTheme; children?: any}> = ({
-    children,
-    customTheme
-}) => {
+export const KitApp: FunctionComponent<{
+    customTheme?: IKitCustomTheme;
+    locale?: IKitLocale;
+    children?: ReactNode;
+}> = ({children, locale, customTheme}) => {
     return (
         <KitThemeProvider>
-            <KitAppConfig customTheme={customTheme}>{children}</KitAppConfig>
+            <KitLocaleProvider>
+                <KitAppConfig customTheme={customTheme} locale={locale}>
+                    {children}
+                </KitAppConfig>
+            </KitLocaleProvider>
         </KitThemeProvider>
     );
 };
 
-const KitAppConfig: React.FunctionComponent<{customTheme?: IKitCustomTheme; children?: any}> = ({
+const KitAppConfig: FunctionComponent<{customTheme?: IKitCustomTheme; locale?: IKitLocale; children?: ReactNode}> = ({
     children,
+    locale,
     customTheme
 }) => {
     const {theme, setCustomTheme} = useKitTheme();
+    const {locale: kitLocale, setKitLocale} = useKitLocale();
 
     useEffect(() => {
         if (customTheme !== undefined) {
@@ -35,8 +45,14 @@ const KitAppConfig: React.FunctionComponent<{customTheme?: IKitCustomTheme; chil
         }
     }, [customTheme]);
 
+    useEffect(() => {
+        if (locale !== undefined) {
+            setKitLocale(locale);
+        }
+    }, [locale]);
+
     return (
-        <ConfigProvider theme={mapKitThemeToAntdTheme(theme)}>
+        <ConfigProvider theme={mapKitThemeToAntdTheme(theme)} locale={mapKitLocaleToAntdLocale(locale)}>
             <KitNotificationProvider>
                 <KitSnackBarProvider />
                 <GlobalStyles />
