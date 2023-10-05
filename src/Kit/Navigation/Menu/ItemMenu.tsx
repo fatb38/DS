@@ -170,7 +170,7 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
         return (
             title && (
                 <div className="kit-item-menu-title">
-                    <KitTypography.Text size="large" weight="medium" ellipsis={{rows: 1, tooltip: true}}>
+                    <KitTypography.Text size="large" weight="medium" ellipsis={{tooltip: true}}>
                         {title}
                     </KitTypography.Text>
                 </div>
@@ -257,7 +257,7 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
         return (
             value && (
                 <div className="kit-item-menu-value">
-                    <KitTypography.Text size="large" weight="regular" ellipsis={{rows: 1, tooltip: true}}>
+                    <KitTypography.Text size="large" weight="regular" ellipsis={{tooltip: true}}>
                         {value}
                     </KitTypography.Text>
                 </div>
