@@ -2,6 +2,7 @@ import React, {ReactNode, createContext, useContext, useState} from 'react';
 import {IKitLocale, LanguageSupported} from './types';
 import {frFR} from './fr-FR';
 import {merge} from 'lodash';
+import {enUS} from './en-US';
 
 type KitLocaleContext =
     | {
@@ -29,13 +30,11 @@ const useKitLocaleProvider = () => {
     const [locale, setLocale] = useState<IKitLocale>(frFR);
 
     const setKitLocale = (customLocale: IKitLocale) => {
-        console.log('1 >>>', customLocale);
         if (customLocale.locale === ('frFR' as LanguageSupported)) {
             const mergedLocaleFrFR = merge(frFR, customLocale);
-            console.log('YOLO', frFR, customLocale);
             setLocale(mergedLocaleFrFR);
         } else {
-            const mergedLocaleEnUS = merge(frFR, customLocale);
+            const mergedLocaleEnUS = merge(enUS, customLocale);
             setLocale(mergedLocaleEnUS);
         }
     };
