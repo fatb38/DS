@@ -46,4 +46,42 @@ export interface IKitTabsTheme {
             horizontal: number;
         };
     };
+    DropDown: {
+        colors: {
+            background: {
+                default: string;
+            };
+            typography: {
+                default: string;
+            };
+        };
+        typography: {
+            fontFamily: string;
+            fontWeight: number | string;
+        };
+        menu: {
+            colors: {
+                background: {
+                    default: string;
+                };
+            };
+        };
+        menuItem: {
+            colors: {
+                background: {
+                    active: string;
+                    selected: string;
+                    disabled: string;
+                };
+                typography: {
+                    default: string;
+                    active: string;
+                    disabled: string;
+                };
+            };
+            typography: {
+                fontWeight: number | string;
+            };
+        };
+    };
 }

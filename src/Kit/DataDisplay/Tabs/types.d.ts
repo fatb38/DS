@@ -7,3 +7,7 @@ export interface IKitTabs extends TabsProps, KitHTMLAttributes<HTMLDivElement> {
 export interface IStyledKitTabs {
     $theme: IKitTabsTheme;
 }
+
+export interface IStyledKitTabsDropDown {
+    $theme: IKitTabsTheme['DropDown'];
+}
