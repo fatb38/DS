@@ -1,7 +1,7 @@
-import {FunctionComponent, HTMLAttributes, ReactNode} from 'react';
+import { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 import type ReactModal from 'react-modal';
-import {KitHTMLAttributes} from '../../../types';
-import {IKitModalTheme} from '@theme/types/components/Feedback/Modal';
+import { KitHTMLAttributes } from '../../../types';
+import { IKitModalTheme } from '@theme/types/components/Feedback/Modal';
 
 type propsToOmit =
     | 'bodyOpenClassName'
@@ -15,7 +15,7 @@ type propsToOmit =
 //todo delete Omit<title role className style>
 export interface IKitModal
     extends Omit<ReactModal.Props, propsToOmit>,
-        Omit<KitHTMLAttributes<HTMLDivElement>, 'title' | 'role' | 'className' | 'style'> {
+    Omit<KitHTMLAttributes<HTMLDivElement>, 'title' | 'role' | 'className' | 'style'> {
     width?: string;
     showCloseIcon?: boolean;
     close?: (args: any[]) => void;
