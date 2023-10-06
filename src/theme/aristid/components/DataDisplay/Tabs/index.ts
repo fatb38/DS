@@ -51,6 +51,44 @@ export const getKitTabsTokens = (generalTokens: IKitThemeGeneral): IKitTabsTheme
                 vertical: spacing.xxs,
                 horizontal: spacing.s
             }
+        },
+        DropDown: {
+            colors: {
+                background: {
+                    default: colors.secondary.mediumGrey.mediumGrey100
+                },
+                typography: {
+                    default: colors.secondary.mediumGrey.mediumGrey500
+                }
+            },
+            typography: {
+                fontFamily: typography.fontFamily,
+                fontWeight: typography.mediumfontWeight
+            },
+            menu: {
+                colors: {
+                    background: {
+                        default: colors.secondary.mediumGrey.mediumGrey100
+                    }
+                }
+            },
+            menuItem: {
+                colors: {
+                    background: {
+                        active: colors.primary.primary100,
+                        selected: colors.primary.primary100,
+                        disabled: colors.secondary.mediumGrey.mediumGrey100
+                    },
+                    typography: {
+                        default: colors.secondary.mediumGrey.mediumGrey500,
+                        active: colors.primary.primary400,
+                        disabled: colors.secondary.mediumGrey.mediumGrey400
+                    }
+                },
+                typography: {
+                    fontWeight: typography.mediumfontWeight
+                }
+            }
         }
     };
 };

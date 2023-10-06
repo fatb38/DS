@@ -10,6 +10,7 @@ import {NotificationStyle} from '@kit/Feedback/Notification/style';
 import {KitThemeProvider, useKitTheme} from '@theme/theme-context';
 import {IKitCustomTheme} from '@theme/types';
 import {TypographyStyle} from '@kit/General/Typography/style';
+import {TabsDropDownStyle} from '@kit/DataDisplay/Tabs/style';
 import {mapKitThemeToAntdTheme} from '@theme/utils/antd-mapper';
 
 export const KitApp: React.FunctionComponent<{customTheme?: IKitCustomTheme; children?: any}> = ({
@@ -42,6 +43,7 @@ const KitAppConfig: React.FunctionComponent<{customTheme?: IKitCustomTheme; chil
                 <GlobalStyles />
                 <DropDownStyle $theme={theme.components.DropDown} />
                 <SelectDropDownStyle $theme={theme.components.Select.DropDown} />
+                <TabsDropDownStyle $theme={theme.components.Tabs.DropDown} />
                 <DatePickerDropDownStyle $theme={theme.components.DatePicker.DropDown} />
                 <NotificationStyle $theme={theme.components.Notification} />
                 <TypographyStyle $theme={theme.components.Typography} />
