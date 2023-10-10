@@ -11,6 +11,7 @@ import {IKitAvatar} from '../Avatar/types';
 import {KitCheckbox, KitTag} from '@kit/DataEntry';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {useKitTheme} from '@theme/theme-context';
+import {useKitLocale} from '@translation/locale-context';
 
 const ItemCardWrapper = styled.div<IStyledKitItemCard>`
     display: grid;
@@ -342,6 +343,7 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
     ...props
 }) => {
     const {theme} = useKitTheme();
+    const {locale} = useKitLocale();
     const [descriptionVisible, setDescriptionVisible] = useState(false);
     const [isDescriptionEllipsis, setIsDescriptionEllipsis] = useState(false);
 
@@ -400,7 +402,7 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
                                     setDescriptionVisible(false);
                                 }}
                             >
-                                Less
+                                {locale.ItemList.less}
                             </KitTypography.Link>
                         )}
                     </KitTypography.Paragraph>
@@ -412,7 +414,7 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
                                 setDescriptionVisible(true);
                             }}
                         >
-                            More
+                            {locale.ItemList.more}
                         </KitTypography.Link>
                     )}
                 </div>
