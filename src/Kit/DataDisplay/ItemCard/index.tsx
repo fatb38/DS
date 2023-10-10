@@ -347,8 +347,6 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
     const [descriptionVisible, setDescriptionVisible] = useState(false);
     const [isDescriptionEllipsis, setIsDescriptionEllipsis] = useState(false);
 
-    console.log('test', locale);
-
     return (
         <ItemCardWrapper
             $theme={theme.components.ItemCard}
@@ -404,7 +402,7 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
                                     setDescriptionVisible(false);
                                 }}
                             >
-                                {locale.ItemList?.less}
+                                {locale.ItemList.less}
                             </KitTypography.Link>
                         )}
                     </KitTypography.Paragraph>
@@ -416,7 +414,7 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
                                 setDescriptionVisible(true);
                             }}
                         >
-                            {locale.ItemList?.more}
+                            {locale.ItemList.more}
                         </KitTypography.Link>
                     )}
                 </div>

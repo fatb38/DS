@@ -316,7 +316,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
                                     setDescriptionVisible(false);
                                 }}
                             >
-                                {locale.ItemList?.less}
+                                {locale.ItemList.less}
                             </KitTypography.Link>
                         )}
                     </KitTypography.Paragraph>
@@ -328,7 +328,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
                                 setDescriptionVisible(true);
                             }}
                         >
-                            {locale.ItemList?.more}
+                            {locale.ItemList.more}
                         </KitTypography.Link>
                     )}
                 </div>

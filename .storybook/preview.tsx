@@ -36,7 +36,7 @@ export const parameters = {
         // Decorate the docs area content with antd's ConfigProvider, in order to use theme in all pages ant components
         container: ({children, context}) => {
             return (
-                <KitApp locale={{locale: 'frFR'}}>
+                <KitApp locale={{locale: 'enUS'}}>
                     <Container context={context}>{children}</Container>
                     <TableOfContents config={tocConfig} />
                     <BackToTop />
@@ -50,7 +50,7 @@ const preview: Preview = {
     decorators: [
         Story => {
             return (
-                <KitApp locale={{locale: 'frFR'}}>
+                <KitApp locale={{locale: 'enUS'}}>
                     <Story />
                 </KitApp>
             );
