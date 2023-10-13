@@ -1,7 +1,8 @@
 import React from 'react';
 import {KitAvatar, KitImage, KitItemList} from '@kit/DataDisplay/';
 import {KitIcon} from '@kit/General/';
-import {UserOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUser} from '@fortawesome/free-regular-svg-icons';
 
 export const mockData = {
     base: {
@@ -15,7 +16,7 @@ export const mockData = {
     },
     tag: 4,
     image: <KitImage src="public/images/tondeuse.png" />,
-    icon: <KitIcon icon={<UserOutlined />} />,
+    icon: <KitIcon icon={<FontAwesomeIcon icon={faUser} />} />,
     avatar: <KitAvatar>G</KitAvatar>,
     onSelectChange: e => console.log('selected', e.target.checked),
     onRafterClick: () => console.log('click rafter'),

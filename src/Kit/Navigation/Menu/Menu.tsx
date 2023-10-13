@@ -2,9 +2,10 @@ import React, {FunctionComponent} from 'react';
 import {IKitMenu} from './types';
 import {styled} from 'styled-components';
 import {KitTypography, KitIcon} from '@kit/General';
-import {CloseOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
 import {IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 
 const StyledMenu = styled.div<{$theme: IKitMenuTheme}>`
     padding: 16px 19px;
@@ -98,7 +99,7 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
             isClosable && (
                 <KitIcon
                     className="kit-menu-header-close"
-                    icon={<CloseOutlined />}
+                    icon={<FontAwesomeIcon icon={faCircleXmark} />}
                     hoverable
                     onClick={() => onCloseClick()}
                 />

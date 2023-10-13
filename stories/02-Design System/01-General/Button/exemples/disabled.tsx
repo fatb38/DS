@@ -1,6 +1,7 @@
 import React from 'react';
 import {KitButton, KitSpace} from '@kit/index';
-import {SearchOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     return (
@@ -50,10 +51,10 @@ const App = () => {
                 </KitButton>
             </KitSpace>
             <KitSpace>
-                <KitButton type="segmented" icon={<SearchOutlined />} />
-                <KitButton type="segmented" icon={<SearchOutlined />} disabled />
-                <KitButton type="segmented" icon={<SearchOutlined />} danger />
-                <KitButton type="segmented" icon={<SearchOutlined />} danger disabled />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} disabled />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger disabled />
             </KitSpace>
         </KitSpace>
     );

@@ -2,15 +2,10 @@ import React from 'react';
 import {KitButton, KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {useKitNotification} from '@kit/Feedback/';
-import {
-    CheckCircleOutlined,
-    CloseCircleOutlined,
-    CloseOutlined,
-    CloseSquareOutlined,
-    DownloadOutlined,
-    SearchOutlined
-} from '@ant-design/icons';
 import {IKitNotificationArgs} from '@kit/Feedback/Notification/types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleCheck, faCircleXmark, faRectangleXmark} from '@fortawesome/free-regular-svg-icons';
+import {faDownload, faMagnifyingGlass, faXmark} from '@fortawesome/free-solid-svg-icons';
 
 export const FakeNotification: React.FunctionComponent<IKitNotificationArgs> = () => null;
 
@@ -188,11 +183,11 @@ export const argTypes = {
 export const getIcon = ({icon}) => {
     switch (icon) {
         case 'SearchOutlined':
-            return <KitIcon icon={<SearchOutlined />} />;
+            return <KitIcon icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />;
         case 'DownloadOutlined':
-            return <KitIcon icon={<DownloadOutlined />} />;
+            return <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} />;
         case 'CheckCircleOutlined':
-            return <KitIcon icon={<CheckCircleOutlined />} />;
+            return <KitIcon icon={<FontAwesomeIcon icon={faCircleCheck} />} />;
         case '-':
         default:
             return null;
@@ -202,11 +197,11 @@ export const getIcon = ({icon}) => {
 export const getCloseIcon = ({closeIcon}) => {
     switch (closeIcon) {
         case 'CloseCircleOutlined':
-            return <KitIcon icon={<CloseCircleOutlined />} />;
+            return <KitIcon icon={<FontAwesomeIcon icon={faCircleXmark} />} />;
         case 'CloseOutlined':
-            return <KitIcon icon={<CloseOutlined />} />;
+            return <KitIcon icon={<FontAwesomeIcon icon={faXmark} />} />;
         case 'CloseSquareOutlined':
-            return <KitIcon icon={<CloseSquareOutlined />} />;
+            return <KitIcon icon={<FontAwesomeIcon icon={faRectangleXmark} />} />;
         case '-':
         default:
             return;

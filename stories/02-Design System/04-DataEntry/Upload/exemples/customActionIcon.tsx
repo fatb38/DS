@@ -1,7 +1,8 @@
 import React from 'react';
 import {KitUpload} from '@kit/DataEntry';
 import {UploadProps} from 'antd';
-import {StarOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faStar} from '@fortawesome/free-regular-svg-icons';
 
 const defaultFileList: UploadProps['defaultFileList'] = [
     {
@@ -36,7 +37,7 @@ const showUploadList = {
     showDownloadIcon: true,
     downloadIcon: 'Download',
     showRemoveIcon: true,
-    removeIcon: <StarOutlined onClick={e => console.log(e, 'custom removeIcon event')} />
+    removeIcon: <FontAwesomeIcon icon={faStar} onClick={e => console.log(e, 'custom removeIcon event')} />
 };
 
 const App = () => {

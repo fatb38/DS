@@ -1,17 +1,18 @@
 import React from 'react';
-import {AndroidOutlined, AppleOutlined} from '@ant-design/icons';
 import {KitTabs} from '@kit/DataDisplay';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAppleAlt, faRobot} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => (
     <KitTabs
         defaultActiveKey="2"
-        items={[AppleOutlined, AndroidOutlined].map((Icon, i) => {
+        items={[faAppleAlt, faRobot].map((Icon, i) => {
             const id = String(i + 1);
 
             return {
                 label: (
                     <span>
-                        <Icon />
+                        <FontAwesomeIcon icon={Icon} style={{marginRight: '6px'}} />
                         Tab {id}
                     </span>
                 ),

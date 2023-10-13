@@ -1,4 +1,5 @@
-import {EditOutlined, EllipsisOutlined, SettingOutlined} from '@ant-design/icons';
+import {faEllipsis, faGear, faPencil} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitCard} from '@kit/DataDisplay';
 import {KitSwitch} from '@kit/DataEntry';
 import {KitTypography} from '@kit/General';
@@ -166,9 +167,17 @@ export const Template = args => {
                 extra={isExtra && <KitLink href="#">More</KitLink>}
                 actions={
                     isActions && [
-                        <SettingOutlined key="setting" onClick={() => console.log('click button settings')} />,
-                        <EditOutlined key="edit" onClick={() => console.log('click button edit')} />,
-                        <EllipsisOutlined key="ellipsis" onClick={() => console.log('click button ellipsis')} />
+                        <FontAwesomeIcon
+                            icon={faGear}
+                            key="setting"
+                            onClick={() => console.log('click button settings')}
+                        />,
+                        <FontAwesomeIcon icon={faPencil} key="edit" onClick={() => console.log('click button edit')} />,
+                        <FontAwesomeIcon
+                            icon={faEllipsis}
+                            key="ellipsis"
+                            onClick={() => console.log('click button ellipsis')}
+                        />
                     ]
                 }
             />

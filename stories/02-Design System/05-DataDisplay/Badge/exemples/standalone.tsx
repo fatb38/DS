@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import {KitBadge} from '@kit/DataDisplay/';
 import {KitSwitch} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout/';
-import {ClockCircleOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faClock} from '@fortawesome/free-regular-svg-icons';
 
 const App = () => {
     const {theme} = useKitTheme();
@@ -20,7 +21,14 @@ const App = () => {
                 <KitBadge count={show ? 25 : 0} />
                 <KitBadge
                     count={
-                        show ? <ClockCircleOutlined style={{color: theme.general.colors.secondary.red.red400}} /> : 0
+                        show ? (
+                            <FontAwesomeIcon
+                                icon={faClock}
+                                style={{color: theme.general.colors.secondary.red.red400}}
+                            />
+                        ) : (
+                            0
+                        )
                     }
                 />
             </KitSpace>

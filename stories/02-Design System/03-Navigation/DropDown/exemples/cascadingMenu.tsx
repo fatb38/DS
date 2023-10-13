@@ -1,9 +1,10 @@
 import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
-import {DownOutlined} from '@ant-design/icons';
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
 import {KitButton} from '@kit/General';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 
 const items: IKitDropdownMenu['items'] = [
     {
@@ -130,13 +131,13 @@ const App = () => {
         <KitSpace size="m">
             <KitDropDown menu={{items}}>
                 <KitButton type="link">
-                    Cascading <DownOutlined />
+                    Cascading <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
                 </KitButton>
             </KitDropDown>
             <KitDropDown menu={{items: itemsGroups}}>
                 <KitButton type="link">
                     Cascading with groups
-                    <DownOutlined />
+                    <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
                 </KitButton>
             </KitDropDown>
         </KitSpace>

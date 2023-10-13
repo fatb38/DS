@@ -3,7 +3,8 @@ import {KitAvatar, KitBadge} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {KitButton} from '@kit/General';
 import {KitSwitch} from '@kit/DataEntry';
-import {MinusOutlined, PlusOutlined, QuestionOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faMinus, faPlus, faQuestion} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     const [count, setCount] = useState(5);
@@ -36,9 +37,9 @@ const App = () => {
                 <KitBadge count={count}>
                     <KitAvatar shape="square" size="large" />
                 </KitBadge>
-                <KitButton onClick={decline} icon={<MinusOutlined />} />
-                <KitButton onClick={increase} icon={<PlusOutlined />} />
-                <KitButton onClick={random} icon={<QuestionOutlined />} />
+                <KitButton onClick={decline} icon={<FontAwesomeIcon icon={faMinus} />} />
+                <KitButton onClick={increase} icon={<FontAwesomeIcon icon={faPlus} />} />
+                <KitButton onClick={random} icon={<FontAwesomeIcon icon={faQuestion} />} />
             </KitSpace>
             <br />
             <KitSpace size="m">

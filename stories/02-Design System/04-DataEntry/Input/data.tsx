@@ -1,7 +1,9 @@
 import React from 'react';
 import {KitInput} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
-import {CheckCircleOutlined, SearchOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleCheck} from '@fortawesome/free-regular-svg-icons';
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 const components = ['Input', 'TextArea', 'Password'];
 
@@ -288,9 +290,9 @@ export const argTypes = {
 export const getIcon = icon => {
     switch (icon) {
         case 'SearchOutlined':
-            return <SearchOutlined />;
+            return <FontAwesomeIcon icon={faMagnifyingGlass} />;
         case 'CheckCircleOutlined':
-            return <CheckCircleOutlined />;
+            return <FontAwesomeIcon icon={faCircleCheck} />;
         case '':
         default:
             return null;
@@ -312,7 +314,7 @@ const getComponent = (component, args) => {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {component, ...props} = args;
     return <KitSpace direction="vertical">{getComponent(component, props)}</KitSpace>;
 };

@@ -2,9 +2,10 @@ import React, {FunctionComponent} from 'react';
 import {DatePicker as AntdDatePicker} from 'antd';
 import {IStyledRangePicker, IKitRangePicker} from './types';
 import styled from 'styled-components';
-import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from '../Input/InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 
 export const StyledRangePicker = styled.div<IStyledRangePicker>`
     .ant-picker.ant-picker-range {
@@ -200,7 +201,7 @@ const KitDatePicker: FunctionComponent<IKitRangePicker> = ({label, helper, allow
             <StyledRangePicker $theme={theme.components.DatePicker.RangePicker}>
                 <AntdDatePicker.RangePicker
                     {...rangePickerProps}
-                    allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : false}
+                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : false}
                 />
             </StyledRangePicker>
         </KitInputWrapper>

@@ -2,9 +2,10 @@ import React, {FunctionComponent} from 'react';
 import styled from 'styled-components';
 import {DatePicker as AntdDatePicker} from 'antd';
 import {IKitDatePicker, IStyledDatePicker} from './types';
-import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from '../Input/InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 
 const StyledDatePicker = styled.div<IStyledDatePicker>`
     .ant-picker {
@@ -150,7 +151,7 @@ const KitDatePicker: FunctionComponent<IKitDatePicker> = ({label, helper, allowC
             <StyledDatePicker $theme={theme.components.DatePicker}>
                 <AntdDatePicker
                     {...datePickerProps}
-                    allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : false}
+                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : false}
                 />
             </StyledDatePicker>
         </KitInputWrapper>

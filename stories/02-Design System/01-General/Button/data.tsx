@@ -1,6 +1,8 @@
 import React from 'react';
-import {DownloadOutlined, CheckCircleOutlined, SearchOutlined} from '@ant-design/icons';
 import {KitButton} from '@kit/General/';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faDownload, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {faCircleCheck} from '@fortawesome/free-regular-svg-icons';
 
 export const argTypes = {
     block: {
@@ -212,11 +214,11 @@ export const argTypes = {
 export const getIcon = ({icon}) => {
     switch (icon) {
         case 'SearchOutlined':
-            return <SearchOutlined />;
+            return <FontAwesomeIcon icon={faMagnifyingGlass} />;
         case 'DownloadOutlined':
-            return <DownloadOutlined />;
+            return <FontAwesomeIcon icon={faDownload} />;
         case 'CheckCircleOutlined':
-            return <CheckCircleOutlined />;
+            return <FontAwesomeIcon icon={faCircleCheck} />;
         case '-':
         default:
             return null;

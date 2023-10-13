@@ -1,9 +1,10 @@
 import React, {FunctionComponent} from 'react';
 import {Upload as AntdUpload} from 'antd';
 import styled from 'styled-components';
-import {InboxOutlined} from '@ant-design/icons';
 import {IKitDragger, IStyledDragger} from './types';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faInbox} from '@fortawesome/free-solid-svg-icons';
 
 const StyledDragger = styled(AntdUpload.Dragger)<IStyledDragger>`
     .ant-upload {
@@ -57,7 +58,7 @@ const KitDragger: FunctionComponent<IKitDragger> = ({title, description, ...drag
     return (
         <StyledDragger $theme={theme.components.Upload.Dragger} {...draggerProps}>
             <p className="ant-upload-drag-icon">
-                <InboxOutlined />
+                <FontAwesomeIcon icon={faInbox} />
             </p>
             <p className="ant-upload-text">{draggerTitle}</p>
             <p className="ant-upload-hint">{draggerDescription}</p>

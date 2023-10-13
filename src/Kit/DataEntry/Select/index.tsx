@@ -1,7 +1,5 @@
 import React, {useEffect, useRef, useState, FocusEvent, MouseEvent, FunctionComponent} from 'react';
 import cn from 'classnames';
-import {CloseCircleOutlined} from '@ant-design/icons';
-import {CheckOutlined} from '@ant-design/icons';
 import {KitIcon} from '../../General/';
 import {IKitSelect} from './types';
 import type {CustomTagProps} from 'rc-select/lib/BaseSelect';
@@ -10,6 +8,9 @@ import {KitDropdownOutlined} from '@icons/index';
 import KitInputWrapper from '@kit/DataEntry/Input/InputWrapper';
 import {KitTag} from '@kit/DataEntry/';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
+import {faCheck} from '@fortawesome/free-solid-svg-icons';
 
 const _getOptionLabel = (props, theme) => (
     <div className="kit-select-option">
@@ -139,9 +140,9 @@ export const KitSelect: FunctionComponent<IKitSelect> = ({
                 className={_getClasses()}
                 popupClassName={_getDropdownClasses()}
                 options={internalOptions}
-                menuItemSelectedIcon={<KitIcon icon={<CheckOutlined />} on />}
+                menuItemSelectedIcon={<KitIcon icon={<FontAwesomeIcon icon={faCheck} />} on />}
                 suffixIcon={!props.loading ? <KitDropdownOutlined /> : undefined}
-                allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
+                allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
                 dropdownRender={_dropDownRenderer}
                 tagRender={props.mode ? _tagRender : undefined}
                 maxTagCount={oneLineTags ? 'responsive' : undefined}

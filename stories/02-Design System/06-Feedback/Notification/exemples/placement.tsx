@@ -2,12 +2,8 @@ import React from 'react';
 import {KitButton} from '@kit/General/';
 import {KitDivider, KitSpace} from '@kit/Layout/';
 import {useKitNotification} from '@kit/Feedback/';
-import {
-    RadiusBottomleftOutlined,
-    RadiusBottomrightOutlined,
-    RadiusUpleftOutlined,
-    RadiusUprightOutlined
-} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faBorderTopLeft} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     const {kitNotification} = useKitNotification();
@@ -25,7 +21,7 @@ const App = () => {
                             placement: 'topLeft'
                         })
                     }
-                    icon={<RadiusUpleftOutlined />}
+                    icon={<FontAwesomeIcon icon={faBorderTopLeft} />}
                 >
                     topLeft
                 </KitButton>
@@ -39,7 +35,7 @@ const App = () => {
                             placement: 'topRight'
                         })
                     }
-                    icon={<RadiusUprightOutlined />}
+                    icon={<FontAwesomeIcon icon={faBorderTopLeft} style={{transform: 'rotateZ(90deg)'}} />}
                 >
                     topRight
                 </KitButton>
@@ -56,7 +52,7 @@ const App = () => {
                             placement: 'bottomLeft'
                         })
                     }
-                    icon={<RadiusBottomleftOutlined />}
+                    icon={<FontAwesomeIcon icon={faBorderTopLeft} style={{transform: 'rotateZ(90deg) scale(-1)'}} />}
                 >
                     bottomLeft
                 </KitButton>
@@ -70,7 +66,7 @@ const App = () => {
                             placement: 'bottomRight'
                         })
                     }
-                    icon={<RadiusBottomrightOutlined />}
+                    icon={<FontAwesomeIcon icon={faBorderTopLeft} style={{transform: 'scale(-1)'}} />}
                 >
                     bottomRight
                 </KitButton>

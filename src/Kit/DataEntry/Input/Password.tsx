@@ -2,9 +2,10 @@ import React, {FunctionComponent} from 'react';
 import {Input as AntdInput} from 'antd';
 import {IKitPassword, IStyledAntdPassword} from './types';
 import {styled} from 'styled-components';
-import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 
 const StyledAntdPassword = styled(AntdInput.Password)<IStyledAntdPassword>`
     &.ant-input-affix-wrapper {
@@ -174,7 +175,7 @@ const KitPassword: FunctionComponent<IKitPassword> = ({label, helper, allowClear
             <StyledAntdPassword
                 $theme={theme.components.Input.Password}
                 {...passwordProps}
-                allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
+                allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
             />
         </KitInputWrapper>
     );

@@ -1,7 +1,8 @@
 import React from 'react';
 import {KitAvatar} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
-import {UserOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUser} from '@fortawesome/free-regular-svg-icons';
 
 const App = () => {
     const url = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
@@ -9,9 +10,9 @@ const App = () => {
     return (
         <KitSpace direction="vertical" size={16}>
             <KitSpace wrap size={16}>
-                <KitAvatar size="small" icon={<UserOutlined />} />
-                <KitAvatar icon={<UserOutlined />} />
-                <KitAvatar size="large" icon={<UserOutlined />} />
+                <KitAvatar size="small" icon={<FontAwesomeIcon icon={faUser} />} />
+                <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} />
+                <KitAvatar size="large" icon={<FontAwesomeIcon icon={faUser} />} />
             </KitSpace>
             <KitSpace wrap size={16}>
                 <KitAvatar size="small">U</KitAvatar>

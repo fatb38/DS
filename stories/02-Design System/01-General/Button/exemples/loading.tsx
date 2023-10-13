@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {KitButton, KitSpace} from '@kit/index';
-import {PoweroffOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faPowerOff} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     const [loadings, setLoadings] = useState<boolean[]>([]);
@@ -32,14 +33,18 @@ const App = () => {
                     <KitButton type="text" loading>
                         Loading
                     </KitButton>
-                    <KitButton type="primary" icon={<PoweroffOutlined />} loading />
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} loading />
+                    <KitButton type="primary" icon={<FontAwesomeIcon icon={faPowerOff} />} loading />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} loading />
                 </KitSpace>
                 <KitSpace wrap>
                     <KitButton type="primary" loading={loadings[0]} onClick={() => enterLoading(0)}>
                         Click me!
                     </KitButton>
-                    <KitButton icon={<PoweroffOutlined />} loading={loadings[1]} onClick={() => enterLoading(1)}>
+                    <KitButton
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
+                        loading={loadings[1]}
+                        onClick={() => enterLoading(1)}
+                    >
                         Click me!
                     </KitButton>
                     <KitButton type="text" loading={loadings[2]} onClick={() => enterLoading(2)}>
@@ -47,13 +52,13 @@ const App = () => {
                     </KitButton>
                     <KitButton
                         type="primary"
-                        icon={<PoweroffOutlined />}
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
                         loading={loadings[3]}
                         onClick={() => enterLoading(3)}
                     />
                     <KitButton
                         type="segmented"
-                        icon={<PoweroffOutlined />}
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
                         loading={loadings[4]}
                         onClick={() => enterLoading(4)}
                     />

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {KitProgress, KitSpace, KitButton} from '@kit/index';
-import {MinusOutlined, PlusOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faMinus, faPlus} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     const [percent, setPercent] = useState(0);
@@ -29,8 +30,8 @@ const App = () => {
         <>
             <KitProgress percent={percent} style={{marginRight: 8}} />
             <KitSpace.Compact>
-                <KitButton onClick={decline} type="segmented" icon={<MinusOutlined />} />
-                <KitButton onClick={increase} type="segmented" icon={<PlusOutlined />} />
+                <KitButton onClick={decline} type="segmented" icon={<FontAwesomeIcon icon={faMinus} />} />
+                <KitButton onClick={increase} type="segmented" icon={<FontAwesomeIcon icon={faPlus} />} />
             </KitSpace.Compact>
         </>
     );
