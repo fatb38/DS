@@ -11,7 +11,7 @@ import {KitThemeProvider, useKitTheme} from '@theme/theme-context';
 import {IKitCustomTheme} from '@theme/types';
 import {TypographyStyle} from '@kit/General/Typography/style';
 import {TabsDropDownStyle} from '@kit/DataDisplay/Tabs/style';
-import {mapKitThemeToAntdTheme} from '@theme/utils/antd-mapper';
+import {mapKitThemeToAntdTheme} from '@theme/utils/tokens-mapper';
 import {IKitLocale} from '@translation/types';
 import {KitLocaleProvider, useKitLocale} from '@translation/locale-context';
 import {mapKitLocaleToAntdLocale} from '@translation/utils';
