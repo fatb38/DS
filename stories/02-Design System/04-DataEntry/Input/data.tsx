@@ -2,8 +2,8 @@ import React from 'react';
 import {KitDatePicker, KitInput, KitInputNumber, KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleCheck} from '@fortawesome/free-regular-svg-icons';
-import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {faCircleCheck, faUser} from '@fortawesome/free-regular-svg-icons';
+import {faMagnifyingGlass, faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons';
 import {IEditorTemplate} from '../../../types';
 
 const components = ['Input', 'TextArea', 'Password'];
@@ -327,14 +327,14 @@ export const EditorTemplate: IEditorTemplate = () => {
 
     const inputProps = {
         placeholder: 'Placeholder',
-        prefix: <UserOutlined />,
-        suffix: <SearchOutlined />,
+        prefix: <FontAwesomeIcon icon={faUser} />,
+        suffix: <FontAwesomeIcon icon={faMagnifyingGlass} />,
         showCount: true
     };
 
     const passwordProps = {
         placeholder: 'Password',
-        prefix: <LoginOutlined />,
+        prefix: <FontAwesomeIcon icon={faArrowRightToBracket} />,
         showCount: true
     };
 

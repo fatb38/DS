@@ -267,10 +267,10 @@ export const EditorTemplate: IEditorTemplate = () => {
                 }}
                 actions={[
                     <KitButton onClick={() => console.log('download action')}>
-                        <DownloadOutlined />
+                        <FontAwesomeIcon icon={faDownload} />
                     </KitButton>,
                     <KitButton onClick={() => console.log('open action')}>
-                        <FolderOpenOutlined />
+                        <FontAwesomeIcon icon={faFolderOpen} />
                     </KitButton>
                 ]}
                 disabled

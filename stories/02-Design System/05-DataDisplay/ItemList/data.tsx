@@ -187,7 +187,7 @@ export const EditorTemplate: IEditorTemplate = () => {
         <KitSpace direction="vertical">
             <KitItemList
                 onSelectChange={e => console.log('selected', e.target.checked)}
-                picture={<KitIcon icon={<UserOutlined />} />}
+                picture={<KitIcon icon={<FontAwesomeIcon icon={faUser} />} />}
                 title="Tondeuse à gazon"
                 description="Tondeuse thermique Auto tractée 70 VL 55 TH"
                 tagNumber={4}

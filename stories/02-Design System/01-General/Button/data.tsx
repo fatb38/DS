@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitButton} from '@kit/General/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faDownload, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {faDownload, faMagnifyingGlass, faPowerOff, faRotateRight} from '@fortawesome/free-solid-svg-icons';
 import {faCircleCheck} from '@fortawesome/free-regular-svg-icons';
 import {KitSpace} from '@kit/Layout';
 import {IEditorTemplate} from '../../../types';
@@ -284,118 +284,162 @@ export const EditorTemplate: IEditorTemplate = () => {
                 </KitButton>
             </KitSpace>
             <KitSpace>
-                <KitButton type="segmented" icon={<SearchOutlined />} />
-                <KitButton type="segmented" icon={<SearchOutlined />}>
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                     Search
                 </KitButton>
-                <KitButton type="segmented" icon={<SearchOutlined />} disabled />
-                <KitButton type="segmented" icon={<SearchOutlined />} disabled>
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} disabled />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} disabled>
                     Search
                 </KitButton>
-                <KitButton type="segmented" icon={<SearchOutlined />} danger />
-                <KitButton type="segmented" icon={<SearchOutlined />} danger>
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger>
                     Search
                 </KitButton>
-                <KitButton type="segmented" icon={<SearchOutlined />} danger disabled />
-                <KitButton type="segmented" icon={<SearchOutlined />} danger disabled>
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger disabled />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger disabled>
                     Search
                 </KitButton>
             </KitSpace>
             <KitSpace wrap>
                 <KitSpace.Compact block>
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedActived />
-                    <KitButton type="segmented" icon={<SearchOutlined />} />
-                    <KitButton type="segmented" icon={<ReloadOutlined />} />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} segmentedActived />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faRotateRight} />} />
                 </KitSpace.Compact>
                 <KitSpace.Compact block>
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} />
-                    <KitButton type="segmented" icon={<SearchOutlined />} segmentedActived segmentedChecked />
-                    <KitButton type="segmented" icon={<ReloadOutlined />} />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} />
+                    <KitButton
+                        type="segmented"
+                        icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
+                        segmentedActived
+                        segmentedChecked
+                    />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faRotateRight} />} />
                 </KitSpace.Compact>
                 <KitSpace.Compact block>
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} />
-                    <KitButton type="segmented" icon={<SearchOutlined />} />
-                    <KitButton type="segmented" icon={<ReloadOutlined />} segmentedActived segmentedChecked />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+                    <KitButton
+                        type="segmented"
+                        icon={<FontAwesomeIcon icon={faRotateRight} />}
+                        segmentedActived
+                        segmentedChecked
+                    />
                 </KitSpace.Compact>
             </KitSpace>
             <KitSpace wrap>
                 <KitSpace wrap>
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="blue" />
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="blue" segmentedActived />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} segmentedColor="blue" />
                     <KitButton
                         type="segmented"
-                        icon={<PoweroffOutlined />}
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
+                        segmentedColor="blue"
+                        segmentedActived
+                    />
+                    <KitButton
+                        type="segmented"
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
                         segmentedColor="blue"
                         segmentedActived
                         segmentedChecked
                     />
                 </KitSpace>
                 <KitSpace wrap>
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="green" />
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="green" segmentedActived />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} segmentedColor="green" />
                     <KitButton
                         type="segmented"
-                        icon={<PoweroffOutlined />}
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
+                        segmentedColor="green"
+                        segmentedActived
+                    />
+                    <KitButton
+                        type="segmented"
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
                         segmentedColor="green"
                         segmentedActived
                         segmentedChecked
                     />
                 </KitSpace>
                 <KitSpace wrap>
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="mediumGrey" />
                     <KitButton
                         type="segmented"
-                        icon={<PoweroffOutlined />}
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
+                        segmentedColor="mediumGrey"
+                    />
+                    <KitButton
+                        type="segmented"
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
                         segmentedColor="mediumGrey"
                         segmentedActived
                     />
                     <KitButton
                         type="segmented"
-                        icon={<PoweroffOutlined />}
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
                         segmentedColor="mediumGrey"
                         segmentedActived
                         segmentedChecked
                     />
                 </KitSpace>
                 <KitSpace wrap>
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="orange" />
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="orange" segmentedActived />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} segmentedColor="orange" />
                     <KitButton
                         type="segmented"
-                        icon={<PoweroffOutlined />}
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
+                        segmentedColor="orange"
+                        segmentedActived
+                    />
+                    <KitButton
+                        type="segmented"
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
                         segmentedColor="orange"
                         segmentedActived
                         segmentedChecked
                     />
                 </KitSpace>
                 <KitSpace wrap>
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="pink" />
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="pink" segmentedActived />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} segmentedColor="pink" />
                     <KitButton
                         type="segmented"
-                        icon={<PoweroffOutlined />}
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
+                        segmentedColor="pink"
+                        segmentedActived
+                    />
+                    <KitButton
+                        type="segmented"
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
                         segmentedColor="pink"
                         segmentedActived
                         segmentedChecked
                     />
                 </KitSpace>
                 <KitSpace wrap>
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="red" />
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="red" segmentedActived />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} segmentedColor="red" />
                     <KitButton
                         type="segmented"
-                        icon={<PoweroffOutlined />}
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
+                        segmentedColor="red"
+                        segmentedActived
+                    />
+                    <KitButton
+                        type="segmented"
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
                         segmentedColor="red"
                         segmentedActived
                         segmentedChecked
                     />
                 </KitSpace>
                 <KitSpace wrap>
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="yellow" />
-                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="yellow" segmentedActived />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} segmentedColor="yellow" />
                     <KitButton
                         type="segmented"
-                        icon={<PoweroffOutlined />}
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
+                        segmentedColor="yellow"
+                        segmentedActived
+                    />
+                    <KitButton
+                        type="segmented"
+                        icon={<FontAwesomeIcon icon={faPowerOff} />}
                         segmentedColor="yellow"
                         segmentedActived
                         segmentedChecked
