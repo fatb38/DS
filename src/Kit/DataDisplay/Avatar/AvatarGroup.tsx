@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Avatar as AntdAvatar} from 'antd';
-import {KitAvatarGroupProps} from './types';
+import {IKitAvatarGroup} from './types';
 
 import {useKitTheme} from '@theme/theme-context';
 
-const KitAvatarGroup: React.FunctionComponent<KitAvatarGroupProps> = avatarGroupProps => {
+const KitAvatarGroup: FunctionComponent<IKitAvatarGroup> = avatarGroupProps => {
     const {theme: kitTheme} = useKitTheme();
     const theme = kitTheme.components.AvatarGroup;
     return (

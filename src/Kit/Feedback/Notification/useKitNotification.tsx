@@ -1,16 +1,14 @@
-import React, {createContext, useContext} from 'react';
+import React, {Key, createContext, useContext} from 'react';
 import {CheckCircleOutlined, CloseCircleOutlined, ExclamationCircleOutlined, WarningOutlined} from '@ant-design/icons';
 import {KitIcon} from '@kit/General/Icon';
-import {notification} from 'antd';
-import theme from '@theme/index';
-import {NotificationInstance} from 'antd/es/notification/interface';
-import type {IKitNotificationContext, KitNotification, KitNotificationArgsProps} from './types';
-
-const {color} = theme;
+import notification from 'antd/lib/notification';
+import {NotificationInstance} from 'antd/lib/notification/interface';
+import {IKitNotificationArgs, IKitNotificationContext} from './types';
+import {useKitTheme} from '@theme/theme-context';
 
 const KitNotificationContext = createContext<IKitNotificationContext | undefined>(undefined);
 
-export function useKitNotification(): IKitNotificationContext {
+function useKitNotification() {
     const context = useContext(KitNotificationContext);
     if (context === undefined) {
         throw new Error('useKitNotification must be inside a context');
@@ -30,15 +28,18 @@ export const KitNotificationProvider = ({children}) => {
     );
 };
 
-const useKitNotificationProvider = (api: NotificationInstance): IKitNotificationContext => {
-    const error = (args: KitNotificationArgsProps) => {
+const useKitNotificationProvider = (api: NotificationInstance) => {
+    const {theme: kitTheme} = useKitTheme();
+    const theme = kitTheme.components.Notification;
+
+    const error = (args: IKitNotificationArgs) => {
         api.error({
             ...args,
             icon: (
                 <KitIcon
                     style={{
-                        color: color.secondary.red.red400,
-                        backgroundColor: color.secondary.red.red100
+                        color: theme.colors.icon.error,
+                        backgroundColor: theme.colors.icon.background.error
                     }}
                     icon={<CloseCircleOutlined />}
                     on
@@ -46,14 +47,14 @@ const useKitNotificationProvider = (api: NotificationInstance): IKitNotification
             )
         });
     };
-    const warning = (args: KitNotificationArgsProps) => {
+    const warning = (args: IKitNotificationArgs) => {
         api.warning({
             ...args,
             icon: (
                 <KitIcon
                     style={{
-                        color: color.secondary.orange.orange400,
-                        backgroundColor: color.secondary.orange.orange100
+                        color: theme.colors.icon.warning,
+                        backgroundColor: theme.colors.icon.background.warning
                     }}
                     icon={<WarningOutlined />}
                     on
@@ -61,14 +62,14 @@ const useKitNotificationProvider = (api: NotificationInstance): IKitNotification
             )
         });
     };
-    const success = (args: KitNotificationArgsProps) => {
+    const success = (args: IKitNotificationArgs) => {
         api.success({
             ...args,
             icon: (
                 <KitIcon
                     style={{
-                        color: color.secondary.green.green400,
-                        backgroundColor: color.secondary.green.green100
+                        color: theme.colors.icon.success,
+                        backgroundColor: theme.colors.icon.background.success
                     }}
                     icon={<CheckCircleOutlined />}
                     on
@@ -76,14 +77,14 @@ const useKitNotificationProvider = (api: NotificationInstance): IKitNotification
             )
         });
     };
-    const info = (args: KitNotificationArgsProps) => {
+    const info = (args: IKitNotificationArgs) => {
         api.info({
             ...args,
             icon: (
                 <KitIcon
                     style={{
-                        color: color.primary.blue400,
-                        backgroundColor: color.primary.blue100
+                        color: theme.colors.icon.info,
+                        backgroundColor: theme.colors.icon.background.info
                     }}
                     icon={<ExclamationCircleOutlined />}
                     on
@@ -92,11 +93,11 @@ const useKitNotificationProvider = (api: NotificationInstance): IKitNotification
         });
     };
 
-    const open = (args: KitNotificationArgsProps) => {
+    const open = (args: IKitNotificationArgs) => {
         api.open({...args});
     };
 
-    const destroy = (key?: React.Key) => {
+    const destroy = (key?: Key) => {
         api.destroy(key);
     };
 

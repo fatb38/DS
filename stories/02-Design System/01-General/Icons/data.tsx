@@ -6,6 +6,8 @@ import {KitInput, KitRadio} from '@kit/DataEntry/';
 import type {RadioChangeEvent} from '@kit/DataEntry/Radio';
 import {KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
+import {IEditorTemplate} from '../../../types';
+import {DownloadOutlined} from '@ant-design/icons';
 
 export const argTypes = {
     on: {
@@ -117,7 +119,7 @@ const Gallery = () => {
 
     return (
         <div className="gallery">
-            <KitSpace size="small">
+            <KitSpace size="xs">
                 <KitRadio.Group options={options} onChange={onChange} value={type} size="small" optionType="button" />
                 <KitInput
                     prefix="TwoTone color"
@@ -129,7 +131,7 @@ const Gallery = () => {
             </KitSpace>
             <br />
             <br />
-            <KitSpace wrap size="middle">
+            <KitSpace wrap size="s">
                 {sorted[type].map(IconName => {
                     const Component = type === 'aristid' ? AristidIcons[IconName] : Icons[IconName];
                     return (
@@ -147,3 +149,14 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace>
+            <KitIcon icon={<DownloadOutlined />} />
+            <KitIcon icon={<DownloadOutlined />} on />
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Icon';
+EditorTemplate.title = 'Icon';

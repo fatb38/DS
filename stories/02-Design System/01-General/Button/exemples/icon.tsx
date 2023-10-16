@@ -12,6 +12,10 @@ const App = () => {
                 </KitButton>
                 <KitButton icon={<SearchOutlined />} />
                 <KitButton icon={<SearchOutlined />}>Search</KitButton>
+                <KitButton type="text" icon={<SearchOutlined />} />
+                <KitButton type="text" icon={<SearchOutlined />}>
+                    Search
+                </KitButton>
                 <KitButton type="link" icon={<SearchOutlined />} />
                 <KitButton type="link" icon={<SearchOutlined />}>
                     Search

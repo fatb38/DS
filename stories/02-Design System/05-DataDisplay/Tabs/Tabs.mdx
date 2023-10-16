@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitTabsStories from './Tabs.stories';
 
 <Meta of={KitTabsStories} />
@@ -107,3 +109,8 @@ More option at [rc-tabs tabs]
 | key | TabPane's key | string | - |
 | label | TabPane's head display text | ReactNode | - |
 | children | TabPane's head display content | ReactNode | - |
+
+
+## Design Tokens
+
+<DesignTokens path="components.Tabs" tokens={fields?.components?.Tabs} />

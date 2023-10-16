@@ -1,43 +1,15 @@
+import {ForwardRefRenderFunction, createContext, forwardRef, memo, useContext, useEffect, useState} from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+import React from 'react';
 import {ConfigContext} from 'antd/lib/config-provider/';
-import type {CheckboxChangeEvent} from 'antd/lib/checkbox/Checkbox';
 import Checkbox from './Checkbox';
-import {GroupContext} from 'antd/lib/checkbox/Group';
-
 import useStyle from 'antd/lib/checkbox/style';
+import {ICheckboxGroupContext, ICheckboxGroup, CheckboxOptionType, CheckboxValueType} from './types';
 
-export type CheckboxValueType = string | number | boolean;
+export const GroupContext = createContext<ICheckboxGroupContext | null>(null);
 
-export interface CheckboxOptionType {
-    label: React.ReactNode;
-    value: CheckboxValueType;
-    style?: React.CSSProperties;
-    disabled?: boolean;
-    danger?: boolean;
-    onChange?: (e: CheckboxChangeEvent) => void;
-}
-
-export interface AbstractCheckboxGroupProps {
-    prefixCls?: string;
-    className?: string;
-    rootClassName?: string;
-    options?: Array<CheckboxOptionType | string | number>;
-    disabled?: boolean;
-    danger?: boolean;
-    style?: React.CSSProperties;
-}
-
-export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
-    name?: string;
-    defaultValue?: Array<CheckboxValueType>;
-    value?: Array<CheckboxValueType>;
-    onChange?: (checkedValue: Array<CheckboxValueType>) => void;
-    children?: React.ReactNode;
-}
-
-export const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGroupProps> = (
+export const InternalCheckboxGroup: ForwardRefRenderFunction<HTMLDivElement, ICheckboxGroup> = (
     {
         defaultValue,
         children,
@@ -51,18 +23,18 @@ export const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElemen
     },
     ref
 ) => {
-    const {getPrefixCls, direction} = React.useContext(ConfigContext);
+    const {getPrefixCls, direction} = useContext(ConfigContext);
 
-    const [value, setValue] = React.useState<CheckboxValueType[]>(restProps.value || defaultValue || []);
-    const [registeredValues, setRegisteredValues] = React.useState<CheckboxValueType[]>([]);
+    const [value, setValue] = useState<CheckboxValueType[]>(restProps.value || defaultValue || []);
+    const [registeredValues, setRegisteredValues] = useState<CheckboxValueType[]>([]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         if ('value' in restProps) {
             setValue(restProps.value || []);
         }
     }, [restProps]);
 
-    const getOptions = () =>
+    const _getOptions = () =>
         options.map(option => {
             if (typeof option === 'string' || typeof option === 'number') {
                 return {
@@ -92,7 +64,7 @@ export const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElemen
         if (!('value' in restProps)) {
             setValue(newValue);
         }
-        const opts = getOptions();
+        const opts = _getOptions();
         onChange?.(
             newValue
                 .filter(val => registeredValues.includes(val))
@@ -112,7 +84,7 @@ export const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElemen
     const domProps = omit(restProps, ['value', 'disabled']);
 
     if (options && options.length > 0) {
-        children = getOptions().map(option => (
+        children = _getOptions().map(option => (
             <Checkbox
                 prefixCls={prefixCls}
                 key={option.value.toString()}
@@ -129,7 +101,6 @@ export const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElemen
         ));
     }
 
-    // eslint-disable-next-line react/jsx-no-constructed-context-values
     const context = {
         toggleOption,
         value,
@@ -155,6 +126,6 @@ export const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElemen
     );
 };
 
-const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(InternalCheckboxGroup);
+const CheckboxGroup = forwardRef<HTMLDivElement, ICheckboxGroup>(InternalCheckboxGroup);
 
-export default React.memo(CheckboxGroup);
+export default memo(CheckboxGroup);

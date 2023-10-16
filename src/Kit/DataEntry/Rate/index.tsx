@@ -1,15 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Rate as AntdRate} from 'antd';
-import {KitRateColor, KitRateProps} from './types';
+import {IStyledRate, IKitRate} from './types';
 import styled, {css} from 'styled-components';
-import {KitRateTheme} from '@theme/types/components/DataEntry/Rate';
 import {useKitTheme} from '@theme/theme-context';
 
-const StyledRate = styled(AntdRate)<{
-    $theme: KitRateTheme;
-    $color: KitRateColor;
-    $disabledStarTransparency: string;
-}>`
+const StyledRate = styled(AntdRate)<IStyledRate>`
     ${({$color, $theme}) => {
         switch ($color) {
             case 'default':
@@ -78,18 +73,14 @@ const StyledRate = styled(AntdRate)<{
     }
 `;
 
-export const KitRate: React.FunctionComponent<KitRateProps> = ({
-    color = 'default',
-    disabledStarTransparency,
-    ...rateProps
-}) => {
+export const KitRate: FunctionComponent<IKitRate> = ({color = 'default', disabledStarTransparency, ...rateProps}) => {
     const {theme} = useKitTheme();
 
     return (
         <StyledRate
             $theme={theme.components.Rate}
             $color={color}
-            $disabledStarTransparency={disabledStarTransparency ?? theme.general.colors.neutral.typography.white}
+            $disabledStarTransparency={disabledStarTransparency ?? theme.general.colors.neutral.white}
             {...rateProps}
         />
     );

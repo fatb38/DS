@@ -1,3 +1,3 @@
-import React from 'react';
-import { KitTooltipProps } from './types';
-export declare const KitTooltip: React.FunctionComponent<KitTooltipProps>;
+import { FunctionComponent } from 'react';
+import { IKitTooltip } from './types';
+export declare const KitTooltip: FunctionComponent<IKitTooltip>;

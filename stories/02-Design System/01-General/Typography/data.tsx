@@ -1,6 +1,7 @@
 import React from 'react';
 import {KitTypography} from '@kit/General/';
-import {KitSpace} from '@kit/Layout/';
+import {KitGrid, KitSpace} from '@kit/Layout/';
+import {IEditorTemplate} from '../../../types';
 
 const components = ['Title', 'Text', 'Paragraph', 'Link'];
 
@@ -62,19 +63,18 @@ export const argTypes = {
     },
     level: {
         name: 'level',
-        description: 'Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `h7`',
-        options: [1, 2, 3, 4, 5, 6, 7],
+        description: 'Set content importance. Match with `h1`, `h2`, `h3`, `h4`',
+        options: ['h1', 'h2', 'h3', 'h4'],
         control: {
             type: 'select'
         },
         table: {
             type: {
-                summary: 'number'
+                summary: 'TitleLevelKeys'
             },
-            defaultValue: 1,
+            defaultValue: {summary: 'h1'},
             category: 'Typography.Title'
-        },
-        defaultValue: 1
+        }
     },
     copyable: {
         name: 'copyable',
@@ -168,7 +168,60 @@ const getComponent = (component, content, args) => {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {component, content, ...props} = args;
     return <KitSpace direction="vertical">{getComponent(component, content, props)}</KitSpace>;
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitGrid.Row>
+            <KitGrid.Col span={12}>
+                <KitSpace direction="vertical">
+                    <KitTypography.Title>h1. Aristid Design</KitTypography.Title>
+                    <KitTypography.Title level="h2">h2. Aristid Design</KitTypography.Title>
+                    <KitTypography.Title level="h3">h3. Aristid Design</KitTypography.Title>
+                    <KitTypography.Title level="h4">h4. Aristid Design</KitTypography.Title>
+                </KitSpace>
+            </KitGrid.Col>
+            <KitGrid.Col span={12}>
+                <KitSpace direction="vertical">
+                    <KitTypography.Paragraph size="large" weight="bold">
+                        Aristid Design Paragraph-L bold
+                    </KitTypography.Paragraph>
+                    <KitTypography.Paragraph size="large" weight="medium">
+                        Aristid Design Paragraph-L medium
+                    </KitTypography.Paragraph>
+                    <KitTypography.Paragraph size="large" weight="regular">
+                        Aristid Design Paragraph-L regular
+                    </KitTypography.Paragraph>
+                    <KitTypography.Paragraph></KitTypography.Paragraph>
+                    <KitTypography.Paragraph size="medium" weight="bold">
+                        Aristid Design Paragraph-M bold
+                    </KitTypography.Paragraph>
+                    <KitTypography.Paragraph size="medium" weight="medium">
+                        Aristid Design Paragraph-M medium
+                    </KitTypography.Paragraph>
+                    <KitTypography.Paragraph size="medium" weight="regular">
+                        Aristid Design Paragraph-M regular
+                    </KitTypography.Paragraph>
+                    <KitTypography.Paragraph></KitTypography.Paragraph>
+                    <KitTypography.Paragraph size="small" weight="bold">
+                        Aristid Design Paragraph-S bold
+                    </KitTypography.Paragraph>
+                    <KitTypography.Paragraph size="small" weight="medium">
+                        Aristid Design Paragraph-S medium
+                    </KitTypography.Paragraph>
+                    <KitTypography.Paragraph size="small" weight="regular">
+                        Aristid Design Paragraph-S regular
+                    </KitTypography.Paragraph>
+                    <KitTypography.Link href="https://aristid.com" target="_blank">
+                        Aristid Design (Link)
+                    </KitTypography.Link>
+                </KitSpace>
+            </KitGrid.Col>
+        </KitGrid.Row>
+    );
+};
+EditorTemplate.path = 'components.Typography';
+EditorTemplate.title = 'Typography';

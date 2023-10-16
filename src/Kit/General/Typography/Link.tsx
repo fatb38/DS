@@ -1,36 +1,40 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import styled from 'styled-components';
 import {Typography} from 'antd';
-import {KitLinkProps} from './types';
+import {IKitLink, IStyledKitLink} from './types';
 import {sizeTofontSize, getWeightClassname} from './commons';
-import theme from '@theme/index';
+import {useKitTheme} from '@theme/theme-context';
 
-const StyledKitLink = styled(Typography.Link)<KitLinkProps>`
-    &.ant-typography {
-        font-family: 'Inter';
-        line-height: 1.2;
-        font-weight: ${theme.typography.defaultFontWeight};
-        color: ${theme.color.neutral.typography.black};
-    }
+const StyledKitLink = styled(Typography.Link)<IStyledKitLink>`
+    font-size: ${({$typographyTheme, size}) => $typographyTheme['fontSize' + sizeTofontSize[size] ?? 6]}px;
+    line-height: ${({$typographyTheme, size}) => $typographyTheme['lineHeight' + sizeTofontSize[size] ?? 6]};
 
     &.ant-typography-regular {
-        font-weight: ${theme.typography.regularFontWeight};
-    }
-    &.ant-typography-medium {
-        font-weight: ${theme.typography.mediumfontWeight};
-    }
-    &.ant-typography-bold {
-        font-weight: ${theme.typography.boldFontWeight};
+        font-weight: ${({$theme}) => $theme.Link.fontWeight.regular};
     }
 
-    font-size: ${props =>
-        props.size ? theme.typography['fontSize' + sizeTofontSize[props.size]] : theme.typography.fontSize6}px;
-    line-height: ${props =>
-        props.size ? theme.typography['lineHeight' + sizeTofontSize[props.size]] : theme.typography.lineHeight6};
+    &.ant-typography-medium {
+        font-weight: ${({$theme}) => $theme.Link.fontWeight.medium};
+    }
+
+    &.ant-typography-bold {
+        font-weight: ${({$theme}) => $theme.Link.fontWeight.bold};
+    }
 `;
 
-const KitLink = React.forwardRef<HTMLElement, KitLinkProps>((props, ref) => {
-    return <StyledKitLink ref={ref} {...props} className={getWeightClassname(props)} />;
+const KitLink = forwardRef<HTMLElement, IKitLink>(({size = 'medium', ...props}, ref) => {
+    const {theme} = useKitTheme();
+
+    return (
+        <StyledKitLink
+            ref={ref}
+            $theme={theme.components.Typography}
+            $typographyTheme={theme.general.typography}
+            size={size}
+            {...props}
+            className={getWeightClassname(props)}
+        />
+    );
 });
 
 export default KitLink;

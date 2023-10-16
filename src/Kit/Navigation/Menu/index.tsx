@@ -1,9 +1,10 @@
 import InternalMenu from './Menu';
 import InternalItemMenu from './ItemMenu';
-import {KitItemMenuProps, KitMenuProps} from './types';
+import {IKitItemMenu, IKitMenu} from './types';
+import {FunctionComponent} from 'react';
 
-type CompoundedComponent = React.FunctionComponent<KitMenuProps> & {
-    Item: React.FunctionComponent<KitItemMenuProps>;
+type CompoundedComponent = FunctionComponent<IKitMenu> & {
+    Item: FunctionComponent<IKitItemMenu>;
 };
 
 export const KitMenu = InternalMenu as unknown as CompoundedComponent;

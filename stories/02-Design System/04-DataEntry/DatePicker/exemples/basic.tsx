@@ -1,10 +1,10 @@
 import React from 'react';
 import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
-import type {KitDatePickerProps} from '@kit/DataEntry/DatePicker/types';
+import type {IKitDatePicker} from '@kit/DataEntry/DatePicker/types';
 
 const App = () => {
-    const onChange: KitDatePickerProps['onChange'] = (date, dateString) => {
+    const onChange: IKitDatePicker['onChange'] = (date, dateString) => {
         console.log(date, dateString);
     };
 

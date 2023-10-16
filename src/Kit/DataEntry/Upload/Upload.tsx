@@ -1,61 +1,58 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitButton} from '@kit/General';
 import {Upload as AntdUpload} from 'antd';
-import {KitUploadProps} from './types';
+import {IKitUpload, IStyledUpload} from './types';
 import {LoadingOutlined, PlusOutlined, UploadOutlined} from '@ant-design/icons';
-import theme from '@theme/index';
 import styled from 'styled-components';
+import {useKitTheme} from '@theme/theme-context';
 
-const {color} = theme;
-
-const StyledUpload = styled(AntdUpload)<{$listType: String}>`
+const StyledUpload = styled(AntdUpload)<IStyledUpload>`
     &.ant-upload-wrapper {
         &.ant-upload-picture-card-wrapper {
             .ant-upload.ant-upload-select {
                 height: 104px;
                 width: 104px;
                 border-radius: 2px;
-                border-color: ${color.primary.blue400};
-                background-color: ${color.secondary.mediumGrey.mediumGrey100};
+                border-color: ${({$theme}) => $theme.colors.card.border.default};
+                background-color: ${({$theme}) => $theme.colors.card.background.default};
             }
 
-            .ant-upload-list {
-                .ant-upload-list-picture-card {
-                    .ant-upload-list-item {
-                        border-radius: 2px;
-                        border: 1px solid ${color.neutral.gray.gray400};
-                        &:hover::before {
-                            width: 86px;
-                            height: 86px;
-                            background-color: rgba(6, 32, 100, 0.5);
-                        }
-
-                        &.ant-upload-list-item-uploading {
-                            border: 1px dashed ${color.primary.blue400};
-                        }
-                    }
-                    .ant-upload-list-item-container {
-                        height: 104px;
-                        width: 104px;
-                    }
-                    .ant-upload-list-item-thumbnail img {
-                        height: 86px;
+            .ant-upload-list.ant-upload-list-picture-card {
+                .ant-upload-list-item {
+                    border-radius: 2px;
+                    border: 1px solid ${({$theme}) => $theme.colors.list.border.default};
+                    &:hover::before {
                         width: 86px;
+                        height: 86px;
+                        background-color: ${({$theme}) => $theme.colors.list.preview.hover};
                     }
-                    .ant-upload-list-item-error {
-                        border-color: ${color.secondary.red.red400};
-                        color: ${color.secondary.red.red400};
+
+                    &.ant-upload-list-item-uploading {
+                        border: 1px dashed ${({$theme}) => $theme.colors.list.border.uploading};
                     }
                 }
-                .ant-upload-list-picture {
-                    .ant-upload-list-item-container {
-                        .ant-upload-list-item .ant-upload-list-item-uploading {
-                            border-radius: 200px;
-                        }
+                .ant-upload-list-item-container {
+                    height: 104px;
+                    width: 104px;
+                }
+                .ant-upload-list-item-thumbnail img {
+                    height: 86px;
+                    width: 86px;
+                }
+                .ant-upload-list-item-error {
+                    border-color: ${({$theme}) => $theme.colors.list.border.error};
+                    color: ${({$theme}) => $theme.colors.list.typography.error};
+                }
+            }
+            .ant-upload-list-picture {
+                .ant-upload-list-item-container {
+                    .ant-upload-list-item .ant-upload-list-item-uploading {
+                        border-radius: 200px;
                     }
                 }
             }
         }
+
         .ant-upload-list .ant-upload-list-item {
             border-radius: 2px;
             padding: ${({$listType}) => ($listType === 'text' || $listType === undefined ? '4px' : 'auto')};
@@ -66,19 +63,19 @@ const StyledUpload = styled(AntdUpload)<{$listType: String}>`
         }
 
         .ant-upload-list-item-done {
-            border-color: ${color.neutral.gray.gray400};
+            border-color: ${({$theme}) => $theme.colors.list.border.default};
             .ant-upload-list-item-name {
-                color: ${color.primary.blue400};
+                color: ${({$theme}) => $theme.colors.list.typography.done};
             }
         }
 
         .ant-upload-list-item-error {
-            color: ${color.secondary.red.red400};
+            color: ${({$theme}) => $theme.colors.list.typography.error};
         }
     }
 `;
 
-const KitUpload: React.FunctionComponent<KitUploadProps> = ({
+const KitUpload: FunctionComponent<IKitUpload> = ({
     listType = 'text',
     loading,
     imageUrl,
@@ -86,9 +83,17 @@ const KitUpload: React.FunctionComponent<KitUploadProps> = ({
     showUploadList,
     ...uploadProps
 }) => {
+    const {theme} = useKitTheme();
     const uploadWording = buttonWording ?? 'Upload';
+
     return (
-        <StyledUpload $listType={listType} listType={listType} showUploadList={showUploadList} {...uploadProps}>
+        <StyledUpload
+            $theme={theme.components.Upload}
+            $listType={listType}
+            listType={listType}
+            showUploadList={showUploadList}
+            {...uploadProps}
+        >
             {(listType === undefined || listType === 'text' || listType === 'picture') && (
                 <KitButton icon={<UploadOutlined />}>{uploadWording}</KitButton>
             )}

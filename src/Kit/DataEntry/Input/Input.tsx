@@ -1,15 +1,12 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import {Input as AntdInput} from 'antd';
-import {KitInputProps} from './types';
+import {IKitInput, IStyledAntdInput} from './types';
 import {styled} from 'styled-components';
 import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
-import {KitInputTheme} from '@theme/types/components/DataEntry/Input/Input';
 import {useKitTheme} from '@theme/theme-context';
 
-const StyledAntdInput = styled(AntdInput)<{
-    $theme: KitInputTheme;
-}>`
+const StyledAntdInput = styled(AntdInput)<IStyledAntdInput>`
     &.ant-input,
     .ant-input {
         height: 40px;
@@ -34,6 +31,7 @@ const StyledAntdInput = styled(AntdInput)<{
             color: ${({$theme}) => $theme.colors.suffix.default};
 
             .ant-input-clear-icon {
+                display: flex;
                 color: ${({$theme}) => $theme.colors.clearIcon.default};
             }
         }
@@ -56,7 +54,7 @@ const StyledAntdInput = styled(AntdInput)<{
         &.ant-input-affix-wrapper-disabled {
             border-color: ${({$theme}) => $theme.colors.border.disabled};
 
-            .ant-input-prefix {
+            .ant-input-prefix .anticon {
                 color: ${({$theme}) => $theme.colors.prefix.disabled};
             }
 
@@ -74,15 +72,13 @@ const StyledAntdInput = styled(AntdInput)<{
         }
 
         &.ant-input-affix-wrapper-status-error:not(.ant-input-disabled) {
-            .ant-input-prefix {
+            .ant-input-prefix .anticon {
                 color: ${({$theme}) => $theme.colors.prefix.error};
             }
 
             .ant-input-suffix {
                 color: ${({$theme}) => $theme.colors.suffix.error};
-            }
 
-            .ant-input-suffix {
                 .ant-input-show-count-suffix {
                     color: ${({$theme}) => $theme.colors.showCount.error};
                 }
@@ -94,15 +90,13 @@ const StyledAntdInput = styled(AntdInput)<{
         }
 
         &.ant-input-affix-wrapper-status-warning:not(.ant-input-disabled) {
-            .ant-input-prefix {
+            .ant-input-prefix .anticon {
                 color: ${({$theme}) => $theme.colors.prefix.warning};
             }
 
             .ant-input-suffix {
                 color: ${({$theme}) => $theme.colors.suffix.warning};
-            }
 
-            .ant-input-suffix {
                 .ant-input-show-count-suffix {
                     color: ${({$theme}) => $theme.colors.showCount.warning};
                 }
@@ -182,7 +176,7 @@ const StyledAntdInput = styled(AntdInput)<{
     }
 `;
 
-const KitInput = React.forwardRef<any, KitInputProps>(({label, helper, allowClear = true, ...inputProps}, ref) => {
+const KitInput = forwardRef<any, IKitInput>(({label, helper, allowClear = true, ...inputProps}, ref) => {
     const {theme} = useKitTheme();
 
     return (

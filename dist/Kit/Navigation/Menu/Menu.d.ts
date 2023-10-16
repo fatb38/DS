@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitMenuProps } from './types';
-declare const KitMenu: React.FunctionComponent<KitMenuProps>;
+import { FunctionComponent } from 'react';
+import { IKitMenu } from './types';
+declare const KitMenu: FunctionComponent<IKitMenu>;
 export default KitMenu;

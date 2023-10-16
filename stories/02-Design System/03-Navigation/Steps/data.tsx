@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {KitSteps} from '@kit/Navigation/';
+import {IEditorTemplate} from '../../../types';
+import {KitSpace} from '@kit/Layout';
 
 const direction = ['horizontal', 'vertical'];
 
@@ -153,7 +155,7 @@ export const argTypes = {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {component, ...props} = args;
     return (
         <KitSteps
@@ -175,3 +177,37 @@ export const Template = (args) => {
         />
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    const [current, setCurrent] = useState(0);
+
+    const onChange = value => {
+        setCurrent(value);
+    };
+
+    const items = [
+        {
+            title: 'Finished',
+            description: 'This is a description'
+        },
+        {
+            title: 'In Progress',
+            description: 'This is a description'
+        },
+        {
+            title: 'Waiting',
+            description: 'This is a description'
+        }
+    ];
+
+    return (
+        <KitSpace direction="vertical" size="m">
+            <KitSteps current={1} items={items} />
+            <KitSteps current={current} onChange={onChange} items={items} />
+            <KitSteps current={1} status="error" items={items} />
+            <KitSteps current={1} direction="vertical" items={items} />
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Steps';
+EditorTemplate.title = 'Steps';

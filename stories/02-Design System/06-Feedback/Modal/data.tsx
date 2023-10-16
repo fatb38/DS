@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import {KitModal} from '@kit/Feedback/';
 import {KitButton} from '@kit/General/';
+import {IEditorTemplate} from '../../../types';
+import ConfirmDialog from '@kit/Feedback/Modal/ConfirmDialog';
+import {styled} from 'styled-components';
+import {KitSpace} from '@kit/Layout';
 
 export const argTypes = {
     isOpen: {
@@ -237,22 +241,6 @@ export const argTypes = {
             category: 'Modal'
         }
     },
-    shouldCloseOnOverlayClick: {
-        name: 'shouldCloseOnOverlayClick',
-        description: 'Boolean indicating if the overlay should close the modal',
-        control: {
-            type: 'boolean'
-        },
-        table: {
-            type: {
-                summary: 'boolean'
-            },
-            defaultValue: {
-                summary: true
-            },
-            category: 'Modal'
-        }
-    },
     shouldCloseOnEsc: {
         name: 'shouldCloseOnEsc',
         description:
@@ -296,7 +284,7 @@ export const argTypes = {
                 summary: 'string'
             },
             defaultValue: {
-                summary: 'dialogy'
+                summary: 'dialog'
             },
             category: 'Modal'
         }
@@ -361,7 +349,7 @@ export const argTypes = {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);
@@ -374,7 +362,7 @@ export const Template = (args) => {
             <KitButton type="primary" onClick={showModal}>
                 Open Modal
             </KitButton>
-            <KitModal {...args} isOpen={isModalOpen} showCloseIcon close={handleCancel}>
+            <KitModal {...args} isOpen={isModalOpen} close={handleCancel}>
                 <p>Some contents...</p>
                 <p>Some contents...</p>
                 <p>Some contents...</p>
@@ -385,3 +373,65 @@ export const Template = (args) => {
         </>
     );
 };
+
+const StyleContainer = styled.div`
+    width: fit-content;
+    height: fit-content;
+
+    .kit-modal-overlay {
+        position: relative;
+        background: none;
+    }
+`;
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <>
+            <KitSpace direction="vertical">
+                <StyleContainer id="modal-test-container-1"></StyleContainer>
+                <StyleContainer id="modal-test-container-2"></StyleContainer>
+                <StyleContainer id="modal-test-container-3"></StyleContainer>
+                <StyleContainer id="modal-test-container-4"></StyleContainer>
+            </KitSpace>
+
+            <ConfirmDialog
+                isOpen
+                type="info"
+                icon
+                title="Confirm action"
+                secondLine="You can also show some complementary text"
+                showSecondaryCta
+                parentSelector={() => document.querySelector('#modal-test-container-1')}
+            />
+            <ConfirmDialog
+                isOpen
+                type="success"
+                icon
+                title="Confirm action"
+                secondLine="You can also show some complementary text"
+                showSecondaryCta
+                parentSelector={() => document.querySelector('#modal-test-container-2')}
+            />
+            <ConfirmDialog
+                isOpen
+                type="warning"
+                icon
+                title="Confirm action"
+                secondLine="You can also show some complementary text"
+                showSecondaryCta
+                parentSelector={() => document.querySelector('#modal-test-container-3')}
+            />
+            <ConfirmDialog
+                isOpen
+                type="error"
+                icon
+                title="Confirm action"
+                secondLine="You can also show some complementary text"
+                showSecondaryCta
+                parentSelector={() => document.querySelector('#modal-test-container-4')}
+            />
+        </>
+    );
+};
+EditorTemplate.path = 'components.Modal';
+EditorTemplate.title = 'Modal';

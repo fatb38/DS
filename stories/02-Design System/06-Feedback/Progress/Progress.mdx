@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitProgressStories from './Progress.stories';
 
 <Meta of={KitProgressStories} />
@@ -92,3 +94,7 @@ The size of progress.
 <Canvas of={KitProgressStories.Api} />
 
 <Controls of={KitProgressStories.Api} />
+
+## Design Tokens
+
+<DesignTokens path="components.Progress" tokens={fields?.components?.Progress} />

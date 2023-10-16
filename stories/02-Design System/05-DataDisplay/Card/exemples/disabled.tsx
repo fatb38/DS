@@ -1,62 +1,33 @@
-import React from 'react';
-import {KitCard, KitImage} from '@kit/DataDisplay/';
+import React, {useState} from 'react';
+import {KitCard} from '@kit/DataDisplay';
 import {KitSpace} from '@kit/Layout';
-import {KitButton} from '@kit/General';
-import {DownloadOutlined, FolderOpenOutlined} from '@ant-design/icons';
+import {KitSwitch} from '@kit/DataEntry';
+import {KitTypography} from '@kit/General';
+import KitLink from '@kit/General/Typography/Link';
+import {EditOutlined, EllipsisOutlined, SettingOutlined} from '@ant-design/icons';
 
 const App = () => {
+    const [isDisabled, setDisabled] = useState(true);
+
     return (
         <KitSpace direction="vertical">
+            <KitTypography.Text>
+                Disabled: <KitSwitch defaultChecked onChange={setDisabled} />
+            </KitTypography.Text>
+
             <KitCard
-                title="Tondeuse à gazon"
-                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                extrainfo="550.00€"
-                picture={<KitImage src="images/tondeuse.png" />}
-                colors={[
-                    {label: 'test', color: '#00D9A9'},
-                    {label: 'toto', color: '#009876'}
-                ]}
-                onSelectChange={e => {
-                    console.log(e);
-                }}
-                onEdit={() => {
-                    console.log('onEdit');
-                }}
+                disabled={isDisabled}
+                title="Card title"
+                onContentTitleClick={() => console.log('Redirect')}
+                extra={<KitLink href="#">More</KitLink>}
+                contentTitle="Content Title"
+                contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
+                cover={<img alt="example" src="public/images/free-copyright.jpeg" />}
                 actions={[
-                    <KitButton onClick={() => console.log('download action')}>
-                        <DownloadOutlined />
-                    </KitButton>,
-                    <KitButton onClick={() => console.log('open action')}>
-                        <FolderOpenOutlined />
-                    </KitButton>
+                    <SettingOutlined key="setting" onClick={() => console.log('click button settings')} />,
+                    <EditOutlined key="edit" onClick={() => console.log('click button edit')} />,
+                    <EllipsisOutlined key="ellipsis" onClick={() => console.log('click button ellipsis')} />
                 ]}
-                disabled
-            />
-            <KitCard
-                vertical
-                title="Tondeuse à gazon"
-                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                extrainfo="550.00€"
-                picture={<KitImage src="images/tondeuse.png" />}
-                colors={[
-                    {label: 'test', color: '#00D9A9'},
-                    {label: 'toto', color: '#009876'}
-                ]}
-                onSelectChange={e => {
-                    console.log(e);
-                }}
-                onEdit={() => {
-                    console.log('onEdit');
-                }}
-                actions={[
-                    <KitButton onClick={() => console.log('download action')}>
-                        <DownloadOutlined />
-                    </KitButton>,
-                    <KitButton onClick={() => console.log('open action')}>
-                        <FolderOpenOutlined />
-                    </KitButton>
-                ]}
-                disabled
             />
         </KitSpace>
     );

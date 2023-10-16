@@ -1,5 +1,7 @@
 import React from 'react';
 import {KitTag} from '@kit/DataEntry/';
+import {IEditorTemplate} from '../../../types';
+import {KitSpace} from '@kit/Layout';
 
 const color = ['default', 'green', 'red', 'blue', 'blueInvert'];
 
@@ -55,3 +57,25 @@ export const Template = args => {
     const {label, ...props} = args;
     return <KitTag {...props}>{label ? label : 'Default label'}</KitTag>;
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace>
+            <KitTag onClose={() => {}}>Tag</KitTag>
+            <KitTag onClose={() => {}} color="blue">
+                Tag
+            </KitTag>
+            <KitTag onClose={() => {}} color="blueInvert">
+                Tag
+            </KitTag>
+            <KitTag onClose={() => {}} color="green">
+                Tag
+            </KitTag>
+            <KitTag onClose={() => {}} color="red">
+                Tag
+            </KitTag>
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Tag';
+EditorTemplate.title = 'Tag';

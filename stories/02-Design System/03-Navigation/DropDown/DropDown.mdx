@@ -2,6 +2,8 @@ import { Meta, Canvas, Source } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import Exemples, { Sources } from './exemples';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitDropdownStories from './DropDown.stories';
 
 <Meta of={KitDropdownStories} />
@@ -86,3 +88,8 @@ The default is to close the menu when you click on menu items, this feature can 
 <Canvas of={KitDropdownStories.Api} />
 
 <Controls of={KitDropdownStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.DropDown" tokens={fields?.components?.DropDown} />

@@ -1,3 +1,3 @@
-import React from 'react';
-import { KitAlertProps } from './types';
-export declare const KitAlert: React.FunctionComponent<KitAlertProps>;
+import { FunctionComponent } from 'react';
+import { IKitAlert } from './types';
+export declare const KitAlert: FunctionComponent<IKitAlert>;

@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitAvatarProps } from './types';
-declare const KitAvatar: React.FunctionComponent<KitAvatarProps>;
+import { FunctionComponent } from 'react';
+import { IKitAvatar } from './types';
+declare const KitAvatar: FunctionComponent<IKitAvatar>;
 export default KitAvatar;

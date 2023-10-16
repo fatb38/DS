@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Col as AntdCol} from 'antd';
-import {KitColProps} from './types';
+import {IKitCol} from './types';
 
-const KitCol: React.FunctionComponent<KitColProps> = rowProps => {
+const KitCol: FunctionComponent<IKitCol> = rowProps => {
     return <AntdCol {...rowProps}></AntdCol>;
 };
 

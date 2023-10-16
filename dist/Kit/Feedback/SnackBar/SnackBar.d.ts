@@ -1,6 +1,6 @@
-import React from 'react';
-import { KitOpenSnackBarProps, KitSnackBarProps } from './types';
-export declare const openSnackBar: ({ message, closable, ctaText, ctaOnClick, duration }: KitOpenSnackBarProps) => string;
+import { FunctionComponent } from 'react';
+import { IKitOpenSnackBar, IKitSnackBar } from './types';
+export declare const openSnackBar: ({ message, closable, ctaText, ctaOnClick, duration }: IKitOpenSnackBar) => string;
 export declare const closeSnackBar: () => void;
-declare const KitSnackBar: React.FunctionComponent<KitSnackBarProps>;
+declare const KitSnackBar: FunctionComponent<IKitSnackBar>;
 export default KitSnackBar;

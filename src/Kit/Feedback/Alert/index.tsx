@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Alert as AntdAlert} from 'antd';
-import {KitAlertProps} from './types';
+import {IKitAlert, IStyledKitAlert} from './types';
 import {styled} from 'styled-components';
-import theme from '@theme/index';
+import {useKitTheme} from '@theme/theme-context';
 
-const StyledAntdAlert = styled(AntdAlert)`
+const StyledAntdAlert = styled(AntdAlert)<IStyledKitAlert>`
     &.ant-alert-with-description {
         padding-inline: 0px;
         padding-block: 0px;
@@ -20,55 +20,57 @@ const StyledAntdAlert = styled(AntdAlert)`
     }
 
     &:not(.ant-alert-banner) {
-        border-radius: 7px;
+        border-radius: ${({$theme}) => $theme.border.radius};
     }
 
     padding: 8px 16px;
 
     .ant-alert-message {
-        font-size: ${theme.typography.fontSize5};
+        font-size: ${({$theme}) => $theme.typography.fontSize.message}px;
     }
 
     .ant-alert-description {
-        font-size: ${theme.typography.fontSize7};
+        font-size: ${({$theme}) => $theme.typography.fontSize.description}px;
     }
 
     .anticon.ant-alert-icon {
-        font-size: 16px;
+        font-size: ${({$theme}) => $theme.icon.alert.size}px;
         margin-inline-end: 8px;
     }
 
     .anticon.anticon-close {
-        font-size: 10px;
+        font-size: ${({$theme}) => $theme.icon.close.size}px;
     }
 
     &.ant-alert-success {
         .anticon.ant-alert-icon {
-            color: ${theme.color.secondary.green.green400};
+            color: ${({$theme}) => $theme.colors.icon.alert.success};
         }
     }
 
     &.ant-alert-info {
         .anticon.ant-alert-icon {
-            color: ${theme.color.primary.blue400};
+            color: ${({$theme}) => $theme.colors.icon.alert.info};
         }
     }
 
     &.ant-alert-warning {
         .anticon.ant-alert-icon {
-            color: ${theme.color.secondary.yellow.yellow400};
+            color: ${({$theme}) => $theme.colors.icon.alert.warning};
         }
     }
 
     &.ant-alert-error {
         .anticon.ant-alert-icon {
-            color: ${theme.color.secondary.red.red400};
+            color: ${({$theme}) => $theme.colors.icon.alert.error};
         }
     }
 `;
 
-export const KitAlert: React.FunctionComponent<KitAlertProps> = alertProps => {
-    return <StyledAntdAlert {...alertProps} />;
+export const KitAlert: FunctionComponent<IKitAlert> = alertProps => {
+    const {theme} = useKitTheme();
+
+    return <StyledAntdAlert $theme={theme.components.Alert} {...alertProps} />;
 };
 
 KitAlert.displayName = 'KitAlert';

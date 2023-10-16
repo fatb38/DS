@@ -1,14 +1,10 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Tag} from 'antd';
 import styled, {css} from 'styled-components';
-import {KitTagProps, KitTagColor} from './types';
+import {IKitTag, IStyledAntdTag, KitTagColor} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import {KitTagTheme} from '@theme/types/components/DataEntry/Tag';
 
-const StyledAntdTag = styled(Tag)<{
-    $theme: KitTagTheme;
-    $color: KitTagColor;
-}>`
+const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
     padding: 4px 8px;
     border: none;
     height: 24px;
@@ -96,7 +92,7 @@ const StyledAntdTag = styled(Tag)<{
     }}
 `;
 
-const KitTag: React.FunctionComponent<KitTagProps> = ({color = 'default', ...tagProps}) => {
+const KitTag: FunctionComponent<IKitTag> = ({color = 'default', ...tagProps}) => {
     const {theme} = useKitTheme();
 
     return <StyledAntdTag {...tagProps} $theme={theme.components.Tag} $color={color} closable={!!tagProps.onClose} />;

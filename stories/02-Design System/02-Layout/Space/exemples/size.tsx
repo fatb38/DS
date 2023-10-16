@@ -1,20 +1,27 @@
 import React, {useState} from 'react';
 import {KitSpace, KitButton, KitRadio} from '@kit/index';
-import type {SpaceSize} from 'antd/es/space';
+import {IKitSpace} from '@kit/Layout/Space/types';
 
 const App = () => {
-    const [size, setSize] = useState('small');
+    const [size, setSize] = useState<IKitSpace['size']>('m');
 
     return (
         <>
             <KitRadio.Group value={size} onChange={e => setSize(e.target.value)}>
-                <KitRadio value="small">Small</KitRadio>
-                <KitRadio value="middle">Middle</KitRadio>
-                <KitRadio value="large">Large</KitRadio>
+                <KitRadio value="none">None</KitRadio>
+                <KitRadio value="xxs">xxs</KitRadio>
+                <KitRadio value="xs">xs</KitRadio>
+                <KitRadio value="s">s</KitRadio>
+                <KitRadio value="m">m</KitRadio>
+                <KitRadio value="l">l</KitRadio>
+                <KitRadio value="xl">xl</KitRadio>
+                <KitRadio value="xxl">xxl</KitRadio>
+                <KitRadio value="huge">huge</KitRadio>
+                <KitRadio value="veryHuge">veryHuge</KitRadio>
             </KitRadio.Group>
             <br />
             <br />
-            <KitSpace size={size as SpaceSize}>
+            <KitSpace size={size}>
                 <KitButton type="primary">Primary</KitButton>
                 <KitButton>Default</KitButton>
                 <KitButton type="link">Link</KitButton>

@@ -1,58 +1,56 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitItemListThemeStyled} from '@theme/types/components/DataDisplay/ItemList';
+import {IKitThemeGeneral} from '@theme/types';
+import {IKitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
 
-const {colors, typography} = KitAristidThemeGeneral;
+export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemListTheme => {
+    const {colors, typography} = generalTokens;
 
-const kitItemListThemeStyled: KitItemListThemeStyled = {
-    itemList: {
-        colors: {
-            background: {
-                default: colors.neutral.typography.white,
-                disabled: colors.primary.blue100
+    return {
+        itemList: {
+            colors: {
+                background: {
+                    default: colors.neutral.white,
+                    disabled: colors.secondary.mediumGrey.mediumGrey100
+                },
+                border: {
+                    default: colors.secondary.mediumGrey.mediumGrey200,
+                    disabled: colors.secondary.mediumGrey.mediumGrey200,
+                    hover: colors.primary.primary400
+                }
+            }
+        },
+        title: {
+            typography: {
+                fontWeight: typography.boldFontWeight,
+                fontSize: typography.fontSize5
             },
-            border: {
-                default: colors.neutral.typography.white,
-                disabled: colors.primary.blue100,
-                hover: colors.primary.blue400
+            colors: {
+                default: colors.primary.primary600,
+                disabled: colors.secondary.mediumGrey.mediumGrey400
+            }
+        },
+        description: {
+            typography: {
+                fontWeight: typography.regularFontWeight,
+                fontSize: typography.fontSize5
+            },
+            colors: {
+                default: colors.primary.primary600,
+                disabled: colors.secondary.mediumGrey.mediumGrey400
+            }
+        },
+        collexp: {
+            colors: {
+                default: colors.primary.primary600,
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
+                hover: colors.primary.primary400
+            }
+        },
+        rafter: {
+            colors: {
+                default: colors.neutral.gray.gray400,
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
+                hover: colors.primary.primary400
             }
         }
-    },
-    title: {
-        typography: {
-            fontWeight: typography.boldFontWeight,
-            fontSize: typography.fontSize5
-        },
-        colors: {
-            default: colors.primary.blue600,
-            disabled: colors.primary.blue200
-        }
-    },
-    description: {
-        typography: {
-            fontWeight: typography.regularFontWeight,
-            fontSize: typography.fontSize5
-        },
-        colors: {
-            default: colors.primary.blue600,
-            disabled: colors.primary.blue200
-        }
-    },
-    collexp: {
-        colors: {
-            default: colors.primary.blue600,
-            disabled: colors.primary.blue200,
-            hover: colors.primary.blue400
-        }
-    },
-    rafter: {
-        colors: {
-            default: colors.neutral.gray.gray400,
-            disabled: colors.primary.blue200,
-            hover: colors.primary.blue400
-        }
-    }
-};
-
-export const KitItemListTheme = {
-    ...kitItemListThemeStyled
+    };
 };

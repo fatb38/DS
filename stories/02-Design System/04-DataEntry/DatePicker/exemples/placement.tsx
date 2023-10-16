@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {KitDatePicker, KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
-import type {KitDatePickerProps} from '@kit/DataEntry/DatePicker/types';
+import type {IKitDatePicker} from '@kit/DataEntry/DatePicker/types';
 
 const App = () => {
-    const [placement, setPlacement] = useState<KitDatePickerProps['placement']>('topLeft');
+    const [placement, setPlacement] = useState<IKitDatePicker['placement']>('topLeft');
 
     const options = [
         {

@@ -1,22 +1,19 @@
-import {ArgsProps} from 'antd/es/notification/interface';
+import {IKitNotificationTheme} from '@theme/types/components/Feedback/Notification';
+import {ArgsProps} from 'antd/lib/notification/interface';
 
-export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
+type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
 type AntdArgsPropsTypesToOmit = 'message' | 'description' | 'placement';
 
-export interface IKitNotificationContext {
-    kitNotification: KitNotification;
-}
-
-export interface KitNotificationArgsProps extends Omit<ArgsProps, AntdArgsPropsTypesToOmit> {
+export interface IKitNotificationArgs extends Omit<ArgsProps, AntdArgsPropsTypesToOmit> {
     message: string;
     description: string;
     placement?: NotificationPlacement;
 }
 
-type KitNotificationStaticFn = (args: KitNotificationArgsProps) => void;
+type KitNotificationStaticFn = (args: IKitNotificationArgs) => void;
 
-export type KitNotification = {
+export interface IKitNotification {
     error: KitNotificationStaticFn;
     warning: KitNotificationStaticFn;
     success: KitNotificationStaticFn;
@@ -24,3 +21,11 @@ export type KitNotification = {
     destroy: (key?: React.Key) => void;
     open: KitNotificationStaticFn;
 };
+
+export interface IKitNotificationContext {
+    kitNotification: IKitNotification;
+}
+
+export interface IStyledKitNotification {
+    $theme: IKitNotificationTheme;
+}

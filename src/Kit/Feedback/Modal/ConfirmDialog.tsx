@@ -1,14 +1,12 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import Modal from './Modal';
-import {} from './theme';
 import {KitInfoOutlined, KitWarningOutlined} from '../../../icons';
 import {CheckOutlined, ExclamationOutlined} from '@ant-design/icons';
 import {KitButton, KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
-import {modalTheme} from './theme';
-import {confirmDialogProps} from './types';
-
+import {IKitConfirmDialog} from './types';
 import {useLocale} from 'antd/lib/locale';
+import {useKitTheme} from '@theme/theme-context';
 
 const ConfirmDialog = ({
     icon,
@@ -16,7 +14,7 @@ const ConfirmDialog = ({
     firstLine,
     secondLine,
     image,
-    type,
+    type = "confirm",
     isOpen,
     width,
     portalClassName,
@@ -27,10 +25,13 @@ const ConfirmDialog = ({
     okText,
     close,
     ...props
-}: confirmDialogProps) => {
+}: IKitConfirmDialog) => {
+    const {theme: kitTheme} = useKitTheme();
+    const theme = kitTheme.components.Modal;
     const [locale] = useLocale('Modal');
 
-    let mergedIcon: React.ReactNode = icon;
+    let mergedIcon: ReactNode = icon;
+
     if (icon === true || icon === undefined) {
         switch (type) {
             case 'info':
@@ -56,17 +57,17 @@ const ConfirmDialog = ({
     }
     const mergedOkCancel = okCancel ?? type === 'confirm';
 
-    const onClick = actionFn => () => {
+    const _onClick = actionFn => () => {
         actionFn && actionFn();
         close?.();
     };
 
     const cancelButton = mergedOkCancel && (
-        <KitButton onClick={onClick(onCancel)}>{cancelText || locale?.cancelText}</KitButton>
+        <KitButton onClick={_onClick(onCancel)}>{cancelText || locale?.cancelText}</KitButton>
     );
 
     const OkButton = (
-        <KitButton primaryModal onClick={onClick(onOk)}>
+        <KitButton primaryModal onClick={_onClick(onOk)}>
             {okText || (mergedOkCancel ? locale?.okText : locale?.justOkText)}
         </KitButton>
     );
@@ -75,7 +76,8 @@ const ConfirmDialog = ({
         <Modal
             isOpen={isOpen}
             showCloseIcon={false}
-            width={width || '350px'}
+            width={width ?? 'auto'}
+            style={{content: {minWidth: '350px'}}}
             portalClassName={portalClassName}
             footer={
                 <>
@@ -85,13 +87,13 @@ const ConfirmDialog = ({
             }
             {...props}
         >
-            <KitSpace direction="vertical" size={modalTheme.itemsVerticalSpacing}>
+            <KitSpace direction="vertical" size={theme.spacing.vertical.items}>
                 {image && (
                     <div className="kit-confirm-image-wrapper" style={{backgroundImage: 'url(' + image + ')'}}></div>
                 )}
-                <KitSpace size={modalTheme.itemsVerticalSpacing}>
+                <KitSpace size={theme.spacing.vertical.items}>
                     {mergedIcon}
-                    <KitSpace direction="vertical" size={modalTheme.textVerticalSpacing}>
+                    <KitSpace direction="vertical" size={theme.spacing.vertical.text}>
                         <div className="ant-modal-title">{title}</div>
                         <div className="ant-modal-body">{firstLine}</div>
                         {secondLine && <div className="ant-modal-body">{secondLine}</div>}

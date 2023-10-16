@@ -1,4 +1,4 @@
 import React from 'react';
-import { KitLinkProps } from './types';
-declare const KitLink: React.ForwardRefExoticComponent<KitLinkProps & React.RefAttributes<HTMLElement>>;
+import { IKitLink } from './types';
+declare const KitLink: React.ForwardRefExoticComponent<IKitLink & React.RefAttributes<HTMLElement>>;
 export default KitLink;

@@ -1,3 +1,3 @@
 import React from 'react';
-import { KitPaginationProps } from './types';
-export declare const KitPagination: React.FunctionComponent<KitPaginationProps>;
+import { IKitPagination } from './types';
+export declare const KitPagination: React.FunctionComponent<IKitPagination>;

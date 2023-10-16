@@ -1,48 +1,44 @@
-import React from 'react';
-import {KitItemMenuProps, KitItemMenuType} from './types';
+import React, {FunctionComponent} from 'react';
+import {IKitMenuInfo, IStyledIemMenu, IKitItemMenu} from './types';
 import {css, styled} from 'styled-components';
-import theme from '@theme/index';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTypography, KitIcon} from '@kit/General/';
 import {RightOutlined, MoreOutlined} from '@ant-design/icons';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitDropDown} from '../DropDown';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
+import {useKitTheme} from '@theme/theme-context';
 
-const StyledIemMenu = styled.div<{
-    $isClickable: boolean;
-    $isSelected: boolean;
-    $type: KitItemMenuType;
-}>`
+const StyledIemMenu = styled.div<IStyledIemMenu>`
     height: 32px;
     display: grid;
     grid-template: 'select icon title actions value rafter';
     grid-template-columns: min-content min-content minmax(0px, auto) min-content min-content min-content;
     padding: 4px 8px 4px 0px;
-    background-color: ${theme.color.neutral.typography.white};
+    background-color: ${({$theme}) => $theme.itemMenu.colors.background.default};
     align-items: center;
 
-    ${props =>
-        props.$isClickable &&
+    ${({$isClickable}) =>
+        $isClickable &&
         css`
             cursor: pointer;
         `}
 
-    ${props =>
-        props.$isSelected &&
+    ${({$theme, $isSelected}) =>
+        $isSelected &&
         css`
-            background-color: ${theme.color.primary.blue100};
-            border-right: 3px solid ${theme.color.primary.blue400};
+            background-color: ${$theme.itemMenu.colors.background.active};
+            border-right: 3px solid ${$theme.itemMenu.colors.border.active};
             padding-inline-end: 5px;
 
             .kit-item-menu-title span,
             .kit-item-menu-icon span {
-                color: ${theme.color.primary.blue400};
+                color: ${$theme.itemMenu.colors.title.default};
             }
         `}
 
     &:hover {
-        background-color: ${theme.color.primary.blue100};
+        background-color: ${({$theme}) => $theme.itemMenu.colors.background.hover};
     }
 
     .kit-item-menu-checkbox {
@@ -55,7 +51,7 @@ const StyledIemMenu = styled.div<{
         grid-area: icon;
 
         span {
-            color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+            color: ${({$theme}) => $theme.itemMenu.colors.icon.default};
         }
     }
 
@@ -77,24 +73,28 @@ const StyledIemMenu = styled.div<{
         }
     }
 
-    ${props => {
-        switch (props.$type) {
+    ${({$theme, $type}) => {
+        switch ($type) {
             case 'cta':
                 return css`
-                    .kit-item-menu-title span,
+                    .kit-item-menu-title span {
+                        color: ${$theme.itemMenu.colors.title.default};
+                    }
                     .kit-item-menu-icon span {
-                        color: ${theme.color.primary.blue400};
+                        color: ${$theme.itemMenu.colors.icon.default};
                     }
                 `;
             case 'ctaDanger':
                 return css`
-                    .kit-item-menu-title span,
+                    .kit-item-menu-title span {
+                        color: ${$theme.itemMenu.colors.title.danger};
+                    }
                     .kit-item-menu-icon span {
-                        color: ${theme.color.secondary.red.red400};
+                        color: ${$theme.itemMenu.colors.icon.danger};
                     }
 
                     &:hover {
-                        background-color: ${theme.color.secondary.red.red100};
+                        background-color: ${$theme.itemMenu.colors.background.danger};
                     }
                 `;
             case 'default':
@@ -107,24 +107,24 @@ const StyledIemMenu = styled.div<{
         margin-left: 8px;
 
         span {
-            color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+            color: ${({$theme}) => $theme.itemMenu.colors.value.default};
         }
     }
 
     .kit-item-menu-rafter {
         grid-area: rafter;
-        color: ${theme.color.secondary.mediumGrey.mediumGrey300};
+        color: ${({$theme}) => $theme.itemMenu.colors.rafter.default};
         font-size: 12px;
         margin-left: 8px;
 
         &:hover {
-            color: ${theme.color.primary.blue400};
+            color: ${({$theme}) => $theme.itemMenu.colors.rafter.hover};
             cursor: pointer;
         }
     }
 `;
 
-const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
+const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
     type = 'default',
     title,
     icon,
@@ -136,11 +136,12 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
     onClick,
     ...props
 }) => {
+    const {theme} = useKitTheme();
     const isClickable = onClick !== undefined;
     const isSelectable = onSelectChange !== undefined;
     const hasRafter = onRafterClick !== undefined;
 
-    const getCheckbox = () => {
+    const _getCheckbox = () => {
         return (
             isSelectable && (
                 <div className="kit-item-menu-checkbox">
@@ -155,7 +156,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         );
     };
 
-    const getIcon = () => {
+    const _getIcon = () => {
         return (
             icon && (
                 <div className="kit-item-menu-icon">
@@ -165,11 +166,11 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         );
     };
 
-    const getTitle = () => {
+    const _getTitle = () => {
         return (
             title && (
                 <div className="kit-item-menu-title">
-                    <KitTypography.Text size="large" weight="medium" ellipsis={{rows: 1, tooltip: true}}>
+                    <KitTypography.Text size="large" weight="medium" ellipsis={{tooltip: true}}>
                         {title}
                     </KitTypography.Text>
                 </div>
@@ -177,7 +178,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         );
     };
 
-    const getActions = () => {
+    const _getActions = () => {
         if (actions) {
             const firstAction = actions[0] ? actions[0] : null;
             const secondAction = actions.length <= 2 && actions[1] ? actions[1] : null;
@@ -190,9 +191,9 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
                                 <KitIcon
                                     icon={firstAction.icon}
                                     hoverable
-                                    onClick={(e: MouseEvent) => {
+                                    onClick={e => {
                                         e.stopPropagation();
-                                        firstAction.onClick();
+                                        firstAction.onClick(e);
                                     }}
                                 />
                             </KitTooltip>
@@ -202,9 +203,9 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
                                 <KitIcon
                                     icon={secondAction.icon}
                                     hoverable
-                                    onClick={(e: MouseEvent) => {
+                                    onClick={e => {
                                         e.stopPropagation();
-                                        secondAction.onClick();
+                                        secondAction.onClick(e);
                                     }}
                                 />
                             </KitTooltip>
@@ -242,23 +243,21 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         // Remove first action because we don't want it to be duplicated
         newActions.splice(0, 1);
 
-        const dropDownActions = newActions.map((item, index) => {
-            return {
-                key: index,
-                icon: item.icon,
-                label: item.label,
-                onClick: item.onClick
-            };
-        });
+        const dropDownActions: MenuItemType[] = newActions.map((item, index) => ({
+            key: index,
+            icon: item.icon,
+            label: item.label,
+            onClick: (e: IKitMenuInfo) => item.onClick(e)
+        }));
 
         return dropDownActions;
     };
 
-    const getValue = () => {
+    const _getValue = () => {
         return (
             value && (
                 <div className="kit-item-menu-value">
-                    <KitTypography.Text size="large" weight="regular" ellipsis={{rows: 1, tooltip: true}}>
+                    <KitTypography.Text size="large" weight="regular" ellipsis={{tooltip: true}}>
                         {value}
                     </KitTypography.Text>
                 </div>
@@ -266,7 +265,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
         );
     };
 
-    const getRafter = () => {
+    const _getRafter = () => {
         return (
             hasRafter && (
                 <div
@@ -276,7 +275,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
                         onRafterClick && onRafterClick();
                     }}
                 >
-                    <RightOutlined rev="" />
+                    <RightOutlined />
                 </div>
             )
         );
@@ -284,6 +283,7 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
 
     return (
         <StyledIemMenu
+            $theme={theme.components.Menu}
             $isClickable={isClickable}
             $isSelected={isSelected}
             $type={type}
@@ -293,12 +293,12 @@ const KitItemMenu: React.FunctionComponent<KitItemMenuProps> = ({
             }}
             {...props}
         >
-            {getCheckbox()}
-            {getIcon()}
-            {getTitle()}
-            {getActions()}
-            {getValue()}
-            {getRafter()}
+            {_getCheckbox()}
+            {_getIcon()}
+            {_getTitle()}
+            {_getActions()}
+            {_getValue()}
+            {_getRafter()}
         </StyledIemMenu>
     );
 };

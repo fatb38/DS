@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitSwitchStories from './Switch.stories';
 
 <Meta of={KitSwitchStories} />
@@ -46,3 +48,8 @@ Mark a pending state of switch.
 | ------- | ------------ |
 | blur()  | Remove focus |
 | focus() | Get focus    |
+
+
+## Design Tokens
+
+<DesignTokens path="components.Switch" tokens={fields?.components?.Switch} />

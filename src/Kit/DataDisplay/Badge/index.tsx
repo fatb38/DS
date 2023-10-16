@@ -1,19 +1,14 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Badge as AntdBadge} from 'antd';
-import {KitBadgeProps, KitBadgeCountColor} from './types';
+import {IKitBadge, IStyledKitBadge} from './types';
 import {css, styled} from 'styled-components';
-import theme from '@theme/index';
-import {KitBadgeTheme} from '@theme/types/components/DataDisplay/Badge';
 import {useKitTheme} from '@theme/theme-context';
 
-const StyledAntdBadge = styled(AntdBadge)<{
-    $theme: KitBadgeTheme;
-    $countColor: KitBadgeCountColor;
-}>`
+const StyledAntdBadge = styled(AntdBadge)<IStyledKitBadge>`
     height: 16px;
     min-width: 16px;
     line-height: 16px;
-    font-size: ${theme.typography.fontSize7};
+    font-size: ${({$typographyTheme}) => $typographyTheme.fontSize7}px;
 
     .ant-badge-count {
         ${({$countColor, $theme}) => {
@@ -68,10 +63,17 @@ const StyledAntdBadge = styled(AntdBadge)<{
     }
 `;
 
-export const KitBadge: React.FunctionComponent<KitBadgeProps> = ({countColor = 'default', ...badgeProps}) => {
+export const KitBadge: FunctionComponent<IKitBadge> = ({countColor = 'default', ...badgeProps}) => {
     const {theme} = useKitTheme();
 
-    return <StyledAntdBadge $theme={theme.components.Badge} $countColor={countColor} {...badgeProps} />;
+    return (
+        <StyledAntdBadge
+            $theme={theme.components.Badge}
+            $typographyTheme={theme.general.typography}
+            $countColor={countColor}
+            {...badgeProps}
+        />
+    );
 };
 
 KitBadge.displayName = 'KitBadge';

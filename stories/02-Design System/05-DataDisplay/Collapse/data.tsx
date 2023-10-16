@@ -1,5 +1,6 @@
 import {KitCollapse} from '@kit/DataDisplay/';
 import React from 'react';
+import {IEditorTemplate} from 'stories/types';
 
 const collapsible = ['header', 'icon', 'disabled'];
 const size = ['large', 'middle', 'small'];
@@ -185,14 +186,14 @@ export const argTypes = {
         description: '',
         table: {
             type: {
-                summary: 'KitHeaderExtraActions'
+                summary: 'IKitHeaderExtraActions'
             },
             category: 'Collapse.HeaderExtra'
         }
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     return (
         <KitCollapse
             {...args}
@@ -219,3 +220,37 @@ export const Template = (args) => {
         />
     );
 };
+
+const text = `
+        A dog is a type of domesticated animal.
+        Known for its loyalty and faithfulness,
+        it can be found as a welcome guest in many households across the world.
+    `;
+
+const items = [
+    {
+        key: '1',
+        label: 'This is panel header 1',
+        children: <p>{text}</p>
+    },
+    {
+        key: '2',
+        label: 'This is panel header 2',
+        children: <p>{text}</p>
+    },
+    {
+        key: '3',
+        label: 'This is panel header 3',
+        children: <p>{text}</p>
+    }
+];
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <div style={{width: '100%'}}>
+            <KitCollapse items={items} defaultActiveKey={1} />
+        </div>
+    );
+};
+EditorTemplate.path = 'components.Collapse';
+EditorTemplate.title = 'Collapse';

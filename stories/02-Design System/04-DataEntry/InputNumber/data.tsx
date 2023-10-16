@@ -2,6 +2,7 @@ import React from 'react';
 import {KitInputNumber} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import {CheckCircleOutlined, SearchOutlined} from '@ant-design/icons';
+import {IEditorTemplate} from '../../../types';
 
 export const argTypes = {
     label: {
@@ -286,8 +287,8 @@ export const getIcon = icon => {
     }
 };
 
-export const Template = (args) => {
-    const { component, ...props} = args;
+export const Template = args => {
+    const {component, ...props} = args;
     const prefix = getIcon(args.prefix);
 
     return (
@@ -296,3 +297,16 @@ export const Template = (args) => {
         </KitSpace>
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace size="m">
+            <KitInputNumber placeholder="10" />
+            <KitInputNumber disabled placeholder="10" />
+            <KitInputNumber status="warning" placeholder="10" />
+            <KitInputNumber status="error" placeholder="10" />
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.InputNumber';
+EditorTemplate.title = 'InputNumber';

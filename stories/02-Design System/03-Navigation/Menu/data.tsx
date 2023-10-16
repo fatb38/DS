@@ -17,6 +17,7 @@ import {KitButton} from '@kit/General/';
 import {KitInput} from '@kit/DataEntry/';
 import {KitDivider} from '@kit/Layout/';
 import {KitMenu} from '@kit/Navigation';
+import {IEditorTemplate} from '../../../types';
 
 export const mockData = {
     itemMenu: {
@@ -86,7 +87,7 @@ export const mockData = {
     },
     menu: {
         title: 'View options',
-        segmentedButton: <KitButton type="primary" icon={<HomeOutlined />} />,
+        segmentedButton: <KitButton type="segmented" segmentedActived segmentedColor="green" icon={<HomeOutlined />} />,
         primaryInput: <KitInput placeholder="Opération #1" />,
         secondaryInput: <KitInput placeholder="Description" />,
         onCloseClick: () => console.log('on click close')
@@ -186,7 +187,7 @@ export const argTypes = {
         control: {type: 'none'},
         table: {
             type: {
-                summary: 'ReactElement<KitButtonProps>'
+                summary: 'ReactElement<IKitButton>'
             },
             category: 'Menu'
         }
@@ -197,7 +198,7 @@ export const argTypes = {
         control: {type: 'none'},
         table: {
             type: {
-                summary: 'ReactElement<KitInputProps>'
+                summary: 'ReactElement<IKitInput>'
             },
             category: 'Menu'
         }
@@ -208,7 +209,7 @@ export const argTypes = {
         control: {type: 'none'},
         table: {
             type: {
-                summary: 'ReactElement<KitInputProps>'
+                summary: 'ReactElement<IKitInput>'
             },
             category: 'Menu'
         }
@@ -250,7 +251,7 @@ export const argTypes = {
         description: 'Actions list to display at the end of the item',
         table: {
             type: {
-                summary: 'KitItemMenuActions'
+                summary: 'IKitItemMenuActions'
             },
             category: 'ItemMenu'
         }
@@ -328,3 +329,61 @@ export const Template = args => {
         </div>
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitMenu
+            style={{width: '400px'}}
+            title={mockData.menu.title}
+            onCloseClick={mockData.menu.onCloseClick}
+            segmentedButton={mockData.menu.segmentedButton}
+            primaryInput={mockData.menu.primaryInput}
+            secondaryInput={mockData.menu.secondaryInput}
+        >
+            <KitDivider noMargin color="lightGrey" />
+            <KitMenu.Item
+                style={{margin: '8px 0 2px 0'}}
+                title={mockData.itemMenu.title.layout}
+                icon={mockData.itemMenu.icon.layout}
+                value={mockData.itemMenu.value.layout}
+                onRafterClick={mockData.itemMenu.onRafterClick}
+            />
+            <KitMenu.Item
+                style={{margin: '2px 0'}}
+                title={mockData.itemMenu.title.search}
+                icon={mockData.itemMenu.icon.search}
+            />
+            <KitMenu.Item
+                style={{margin: '2px 0'}}
+                title={mockData.itemMenu.title.quickFilters}
+                actions={mockData.itemMenu.actionsMore}
+                onSelectChange={mockData.itemMenu.onSelectChange}
+                onRafterClick={mockData.itemMenu.onRafterClick}
+            />
+            <KitMenu.Item
+                style={{margin: '2px 0'}}
+                title={mockData.itemMenu.title.filters}
+                actions={mockData.itemMenu.actionsMore}
+                onSelectChange={mockData.itemMenu.onSelectChange}
+                onRafterClick={mockData.itemMenu.onRafterClick}
+            />
+            <KitDivider noMargin color="lightGrey" />
+            <KitMenu.Item
+                style={{margin: '16px 0 2px 0'}}
+                type="cta"
+                title={mockData.itemMenu.title.save}
+                icon={mockData.itemMenu.icon.save}
+                onClick={mockData.itemMenu.onClick}
+            />
+            <KitMenu.Item
+                style={{marginTop: '16px'}}
+                type="ctaDanger"
+                title={mockData.itemMenu.title.delete}
+                icon={mockData.itemMenu.icon.delete}
+                onClick={mockData.itemMenu.onClick}
+            />
+        </KitMenu>
+    );
+};
+EditorTemplate.path = 'components.Menu';
+EditorTemplate.title = 'Menu';

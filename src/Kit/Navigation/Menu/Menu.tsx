@@ -1,13 +1,14 @@
-import React from 'react';
-import {KitMenuProps} from './types';
+import React, {FunctionComponent} from 'react';
+import {IKitMenu} from './types';
 import {styled} from 'styled-components';
-import theme from '@theme/index';
 import {KitTypography, KitIcon} from '@kit/General';
 import {CloseOutlined} from '@ant-design/icons';
+import {useKitTheme} from '@theme/theme-context';
+import {IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
 
-const StyledMenu = styled.div`
+const StyledMenu = styled.div<{$theme: IKitMenuTheme}>`
     padding: 16px 19px;
-    background-color: ${theme.color.neutral.typography.white};
+    background-color: ${({$theme}) => $theme.colors.background.default};
 
     display: grid;
     grid-template-areas: 'header' 'content';
@@ -65,7 +66,7 @@ const StyledMenu = styled.div`
     }
 `;
 
-const KitMenu: React.FunctionComponent<KitMenuProps> = ({
+const KitMenu: FunctionComponent<IKitMenu> = ({
     title,
     onCloseClick,
     segmentedButton,
@@ -74,16 +75,17 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
     children,
     ...props
 }) => {
+    const {theme} = useKitTheme();
     const isClosable = onCloseClick !== undefined;
     const shouldDisplayHeaderTopbar = title !== undefined || isClosable;
     const shouldDisplayHeaderPrimary = segmentedButton !== undefined || primaryInput !== undefined;
     const shouldDisplayHeaderSecondary = secondaryInput !== undefined;
 
-    const getTitle = () => {
+    const _getTitle = () => {
         return (
             title && (
                 <div className="kit-menu-header-title">
-                    <KitTypography.Text size="large" weight="medium" ellipsis={{rows: 1, tooltip: true}}>
+                    <KitTypography.Text size="large" weight="medium" ellipsis={{tooltip: true}}>
                         {title}
                     </KitTypography.Text>
                 </div>
@@ -91,7 +93,7 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
         );
     };
 
-    const getCloseIcon = () => {
+    const _getCloseIcon = () => {
         return (
             isClosable && (
                 <KitIcon
@@ -104,7 +106,7 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
         );
     };
 
-    const getSegmentedButton = () => {
+    const _getSegmentedButton = () => {
         if (segmentedButton === undefined) return;
 
         return (
@@ -116,34 +118,36 @@ const KitMenu: React.FunctionComponent<KitMenuProps> = ({
         );
     };
 
-    const getPrimaryInput = () => {
+    const _getPrimaryInput = () => {
         if (primaryInput === undefined) return;
 
         return <div className="kit-menu-header-primary-input">{primaryInput}</div>;
     };
 
-    const getSecondaryInput = () => {
+    const _getSecondaryInput = () => {
         if (secondaryInput === undefined) return;
 
         return <div className="kit-menu-header-secondary-input">{secondaryInput}</div>;
     };
 
     return (
-        <StyledMenu {...props}>
+        <StyledMenu $theme={theme.components.Menu} {...props}>
             <div className="kit-menu-header">
                 {shouldDisplayHeaderTopbar && (
                     <div className="kit-menu-header-topbar">
-                        {getTitle()}
-                        {getCloseIcon()}
+                        {_getTitle()}
+                        {_getCloseIcon()}
                     </div>
                 )}
                 {shouldDisplayHeaderPrimary && (
                     <div className="kit-menu-header-primary">
-                        {getSegmentedButton()}
-                        {getPrimaryInput()}
+                        {_getSegmentedButton()}
+                        {_getPrimaryInput()}
                     </div>
                 )}
-                {shouldDisplayHeaderSecondary && <div className="kit-menu-header-secondary">{getSecondaryInput()}</div>}
+                {shouldDisplayHeaderSecondary && (
+                    <div className="kit-menu-header-secondary">{_getSecondaryInput()}</div>
+                )}
             </div>
             <div className="menu-content">{children}</div>
         </StyledMenu>

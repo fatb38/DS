@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitNotificationStories from './Notification.stories';
 
 <Meta of={KitNotificationStories} />
@@ -70,3 +72,7 @@ Common props ref:
 The properties of config are as follows:
 
 <Controls of={KitNotificationStories.Api} />
+
+## Design Tokens
+
+<DesignTokens path="components.Notfication" tokens={fields?.components?.Notfication} />

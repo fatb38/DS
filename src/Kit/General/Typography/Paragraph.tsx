@@ -1,36 +1,40 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import styled from 'styled-components';
 import {Typography} from 'antd';
-import {KitTextProps} from './types';
+import {IKitText, IStyledKitParagraph} from './types';
 import {sizeTofontSize, getWeightClassname} from './commons';
-import theme from '@theme/index';
+import {useKitTheme} from '@theme/theme-context';
 
-const StyledKitParagraph = styled(Typography.Paragraph)<KitTextProps>`
-    &.ant-typography {
-        font-family: 'Inter';
-        line-height: 1.2;
-        font-weight: ${theme.typography.defaultFontWeight};
-        color: ${theme.color.neutral.typography.black};
-    }
+const StyledKitParagraph = styled(Typography.Paragraph)<IStyledKitParagraph>`
+    font-size: ${({$typographyTheme, size}) => $typographyTheme['fontSize' + sizeTofontSize[size] ?? 6]}px;
+    line-height: ${({$typographyTheme, size}) => $typographyTheme['lineHeight' + sizeTofontSize[size] ?? 6]};
 
     &.ant-typography-regular {
-        font-weight: ${theme.typography.regularFontWeight};
-    }
-    &.ant-typography-medium {
-        font-weight: ${theme.typography.mediumfontWeight};
-    }
-    &.ant-typography-bold {
-        font-weight: ${theme.typography.boldFontWeight};
+        font-weight: ${({$theme}) => $theme.Paragraph.fontWeight.regular};
     }
 
-    font-size: ${props =>
-        props.size ? theme.typography['fontSize' + sizeTofontSize[props.size]] : theme.typography.fontSize6}px;
-    line-height: ${props =>
-        props.size ? theme.typography['lineHeight' + sizeTofontSize[props.size]] : theme.typography.lineHeight6};
+    &.ant-typography-medium {
+        font-weight: ${({$theme}) => $theme.Paragraph.fontWeight.medium};
+    }
+
+    &.ant-typography-bold {
+        font-weight: ${({$theme}) => $theme.Paragraph.fontWeight.bold};
+    }
 `;
 
-const KitParagraph = React.forwardRef<HTMLElement, KitTextProps>((props, ref) => {
-    return <StyledKitParagraph ref={ref} {...props} className={getWeightClassname(props)} />;
+const KitParagraph = forwardRef<HTMLElement, IKitText>(({size = 'medium', ...props}, ref) => {
+    const {theme} = useKitTheme();
+
+    return (
+        <StyledKitParagraph
+            ref={ref}
+            $theme={theme.components.Typography}
+            $typographyTheme={theme.general.typography}
+            size={size}
+            {...props}
+            className={getWeightClassname(props)}
+        />
+    );
 });
 
 export default KitParagraph;

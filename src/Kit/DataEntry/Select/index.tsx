@@ -1,26 +1,21 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {Select as AntdSelect} from 'antd';
+import React, {useEffect, useRef, useState, FocusEvent, MouseEvent, FunctionComponent} from 'react';
 import cn from 'classnames';
 import {CloseCircleOutlined} from '@ant-design/icons';
-import styled from 'styled-components';
 import {CheckOutlined} from '@ant-design/icons';
 import {KitIcon} from '../../General/';
-import {KitSelectProps} from './types';
+import {IKitSelect} from './types';
 import type {CustomTagProps} from 'rc-select/lib/BaseSelect';
-import {KitSelectStyle, StyledBadge, StyledLabel} from './style';
+import {StyledBadge, StyledKitSelect, StyledLabel} from './style';
 import {KitDropdownOutlined} from '@icons/index';
 import KitInputWrapper from '@kit/DataEntry/Input/InputWrapper';
 import {KitTag} from '@kit/DataEntry/';
+import {useKitTheme} from '@theme/theme-context';
 
-const StyledKitSelect = styled(AntdSelect)`
-    ${KitSelectStyle}
-`;
-
-const getOptionLabel = props => (
+const _getOptionLabel = (props, theme) => (
     <div className="kit-select-option">
         {props.icon && <KitIcon className="kit-select-option-icon" icon={props.icon} on />}
         {!props.icon && (
-            <StyledBadge className="kit-select-option-badge">
+            <StyledBadge $theme={theme.components.Select.ColorBadge} className="kit-select-option-badge">
                 {props.color && <div className="kit-select-option-color" style={{backgroundColor: props.color}} />}
             </StyledBadge>
         )}
@@ -28,16 +23,16 @@ const getOptionLabel = props => (
     </div>
 );
 
-const parseOptions = (list, labelOnly) => {
+const _parseOptions = (list, labelOnly, theme) => {
     return list.map(({className, disabled, value, options, ...rest}) => {
         if (options) {
             return {
                 label: rest.label,
-                options: parseOptions(options, labelOnly)
+                options: _parseOptions(options, labelOnly, theme)
             };
         }
         return {
-            label: labelOnly ? <StyledLabel>{rest.label}</StyledLabel> : getOptionLabel(rest),
+            label: labelOnly ? <StyledLabel>{rest.label}</StyledLabel> : _getOptionLabel(rest, theme),
             className: rest.highlight ? `${className} kit-select-highlight-option` : className,
             disabled,
             value
@@ -45,11 +40,11 @@ const parseOptions = (list, labelOnly) => {
     });
 };
 
-const dropDownRenderer = (menu: React.ReactElement<any, string | React.JSXElementConstructor<any>>) => {
+const _dropDownRenderer = (menu: React.ReactElement<any, string | React.JSXElementConstructor<any>>) => {
     return <div className="kit-select-dropdown-content">{menu}</div>;
 };
 
-const tagRender = (props: CustomTagProps) => {
+const _tagRender = (props: CustomTagProps) => {
     const {label, onClose} = props;
     const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
         event.preventDefault();
@@ -68,11 +63,11 @@ const tagRender = (props: CustomTagProps) => {
     );
 };
 
-const maxTagRender = omittedValues => {
+const _maxTagRender = omittedValues => {
     return <KitTag color="blueInvert">+{omittedValues.length} ...</KitTag>;
 };
 
-export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
+export const KitSelect: FunctionComponent<IKitSelect> = ({
     options,
     labelOnly,
     label,
@@ -84,19 +79,20 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
     allowClear = true,
     ...props
 }) => {
-    let [internalOptions, setOptions] = useState([]);
-    const [isOpen, setIsOpen] = useState(false);
     const selectRef = useRef<any>(null);
+    const {theme} = useKitTheme();
+    const [internalOptions, setOptions] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         if (!options) {
             setOptions([]);
         } else {
-            setOptions(parseOptions(options, labelOnly));
+            setOptions(_parseOptions(options, labelOnly, theme));
         }
     }, [options, labelOnly]);
 
-    const getClasses = () => {
+    const _getClasses = () => {
         return (
             (props.className || '') +
             ' ant-select-' +
@@ -104,14 +100,14 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
         );
     };
 
-    const getDropdownClasses = () => {
+    const _getDropdownClasses = () => {
         return cn({
             'kit-select-dropdown-top': props.placement && props.placement.indexOf('top') >= 0,
             'kit-select-dropdown-bottom': !props.placement || props.placement.indexOf('top') < 0
         });
     };
 
-    const handleOnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const _handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
         if (selectRef.current) {
             selectRef.current.focus();
         }
@@ -125,12 +121,12 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
         onClick && onClick(event);
     };
 
-    const handleOnClear = () => {
+    const _handleOnClear = () => {
         setIsOpen(false);
         onClear && onClear();
     };
 
-    const handleOnBlur = (event: React.FocusEvent<HTMLElement, Element>) => {
+    const _handleOnBlur = (event: FocusEvent<HTMLElement, Element>) => {
         setIsOpen(false);
         onBlur && onBlur(event);
     };
@@ -138,22 +134,23 @@ export const KitSelect: React.FunctionComponent<KitSelectProps> = ({
     return (
         <KitInputWrapper label={label} helper={helper} disabled={props.disabled} status={props.status}>
             <StyledKitSelect
+                $theme={theme.components.Select}
                 {...props}
-                className={getClasses()}
-                popupClassName={getDropdownClasses()}
+                className={_getClasses()}
+                popupClassName={_getDropdownClasses()}
                 options={internalOptions}
                 menuItemSelectedIcon={<KitIcon icon={<CheckOutlined />} on />}
                 suffixIcon={!props.loading ? <KitDropdownOutlined /> : undefined}
                 allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
-                dropdownRender={dropDownRenderer}
-                tagRender={props.mode ? tagRender : undefined}
+                dropdownRender={_dropDownRenderer}
+                tagRender={props.mode ? _tagRender : undefined}
                 maxTagCount={oneLineTags ? 'responsive' : undefined}
-                maxTagPlaceholder={oneLineTags ? maxTagRender : undefined}
+                maxTagPlaceholder={oneLineTags ? _maxTagRender : undefined}
                 ref={selectRef}
                 open={props.open !== undefined ? props.open : isOpen}
-                onClick={event => handleOnClick(event)}
-                onClear={() => handleOnClear()}
-                onBlur={event => handleOnBlur(event)}
+                onClick={event => _handleOnClick(event)}
+                onClear={() => _handleOnClear()}
+                onBlur={event => _handleOnBlur(event)}
             />
         </KitInputWrapper>
     );

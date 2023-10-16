@@ -4,7 +4,7 @@ import {KitSpace} from '@kit/Layout/';
 
 const App = () => {
     return (
-        <KitSpace size="middle">
+        <KitSpace size="s">
             <KitBadge countColor="default" count={5}>
                 <KitAvatar shape="square" size="large" />
             </KitBadge>

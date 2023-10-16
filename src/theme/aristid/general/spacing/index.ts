@@ -1,6 +1,6 @@
-import {KitSpacing} from '@theme/types/general/spacing';
+import {IKitSpacing} from '@theme/types/general/spacing';
 
-export const spacing: KitSpacing = {
+export const spacing: IKitSpacing = {
     none: 0,
     xxs: 4,
     xs: 8,

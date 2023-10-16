@@ -1,8 +1,8 @@
-/// <reference types="react" />
-import { KitInputProps, KitPasswordProps, KitTextAreaProps } from './types';
-type CompoundedComponent = React.FunctionComponent<KitInputProps> & {
-    TextArea: React.FunctionComponent<KitTextAreaProps>;
-    Password: React.FunctionComponent<KitPasswordProps>;
+import { IKitInput, IKitPassword, IKitTextArea } from './types';
+import { FunctionComponent } from 'react';
+type CompoundedComponent = FunctionComponent<IKitInput> & {
+    TextArea: FunctionComponent<IKitTextArea>;
+    Password: FunctionComponent<IKitPassword>;
 };
 export declare const KitInput: CompoundedComponent;
 export {};

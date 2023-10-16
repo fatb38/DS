@@ -1,5 +1,4 @@
-import * as React from 'react';
-import theme from '../src/theme';
+import React from 'react';
 import type {Preview} from '@storybook/react';
 import {KitApp} from '../src/Kit/App';
 import {DocsContainer} from '@storybook/blocks';
@@ -16,9 +15,7 @@ const tocConfig = {
 const Container = ({children, ...props}) => {
     return (
         <DocsContainer {...props} context={props.context}>
-            <AccessibilityProvider active>
-                {children}
-            </AccessibilityProvider>
+            <AccessibilityProvider active>{children}</AccessibilityProvider>
         </DocsContainer>
     );
 };
@@ -39,7 +36,7 @@ export const parameters = {
         // Decorate the docs area content with antd's ConfigProvider, in order to use theme in all pages ant components
         container: ({children, context}) => {
             return (
-                <KitApp /*customTheme={{components: {Rate: {starColor: '#ff00ea'}}}}*/>
+                <KitApp locale={{locale: 'enUS'}}>
                     <Container context={context}>{children}</Container>
                     <TableOfContents config={tocConfig} />
                     <BackToTop />
@@ -53,7 +50,7 @@ const preview: Preview = {
     decorators: [
         Story => {
             return (
-                <KitApp /*customTheme={{components: {Rate: {starColor: '#ff00ea'}}}}*/>
+                <KitApp locale={{locale: 'enUS'}}>
                     <Story />
                 </KitApp>
             );

@@ -1,7 +1,8 @@
 {/* Colors.stories.mdx */}
 
 import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs";
-import theme from "@theme/index";
+import {KitAristidThemeGeneral} from "@theme/aristid/general/index";
+import {useKitTheme} from '@theme/theme-context';
 
 <Meta title="Design System/General/Colors" />
 
@@ -16,9 +17,11 @@ import theme from "/libs/components/theme";
 ## Usage
 
 ```tsx
-const primaryColor = theme.color.primary.blue100;
-const backgroundColor = theme.color.neutral.background;
-const secondaryRedColor = theme.color.secondary.red.red100;
+const {theme} = useKitTheme();
+
+const primaryColor = theme.general.colors.primary.primary100;
+const backgroundColor = theme.general.colors.neutral.background;
+const secondaryRedColor = theme.general.colors.secondary.red.red100;
 ```
 
 # Available Colors
@@ -30,16 +33,17 @@ const secondaryRedColor = theme.color.secondary.red.red100;
         title="Actions (icons, buttons, ...)"
         subtitle=""
         colors={{
-            "blue-100": theme.color.primary.blue100,
-            "blue-200": theme.color.primary.blue200,
-            "blue-300": theme.color.primary.blue300,
-            "blue-400": theme.color.primary.blue400,
-            "blue-500": theme.color.primary.blue500,
-            "blue-600": theme.color.primary.blue600,
-            "blue-700": theme.color.primary.blue700,
+            "primary100": KitAristidThemeGeneral.colors.primary.primary100,
+            "primary200": KitAristidThemeGeneral.colors.primary.primary200,
+            "primary300": KitAristidThemeGeneral.colors.primary.primary300,
+            "primary400": KitAristidThemeGeneral.colors.primary.primary400,
+            "primary500": KitAristidThemeGeneral.colors.primary.primary500,
+            "primary600": KitAristidThemeGeneral.colors.primary.primary600,
+            "primary700": KitAristidThemeGeneral.colors.primary.primary700,
         }}
     />
 </ColorPalette>
+
 
 ## Neutral Color
 
@@ -48,36 +52,36 @@ const secondaryRedColor = theme.color.secondary.red.red100;
         title="Typography"
         subtitle=""
         colors={{
-            black: theme.color.neutral.typography.black,
-            "black-60": theme.color.neutral.typography.black60,
-            white: theme.color.neutral.typography.white,
+            black: KitAristidThemeGeneral.colors.neutral.typography.black,
+            "black60": KitAristidThemeGeneral.colors.neutral.typography.black60,
+            white: KitAristidThemeGeneral.colors.neutral.typography.white,
         }}
     />
     <ColorItem
         title="Background"
         subtitle=""
         colors={{
-            "light-grey": theme.color.neutral.background,
+            "background": KitAristidThemeGeneral.colors.neutral.background,
         }}
     />
     <ColorItem
         title="Border"
         subtitle=""
         colors={{
-            "blue-200": theme.color.neutral.border,
+            "border": KitAristidThemeGeneral.colors.neutral.border,
         }}
     />
     <ColorItem
         title="Gray"
         subtitle=""
         colors={{
-            "gray-100": theme.color.neutral.gray.gray100,
-            "gray-200": theme.color.neutral.gray.gray200,
-            "gray-300": theme.color.neutral.gray.gray300,
-            "gray-400": theme.color.neutral.gray.gray400,
-            "gray-500": theme.color.neutral.gray.gray500,
-            "gray-600": theme.color.neutral.gray.gray600,
-            "gray-700": theme.color.neutral.gray.gray700,
+            "gray100": KitAristidThemeGeneral.colors.neutral.gray.gray100,
+            "gray200": KitAristidThemeGeneral.colors.neutral.gray.gray200,
+            "gray300": KitAristidThemeGeneral.colors.neutral.gray.gray300,
+            "gray400": KitAristidThemeGeneral.colors.neutral.gray.gray400,
+            "gray500": KitAristidThemeGeneral.colors.neutral.gray.gray500,
+            "gray600": KitAristidThemeGeneral.colors.neutral.gray.gray600,
+            "gray700": KitAristidThemeGeneral.colors.neutral.gray.gray700,
         }}
     />
 </ColorPalette>
@@ -89,13 +93,13 @@ const secondaryRedColor = theme.color.secondary.red.red100;
         title="Medium grey"
         subtitle=""
         colors={{
-            "medium-grey-100": theme.color.secondary.mediumGrey.mediumGrey100,
-            "medium-grey-200": theme.color.secondary.mediumGrey.mediumGrey200,
-            "medium-grey-300": theme.color.secondary.mediumGrey.mediumGrey300,
-            "medium-grey-400": theme.color.secondary.mediumGrey.mediumGrey400,
-            "medium-grey-500": theme.color.secondary.mediumGrey.mediumGrey500,
-            "medium-grey-600": theme.color.secondary.mediumGrey.mediumGrey600,
-            "medium-grey-700": theme.color.secondary.mediumGrey.mediumGrey700,
+            "mediumGrey100": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey100,
+            "mediumGrey200": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey200,
+            "mediumGrey300": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey300,
+            "mediumGrey400": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey400,
+            "mediumGrey500": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey500,
+            "mediumGrey600": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey600,
+            "mediumGrey700": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey700,
         }}
     />
 </ColorPalette>
@@ -105,13 +109,13 @@ const secondaryRedColor = theme.color.secondary.red.red100;
         title="Yellow"
         subtitle=""
         colors={{
-            "yellow-100": theme.color.secondary.yellow.yellow100,
-            "yellow-200": theme.color.secondary.yellow.yellow200,
-            "yellow-300": theme.color.secondary.yellow.yellow300,
-            "yellow-400": theme.color.secondary.yellow.yellow400,
-            "yellow-500": theme.color.secondary.yellow.yellow500,
-            "yellow-600": theme.color.secondary.yellow.yellow600,
-            "yellow-700": theme.color.secondary.yellow.yellow700,
+            "yellow100": KitAristidThemeGeneral.colors.secondary.yellow.yellow100,
+            "yellow200": KitAristidThemeGeneral.colors.secondary.yellow.yellow200,
+            "yellow300": KitAristidThemeGeneral.colors.secondary.yellow.yellow300,
+            "yellow400": KitAristidThemeGeneral.colors.secondary.yellow.yellow400,
+            "yellow500": KitAristidThemeGeneral.colors.secondary.yellow.yellow500,
+            "yellow600": KitAristidThemeGeneral.colors.secondary.yellow.yellow600,
+            "yellow700": KitAristidThemeGeneral.colors.secondary.yellow.yellow700,
         }}
     />
 </ColorPalette>
@@ -121,13 +125,13 @@ const secondaryRedColor = theme.color.secondary.red.red100;
         title="Orange"
         subtitle=""
         colors={{
-            "orange-100": theme.color.secondary.orange.orange100,
-            "orange-200": theme.color.secondary.orange.orange200,
-            "orange-300": theme.color.secondary.orange.orange300,
-            "orange-400": theme.color.secondary.orange.orange400,
-            "orange-500": theme.color.secondary.orange.orange500,
-            "orange-600": theme.color.secondary.orange.orange600,
-            "orange-700": theme.color.secondary.orange.orange700,
+            "orange100": KitAristidThemeGeneral.colors.secondary.orange.orange100,
+            "orange200": KitAristidThemeGeneral.colors.secondary.orange.orange200,
+            "orange300": KitAristidThemeGeneral.colors.secondary.orange.orange300,
+            "orange400": KitAristidThemeGeneral.colors.secondary.orange.orange400,
+            "orange500": KitAristidThemeGeneral.colors.secondary.orange.orange500,
+            "orange600": KitAristidThemeGeneral.colors.secondary.orange.orange600,
+            "orange700": KitAristidThemeGeneral.colors.secondary.orange.orange700,
         }}
     />
 </ColorPalette>
@@ -137,13 +141,13 @@ const secondaryRedColor = theme.color.secondary.red.red100;
         title="Pink"
         subtitle=""
         colors={{
-            "pink-100": theme.color.secondary.pink.pink100,
-            "pink-200": theme.color.secondary.pink.pink200,
-            "pink-300": theme.color.secondary.pink.pink300,
-            "pink-400": theme.color.secondary.pink.pink400,
-            "pink-500": theme.color.secondary.pink.pink500,
-            "pink-600": theme.color.secondary.pink.pink600,
-            "pink-700": theme.color.secondary.pink.pink700,
+            "pink100": KitAristidThemeGeneral.colors.secondary.pink.pink100,
+            "pink200": KitAristidThemeGeneral.colors.secondary.pink.pink200,
+            "pink300": KitAristidThemeGeneral.colors.secondary.pink.pink300,
+            "pink400": KitAristidThemeGeneral.colors.secondary.pink.pink400,
+            "pink500": KitAristidThemeGeneral.colors.secondary.pink.pink500,
+            "pink600": KitAristidThemeGeneral.colors.secondary.pink.pink600,
+            "pink700": KitAristidThemeGeneral.colors.secondary.pink.pink700,
         }}
     />
 </ColorPalette>
@@ -153,13 +157,13 @@ const secondaryRedColor = theme.color.secondary.red.red100;
         title="Red"
         subtitle=""
         colors={{
-            "red-100": theme.color.secondary.red.red100,
-            "red-200": theme.color.secondary.red.red200,
-            "red-300": theme.color.secondary.red.red300,
-            "red-400": theme.color.secondary.red.red400,
-            "red-500": theme.color.secondary.red.red500,
-            "red-600": theme.color.secondary.red.red600,
-            "red-700": theme.color.secondary.red.red700,
+            "red100": KitAristidThemeGeneral.colors.secondary.red.red100,
+            "red200": KitAristidThemeGeneral.colors.secondary.red.red200,
+            "red300": KitAristidThemeGeneral.colors.secondary.red.red300,
+            "red400": KitAristidThemeGeneral.colors.secondary.red.red400,
+            "red500": KitAristidThemeGeneral.colors.secondary.red.red500,
+            "red600": KitAristidThemeGeneral.colors.secondary.red.red600,
+            "red700": KitAristidThemeGeneral.colors.secondary.red.red700,
         }}
     />
 </ColorPalette>
@@ -169,13 +173,13 @@ const secondaryRedColor = theme.color.secondary.red.red100;
         title="Blue"
         subtitle=""
         colors={{
-            "blue-100": theme.color.secondary.blue.blue100,
-            "blue-200": theme.color.secondary.blue.blue200,
-            "blue-300": theme.color.secondary.blue.blue300,
-            "blue-400": theme.color.secondary.blue.blue400,
-            "blue-500": theme.color.secondary.blue.blue500,
-            "blue-600": theme.color.secondary.blue.blue600,
-            "blue-700": theme.color.secondary.blue.blue700,
+            "blue100": KitAristidThemeGeneral.colors.secondary.blue.blue100,
+            "blue200": KitAristidThemeGeneral.colors.secondary.blue.blue200,
+            "blue300": KitAristidThemeGeneral.colors.secondary.blue.blue300,
+            "blue400": KitAristidThemeGeneral.colors.secondary.blue.blue400,
+            "blue500": KitAristidThemeGeneral.colors.secondary.blue.blue500,
+            "blue600": KitAristidThemeGeneral.colors.secondary.blue.blue600,
+            "blue700": KitAristidThemeGeneral.colors.secondary.blue.blue700,
         }}
     />
 </ColorPalette>
@@ -185,13 +189,14 @@ const secondaryRedColor = theme.color.secondary.red.red100;
         title="Green"
         subtitle=""
         colors={{
-            "green-100": theme.color.secondary.green.green100,
-            "green-200": theme.color.secondary.green.green200,
-            "green-300": theme.color.secondary.green.green300,
-            "green-400": theme.color.secondary.green.green400,
-            "green-500": theme.color.secondary.green.green500,
-            "green-600": theme.color.secondary.green.green600,
-            "green-700": theme.color.secondary.green.green700,
+            "green100": KitAristidThemeGeneral.colors.secondary.green.green100,
+            "green200": KitAristidThemeGeneral.colors.secondary.green.green200,
+            "green300": KitAristidThemeGeneral.colors.secondary.green.green300,
+            "green400": KitAristidThemeGeneral.colors.secondary.green.green400,
+            "green500": KitAristidThemeGeneral.colors.secondary.green.green500,
+            "green600": KitAristidThemeGeneral.colors.secondary.green.green600,
+            "green700": KitAristidThemeGeneral.colors.secondary.green.green700,
         }}
     />
 </ColorPalette>
+

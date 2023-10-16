@@ -1,11 +1,11 @@
 import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
-import {KitDropdownMenuProps} from '@kit/Navigation/DropDown/types';
+import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
 import {KitTypography} from '@kit/General';
-import theme from '@theme/index';
+import {useKitTheme} from '@theme/theme-context';
 
-const items: KitDropdownMenuProps['items'] = [
+const items: IKitDropdownMenu['items'] = [
     {
         key: '1',
         label: (
@@ -25,12 +25,13 @@ const items: KitDropdownMenuProps['items'] = [
 ];
 
 const App = () => {
+    const {theme} = useKitTheme();
     return (
         <KitSpace>
             <KitDropDown menu={{items}} trigger={['contextMenu']}>
                 <div
                     style={{
-                        background: theme.color.neutral.background,
+                        background: theme.general.colors.neutral.background,
                         height: 200,
                         width: 600,
                         textAlign: 'center',

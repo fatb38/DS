@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitRowProps } from './types';
-declare const KitRow: React.FunctionComponent<KitRowProps>;
+import { FunctionComponent } from 'react';
+import { IKitRow } from './types';
+declare const KitRow: FunctionComponent<IKitRow>;
 export default KitRow;

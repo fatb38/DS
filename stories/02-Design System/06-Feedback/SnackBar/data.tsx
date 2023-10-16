@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitSnackBarProvider, openKitSnackBar, closeKitSnackBar} from '@kit/Feedback/';
 import {KitButton} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
-import { KitOpenSnackBarProps } from '@kit/Feedback/SnackBar/types';
+import {IEditorTemplate} from '../../../types';
+import {IKitOpenSnackBar} from '@kit/Feedback/SnackBar/types';
 
-export const FakeSnackbar: React.FunctionComponent<KitOpenSnackBarProps> = () => null;
+export const FakeSnackbar: FunctionComponent<IKitOpenSnackBar> = () => null;
 
 export const argTypes = {
     message: {
@@ -77,7 +78,7 @@ export const argTypes = {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     return (
         <div>
             <KitSnackBarProvider />
@@ -107,3 +108,32 @@ export const Template = (args) => {
         </div>
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace>
+            <KitButton
+                type="primary"
+                onClick={() => {
+                    openKitSnackBar({
+                        message: 'Hello there !',
+                        ctaText: 'Undo',
+                        ctaOnClick: () => console.log('With a CTA'),
+                        closable: true
+                    });
+                }}
+            >
+                Open SnackBar
+            </KitButton>
+            <KitButton
+                onClick={() => {
+                    closeKitSnackBar();
+                }}
+            >
+                Close SnackBar
+            </KitButton>
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.SnackBar';
+EditorTemplate.title = 'SnackBar';

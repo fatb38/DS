@@ -1,224 +1,200 @@
-import React from 'react';
-import {KitCard} from '@kit/DataDisplay/';
-import {KitSpace} from '@kit/Layout/';
-import {AntDesignOutlined, DownloadOutlined, FolderOpenOutlined} from '@ant-design/icons';
-import {KitAvatar, KitImage} from '@kit/DataDisplay';
-import KitCardProps from '@kit/DataDisplay/Card/types';
-import {KitButton, KitIcon} from '@kit/General/';
+import {EditOutlined, EllipsisOutlined, SettingOutlined} from '@ant-design/icons';
+import {KitCard} from '@kit/DataDisplay';
+import {KitSwitch} from '@kit/DataEntry';
+import {KitTypography} from '@kit/General';
+import KitLink from '@kit/General/Typography/Link';
+import {KitSpace} from '@kit/Layout';
+import React, {useState} from 'react';
+import {IEditorTemplate} from '../../../types';
 
-export const fakeContent = {
-    base: {
-        title: 'Tondeuse à gazon',
-        description: 'Tondeuse thermique Auto tractée 70 VL 55 TH',
-        extrainfo: '550.00€'
-    },
-    colors: [
-        {label: 'test', color: '#00D9A9'},
-        {label: 'toto', color: '#009876'}
-    ],
-    tags: ['3 opérations'],
-    image: <KitImage src="images/tondeuse.png" />,
-    icon: <KitIcon icon={<AntDesignOutlined />} />,
-    avatar: <KitAvatar>G</KitAvatar>,
-    onSeectChange: '',
-    onEdit: '',
-    actions: [
-        <KitButton onClick={() => console.log('download action')}>
-            <DownloadOutlined />
-        </KitButton>,
-        <KitButton onClick={() => console.log('open action')}>
-            <FolderOpenOutlined />
-        </KitButton>
-    ]
-};
-
-export const argTypes = {
-    vertical: {
-        name: 'vertical',
-        description: 'Change Card layout to vertical',
-        control: {
-            type: 'boolean'
-        },
+const CardArgTypes = {
+    actions: {
+        name: 'actions',
+        description: 'The action list, shows at the bottom of the Card',
         table: {
             type: {
-                summary: 'boolean'
+                summary: 'Array<ReactNode>'
+            },
+            category: 'Card'
+        }
+    },
+    bodyStyle: {
+        name: 'bodyStyle',
+        description: 'Inline style to apply to the card content',
+        table: {
+            type: {
+                summary: 'CSSProperties'
+            },
+            category: 'Card'
+        }
+    },
+    cover: {
+        name: 'cover',
+        description: 'Card cover',
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            category: 'Card'
+        }
+    },
+    contentTitle: {
+        name: 'contentTitle',
+        control: {type: 'text'},
+        description: 'Title of the Card content',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Card'
+        }
+    },
+    contentDescription: {
+        name: 'contentDescription',
+        control: {type: 'text'},
+        description: 'Description of the Card',
+        table: {
+            type: {
+                summary: 'string'
             },
             category: 'Card'
         }
     },
     disabled: {
         name: 'disabled',
-        description: 'Is Card disabled',
-        control: {
-            type: 'boolean'
-        },
+        control: {type: 'boolean'},
+        description: 'Disabled card and actions',
         table: {
             type: {
                 summary: 'boolean'
             },
+            defaultValue: {summary: false},
             category: 'Card'
         }
     },
-    picture: {
-        name: 'picture',
-        description: 'Set the picure area content. Can e one of `Image` `Avatar` or `Icon`',
-        options: ['-', 'Image', 'Icon', 'Avatar'],
-        control: {
-            type: 'select'
-        },
+    extra: {
+        name: 'extra',
+        description: 'Content to render in the top-right corner of the card',
         table: {
             type: {
-                summary: 'ReactElement<KitAvatarProps> | ReactElement<KitIconProps> | ReactElement<KitImageProps>'
+                summary: 'ReactNode'
             },
             category: 'Card'
         }
     },
-    colors: {
-        name: 'colors',
-        description: 'set list of colors to display. cardColor[]',
-        control: {
-            type: 'boolean'
-        },
+    headStyle: {
+        name: 'headStyle',
+        description: 'Inline style to apply to the card head',
         table: {
             type: {
-                summary: 'boolean'
+                summary: 'CSSProperties'
+            },
+            category: 'Card'
+        }
+    },
+    onContentTitleClick: {
+        name: 'onContentTitleClick',
+        description: 'Action on content title click (link icon is display when this props is fullfill)',
+        table: {
+            type: {
+                summary: '() => void'
             },
             category: 'Card'
         }
     },
     title: {
         name: 'title',
-        description: 'Sets the Card title',
-        control: {
-            type: 'text'
-        },
+        description: 'Card title',
+        control: {type: 'text'},
         table: {
             type: {
-                summary: 'string'
+                summary: 'ReactNode'
             },
             category: 'Card'
         }
     },
-    description: {
-        name: 'description',
-        description: 'Sets the Card description',
-        control: {
-            type: 'text'
-        },
+    separator: {
+        name: 'separator',
+        description: 'Display separator between title and content',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: 'string'
+                summary: 'Boolean'
             },
+            defaultValue: {summary: false},
             category: 'Card'
         }
     },
-    extrainfo: {
-        name: 'extrainfo',
-        description: 'Sets the Card extrainfo',
-        control: {
-            type: 'text'
-        },
+    sideSpacing: {
+        name: 'sideSpacing',
+        description: 'Space around Card image',
+        control: {type: 'boolean'},
         table: {
             type: {
-                summary: 'string'
+                summary: 'Boolean'
             },
+            defaultValue: {summary: true},
             category: 'Card'
         }
-    },
-    tags: {
-        name: 'tags',
-        description: 'set list of tags to display. string[]',
-        control: {
-            type: 'boolean'
-        },
-        table: {
-            type: {
-                summary: 'boolean'
-            },
-            category: 'Card'
-        }
-    },
-    actions: {
-        name: 'actions',
-        description: 'set list of actions to add. array of `Button`',
-        control: {
-            type: 'boolean'
-        },
-        table: {
-            type: {
-                summary: 'boolean'
-            },
-            category: 'Card'
-        }
-    },
-    onSelectChange: {
-        name: 'onSelectChange',
-        description: 'The callback function that is triggered when the state change. When set makes Card selectable',
-        control: {
-            type: 'boolean'
-        },
-        table: {
-            type: {
-                summary: '(checkedValue: CheckboxValueType[]) => void'
-            },
-            defaultValue: {summary: '-'},
-            category: 'CheCardckbox'
-        },
-        defaultValue: () => {}
-    },
-    onEdit: {
-        name: 'onEdit',
-        description:
-            'The callback function that is triggered when click on the Edit buttone. When set makes the card Editable',
-        control: {
-            type: 'boolean'
-        },
-        table: {
-            type: {
-                summary: '() => void'
-            },
-            defaultValue: {summary: '-'},
-            category: 'Button'
-        },
-        defaultValue: () => {}
     }
 };
 
-const getPicture = picture => {
-    switch (picture) {
-        case 'Image':
-            return fakeContent.image;
-        case 'Avatar':
-            return fakeContent.avatar;
-        case 'Icon':
-            return fakeContent.icon;
-        default:
-            return null;
-    }
+export const argTypes = {
+    ...CardArgTypes
 };
 
-export const Template = (args: KitCardProps) => {
-    const {colors, picture, tags, actions, ...rest} = args;
-    const props: KitCardProps = {
-        ...rest,
-        picture: getPicture(picture),
-        title: rest.title || fakeContent.base.title,
-        description: rest.description || fakeContent.base.description,
-        extrainfo: rest.extrainfo || fakeContent.base.extrainfo
-    };
-    if (colors) {
-        props.colors = fakeContent.colors;
-    }
-    if (tags) {
-        props.tags = fakeContent.tags;
-    }
-    if (actions) {
-        props.actions = fakeContent.actions;
-    }
+export const Template = args => {
+    const [isCover, setCover] = useState(true);
+    const [isActions, setActions] = useState(true);
+    const [isExtra, setExtra] = useState(true);
 
     return (
-        <KitSpace>
-            <KitCard {...props} />
+        <KitSpace direction="vertical">
+            <KitSpace>
+                <KitTypography.Text>
+                    Cover: <KitSwitch defaultChecked onChange={setCover} />
+                </KitTypography.Text>
+                <KitTypography.Text>
+                    Actions: <KitSwitch defaultChecked onChange={setActions} />
+                </KitTypography.Text>
+                <KitTypography.Text>
+                    Extra: <KitSwitch defaultChecked onChange={setExtra} />
+                </KitTypography.Text>
+            </KitSpace>
+            <KitCard
+                {...args}
+                cover={isCover && <img alt="example" src="public/images/free-copyright.jpeg" />}
+                extra={isExtra && <KitLink href="#">More</KitLink>}
+                actions={
+                    isActions && [
+                        <SettingOutlined key="setting" onClick={() => console.log('click button settings')} />,
+                        <EditOutlined key="edit" onClick={() => console.log('click button edit')} />,
+                        <EllipsisOutlined key="ellipsis" onClick={() => console.log('click button ellipsis')} />
+                    ]
+                }
+            />
         </KitSpace>
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace direction="vertical">
+            <KitCard
+                title="Card Title"
+                contentTitle="Promos mai"
+                contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
+                cover={<img alt="example" src="public/images/free-copyright.jpeg" />}
+            />
+            <KitCard
+                title="Card Title"
+                contentTitle="Promos mai"
+                contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
+                cover={<img alt="example" src="public/images/free-copyright.jpeg" />}
+                disabled
+            />
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Card';
+EditorTemplate.title = 'Card';

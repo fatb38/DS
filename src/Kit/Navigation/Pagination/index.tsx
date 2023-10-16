@@ -1,33 +1,36 @@
 import React from 'react';
 import {Pagination} from 'antd';
 import styled from 'styled-components';
-import {KitPaginationProps} from './types';
-import {paginationTheme} from './theme';
+import {IKitPagination, IStyledAntdPagination} from './types';
+import {useKitTheme} from '@theme/theme-context';
 
-const StyledAntdPagination = styled(Pagination)`
+const StyledAntdPagination = styled(Pagination)<IStyledAntdPagination>`
     &.kit-pagination-bordered:not(.ant-pagination-mini) {
         .ant-pagination-item:not(.ant-pagination-item-active) {
-            border-color: ${paginationTheme.bordered.borderColor};
+            border-color: ${({$theme}) => $theme.pagination.border.default};
         }
 
         &:not(.ant-pagination-disabled) .ant-pagination-item:hover {
-            border-color: ${paginationTheme.bordered.hoverBorderColor};
-            background-color: ${paginationTheme.bordered.backgroundColor};
+            border-color: ${({$theme}) => $theme.pagination.border.hover};
+            background-color: ${({$theme}) => $theme.pagination.colors.background.hover};
         }
 
         .ant-pagination-next,
         .ant-pagination-prev {
-            background-color: ${paginationTheme.bordered.backgroundColor};
-            border: 1px solid ${paginationTheme.bordered.borderColor};
+            background-color: ${({$theme}) => $theme.prevNext.colors.background.default};
+            border: 1px solid ${({$theme}) => $theme.prevNext.colors.border.default};
         }
     }
 
     &.ant-pagination-mini:not(.ant-pagination-disabled) {
         .ant-pagination-item,
-        .ant-pagination-item-active,
+        .ant-pagination-item-active {
+            background: ${({$theme}) => $theme.pagination.colors.background.default};
+        }
+
         .ant-pagination-next,
         .ant-pagination-pre {
-            background: ${paginationTheme.miniActiveBackground};
+            background: ${({$theme}) => $theme.prevNext.colors.background.default};
         }
     }
 
@@ -45,23 +48,23 @@ const StyledAntdPagination = styled(Pagination)`
     &:not(.ant-pagination-disabled) {
         .ant-pagination-next,
         .ant-pagination-prev {
-            background-color: ${paginationTheme.bordered.backgroundColor};
-            border: 1px solid transparent;
+            background-color: ${({$theme}) => $theme.prevNext.colors.background.default};
+            border: 1px solid ${({$theme}) => $theme.prevNext.colors.border.default};
 
             a {
                 color: inherit;
             }
 
             &:hover {
-                border-color: ${paginationTheme.bordered.hoverBorderColor};
-                color: ${paginationTheme.hoverColor};
+                border-color: ${({$theme}) => $theme.prevNext.colors.border.hover};
+                color: ${({$theme}) => $theme.prevNext.colors.typography.hover};
 
                 .ant-pagination-item-link {
-                    background-color: ${paginationTheme.bordered.backgroundColor};
+                    background-color: ${({$theme}) => $theme.prevNext.colors.background.default};
                 }
 
-                a {
-                    color: ${paginationTheme.hoverColor};
+                button {
+                    color: ${({$theme}) => $theme.prevNext.colors.typography.hover};
                 }
             }
         }
@@ -78,13 +81,13 @@ const StyledAntdPagination = styled(Pagination)`
 
     &.ant-pagination-disabled {
         .ant-pagination-item-active a {
-            color: ${paginationTheme.disabledActiveTextColor};
+            color: ${({$theme}) => $theme.pagination.colors.typography.disabledActive};
         }
     }
 
     & .kit-pagination-prev,
     & .kit-pagination-next {
-        font-size: ${paginationTheme.fontSize * 0.75}px;
+        font-size: ${({$theme}) => $theme.prevNext.typography.fontSize * 0.75}px;
     }
 
     & .ant-pagination-options-quick-jumper {
@@ -93,7 +96,7 @@ const StyledAntdPagination = styled(Pagination)`
 
         input {
             height: 24px;
-            border-color: ${paginationTheme.bordered.borderColor};
+            border-color: ${({$theme}) => $theme.quickJumper.colors.border.default};
         }
     }
 
@@ -102,8 +105,8 @@ const StyledAntdPagination = styled(Pagination)`
 
         .ant-select-selector {
             height: 24px;
-            background: ${paginationTheme.bordered.backgroundColor};
-            border-color: ${paginationTheme.bordered.borderColor};
+            background: ${({$theme}) => $theme.selector.colors.background.default};
+            border-color: ${({$theme}) => $theme.selector.colors.border.default};
 
             input,
             .ant-select-selection-item {
@@ -111,15 +114,13 @@ const StyledAntdPagination = styled(Pagination)`
                 line-height: 22px;
             }
         }
-
-        .ant-select-dropdown {
-            background: ${paginationTheme.bordered.backgroundColor};
-        }
     }
 `;
 
-export const KitPagination: React.FunctionComponent<KitPaginationProps> = paginationProps => {
-    const itemRender: KitPaginationProps['itemRender'] = (_, type, originalElement) => {
+export const KitPagination: React.FunctionComponent<IKitPagination> = paginationProps => {
+    const {theme} = useKitTheme();
+
+    const _itemRender: IKitPagination['itemRender'] = (_, type, originalElement) => {
         // if (type === 'prev') {
         //     return <KitIcon icon={<KitDropdownOutlined />} className="kit-pagination-prev"/>;
         // }
@@ -131,8 +132,8 @@ export const KitPagination: React.FunctionComponent<KitPaginationProps> = pagina
 
     const mergedProps = {
         ...paginationProps,
-        itemRender,
+        itemRender: _itemRender,
         className: `${paginationProps.bordered ? 'kit-pagination-bordered' : ''} ${paginationProps.className || ''}`
     };
-    return <StyledAntdPagination {...mergedProps} />;
+    return <StyledAntdPagination $theme={theme.components.Pagination} {...mergedProps} />;
 };

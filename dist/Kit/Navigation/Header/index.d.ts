@@ -1,3 +1,3 @@
-import React from 'react';
-import { HeaderProps } from './types';
-export declare const KitHeader: React.FunctionComponent<HeaderProps>;
+import { FunctionComponent } from 'react';
+import { IHeader } from './types';
+export declare const KitHeader: FunctionComponent<IHeader>;

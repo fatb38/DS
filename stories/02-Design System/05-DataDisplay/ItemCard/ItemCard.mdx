@@ -1,0 +1,83 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
+import * as KitItemCardStories from './ItemCard.stories';
+
+<Meta of={KitItemCardStories} />
+
+# ItemCard
+
+A component to display product informations
+
+## Usage
+
+The ItemCard is used to display a product identity Card - some basic informations - such as a preview, label colors and so on.
+It's also provides ability to select and / or edit product data
+
+## Examples
+
+##### Basic
+The simplest usage.
+
+###### Horizontal layout (default)
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="card-basic" />
+
+###### Vertical layout
+
+<CustomCanvas content={Exemples.Vertical} source={Sources.Vertical} id="card-vertical" />
+
+##### With icon
+display an icon instead of image
+
+<CustomCanvas content={Exemples.Icon} source={Sources.Icon} id="card-icon" />
+
+##### With Avatar
+display an Avatar
+
+<CustomCanvas content={Exemples.Avatar} source={Sources.Avatar} id="card-avatar" />
+
+##### With Tags
+add tags in the Card
+
+<CustomCanvas content={Exemples.Tags} source={Sources.Tags} id="card-tags" />
+
+
+##### With colors
+show colors bar near image
+
+<CustomCanvas content={Exemples.Colors} source={Sources.Colors} id="card-colors" />
+
+##### Selectable
+set the card selectable. Simply provide the `onSelectChange` property to enable selection.
+
+<CustomCanvas content={Exemples.Selectable} source={Sources.Selectable} id="card-selectable" />
+
+##### Editable
+allow to edit the item assicated to the card. Simply provide the `onEdit` property to enable edition.
+
+<CustomCanvas content={Exemples.Editable} source={Sources.Editable} id="card-editable" />
+
+##### With actions
+add actions near select checkbox.
+
+<CustomCanvas content={Exemples.Actions} source={Sources.Actions} id="card-actions" />
+
+##### Disabled
+Card element in disabled state.
+
+<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="card-disabled" />
+
+## Api
+
+<Canvas of={KitItemCardStories.Api} />
+
+<Controls of={KitItemCardStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.ItemCard" tokens={fields?.components?.ItemCard} />

@@ -1,0 +1,768 @@
+{
+    "type": "object",
+    "properties": {
+        "general": {
+            "$ref": "#/definitions/IKitThemeGeneral"
+        },
+        "components": {
+            "$ref": "#/definitions/IKitThemeComponents"
+        }
+    },
+    "required": [
+        "components",
+        "general"
+    ],
+    "definitions": {
+        "IKitThemeGeneral": {
+            "type": "object",
+            "properties": {
+                "colors": {
+                    "$ref": "#/definitions/IKitColorsPalette"
+                }
+            },
+            "required": [
+                "colors"
+            ]
+        },
+        "IKitColorsPalette": {
+            "type": "object",
+            "properties": {
+                "primary": {
+                    "type": "object",
+                    "properties": {
+                        "primary100": {
+                            "type": "string"
+                        },
+                        "primary200": {
+                            "type": "string"
+                        },
+                        "primary300": {
+                            "type": "string"
+                        },
+                        "primary400": {
+                            "type": "string"
+                        },
+                        "primary500": {
+                            "type": "string"
+                        },
+                        "primary600": {
+                            "type": "string"
+                        },
+                        "primary700": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "primary100",
+                        "primary200",
+                        "primary300",
+                        "primary400",
+                        "primary500",
+                        "primary600",
+                        "primary700"
+                    ]
+                },
+                "neutral": {
+                    "type": "object",
+                    "properties": {
+                        "typography": {
+                            "type": "object",
+                            "properties": {
+                                "black": {
+                                    "type": "string"
+                                },
+                                "black60": {
+                                    "type": "string"
+                                },
+                                "white": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "black",
+                                "black60",
+                                "white"
+                            ]
+                        },
+                        "background": {
+                            "type": "string"
+                        },
+                        "border": {
+                            "type": "string"
+                        },
+                        "gray": {
+                            "type": "object",
+                            "properties": {
+                                "gray100": {
+                                    "type": "string"
+                                },
+                                "gray200": {
+                                    "type": "string"
+                                },
+                                "gray300": {
+                                    "type": "string"
+                                },
+                                "gray400": {
+                                    "type": "string"
+                                },
+                                "gray500": {
+                                    "type": "string"
+                                },
+                                "gray600": {
+                                    "type": "string"
+                                },
+                                "gray700": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "gray100",
+                                "gray200",
+                                "gray300",
+                                "gray400",
+                                "gray500",
+                                "gray600",
+                                "gray700"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "background",
+                        "border",
+                        "gray",
+                        "typography"
+                    ]
+                },
+                "secondary": {
+                    "type": "object",
+                    "properties": {
+                        "mediumGrey": {
+                            "type": "object",
+                            "properties": {
+                                "mediumGrey100": {
+                                    "type": "string"
+                                },
+                                "mediumGrey200": {
+                                    "type": "string"
+                                },
+                                "mediumGrey300": {
+                                    "type": "string"
+                                },
+                                "mediumGrey400": {
+                                    "type": "string"
+                                },
+                                "mediumGrey500": {
+                                    "type": "string"
+                                },
+                                "mediumGrey600": {
+                                    "type": "string"
+                                },
+                                "mediumGrey700": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "mediumGrey100",
+                                "mediumGrey200",
+                                "mediumGrey300",
+                                "mediumGrey400",
+                                "mediumGrey500",
+                                "mediumGrey600",
+                                "mediumGrey700"
+                            ]
+                        },
+                        "yellow": {
+                            "type": "object",
+                            "properties": {
+                                "yellow100": {
+                                    "type": "string"
+                                },
+                                "yellow200": {
+                                    "type": "string"
+                                },
+                                "yellow300": {
+                                    "type": "string"
+                                },
+                                "yellow400": {
+                                    "type": "string"
+                                },
+                                "yellow500": {
+                                    "type": "string"
+                                },
+                                "yellow600": {
+                                    "type": "string"
+                                },
+                                "yellow700": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "yellow100",
+                                "yellow200",
+                                "yellow300",
+                                "yellow400",
+                                "yellow500",
+                                "yellow600",
+                                "yellow700"
+                            ]
+                        },
+                        "orange": {
+                            "type": "object",
+                            "properties": {
+                                "orange100": {
+                                    "type": "string"
+                                },
+                                "orange200": {
+                                    "type": "string"
+                                },
+                                "orange300": {
+                                    "type": "string"
+                                },
+                                "orange400": {
+                                    "type": "string"
+                                },
+                                "orange500": {
+                                    "type": "string"
+                                },
+                                "orange600": {
+                                    "type": "string"
+                                },
+                                "orange700": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "orange100",
+                                "orange200",
+                                "orange300",
+                                "orange400",
+                                "orange500",
+                                "orange600",
+                                "orange700"
+                            ]
+                        },
+                        "pink": {
+                            "type": "object",
+                            "properties": {
+                                "pink100": {
+                                    "type": "string"
+                                },
+                                "pink200": {
+                                    "type": "string"
+                                },
+                                "pink300": {
+                                    "type": "string"
+                                },
+                                "pink400": {
+                                    "type": "string"
+                                },
+                                "pink500": {
+                                    "type": "string"
+                                },
+                                "pink600": {
+                                    "type": "string"
+                                },
+                                "pink700": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "pink100",
+                                "pink200",
+                                "pink300",
+                                "pink400",
+                                "pink500",
+                                "pink600",
+                                "pink700"
+                            ]
+                        },
+                        "red": {
+                            "type": "object",
+                            "properties": {
+                                "red100": {
+                                    "type": "string"
+                                },
+                                "red200": {
+                                    "type": "string"
+                                },
+                                "red300": {
+                                    "type": "string"
+                                },
+                                "red400": {
+                                    "type": "string"
+                                },
+                                "red500": {
+                                    "type": "string"
+                                },
+                                "red600": {
+                                    "type": "string"
+                                },
+                                "red700": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "red100",
+                                "red200",
+                                "red300",
+                                "red400",
+                                "red500",
+                                "red600",
+                                "red700"
+                            ]
+                        },
+                        "blue": {
+                            "type": "object",
+                            "properties": {
+                                "blue100": {
+                                    "type": "string"
+                                },
+                                "blue200": {
+                                    "type": "string"
+                                },
+                                "blue300": {
+                                    "type": "string"
+                                },
+                                "blue400": {
+                                    "type": "string"
+                                },
+                                "blue500": {
+                                    "type": "string"
+                                },
+                                "blue600": {
+                                    "type": "string"
+                                },
+                                "blue700": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "blue100",
+                                "blue200",
+                                "blue300",
+                                "blue400",
+                                "blue500",
+                                "blue600",
+                                "blue700"
+                            ]
+                        },
+                        "green": {
+                            "type": "object",
+                            "properties": {
+                                "green100": {
+                                    "type": "string"
+                                },
+                                "green200": {
+                                    "type": "string"
+                                },
+                                "green300": {
+                                    "type": "string"
+                                },
+                                "green400": {
+                                    "type": "string"
+                                },
+                                "green500": {
+                                    "type": "string"
+                                },
+                                "green600": {
+                                    "type": "string"
+                                },
+                                "green700": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "green100",
+                                "green200",
+                                "green300",
+                                "green400",
+                                "green500",
+                                "green600",
+                                "green700"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "blue",
+                        "green",
+                        "mediumGrey",
+                        "orange",
+                        "pink",
+                        "red",
+                        "yellow"
+                    ]
+                }
+            },
+            "required": [
+                "neutral",
+                "primary",
+                "secondary"
+            ]
+        },
+        "IKitThemeComponents": {
+            "type": "object",
+            "properties": {
+                "Button": {
+                    "$ref": "#/definitions/IKitButtonTheme"
+                }
+            },
+            "required": [
+                "Button"
+            ]
+        },
+        "IKitButtonTheme": {
+            "type": "object",
+            "properties": {
+                "typography": {
+                    "type": "object",
+                    "properties": {
+                        "fontFamily": {
+                            "type": "string"
+                        },
+                        "fontSize": {
+                            "type": "number"
+                        },
+                        "lineHeight": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "fontFamily",
+                        "fontSize",
+                        "lineHeight"
+                    ]
+                },
+                "border": {
+                    "type": "object",
+                    "properties": {
+                        "radius": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "radius"
+                    ]
+                },
+                "primary": {
+                    "$ref": "#/definitions/IKitButtonThemePropeties"
+                },
+                "default": {
+                    "$ref": "#/definitions/IKitButtonThemePropeties"
+                },
+                "text": {
+                    "$ref": "#/definitions/IKitButtonThemePropeties"
+                },
+                "link": {
+                    "$ref": "#/definitions/IKitButtonThemePropeties"
+                },
+                "segmented": {
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "default": {
+                                    "$ref": "#/definitions/IKitButtonThemePropeties"
+                                }
+                            },
+                            "required": [
+                                "default"
+                            ]
+                        },
+                        {
+                            "$ref": "#/definitions/KitColoredSegmentedButtonThemes"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "border",
+                "default",
+                "link",
+                "primary",
+                "segmented",
+                "text",
+                "typography"
+            ]
+        },
+        "IKitButtonThemePropeties": {
+            "type": "object",
+            "properties": {
+                "colors": {
+                    "type": "object",
+                    "properties": {
+                        "typography": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/Omit<IKitButtonThemeStateColor,\"danger\">"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "danger": {
+                                            "$ref": "#/definitions/Omit<{default:string;hover:string;active:string;focus:string;disabled:string;},\"active\"|\"focus\"|\"hover\">"
+                                        }
+                                    },
+                                    "required": [
+                                        "danger"
+                                    ]
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "iconCheck": {
+                                            "type": "color"
+                                        },
+                                        "ghost": {
+                                            "type": "color"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "background": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/IKitButtonThemeStateColor"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "ghost": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "border": {
+                            "$ref": "#/definitions/IKitButtonThemeStateColor"
+                        }
+                    },
+                    "required": [
+                        "background",
+                        "border",
+                        "typography"
+                    ]
+                },
+                "typography": {
+                    "type": "object",
+                    "properties": {
+                        "fontWeight": {
+                            "minimum": 0,
+                            "type": "integer"
+                        },
+                        "iconSize": {
+                            "type": "object",
+                            "properties": {
+                                "xs": {
+                                    "minimum": 0,
+                                    "type": "integer"
+                                },
+                                "s": {
+                                    "minimum": 0,
+                                    "type": "integer"
+                                },
+                                "m": {
+                                    "minimum": 0,
+                                    "type": "integer"
+                                },
+                                "l": {
+                                    "minimum": 0,
+                                    "type": "integer"
+                                },
+                                "xl": {
+                                    "minimum": 0,
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "l",
+                                "m",
+                                "s",
+                                "xl",
+                                "xs"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "fontWeight",
+                        "iconSize"
+                    ]
+                },
+                "compact": {
+                    "type": "object",
+                    "properties": {
+                        "border": {
+                            "type": "object",
+                            "properties": {
+                                "radius": {
+                                    "minimum": 0,
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "radius"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "border"
+                    ]
+                }
+            },
+            "required": [
+                "colors",
+                "compact",
+                "typography"
+            ]
+        },
+        "Omit<IKitButtonThemeStateColor,\"danger\">": {
+            "type": "object",
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "active": {
+                    "description": "active color",
+                    "type": "color"
+                },
+                "focus": {
+                    "description": "focus color",
+                    "type": "color"
+                },
+                "disabled": {
+                    "description": "disabled color",
+                    "type": "color"
+                },
+                "hover": {
+                    "description": "hover color",
+                    "type": "color"
+                }
+            },
+            "required": [
+                "active",
+                "default",
+                "disabled",
+                "focus",
+                "hover"
+            ]
+        },
+        "Omit<{default:string;hover:string;active:string;focus:string;disabled:string;},\"active\"|\"focus\"|\"hover\">": {
+            "type": "object",
+            "properties": {
+                "default": {
+                    "description": "default color",
+                    "type": "color"
+                },
+                "disabled": {
+                    "description": "disabled color",
+                    "type": "color"
+                }
+            },
+            "required": [
+                "default",
+                "disabled"
+            ]
+        },
+        "IKitButtonThemeStateColor": {
+            "type": "object",
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "hover": {
+                    "description": "hover color",
+                    "type": "color"
+                },
+                "active": {
+                    "description": "active color",
+                    "type": "color"
+                },
+                "focus": {
+                    "description": "focus color",
+                    "type": "color"
+                },
+                "disabled": {
+                    "description": "disabled color",
+                    "type": "color"
+                },
+                "danger": {
+                    "type": "object",
+                    "properties": {
+                        "default": {
+                            "description": "default color",
+                            "type": "color"
+                        },
+                        "hover": {
+                            "description": "hover color",
+                            "type": "color"
+                        },
+                        "active": {
+                            "description": "active color",
+                            "type": "color"
+                        },
+                        "focus": {
+                            "description": "focus color",
+                            "type": "color"
+                        },
+                        "disabled": {
+                            "description": "disabled color",
+                            "type": "color"
+                        }
+                    },
+                    "required": [
+                        "active",
+                        "default",
+                        "disabled",
+                        "focus",
+                        "hover"
+                    ]
+                }
+            },
+            "required": [
+                "active",
+                "danger",
+                "default",
+                "disabled",
+                "focus",
+                "hover"
+            ]
+        },
+        "KitColoredSegmentedButtonThemes": {
+            "type": "object",
+            "properties": {
+                "mediumGrey": {
+                    "$ref": "#/definitions/IKitButtonThemePropeties"
+                },
+                "yellow": {
+                    "$ref": "#/definitions/IKitButtonThemePropeties"
+                },
+                "orange": {
+                    "$ref": "#/definitions/IKitButtonThemePropeties"
+                },
+                "pink": {
+                    "$ref": "#/definitions/IKitButtonThemePropeties"
+                },
+                "red": {
+                    "$ref": "#/definitions/IKitButtonThemePropeties"
+                },
+                "blue": {
+                    "$ref": "#/definitions/IKitButtonThemePropeties"
+                },
+                "green": {
+                    "$ref": "#/definitions/IKitButtonThemePropeties"
+                }
+            },
+            "required": [
+                "blue",
+                "green",
+                "mediumGrey",
+                "orange",
+                "pink",
+                "red",
+                "yellow"
+            ]
+        }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#"
+}

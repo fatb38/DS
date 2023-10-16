@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitTreeStories from './Tree.stories';
 
 <Meta of={KitTreeStories} />
@@ -51,3 +53,8 @@ Tree with connected line between nodes, turn on by `showLine`, customize the pre
 <Canvas of={KitTreeStories.Api} />
 
 <Controls of={KitTreeStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Tree" tokens={fields?.components?.Tree} />

@@ -1,17 +1,13 @@
-import React, {useState} from 'react';
-import {css, styled} from 'styled-components';
-import {KitItemListProps} from './types';
-import theme from '@theme/index';
+import React, {FunctionComponent, cloneElement, useState} from 'react';
+import {styled} from 'styled-components';
+import {IKitItemList, IStyledKitItemList} from './types';
 import {KitCheckbox, KitTag} from '@kit/DataEntry/';
 import {KitTypography} from '@kit/General/';
 import {RightOutlined, EyeOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
-import {KitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
+import {useKitLocale} from '@translation/locale-context';
 
-const StyledItemList = styled.div<{
-    $theme: KitItemListTheme;
-    $gridTemplateColumns: string;
-}>`
+const StyledItemList = styled.div<IStyledKitItemList>`
     display: grid;
     grid-template-columns: ${({$gridTemplateColumns}) => $gridTemplateColumns};
     align-items: center;
@@ -154,6 +150,10 @@ const StyledItemList = styled.div<{
         border: 1px solid ${({$theme}) => $theme.itemList.colors.border.disabled};
         pointer-events: none;
 
+        .kit-item-list-image-container img {
+            opacity: 0.5;
+        }
+
         .kit-item-list-text-container {
             .kit-item-list-text {
                 &.kit-item-list-title {
@@ -176,19 +176,20 @@ const StyledItemList = styled.div<{
     }
 `;
 
-export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
+export const KitItemList: FunctionComponent<IKitItemList> = ({
     title,
     description,
     picture,
     onSelectChange,
     tagNumber,
     onRafterClick,
-    isDisabled = false,
+    disabled = false,
     onClick,
     className,
     ...props
 }) => {
     const {theme} = useKitTheme();
+    const {locale} = useKitLocale();
 
     const [descriptionVisible, setDescriptionVisible] = useState(false);
     const [isDescriptionEllipsis, setIsDescriptionEllipsis] = useState(false);
@@ -201,7 +202,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
     const isSelectable = onSelectChange !== undefined;
     const hasRafter = onRafterClick !== undefined;
 
-    const generateGridTemplateColumns = () => {
+    const _generateGridTemplateColumns = () => {
         let gridTemplateColumns = '';
 
         // Checkbox
@@ -222,12 +223,12 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
         return gridTemplateColumns;
     };
 
-    const getCheckbox = () => {
+    const _getCheckbox = () => {
         return (
             isSelectable && (
                 <div>
                     <KitCheckbox
-                        disabled={isDisabled}
+                        disabled={disabled}
                         onClick={e => e.stopPropagation()}
                         onChange={e => {
                             onSelectChange && onSelectChange(e);
@@ -238,7 +239,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
         );
     };
 
-    const getPicture = () => {
+    const _getPicture = () => {
         const pictureJsx = picture as JSX.Element;
 
         if (!pictureJsx || !pictureJsx.type) {
@@ -253,6 +254,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
             case 'KitImage':
                 cloneProps = {
                     preview: {
+                        ...(pictureJsx.props?.preview ?? {}),
                         mask: <EyeOutlined />
                     },
                     width: '100%',
@@ -274,12 +276,12 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
                 break;
         }
 
-        let Component = React.cloneElement(pictureJsx, cloneProps);
+        let Component = cloneElement(pictureJsx, cloneProps);
 
         return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
     };
 
-    const getContent = () => {
+    const _getContent = () => {
         let classes = 'kit-item-list-text-container';
         classes += hasTitle && hasDescription ? ' kit-item-list-text-container-with-gap' : '';
 
@@ -289,7 +291,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
                     className="kit-item-list-text kit-item-list-title"
                     size="large"
                     weight="bold"
-                    ellipsis={{rows: 1, tooltip: true}}
+                    ellipsis={{tooltip: true}}
                 >
                     {title}
                 </KitTypography.Text>
@@ -318,7 +320,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
                                     setDescriptionVisible(false);
                                 }}
                             >
-                                Less
+                                {locale.ItemList.less}
                             </KitTypography.Link>
                         )}
                     </KitTypography.Paragraph>
@@ -330,7 +332,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
                                 setDescriptionVisible(true);
                             }}
                         >
-                            More
+                            {locale.ItemList.more}
                         </KitTypography.Link>
                     )}
                 </div>
@@ -338,7 +340,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
         );
     };
 
-    const getTag = () => {
+    const _getTag = () => {
         return (
             hasTag && (
                 <div className="kit-item-list-tag">
@@ -348,7 +350,7 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
         );
     };
 
-    const getRafter = () => {
+    const _getRafter = () => {
         return (
             hasRafter && (
                 <div
@@ -364,10 +366,10 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
         );
     };
 
-    const getClasses = () => {
+    const _getClasses = () => {
         let classes = className;
 
-        classes += isDisabled ? ' kit-item-list-disabled' : '';
+        classes += disabled ? ' kit-item-list-disabled' : '';
         classes += isClickable ? ' kit-item-list-clickable' : '';
 
         return classes;
@@ -375,20 +377,20 @@ export const KitItemList: React.FunctionComponent<KitItemListProps> = ({
 
     return (
         <StyledItemList
-            className={getClasses()}
+            className={_getClasses()}
             $theme={theme.components.ItemList}
-            $gridTemplateColumns={generateGridTemplateColumns()}
+            $gridTemplateColumns={_generateGridTemplateColumns()}
             onClick={e => {
                 e.stopPropagation();
                 onClick && onClick();
             }}
             {...props}
         >
-            {getCheckbox()}
-            {getPicture()}
-            {getContent()}
-            {getTag()}
-            {getRafter()}
+            {_getCheckbox()}
+            {_getPicture()}
+            {_getContent()}
+            {_getTag()}
+            {_getRafter()}
         </StyledItemList>
     );
 };

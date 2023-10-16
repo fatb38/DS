@@ -1,11 +1,21 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {AutoComplete as AntdAutoComplete} from 'antd';
 import {SearchOutlined} from '@ant-design/icons';
 import {KitInput} from '@kit/DataEntry/';
-import type {KitAutoCompleteProps} from './types';
+import type {IKitAutoComplete} from './types';
 import KitInputWrapper from '../Input/InputWrapper';
+import styled from 'styled-components';
 
-export const KitAutoComplete: React.FunctionComponent<KitAutoCompleteProps> = ({
+export const StyledKitAutoComplete = styled(AntdAutoComplete)`
+    &.ant-select-auto-complete.ant-select-open {
+        .ant-input-affix-wrapper {
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+    }
+`;
+
+export const KitAutoComplete: FunctionComponent<IKitAutoComplete> = ({
     allowClear,
     label,
     helper,
@@ -22,7 +32,7 @@ export const KitAutoComplete: React.FunctionComponent<KitAutoCompleteProps> = ({
 }) => {
     return (
         <KitInputWrapper label={label} helper={helper} disabled={disabled} status={status}>
-            <AntdAutoComplete
+            <StyledKitAutoComplete
                 {...props}
                 disabled={disabled}
                 popupClassName={`ant-select-dropdown kit-select-dropdown-bottom ${popupClassName || ''}`}
@@ -37,7 +47,7 @@ export const KitAutoComplete: React.FunctionComponent<KitAutoCompleteProps> = ({
                     value={value}
                     onBlur={onBlur}
                 />
-            </AntdAutoComplete>
+            </StyledKitAutoComplete>
         </KitInputWrapper>
     );
 };

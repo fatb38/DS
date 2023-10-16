@@ -1,9 +1,8 @@
 import {Slider as AntdSlider} from 'antd';
 import styled from 'styled-components';
-
-import React from 'react';
-import {KitSliderRangeProps, KitSliderSingleProps} from './types';
-import {KitSliderTheme} from '@theme/types/components/DataEntry/Slider';
+import React, {FunctionComponent} from 'react';
+import {IStyledKitSlider, IKitSliderRange, IKitSliderSingle} from './types';
+import {IKitSliderTheme} from '@theme/types/components/DataEntry/Slider';
 import {useKitTheme} from '@theme/theme-context';
 import {SliderMarks} from 'antd/lib/slider';
 
@@ -11,21 +10,21 @@ const KitSliderContainer = styled.div`
     position: relative;
 `;
 
-const StartIcon = styled.div<{$theme: KitSliderTheme}>`
+const StartIcon = styled.div<{$theme: IKitSliderTheme}>`
     position: absolute;
     top: -2px;
     left: 0;
     color: ${({$theme}) => $theme.startIcon.colors.default};
 `;
 
-const EndIcon = styled.div<{$theme: KitSliderTheme}>`
+const EndIcon = styled.div<{$theme: IKitSliderTheme}>`
     position: absolute;
     top: -2px;
     right: 0;
     color: ${({$theme}) => $theme.endIcon.colors.default};
 `;
 
-const StyledKitSlider = styled(AntdSlider)<{$theme: KitSliderTheme; $isStartIcon: boolean; $isEndIcon: boolean}>`
+const StyledKitSlider = styled(AntdSlider)<IStyledKitSlider>`
     margin-left: ${({$isStartIcon}) => ($isStartIcon ? '30px' : '0px')};
     margin-right: ${({$isEndIcon}) => ($isEndIcon ? '30px' : '0px')};
     &.ant-slider:not(.ant-slider-disabled) {
@@ -63,7 +62,7 @@ const StyledKitSlider = styled(AntdSlider)<{$theme: KitSliderTheme; $isStartIcon
     }
 `;
 
-export const KitSlider: React.FunctionComponent<KitSliderSingleProps | KitSliderRangeProps> = ({
+export const KitSlider: FunctionComponent<IKitSliderSingle | IKitSliderRange> = ({
     startIcon,
     endIcon,
     marks,

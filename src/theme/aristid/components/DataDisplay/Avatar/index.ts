@@ -1,36 +1,35 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import {KitAvatarGroupThemeStyled, KitAvatarThemeStyled} from '@theme/types/components/DataDisplay/Avatar';
+import {IKitThemeGeneral} from '@theme/types';
+import {IKitAvatarGroupTheme, IKitAvatarTheme} from '@theme/types/components/DataDisplay/Avatar';
 
-const {colors} = KitAristidThemeGeneral;
+export const getKitAvatarTokens = (generalTokens: IKitThemeGeneral): IKitAvatarTheme => {
+    const {colors} = generalTokens;
 
-const kitAvatarStyled: KitAvatarThemeStyled = {
-    colors: {
-        background: {
-            default: colors.neutral.typography.black60,
-            blueInvert: colors.primary.blue100
-        },
-        typography: {
-            default: colors.neutral.typography.white,
-            blueInvert: colors.secondary.blue.blue200
+    return {
+        colors: {
+            background: {
+                default: colors.neutral.black60,
+                blueInvert: colors.primary.primary100
+            },
+            typography: {
+                default: colors.neutral.typography.white,
+                blueInvert: colors.secondary.blue.blue200,
+                dark: colors.neutral.typography.black
+            }
         }
-    }
+    };
 };
 
-export const KitAvatarTheme = {
-    ...kitAvatarStyled
-};
+export const getKitAvatarGroupTokens = (generalTokens: IKitThemeGeneral): IKitAvatarGroupTheme => {
+    const {colors} = generalTokens;
 
-const kitAvatarGroupStyled: KitAvatarGroupThemeStyled = {
-    colors: {
-        background: {
-            default: colors.primary.blue100
-        },
-        typography: {
-            default: colors.secondary.blue.blue200
+    return {
+        colors: {
+            background: {
+                default: colors.primary.primary100
+            },
+            typography: {
+                default: colors.secondary.blue.blue200
+            }
         }
-    }
-};
-
-export const KitAvatarGroupTheme = {
-    ...kitAvatarGroupStyled
+    };
 };

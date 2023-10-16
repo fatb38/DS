@@ -1,6 +1,8 @@
 import React from 'react';
 import {KitSlider} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout';
+import {IEditorTemplate} from '../../../types';
+import {KitSliderMarks} from '@kit/DataEntry/Slider/types';
 
 const placement = [
     'top',
@@ -303,7 +305,7 @@ export const argTypes = {
     ...TooltipArgsType
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {open, placement, range, ...props} = args;
     return (
         <KitSpace direction="vertical" style={{width: '300px'}}>
@@ -312,3 +314,38 @@ export const Template = (args) => {
         </KitSpace>
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    const style = {width: '300px'};
+
+    const marks: KitSliderMarks = {
+        0: '0',
+        25: '25',
+        50: '50',
+        100: {
+            style: {
+                color: '#FF412D'
+            },
+            label: 100
+        }
+    };
+
+    return (
+        <KitSpace direction="vertical" size="m">
+            <KitSpace direction="horizontal" size="l">
+                <KitSlider style={style} defaultValue={40} />
+                <KitSlider style={style} range defaultValue={[10, 40]} />
+            </KitSpace>
+            <KitSpace direction="horizontal" size="l">
+                <KitSlider style={style} disabled defaultValue={40} />
+                <KitSlider style={style} disabled range defaultValue={[10, 40]} />
+            </KitSpace>
+            <KitSpace direction="horizontal" size="l">
+                <KitSlider style={style} marks={marks} defaultValue={40} />
+                <KitSlider style={style} marks={marks} range defaultValue={[10, 40]} />
+            </KitSpace>
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Slider';
+EditorTemplate.title = 'Slider';

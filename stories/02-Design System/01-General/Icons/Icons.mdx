@@ -3,6 +3,8 @@ import Gallery from './data';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
 import Exemples, { Sources } from './exemples';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 
 import * as KitIconStories from './Icons.stories';
 
@@ -73,6 +75,10 @@ Icon can be clickable using `onClick` property.
 <Canvas of={KitIconStories.Api} />
 
 <Controls  of={KitIconStories.Api} />
+
+## Design Tokens
+
+<DesignTokens path="components.Icon" tokens={fields?.components?.Icon} />
 
 # Available icons
 

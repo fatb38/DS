@@ -1,3 +1,3 @@
-import React from 'react';
-import { KitSelectProps } from './types';
-export declare const KitSelect: React.FunctionComponent<KitSelectProps>;
+import { FunctionComponent } from 'react';
+import { IKitSelect } from './types';
+export declare const KitSelect: FunctionComponent<IKitSelect>;

@@ -1,4 +1,4 @@
-import React from 'react';
-import { KitCollapseProps } from './types';
-export declare const KitCollapse: React.FunctionComponent<KitCollapseProps>;
+import { FunctionComponent } from 'react';
+import { IKitCollapse } from './types';
+export declare const KitCollapse: FunctionComponent<IKitCollapse>;
 export default KitCollapse;
