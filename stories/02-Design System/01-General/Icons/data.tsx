@@ -9,6 +9,7 @@ import {KitSpace} from '@kit/Layout/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitTooltip} from '@kit/DataDisplay';
 import {IEditorTemplate} from '../../../types';
+import {KitPagination} from '@kit/Navigation';
 
 export const argTypes = {
     on: {
@@ -93,39 +94,42 @@ export const Template = args => {
     );
 };
 
-const _convertToFontAwesomeIconName = (inputString: string): string => {
+const convertToFontAwesomeIconName = (inputString: string): string => {
     const camelCase = inputString.replace(/-([a-z])/g, (_, group) => group.toUpperCase());
     return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
 };
 
-const _filterIcons = (key: string) => key !== 'fas' && key !== 'prefix';
+const filterIcons = (key: string) => key !== 'fas' && key !== 'prefix';
+const sortIconByAlphabetically = (a, b) => a.iconName.localeCompare(b.iconName);
 
-const _getRegularIcons = () => {
-    const filteredFaRegularIconsKeys = Object.keys(FaRegularIcons).filter(_filterIcons);
+const getRegularIcons = () => {
+    const filteredFaRegularIconsKeys = Object.keys(FaRegularIcons).filter(filterIcons);
     const lastKeys = filteredFaRegularIconsKeys.pop();
     let filteredLastKeys: string[] = [];
     if (lastKeys !== undefined) {
-        filteredLastKeys = Object.keys(FaRegularIcons[lastKeys]).filter(_filterIcons);
+        filteredLastKeys = Object.keys(FaRegularIcons[lastKeys]).filter(filterIcons);
     }
     const fullFaRegularIconsKeys = filteredFaRegularIconsKeys.concat(filteredLastKeys);
-    return fullFaRegularIconsKeys.map(icon => FaRegularIcons[icon]);
+    return fullFaRegularIconsKeys.map(icon => FaRegularIcons[icon]).sort(sortIconByAlphabetically);
 };
 
-const _getSolidIcons = () =>
+const getSolidIcons = () =>
     Object.keys(FaSolidIcons)
-        .filter(_filterIcons)
-        .map(icon => FaSolidIcons[icon]);
+        .filter(filterIcons)
+        .map(icon => FaSolidIcons[icon])
+        .sort(sortIconByAlphabetically);
 
 const DEFAULT_TOOLTIP_TITLE = 'Click to copy import';
 
 const Gallery = () => {
-    const SolidIcons = useMemo(_getSolidIcons, [FaSolidIcons]);
-    const RegularIcons = useMemo(_getRegularIcons, [FaRegularIcons]);
+    const SolidIcons = useMemo(getSolidIcons, [FaSolidIcons]);
+    const RegularIcons = useMemo(getRegularIcons, [FaRegularIcons]);
 
     const [type, setType] = useState('solid');
     const [tooltipTitle, setTooltipTitle] = useState(DEFAULT_TOOLTIP_TITLE);
     const [searchIconName, setSearchIconName] = useState('');
     const [icons, setIcons] = useState<any[]>([]);
+    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
         const trimmedSearchName = searchIconName.trim();
@@ -153,13 +157,17 @@ const Gallery = () => {
         }
     }, [tooltipTitle]);
 
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [type, searchIconName]);
+
     const _handleChangeIconType = ({target: {value}}: RadioChangeEvent) => {
         setType(value);
     };
 
     const _handleCopyIcon = icon => {
         setTooltipTitle('Copied successfully ✅');
-        const iconImportName = _convertToFontAwesomeIconName(icon.iconName);
+        const iconImportName = convertToFontAwesomeIconName(icon.iconName);
         navigator.clipboard.writeText(`<FontAwesomeIcon icon={fa${iconImportName}}} />`);
     };
 
@@ -167,6 +175,16 @@ const Gallery = () => {
         const {value} = event?.target;
         setSearchIconName(value);
     };
+
+    const _handleCurrentPage = (currentPage: number) => {
+        setCurrentPage(currentPage);
+    };
+
+    const iconsToDisplay: any[] = useMemo(() => {
+        const startIndex = (currentPage - 1) * 50;
+        const endIndex = startIndex + 50;
+        return icons.slice(startIndex, endIndex);
+    }, [icons, currentPage, type, searchIconName]);
 
     return (
         <div className="gallery">
@@ -182,8 +200,8 @@ const Gallery = () => {
             </KitSpace>
             <br />
             <br />
-            <KitSpace wrap size="s" style={{width: '100%'}}>
-                {icons.map((icon, index) => (
+            <KitSpace wrap size="s" style={{width: '100%', height: '620px', overflowY: 'auto'}}>
+                {iconsToDisplay?.map((icon, index) => (
                     <KitTooltip title={tooltipTitle} key={`${icon.prefix}-${icon.iconName}-${index}`}>
                         <Card className="card" hoverable bordered={false} onClick={() => _handleCopyIcon(icon)}>
                             <div className="icon-item">
@@ -195,6 +213,17 @@ const Gallery = () => {
                 ))}
             </KitSpace>
             {icons.length === 0 && <Empty style={{margin: '50px auto'}} />}
+            <div style={{display: 'flex', justifyContent: 'center', marginTop: '30px'}}>
+                <KitPagination
+                    defaultCurrent={1}
+                    current={currentPage}
+                    pageSize={50}
+                    total={icons.length}
+                    showSizeChanger={false}
+                    onChange={_handleCurrentPage}
+                    hideOnSinglePage
+                />
+            </div>
         </div>
     );
 };
@@ -204,8 +233,8 @@ export default Gallery;
 export const EditorTemplate: IEditorTemplate = () => {
     return (
         <KitSpace>
-            <KitIcon icon={<DownloadOutlined />} />
-            <KitIcon icon={<DownloadOutlined />} on />
+            <KitIcon icon={<FontAwesomeIcon icon={FaSolidIcons.faDownload} />} />
+            <KitIcon icon={<FontAwesomeIcon icon={FaSolidIcons.faDownload} />} on />
         </KitSpace>
     );
 };
