@@ -39,7 +39,7 @@ export const argTypes = {
     icon: {
         name: 'icon',
         description: 'Icon element of type ReactNode',
-        options: ['SearchOutlined', 'DownloadOutlined', 'CheckCircleOutlined'],
+        options: ['File', 'User', 'Car'],
         control: {
             type: 'select'
         },
@@ -55,8 +55,8 @@ export const argTypes = {
 
 export const getIcon = ({icon}) => {
     switch (icon) {
-        case 'Coffee':
-            return <FontAwesomeIcon icon={FaSolidIcons.faCoffee} />;
+        case 'User':
+            return <FontAwesomeIcon icon={FaSolidIcons.faUser} />;
         case 'Car':
             return <FontAwesomeIcon icon={FaSolidIcons.faCar} />;
         case 'File':
@@ -72,12 +72,7 @@ const options = [
 
 export const Template = args => {
     const Icon = getIcon(args);
-    return (
-        <>
-            <KitIcon {...args} icon={Icon} />
-            <span style={{marginLeft: '10px'}}>{args.icon}</span>
-        </>
-    );
+    return <KitIcon {...args} icon={Icon} />;
 };
 
 const convertToFontAwesomeIconName = (inputString: string): string => {

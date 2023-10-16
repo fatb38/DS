@@ -8,6 +8,11 @@ const StyledKitIcon = styled.span<IStyledKitIcon>`
     background-color: ${({$on, $theme}) => ($on ? $theme.colors.background.on : $theme.colors.background.default)};
     border-radius: ${({$on, $theme}) => ($on ? $theme.border.radius.on : $theme.border.radius.default)}px;
     padding: 8px;
+    min-width: 16px;
+    min-height: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 
     ${({$isClickable}) =>
         $isClickable &&
