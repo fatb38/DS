@@ -8,18 +8,20 @@ import {useKitTheme} from '@theme/theme-context';
 
 const KitNotificationContext = createContext<IKitNotificationContext | undefined>(undefined);
 
-function useKitNotification() {
+export function useKitNotification() {
     const context = useContext(KitNotificationContext);
     if (context === undefined) {
         throw new Error('useKitNotification must be inside a context');
     }
-    return context;
+    return context as IKitNotificationContext;
 }
 
-const KitNotificationProvider = ({children}) => {
+export const KitNotificationProvider = ({children}) => {
     const [api, contextHolder] = notification.useNotification();
+    const value = useKitNotificationProvider(api);
+
     return (
-        <KitNotificationContext.Provider value={useKitNotificationProvider(api)}>
+        <KitNotificationContext.Provider value={value}>
             {children}
             {contextHolder}
         </KitNotificationContext.Provider>
@@ -102,5 +104,3 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
     const kitNotification: IKitNotification = {error, warning, success, info, open, destroy};
     return {kitNotification};
 };
-
-export {KitNotificationProvider, useKitNotification};
