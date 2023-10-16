@@ -1,6 +1,8 @@
-import React from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import { IKitCustomTheme } from '../../theme/types';
-export declare const KitApp: React.FunctionComponent<{
+import { IKitLocale } from '../../translation/types';
+export declare const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;
-    children?: any;
+    locale?: IKitLocale;
+    children?: ReactNode;
 }>;

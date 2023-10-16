@@ -1,103 +1,185 @@
-export interface KitCardThemeStyled {
-    card: {
-        colors: {
-            background: {
+export interface IKitCardTheme {
+    colors: {
+        background: {
+            /**
+             * default color
+             * @TJS-type color
+             */
+            default: string;
+            /**
+             * disabled color
+             * @TJS-type color
+             */
+            disabled: string;
+        };
+        typography: {
+            headerTitle: {
+                /**
+                 * default color
+                 * @TJS-type color
+                 */
                 default: string;
+                /**
+                 * disabled color
+                 * @TJS-type color
+                 */
                 disabled: string;
             };
-            border: {
+            contentTitle: {
+                /**
+                 * default color
+                 * @TJS-type color
+                 */
                 default: string;
+                /**
+                 * disabled color
+                 * @TJS-type color
+                 */
+                disabled: string;
+            };
+            description: {
+                /**
+                 * default color
+                 * @TJS-type color
+                 */
+                default: string;
+                /**
+                 * disabled color
+                 * @TJS-type color
+                 */
+                disabled: string;
+            };
+            extra: {
+                /**
+                 * default color
+                 * @TJS-type color
+                 */
+                default: string;
+                /**
+                 * hover color
+                 * @TJS-type color
+                 */
                 hover: string;
-            };
-        };
-        border: {
-            radius: number;
-        };
-        typography: {
-            fontFamily: string;
-        };
-    };
-    colorBar: {
-        thickness: number;
-        border: {
-            radius: number;
-        };
-    };
-    select: {
-        colors: {
-            background: {
-                disabled: string;
-            };
-            typography: {
-                default: string;
+                /**
+                 * disabled color
+                 * @TJS-type color
+                 */
                 disabled: string;
             };
         };
-    };
-    expend: {
-        colors: {
-            typography: {
-                default: string;
-                hover: string;
-            };
-        };
-    };
-    image: {
-        colors: {
-            border: {
-                default: string;
-            };
-        };
         border: {
-            radius: number;
+            /**
+             * default color
+             * @TJS-type color
+             */
+            default: string;
+            /**
+             * focus color
+             * @TJS-type color
+             */
+            focus: string;
+            /**
+             * hover color
+             * @TJS-type color
+             */
+            hover: string;
+            /**
+             * disabled color
+             * @TJS-type color
+             */
+            disabled: string;
+        };
+        separator: {
+            /**
+             * default color
+             * @TJS-type color
+             */
+            default: string;
+        };
+        actions: {
+            /**
+             * default color
+             * @TJS-type color
+             */
+            default: string;
+            /**
+             * disabled color
+             * @TJS-type color
+             */
+            disabled: string;
+            /**
+             * hover color
+             * @TJS-type color
+             */
+            hover: string;
+        };
+        shadow: {
+            /**
+             * default color
+             * @TJS-type color
+             */
+            default: string;
+            /**
+             * disabled color
+             * @TJS-type color
+             */
+            disabled: string;
+            /**
+             * hover color
+             * @TJS-type color
+             */
+            hover: string;
+            /**
+             * focus color
+             * @TJS-type color
+             */
+            focus: string;
         };
     };
-    icon: {
-        colors: {
-            border: {
-                default: string;
-            };
-        };
-        border: {
-            radius: number;
-        };
-    };
-    title: {
-        colors: {
-            typography: {
-                default: string;
-                disabled: string;
-            };
-        };
-        typography: {
+    typography: {
+        fontFamily: string;
+        headerTitle: {
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
             fontSize: number;
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
             fontWeight: string | number;
         };
-    };
-    description: {
-        colors: {
-            typography: {
-                default: string;
-                disabled: string;
-            };
-        };
-        typography: {
+        contentTitle: {
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
             fontSize: number;
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
             fontWeight: string | number;
         };
-    };
-    footer: {
-        colors: {
-            typography: {
-                default: string;
-                disabled: string;
-            };
-        };
-        typography: {
+        desciption: {
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
             fontSize: number;
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
             fontWeight: string | number;
+        };
+        linkIcon: {
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
+            fontSize: number;
         };
     };
 }
-
-export type KitCardTheme = KitCardThemeStyled;

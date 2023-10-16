@@ -1,22 +1,4 @@
-export declare const KitAvatarTheme: {
-    colors: {
-        background: {
-            default: string;
-            blueInvert: string;
-        };
-        typography: {
-            default: string;
-            blueInvert: string;
-        };
-    };
-};
-export declare const KitAvatarGroupTheme: {
-    colors: {
-        background: {
-            default: string;
-        };
-        typography: {
-            default: string;
-        };
-    };
-};
+import { IKitThemeGeneral } from '../../../../types';
+import { IKitAvatarGroupTheme, IKitAvatarTheme } from '../../../../types/components/DataDisplay/Avatar';
+export declare const getKitAvatarTokens: (generalTokens: IKitThemeGeneral) => IKitAvatarTheme;
+export declare const getKitAvatarGroupTokens: (generalTokens: IKitThemeGeneral) => IKitAvatarGroupTheme;

@@ -1,16 +1,23 @@
+import {IKitSnackBarTheme} from '@theme/types/components/Feedback/SnackBar';
 import {KitHTMLAttributes} from '../../../types';
 
-export interface KitSnackBarProps extends KitHTMLAttributes<HTMLDivElement> {
+export interface IKitSnackBar extends KitHTMLAttributes<HTMLDivElement> {
     message: string;
     ctaText?: string;
     ctaOnClick?: Function;
     closable?: boolean;
 }
 
-export interface KitOpenSnackBarProps {
+export interface IKitOpenSnackBar {
     message: string;
     closable?: boolean;
     ctaText?: string;
     ctaOnClick?: Function;
     duration?: number;
+}
+
+export interface IStyledKitSnackBar {
+    $theme: IKitSnackBarTheme;
+    $showCtaContainer: boolean;
+    $showCloseContainer: boolean;
 }

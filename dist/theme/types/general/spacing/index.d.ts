@@ -1,4 +1,4 @@
-export interface KitSpacing {
+export interface IKitSpacing {
     none: number;
     xxs: number;
     xs: number;

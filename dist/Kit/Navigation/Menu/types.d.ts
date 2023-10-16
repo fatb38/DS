@@ -1,34 +1,53 @@
-import {KitInputProps} from '../../DataEntry/Input/types';
-import {KitButtonProps} from '../../General/Button/types';
-import {HTMLAttributes, ReactElement, ReactNode} from 'react';
+import {IKitInput} from '../../DataEntry/Input/types';
+import {ReactElement, ReactNode, MouseEvent} from 'react';
+import {KitHTMLAttributes} from '../../../types';
+import {CheckboxChangeEvent} from 'antd/lib/checkbox';
+import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
+import {IKitButton} from '@kit/General/Button/types';
+import {IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
 
-export interface KitMenuProps extends HTMLAttributes<HTMLDivElement> {
+export interface IKitMenu extends KitHTMLAttributes<HTMLDivElement> {
     title?: string;
-    segmentedButton?: ReactElement<KitButtonProps>;
-    primaryInput?: ReactElement<KitInputProps>;
-    secondaryInput?: ReactElement<KitInputProps>;
+    segmentedButton?: ReactElement<IKitButton>;
+    primaryInput?: ReactElement<IKitInput>;
+    secondaryInput?: ReactElement<IKitInput>;
     onCloseClick?: Function;
 }
 
-interface KitItemMenuAction {
+export interface IKitMenuInfo {
+    key: string;
+    keyPath: string[];
+    /** @deprecated This will not support in future. You should avoid to use this */
+    item: React.ReactInstance;
+    domEvent: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>;
+}
+
+interface IKitItemMenuAction {
     icon: ReactNode;
     isActive?: boolean;
     label: string;
-    onClick: MenuClickEventHandler;
+    onClick: (e: MouseEvent<HTMLElement> | IKitMenuInfo) => void;
 }
 
-export interface KitItemMenuActions extends Array<KitItemMenuAction> {}
+export interface IKitItemMenuActions extends Array<IKitItemMenuAction> {}
 
 export type KitItemMenuType = 'default' | 'cta' | 'ctaDanger';
 
-export interface KitItemMenuProps extends HTMLAttributes<HTMLDivElement> {
+export interface IKitItemMenu extends KitHTMLAttributes<HTMLDivElement> {
     type?: KitItemMenuType;
     title?: string;
     icon?: ReactNode;
     value?: string;
-    actions?: KitItemMenuActions;
+    actions?: IKitItemMenuActions;
     onSelectChange?: (e: CheckboxChangeEvent) => void;
     onRafterClick?: Function;
     isSelected?: boolean;
     onClick?: Function;
+}
+
+export interface IStyledIemMenu {
+    $theme: IKitMenuTheme;
+    $isClickable: boolean;
+    $isSelected: boolean;
+    $type: KitItemMenuType;
 }
