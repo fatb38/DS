@@ -1,4 +1,4 @@
-export interface KitBorder {
+export interface IKitBorder {
     radius: {
         square: number;
         xxs: number;

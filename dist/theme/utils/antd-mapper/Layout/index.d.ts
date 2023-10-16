@@ -1,0 +1,1 @@
+export { mapDividerKitTokenToAntdToken } from './Divider';

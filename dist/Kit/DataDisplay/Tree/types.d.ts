@@ -2,6 +2,7 @@ import type {BasicDataNode} from 'rc-tree';
 import {TreeProps} from 'antd';
 import {DataNode} from 'antd/lib/tree';
 import {KitHTMLAttributes} from '../../../types';
+import {IKitTreeTheme} from '@theme/types/components/DataDisplay/Tree';
 
 type AntdTreeTypesToOmit =
     | 'blockNode'
@@ -14,6 +15,10 @@ type AntdTreeTypesToOmit =
     | 'onDrop'
     | 'filterTreeNode';
 
-export interface KitTreeProps
+export interface IKitTree
     extends Omit<TreeProps<BasicDataNode | DataNode>, AntdTreeTypesToOmit>,
         KitHTMLAttributes<HTMLDivElement> {}
+
+export interface IStyledKitTree {
+    $theme: IKitTreeTheme;
+}

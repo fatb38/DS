@@ -1,2 +1,2 @@
-import { KitSpacing } from '../../../types/general/spacing';
-export declare const spacing: KitSpacing;
+import { IKitSpacing } from '../../../types/general/spacing';
+export declare const spacing: IKitSpacing;

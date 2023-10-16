@@ -1,2 +1,2 @@
-import { KitThemeGeneral } from '../../types';
-export declare const KitAristidThemeGeneral: KitThemeGeneral;
+import { IKitThemeGeneral } from '../../types';
+export declare const KitAristidThemeGeneral: IKitThemeGeneral;
