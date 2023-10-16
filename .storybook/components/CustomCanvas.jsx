@@ -48,7 +48,7 @@ const StyledStory = styled.div`
     margin: -10px;
 `;
 
-const StyledToggle = styled.div`
+export const StyledToggle = styled.div`
     position: absolute;
     bottom: 0;
     right: 0;

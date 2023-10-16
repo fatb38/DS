@@ -1,6 +1,7 @@
 import React from 'react';
 import {KitImage} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
+import {IEditorTemplate} from '../../../types';
 
 export const argTypes = {
     rounded: {
@@ -166,10 +167,23 @@ export const argTypes = {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     return (
         <KitSpace>
             <KitImage {...args} />
         </KitSpace>
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitImage
+            bordered
+            rounded
+            width={200}
+            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        />
+    );
+};
+EditorTemplate.path = 'components.Image';
+EditorTemplate.title = 'Image';

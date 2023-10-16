@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitBadgeStories from './Badge.stories';
 
 <Meta of={KitBadgeStories} />
@@ -63,3 +65,8 @@ Standalone badge with status.
 <Canvas of={KitBadgeStories.Api} />
 
 <Controls of={KitBadgeStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Badge" tokens={fields?.components?.Badge} />

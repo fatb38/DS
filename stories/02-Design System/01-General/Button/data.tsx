@@ -1,6 +1,14 @@
 import React from 'react';
-import {DownloadOutlined, CheckCircleOutlined, SearchOutlined} from '@ant-design/icons';
+import {
+    DownloadOutlined,
+    CheckCircleOutlined,
+    SearchOutlined,
+    ReloadOutlined,
+    PoweroffOutlined
+} from '@ant-design/icons';
 import {KitButton} from '@kit/General/';
+import {KitSpace} from '@kit/Layout';
+import {IEditorTemplate} from '../../../types';
 
 export const argTypes = {
     block: {
@@ -231,3 +239,175 @@ export const Template = args => {
         </KitButton>
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace direction="vertical">
+            <KitSpace>
+                <KitButton type="primary">Primary</KitButton>
+                <KitButton type="primary" disabled>
+                    Primary(disabled)
+                </KitButton>
+                <KitButton danger type="primary">
+                    Danger Text
+                </KitButton>
+                <KitButton danger type="primary" disabled>
+                    Danger Text(disabled)
+                </KitButton>
+            </KitSpace>
+            <KitSpace>
+                <KitButton>Default</KitButton>
+                <KitButton disabled>Default(disabled)</KitButton>
+                <KitButton danger>Danger Default</KitButton>
+                <KitButton danger disabled>
+                    Danger Default(disabled)
+                </KitButton>
+            </KitSpace>
+            <KitSpace>
+                <KitButton type="text">Text</KitButton>
+                <KitButton type="text" disabled>
+                    Text(disabled)
+                </KitButton>
+                <KitButton type="text" danger>
+                    Text danger
+                </KitButton>
+                <KitButton type="text" danger disabled>
+                    Text danger(disabled)
+                </KitButton>
+            </KitSpace>
+            <KitSpace>
+                <KitButton type="link">Link</KitButton>
+                <KitButton type="link" disabled>
+                    Link(disabled)
+                </KitButton>
+                <KitButton type="link" danger>
+                    Danger Link
+                </KitButton>
+                <KitButton type="link" danger disabled>
+                    Danger Link(disabled)
+                </KitButton>
+            </KitSpace>
+            <KitSpace>
+                <KitButton type="segmented" icon={<SearchOutlined />} />
+                <KitButton type="segmented" icon={<SearchOutlined />}>
+                    Search
+                </KitButton>
+                <KitButton type="segmented" icon={<SearchOutlined />} disabled />
+                <KitButton type="segmented" icon={<SearchOutlined />} disabled>
+                    Search
+                </KitButton>
+                <KitButton type="segmented" icon={<SearchOutlined />} danger />
+                <KitButton type="segmented" icon={<SearchOutlined />} danger>
+                    Search
+                </KitButton>
+                <KitButton type="segmented" icon={<SearchOutlined />} danger disabled />
+                <KitButton type="segmented" icon={<SearchOutlined />} danger disabled>
+                    Search
+                </KitButton>
+            </KitSpace>
+            <KitSpace wrap>
+                <KitSpace.Compact block>
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedActived />
+                    <KitButton type="segmented" icon={<SearchOutlined />} />
+                    <KitButton type="segmented" icon={<ReloadOutlined />} />
+                </KitSpace.Compact>
+                <KitSpace.Compact block>
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} />
+                    <KitButton type="segmented" icon={<SearchOutlined />} segmentedActived segmentedChecked />
+                    <KitButton type="segmented" icon={<ReloadOutlined />} />
+                </KitSpace.Compact>
+                <KitSpace.Compact block>
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} />
+                    <KitButton type="segmented" icon={<SearchOutlined />} />
+                    <KitButton type="segmented" icon={<ReloadOutlined />} segmentedActived segmentedChecked />
+                </KitSpace.Compact>
+            </KitSpace>
+            <KitSpace wrap>
+                <KitSpace wrap>
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="blue" />
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="blue" segmentedActived />
+                    <KitButton
+                        type="segmented"
+                        icon={<PoweroffOutlined />}
+                        segmentedColor="blue"
+                        segmentedActived
+                        segmentedChecked
+                    />
+                </KitSpace>
+                <KitSpace wrap>
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="green" />
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="green" segmentedActived />
+                    <KitButton
+                        type="segmented"
+                        icon={<PoweroffOutlined />}
+                        segmentedColor="green"
+                        segmentedActived
+                        segmentedChecked
+                    />
+                </KitSpace>
+                <KitSpace wrap>
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="mediumGrey" />
+                    <KitButton
+                        type="segmented"
+                        icon={<PoweroffOutlined />}
+                        segmentedColor="mediumGrey"
+                        segmentedActived
+                    />
+                    <KitButton
+                        type="segmented"
+                        icon={<PoweroffOutlined />}
+                        segmentedColor="mediumGrey"
+                        segmentedActived
+                        segmentedChecked
+                    />
+                </KitSpace>
+                <KitSpace wrap>
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="orange" />
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="orange" segmentedActived />
+                    <KitButton
+                        type="segmented"
+                        icon={<PoweroffOutlined />}
+                        segmentedColor="orange"
+                        segmentedActived
+                        segmentedChecked
+                    />
+                </KitSpace>
+                <KitSpace wrap>
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="pink" />
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="pink" segmentedActived />
+                    <KitButton
+                        type="segmented"
+                        icon={<PoweroffOutlined />}
+                        segmentedColor="pink"
+                        segmentedActived
+                        segmentedChecked
+                    />
+                </KitSpace>
+                <KitSpace wrap>
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="red" />
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="red" segmentedActived />
+                    <KitButton
+                        type="segmented"
+                        icon={<PoweroffOutlined />}
+                        segmentedColor="red"
+                        segmentedActived
+                        segmentedChecked
+                    />
+                </KitSpace>
+                <KitSpace wrap>
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="yellow" />
+                    <KitButton type="segmented" icon={<PoweroffOutlined />} segmentedColor="yellow" segmentedActived />
+                    <KitButton
+                        type="segmented"
+                        icon={<PoweroffOutlined />}
+                        segmentedColor="yellow"
+                        segmentedActived
+                        segmentedChecked
+                    />
+                </KitSpace>
+            </KitSpace>
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Button';
+EditorTemplate.title = 'Button';

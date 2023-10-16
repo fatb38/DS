@@ -2,6 +2,7 @@ import React from 'react';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitTypography} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
+import {IEditorTemplate} from 'stories/types';
 
 const placement = [
     'top',
@@ -193,7 +194,7 @@ export const argTypes = {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {component, ...props} = args;
     return (
         <KitSpace>
@@ -205,3 +206,15 @@ export const Template = (args) => {
         </KitSpace>
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitTooltip title="prompt text">
+            <KitTypography.Paragraph style={{width: '200px'}} size="medium" weight="regular">
+                Tooltip will show on mouse enter.
+            </KitTypography.Paragraph>
+        </KitTooltip>
+    );
+};
+EditorTemplate.path = 'components.Tooltip';
+EditorTemplate.title = 'Tooltip';

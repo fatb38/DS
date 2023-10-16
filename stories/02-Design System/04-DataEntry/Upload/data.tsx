@@ -1,5 +1,9 @@
 import React from 'react';
 import {KitUpload} from '@kit/DataEntry';
+import {IEditorTemplate} from '../../../types';
+import {KitSpace} from '@kit/Layout';
+import {UploadProps} from 'antd';
+import KitDragger from '@kit/DataEntry/Upload/Dragger';
 
 const UploadArgTypes = {
     accept: {
@@ -36,8 +40,7 @@ const UploadArgTypes = {
     },
     buttonWording: {
         name: 'buttonWording',
-        description:
-            'Wording of the upload button',
+        description: 'Wording of the upload button',
         control: {type: 'text'},
         table: {
             type: {
@@ -48,7 +51,7 @@ const UploadArgTypes = {
             },
             category: 'Upload'
         },
-        defaultValue: 'Upload',
+        defaultValue: 'Upload'
     },
     customRequest: {
         name: 'customRequest',
@@ -340,8 +343,7 @@ const UploadArgTypes = {
     },
     title: {
         name: 'title',
-        description:
-            'Title of the dragger component',
+        description: 'Title of the dragger component',
         control: {type: 'text'},
         table: {
             type: {
@@ -356,19 +358,20 @@ const UploadArgTypes = {
     },
     description: {
         name: 'description',
-        description:
-            'Description of the dragger component',
+        description: 'Description of the dragger component',
         control: {type: 'text'},
         table: {
             type: {
                 summary: 'string'
             },
             defaultValue: {
-                summary: 'Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.'
+                summary:
+                    'Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.'
             },
             category: 'Dragger'
         },
-        defaultValue: 'Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.'
+        defaultValue:
+            'Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.'
     }
 };
 
@@ -376,7 +379,43 @@ export const argTypes = {
     ...UploadArgTypes
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {listType, ...props} = args;
     return <KitUpload listType={listType} {...props}></KitUpload>;
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    const defaultFileList: UploadProps['defaultFileList'] = [
+        {
+            uid: '1',
+            name: 'xxx.png',
+            status: 'uploading',
+            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+            percent: 33
+        },
+        {
+            uid: '2',
+            name: 'yyy.png',
+            status: 'done',
+            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+        },
+        {
+            uid: '3',
+            name: 'zzz.png',
+            status: 'error',
+            response: 'Server Error 500',
+            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+        }
+    ];
+
+    return (
+        <KitSpace direction="vertical" size="l" style={{width: '500px'}}>
+            <KitUpload defaultFileList={defaultFileList} listType="text" />
+            <KitUpload listType="picture-card" fileList={defaultFileList}></KitUpload>
+            <KitUpload listType="picture" fileList={defaultFileList}></KitUpload>
+            <KitDragger multiple />
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Upload';
+EditorTemplate.title = 'Upload';

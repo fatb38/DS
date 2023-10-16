@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitCollapseStories from './Collapse.stories';
 
 <Meta of={KitCollapseStories} />
@@ -64,3 +66,8 @@ Specify the trigger area of collapsible by `collapsible`.
 <Canvas of={KitCollapseStories.Api} />
 
 <Controls of={KitCollapseStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Collapse" tokens={fields?.components?.Collapse} />

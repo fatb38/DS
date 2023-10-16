@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitInputStories from './Input.stories';
 
 <Meta of={KitInputStories} />
@@ -78,3 +80,14 @@ Add `label` and/or `helper` properties to give field context.
 <Canvas of={KitInputStories.Api} />
 
 <Controls of={KitInputStories.Api} />
+
+
+## Design Tokens
+
+### Input
+
+<DesignTokens path="components.Input" tokens={fields?.components?.Input} />
+
+### InputWrapper
+
+<DesignTokens path="components.InputWrapper" tokens={fields?.components?.InputWrapper} />

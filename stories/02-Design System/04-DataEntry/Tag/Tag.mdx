@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitTagStories from './Tag.stories';
 
 <Meta of={KitTagStories} />
@@ -35,3 +37,8 @@ We preset a series of colorful Badge styles for use in different situations.
 <Canvas of={KitTagStories.Api} />
 
 <Controls of={KitTagStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Tag" tokens={fields?.components?.Tag} />

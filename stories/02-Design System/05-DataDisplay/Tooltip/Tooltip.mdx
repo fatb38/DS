@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitTootlipStories from './Tooltip.stories';
 
 <Meta of={KitTootlipStories} />
@@ -41,3 +43,8 @@ Support show, hide or keep arrow in the center.
 <Canvas of={KitTootlipStories.Api} />
 
 <Controls of={KitTootlipStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Tooltip" tokens={fields?.components?.Tooltip} />

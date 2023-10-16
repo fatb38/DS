@@ -6,6 +6,8 @@ import {KitInput, KitRadio} from '@kit/DataEntry/';
 import type {RadioChangeEvent} from '@kit/DataEntry/Radio';
 import {KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
+import {IEditorTemplate} from '../../../types';
+import {DownloadOutlined} from '@ant-design/icons';
 
 export const argTypes = {
     on: {
@@ -147,3 +149,14 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace>
+            <KitIcon icon={<DownloadOutlined />} />
+            <KitIcon icon={<DownloadOutlined />} on />
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Icon';
+EditorTemplate.title = 'Icon';

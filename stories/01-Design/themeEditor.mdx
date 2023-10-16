@@ -1,0 +1,21 @@
+import { Meta, Unstyled } from "@storybook/addon-docs";
+import ThemeEditor from '../../.storybook/components/ThemeEditor';
+import components from '../index';
+import fields from '../tokens';
+
+
+<Meta title="Design/ThemeEditor" />
+
+<style>
+{`
+    .sbdocs.sbdocs-content {
+        width: 100%;
+        max-width: 100%;
+    }
+    .sbdocs.sbdocs-toc {
+        display: none;
+    }
+`}
+</style>
+
+<ThemeEditor schema={fields} components={components} />

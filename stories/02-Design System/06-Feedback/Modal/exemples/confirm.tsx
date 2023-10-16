@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {KitSpace, KitSelect, KitCheckbox} from '@kit/index';
 import styled from 'styled-components';
-import { confirmDialogProps } from '@kit/Feedback/Modal/types';
+import {IKitConfirmDialog} from '@kit/Feedback/Modal/types';
 import ConfirmDialog from '@kit/Feedback/Modal/ConfirmDialog';
 
 const options = [
@@ -36,7 +36,7 @@ const StyleContainer = styled.div`
 `;
 
 const App = () => {
-    const [modalProps, setModalProps] = useState<confirmDialogProps>({
+    const [modalProps, setModalProps] = useState<IKitConfirmDialog>({
         type: 'confirm',
         image: undefined,
         title: undefined,
@@ -46,46 +46,46 @@ const App = () => {
         showSecondaryCta: false
     });
 
-    const handleTypeChange = (type) => setModalProps({...modalProps, type});
+    const handleTypeChange = type => setModalProps({...modalProps, type});
 
-    const handleShowImage = () => setModalProps({
-        ...modalProps,
-        image: !modalProps.image
-            ? 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
-            : undefined
-    });
+    const handleShowImage = () =>
+        setModalProps({
+            ...modalProps,
+            image: !modalProps.image
+                ? 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+                : undefined
+        });
 
-    const handleShowIcon = () => setModalProps({
-        ...modalProps,
-        icon: !modalProps.icon
-    });
+    const handleShowIcon = () =>
+        setModalProps({
+            ...modalProps,
+            icon: !modalProps.icon
+        });
 
-    const handleShowTitle = () => setModalProps({
-        ...modalProps,
-        title: !modalProps.title ? 'confirm action' : undefined
-    });
+    const handleShowTitle = () =>
+        setModalProps({
+            ...modalProps,
+            title: !modalProps.title ? 'confirm action' : undefined
+        });
 
-    const handleShowSecondLine = () => setModalProps({
-        ...modalProps,
-        secondLine: !modalProps.secondLine ? 'you can also show some complementary text' : undefined
-    });
+    const handleShowSecondLine = () =>
+        setModalProps({
+            ...modalProps,
+            secondLine: !modalProps.secondLine ? 'you can also show some complementary text' : undefined
+        });
 
-    const handleshowSecondCta = () => setModalProps({
-        ...modalProps,
-        showSecondaryCta: !modalProps.showSecondaryCta
-    });
+    const handleshowSecondCta = () =>
+        setModalProps({
+            ...modalProps,
+            showSecondaryCta: !modalProps.showSecondaryCta
+        });
 
-    const getContainer = () => document.querySelector("#modal-test-container");
+    const getContainer = () => document.querySelector('#modal-test-container');
 
     return (
         <KitSpace direction="vertical">
             <KitSpace direction="vertical">
-                <KitSelect
-                    options={options}
-                    labelOnly
-                    defaultValue="confirm"
-                    onChange={handleTypeChange}
-                />
+                <KitSelect options={options} labelOnly defaultValue="confirm" onChange={handleTypeChange} />
                 <KitSpace>
                     <KitCheckbox onChange={handleShowImage}>Show Image</KitCheckbox>
                     <KitCheckbox onChange={handleShowIcon}>Show Icon</KitCheckbox>
@@ -95,7 +95,12 @@ const App = () => {
                 </KitSpace>
             </KitSpace>
             <StyleContainer id="modal-test-container"></StyleContainer>
-            <ConfirmDialog isOpen parentSelector={getContainer} {...modalProps} okCancel={modalProps.showSecondaryCta}></ConfirmDialog>
+            <ConfirmDialog
+                isOpen
+                parentSelector={getContainer}
+                {...modalProps}
+                okCancel={modalProps.showSecondaryCta}
+            ></ConfirmDialog>
         </KitSpace>
     );
 };
