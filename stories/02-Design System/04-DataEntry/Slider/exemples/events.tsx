@@ -2,11 +2,11 @@ import React from 'react';
 import {KitSlider} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout';
 
-const onChange = (value: number | [number, number]) => {
+const onChange = (value: number | number[]) => {
     console.log('onChange: ', value);
 };
 
-const onAfterChange = (value: number | [number, number]) => {
+const onAfterChange = (value: number | number[]) => {
     console.log('onAfterChange: ', value);
 };
 
