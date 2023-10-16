@@ -5,6 +5,7 @@ import {AntDesignOutlined, DownloadOutlined, FolderOpenOutlined} from '@ant-desi
 import {KitAvatar, KitImage} from '@kit/DataDisplay';
 import IKitItemCard from '@kit/DataDisplay/ItemCard/types';
 import {KitButton, KitIcon} from '@kit/General/';
+import {IEditorTemplate} from '../../../types';
 
 export const fakeContent = {
     base: {
@@ -236,3 +237,44 @@ export const Template = (args: IKitItemCard) => {
         </KitSpace>
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace>
+            <KitItemCard
+                title="Tondeuse à gazon"
+                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
+                extrainfo="550.00€"
+                picture={<KitImage src="public/images/tondeuse.png" />}
+                tags={['3 opérations']}
+            />
+            <KitItemCard
+                title="Tondeuse à gazon"
+                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
+                extrainfo="550.00€"
+                picture={<KitImage src="public/images/tondeuse.png" />}
+                colors={[
+                    {label: 'test', color: '#00D9A9'},
+                    {label: 'toto', color: '#009876'}
+                ]}
+                onSelectChange={e => {
+                    console.log(e);
+                }}
+                onEdit={() => {
+                    console.log('onEdit');
+                }}
+                actions={[
+                    <KitButton onClick={() => console.log('download action')}>
+                        <DownloadOutlined />
+                    </KitButton>,
+                    <KitButton onClick={() => console.log('open action')}>
+                        <FolderOpenOutlined />
+                    </KitButton>
+                ]}
+                disabled
+            />
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.ItemCard';
+EditorTemplate.title = 'ItemCard';

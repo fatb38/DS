@@ -1,6 +1,8 @@
 import React from 'react';
 import {KitSwitch} from '@kit/DataEntry/';
 import {CheckOutlined, CloseOutlined} from '@ant-design/icons';
+import {IEditorTemplate} from '../../../types';
+import {KitSpace} from '@kit/Layout';
 
 const SwitchArgTypes = {
     label: {
@@ -179,3 +181,16 @@ export const Template = args => {
     const {checkedChildren, unCheckedChildren, ...props} = args;
     return <KitSwitch {...props}>Switch label</KitSwitch>;
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace size="m">
+            <KitSwitch>Switch label</KitSwitch>
+            <KitSwitch checked>Switch label</KitSwitch>
+            <KitSwitch loading>Switch label</KitSwitch>
+            <KitSwitch disabled>Switch label</KitSwitch>
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Switch';
+EditorTemplate.title = 'Switch';

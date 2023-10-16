@@ -5,6 +5,7 @@ import {KitTypography} from '@kit/General';
 import KitLink from '@kit/General/Typography/Link';
 import {KitSpace} from '@kit/Layout';
 import React, {useState} from 'react';
+import {IEditorTemplate} from '../../../types';
 
 const CardArgTypes = {
     actions: {
@@ -175,3 +176,25 @@ export const Template = args => {
         </KitSpace>
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace direction="vertical">
+            <KitCard
+                title="Card Title"
+                contentTitle="Promos mai"
+                contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
+                cover={<img alt="example" src="public/images/free-copyright.jpeg" />}
+            />
+            <KitCard
+                title="Card Title"
+                contentTitle="Promos mai"
+                contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
+                cover={<img alt="example" src="public/images/free-copyright.jpeg" />}
+                disabled
+            />
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Card';
+EditorTemplate.title = 'Card';

@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitItemCardStories from './ItemCard.stories';
 
 <Meta of={KitItemCardStories} />
@@ -74,3 +76,8 @@ Card element in disabled state.
 <Canvas of={KitItemCardStories.Api} />
 
 <Controls of={KitItemCardStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.ItemCard" tokens={fields?.components?.ItemCard} />

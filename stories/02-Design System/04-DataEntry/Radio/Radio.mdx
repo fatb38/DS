@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitRadioStories from './Radio.stories';
 
 <Meta of={KitRadioStories} />
@@ -64,3 +66,8 @@ Passing the name property to all input[type="radio"] that are in the same Radio.
 | ------- | ------------ |
 | blur()  | Remove focus |
 | focus() | Get focus    |
+
+
+## Design Tokens
+
+<DesignTokens path="components.Radio" tokens={fields?.components?.Radio} />

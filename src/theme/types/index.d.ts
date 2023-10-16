@@ -9,7 +9,7 @@ import {IKitInputWrapperTheme} from './components/DataEntry/Input';
 import {IKitInputTheme} from './components/DataEntry/Input';
 import {IKitSliderTheme} from './components/DataEntry/Slider';
 import {IKitTooltipTheme} from './components/DataDisplay/Tooltip';
-import {IKitAvatarGroupTheme, KitAvatarTheme} from './components/DataDisplay/Avatar';
+import {IKitAvatarGroupTheme, IKitAvatarTheme} from './components/DataDisplay/Avatar';
 import {IKitBadgeTheme} from './components/DataDisplay/Badge';
 import {IKitItemCardTheme} from './components/DataDisplay/ItemCard';
 import {IKitCollapseTheme} from './components/DataDisplay/Collapse';

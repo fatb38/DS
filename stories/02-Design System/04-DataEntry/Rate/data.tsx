@@ -1,5 +1,7 @@
 import {KitRate} from '@kit/DataEntry';
 import React from 'react';
+import {IEditorTemplate} from '../../../types';
+import {KitSpace} from '@kit/Layout';
 
 const color = ['default', 'green', 'red', 'blue'];
 
@@ -191,3 +193,17 @@ export const argTypes = {
 export const Template = ({...args}) => {
     return <KitRate {...args} />;
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace size="m" direction="vertical">
+            <KitRate disabled />
+            <KitRate defaultValue={3} />
+            <KitRate defaultValue={3} color="red" />
+            <KitRate defaultValue={3} color="green" />
+            <KitRate defaultValue={3} color="blue" />
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Rate';
+EditorTemplate.title = 'Rate';

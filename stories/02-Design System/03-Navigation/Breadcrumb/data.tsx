@@ -1,6 +1,7 @@
 import React from 'react';
 import {KitTypography} from '@kit/General/';
 import {KitBreadcrumb} from '@kit/Navigation/';
+import {IEditorTemplate} from '../../../types';
 
 const menuItems = [
     {
@@ -94,3 +95,9 @@ export const Template = args => {
         />
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return <KitBreadcrumb items={items} />;
+};
+EditorTemplate.path = 'components.Breadcrumb';
+EditorTemplate.title = 'Breadcrumb';

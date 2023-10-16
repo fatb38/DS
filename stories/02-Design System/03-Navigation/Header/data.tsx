@@ -2,6 +2,7 @@ import React, {ReactNode} from 'react';
 import {FilterOutlined, SortDescendingOutlined, GroupOutlined, ControlOutlined} from '@ant-design/icons';
 import {KitButton, KitTypography} from '@kit/General/';
 import {KitBreadcrumb, KitHeader} from '@kit/Navigation/';
+import {IEditorTemplate} from '../../../types';
 
 const menuItems = [
     {
@@ -169,3 +170,17 @@ export const Template = args => {
         />
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitHeader
+            title="Campagne 1 - soldes rentrée"
+            search={searchProps}
+            breadcrumb={<KitBreadcrumb items={items} />}
+            actions={actions}
+            onPlusClick={() => console.log('click on plus')}
+        />
+    );
+};
+EditorTemplate.path = 'components.Header';
+EditorTemplate.title = 'Header';

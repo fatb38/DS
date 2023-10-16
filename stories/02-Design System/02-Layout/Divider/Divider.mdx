@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 
 import * as KitDividerStories from './Divider.stories';
 
@@ -57,3 +59,8 @@ Use `color` to change border color.
 <Canvas of={KitDividerStories.Api} />
 
 <Controls of={KitDividerStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Divider" tokens={fields?.components?.Divider} />

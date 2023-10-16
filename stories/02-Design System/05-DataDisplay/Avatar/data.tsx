@@ -1,6 +1,8 @@
 import React from 'react';
 import {KitAvatar} from '@kit/DataDisplay';
-import {KitSpace} from '@kit/Layout';
+import {KitDivider, KitSpace} from '@kit/Layout';
+import {IEditorTemplate} from '../../../types';
+import { UserOutlined } from '@ant-design/icons';
 
 const shape = ['circle', 'square'];
 
@@ -250,3 +252,68 @@ export const Template = args => {
         </>
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace>
+            <KitAvatar shape="circle" size="large">
+                A
+            </KitAvatar>
+            <KitAvatar shape="square" size="large">
+                V
+            </KitAvatar>
+            <KitAvatar color="default" size="large">
+                A
+            </KitAvatar>
+            <KitAvatar color="blueInvert" size="large">
+                T
+            </KitAvatar>
+            <KitAvatar color="lightcoral" size="large">
+                A
+            </KitAvatar>
+            <KitAvatar color="brown" size="large">
+                R
+            </KitAvatar>
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Avatar';
+EditorTemplate.title = 'Avatar';
+
+export const EditorTemplateGroup: IEditorTemplate = () => {
+    const url = 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=1';
+    
+    return (
+        <KitSpace direction="vertical" size={16}>
+        <KitDivider orientation="left">Default KitAvatar.Group</KitDivider>
+        <KitAvatar.Group>
+            <KitAvatar src={url} />
+            <KitAvatar>K</KitAvatar>
+            <KitAvatar icon={<UserOutlined />} />
+        </KitAvatar.Group>
+        <KitDivider orientation="left">KitAvatar.Group with limit</KitDivider>
+        <KitAvatar.Group maxCount={2}>
+            <KitAvatar src={url} />
+            <KitAvatar>K</KitAvatar>
+            <KitAvatar icon={<UserOutlined />} />
+            <KitAvatar icon={<UserOutlined />} />
+        </KitAvatar.Group>
+        <KitDivider orientation="left">KitAvatar.Group with max popover on click</KitDivider>
+        <KitAvatar.Group maxCount={2} maxPopoverTrigger="click">
+            <KitAvatar src={url} />
+            <KitAvatar>K</KitAvatar>
+            <KitAvatar icon={<UserOutlined />} />
+            <KitAvatar icon={<UserOutlined />} />
+        </KitAvatar.Group>
+        <KitDivider orientation="left">KitAvatar.Group with limit and size large</KitDivider>
+        <KitAvatar.Group maxCount={2} size="large">
+            <KitAvatar src={url} />
+            <KitAvatar>K</KitAvatar>
+            <KitAvatar icon={<UserOutlined />} />
+            <KitAvatar icon={<UserOutlined />} />
+        </KitAvatar.Group>
+    </KitSpace>
+    );
+};
+EditorTemplateGroup.path = 'components.AvatarGroup';
+EditorTemplateGroup.title = 'AvatarGroup';

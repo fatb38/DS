@@ -123,7 +123,7 @@ const Modal: FunctionComponent<IKitModal> = ({
         style: styles,
         className: `kit-modal-wrapper ${props.className}`,
         overlayElement: (overlayProps, contentElement) => (
-            <StyledOverlay $theme={theme.components.Modal.Overlay} {...overlayProps} onClick={_onOverlayClick}>
+            <StyledOverlay $theme={theme.components.Modal.Overlay} {...overlayProps}>
                 {contentElement}
             </StyledOverlay>
         ),

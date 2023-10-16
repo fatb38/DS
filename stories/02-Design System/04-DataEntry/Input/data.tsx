@@ -1,7 +1,8 @@
 import React from 'react';
-import {KitInput} from '@kit/DataEntry/';
+import {KitDatePicker, KitInput, KitInputNumber, KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
-import {CheckCircleOutlined, SearchOutlined} from '@ant-design/icons';
+import {CheckCircleOutlined, LoginOutlined, SearchOutlined, UserOutlined} from '@ant-design/icons';
+import {IEditorTemplate} from '../../../types';
 
 const components = ['Input', 'TextArea', 'Password'];
 
@@ -301,18 +302,126 @@ const getComponent = (component, args) => {
     const prefix = getIcon(args.prefix);
     const suffix = getIcon(args.suffix);
 
+    const {Password, TextArea} = KitInput;
+
     switch (component) {
         case 'Password':
-            return <KitInput.Password {...args} prefix={prefix} suffix={suffix}></KitInput.Password>;
+            return <Password {...args} prefix={prefix} suffix={suffix}></Password>;
         case 'TextArea':
-            return <KitInput.TextArea {...args} prefix={prefix} suffix={suffix}></KitInput.TextArea>;
+            return <TextArea {...args} prefix={prefix} suffix={suffix}></TextArea>;
         case 'Input':
         default:
             return <KitInput {...args} prefix={prefix} suffix={suffix}></KitInput>;
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {component, ...props} = args;
     return <KitSpace direction="vertical">{getComponent(component, props)}</KitSpace>;
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    const {Password, TextArea} = KitInput;
+
+    const inputProps = {
+        placeholder: 'Placeholder',
+        prefix: <UserOutlined />,
+        suffix: <SearchOutlined />,
+        showCount: true
+    };
+
+    const passwordProps = {
+        placeholder: 'Password',
+        prefix: <LoginOutlined />,
+        showCount: true
+    };
+
+    const textAreaProps = {
+        placeholder: 'TextArea',
+        showCount: true
+    };
+
+    return (
+        <KitSpace size="m">
+            <KitSpace direction="vertical">
+                <KitInput {...inputProps} />
+                <KitInput {...inputProps} disabled />
+                <KitInput {...inputProps} status="warning" />
+                <KitInput {...inputProps} status="error" />
+            </KitSpace>
+            <KitSpace direction="vertical">
+                <Password {...passwordProps} />
+                <Password {...passwordProps} disabled />
+                <Password {...passwordProps} status="warning" />
+                <Password {...passwordProps} status="error" />
+            </KitSpace>
+            <KitSpace direction="vertical" size="m">
+                <TextArea {...textAreaProps} />
+                <TextArea {...textAreaProps} disabled />
+                <TextArea {...textAreaProps} status="warning" />
+                <TextArea {...textAreaProps} status="error" />
+            </KitSpace>
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Input';
+EditorTemplate.title = 'Input';
+
+export const EditorTemplateWrapper: IEditorTemplate = () => {
+    const {Password, TextArea} = KitInput;
+    const {RangePicker} = KitDatePicker;
+
+    const wrapperProps = {
+        label: 'Label',
+        helper: 'Helper'
+    };
+
+    return (
+        <KitSpace size="m" direction="vertical">
+            <KitSpace direction="horizontal" size="m">
+                <KitInput {...wrapperProps} placeholder="Input" />
+                <KitInput {...wrapperProps} disabled placeholder="Input" />
+                <KitInput {...wrapperProps} status="warning" placeholder="Input" />
+                <KitInput {...wrapperProps} status="error" placeholder="Input" />
+            </KitSpace>
+            <KitSpace direction="horizontal" size="m">
+                <Password {...wrapperProps} placeholder="Password" />
+                <Password {...wrapperProps} disabled placeholder="Password" />
+                <Password {...wrapperProps} status="warning" placeholder="Password" />
+                <Password {...wrapperProps} status="error" placeholder="Password" />
+            </KitSpace>
+            <KitSpace direction="horizontal" size="m">
+                <TextArea {...wrapperProps} placeholder="TextArea" />
+                <TextArea {...wrapperProps} disabled placeholder="TextArea" />
+                <TextArea {...wrapperProps} status="warning" placeholder="TextArea" />
+                <TextArea {...wrapperProps} status="error" placeholder="TextArea" />
+            </KitSpace>
+            <KitSpace direction="horizontal" size="m">
+                <KitInputNumber {...wrapperProps} placeholder="Number" />
+                <KitInputNumber {...wrapperProps} disabled placeholder="Number" />
+                <KitInputNumber {...wrapperProps} status="warning" placeholder="Number" />
+                <KitInputNumber {...wrapperProps} status="error" placeholder="Number" />
+            </KitSpace>
+            <KitSpace direction="horizontal" size="m">
+                <KitDatePicker {...wrapperProps} placeholder="DatePicker" />
+                <KitDatePicker {...wrapperProps} disabled placeholder="DatePicker" />
+                <KitDatePicker {...wrapperProps} status="warning" placeholder="DatePicker" />
+                <KitDatePicker {...wrapperProps} status="error" placeholder="DatePicker" />
+            </KitSpace>
+            <KitSpace direction="horizontal" size="m">
+                <RangePicker {...wrapperProps} placeholder={['RangerPicker', 'RangePicker']} />
+                <RangePicker {...wrapperProps} disabled placeholder={['RangerPicker', 'RangePicker']} />
+                <RangePicker {...wrapperProps} status="warning" placeholder={['RangerPicker', 'RangePicker']} />
+                <RangePicker {...wrapperProps} status="error" placeholder={['RangerPicker', 'RangePicker']} />
+            </KitSpace>
+            <KitSpace direction="horizontal" size="m">
+                <KitSelect {...wrapperProps} placeholder="Select" />
+                <KitSelect {...wrapperProps} disabled placeholder="Select" />
+                <KitSelect {...wrapperProps} status="warning" placeholder="Select" />
+                <KitSelect {...wrapperProps} status="error" placeholder="Select" />
+            </KitSpace>
+        </KitSpace>
+    );
+};
+EditorTemplateWrapper.path = 'components.InputWrapper';
+EditorTemplateWrapper.title = 'InputWrapper';
