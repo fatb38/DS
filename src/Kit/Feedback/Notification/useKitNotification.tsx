@@ -8,7 +8,7 @@ import {useKitTheme} from '@theme/theme-context';
 
 const KitNotificationContext = createContext<IKitNotificationContext | undefined>(undefined);
 
-function useKitNotification() {
+export function useKitNotification() {
     const context = useContext(KitNotificationContext);
     if (context === undefined) {
         throw new Error('useKitNotification must be inside a context');
