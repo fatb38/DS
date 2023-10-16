@@ -7,7 +7,6 @@ const App = () => {
     return (
         <KitSpace>
             <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} onClick={() => console.log('click')} />
-            <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} hoverable onClick={() => console.log('click')} />
         </KitSpace>
     );
 };

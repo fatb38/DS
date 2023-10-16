@@ -191,7 +191,6 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                             <KitTooltip title={firstAction.label}>
                                 <KitIcon
                                     icon={firstAction.icon}
-                                    hoverable
                                     onClick={e => {
                                         e.stopPropagation();
                                         firstAction.onClick(e);
@@ -203,7 +202,6 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                             <KitTooltip title={secondAction.label}>
                                 <KitIcon
                                     icon={secondAction.icon}
-                                    hoverable
                                     onClick={e => {
                                         e.stopPropagation();
                                         secondAction.onClick(e);
@@ -226,7 +224,6 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                                         <KitIcon
                                             className="kit-action-more"
                                             icon={<FontAwesomeIcon icon={faEllipsisVertical} />}
-                                            hoverable
                                         />
                                     </KitTooltip>
                                 </KitDropDown>

@@ -100,7 +100,6 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
                 <KitIcon
                     className="kit-menu-header-close"
                     icon={<FontAwesomeIcon icon={faCircleXmark} />}
-                    hoverable
                     onClick={() => onCloseClick()}
                 />
             )

@@ -5,9 +5,7 @@ import {IKitIconTheme} from '@theme/types/components/General/Icon';
 
 export interface IKitIcon extends IconComponentProps, KitHTMLAttributes<HTMLSpanElement> {
     on?: boolean;
-    hoverable?: boolean;
     color?: string;
-    rev?: any;
     displayName?: string;
     icon: ReactNode;
     className?: string;
@@ -17,7 +15,6 @@ export interface IKitIcon extends IconComponentProps, KitHTMLAttributes<HTMLSpan
 export interface IStyledKitIcon extends Omit<IKitIcon, 'icon'> {
     $theme: IKitIconTheme;
     $on?: boolean;
-    $hoverable?: boolean;
     $isClickable?: boolean;
     className?: string;
 }

@@ -26,20 +26,6 @@ export const argTypes = {
         },
         defaultValue: '-'
     },
-    hoverable: {
-        name: 'hoverable',
-        description: "Wether to set icon in 'on' state when hover",
-        control: {
-            type: 'boolean',
-            defaultValue: false
-        },
-        table: {
-            type: {
-                summary: 'boolean'
-            }
-        },
-        defaultValue: '-'
-    },
     onClick: {
         name: 'onClick',
         description: 'Set the handler to handle click event	',
@@ -102,6 +88,15 @@ const convertToFontAwesomeIconName = (inputString: string): string => {
 const filterIcons = (key: string) => key !== 'fas' && key !== 'prefix';
 const sortIconByAlphabetically = (a, b) => a.iconName.localeCompare(b.iconName);
 
+const removeDuplicateIcons = (icons: any[]) => {
+    return icons.reduce((accumulator, current) => {
+        if (!accumulator.some(icon => icon.iconName === current.iconName)) {
+            accumulator.push(current);
+        }
+        return accumulator;
+    }, []);
+};
+
 const getRegularIcons = () => {
     const filteredFaRegularIconsKeys = Object.keys(FaRegularIcons).filter(filterIcons);
     const lastKeys = filteredFaRegularIconsKeys.pop();
@@ -110,14 +105,17 @@ const getRegularIcons = () => {
         filteredLastKeys = Object.keys(FaRegularIcons[lastKeys]).filter(filterIcons);
     }
     const fullFaRegularIconsKeys = filteredFaRegularIconsKeys.concat(filteredLastKeys);
-    return fullFaRegularIconsKeys.map(icon => FaRegularIcons[icon]).sort(sortIconByAlphabetically);
+    const fullFaRegularIcons = fullFaRegularIconsKeys.map(icon => FaRegularIcons[icon]);
+    const faRegularIcons = removeDuplicateIcons(fullFaRegularIcons);
+
+    return faRegularIcons.sort(sortIconByAlphabetically);
 };
 
-const getSolidIcons = () =>
-    Object.keys(FaSolidIcons)
-        .filter(filterIcons)
-        .map(icon => FaSolidIcons[icon])
-        .sort(sortIconByAlphabetically);
+const getSolidIcons = () => {
+    const filteredFaSolidIconsKeys = Object.keys(FaSolidIcons).filter(filterIcons);
+    const filteredFaSolidIcons = filteredFaSolidIconsKeys.map(icon => FaSolidIcons[icon]);
+    return removeDuplicateIcons(filteredFaSolidIcons).sort(sortIconByAlphabetically);
+};
 
 const DEFAULT_TOOLTIP_TITLE = 'Click to copy import';
 
@@ -200,10 +198,20 @@ const Gallery = () => {
             </KitSpace>
             <br />
             <br />
-            <KitSpace wrap size="s" style={{width: '100%', height: '620px', overflowY: 'auto'}}>
+            <KitSpace
+                wrap
+                size="s"
+                style={{
+                    width: '100%',
+                    maxHeight: '580px',
+                    overflowY: 'auto',
+                    alignItems: 'flex-start',
+                    padding: '10px 0'
+                }}
+            >
                 {iconsToDisplay?.map((icon, index) => (
                     <KitTooltip title={tooltipTitle} key={`${icon.prefix}-${icon.iconName}-${index}`}>
-                        <Card className="card" hoverable bordered={false} onClick={() => _handleCopyIcon(icon)}>
+                        <Card className="card" bordered={false} onClick={() => _handleCopyIcon(icon)}>
                             <div className="icon-item">
                                 <FontAwesomeIcon icon={icon} />
                             </div>
