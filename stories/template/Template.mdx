@@ -3,6 +3,8 @@ import { Controls } from "@storybook/addon-docs";
 import { argTypes, Template } from "./data";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../.storybook/components/DesignTokens';
+import fields from '../tokens';
 import * as Template from './Template.stories';
 
 <Meta of={KitCardStories} />
@@ -23,3 +25,7 @@ Exemple description
 <Canvas of={Template.Api} />
 
 <Controls of={Template.Api} />
+
+## Design Tokens
+
+<DesignTokens path="components.Template" tokens={fields?.components?.Template} />

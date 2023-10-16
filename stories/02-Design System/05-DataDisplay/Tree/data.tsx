@@ -2,6 +2,7 @@ import {KitTree} from '@kit/DataDisplay';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCalendarCheck, faFile, faFolder, faPenToSquare} from '@fortawesome/free-regular-svg-icons';
+import {IEditorTemplate} from '../../../types';
 
 const basicData = [
     {
@@ -648,3 +649,119 @@ export const argTypes = {
 export const Template = args => {
     return <KitTree {...args} treeData={mockData.data.line} />;
 };
+
+const options = [
+    {
+        value: 'true',
+        label: 'True'
+    },
+    {
+        value: 'false',
+        label: 'False'
+    },
+    {
+        value: 'custom',
+        label: 'Custom icon'
+    }
+];
+
+const treeData = [
+    {
+        title: 'parent 1',
+        key: '0-0',
+        icon: <CarryOutOutlined />,
+        children: [
+            {
+                title: 'parent 1-0',
+                key: '0-0-0',
+                icon: <CarryOutOutlined />,
+                children: [
+                    {
+                        title: 'leaf',
+                        key: '0-0-0-0',
+                        icon: <CarryOutOutlined />
+                    },
+                    {
+                        title: (
+                            <>
+                                <div>multiple line title</div>
+                                <div>multiple line title</div>
+                            </>
+                        ),
+                        key: '0-0-0-1',
+                        icon: <CarryOutOutlined />
+                    },
+                    {
+                        title: 'leaf',
+                        key: '0-0-0-2',
+                        icon: <CarryOutOutlined />
+                    }
+                ]
+            },
+            {
+                title: 'parent 1-1',
+                key: '0-0-1',
+                icon: <CarryOutOutlined />,
+                children: [
+                    {
+                        title: 'leaf',
+                        key: '0-0-1-0',
+                        icon: <CarryOutOutlined />
+                    }
+                ]
+            },
+            {
+                title: 'parent 1-2',
+                key: '0-0-2',
+                icon: <CarryOutOutlined />,
+                children: [
+                    {
+                        title: 'leaf',
+                        key: '0-0-2-0',
+                        icon: <CarryOutOutlined />
+                    },
+                    {
+                        title: 'leaf',
+                        key: '0-0-2-1',
+                        icon: <CarryOutOutlined />,
+                        switcherIcon: <FormOutlined />
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        title: 'parent 2',
+        key: '0-1',
+        icon: <CarryOutOutlined />,
+        children: [
+            {
+                title: 'parent 2-0',
+                key: '0-1-0',
+                icon: <CarryOutOutlined />,
+                children: [
+                    {
+                        title: 'leaf',
+                        key: '0-1-0-0',
+                        icon: <CarryOutOutlined />
+                    },
+                    {
+                        title: 'leaf',
+                        key: '0-1-0-1',
+                        icon: <CarryOutOutlined />
+                    }
+                ]
+            }
+        ]
+    }
+];
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <div style={{width: '300px'}}>
+            <KitTree showLine={true} defaultExpandAll treeData={treeData} />
+        </div>
+    );
+};
+EditorTemplate.path = 'components.Tree';
+EditorTemplate.title = 'Tree';

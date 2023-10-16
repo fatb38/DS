@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitDatePickerStories from './DatePicker.stories';
 
 <Meta of={KitDatePickerStories} />
@@ -140,3 +142,7 @@ Please use correct [language](https://ant.design/docs/react/i18n), or update day
 
 When you change the layout of nodes by `panelRender`, React will unmount and re-mount it which reset the component state. You should keep the layout stable. Please ref [#27263](https://github.com/ant-design/ant-design/issues/27263) for more info.
 
+
+## Design Tokens
+
+<DesignTokens path="components.DatePicker" tokens={fields?.components?.DatePicker} />

@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import *  as KitAvatarStories from './Avatar.stories';
 
 <Meta of={KitAvatarStories} />
@@ -58,3 +60,15 @@ Avatar size can be automatically adjusted based on the screen size.
 <Canvas of={KitAvatarStories.Api} />
 
 <Controls of={KitAvatarStories.Api} />
+
+
+## Design Tokens
+
+### Avatar
+
+<DesignTokens path="components.Avatar" tokens={fields?.components?.Avatar} />
+
+
+### AvatarGroup
+
+<DesignTokens path="components.AvatarGroup" tokens={fields?.components?.AvatarGroup} />

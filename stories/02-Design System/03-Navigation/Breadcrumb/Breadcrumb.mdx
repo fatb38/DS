@@ -2,6 +2,8 @@ import { Meta, Canvas, Source } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import Exemples, { Sources } from './exemples';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitBreadcrumbStories from './Breadcrumb.stories';
 
 <Meta of={KitBreadcrumbStories} />
@@ -78,3 +80,8 @@ const item = {
 | --------- | ----------------- | ----------- | ------- |
 | type      | Mark as separator | `separator` |         |
 | separator | Custom separator  | ReactNode   | `/`     |
+
+
+## Design Tokens
+
+<DesignTokens path="components.Breadcrumb" tokens={fields?.components?.Breadcrumb} />

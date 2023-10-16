@@ -6,6 +6,7 @@ import {IKitNotificationArgs} from '@kit/Feedback/Notification/types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleCheck, faCircleXmark, faRectangleXmark} from '@fortawesome/free-regular-svg-icons';
 import {faDownload, faMagnifyingGlass, faXmark} from '@fortawesome/free-solid-svg-icons';
+import {IEditorTemplate} from '../../../types';
 
 export const FakeNotification: React.FunctionComponent<IKitNotificationArgs> = () => null;
 
@@ -239,3 +240,57 @@ export const Template = args => {
 export const checkRequiredField = (args, requiredFields: string[]) => {
     return !requiredFields.some((field: string) => args[field] === undefined || args[field] === '');
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    const {kitNotification} = useKitNotification();
+    return (
+        <KitSpace>
+            <KitButton
+                onClick={() =>
+                    kitNotification.info({
+                        message: 'Info Notification',
+                        description:
+                            'Proactively incubate innovative processes for high-payoff architectures. Globally benchmark flexible.'
+                    })
+                }
+            >
+                Info
+            </KitButton>
+            <KitButton
+                onClick={() =>
+                    kitNotification.success({
+                        message: 'Success Notification',
+                        description:
+                            'Proactively incubate innovative processes for high-payoff architectures. Globally benchmark flexible.'
+                    })
+                }
+            >
+                Success
+            </KitButton>
+            <KitButton
+                onClick={() =>
+                    kitNotification.warning({
+                        message: 'Warning Notification',
+                        description:
+                            'Proactively incubate innovative processes for high-payoff architectures. Globally benchmark flexible.'
+                    })
+                }
+            >
+                Warning
+            </KitButton>
+            <KitButton
+                onClick={() =>
+                    kitNotification.error({
+                        message: 'Error Notification',
+                        description:
+                            'Proactively incubate innovative processes for high-payoff architectures. Globally benchmark flexible.'
+                    })
+                }
+            >
+                Error
+            </KitButton>
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Notification';
+EditorTemplate.title = 'Notification';

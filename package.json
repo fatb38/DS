@@ -1,7 +1,7 @@
 {
   "name": "aristid-ds",
   "description": "ARiSTiD design system",
-  "version": "0.6.9",
+  "version": "0.7.1",
   "authors": [
     "e.voiron-levy@aristid.com",
     "p.chevieux@aristid.com",
@@ -11,9 +11,10 @@
   "homepage": "https://www.aristid.com",
   "scripts": {
     "dev": "vite",
-    "tsc": "tsc",
-    "build": "tsc && vite build",
+    "copy-typescript-definitions": "copyfiles -u 1 \"src/**/*.d.ts\" dist",
+    "build": "tsc && vite build && yarn copy-typescript-definitions",
     "build-stats": "STATS=true tsc && vite build",
+    "generate-tokens": "node tokens-generator.js",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006 --docs",
@@ -45,7 +46,10 @@
     "react-uuid": "^2.0.0",
     "remark-gfm": "^3.0.1",
     "short-unique-id": "^5.0.2",
-    "styled-components": "^6.0.7"
+    "styled-components": "^6.0.7",
+    "typescript-json-schema": "^0.61.0",
+    "updeep": "^1.2.4",
+    "use-debounce": "^9.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",

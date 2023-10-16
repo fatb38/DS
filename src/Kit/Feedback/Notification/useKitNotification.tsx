@@ -2,7 +2,7 @@ import React, {Key, createContext, useContext} from 'react';
 import {KitIcon} from '@kit/General/Icon';
 import notification from 'antd/lib/notification';
 import {NotificationInstance} from 'antd/lib/notification/interface';
-import {IKitNotificationArgs, IKitNotificationContext} from './types';
+import {IKitNotification, IKitNotificationArgs, IKitNotificationContext} from './types';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faExclamation, faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
@@ -10,18 +10,20 @@ import {faCircleCheck, faCircleXmark} from '@fortawesome/free-regular-svg-icons'
 
 const KitNotificationContext = createContext<IKitNotificationContext | undefined>(undefined);
 
-function useKitNotification() {
+export function useKitNotification() {
     const context = useContext(KitNotificationContext);
     if (context === undefined) {
         throw new Error('useKitNotification must be inside a context');
     }
-    return context;
+    return context as IKitNotificationContext;
 }
 
-const KitNotificationProvider = ({children}) => {
+export const KitNotificationProvider = ({children}) => {
     const [api, contextHolder] = notification.useNotification();
+    const value = useKitNotificationProvider(api);
+
     return (
-        <KitNotificationContext.Provider value={useKitNotificationProvider(api)}>
+        <KitNotificationContext.Provider value={value}>
             {children}
             {contextHolder}
         </KitNotificationContext.Provider>
@@ -101,8 +103,6 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
         api.destroy(key);
     };
 
-    const kitNotification = {error, warning, success, info, open, destroy};
+    const kitNotification: IKitNotification = {error, warning, success, info, open, destroy};
     return {kitNotification};
 };
-
-export {KitNotificationProvider, useKitNotification};

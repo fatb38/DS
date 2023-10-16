@@ -2,6 +2,8 @@ import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import Exemples, { Sources } from './exemples';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitMenuStories from './Menu.stories';
 
 <Meta of={KitMenuStories} />
@@ -118,3 +120,9 @@ Menu with ItemMenu's as children
 <Canvas of={KitMenuStories.Api} />
 
 <Controls of={KitMenuStories.Api} />
+
+
+
+## Design Tokens
+
+<DesignTokens path="components.Menu" tokens={fields?.components?.Menu} />

@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitUploadStories from './Upload.stories';
 
 <Meta of={KitUploadStories} />
@@ -127,3 +129,8 @@ Use `progress` for customize progress bar.
 <Canvas of={KitUploadStories.Api} />
 
 <Controls of={KitUploadStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Upload" tokens={fields?.components?.Upload} />

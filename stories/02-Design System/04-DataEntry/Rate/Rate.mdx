@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitRateStories from './Rate.stories';
 
 <Meta of={KitRateStories} />
@@ -70,3 +72,8 @@ Can customize each character using `(RateProps) => ReactNode`.
 <Canvas of={KitRateStories.Api} />
 
 <Controls of={KitRateStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Rate" tokens={fields?.components?.Rate} />

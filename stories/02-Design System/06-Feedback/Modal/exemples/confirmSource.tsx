@@ -32,9 +32,10 @@ const App = () => {
             firstLine: 'Do you confirm this action ?',
             secondLine: 'you can also show some complementary text',
             icon: true,
-            showSecondaryCta: true
-        })
-    }
+            showSecondaryCta: true,
+            type: 'confirm'
+        });
+    };
 
     return (
         <KitSpace direction="vertical">

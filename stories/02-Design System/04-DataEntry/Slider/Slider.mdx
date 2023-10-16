@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitSliderStories from './Slider.stories';
 
 <Meta of={KitSliderStories} />
@@ -63,3 +65,8 @@ Make range track draggable when set `range.draggableTrack`.
 <Canvas of={KitSliderStories.Api} />
 
 <Controls of={KitSliderStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Slider" tokens={fields?.components?.Slider} />

@@ -3,6 +3,8 @@ import {KitAvatar, KitImage, KitItemList} from '@kit/DataDisplay/';
 import {KitIcon} from '@kit/General/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
+import {IEditorTemplate} from '../../../types';
+import {KitSpace} from '@kit/Layout';
 
 export const mockData = {
     base: {
@@ -179,3 +181,30 @@ export const Template = args => {
         />
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace direction="vertical">
+            <KitItemList
+                onSelectChange={e => console.log('selected', e.target.checked)}
+                picture={<KitIcon icon={<UserOutlined />} />}
+                title="Tondeuse à gazon"
+                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
+                tagNumber={4}
+                onRafterClick={() => console.log('click rafter')}
+                onClick={() => console.log('on click itemlist')}
+            />
+            <KitItemList
+                disabled
+                onSelectChange={e => console.log('selected', e.target.checked)}
+                picture={<KitImage src="public/images/tondeuse.png" />}
+                title="Tondeuse à gazon"
+                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
+                tagNumber={4}
+                onRafterClick={() => console.log('click rafter')}
+            />
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.ItemList';
+EditorTemplate.title = 'ItemList';

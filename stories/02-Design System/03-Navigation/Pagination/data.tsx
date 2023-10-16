@@ -1,5 +1,7 @@
 import React from 'react';
 import {KitPagination} from '@kit/Navigation/';
+import {IEditorTemplate} from '../../../types';
+import {KitSpace} from '@kit/Layout';
 
 const sizeOptions = ['default', 'small', 'default'];
 
@@ -318,8 +320,24 @@ export const argTypes = {
     }
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {pageSizeOptions, ...props} = args;
     const sizeOptions = pageSizeOptions ? pageSizeOptions.split(',') : null;
     return <KitPagination pageSizeOptions={sizeOptions} {...props} />;
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace direction="vertical" size="m">
+            <KitPagination defaultCurrent={1} total={50} />
+            <KitPagination defaultCurrent={1} total={50} bordered />
+            <KitPagination showQuickJumper defaultCurrent={2} total={500} />
+            <KitPagination showQuickJumper defaultCurrent={2} total={500} disabled />
+            <KitPagination simple defaultCurrent={2} total={50} />
+            <KitPagination disabled simple defaultCurrent={2} total={50} />
+            <KitPagination total={85} showSizeChanger showQuickJumper showTotal={total => `Total ${total} items`} />
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Pagination';
+EditorTemplate.title = 'Pagination';

@@ -2,6 +2,8 @@ import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import Exemples, { Sources } from './exemples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
 import * as KitSelectStories from './Select.stories';
 
 <Meta of={KitSelectStories} />
@@ -86,3 +88,8 @@ Add `label` and/or `helper` properties to give field context.
 | -------- | ----------- | ----------------------- | ------- | ------- |
 | key      | Group key   | string                  | -       |         |
 | label    | Group label | string \| React.Element | -       |         |
+
+
+## Design Tokens
+
+<DesignTokens path="components.Select" tokens={fields?.components?.Select} />

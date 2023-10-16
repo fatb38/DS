@@ -8,6 +8,7 @@ import {KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitTooltip} from '@kit/DataDisplay';
+import {IEditorTemplate} from '../../../types';
 
 export const argTypes = {
     on: {
@@ -199,3 +200,14 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace>
+            <KitIcon icon={<DownloadOutlined />} />
+            <KitIcon icon={<DownloadOutlined />} on />
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Icon';
+EditorTemplate.title = 'Icon';

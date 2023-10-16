@@ -1,6 +1,7 @@
 import React, {ReactNode} from 'react';
 import {KitButton, KitTypography} from '@kit/General/';
 import {KitBreadcrumb, KitHeader} from '@kit/Navigation/';
+import {IEditorTemplate} from '../../../types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowUpZA, faFilter, faSliders} from '@fortawesome/free-solid-svg-icons';
 import {faObjectUngroup} from '@fortawesome/free-regular-svg-icons';
@@ -171,3 +172,17 @@ export const Template = args => {
         />
     );
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitHeader
+            title="Campagne 1 - soldes rentrée"
+            search={searchProps}
+            breadcrumb={<KitBreadcrumb items={items} />}
+            actions={actions}
+            onPlusClick={() => console.log('click on plus')}
+        />
+    );
+};
+EditorTemplate.path = 'components.Header';
+EditorTemplate.title = 'Header';

@@ -1,5 +1,7 @@
 import React from 'react';
 import {KitSwitch} from '@kit/DataEntry/';
+import {IEditorTemplate} from '../../../types';
+import {KitSpace} from '@kit/Layout';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCheck, faXmark} from '@fortawesome/free-solid-svg-icons';
 
@@ -180,3 +182,16 @@ export const Template = args => {
     const {checkedChildren, unCheckedChildren, ...props} = args;
     return <KitSwitch {...props}>Switch label</KitSwitch>;
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace size="m">
+            <KitSwitch>Switch label</KitSwitch>
+            <KitSwitch checked>Switch label</KitSwitch>
+            <KitSwitch loading>Switch label</KitSwitch>
+            <KitSwitch disabled>Switch label</KitSwitch>
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Switch';
+EditorTemplate.title = 'Switch';

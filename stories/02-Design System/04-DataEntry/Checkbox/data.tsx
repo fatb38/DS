@@ -1,5 +1,7 @@
 import React from 'react';
 import {KitCheckbox} from '@kit/DataEntry/';
+import {IEditorTemplate} from '../../../types';
+import {KitSpace} from '@kit/Layout';
 
 const CheckboxArgTypes = {
     label: {
@@ -182,7 +184,36 @@ export const argTypes = {
     ...CheckboxGroupArgTypes
 };
 
-export const Template = (args) => {
+export const Template = args => {
     const {label, ...props} = args;
-     return <KitCheckbox {...props}>{label}</KitCheckbox>;
+    return <KitCheckbox {...props}>{label}</KitCheckbox>;
 };
+
+export const EditorTemplate: IEditorTemplate = () => {
+    return (
+        <KitSpace size="m">
+            <KitSpace direction="vertical">
+                <KitCheckbox>Checkbox</KitCheckbox>
+                <KitCheckbox checked>Checkbox</KitCheckbox>
+                <KitCheckbox disabled>Checkbox</KitCheckbox>
+                <KitCheckbox disabled checked>
+                    Checkbox
+                </KitCheckbox>
+            </KitSpace>
+            <KitSpace direction="vertical">
+                <KitCheckbox danger>Checkbox</KitCheckbox>
+                <KitCheckbox danger checked>
+                    Checkbox
+                </KitCheckbox>
+                <KitCheckbox danger disabled>
+                    Checkbox
+                </KitCheckbox>
+                <KitCheckbox danger disabled checked>
+                    Checkbox
+                </KitCheckbox>
+            </KitSpace>
+        </KitSpace>
+    );
+};
+EditorTemplate.path = 'components.Checkbox';
+EditorTemplate.title = 'Checkbox';
