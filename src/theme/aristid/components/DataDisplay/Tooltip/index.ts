@@ -1,7 +1,7 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitTooltip} from '@theme/types/components/DataDisplay/Tooltip';
+import {IKitTooltipTheme} from '@theme/types/components/DataDisplay/Tooltip';
 
-export const getKitTooltipTokens = (generalTokens: IKitThemeGeneral): IKitTooltip => {
+export const getKitTooltipTokens = (generalTokens: IKitThemeGeneral): IKitTooltipTheme => {
     const {colors, border, typography} = generalTokens;
 
     return {

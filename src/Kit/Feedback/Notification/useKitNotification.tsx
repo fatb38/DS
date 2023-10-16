@@ -3,7 +3,7 @@ import {CheckCircleOutlined, CloseCircleOutlined, ExclamationCircleOutlined, War
 import {KitIcon} from '@kit/General/Icon';
 import notification from 'antd/lib/notification';
 import {NotificationInstance} from 'antd/lib/notification/interface';
-import {IKitNotificationArgs, IKitNotificationContext} from './types';
+import {IKitNotification, IKitNotificationArgs, IKitNotificationContext} from './types';
 import {useKitTheme} from '@theme/theme-context';
 
 const KitNotificationContext = createContext<IKitNotificationContext | undefined>(undefined);
@@ -101,6 +101,6 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
         api.destroy(key);
     };
 
-    const kitNotification: KitNotification = {error, warning, success, info, open, destroy};
+    const kitNotification: IKitNotification = {error, warning, success, info, open, destroy};
     return {kitNotification};
 };

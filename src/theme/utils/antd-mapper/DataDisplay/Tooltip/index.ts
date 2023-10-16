@@ -1,6 +1,6 @@
-import {IKitTooltip} from '@theme/types/components/DataDisplay/Tooltip';
+import {IKitTooltipTheme} from '@theme/types/components/DataDisplay/Tooltip';
 
-export const mapTooltipKitTokenToAntdToken = (kitTooltipTheme: IKitTooltip) => {
+export const mapTooltipKitTokenToAntdToken = (kitTooltipTheme: IKitTooltipTheme) => {
     const {colors, border, typography} = kitTooltipTheme;
 
     return {
