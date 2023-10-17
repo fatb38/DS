@@ -62,6 +62,7 @@ export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
 
             &.ant-select-dropdown-placement-topLeft, &.ant-select-dropdown-placement-topRight {
                 .kit-select-dropdown-content {
+                    transform: translate(-1px, 3px);
                     border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
                 }
             }
@@ -75,6 +76,7 @@ export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
 
             &.ant-select-dropdown-placement-bottomLeft, &.ant-select-dropdown-placement-bottomRight {
                 .kit-select-dropdown-content {
+                    transform: translate(-1px, -3px);
                     border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
                 }
             }
