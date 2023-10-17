@@ -74,17 +74,6 @@ export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
         }
     }
 
-    .rc-virtual-list-holder {
-        background-color: ${({$theme}) => $theme.colors.background.default};
-        padding-left: 0px;
-        overflow: hidden;
-        border-radius: 7px ;
-
-        .ant-select-item.ant-select-item-option {
-            padding-left: 10px;
-        }
-    }
-
     .kit-select-dropdown-content {
         width: calc(100% + 62px);
     }
@@ -94,7 +83,7 @@ export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
         background-color: ${({$theme}) => $theme.colors.background.default};
         padding: 10px;
         overflow: hidden;
-
+        border-radius: 7px ;
 
         .ant-select-item.ant-select-item-option {
             padding: 0;
