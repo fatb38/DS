@@ -54,124 +54,113 @@ export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
         font-weight: ${({$theme}) => $theme.typography.fontWeight.default};
         color: ${({$theme}) => $theme.colors.typography.default};
 
-        .ant-select-item, .ant-select-item-option, .ant-select-item-option-selected {
-            border-radius: 7px;
-            border: none;
-            min-height: 32px;
-            font-weight: ${({$theme}) => $theme.typography.fontWeight.selected};
-            color: ${({$theme}) => $theme.colors.typography.selected};
-
-            .ant-select-item-option-content {
-                display: flex;
-                align-items: center;
-            }
-        }
-
-        .ant-select-item-group {
-            color: ${({$theme}) => $theme.colors.typography.group};
-            font-weight: ${({$theme}) => $theme.typography.fontWeight.group};
-            padding: 8px 0;
-        }
-    }
-
-    .kit-select-dropdown-content {
-        width: calc(100% + 62px);
-    }
-
-    .rc-virtual-list-holder {
-        box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
-        background-color: ${({$theme}) => $theme.colors.background.default};
-        padding: 10px;
-        overflow: hidden;
-        border-radius: 7px ;
-
-        .ant-select-item.ant-select-item-option {
-            padding: 0;
-            margin: 0;
-            border: none;
-            background: transparent;
-
-            &:not(:last-child) {
-                margin-bottom: 5px;
-            }
-
-            &.ant-select-item-option-grouped {
-                margin-left: 5px;
-            }
-
-            &[title] {
-                padding-left: 10px;
-            }
-
-            .kit-select-option {
-                align-self: center;
-                width: 100%;
-
-                .kit-select-option-icon {
-                    vertical-align: middle;
-                }
-
-                .kit-select-option-icon + .kit-select-option-label,
-                .kit-select-option-badge + .kit-select-option-label {
-                    width: calc(100% - 20px);
-                }
-            }
-
-            .kit-icon {
-                padding: 5px;
-            }
-        }
-
-        .ant-select-item.ant-select-item-option-selected {
-            background: ${({$theme}) => $theme.colors.background.selected};
-            font-weight: ${({$theme}) => $theme.typography.fontWeight.selected};
-            color: ${({$theme}) => $theme.colors.typography.selected};
-        }
-
-        .ant-select-item.ant-select-item-option-active {
-            background: ${({$theme}) => $theme.colors.background.active};
-            font-weight: ${({$theme}) => $theme.typography.fontWeight.active};
-            color: ${({$theme}) => $theme.colors.typography.active};
-        }
-
-        .ant-select-item.ant-select-item-option-disabled {
-            opacity: .5;
-        }
-    }
-
-    .kit-select-dropdown-bottom {
-        .rc-virtual-list-holder {
-            border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
-            transform: translate(0px, -4px);
-        }
-
-        .kit-select-dropdown-content {
-            .rc-virtual-list-holder {
+        &.kit-select-dropdown-bottom {
+            .kit-select-dropdown-content {
+                border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
                 transform: translate(-1px, -3px);
             }
-        }
 
-        &.ant-select-dropdown-placement-topLeft .kit-select-dropdown-content,
-        &.ant-select-dropdown-placement-topLeft .rc-virtual-list-holder {
-            border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
-        }
-    }
-
-    .kit-select-dropdown-top {
-        .rc-virtual-list-holder {
-            border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
-            transform: translate(0px, 4px);
-        }
-
-        .kit-select-dropdown-content {
-            .rc-virtual-list-holder {
-                transform: translate(-1px, 3px);
+            &.ant-select-dropdown-placement-topLeft, &.ant-select-dropdown-placement-topRight {
+                .kit-select-dropdown-content {
+                    border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
+                }
             }
         }
 
-        &.ant-select-dropdown-placement-bottomLeft .kit-select-dropdown-content,
-        &.ant-select-dropdown-placement-bottomRight .rc-virtual-list-holder {
-            border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
+        &.kit-select-dropdown-top {
+            .kit-select-dropdown-content {
+                border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
+                transform: translate(-1px, 3px);
+            }
+
+            &.ant-select-dropdown-placement-bottomLeft, &.ant-select-dropdown-placement-bottomRight {
+                .kit-select-dropdown-content {
+                    border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
+                }
+            }
+        }
+
+        .kit-select-dropdown-content {
+            width: calc(100% + 42px);
+            box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
+            background-color: ${({$theme}) => $theme.colors.background.default};
+            padding: 10px;
+            overflow: hidden;
+            border-radius: 7px ;
+
+            .ant-select-item, .ant-select-item-option, .ant-select-item-option-selected {
+                border-radius: 7px;
+                border: none;
+                min-height: 32px;
+                font-weight: ${({$theme}) => $theme.typography.fontWeight.selected};
+                color: ${({$theme}) => $theme.colors.typography.selected};
+
+                .ant-select-item-option-content {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            .ant-select-item {
+                &.ant-select-item-option {
+                    padding: 0;
+                    margin: 0;
+                    border: none;
+                    background: transparent;
+
+                    &:not(:last-child) {
+                        margin-bottom: 5px;
+                    }
+
+                    &.ant-select-item-option-grouped {
+                        margin-left: 5px;
+                    }
+
+                    &[title] {
+                        padding-left: 10px;
+                    }
+
+                    .kit-select-option {
+                        align-self: center;
+                        width: 100%;
+
+                        .kit-select-option-icon {
+                            vertical-align: middle;
+                        }
+
+                        .kit-select-option-icon + .kit-select-option-label,
+                        .kit-select-option-badge + .kit-select-option-label {
+                            width: calc(100% - 20px);
+                        }
+                    }
+
+                    .kit-icon {
+                        padding: 5px;
+                    }
+                }
+
+                &.ant-select-item-option-selected {
+                    background: ${({$theme}) => $theme.colors.background.selected};
+                    font-weight: ${({$theme}) => $theme.typography.fontWeight.selected};
+                    color: ${({$theme}) => $theme.colors.typography.selected};
+                }
+
+                &.ant-select-item-option-active {
+                    background: ${({$theme}) => $theme.colors.background.active};
+                    font-weight: ${({$theme}) => $theme.typography.fontWeight.active};
+                    color: ${({$theme}) => $theme.colors.typography.active};
+                }
+
+                &.ant-select-item-option-disabled {
+                    opacity: .5;
+                }
+
+                &.ant-select-item-group {
+                    color: ${({$theme}) => $theme.colors.typography.group};
+                    font-weight: ${({$theme}) => $theme.typography.fontWeight.group};
+                    padding: 8px 0;
+                }
+            }
         }
     }
 `;
