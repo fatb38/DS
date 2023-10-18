@@ -214,6 +214,19 @@ export const argTypes = {
             category: 'Menu'
         }
     },
+    disableSecureClick: {
+        name: 'disableSecureClick',
+        control: {type: 'boolean'},
+        description: 'Disable double click security of the item menu',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            category: 'ItemMenu',
+            defaultValue: {summary: false}
+        },
+        defaultValue: false
+    },
     itemMenuTitle: {
         name: 'title',
         description: 'Title to display on one line',

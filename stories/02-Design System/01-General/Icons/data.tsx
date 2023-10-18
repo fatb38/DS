@@ -10,6 +10,18 @@ import {IEditorTemplate} from '../../../types';
 import {DownloadOutlined} from '@ant-design/icons';
 
 export const argTypes = {
+    disableSecureClick: {
+        name: 'disableSecureClick',
+        control: {type: 'boolean'},
+        description: 'Disable double click security of the icon',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: false}
+        },
+        defaultValue: false
+    },
     on: {
         name: 'on',
         description: "Wether to set icon in 'on' state",
