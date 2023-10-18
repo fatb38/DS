@@ -110,10 +110,10 @@ const KitUpload: FunctionComponent<IKitUpload> = ({
                         <img src={imageUrl} alt="avatar" style={{width: '100%'}} />
                     </div>
                 ) : (
-                    <div>
+                    <>
                         {loading ? <LoadingOutlined /> : <PlusOutlined />}
                         <div style={{marginTop: 8}}>{uploadWording}</div>
-                    </div>
+                    </>
                 ))}
         </StyledUpload>
     );

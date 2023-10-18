@@ -6,6 +6,7 @@ import {KitTypography} from '@kit/General/';
 import {RightOutlined, EyeOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
 import {useKitLocale} from '@translation/locale-context';
+import useSecureClick from '../../../hooks/useSecureClick';
 
 const StyledItemList = styled.div<IStyledKitItemList>`
     display: grid;
@@ -186,6 +187,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
     disabled = false,
     onClick,
     className,
+    disableSecureClick,
     ...props
 }) => {
     const {theme} = useKitTheme();
@@ -350,15 +352,19 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
         );
     };
 
+    const _handleClickRafter = e => {
+        e.stopPropagation();
+        onRafterClick && onRafterClick();
+    };
+
+    const _handleClickRafterSecured = useSecureClick(_handleClickRafter);
+
     const _getRafter = () => {
         return (
             hasRafter && (
                 <div
                     className="kit-item-list-rafter"
-                    onClick={e => {
-                        e.stopPropagation();
-                        onRafterClick && onRafterClick();
-                    }}
+                    onClick={disableSecureClick ? _handleClickRafter : _handleClickRafterSecured}
                 >
                     <RightOutlined />
                 </div>
@@ -375,15 +381,19 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
         return classes;
     };
 
+    const _handleClickItemList = e => {
+        e.stopPropagation();
+        onClick && onClick();
+    };
+
+    const _handleClickItemListSecured = useSecureClick(_handleClickItemList);
+
     return (
         <StyledItemList
             className={_getClasses()}
             $theme={theme.components.ItemList}
             $gridTemplateColumns={_generateGridTemplateColumns()}
-            onClick={e => {
-                e.stopPropagation();
-                onClick && onClick();
-            }}
+            onClick={disableSecureClick ? _handleClickItemList : _handleClickItemListSecured}
             {...props}
         >
             {_getCheckbox()}

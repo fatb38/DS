@@ -43,6 +43,7 @@ export interface IKitItemMenu extends KitHTMLAttributes<HTMLDivElement> {
     onRafterClick?: Function;
     isSelected?: boolean;
     onClick?: Function;
+    disabledSecureClick?: boolean;
 }
 
 export interface IStyledIemMenu {

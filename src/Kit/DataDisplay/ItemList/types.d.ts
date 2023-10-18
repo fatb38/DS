@@ -12,6 +12,7 @@ export interface IKitItemList extends KitHTMLAttributes<HTMLDivElement> {
     onRafterClick?: Function;
     disabled?: boolean;
     onClick?: Function;
+    disableSecureClick?: boolean;
 }
 
 export interface IStyledKitItemList {
