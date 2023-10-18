@@ -88,7 +88,7 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
                         color: theme.colors.icon.info,
                         backgroundColor: theme.colors.icon.background.info
                     }}
-                    icon={<FontAwesomeIcon style={{aspectRatio: 1}} icon={faExclamation} />}
+                    icon={<FontAwesomeIcon icon={faExclamation} />}
                     on
                 />
             )

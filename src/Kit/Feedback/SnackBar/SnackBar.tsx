@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import {IKitOpenSnackBar, IKitSnackBar, IStyledKitSnackBar} from './types';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
+import {faXmark} from '@fortawesome/free-solid-svg-icons';
 
 const DEFAULT_DURATION = 4000;
 
@@ -129,7 +129,7 @@ const KitSnackBar: FunctionComponent<IKitSnackBar> = ({message, ctaText, ctaOnCl
             {showCloseContainer && (
                 <div className="kit-snackbar-grid kit-snackbar-grid-three">
                     <div className="kit-snackbar-close-container" onClick={() => closeSnackBar()}>
-                        <FontAwesomeIcon icon={faCircleXmark} />
+                        <FontAwesomeIcon icon={faXmark} />
                     </div>
                 </div>
             )}

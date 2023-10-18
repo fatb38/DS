@@ -35,7 +35,8 @@ const StyledDragger = styled(AntdUpload.Dragger)<IStyledDragger>`
                 margin-top: 0;
                 margin-bottom: 22px;
 
-                .anticon {
+                svg {
+                    font-size: 32px;
                     color: ${({$theme}) => $theme.colors.dragIcon.default};
                 }
             }

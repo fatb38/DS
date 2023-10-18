@@ -5,7 +5,7 @@ import {IKitDatePicker, IStyledDatePicker} from './types';
 import KitInputWrapper from '../Input/InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
+import {faCircleXmark, faCalendar, faClock} from '@fortawesome/free-regular-svg-icons';
 
 const StyledDatePicker = styled.div<IStyledDatePicker>`
     .ant-picker {
@@ -138,8 +138,22 @@ const StyledDatePicker = styled.div<IStyledDatePicker>`
     }
 `;
 
-const KitDatePicker: FunctionComponent<IKitDatePicker> = ({label, helper, allowClear = true, ...datePickerProps}) => {
+const KitDatePicker: FunctionComponent<IKitDatePicker> = ({
+    label,
+    helper,
+    suffixIcon,
+    picker = 'date',
+    allowClear = true,
+    ...datePickerProps
+}) => {
     const {theme} = useKitTheme();
+
+    const _getSuffixIcon = () => {
+        if (picker === 'time') {
+            return <FontAwesomeIcon icon={faClock} />;
+        }
+        return <FontAwesomeIcon icon={faCalendar} />;
+    };
 
     return (
         <KitInputWrapper
@@ -151,6 +165,8 @@ const KitDatePicker: FunctionComponent<IKitDatePicker> = ({label, helper, allowC
             <StyledDatePicker $theme={theme.components.DatePicker}>
                 <AntdDatePicker
                     {...datePickerProps}
+                    picker={picker}
+                    suffixIcon={suffixIcon ?? _getSuffixIcon()}
                     allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : false}
                 />
             </StyledDatePicker>

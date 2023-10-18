@@ -5,7 +5,7 @@ import {KitTypography, KitIcon} from '@kit/General';
 import {useKitTheme} from '@theme/theme-context';
 import {IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
+import {faXmark} from '@fortawesome/free-solid-svg-icons';
 
 const StyledMenu = styled.div<{$theme: IKitMenuTheme}>`
     padding: 16px 19px;
@@ -99,7 +99,7 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
             isClosable && (
                 <KitIcon
                     className="kit-menu-header-close"
-                    icon={<FontAwesomeIcon icon={faCircleXmark} />}
+                    icon={<FontAwesomeIcon icon={faXmark} />}
                     onClick={() => onCloseClick()}
                 />
             )

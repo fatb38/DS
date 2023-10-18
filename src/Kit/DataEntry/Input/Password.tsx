@@ -1,11 +1,11 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, useState} from 'react';
 import {Input as AntdInput} from 'antd';
 import {IKitPassword, IStyledAntdPassword} from './types';
 import {styled} from 'styled-components';
 import KitInputWrapper from './InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
+import {faCircleXmark, faEye, faEyeSlash} from '@fortawesome/free-regular-svg-icons';
 
 const StyledAntdPassword = styled(AntdInput.Password)<IStyledAntdPassword>`
     &.ant-input-affix-wrapper {
@@ -167,8 +167,22 @@ const StyledAntdPassword = styled(AntdInput.Password)<IStyledAntdPassword>`
     }
 `;
 
-const KitPassword: FunctionComponent<IKitPassword> = ({label, helper, allowClear = true, ...passwordProps}) => {
+const KitPassword: FunctionComponent<IKitPassword> = ({
+    label,
+    helper,
+    visibilityToggle,
+    iconRender,
+    allowClear = true,
+    ...passwordProps
+}) => {
     const {theme} = useKitTheme();
+
+    const _getIconRender = (passwordVisible: boolean) => {
+        if (passwordVisible) {
+            return <FontAwesomeIcon icon={faEye} />;
+        }
+        return <FontAwesomeIcon icon={faEyeSlash} />;
+    };
 
     return (
         <KitInputWrapper label={label} helper={helper} disabled={passwordProps.disabled} status={passwordProps.status}>
@@ -176,6 +190,7 @@ const KitPassword: FunctionComponent<IKitPassword> = ({label, helper, allowClear
                 $theme={theme.components.Input.Password}
                 {...passwordProps}
                 allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
+                iconRender={iconRender ?? _getIconRender}
             />
         </KitInputWrapper>
     );

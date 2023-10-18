@@ -21,7 +21,6 @@ export const NotificationStyle = createGlobalStyle<IStyledKitNotification>`
     .ant-notification {
         .ant-notification-notice-content .ant-notification-notice-with-icon .ant-notification-notice-icon {
             font-size: 16px;
-            margin-top: 10px;
         }
 
         .ant-notification-notice {

@@ -9,7 +9,7 @@ import {KitTag} from '@kit/DataEntry/';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
-import {faCheck, faCircleNotch} from '@fortawesome/free-solid-svg-icons';
+import {faCheck, faCircleNotch, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 
 const _getOptionLabel = (props, theme) => (
     <div className="kit-select-option">
@@ -140,7 +140,13 @@ export const KitSelect: FunctionComponent<IKitSelect> = ({
                 popupClassName={_getDropdownClasses()}
                 options={internalOptions}
                 menuItemSelectedIcon={<KitIcon icon={<FontAwesomeIcon icon={faCheck} />} on />}
-                suffixIcon={!props.loading ? <FontAwesomeIcon icon={faCircleNotch} spin /> : undefined}
+                suffixIcon={
+                    props.loading ? (
+                        <FontAwesomeIcon icon={faCircleNotch} spin />
+                    ) : (
+                        <FontAwesomeIcon icon={faChevronDown} />
+                    )
+                }
                 allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
                 dropdownRender={_dropDownRenderer}
                 tagRender={props.mode ? _tagRender : undefined}
