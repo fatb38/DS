@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import {IRow} from './types';
 
 const StyledRow = styled.tr`
+    &:not(.visible) {
+        visibility: collapse;
+    }
+
     td {
         color: #2e3438;
         font-size: 13px;
@@ -53,7 +57,7 @@ const StyledColor = styled.div`
     }
 `;
 
-const Row: FunctionComponent<IRow> = ({level, _value, _type, _label, _description, _path}) => {
+const Row: FunctionComponent<IRow> = ({level, _value, _type, _label, _description, _path, visible}) => {
     const _getFormattedValue = () => {
         switch (_type) {
             case 'color':
@@ -69,7 +73,7 @@ const Row: FunctionComponent<IRow> = ({level, _value, _type, _label, _descriptio
     };
 
     return (
-        <StyledRow>
+        <StyledRow className={`sb-unstyled ${visible ? 'visible' : ''}`}>
             <td style={{paddingLeft: `${(3 + level) * 0.5}rem`}}>
                 <div>
                     <b>{_label}</b>

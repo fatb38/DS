@@ -5,7 +5,7 @@ import {EditorContext} from '../Context';
 import {CollapseExpandObject, IEditorContext, IField, IItem, IToken, getItemsType} from '../types';
 import {getThemeData, getValue} from '../util';
 
-const Tokens: FunctionComponent<IToken> = ({path, addResetFunction, onResetSection}) => {
+const Tokens: FunctionComponent<IToken> = ({path, level, onTokenChanged, addResetFunction, onResetSection}) => {
     const {fields, defaultTheme: theme} = useContext<IEditorContext>(EditorContext);
     const ref = useRef<CollapseExpandObject[]>([]);
     const themeData = getThemeData(theme, path);
@@ -33,6 +33,7 @@ const Tokens: FunctionComponent<IToken> = ({path, addResetFunction, onResetSecti
                     key={`${item._label} ${item._path}`}
                     {...(item as unknown as IField)}
                     level={level}
+                    onTokenChanged={onTokenChanged}
                     addResetFunction={addResetFunction}
                 />
             );
@@ -80,7 +81,7 @@ const Tokens: FunctionComponent<IToken> = ({path, addResetFunction, onResetSecti
                     <StyledLinkButton onClick={_handleCollapseAll}>Collapse all</StyledLinkButton>
                 </div>
             </StyledSection>
-            {_getItems(node as IItem, Object.keys(themeData ?? {})[0], 1, themeData, true)}
+            {_getItems(node as IItem, Object.keys(themeData ?? {})[0], 1 + (level ?? 0), themeData, true)}
         </>
     );
 };

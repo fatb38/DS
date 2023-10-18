@@ -1,72 +1,47 @@
-import React, {FunctionComponent, useContext, useRef, useState} from 'react';
+import React, {FunctionComponent, useContext, useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import {StyledToggle} from '../../CustomCanvas';
 import Tokens from './Tokens';
-import {DownCircleOutlined, RightCircleOutlined} from '@ant-design/icons';
 import {EditorContext} from '../Context';
 import {IComponentBlock, IEditorContext} from '../types';
+import {AccessibilityContext} from '../../Accessibility/AccessibilityProvider';
+import {A11YPanel} from '../../Accessibility/A11YPanel';
+import Header from './Header';
+import Icon from './Icon';
 
-const StyledCanvas = styled.div<{
+export const StyledComponentWrapper = styled.div<{
     $isOpen: boolean;
+    $container?: boolean;
 }>`
     position: relative;
     overflow: hidden;
-    margin: 15px 0 0px;
     border-radius: 4px;
     background: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
     border: 1px solid hsla(203, 50%, 30%, 0.15);
 
-    &:last-child {
-        margin-bottom: 4rem;
-    }
-
-    .title {
-        font-family:
-            'Nunito Sans',
-            -apple-system,
-            '.SFNSText-Regular',
-            'San Francisco',
-            BlinkMacSystemFont,
-            'Segoe UI',
-            'Helvetica Neue',
-            Helvetica,
-            Arial,
-            sans-serif;
-        cursor: pointer;
-        border-bottom: ${({$isOpen}) => ($isOpen ? '1px solid hsla(203, 50%, 30%, 0.15)' : 'none')};
-        padding: 0.5rem 1rem;
-        background: #f6f9fc;
-        display: flex;
-
-        .title-text {
-            flex: 1;
-        }
-
-        .title-reset {
-            flex: 0;
-            white-space: nowrap;
-            color: #1677ff;
-            font-size: 0.8rem;
-            align-self: center;
-        }
-
-        .anticon {
-            margin-right: 1rem;
-        }
+    & & {
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
     }
 
     .content {
-        padding: 1rem;
+        padding: 1rem 1rem 2rem 1rem;
         position: relative;
         box-sizing: border-box;
         min-height: 300px;
+        border-bottom: 1px solid hsla(203, 50%, 30%, 0.15);
 
         &.tokensOnly {
             padding: 0;
+            min-height: auto;
 
-            .tokens {
+            > .tokens {
                 width: 100%;
+                border-left: none;
+                position: relative;
+                padding: 0;
             }
         }
 
@@ -91,12 +66,18 @@ const StyledCanvas = styled.div<{
             width: 50%;
             z-index: 100;
             overflow: auto;
-            padding-bottom: 1rem;
+            padding-bottom: 2rem;
+            box-sizing: border-box;
 
             &:not(.visible) {
                 visibility: hidden;
             }
         }
+    }
+
+    &.container > .content {
+        min-height: auto;
+        border-bottom: none;
     }
 
     .empty {
@@ -125,16 +106,44 @@ const StyledCanvas = styled.div<{
     }
 `;
 
-const Component: FunctionComponent<IComponentBlock> = ({path, title, children}) => {
+const StyledA11y = styled.div`
+    border-top: 1px solid hsla(203, 50%, 30%, 0.15);
+    padding-bottom: 40px;
+    font-size: 13px;
+`;
+
+const Component: FunctionComponent<IComponentBlock> = ({path, title, level, children, showA11yToggle, container}) => {
     const {setThemeValue} = useContext<IEditorContext>(EditorContext);
     const ref = useRef<{
         [id: string]: Function;
     }>({});
     const [isOpen, setIsOpen] = useState(false);
     const [showTokens, setShowTokens] = useState(!children);
+    const [showA11y, setShowA11y] = useState(false);
+    const [isA11yValid, setIsA11yValid] = useState(true);
+    const {addItem, results, rerun, invalidate} = useContext(AccessibilityContext);
+    const testId = `themeEditor-${title}`;
+    const _level: number = level ?? 0;
 
     const _handleOpen = () => setIsOpen(!isOpen);
     const _handleToggleTokens = () => setShowTokens(!showTokens);
+    const _handleToggleA11y = () => setShowA11y(!showA11y);
+
+    const _changeA11yState = valid => {
+        if (!valid) {
+            invalidate(testId, testId);
+        }
+        setIsA11yValid(valid);
+    };
+
+    useEffect(() => {
+        if (isOpen && showA11yToggle) {
+            if (!results[testId]) {
+                addItem(testId, testId);
+            }
+            rerun(testId);
+        }
+    }, [isOpen, showA11yToggle]);
 
     const _addResetFunction = (path, resetFn) => {
         if (!ref.current) {
@@ -147,8 +156,17 @@ const Component: FunctionComponent<IComponentBlock> = ({path, title, children}) 
         if (children) {
             return (
                 <>
-                    {children}
+                    <div id={testId}>{children}</div>
                     <StyledToggle>
+                        {showA11yToggle && (
+                            <button
+                                className={`toggle-btn ${!isA11yValid ? 'invalid' : ''}`}
+                                onClick={_handleToggleA11y}
+                            >
+                                {!isA11yValid && <Icon icon="alert" />}
+                                {showA11y ? 'Hide accessibility' : 'Show accessibility'}
+                            </button>
+                        )}
                         <button className="toggle-btn" onClick={_handleToggleTokens}>
                             {showTokens ? 'Hide Tokens' : 'Show Tokens'}
                         </button>
@@ -162,37 +180,56 @@ const Component: FunctionComponent<IComponentBlock> = ({path, title, children}) 
 
     const _resetComponent = () => {
         setThemeValue(path, null);
+        _changeA11yState(false);
         Object.values(ref.current)?.forEach(resetFn => resetFn());
     };
 
     const _handleResetSection = sectionPath => {
         setThemeValue(sectionPath, null);
+        _changeA11yState(false);
         Object.keys(ref.current)?.forEach(key => key.indexOf(sectionPath) === 0 && ref.current[key]());
     };
 
+    if (container) {
+        return (
+            <StyledComponentWrapper $isOpen={isOpen} $container={true} className="container">
+                <Header title={title} level={_level} onClick={_handleOpen} collapsible collapsed={!isOpen} />
+                {isOpen && <div className={`content tokensOnly`}>{children}</div>}
+            </StyledComponentWrapper>
+        );
+    }
+
     return (
-        <StyledCanvas $isOpen={isOpen}>
-            <div className="title">
-                <span className="title-text" onClick={_handleOpen}>
-                    {isOpen && <DownCircleOutlined />}
-                    {!isOpen && <RightCircleOutlined />}
-                    {title}
-                </span>
-                <span className="title-reset">
-                    <a type="link" onClick={_resetComponent}>
-                        Reset all
-                    </a>
-                </span>
-            </div>
+        <StyledComponentWrapper $isOpen={isOpen}>
+            <Header
+                title={title}
+                level={_level}
+                onClick={_handleOpen}
+                collapsible
+                collapsed={!isOpen}
+                onReset={_resetComponent}
+                resetText="resetAll"
+            />
             {isOpen && (
                 <div className={`content ${!children ? 'tokensOnly' : ''}`}>
                     {_getContent()}
                     <div className={`tokens ${showTokens && 'visible'}`}>
-                        <Tokens path={path} addResetFunction={_addResetFunction} onResetSection={_handleResetSection} />
+                        <Tokens
+                            path={path}
+                            level={!children ? _level + 2 : 0}
+                            onTokenChanged={() => _changeA11yState(false)}
+                            addResetFunction={_addResetFunction}
+                            onResetSection={_handleResetSection}
+                        />
                     </div>
                 </div>
             )}
-        </StyledCanvas>
+            {showA11y && (
+                <StyledA11y>
+                    <A11YPanel id={testId} onChanged={_changeA11yState} />
+                </StyledA11y>
+            )}
+        </StyledComponentWrapper>
     );
 };
 

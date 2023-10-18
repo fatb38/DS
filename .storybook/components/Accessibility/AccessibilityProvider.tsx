@@ -1,41 +1,32 @@
-import React, {ReactNode, useEffect, useRef, useState} from "react";
+import React, {ReactNode, useEffect, useRef, useState} from 'react';
 import axe from 'axe-core';
 import {merge} from 'lodash';
 import {convert, themes} from '@storybook/theming';
 import {addons} from '@storybook/preview-api';
 import {HIGHLIGHT} from '@storybook/addon-highlight';
-import {
-    Status,
-    QueueItem,
-    ResultSet,
-    Results,
-    IAxeContext,
-    setAxeRunningFn,
-    setResultsFn,
-    getItemFn
-} from "./types";
-
+import {Status, QueueItem, ResultSet, Results, IAxeContext, setAxeRunningFn, setResultsFn, getItemFn} from './types';
 
 const channel = addons.getChannel();
 
 const defaultResults: ResultSet = {
     status: 'initial',
-    nodeId: "",
+    nodeId: '',
     highlighted: [],
     tab: 0,
     passes: [],
     violations: [],
-    incomplete: [],
-}
+    incomplete: []
+};
 
 const defaultContext: IAxeContext = {
     results: {},
     active: false,
     addItem: () => {},
     rerun: () => {},
+    invalidate: () => {},
     toggleHighlight: () => {},
     clearHighlights: () => {},
-    setTab: () => {},
+    setTab: () => {}
 };
 
 export const AccessibilityContext = React.createContext<IAxeContext>(defaultContext);
@@ -43,19 +34,23 @@ export const AccessibilityContext = React.createContext<IAxeContext>(defaultCont
 const colorsByType = [
     convert(themes.light).color.negative, // VIOLATION,
     convert(themes.light).color.positive, // PASS,
-    convert(themes.light).color.warning, // INCOMPLETION,
+    convert(themes.light).color.warning // INCOMPLETION,
 ];
 
-const processNextItem = async (results: Results, setResults: setResultsFn, setAxeRunning: setAxeRunningFn, getItem: getItemFn) => {
+const processNextItem = async (
+    results: Results,
+    setResults: setResultsFn,
+    setAxeRunning: setAxeRunningFn,
+    getItem: getItemFn
+) => {
     const item = getItem();
-
     if (!item) {
         setAxeRunning(false);
         return;
     }
     const {id, nodeId} = item;
 
-    if (results[id] && (results[id].status === 'initial' || results[id].status === "manual")) {
+    if (results[id] && (results[id].status === 'initial' || results[id].status === 'manual')) {
         setResults({
             ...results,
             [item.id]: {
@@ -64,13 +59,36 @@ const processNextItem = async (results: Results, setResults: setResultsFn, setAx
             }
         });
         axe.reset();
-        axe.configure({allowedOrigins: ['<unsafe_all_origins>'] });
+        axe.configure({
+            allowedOrigins: ['<unsafe_all_origins>'],
+            rules: [
+                {
+                    id: 'color-contrast-enhanced',
+                    impact: 'serious',
+                    matches: 'color-contrast-matches',
+                    excludeHidden: false,
+                    enabled: false,
+                    tags: ['cat.color', 'wcag2aaa', 'wcag146', 'ACT'],
+                    actIds: ['09o5cg'],
+                    metadata: {
+                        description:
+                            'Ensures the contrast between foreground and background colors meets WCAG 2 AAA enhanced contrast ratio thresholds',
+                        help: 'Elements must meet enhanced color contrast ratio thresholds',
+                        helpUrl:
+                            'https://dequeuniversity.com/rules/axe/4.8/color-contrast-enhanced?application=RuleDescription'
+                    },
+                    all: [],
+                    any: ['color-contrast-enhanced'],
+                    none: []
+                }
+            ]
+        });
 
-        const htmlElement = document.querySelector("#" + nodeId as string);
+        const htmlElement = document.querySelector(('#' + nodeId) as string);
 
         if (htmlElement) {
             setAxeRunning(true);
-            const axeResults = await axe.run(htmlElement, {reporter: "v2"});
+            const axeResults = await axe.run(htmlElement, {reporter: 'v2'});
             const mergedResults = {
                 ...results,
                 [id]: {
@@ -101,11 +119,11 @@ const AccessibilityProvider: React.FunctionComponent<{
         axeRunning.current = isRunning;
     };
 
-    const shiftQueue = () =>  {
+    const shiftQueue = () => {
         const item = queue.current.shift();
         currentItem.current = item?.id ?? null;
         return item;
-    }
+    };
 
     useEffect(() => {
         const current = currentItem.current;
@@ -117,6 +135,18 @@ const AccessibilityProvider: React.FunctionComponent<{
         }
     }, [results]);
 
+    const invalidate = (id: string, nodeId: string) => {
+        const result = results[id] ?? defaultResults;
+        const mergedResults = merge(results, {
+            [id]: {
+                ...result,
+                nodeId,
+                status: 'invalidated'
+            }
+        });
+        setResults(mergedResults);
+    };
+
     const rerun = (id: string) => {
         if (results[id]) {
             setResults({
@@ -126,83 +156,89 @@ const AccessibilityProvider: React.FunctionComponent<{
                     status: 'manual'
                 }
             });
-            queue.current = [
-                {id, nodeId: results[id].nodeId},
-                ...queue.current
-            ];
+            queue.current = [{id, nodeId: results[id].nodeId}, ...queue.current];
         }
     };
 
     const addItem = (id: string, nodeId: string) => {
         if (!results[id]) {
-            const mergedResults = merge(
-                results,
-                {
-                    [id]: {
-                        ...defaultResults,
-                        nodeId
-                    }
+            const mergedResults = merge(results, {
+                [id]: {
+                    ...defaultResults,
+                    nodeId
                 }
-            );
+            });
             setResults(mergedResults);
             queue.current.push({id, nodeId: nodeId as unknown as axe.Selector});
         }
     };
 
-    const handleToggleHighlight = React.useCallback((id: string, target: string[], highlight: boolean) => {
-        let highlighted: string[] = [];
-        let activeTab: number = 0;
+    const handleToggleHighlight = React.useCallback(
+        (id: string, target: string[], highlight: boolean) => {
+            let highlighted: string[] = [];
+            let activeTab: number = 0;
 
-        setResults((prevResults) => {
-            highlighted = highlight
-                ? [...prevResults[id].highlighted, ...target]
-                : prevResults[id].highlighted.filter((t) => !target.includes(t));
-            activeTab = prevResults[id].tab;
-            return {
+            setResults(prevResults => {
+                highlighted = highlight
+                    ? [...prevResults[id].highlighted, ...target]
+                    : prevResults[id].highlighted.filter(t => !target.includes(t));
+                activeTab = prevResults[id].tab;
+                return {
+                    ...results,
+                    [id]: {
+                        ...results[id],
+                        highlighted
+                    }
+                };
+            });
+            channel.emit(HIGHLIGHT, {elements: highlighted, color: colorsByType[activeTab]});
+        },
+        [results, setResults]
+    );
+
+    const handleClearHighlights = React.useCallback(
+        (id: string) => {
+            setResults({
                 ...results,
                 [id]: {
                     ...results[id],
-                    highlighted
+                    highlighted: []
                 }
-            };
-        });
-        channel.emit(HIGHLIGHT, {elements: highlighted, color: colorsByType[activeTab] });
-      }, [results, setResults]);
+            });
+        },
+        [results, setResults]
+    );
 
-    const handleClearHighlights = React.useCallback((id: string) => {
-        setResults({
-            ...results,
-            [id]: {
-                ...results[id],
-                highlighted: []
-            }
-        });
-    }, [results, setResults]);
+    const handleSetTab = React.useCallback(
+        (id: string, index: number) => {
+            setResults({
+                ...results,
+                [id]: {
+                    ...results[id],
+                    tab: index,
+                    highlighted: []
+                }
+            });
+        },
+        [results, setResults]
+    );
 
-
-
-    const handleSetTab = React.useCallback((id: string, index: number) => {
-        setResults({
-            ...results,
-            [id]: {
-                ...results[id],
-                tab: index,
-                highlighted: []
-            }
-        });
-    }, [results, setResults]);
-
-    return <AccessibilityContext.Provider value={{
-        results: {...results},
-        active: !!active,
-        addItem,
-        rerun,
-        setTab: handleSetTab,
-        toggleHighlight: handleToggleHighlight,
-        clearHighlights: handleClearHighlights,
-    }}>
-        {children}
-    </AccessibilityContext.Provider>
+    return (
+        <AccessibilityContext.Provider
+            value={{
+                results: {...results},
+                active: !!active,
+                addItem,
+                rerun,
+                invalidate,
+                setTab: handleSetTab,
+                toggleHighlight: handleToggleHighlight,
+                clearHighlights: handleClearHighlights
+            }}
+        >
+            {children}
+        </AccessibilityContext.Provider>
+    );
 };
 
 export default AccessibilityProvider;

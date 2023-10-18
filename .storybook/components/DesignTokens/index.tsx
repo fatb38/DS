@@ -125,7 +125,7 @@ const TokensList: FunctionComponent<ITokensList> = ({path, tokens}) => {
 
         if (properties.length === 0) {
             node._value = value;
-            return <Row key={`${node._label} ${node._path}`} {...node} level={level} />;
+            return <Row key={`${node._label} ${node._path}`} {...node} level={level} visible={childrenOnly} />;
         }
 
         if (childrenOnly) {
@@ -141,7 +141,7 @@ const TokensList: FunctionComponent<ITokensList> = ({path, tokens}) => {
             );
         }
         return (
-            <SectionRow key={`${node._label} ${node._path}`} title={node._label} level={level}>
+            <SectionRow key={`${node._label} ${node._path}`} title={node._label} level={level} visible>
                 {properties
                     .filter(property => !(node[property] as IItem)._type)
                     .map(property => _getItems(node[property] as IItem, property, level + 1, value, false))}

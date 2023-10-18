@@ -25,6 +25,9 @@ export interface IComponentBlock {
     children?: ReactNode;
     title: string;
     path: string;
+    showA11yToggle: boolean;
+    container?: boolean;
+    level?: number;
 }
 
 export interface IItem {
@@ -54,6 +57,7 @@ export interface IField {
     _min?: number;
     _description?: string;
     addResetFunction?: (path: string, fn: Function) => void;
+    onTokenChanged: Function;
 }
 
 export interface ISection {
@@ -70,6 +74,8 @@ export interface IToken {
     path: string;
     addResetFunction?: (path: string, fn: Function) => void;
     onResetSection?: (path: string) => void;
+    onTokenChanged: Function;
+    level?: number;
 }
 
 export interface IThemeData {
@@ -100,4 +106,18 @@ export interface IEditorWrapper {
     components: {
         [id: string]: IComponents;
     };
+}
+
+export interface IExpandIcon {
+    icon: string;
+}
+
+export interface IHeader {
+    title: string;
+    level?: number;
+    onReset?: Function;
+    resetText?: string;
+    collapsible?: boolean;
+    collapsed?: boolean;
+    onClick?: Function;
 }

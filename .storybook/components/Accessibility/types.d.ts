@@ -1,8 +1,8 @@
 import axe from 'axe-core';
-import type { Result } from 'axe-core';
-import { RuleType } from './A11YPanel';
+import type {Result} from 'axe-core';
+import {RuleType} from './A11YPanel';
 
-export type Status = 'initial' | 'manual' | 'running' | 'done';
+export type Status = 'initial' | 'manual' | 'running' | 'done' | 'invalidated';
 
 export type setAxeRunningFn = (isRunning: boolean) => void;
 export type setResultsFn = (results: Results) => void;
@@ -24,7 +24,7 @@ export interface ResultSet {
 }
 
 export interface Results {
-    [id: string]: ResultSet
+    [id: string]: ResultSet;
 }
 
 export interface IAxeContext {
@@ -32,6 +32,7 @@ export interface IAxeContext {
     active: boolean;
     addItem: (id: string, nodeId: string) => void;
     rerun: (id: string) => void;
+    invalidate: (id: string, nodeId: string) => void;
     toggleHighlight: (id: string, target: string[], highlight: boolean) => void;
     clearHighlights: (id: string) => void;
     setTab: (id: string, index: number) => void;

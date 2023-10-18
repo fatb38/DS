@@ -1,10 +1,10 @@
 <div align="center" className="header-block">
 
-![Aristid logo](public/images/logo.png)
+![Aristid logo](https://www.aristid.com/wp-content/uploads/2021/09/logo-aristid-bleu-2.png)
 
 ARiSTiD design system documentation.
 
-[View Demo](https://storybook.aristid.com/?path=/docs/introduction-wip--docs)
+[View Demo](https://storybook.aristid.com/?path=/docs/introduction--docs)
 ·
 [Report Bug](https://gitlab.aristid.com/dev/design-system/-/issuess)
 ·
