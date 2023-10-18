@@ -1,7 +1,7 @@
 import {EditOutlined, EllipsisOutlined, SettingOutlined} from '@ant-design/icons';
 import {KitCard} from '@kit/DataDisplay';
 import {KitSwitch} from '@kit/DataEntry';
-import {KitTypography} from '@kit/General';
+import {KitIcon, KitTypography} from '@kit/General';
 import KitLink from '@kit/General/Typography/Link';
 import {KitSpace} from '@kit/Layout';
 import React, {useState} from 'react';
@@ -167,9 +167,17 @@ export const Template = args => {
                 extra={isExtra && <KitLink href="#">More</KitLink>}
                 actions={
                     isActions && [
-                        <SettingOutlined key="setting" onClick={() => console.log('click button settings')} />,
-                        <EditOutlined key="edit" onClick={() => console.log('click button edit')} />,
-                        <EllipsisOutlined key="ellipsis" onClick={() => console.log('click button ellipsis')} />
+                        <KitIcon
+                            icon={<SettingOutlined />}
+                            key="setting"
+                            onClick={() => console.log('click button settings')}
+                        />,
+                        <KitIcon icon={<EditOutlined />} key="edit" onClick={() => console.log('click button edit')} />,
+                        <KitIcon
+                            icon={<EllipsisOutlined />}
+                            key="ellipsis"
+                            onClick={() => console.log('click button ellipsis')}
+                        />
                     ]
                 }
             />
