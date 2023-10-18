@@ -1,6 +1,6 @@
 <div align="center" className="header-block">
+    <img src="https://www.aristid.com/wp-content/uploads/2021/09/logo-aristid-bleu-2.png" height="100px" alt="Aristid logo" />
 
-![Aristid logo](https://www.aristid.com/wp-content/uploads/2021/09/logo-aristid-bleu-2.png)
 
 ARiSTiD design system documentation.
 
