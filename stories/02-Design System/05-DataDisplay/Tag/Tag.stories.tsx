@@ -4,7 +4,7 @@ import {argTypes, Template} from './data';
 
 const meta: Meta<typeof KitTag> = {
     component: KitTag,
-    title: 'Design System/DataEntry/Tag',
+    title: 'Design System/DataDisplay/Tag',
     argTypes: argTypes
 };
 

@@ -4,7 +4,6 @@ export {KitInputNumber} from './InputNumber';
 export {KitRadio} from './Radio';
 export {KitRate} from './Rate';
 export {KitSelect} from './Select';
-export {KitTag} from './Tag';
 export {KitSwitch} from './Switch';
 export {KitDatePicker} from './DatePicker';
 export {KitAutoComplete} from './AutoComplete';

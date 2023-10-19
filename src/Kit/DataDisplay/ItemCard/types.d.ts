@@ -1,5 +1,5 @@
 import {KitHTMLAttributes} from '../../../types';
-import {IKitTag} from '../../DataEntry/Tag/types';
+import {IKitTag} from '../Tag/types';
 import {ReactNode, MouseEvent} from 'react';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {IKitItemCardTheme} from '@theme/types/components/DataDisplay/ItemCard';
