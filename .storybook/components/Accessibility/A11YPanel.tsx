@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useMemo} from 'react';
+import React, {FunctionComponent, useCallback, useContext, useEffect, useMemo} from 'react';
 import {styled} from '@storybook/theming';
 import {ActionBar, Icons, ScrollArea} from '@storybook/components';
 import {Report} from './Report';
@@ -46,7 +46,7 @@ const Centered = styled.span`
     }
 `;
 
-export const A11YPanel: React.FunctionComponent<{
+export const A11YPanel: FunctionComponent<{
     id: string;
     onChanged: Function;
 }> = ({id, onChanged}) => {
@@ -65,7 +65,7 @@ export const A11YPanel: React.FunctionComponent<{
         () => [
             {
                 title:
-                    resultSet && resultSet.status === 'done' ? (
+                    resultSet?.status === 'done' ? (
                         'Rerun tests'
                     ) : (
                         <>
@@ -122,33 +122,37 @@ export const A11YPanel: React.FunctionComponent<{
         }
     }, [resultSet.status]);
 
-    return (
-        <>
-            {(!resultSet || resultSet.status === 'initial') && <Centered>Initializing...</Centered>}
-            {resultSet && resultSet.status === 'invalidated' && (
+    switch (resultSet?.status) {
+        case 'invalidated':
+            return (
                 <Centered>
                     <a onClick={handleManual}>Click here to rerun tests...</a>
                 </Centered>
-            )}
-            {resultSet && resultSet.status === 'manual' && (
+            );
+        case 'manual':
+            return (
                 <>
                     <Centered>Manually run the accessibility scan.</Centered>
                     <ActionBar key="actionbar" actionItems={manualActionItems} />
                 </>
-            )}
-            {resultSet && resultSet.status === 'running' && (
+            );
+        case 'running':
+            return (
                 <Centered>
                     <RotatingIcon icon="sync" /> Please wait while the accessibility scan is running ...
                 </Centered>
-            )}
-            {resultSet && resultSet.status === 'done' && (
+            );
+        case 'done':
+            return (
                 <>
                     <ScrollArea vertical horizontal>
                         <Tabs id={id} key="tabs" tabs={tabs} />
                     </ScrollArea>
                     <ActionBar key="actionbar" actionItems={readyActionItems} />
                 </>
-            )}
-        </>
-    );
+            );
+        case 'initial':
+        default:
+            return <Centered>Initializing...</Centered>;
+    }
 };

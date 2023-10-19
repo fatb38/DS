@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {FunctionComponent, SyntheticEvent, useCallback, useContext} from 'react';
 import {styled} from '@storybook/theming';
 import type {NodeResult, Result} from 'axe-core';
 import {useResizeDetector} from 'react-resize-detector';
@@ -85,18 +85,18 @@ function retrieveAllNodesFromResults(items: Result[]): NodeResult[] {
     return items.reduce((acc, item) => acc.concat(item.nodes), [] as NodeResult[]);
 }
 
-export const Tabs: React.FunctionComponent<TabsProps> = ({id, tabs}) => {
+export const Tabs: FunctionComponent<TabsProps> = ({id, tabs}) => {
     const {ref, width} = useResizeDetector({
         refreshMode: 'debounce',
         handleHeight: false,
         handleWidth: true
     });
-    const {results, setTab} = React.useContext(AccessibilityContext);
+    const {results, setTab} = useContext(AccessibilityContext);
     const resultSet = results[id];
     const activeTab = resultSet?.tab;
 
-    const handleToggle = React.useCallback(
-        (event: React.SyntheticEvent) => {
+    const handleToggle = useCallback(
+        (event: SyntheticEvent) => {
             setTab(id, parseInt(event.currentTarget.getAttribute('data-index') ?? '', 10));
         },
         [setTab, id]
@@ -116,7 +116,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({id, tabs}) => {
                     ))}
                 </TabsWrapper>
             </List>
-            {tabs[activeTab].items.length > 0 ? (
+            {tabs[activeTab].items.length > 0 && (
                 <GlobalToggle elementWidth={width ?? 451}>
                     <HighlightToggleLabel htmlFor={highlightToggleId}>{highlightLabel}</HighlightToggleLabel>
                     <HighlightToggle
@@ -125,7 +125,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({id, tabs}) => {
                         elementsToHighlight={retrieveAllNodesFromResults(tabs[activeTab].items)}
                     />
                 </GlobalToggle>
-            ) : null}
+            )}
             {tabs[activeTab].panel}
         </Container>
     );

@@ -204,7 +204,6 @@ const ImagePreview = props => {
     });
 
     return (
-        // <div className={previewClassName}>
         <StyledImagePreview className={previewClassName}>
             {imagesList.map((_, index) => {
                 if (!comparable && index !== 0) {

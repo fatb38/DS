@@ -1,4 +1,4 @@
-import React, {ReactNode, useEffect, useRef, useState} from 'react';
+import React, {FunctionComponent, ReactNode, createContext, useCallback, useEffect, useRef, useState} from 'react';
 import axe from 'axe-core';
 import {merge} from 'lodash';
 import {convert, themes} from '@storybook/theming';
@@ -29,7 +29,7 @@ const defaultContext: IAxeContext = {
     setTab: () => {}
 };
 
-export const AccessibilityContext = React.createContext<IAxeContext>(defaultContext);
+export const AccessibilityContext = createContext<IAxeContext>(defaultContext);
 
 const colorsByType = [
     convert(themes.light).color.negative, // VIOLATION,
@@ -106,7 +106,7 @@ const processNextItem = async (
     }
 };
 
-const AccessibilityProvider: React.FunctionComponent<{
+const AccessibilityProvider: FunctionComponent<{
     children: ReactNode;
     active?: boolean;
 }> = ({children, active}) => {
@@ -173,7 +173,7 @@ const AccessibilityProvider: React.FunctionComponent<{
         }
     };
 
-    const handleToggleHighlight = React.useCallback(
+    const handleToggleHighlight = useCallback(
         (id: string, target: string[], highlight: boolean) => {
             let highlighted: string[] = [];
             let activeTab: number = 0;
@@ -196,7 +196,7 @@ const AccessibilityProvider: React.FunctionComponent<{
         [results, setResults]
     );
 
-    const handleClearHighlights = React.useCallback(
+    const handleClearHighlights = useCallback(
         (id: string) => {
             setResults({
                 ...results,
@@ -209,7 +209,7 @@ const AccessibilityProvider: React.FunctionComponent<{
         [results, setResults]
     );
 
-    const handleSetTab = React.useCallback(
+    const handleSetTab = useCallback(
         (id: string, index: number) => {
             setResults({
                 ...results,

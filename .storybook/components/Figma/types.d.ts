@@ -12,6 +12,7 @@ export type Remote<T, E = Error> =
       };
 
 export type ApiResponse = {
+    status: number;
     images: {
         [id: string]: string;
     };
@@ -29,4 +30,5 @@ export interface IFigmaImage {
     description?: string;
     title?: string;
     setAccessToken: Function;
+    _FIGMA_ACCESS_TOKEN: string | null;
 }

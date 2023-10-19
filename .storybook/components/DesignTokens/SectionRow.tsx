@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState} from 'react';
+import React, {FunctionComponent, cloneElement, useState} from 'react';
 import styled from 'styled-components';
 import {Icons} from '@storybook/components';
 import {ISection} from './types';
@@ -38,7 +38,7 @@ const SectionRow: FunctionComponent<ISection> = ({title, level, children, visibl
     const icon = expanded ? 'arrowdown' : 'arrowright';
 
     const _children = toArray(children).map(child => {
-        return React.cloneElement(child, {
+        return cloneElement(child, {
             visible: visible && expanded
         });
     });
