@@ -1,18 +1,20 @@
 import React from 'react';
 import {KitBreadcrumb} from '@kit/Navigation';
-import {HomeOutlined, UserOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faHouse} from '@fortawesome/free-solid-svg-icons';
+import {faUser} from '@fortawesome/free-regular-svg-icons';
 
 const items = [
     {
         href: '',
-        title: <HomeOutlined />
+        title: <FontAwesomeIcon icon={faHouse} />
     },
     {
         href: '',
         title: (
             <>
-                <UserOutlined />
-                <span>Application List</span>
+                <FontAwesomeIcon icon={faUser} />
+                <span style={{marginLeft: '6px'}}>Application List</span>
             </>
         )
     },

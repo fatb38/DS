@@ -50,27 +50,28 @@ ItemMenu can display up to two actions. If there is more it will display a `Drop
 Exemple of how `actions` property must be set :
 
 ```tsx
-import { HomeOutlined, PlusOutlined, MinusOutlined, PercentageOutlined } from "@ant-design/icons";
+import {faPlus, faMinus, faPercent, faHouse} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const actions = [
     {
-        icon: PlusOutlined,
+        icon: <FontAwesomeIcon icon={faPlus}/>,
         label: "Add",
         onClick: () => console.log("on click add"),
     },
     {
-        icon: MinusOutlined,
+        icon: <FontAwesomeIcon icon={faMinus}/>,
         label: "Subtract",
         onClick: () => console.log("on click subtract"),
     },
     {
-        icon: PercentageOutlined,
+        icon: <FontAwesomeIcon icon={faPercent}/>,
         label: "Percent",
         onClick: () => console.log("on click percent"),
     },
 ];
 
-<KitMenu.Item title={"Item menu"} icon={HomeOutlined} actions={actions} />
+<KitMenu.Item title={"Item menu"} icon={<FontAwesomeIcon icon={faHouse} />} actions={actions} />
 ```
 
 ##### Value

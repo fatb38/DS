@@ -1,7 +1,9 @@
 import React from 'react';
 import {KitDatePicker, KitInput, KitInputNumber, KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
-import {CheckCircleOutlined, LoginOutlined, SearchOutlined, UserOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleCheck, faUser} from '@fortawesome/free-regular-svg-icons';
+import {faMagnifyingGlass, faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons';
 import {IEditorTemplate} from '../../../types';
 
 const components = ['Input', 'TextArea', 'Password'];
@@ -289,9 +291,9 @@ export const argTypes = {
 export const getIcon = icon => {
     switch (icon) {
         case 'SearchOutlined':
-            return <SearchOutlined />;
+            return <FontAwesomeIcon icon={faMagnifyingGlass} />;
         case 'CheckCircleOutlined':
-            return <CheckCircleOutlined />;
+            return <FontAwesomeIcon icon={faCircleCheck} />;
         case '':
         default:
             return null;
@@ -325,14 +327,14 @@ export const EditorTemplate: IEditorTemplate = () => {
 
     const inputProps = {
         placeholder: 'Placeholder',
-        prefix: <UserOutlined />,
-        suffix: <SearchOutlined />,
+        prefix: <FontAwesomeIcon icon={faUser} />,
+        suffix: <FontAwesomeIcon icon={faMagnifyingGlass} />,
         showCount: true
     };
 
     const passwordProps = {
         placeholder: 'Password',
-        prefix: <LoginOutlined />,
+        prefix: <FontAwesomeIcon icon={faArrowRightToBracket} />,
         showCount: true
     };
 

@@ -1,22 +1,23 @@
 import React from 'react';
 import {KitAvatar} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
-import {UserOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUser} from '@fortawesome/free-regular-svg-icons';
 
 const App = () => {
     return (
         <KitSpace direction="vertical" size={16}>
             <KitSpace wrap size={16}>
-                <KitAvatar size="small" icon={<UserOutlined />} />
-                <KitAvatar icon={<UserOutlined />} />
-                <KitAvatar size="large" icon={<UserOutlined />} />
-                <KitAvatar size={64} icon={<UserOutlined />} />
+                <KitAvatar size="small" icon={<FontAwesomeIcon icon={faUser} />} />
+                <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} />
+                <KitAvatar size="large" icon={<FontAwesomeIcon icon={faUser} />} />
+                <KitAvatar size={64} icon={<FontAwesomeIcon icon={faUser} />} />
             </KitSpace>
             <KitSpace wrap size={16}>
-                <KitAvatar shape="square" size="small" icon={<UserOutlined />} />
-                <KitAvatar shape="square" icon={<UserOutlined />} />
-                <KitAvatar shape="square" size="large" icon={<UserOutlined />} />
-                <KitAvatar shape="square" size={64} icon={<UserOutlined />} />
+                <KitAvatar shape="square" size="small" icon={<FontAwesomeIcon icon={faUser} />} />
+                <KitAvatar shape="square" icon={<FontAwesomeIcon icon={faUser} />} />
+                <KitAvatar shape="square" size="large" icon={<FontAwesomeIcon icon={faUser} />} />
+                <KitAvatar shape="square" size={64} icon={<FontAwesomeIcon icon={faUser} />} />
             </KitSpace>
         </KitSpace>
     );

@@ -1,10 +1,12 @@
 import React, {Key, createContext, useContext} from 'react';
-import {CheckCircleOutlined, CloseCircleOutlined, ExclamationCircleOutlined, WarningOutlined} from '@ant-design/icons';
 import {KitIcon} from '@kit/General/Icon';
 import notification from 'antd/lib/notification';
 import {NotificationInstance} from 'antd/lib/notification/interface';
 import {IKitNotification, IKitNotificationArgs, IKitNotificationContext} from './types';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faExclamation, faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
+import {faCircleCheck, faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 
 const KitNotificationContext = createContext<IKitNotificationContext | undefined>(undefined);
 
@@ -41,7 +43,7 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
                         color: theme.colors.icon.error,
                         backgroundColor: theme.colors.icon.background.error
                     }}
-                    icon={<CloseCircleOutlined />}
+                    icon={<FontAwesomeIcon icon={faCircleXmark} />}
                     on
                 />
             )
@@ -56,7 +58,7 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
                         color: theme.colors.icon.warning,
                         backgroundColor: theme.colors.icon.background.warning
                     }}
-                    icon={<WarningOutlined />}
+                    icon={<FontAwesomeIcon icon={faTriangleExclamation} />}
                     on
                 />
             )
@@ -71,7 +73,7 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
                         color: theme.colors.icon.success,
                         backgroundColor: theme.colors.icon.background.success
                     }}
-                    icon={<CheckCircleOutlined />}
+                    icon={<FontAwesomeIcon icon={faCircleCheck} />}
                     on
                 />
             )
@@ -86,7 +88,7 @@ const useKitNotificationProvider = (api: NotificationInstance) => {
                         color: theme.colors.icon.info,
                         backgroundColor: theme.colors.icon.background.info
                     }}
-                    icon={<ExclamationCircleOutlined />}
+                    icon={<FontAwesomeIcon icon={faExclamation} />}
                     on
                 />
             )

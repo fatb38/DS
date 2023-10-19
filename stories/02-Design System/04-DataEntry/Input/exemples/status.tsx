@@ -1,7 +1,9 @@
 import React from 'react';
 import {KitInput} from '@kit/DataEntry/';
 import {KitDivider, KitSpace} from '@kit/Layout/';
-import {UserOutlined, SearchOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUser} from '@fortawesome/free-regular-svg-icons';
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     return (
@@ -14,24 +16,32 @@ const App = () => {
             <KitDivider orientation="left">Input with prefix and/or suffix</KitDivider>
             <KitSpace>
                 <KitSpace direction="vertical">
-                    <KitInput placeholder="Prefix & warning" prefix={<UserOutlined />} status="warning" />
-                    <KitInput placeholder="Prefix & error" prefix={<UserOutlined />} status="error" />
+                    <KitInput
+                        placeholder="Prefix & warning"
+                        prefix={<FontAwesomeIcon icon={faUser} />}
+                        status="warning"
+                    />
+                    <KitInput placeholder="Prefix & error" prefix={<FontAwesomeIcon icon={faUser} />} status="error" />
                 </KitSpace>
                 <KitSpace direction="vertical">
-                    <KitInput placeholder="Suffix & warning" suffix={<UserOutlined />} status="warning" />
-                    <KitInput placeholder="Suffix & error" suffix={<UserOutlined />} status="error" />
+                    <KitInput
+                        placeholder="Suffix & warning"
+                        suffix={<FontAwesomeIcon icon={faUser} />}
+                        status="warning"
+                    />
+                    <KitInput placeholder="Suffix & error" suffix={<FontAwesomeIcon icon={faUser} />} status="error" />
                 </KitSpace>
                 <KitSpace direction="vertical">
                     <KitInput
                         placeholder="Prefix & Suffix & warning"
-                        prefix={<SearchOutlined />}
-                        suffix={<UserOutlined />}
+                        prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />}
+                        suffix={<FontAwesomeIcon icon={faUser} />}
                         status="warning"
                     />
                     <KitInput
                         placeholder="Prefix & Suffix & error"
-                        prefix={<SearchOutlined />}
-                        suffix={<UserOutlined />}
+                        prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />}
+                        suffix={<FontAwesomeIcon icon={faUser} />}
                         status="error"
                     />
                 </KitSpace>
@@ -48,8 +58,8 @@ const App = () => {
                     <KitInput.Password status="error" />
                 </KitSpace>
                 <KitSpace direction="vertical">
-                    <KitInput.Password prefix={<UserOutlined />} status="warning" />
-                    <KitInput.Password prefix={<UserOutlined />} status="error" />
+                    <KitInput.Password prefix={<FontAwesomeIcon icon={faUser} />} status="warning" />
+                    <KitInput.Password prefix={<FontAwesomeIcon icon={faUser} />} status="error" />
                 </KitSpace>
             </KitSpace>
             <KitDivider orientation="left">Input, TextArea and Password with showCount</KitDivider>

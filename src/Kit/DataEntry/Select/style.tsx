@@ -319,7 +319,7 @@ export const StyledKitSelect = styled(AntdSelect)<IStyledKitSelect>`
         .ant-select-arrow {
             grid-area: arrow;
             position: relative;
-            top: 48%;
+            top: 49%;
             color: ${({$theme}) => $theme.colors.icon.arrow.default};
             inset-inline-end: 0;
         }

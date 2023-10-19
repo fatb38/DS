@@ -2,9 +2,10 @@ import React, {FunctionComponent} from 'react';
 import {DatePicker as AntdDatePicker} from 'antd';
 import {IStyledRangePicker, IKitRangePicker} from './types';
 import styled from 'styled-components';
-import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from '../Input/InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleXmark, faClock, faCalendar} from '@fortawesome/free-regular-svg-icons';
 
 export const StyledRangePicker = styled.div<IStyledRangePicker>`
     .ant-picker.ant-picker-range {
@@ -175,8 +176,22 @@ export const StyledRangePicker = styled.div<IStyledRangePicker>`
     }
 `;
 
-const KitDatePicker: FunctionComponent<IKitRangePicker> = ({label, helper, allowClear = true, ...rangePickerProps}) => {
+const KitDatePicker: FunctionComponent<IKitRangePicker> = ({
+    label,
+    helper,
+    suffixIcon,
+    picker,
+    allowClear = true,
+    ...rangePickerProps
+}) => {
     const {theme} = useKitTheme();
+
+    const _getSuffixIcon = () => {
+        if (picker === 'time') {
+            return <FontAwesomeIcon icon={faClock} />;
+        }
+        return <FontAwesomeIcon icon={faCalendar} />;
+    };
 
     const _isRangePickerDisabled = () => {
         if (rangePickerProps.disabled === undefined) {
@@ -200,7 +215,9 @@ const KitDatePicker: FunctionComponent<IKitRangePicker> = ({label, helper, allow
             <StyledRangePicker $theme={theme.components.DatePicker.RangePicker}>
                 <AntdDatePicker.RangePicker
                     {...rangePickerProps}
-                    allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : false}
+                    picker={picker}
+                    suffixIcon={suffixIcon ?? _getSuffixIcon()}
+                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : false}
                 />
             </StyledRangePicker>
         </KitInputWrapper>

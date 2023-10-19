@@ -19,7 +19,6 @@
     "paths": {
       "@kit/*": ["./src/Kit/*"],
       "@theme/*": ["./src/theme/*"],
-      "@icons/*": ["./src/icons/*"],
       "@translation/*": ["./src/translation/*"]
 
     },

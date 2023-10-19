@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import {KitSelect} from '@kit/DataEntry/';
 import {KitDivider, KitSpace} from '@kit/Layout/';
 import {KitButton} from '@kit/General/';
-import {DownloadOutlined, FileOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faFile} from '@fortawesome/free-regular-svg-icons';
+import {faDownload} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     const [selectedOption, setSelectedOption] = useState();
@@ -27,22 +29,22 @@ const App = () => {
     const iconOptions = [
         {
             value: 'file-1',
-            icon: <FileOutlined />,
+            icon: <FontAwesomeIcon icon={faFile} />,
             label: 'File 1'
         },
         {
             value: 'file-2',
-            icon: <FileOutlined />,
+            icon: <FontAwesomeIcon icon={faFile} />,
             label: 'File 2'
         },
         {
             value: 'file-3-1',
-            icon: <FileOutlined />,
+            icon: <FontAwesomeIcon icon={faFile} />,
             label: 'File 3.1'
         },
         {
             value: 'file-3-2',
-            icon: <FileOutlined />,
+            icon: <FontAwesomeIcon icon={faFile} />,
             label: 'File 3.2'
         }
     ];
@@ -60,7 +62,12 @@ const App = () => {
                     options={iconOptions}
                 />
                 {selectedOption && (
-                    <KitButton type="primary" icon={<DownloadOutlined />} iconSize="xl" onClick={handleClick} />
+                    <KitButton
+                        type="primary"
+                        icon={<FontAwesomeIcon icon={faDownload} />}
+                        iconSize="xl"
+                        onClick={handleClick}
+                    />
                 )}
             </KitSpace.Compact>
             <KitDivider orientation="left">Download under the select</KitDivider>
@@ -74,7 +81,7 @@ const App = () => {
                 {selectedOption2 && (
                     <KitButton
                         type="primary"
-                        icon={<DownloadOutlined />}
+                        icon={<FontAwesomeIcon icon={faDownload} />}
                         onClick={handleClick2}
                         block
                         style={{marginTop: '16px'}}

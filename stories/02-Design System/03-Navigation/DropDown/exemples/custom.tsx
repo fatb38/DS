@@ -2,8 +2,9 @@ import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 import {KitButton} from '@kit/General';
-import {DownOutlined} from '@ant-design/icons';
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 
 const items: IKitDropdownMenu['items'] = [
     {
@@ -41,7 +42,7 @@ const App = () => {
             <KitDropDown menu={{items}} dropdownRender={customRender}>
                 <a onClick={e => e.preventDefault()}>
                     <KitButton type="link">
-                        Hover me <DownOutlined />
+                        Hover me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
                     </KitButton>
                 </a>
             </KitDropDown>

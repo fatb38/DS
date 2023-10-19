@@ -3,6 +3,8 @@ import {Rate as AntdRate} from 'antd';
 import {IStyledRate, IKitRate} from './types';
 import styled, {css} from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faStar} from '@fortawesome/free-solid-svg-icons';
 
 const StyledRate = styled(AntdRate)<IStyledRate>`
     ${({$color, $theme}) => {
@@ -73,13 +75,19 @@ const StyledRate = styled(AntdRate)<IStyledRate>`
     }
 `;
 
-export const KitRate: FunctionComponent<IKitRate> = ({color = 'default', disabledStarTransparency, ...rateProps}) => {
+export const KitRate: FunctionComponent<IKitRate> = ({
+    color = 'default',
+    disabledStarTransparency,
+    character,
+    ...rateProps
+}) => {
     const {theme} = useKitTheme();
 
     return (
         <StyledRate
             $theme={theme.components.Rate}
             $color={color}
+            character={character ?? <FontAwesomeIcon icon={faStar} />}
             $disabledStarTransparency={disabledStarTransparency ?? theme.general.colors.neutral.white}
             {...rateProps}
         />

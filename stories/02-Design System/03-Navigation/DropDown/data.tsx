@@ -4,7 +4,8 @@ import {KitDropDown} from '@kit/Navigation/';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
-import {DownOutlined} from '@ant-design/icons';
+import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 export const items = [
     {
@@ -390,22 +391,22 @@ export const EditorTemplate: IEditorTemplate = () => {
         <KitSpace size="m">
             <KitDropDown menu={{items}}>
                 <KitButton type="link">
-                    Basic <DownOutlined />
+                    Basic <FontAwesomeIcon icon={faAngleDown} />
                 </KitButton>
             </KitDropDown>
             <KitDropDown menu={{items, selectable: true}}>
                 <KitButton type="link">
-                    Selectable <DownOutlined />
+                    Selectable <FontAwesomeIcon icon={faAngleDown} />
                 </KitButton>
             </KitDropDown>
             <KitDropDown menu={{items: itemsDivider}}>
                 <KitButton type="link">
-                    With divider <DownOutlined />
+                    With divider <FontAwesomeIcon icon={faAngleDown} />
                 </KitButton>
             </KitDropDown>
             <KitDropDown menu={{items: itemsGroups}}>
                 <KitButton type="link">
-                    With groups <DownOutlined />
+                    With groups <FontAwesomeIcon icon={faAngleDown} />
                 </KitButton>
             </KitDropDown>
         </KitSpace>

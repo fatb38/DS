@@ -1,27 +1,28 @@
 import React from 'react';
 import {KitTree} from '@kit/DataDisplay';
-import {FileOutlined, FolderOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faFile, faFolder} from '@fortawesome/free-regular-svg-icons';
 
 const treeData = [
     {
         title: 'parent 1',
         key: '0-0',
-        icon: <FolderOutlined />,
+        icon: <FontAwesomeIcon icon={faFolder} />,
         children: [
             {
                 title: 'parent 1-0',
                 key: '0-0-0',
-                icon: <FolderOutlined />,
+                icon: <FontAwesomeIcon icon={faFolder} />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-0-0-0',
-                        icon: <FileOutlined />
+                        icon: <FontAwesomeIcon icon={faFile} />
                     },
                     {
                         title: 'leaf',
                         key: '0-0-0-1',
-                        icon: <FileOutlined />
+                        icon: <FontAwesomeIcon icon={faFile} />
                     }
                 ]
             }

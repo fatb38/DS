@@ -2,11 +2,12 @@ import React, {FunctionComponent, useContext, useEffect, useState} from 'react';
 import {KitTooltip} from '../../../../src/Kit';
 import {EditorContext} from '../Context';
 import styled, {css} from 'styled-components';
-import {QuestionCircleOutlined} from '@ant-design/icons';
 import {ColorControl} from '@storybook/blocks';
 import {useDebouncedCallback} from 'use-debounce';
 import {getValue} from '../util';
 import {IEditorContext, IField} from '../types';
+import {faCircleQuestion} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const StyledField = styled.div`
     padding: 0.5rem 0 0.25rem 0;
@@ -242,7 +243,7 @@ const Field: FunctionComponent<IField> = ({
                     <div className="label">
                         {_description && (
                             <KitTooltip title={_description}>
-                                <QuestionCircleOutlined />
+                                <FontAwesomeIcon icon={faCircleQuestion} />
                             </KitTooltip>
                         )}
                         <span>{_label}</span>

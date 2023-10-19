@@ -1,6 +1,7 @@
 import React from 'react';
 import {KitCollapse} from '@kit/DataDisplay/';
-import {ClockCircleOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faClock} from '@fortawesome/free-regular-svg-icons';
 
 const App = () => {
     const text = `
@@ -14,7 +15,7 @@ const App = () => {
             key: '1',
             label: (
                 <KitCollapse.Header
-                    icon={<ClockCircleOutlined />}
+                    icon={<FontAwesomeIcon icon={faClock} />}
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 1"
                     description="This is a description 1"
@@ -27,7 +28,7 @@ const App = () => {
             key: '2',
             label: (
                 <KitCollapse.Header
-                    icon={<ClockCircleOutlined />}
+                    icon={<FontAwesomeIcon icon={faClock} />}
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 2"
                     description="This is a description 2"
@@ -40,7 +41,7 @@ const App = () => {
             key: '3',
             label: (
                 <KitCollapse.Header
-                    icon={<ClockCircleOutlined />}
+                    icon={<FontAwesomeIcon icon={faClock} />}
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 3"
                     description="This is a description 3"

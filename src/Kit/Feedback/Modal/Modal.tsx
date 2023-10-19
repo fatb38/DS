@@ -2,9 +2,10 @@ import React, {FunctionComponent} from 'react';
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
 import {IKitModal, IStyledKitModal, IStyledKitModalOverlay} from './types';
-import {CloseOutlined} from '@ant-design/icons';
 import {KitSpace} from '@kit/Layout/';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 
 const StyledOverlay = styled.div<IStyledKitModalOverlay>`
     &.kit-modal-overlay {
@@ -134,7 +135,9 @@ const Modal: FunctionComponent<IKitModal> = ({
         <ReactModal {...mergedProps} shouldCloseOnOverlayClick={props.showCloseIcon} onRequestClose={_onOverlayClick}>
             <StyledKitModal $theme={theme.components.Modal}>
                 <div className="kit-modal-content-wrapper">
-                    {props.showCloseIcon && <CloseOutlined className="kit-modal-close" onClick={_onOverlayClick} />}
+                    {props.showCloseIcon && (
+                        <FontAwesomeIcon icon={faCircleXmark} className="kit-modal-close" onClick={_onOverlayClick} />
+                    )}
                     <div className="kit-modal-title">{title}</div>
                     <div className="kit-modal-content">{props.children}</div>
                     {props.footer && (

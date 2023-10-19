@@ -1,9 +1,10 @@
-import {DownCircleOutlined, RightCircleOutlined} from '@ant-design/icons';
 import React, {FunctionComponent, useContext, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {IEditorContext, ISection} from '../types';
 import {EditorContext} from '../Context';
 import {getValue} from '../util';
+import {faCircleDown, faCircleRight} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 export const StyledSection = styled.div`
     cursor: pointer;
@@ -78,7 +79,7 @@ const Section: FunctionComponent<ISection> = ({
     return (
         <StyledSection>
             <div className="section-title" onClick={_handleClick} style={{paddingLeft: `${level * 0.5}rem`}}>
-                {_isOpen ? <DownCircleOutlined /> : <RightCircleOutlined />}
+                {_isOpen ? <FontAwesomeIcon icon={faCircleDown} /> : <FontAwesomeIcon icon={faCircleRight} />}
                 <div className="title-value">{title}</div>
                 {value && (
                     <a className="section-reset" onClick={_handleResetSection}>

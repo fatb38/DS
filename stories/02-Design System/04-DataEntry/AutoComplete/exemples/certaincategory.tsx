@@ -1,6 +1,7 @@
 import React from 'react';
 import {KitAutoComplete} from '@kit/DataEntry';
-import {UserOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUser} from '@fortawesome/free-regular-svg-icons';
 
 const App = () => {
     const renderTitle = title => (
@@ -28,7 +29,7 @@ const App = () => {
             >
                 {title}
                 <span>
-                    <UserOutlined /> {count}
+                    <FontAwesomeIcon icon={faUser} /> {count}
                 </span>
             </div>
         )

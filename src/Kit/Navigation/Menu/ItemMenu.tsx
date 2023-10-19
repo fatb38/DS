@@ -3,11 +3,12 @@ import {IKitMenuInfo, IStyledIemMenu, IKitItemMenu} from './types';
 import {css, styled} from 'styled-components';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTypography, KitIcon} from '@kit/General/';
-import {RightOutlined, MoreOutlined} from '@ant-design/icons';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitDropDown} from '../DropDown';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAngleRight, faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';
 
 const StyledIemMenu = styled.div<IStyledIemMenu>`
     height: 32px;
@@ -190,7 +191,6 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                             <KitTooltip title={firstAction.label}>
                                 <KitIcon
                                     icon={firstAction.icon}
-                                    hoverable
                                     onClick={e => {
                                         e.stopPropagation();
                                         firstAction.onClick(e);
@@ -202,7 +202,6 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                             <KitTooltip title={secondAction.label}>
                                 <KitIcon
                                     icon={secondAction.icon}
-                                    hoverable
                                     onClick={e => {
                                         e.stopPropagation();
                                         secondAction.onClick(e);
@@ -222,7 +221,10 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                                     }}
                                 >
                                     <KitTooltip title="More">
-                                        <KitIcon className="kit-action-more" icon={<MoreOutlined />} hoverable />
+                                        <KitIcon
+                                            className="kit-action-more"
+                                            icon={<FontAwesomeIcon icon={faEllipsisVertical} />}
+                                        />
                                     </KitTooltip>
                                 </KitDropDown>
                             </div>
@@ -275,7 +277,7 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                         onRafterClick && onRafterClick();
                     }}
                 >
-                    <RightOutlined />
+                    <FontAwesomeIcon icon={faAngleRight} />
                 </div>
             )
         );
