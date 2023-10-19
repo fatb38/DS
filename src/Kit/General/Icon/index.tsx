@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 import {css, styled} from 'styled-components';
 import {IKitIcon, IStyledKitIcon} from './types';
 import {useKitTheme} from '@theme/theme-context';
-import useSecureClick from '../../../hooks/useSecureClick';
+import useSecureClick from '@hooks/useSecureClick';
 
 const StyledKitIcon = styled.span<IStyledKitIcon>`
     color: ${({$on, $theme}) => ($on ? $theme.colors.icon.on : $theme.colors.icon.default)};

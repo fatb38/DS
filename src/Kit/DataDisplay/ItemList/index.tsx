@@ -6,7 +6,7 @@ import {KitTypography} from '@kit/General/';
 import {RightOutlined, EyeOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
 import {useKitLocale} from '@translation/locale-context';
-import useSecureClick from '../../../hooks/useSecureClick';
+import useSecureClick from '@hooks/useSecureClick';
 
 const StyledItemList = styled.div<IStyledKitItemList>`
     display: grid;

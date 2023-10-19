@@ -20,6 +20,7 @@
       "@kit/*": ["./src/Kit/*"],
       "@theme/*": ["./src/theme/*"],
       "@icons/*": ["./src/icons/*"],
+      "@hooks/*": ["./src/hooks/*"],
       "@translation/*": ["./src/translation/*"]
 
     },

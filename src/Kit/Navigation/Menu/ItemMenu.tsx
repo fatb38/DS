@@ -8,7 +8,7 @@ import {KitTooltip} from '@kit/DataDisplay/';
 import {KitDropDown} from '../DropDown';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
 import {useKitTheme} from '@theme/theme-context';
-import useSecureClick from '../../../hooks/useSecureClick';
+import useSecureClick from '@hooks/useSecureClick';
 
 const StyledIemMenu = styled.div<IStyledIemMenu>`
     height: 32px;

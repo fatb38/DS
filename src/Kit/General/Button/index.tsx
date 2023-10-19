@@ -5,7 +5,7 @@ import type {IKitButton, IStyledKitButton, KitButtonCompoundedComponent} from '.
 import {ButtonType} from 'antd/lib/button';
 import {CheckCircleFilled} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
-import useSecureClick from '../../../hooks/useSecureClick';
+import useSecureClick from '@hooks/useSecureClick';
 
 const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
     height: 40px;
