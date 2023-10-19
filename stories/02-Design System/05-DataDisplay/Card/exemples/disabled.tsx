@@ -4,7 +4,8 @@ import {KitSpace} from '@kit/Layout';
 import {KitSwitch} from '@kit/DataEntry';
 import {KitIcon, KitTypography} from '@kit/General';
 import KitLink from '@kit/General/Typography/Link';
-import {EditOutlined, EllipsisOutlined, SettingOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEllipsis, faGear, faPencil} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     const [isDisabled, setDisabled] = useState(true);
@@ -25,13 +26,17 @@ const App = () => {
                 cover={<img alt="example" src="public/images/free-copyright.jpeg" />}
                 actions={[
                     <KitIcon
-                        icon={<SettingOutlined />}
+                        icon={<FontAwesomeIcon icon={faGear} />}
                         key="setting"
                         onClick={() => console.log('click button settings')}
                     />,
-                    <KitIcon icon={<EditOutlined />} key="edit" onClick={() => console.log('click button edit')} />,
                     <KitIcon
-                        icon={<EllipsisOutlined />}
+                        icon={<FontAwesomeIcon icon={faPencil} />}
+                        key="edit"
+                        onClick={() => console.log('click button edit')}
+                    />,
+                    <KitIcon
+                        icon={<FontAwesomeIcon icon={faEllipsis} />}
                         key="ellipsis"
                         onClick={() => console.log('click button ellipsis')}
                     />

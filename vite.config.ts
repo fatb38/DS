@@ -46,7 +46,6 @@ export default defineConfig({
         alias: {
             '@kit': path.resolve(__dirname, './src/Kit'),
             '@theme': path.resolve(__dirname, './src/theme'),
-            '@icons': path.resolve(__dirname, './src/icons'),
             '@hooks': path.resolve(__dirname, './src/hooks'),
             '@translation': path.resolve(__dirname, './src/translation')
         }

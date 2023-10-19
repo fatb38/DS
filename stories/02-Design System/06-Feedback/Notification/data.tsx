@@ -2,15 +2,10 @@ import React from 'react';
 import {KitButton, KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {useKitNotification} from '@kit/Feedback/';
-import {
-    CheckCircleOutlined,
-    CloseCircleOutlined,
-    CloseOutlined,
-    CloseSquareOutlined,
-    DownloadOutlined,
-    SearchOutlined
-} from '@ant-design/icons';
 import {IKitNotificationArgs} from '@kit/Feedback/Notification/types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleCheck, faCircleXmark, faRectangleXmark} from '@fortawesome/free-regular-svg-icons';
+import {faDownload, faMagnifyingGlass, faXmark} from '@fortawesome/free-solid-svg-icons';
 import {IEditorTemplate} from '../../../types';
 
 export const FakeNotification: React.FunctionComponent<IKitNotificationArgs> = () => null;
@@ -38,7 +33,7 @@ export const argTypes = {
     },
     closeIcon: {
         name: 'closeIcon',
-        options: ['-', 'CloseCircleOutlined', 'CloseOutlined', 'CloseSquareOutlined'],
+        options: ['-', 'faCircleXmark', 'faXmark', 'faRectangleXmark'],
         control: {
             type: 'select'
         },
@@ -48,7 +43,7 @@ export const argTypes = {
                 summary: 'boolean | ReactNode'
             },
             defaultValue: {
-                summary: 'CloseOutlined'
+                summary: 'faXmark'
             },
             category: 'Notification'
         }
@@ -81,7 +76,7 @@ export const argTypes = {
     },
     icon: {
         name: 'icon',
-        options: ['-', 'SearchOutlined', 'DownloadOutlined', 'CheckCircleOutlined'],
+        options: ['-', 'faMagnifyingGlass', 'faDownload', 'faCircleCheck'],
         control: {
             type: 'select'
         },
@@ -188,12 +183,12 @@ export const argTypes = {
 
 export const getIcon = ({icon}) => {
     switch (icon) {
-        case 'SearchOutlined':
-            return <KitIcon icon={<SearchOutlined />} />;
-        case 'DownloadOutlined':
-            return <KitIcon icon={<DownloadOutlined />} />;
-        case 'CheckCircleOutlined':
-            return <KitIcon icon={<CheckCircleOutlined />} />;
+        case 'faMagnifyingGlass':
+            return <KitIcon icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />;
+        case 'faDownload':
+            return <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} />;
+        case 'faCircleCheck':
+            return <KitIcon icon={<FontAwesomeIcon icon={faCircleCheck} />} />;
         case '-':
         default:
             return null;
@@ -202,12 +197,12 @@ export const getIcon = ({icon}) => {
 
 export const getCloseIcon = ({closeIcon}) => {
     switch (closeIcon) {
-        case 'CloseCircleOutlined':
-            return <KitIcon icon={<CloseCircleOutlined />} />;
-        case 'CloseOutlined':
-            return <KitIcon icon={<CloseOutlined />} />;
-        case 'CloseSquareOutlined':
-            return <KitIcon icon={<CloseSquareOutlined />} />;
+        case 'faCircleXmark':
+            return <KitIcon icon={<FontAwesomeIcon icon={faCircleXmark} />} />;
+        case 'faXmark':
+            return <KitIcon icon={<FontAwesomeIcon icon={faXmark} />} />;
+        case 'faRectangleXmark':
+            return <KitIcon icon={<FontAwesomeIcon icon={faRectangleXmark} />} />;
         case '-':
         default:
             return;

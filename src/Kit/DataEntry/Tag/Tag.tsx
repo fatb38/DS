@@ -1,8 +1,10 @@
 import React, {FunctionComponent} from 'react';
 import {Tag} from 'antd';
 import styled, {css} from 'styled-components';
-import {IKitTag, IStyledAntdTag, KitTagColor} from './types';
+import {IKitTag, IStyledAntdTag} from './types';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faXmark} from '@fortawesome/free-solid-svg-icons';
 
 const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
     padding: 4px 8px;
@@ -28,10 +30,6 @@ const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
         margin-left: 8px;
     }
 
-    > .anticon + span {
-        margin-left: 8px;
-    }
-
     ${({$color, $theme}) => {
         switch ($color) {
             case 'default':
@@ -41,7 +39,7 @@ const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
                     background: ${$theme.colors.red.background.default};
                     color: ${$theme.colors.red.typography.default};
 
-                    .anticon-close {
+                    .ant-tag-close-icon {
                         color: ${$theme.colors.red.typography.closeIcon};
 
                         &:hover {
@@ -54,7 +52,7 @@ const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
                     background: ${$theme.colors.green.background.default};
                     color: ${$theme.colors.green.typography.default};
 
-                    .anticon-close {
+                    .ant-tag-close-icon {
                         color: ${$theme.colors.green.typography.closeIcon};
 
                         &:hover {
@@ -67,7 +65,7 @@ const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
                     background: ${$theme.colors.blue.background.default};
                     color: ${$theme.colors.blue.typography.default};
 
-                    .anticon-close {
+                    .ant-tag-close-icon {
                         color: ${$theme.colors.blue.typography.closeIcon};
 
                         &:hover {
@@ -80,7 +78,7 @@ const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
                     background: ${$theme.colors.blueInvert.background.default};
                     color: ${$theme.colors.blueInvert.typography.default};
 
-                    .anticon-close {
+                    .ant-tag-close-icon {
                         color: ${$theme.colors.blueInvert.typography.closeIcon};
 
                         &:hover {
@@ -92,10 +90,18 @@ const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
     }}
 `;
 
-const KitTag: FunctionComponent<IKitTag> = ({color = 'default', ...tagProps}) => {
+const KitTag: FunctionComponent<IKitTag> = ({closeIcon, color = 'default', ...tagProps}) => {
     const {theme} = useKitTheme();
 
-    return <StyledAntdTag {...tagProps} $theme={theme.components.Tag} $color={color} closable={!!tagProps.onClose} />;
+    return (
+        <StyledAntdTag
+            {...tagProps}
+            $theme={theme.components.Tag}
+            $color={color}
+            closeIcon={closeIcon ?? <FontAwesomeIcon icon={faXmark} />}
+            closable={!!tagProps.onClose}
+        />
+    );
 };
 
 export default KitTag;

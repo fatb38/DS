@@ -3,9 +3,11 @@ import {styled} from 'styled-components';
 import {IKitItemList, IStyledKitItemList} from './types';
 import {KitCheckbox, KitTag} from '@kit/DataEntry/';
 import {KitTypography} from '@kit/General/';
-import {RightOutlined, EyeOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
 import {useKitLocale} from '@translation/locale-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEye} from '@fortawesome/free-regular-svg-icons';
+import {faAngleRight} from '@fortawesome/free-solid-svg-icons';
 import useSecureClick from '@hooks/useSecureClick';
 
 const StyledItemList = styled.div<IStyledKitItemList>`
@@ -64,7 +66,8 @@ const StyledItemList = styled.div<IStyledKitItemList>`
             align-items: center;
             justify-content: center;
 
-            img {
+            img,
+            svg {
                 width: auto;
                 max-width: 100%;
                 max-height: 100%;
@@ -257,7 +260,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
                 cloneProps = {
                     preview: {
                         ...(pictureJsx.props?.preview ?? {}),
-                        mask: <EyeOutlined />
+                        mask: <FontAwesomeIcon icon={faEye} />
                     },
                     width: '100%',
                     height: '100%',
@@ -366,7 +369,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
                     className="kit-item-list-rafter"
                     onClick={disableSecureClick ? _handleClickRafter : _handleClickRafterSecured}
                 >
-                    <RightOutlined />
+                    <FontAwesomeIcon icon={faAngleRight} />
                 </div>
             )
         );

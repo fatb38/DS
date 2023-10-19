@@ -2,7 +2,9 @@ import React from 'react';
 import {KitItemCard, KitImage} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout';
 import {KitButton} from '@kit/General';
-import {DownloadOutlined, FolderOpenOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faDownload} from '@fortawesome/free-solid-svg-icons';
+import {faFolderOpen} from '@fortawesome/free-regular-svg-icons';
 
 const App = () => {
     return (
@@ -24,10 +26,10 @@ const App = () => {
                 }}
                 actions={[
                     <KitButton onClick={() => console.log('download action')}>
-                        <DownloadOutlined />
+                        <FontAwesomeIcon icon={faDownload} />
                     </KitButton>,
                     <KitButton onClick={() => console.log('open action')}>
-                        <FolderOpenOutlined />
+                        <FontAwesomeIcon icon={faFolderOpen} />
                     </KitButton>
                 ]}
             />
@@ -49,10 +51,10 @@ const App = () => {
                 }}
                 actions={[
                     <KitButton onClick={() => console.log('download action')}>
-                        <DownloadOutlined />
+                        <FontAwesomeIcon icon={faDownload} />
                     </KitButton>,
                     <KitButton onClick={() => console.log('open action')}>
-                        <FolderOpenOutlined />
+                        <FontAwesomeIcon icon={faFolderOpen} />
                     </KitButton>
                 ]}
             />

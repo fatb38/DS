@@ -1,7 +1,8 @@
 import React from 'react';
 import {KitMenu} from '@kit/Navigation';
-import {HomeOutlined} from '@ant-design/icons';
 import {KitSpace} from '@kit/Layout';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faHouse} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     return (
@@ -9,12 +10,12 @@ const App = () => {
             <KitSpace direction="vertical" style={{width: '350px'}}>
                 <KitMenu.Item
                     title="Item menu"
-                    icon={<HomeOutlined />}
+                    icon={<FontAwesomeIcon icon={faHouse} />}
                     onSelectChange={e => console.log('selected', e.target.checked)}
                 />
                 <KitMenu.Item
                     title="Item menu"
-                    icon={<HomeOutlined />}
+                    icon={<FontAwesomeIcon icon={faHouse} />}
                     onSelectChange={e => console.log('selected', e.target.checked)}
                     isSelected
                 />

@@ -1,4 +1,5 @@
-import {EditOutlined, EllipsisOutlined, SettingOutlined} from '@ant-design/icons';
+import {faEllipsisVertical, faGear, faPencil} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitCard} from '@kit/DataDisplay';
 import {KitSpace} from '@kit/Layout';
 import React from 'react';
@@ -12,7 +13,7 @@ const App = () => {
                 contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
                 actions={[
                     <KitIcon
-                        icon={<SettingOutlined />}
+                        icon={<FontAwesomeIcon icon={faGear} />}
                         key="setting"
                         onClick={() => console.log('click button settings')}
                     />
@@ -23,11 +24,15 @@ const App = () => {
                 contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
                 actions={[
                     <KitIcon
-                        icon={<SettingOutlined />}
+                        icon={<FontAwesomeIcon icon={faGear} />}
                         key="setting"
                         onClick={() => console.log('click button settings')}
                     />,
-                    <KitIcon icon={<EditOutlined />} key="edit" onClick={() => console.log('click button edit')} />
+                    <KitIcon
+                        icon={<FontAwesomeIcon icon={faPencil} />}
+                        key="edit"
+                        onClick={() => console.log('click button edit')}
+                    />
                 ]}
             />
             <KitCard
@@ -35,13 +40,17 @@ const App = () => {
                 contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
                 actions={[
                     <KitIcon
-                        icon={<SettingOutlined />}
+                        icon={<FontAwesomeIcon icon={faGear} />}
                         key="setting"
                         onClick={() => console.log('click button settings')}
                     />,
-                    <KitIcon icon={<EditOutlined />} key="edit" onClick={() => console.log('click button edit')} />,
                     <KitIcon
-                        icon={<EllipsisOutlined />}
+                        icon={<FontAwesomeIcon icon={faPencil} />}
+                        key="edit"
+                        onClick={() => console.log('click button edit')}
+                    />,
+                    <KitIcon
+                        icon={<FontAwesomeIcon icon={faEllipsisVertical} />}
                         key="ellipsis"
                         onClick={() => console.log('click button ellipsis')}
                     />

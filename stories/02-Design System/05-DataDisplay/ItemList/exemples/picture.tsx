@@ -2,7 +2,8 @@ import React from 'react';
 import {KitSpace} from '@kit/Layout';
 import {KitImage, KitItemList} from '@kit/DataDisplay';
 import {KitIcon} from '@kit/General';
-import {UserOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUser} from '@fortawesome/free-regular-svg-icons';
 
 const App = () => {
     return (
@@ -11,7 +12,7 @@ const App = () => {
                 <KitItemList
                     title="Tondeuse à gazon"
                     description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                    picture={<KitIcon icon={<UserOutlined />} />}
+                    picture={<KitIcon icon={<FontAwesomeIcon icon={faUser} />} />}
                 />
             </div>
             <div style={{width: '350px'}}>

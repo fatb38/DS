@@ -2,9 +2,10 @@ import React, {FunctionComponent} from 'react';
 import {Input as AntdInput} from 'antd';
 import {IKitTextArea, IStyledAntdTextArea} from './types';
 import {styled} from 'styled-components';
-import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 
 const StyledAntdTextArea = styled(AntdInput.TextArea)<IStyledAntdTextArea>`
     &.ant-input,
@@ -161,7 +162,7 @@ const KitTextArea: FunctionComponent<IKitTextArea> = ({label, helper, allowClear
             <StyledAntdTextArea
                 $theme={theme.components.Input.TextArea}
                 {...textAreaProps}
-                allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
+                allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
             />
         </KitInputWrapper>
     );

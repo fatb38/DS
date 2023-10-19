@@ -1,6 +1,7 @@
 import React from 'react';
 import {KitSpace, KitButton, KitTooltip} from '@kit/index';
-import {DownloadOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faDownload} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     return (
@@ -11,12 +12,12 @@ const App = () => {
             <KitButton type="primary">Button 4</KitButton>
             <KitTooltip title="Tooltip">
                 <KitButton type="primary" disabled>
-                    <DownloadOutlined />
+                    <FontAwesomeIcon icon={faDownload} />
                 </KitButton>
             </KitTooltip>
             <KitTooltip title="Tooltip">
                 <KitButton type="primary">
-                    <DownloadOutlined />
+                    <FontAwesomeIcon icon={faDownload} />
                 </KitButton>
             </KitTooltip>
         </KitSpace.Compact>

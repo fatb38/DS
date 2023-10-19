@@ -1,9 +1,10 @@
 import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
-import {DownOutlined} from '@ant-design/icons';
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
 import {KitButton} from '@kit/General';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 
 const items: IKitDropdownMenu['items'] = [
     {
@@ -30,7 +31,7 @@ const App = () => {
             <KitDropDown menu={{items}} trigger={['click']}>
                 <a onClick={e => e.preventDefault()}>
                     <KitButton type="link">
-                        Click me <DownOutlined />
+                        Click me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
                     </KitButton>
                 </a>
             </KitDropDown>

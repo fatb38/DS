@@ -1,8 +1,10 @@
 import React from 'react';
 import {KitInputNumber} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
-import {CheckCircleOutlined, SearchOutlined} from '@ant-design/icons';
 import {IEditorTemplate} from '../../../types';
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleCheck} from '@fortawesome/free-regular-svg-icons';
 
 export const argTypes = {
     label: {
@@ -278,9 +280,9 @@ export const argTypes = {
 export const getIcon = icon => {
     switch (icon) {
         case 'SearchOutlined':
-            return <SearchOutlined />;
+            return <FontAwesomeIcon icon={faMagnifyingGlass} />;
         case 'CheckCircleOutlined':
-            return <CheckCircleOutlined />;
+            return <FontAwesomeIcon icon={faCircleCheck} />;
         case '':
         default:
             return null;

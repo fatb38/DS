@@ -2,13 +2,14 @@ import React from 'react';
 import {KitBadge} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {KitButton} from '@kit/General';
-import {NotificationOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faBell} from '@fortawesome/free-regular-svg-icons';
 
 const App = () => {
     return (
         <KitSpace size="s">
             <KitBadge dot>
-                <NotificationOutlined style={{fontSize: 16}} />
+                <FontAwesomeIcon icon={faBell} style={{fontSize: 16}} />
             </KitBadge>
             <KitBadge dot>
                 <KitButton type="link">Link</KitButton>

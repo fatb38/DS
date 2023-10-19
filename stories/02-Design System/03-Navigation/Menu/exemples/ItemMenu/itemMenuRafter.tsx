@@ -1,6 +1,7 @@
 import React from 'react';
 import {KitMenu} from '@kit/Navigation';
-import {HomeOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faHouse} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     return (
@@ -8,7 +9,7 @@ const App = () => {
             <div style={{width: '350px'}}>
                 <KitMenu.Item
                     title="Item menu"
-                    icon={<HomeOutlined />}
+                    icon={<FontAwesomeIcon icon={faHouse} />}
                     onRafterClick={() => console.log('click rafter')}
                 />
             </div>

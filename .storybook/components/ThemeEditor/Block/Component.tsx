@@ -2,9 +2,10 @@ import React, {FunctionComponent, useContext, useRef, useState} from 'react';
 import styled from 'styled-components';
 import {StyledToggle} from '../../CustomCanvas';
 import Tokens from './Tokens';
-import {DownCircleOutlined, RightCircleOutlined} from '@ant-design/icons';
 import {EditorContext} from '../Context';
 import {IComponentBlock, IEditorContext} from '../types';
+import {faCircleDown, faCircleRight} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const StyledCanvas = styled.div<{
     $isOpen: boolean;
@@ -174,8 +175,7 @@ const Component: FunctionComponent<IComponentBlock> = ({path, title, children}) 
         <StyledCanvas $isOpen={isOpen}>
             <div className="title">
                 <span className="title-text" onClick={_handleOpen}>
-                    {isOpen && <DownCircleOutlined />}
-                    {!isOpen && <RightCircleOutlined />}
+                    {isOpen ? <FontAwesomeIcon icon={faCircleDown} /> : <FontAwesomeIcon icon={faCircleRight} />}
                     {title}
                 </span>
                 <span className="title-reset">

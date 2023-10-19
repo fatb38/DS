@@ -1,10 +1,11 @@
 import React, {FunctionComponent} from 'react';
 import {AutoComplete as AntdAutoComplete} from 'antd';
-import {SearchOutlined} from '@ant-design/icons';
 import {KitInput} from '@kit/DataEntry/';
 import type {IKitAutoComplete} from './types';
 import KitInputWrapper from '../Input/InputWrapper';
 import styled from 'styled-components';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 export const StyledKitAutoComplete = styled(AntdAutoComplete)`
     &.ant-select-auto-complete.ant-select-open {
@@ -38,7 +39,7 @@ export const KitAutoComplete: FunctionComponent<IKitAutoComplete> = ({
                 popupClassName={`ant-select-dropdown kit-select-dropdown-bottom ${popupClassName || ''}`}
             >
                 <KitInput
-                    prefix={<SearchOutlined />}
+                    prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />}
                     allowClear={allowClear}
                     autoFocus={autoFocus}
                     defaultValue={defaultValue}

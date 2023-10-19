@@ -1,11 +1,13 @@
 import React from 'react';
 import {KitItemCard} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
-import {AntDesignOutlined, DownloadOutlined, FolderOpenOutlined} from '@ant-design/icons';
 import {KitAvatar, KitImage} from '@kit/DataDisplay';
 import IKitItemCard from '@kit/DataDisplay/ItemCard/types';
 import {KitButton, KitIcon} from '@kit/General/';
 import {IEditorTemplate} from '../../../types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faDownload} from '@fortawesome/free-solid-svg-icons';
+import {faFolderOpen, faImage} from '@fortawesome/free-regular-svg-icons';
 
 export const fakeContent = {
     base: {
@@ -19,16 +21,16 @@ export const fakeContent = {
     ],
     tags: ['3 opérations'],
     image: <KitImage src="public/images/tondeuse.png" />,
-    icon: <KitIcon icon={<AntDesignOutlined />} />,
+    icon: <KitIcon icon={<FontAwesomeIcon icon={faImage} />} />,
     avatar: <KitAvatar>G</KitAvatar>,
     onSeectChange: '',
     onEdit: '',
     actions: [
         <KitButton onClick={() => console.log('download action')}>
-            <DownloadOutlined />
+            <FontAwesomeIcon icon={faDownload} />
         </KitButton>,
         <KitButton onClick={() => console.log('open action')}>
-            <FolderOpenOutlined />
+            <FontAwesomeIcon icon={faFolderOpen} />
         </KitButton>
     ]
 };
@@ -265,10 +267,10 @@ export const EditorTemplate: IEditorTemplate = () => {
                 }}
                 actions={[
                     <KitButton onClick={() => console.log('download action')}>
-                        <DownloadOutlined />
+                        <FontAwesomeIcon icon={faDownload} />
                     </KitButton>,
                     <KitButton onClick={() => console.log('open action')}>
-                        <FolderOpenOutlined />
+                        <FontAwesomeIcon icon={faFolderOpen} />
                     </KitButton>
                 ]}
                 disabled
