@@ -12,6 +12,18 @@ import {IEditorTemplate} from '../../../types';
 import {KitPagination} from '@kit/Navigation';
 
 export const argTypes = {
+    disableSecureClick: {
+        name: 'disableSecureClick',
+        control: {type: 'boolean'},
+        description: 'Disable double click security of the icon',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: false}
+        },
+        defaultValue: false
+    },
     on: {
         name: 'on',
         description: "Wether to set icon in 'on' state",

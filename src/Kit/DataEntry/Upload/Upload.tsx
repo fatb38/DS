@@ -111,10 +111,10 @@ const KitUpload: FunctionComponent<IKitUpload> = ({
                         <img src={imageUrl} alt="avatar" style={{width: '100%'}} />
                     </div>
                 ) : (
-                    <div>
+                    <>
                         {loading ? <FontAwesomeIcon icon={faCircleNotch} spin /> : <FontAwesomeIcon icon={faPlus} />}
                         <div style={{marginTop: 8}}>{uploadWording}</div>
-                    </div>
+                    </>
                 ))}
         </StyledUpload>
     );

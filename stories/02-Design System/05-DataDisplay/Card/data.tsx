@@ -2,7 +2,7 @@ import {faEllipsis, faGear, faPencil} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitCard} from '@kit/DataDisplay';
 import {KitSwitch} from '@kit/DataEntry';
-import {KitTypography} from '@kit/General';
+import {KitIcon, KitTypography} from '@kit/General';
 import KitLink from '@kit/General/Typography/Link';
 import {KitSpace} from '@kit/Layout';
 import React, {useState} from 'react';
@@ -168,14 +168,18 @@ export const Template = args => {
                 extra={isExtra && <KitLink href="#">More</KitLink>}
                 actions={
                     isActions && [
-                        <FontAwesomeIcon
-                            icon={faGear}
+                        <KitIcon
+                            icon={<FontAwesomeIcon icon={faGear} />}
                             key="setting"
                             onClick={() => console.log('click button settings')}
                         />,
-                        <FontAwesomeIcon icon={faPencil} key="edit" onClick={() => console.log('click button edit')} />,
-                        <FontAwesomeIcon
-                            icon={faEllipsis}
+                        <KitIcon
+                            icon={<FontAwesomeIcon icon={faPencil} />}
+                            key="edit"
+                            onClick={() => console.log('click button edit')}
+                        />,
+                        <KitIcon
+                            icon={<FontAwesomeIcon icon={faEllipsis} />}
                             key="ellipsis"
                             onClick={() => console.log('click button ellipsis')}
                         />

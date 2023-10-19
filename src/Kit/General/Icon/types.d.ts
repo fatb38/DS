@@ -9,6 +9,7 @@ export interface IKitIcon extends IconComponentProps, KitHTMLAttributes<HTMLSpan
     displayName?: string;
     icon: ReactNode;
     className?: string;
+    disableSecureClick?: boolean;
     onClick?: (e: MouseEvent<HTMLSpanElement>) => void;
 }
 

@@ -6,6 +6,7 @@ import {ButtonType} from 'antd/lib/button';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleCheck} from '@fortawesome/free-solid-svg-icons';
+import useSecureClick from '@hooks/useSecureClick';
 
 const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
     height: 40px;
@@ -252,12 +253,16 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
         className,
         wrapperClassName,
         wrapperStyle,
+        onClick,
+        disableSecureClick,
         ...buttonProps
     },
     ref
 ) => {
     const {theme: kitTheme} = useKitTheme();
     const theme = kitTheme.components.Button;
+
+    const secureClick = useSecureClick(onClick);
 
     const _getTheme = () => {
         switch (type) {
@@ -317,6 +322,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
                 className={_getClasses()}
                 ghost={primaryModal}
                 type={_getAntdType()}
+                onClick={disableSecureClick ? onClick : secureClick}
                 ref={ref}
             ></StyledAntdButton>
             {type === 'segmented' && segmentedChecked && (

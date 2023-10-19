@@ -46,6 +46,18 @@ export const argTypes = {
             category: 'For testing only'
         }
     },
+    disableSecureClick: {
+        name: 'disableSecureClick',
+        control: {type: 'boolean'},
+        description: 'Disable double click security of the item list',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: false}
+        },
+        defaultValue: false
+    },
     itemListClickable: {
         name: 'ItemList clickable',
         description: '',

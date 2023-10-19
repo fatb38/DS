@@ -46,6 +46,19 @@ export const argTypes = {
         },
         defaultValue: false
     },
+    disableSecureClick: {
+        name: 'disableSecureClick',
+        control: {type: 'boolean'},
+        description: 'Disable double click security of the button',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: false},
+            category: 'Button'
+        },
+        defaultValue: false
+    },
     href: {
         name: 'href',
         control: {type: 'text'},

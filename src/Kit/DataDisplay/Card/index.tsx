@@ -168,20 +168,6 @@ const _getCover = (cover?: ReactNode) => {
     return cardCover;
 };
 
-const _getExtra = (disabled: boolean, extra?: ReactNode) => {
-    let cardExtra: null | ReactElement = null;
-
-    if (extra) {
-        const customExtra = extra as ReactElement;
-        cardExtra = cloneElement(customExtra, {
-            className: `kit-card-extra ${customExtra.props.className ?? ''}`,
-            href: disabled ? null : customExtra.props.href
-        });
-    }
-
-    return cardExtra;
-};
-
 const _getActions = (disabled: boolean, actions?: ReactNode[]) => {
     if (disabled && actions) {
         return actions?.reduce<ReactNode[]>((acc, action) => {
@@ -194,6 +180,20 @@ const _getActions = (disabled: boolean, actions?: ReactNode[]) => {
         }, []);
     }
     return actions;
+};
+
+const _getExtra = (disabled: boolean, extra?: ReactNode) => {
+    let cardExtra: null | ReactElement = null;
+
+    if (extra) {
+        const customExtra = extra as ReactElement;
+        cardExtra = cloneElement(customExtra, {
+            className: `kit-card-extra ${customExtra.props.className ?? ''}`,
+            href: disabled ? null : customExtra.props.href
+        });
+    }
+
+    return cardExtra;
 };
 
 export const KitCard: FunctionComponent<IKitCard> = ({

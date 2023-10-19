@@ -30,8 +30,6 @@ const Image: FunctionComponent<IKitImage> = ({rounded, bordered, preview, ...pro
     const {theme} = useKitTheme();
     const {locale} = useKitLocale();
 
-    console.log('locale', locale);
-
     const Mask = (
         <MaskContainer>
             <FontAwesomeIcon icon={faEye} />

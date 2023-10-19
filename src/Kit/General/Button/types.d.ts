@@ -19,6 +19,7 @@ export interface IKitButton extends Omit<ButtonProps, AntdButtonTypesToOmit>, Ki
     iconSize?: KitButtonIconSize;
     wrapperClassName?: string;
     wrapperStyle?: CSSProperties;
+    disableSecureClick?: boolean;
 }
 
 export interface IStyledKitButton {

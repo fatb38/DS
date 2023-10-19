@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {KitCard} from '@kit/DataDisplay';
 import {KitSpace} from '@kit/Layout';
 import {KitSwitch} from '@kit/DataEntry';
-import {KitTypography} from '@kit/General';
+import {KitIcon, KitTypography} from '@kit/General';
 import KitLink from '@kit/General/Typography/Link';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEllipsis, faGear, faPencil} from '@fortawesome/free-solid-svg-icons';
@@ -25,14 +25,18 @@ const App = () => {
                 contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
                 cover={<img alt="example" src="public/images/free-copyright.jpeg" />}
                 actions={[
-                    <FontAwesomeIcon
-                        icon={faGear}
+                    <KitIcon
+                        icon={<FontAwesomeIcon icon={faGear} />}
                         key="setting"
                         onClick={() => console.log('click button settings')}
                     />,
-                    <FontAwesomeIcon icon={faPencil} key="edit" onClick={() => console.log('click button edit')} />,
-                    <FontAwesomeIcon
-                        icon={faEllipsis}
+                    <KitIcon
+                        icon={<FontAwesomeIcon icon={faPencil} />}
+                        key="edit"
+                        onClick={() => console.log('click button edit')}
+                    />,
+                    <KitIcon
+                        icon={<FontAwesomeIcon icon={faEllipsis} />}
                         key="ellipsis"
                         onClick={() => console.log('click button ellipsis')}
                     />
