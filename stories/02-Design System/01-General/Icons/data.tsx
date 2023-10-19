@@ -39,7 +39,7 @@ export const argTypes = {
     icon: {
         name: 'icon',
         description: 'Icon element of type ReactNode',
-        options: ['File', 'User', 'Car'],
+        options: ['faFile', 'faUser', 'faCar'],
         control: {
             type: 'select'
         },
@@ -48,18 +48,17 @@ export const argTypes = {
                 summary: 'ReactNode'
             },
             defaultValue: {summary: '-'}
-        },
-        defaultValue: '-'
+        }
     }
 };
 
 export const getIcon = ({icon}) => {
     switch (icon) {
-        case 'User':
+        case 'faUser':
             return <FontAwesomeIcon icon={FaSolidIcons.faUser} />;
-        case 'Car':
+        case 'faCar':
             return <FontAwesomeIcon icon={FaSolidIcons.faCar} />;
-        case 'File':
+        case 'faFile':
         default:
             return <FontAwesomeIcon icon={FaSolidIcons.faFile} />;
     }

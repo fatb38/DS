@@ -33,7 +33,7 @@ export const argTypes = {
     },
     closeIcon: {
         name: 'closeIcon',
-        options: ['-', 'CloseCircleOutlined', 'CloseOutlined', 'CloseSquareOutlined'],
+        options: ['-', 'faCircleXmark', 'faXmark', 'faRectangleXmark'],
         control: {
             type: 'select'
         },
@@ -43,7 +43,7 @@ export const argTypes = {
                 summary: 'boolean | ReactNode'
             },
             defaultValue: {
-                summary: 'CloseOutlined'
+                summary: 'faXmark'
             },
             category: 'Notification'
         }
@@ -76,7 +76,7 @@ export const argTypes = {
     },
     icon: {
         name: 'icon',
-        options: ['-', 'SearchOutlined', 'DownloadOutlined', 'CheckCircleOutlined'],
+        options: ['-', 'faMagnifyingGlass', 'faDownload', 'faCircleCheck'],
         control: {
             type: 'select'
         },
@@ -183,11 +183,11 @@ export const argTypes = {
 
 export const getIcon = ({icon}) => {
     switch (icon) {
-        case 'SearchOutlined':
+        case 'faMagnifyingGlass':
             return <KitIcon icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />;
-        case 'DownloadOutlined':
+        case 'faDownload':
             return <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} />;
-        case 'CheckCircleOutlined':
+        case 'faCircleCheck':
             return <KitIcon icon={<FontAwesomeIcon icon={faCircleCheck} />} />;
         case '-':
         default:
@@ -197,11 +197,11 @@ export const getIcon = ({icon}) => {
 
 export const getCloseIcon = ({closeIcon}) => {
     switch (closeIcon) {
-        case 'CloseCircleOutlined':
+        case 'faCircleXmark':
             return <KitIcon icon={<FontAwesomeIcon icon={faCircleXmark} />} />;
-        case 'CloseOutlined':
+        case 'faXmark':
             return <KitIcon icon={<FontAwesomeIcon icon={faXmark} />} />;
-        case 'CloseSquareOutlined':
+        case 'faRectangleXmark':
             return <KitIcon icon={<FontAwesomeIcon icon={faRectangleXmark} />} />;
         case '-':
         default:

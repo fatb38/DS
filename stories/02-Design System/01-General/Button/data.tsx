@@ -73,7 +73,7 @@ export const argTypes = {
     },
     icon: {
         name: 'icon',
-        options: ['-', 'SearchOutlined', 'DownloadOutlined', 'CheckCircleOutlined'],
+        options: ['-', 'faMagnifyingGlass', 'faDownload', 'faCircleCheck'],
         control: {
             type: 'select'
         },
@@ -215,11 +215,11 @@ export const argTypes = {
 
 export const getIcon = ({icon}) => {
     switch (icon) {
-        case 'SearchOutlined':
+        case 'faMagnifyingGlass':
             return <FontAwesomeIcon icon={faMagnifyingGlass} />;
-        case 'DownloadOutlined':
+        case 'faDownload':
             return <FontAwesomeIcon icon={faDownload} />;
-        case 'CheckCircleOutlined':
+        case 'faCircleCheck':
             return <FontAwesomeIcon icon={faCircleCheck} />;
         case '-':
         default:
