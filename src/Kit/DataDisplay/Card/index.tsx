@@ -167,6 +167,20 @@ const _getCover = (cover?: ReactNode) => {
     return cardCover;
 };
 
+const _getActions = (disabled: boolean, actions?: ReactNode[]) => {
+    if (disabled && actions) {
+        return actions?.reduce<ReactNode[]>((acc, action) => {
+            const customAction = action as ReactElement;
+            const disabledAction = cloneElement(customAction, {
+                onClick: undefined
+            });
+            acc.push(disabledAction);
+            return acc;
+        }, []);
+    }
+    return actions;
+};
+
 const _getExtra = (disabled: boolean, extra?: ReactNode) => {
     let cardExtra: null | ReactElement = null;
 
@@ -198,20 +212,6 @@ export const KitCard: FunctionComponent<IKitCard> = ({
 
     const customStyle: CSSProperties = {
         width: style?.width ?? '340px'
-    };
-
-    const _getActions = (disabled: boolean, actions?: ReactNode[]) => {
-        if (disabled && actions) {
-            return actions?.reduce<ReactNode[]>((acc, action) => {
-                const customAction = action as ReactElement;
-                const disabledAction = cloneElement(customAction, {
-                    onClick: undefined
-                });
-                acc.push(disabledAction);
-                return acc;
-            }, []);
-        }
-        return actions;
     };
 
     return (
