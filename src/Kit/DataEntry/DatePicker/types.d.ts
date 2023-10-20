@@ -10,7 +10,11 @@ interface IInternalDatePicker {
     allowClear?: boolean;
 }
 
-export type IKitDatePicker = DatePickerProps & IInternalDatePicker;
+interface IDatePickerProps extends Omit<DatePickerProps, 'picker'> {
+    picker: 'time' | 'date' | 'week' | 'month' | 'year' | 'quarter';
+}
+
+export type IKitDatePicker = IDatePickerProps & IInternalDatePicker;
 
 // Use "never" instead of Omit properties to avoid issues with Antd type/interface declarations
 interface IInternalRangerPicker {

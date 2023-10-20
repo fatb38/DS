@@ -1,7 +1,8 @@
 import React from 'react';
 import {KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
-import {FileOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faFile} from '@fortawesome/free-regular-svg-icons';
 
 const App = () => {
     const iconOptions = [
@@ -10,12 +11,12 @@ const App = () => {
             options: [
                 {
                     value: 'file-3-1',
-                    icon: <FileOutlined />,
+                    icon: <FontAwesomeIcon icon={faFile} />,
                     label: 'File 3.1'
                 },
                 {
                     value: 'file-3-2',
-                    icon: <FileOutlined />,
+                    icon: <FontAwesomeIcon icon={faFile} />,
                     label: 'File 3.2'
                 }
             ]
@@ -25,17 +26,17 @@ const App = () => {
             options: [
                 {
                     value: 'file-4-1',
-                    icon: <FileOutlined />,
+                    icon: <FontAwesomeIcon icon={faFile} />,
                     label: 'File 4.1'
                 },
                 {
                     value: 'file-4-2',
-                    icon: <FileOutlined />,
+                    icon: <FontAwesomeIcon icon={faFile} />,
                     label: 'File 4.2'
                 },
                 {
                     value: 'file-4-3',
-                    icon: <FileOutlined />,
+                    icon: <FontAwesomeIcon icon={faFile} />,
                     label: 'File 4.3'
                 }
             ]

@@ -1,11 +1,12 @@
 import React, {FunctionComponent, cloneElement, useMemo} from 'react';
 import styled from 'styled-components';
-import {PlusOutlined, SearchOutlined} from '@ant-design/icons';
 import {KitTypography, KitButton} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {KitInput} from '@kit/DataEntry/';
 import {IHeader, IStyledHeaderWrapper} from './types';
 import {useKitTheme} from '@theme/theme-context';
+import {faMagnifyingGlass, faPlus} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const StyledHeaderWrapper = styled.div<IStyledHeaderWrapper>`
     padding: 16px 32px;
@@ -90,7 +91,7 @@ const _getActions = (actions, onPlusClick) => {
                         type="primary"
                         className="kit-header-plus-button"
                         onClick={onPlusClick}
-                        icon={<PlusOutlined />}
+                        icon={<FontAwesomeIcon icon={faPlus} />}
                     />
                 )}
             </KitSpace>
@@ -120,7 +121,7 @@ export const KitHeader: FunctionComponent<IHeader> = ({title, search, breadcrumb
             )}
             {search && (
                 <div className="kit-header-search">
-                    <KitInput {...search} prefix={<SearchOutlined rev="" />} />
+                    <KitInput {...search} prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
                 </div>
             )}
             {breadcrumbToDisplay}

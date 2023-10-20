@@ -1,5 +1,5 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitTagTheme} from '@theme/types/components/DataEntry/Tag';
+import {IKitTagTheme} from '@theme/types/components/DataDisplay/Tag';
 
 export const getKitTagTokens = (generalTokens: IKitThemeGeneral): IKitTagTheme => {
     const {colors, typography, border} = generalTokens;

@@ -3,6 +3,14 @@ import {Alert as AntdAlert} from 'antd';
 import {IKitAlert, IStyledKitAlert} from './types';
 import {styled} from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {
+    faXmark,
+    faCircleInfo,
+    faCircleCheck,
+    faCircleXmark,
+    faCircleExclamation
+} from '@fortawesome/free-solid-svg-icons';
 
 const StyledAntdAlert = styled(AntdAlert)<IStyledKitAlert>`
     &.ant-alert-with-description {
@@ -12,10 +20,6 @@ const StyledAntdAlert = styled(AntdAlert)<IStyledKitAlert>`
 
         .ant-alert-message {
             margin-bottom: 6px;
-        }
-
-        .anticon.ant-alert-icon {
-            margin-top: 3px;
         }
     }
 
@@ -33,9 +37,13 @@ const StyledAntdAlert = styled(AntdAlert)<IStyledKitAlert>`
         font-size: ${({$theme}) => $theme.typography.fontSize.description}px;
     }
 
-    .anticon.ant-alert-icon {
+    .fa-icon {
         font-size: ${({$theme}) => $theme.icon.alert.size}px;
         margin-inline-end: 8px;
+    }
+
+    &.ant-alert-with-description .fa-icon {
+        margin-top: 3px;
     }
 
     .anticon.anticon-close {
@@ -43,34 +51,55 @@ const StyledAntdAlert = styled(AntdAlert)<IStyledKitAlert>`
     }
 
     &.ant-alert-success {
-        .anticon.ant-alert-icon {
+        svg {
             color: ${({$theme}) => $theme.colors.icon.alert.success};
         }
     }
 
     &.ant-alert-info {
-        .anticon.ant-alert-icon {
+        svg {
             color: ${({$theme}) => $theme.colors.icon.alert.info};
         }
     }
 
     &.ant-alert-warning {
-        .anticon.ant-alert-icon {
+        svg {
             color: ${({$theme}) => $theme.colors.icon.alert.warning};
         }
     }
 
     &.ant-alert-error {
-        .anticon.ant-alert-icon {
+        svg {
             color: ${({$theme}) => $theme.colors.icon.alert.error};
         }
     }
 `;
 
-export const KitAlert: FunctionComponent<IKitAlert> = alertProps => {
+export const KitAlert: FunctionComponent<IKitAlert> = ({type, ...alertProps}) => {
     const {theme} = useKitTheme();
 
-    return <StyledAntdAlert $theme={theme.components.Alert} {...alertProps} />;
+    const _getIcon = () => {
+        switch (type) {
+            case 'info':
+                return <FontAwesomeIcon className="fa-icon" icon={faCircleInfo} />;
+            case 'success':
+                return <FontAwesomeIcon className="fa-icon" icon={faCircleCheck} />;
+            case 'warning':
+                return <FontAwesomeIcon className="fa-icon" icon={faCircleExclamation} />;
+            case 'error':
+                return <FontAwesomeIcon className="fa-icon" icon={faCircleXmark} />;
+        }
+    };
+
+    return (
+        <StyledAntdAlert
+            $theme={theme.components.Alert}
+            closeIcon={<FontAwesomeIcon icon={faXmark} />}
+            icon={_getIcon()}
+            type={type}
+            {...alertProps}
+        />
+    );
 };
 
 KitAlert.displayName = 'KitAlert';

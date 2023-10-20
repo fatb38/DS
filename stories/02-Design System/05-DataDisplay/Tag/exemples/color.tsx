@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitTag} from '@kit/DataEntry/';
+import {KitTag} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 
 const App = () => {

@@ -3,7 +3,8 @@ import {KitMenu} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout/';
 import {KitInput} from '@kit/DataEntry';
 import {KitButton} from '@kit/General';
-import {HomeOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faHouse} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     return (
@@ -18,7 +19,12 @@ const App = () => {
                     title="View options"
                     onCloseClick={() => console.log('on click close')}
                     segmentedButton={
-                        <KitButton type="segmented" segmentedColor="green" segmentedActived icon={<HomeOutlined />} />
+                        <KitButton
+                            type="segmented"
+                            segmentedColor="green"
+                            segmentedActived
+                            icon={<FontAwesomeIcon icon={faHouse} />}
+                        />
                     }
                     primaryInput={<KitInput placeholder="Opération #1" />}
                 />
@@ -26,7 +32,12 @@ const App = () => {
                     title="View options"
                     onCloseClick={() => console.log('on click close')}
                     segmentedButton={
-                        <KitButton type="segmented" segmentedColor="green" segmentedActived icon={<HomeOutlined />} />
+                        <KitButton
+                            type="segmented"
+                            segmentedColor="green"
+                            segmentedActived
+                            icon={<FontAwesomeIcon icon={faHouse} />}
+                        />
                     }
                     primaryInput={<KitInput placeholder="Opération #1" />}
                     secondaryInput={<KitInput placeholder="Description" />}

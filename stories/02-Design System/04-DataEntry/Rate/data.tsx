@@ -78,7 +78,7 @@ export const argTypes = {
                 summary: 'ReactNode | (RateProps) => ReactNode'
             },
             category: 'Rate',
-            defaultValue: {summary: '<StarFilled />'}
+            defaultValue: {summary: 'faStar'}
         }
     },
     count: {

@@ -3,11 +3,13 @@ import {IKitMenuInfo, IStyledIemMenu, IKitItemMenu} from './types';
 import {css, styled} from 'styled-components';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTypography, KitIcon} from '@kit/General/';
-import {RightOutlined, MoreOutlined} from '@ant-design/icons';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitDropDown} from '../DropDown';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
 import {useKitTheme} from '@theme/theme-context';
+import useSecureClick from '@hooks/useSecureClick';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAngleRight, faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';
 
 const StyledIemMenu = styled.div<IStyledIemMenu>`
     height: 32px;
@@ -134,6 +136,7 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
     onRafterClick,
     isSelected = false,
     onClick,
+    disabledSecureClick,
     ...props
 }) => {
     const {theme} = useKitTheme();
@@ -190,7 +193,6 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                             <KitTooltip title={firstAction.label}>
                                 <KitIcon
                                     icon={firstAction.icon}
-                                    hoverable
                                     onClick={e => {
                                         e.stopPropagation();
                                         firstAction.onClick(e);
@@ -202,7 +204,6 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                             <KitTooltip title={secondAction.label}>
                                 <KitIcon
                                     icon={secondAction.icon}
-                                    hoverable
                                     onClick={e => {
                                         e.stopPropagation();
                                         secondAction.onClick(e);
@@ -222,7 +223,10 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                                     }}
                                 >
                                     <KitTooltip title="More">
-                                        <KitIcon className="kit-action-more" icon={<MoreOutlined />} hoverable />
+                                        <KitIcon
+                                            className="kit-action-more"
+                                            icon={<FontAwesomeIcon icon={faEllipsisVertical} />}
+                                        />
                                     </KitTooltip>
                                 </KitDropDown>
                             </div>
@@ -265,21 +269,32 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
         );
     };
 
+    const _handleClickRafter = e => {
+        e.stopPropagation();
+        onRafterClick && onRafterClick();
+    };
+
+    const _handleClickRafterSecured = useSecureClick(_handleClickRafter);
+
     const _getRafter = () => {
         return (
             hasRafter && (
                 <div
                     className="kit-item-menu-rafter"
-                    onClick={e => {
-                        e.stopPropagation();
-                        onRafterClick && onRafterClick();
-                    }}
+                    onClick={disabledSecureClick ? _handleClickRafter : _handleClickRafterSecured}
                 >
-                    <RightOutlined />
+                    <FontAwesomeIcon icon={faAngleRight} />
                 </div>
             )
         );
     };
+
+    const _handleClickItemMenu = e => {
+        e.stopPropagation();
+        onClick && onClick();
+    };
+
+    const _handleClickItemMenuSecured = useSecureClick(_handleClickItemMenu);
 
     return (
         <StyledIemMenu
@@ -287,10 +302,7 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
             $isClickable={isClickable}
             $isSelected={isSelected}
             $type={type}
-            onClick={e => {
-                e.stopPropagation();
-                onClick && onClick();
-            }}
+            onClick={disabledSecureClick ? _handleClickItemMenu : _handleClickItemMenuSecured}
             {...props}
         >
             {_getCheckbox()}

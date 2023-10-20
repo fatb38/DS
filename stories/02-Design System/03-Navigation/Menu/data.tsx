@@ -1,22 +1,20 @@
 import React from 'react';
-import {
-    HomeOutlined,
-    PlusOutlined,
-    MinusOutlined,
-    PercentageOutlined,
-    SaveOutlined,
-    FilterOutlined,
-    LayoutOutlined,
-    SearchOutlined,
-    GroupOutlined,
-    CopyOutlined,
-    UndoOutlined,
-    DeleteOutlined
-} from '@ant-design/icons';
 import {KitButton} from '@kit/General/';
 import {KitInput} from '@kit/DataEntry/';
 import {KitDivider} from '@kit/Layout/';
 import {KitMenu} from '@kit/Navigation';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {
+    faFilter,
+    faHouse,
+    faMagnifyingGlass,
+    faMinus,
+    faPercent,
+    faPlus,
+    faRotateLeft,
+    faTableColumns
+} from '@fortawesome/free-solid-svg-icons';
+import {faCopy, faFloppyDisk, faObjectUngroup, faTrashCan} from '@fortawesome/free-regular-svg-icons';
 import {IEditorTemplate} from '../../../types';
 
 export const mockData = {
@@ -34,48 +32,48 @@ export const mockData = {
             delete: 'Delete view'
         },
         icon: {
-            home: <HomeOutlined />,
-            save: <SaveOutlined />,
-            filters: <FilterOutlined />,
-            layout: <LayoutOutlined />,
-            search: <SearchOutlined />,
-            group: <GroupOutlined />,
-            duplicate: <CopyOutlined />,
-            undo: <UndoOutlined />,
-            delete: <DeleteOutlined />
+            home: <FontAwesomeIcon icon={faHouse} />,
+            save: <FontAwesomeIcon icon={faFloppyDisk} />,
+            filters: <FontAwesomeIcon icon={faFilter} />,
+            layout: <FontAwesomeIcon icon={faTableColumns} />,
+            search: <FontAwesomeIcon icon={faMagnifyingGlass} />,
+            group: <FontAwesomeIcon icon={faObjectUngroup} />,
+            duplicate: <FontAwesomeIcon icon={faCopy} />,
+            undo: <FontAwesomeIcon icon={faRotateLeft} />,
+            delete: <FontAwesomeIcon icon={faTrashCan} />
         },
         actionsOne: [
             {
-                icon: <PlusOutlined />,
+                icon: <FontAwesomeIcon icon={faPlus} />,
                 label: 'Add',
                 onClick: () => console.log('on click add')
             }
         ],
         actionsTwo: [
             {
-                icon: <PlusOutlined />,
+                icon: <FontAwesomeIcon icon={faPlus} />,
                 label: 'Add',
                 onClick: () => console.log('on click add')
             },
             {
-                icon: <MinusOutlined />,
+                icon: <FontAwesomeIcon icon={faMinus} />,
                 label: 'Subtract',
                 onClick: () => console.log('on click subtract')
             }
         ],
         actionsMore: [
             {
-                icon: <PlusOutlined />,
+                icon: <FontAwesomeIcon icon={faPlus} />,
                 label: 'Add',
                 onClick: () => console.log('on click add')
             },
             {
-                icon: <MinusOutlined />,
+                icon: <FontAwesomeIcon icon={faMinus} />,
                 label: 'Subtract',
                 onClick: () => console.log('on click subtract')
             },
             {
-                icon: <PercentageOutlined />,
+                icon: <FontAwesomeIcon icon={faPercent} />,
                 label: 'Percent',
                 onClick: () => console.log('on click percent')
             }
@@ -87,7 +85,7 @@ export const mockData = {
     },
     menu: {
         title: 'View options',
-        segmentedButton: <KitButton type="segmented" segmentedActived segmentedColor="green" icon={<HomeOutlined />} />,
+        segmentedButton: <KitButton type="primary" icon={<FontAwesomeIcon icon={faHouse} />} segmentedColor="green" segmentedActived />,
         primaryInput: <KitInput placeholder="Opération #1" />,
         secondaryInput: <KitInput placeholder="Description" />,
         onCloseClick: () => console.log('on click close')
@@ -213,6 +211,19 @@ export const argTypes = {
             },
             category: 'Menu'
         }
+    },
+    disableSecureClick: {
+        name: 'disableSecureClick',
+        control: {type: 'boolean'},
+        description: 'Disable double click security of the item menu',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            category: 'ItemMenu',
+            defaultValue: {summary: false}
+        },
+        defaultValue: false
     },
     itemMenuTitle: {
         name: 'title',

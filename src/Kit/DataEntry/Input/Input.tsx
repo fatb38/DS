@@ -2,9 +2,10 @@ import React, {forwardRef} from 'react';
 import {Input as AntdInput} from 'antd';
 import {IKitInput, IStyledAntdInput} from './types';
 import {styled} from 'styled-components';
-import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 
 const StyledAntdInput = styled(AntdInput)<IStyledAntdInput>`
     &.ant-input,
@@ -185,7 +186,7 @@ const KitInput = forwardRef<any, IKitInput>(({label, helper, allowClear = true, 
                 ref={ref}
                 $theme={theme.components.Input}
                 {...inputProps}
-                allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
+                allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
             />
         </KitInputWrapper>
     );

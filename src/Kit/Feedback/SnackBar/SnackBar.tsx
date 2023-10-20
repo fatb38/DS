@@ -2,8 +2,9 @@ import React, {FunctionComponent} from 'react';
 import {styled} from 'styled-components';
 import toast from 'react-hot-toast';
 import {IKitOpenSnackBar, IKitSnackBar, IStyledKitSnackBar} from './types';
-import {CloseOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faXmark} from '@fortawesome/free-solid-svg-icons';
 
 const DEFAULT_DURATION = 4000;
 
@@ -128,7 +129,7 @@ const KitSnackBar: FunctionComponent<IKitSnackBar> = ({message, ctaText, ctaOnCl
             {showCloseContainer && (
                 <div className="kit-snackbar-grid kit-snackbar-grid-three">
                     <div className="kit-snackbar-close-container" onClick={() => closeSnackBar()}>
-                        <CloseOutlined />
+                        <FontAwesomeIcon icon={faXmark} />
                     </div>
                 </div>
             )}

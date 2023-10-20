@@ -1,6 +1,8 @@
 import React from 'react';
 import {KitCollapse} from '@kit/DataDisplay/';
-import {ClockCircleOutlined, MinusOutlined, PercentageOutlined, PlusOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faMinus, faPercent, faPlus} from '@fortawesome/free-solid-svg-icons';
+import {faClock} from '@fortawesome/free-regular-svg-icons';
 
 const App = () => {
     const text = `
@@ -14,7 +16,7 @@ const App = () => {
             key: '1',
             label: (
                 <KitCollapse.Header
-                    icon={<ClockCircleOutlined />}
+                    icon={<FontAwesomeIcon icon={faClock} />}
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 1"
                     description="This is a description 1"
@@ -28,7 +30,7 @@ const App = () => {
             key: '2',
             label: (
                 <KitCollapse.Header
-                    icon={<ClockCircleOutlined />}
+                    icon={<FontAwesomeIcon icon={faClock} />}
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 2"
                     description="This is a description 2"
@@ -41,9 +43,13 @@ const App = () => {
                 <KitCollapse.HeaderExtra
                     onSelectChange={e => console.log('onSelectChange :', e)}
                     actions={[
-                        {icon: <PlusOutlined />, label: 'Add', onClick: () => console.log('onClick: Add')},
                         {
-                            icon: <MinusOutlined />,
+                            icon: <FontAwesomeIcon icon={faPlus} />,
+                            label: 'Add',
+                            onClick: () => console.log('onClick: Add')
+                        },
+                        {
+                            icon: <FontAwesomeIcon icon={faMinus} />,
                             label: 'Subtract',
                             onClick: () => console.log('onClick: Subtract')
                         }
@@ -55,7 +61,7 @@ const App = () => {
             key: '3',
             label: (
                 <KitCollapse.Header
-                    icon={<ClockCircleOutlined />}
+                    icon={<FontAwesomeIcon icon={faClock} />}
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 3"
                     description="This is a description 3"
@@ -67,14 +73,18 @@ const App = () => {
                 <KitCollapse.HeaderExtra
                     onSelectChange={e => console.log('onSelectChange :', e)}
                     actions={[
-                        {icon: <PlusOutlined />, label: 'Add', onClick: () => console.log('onClick: Add')},
                         {
-                            icon: <MinusOutlined />,
+                            icon: <FontAwesomeIcon icon={faPlus} />,
+                            label: 'Add',
+                            onClick: () => console.log('onClick: Add')
+                        },
+                        {
+                            icon: <FontAwesomeIcon icon={faMinus} />,
                             label: 'Subtract',
                             onClick: () => console.log('onClick: Subtract')
                         },
                         {
-                            icon: <PercentageOutlined />,
+                            icon: <FontAwesomeIcon icon={faPercent} />,
                             label: 'Percent',
                             onClick: () => console.log('onClick: Percent')
                         }

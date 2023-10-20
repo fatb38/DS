@@ -1,28 +1,29 @@
 import React from 'react';
 import {KitButton, KitSpace} from '@kit/index';
-import {DownOutlined, FilterOutlined, SearchOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAngleDown, faFilter, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitSpace wrap>
-                <KitButton type="primary" icon={<SearchOutlined />} />
-                <KitButton type="primary" icon={<SearchOutlined />}>
+                <KitButton type="primary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+                <KitButton type="primary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                     Search
                 </KitButton>
-                <KitButton icon={<SearchOutlined />} />
-                <KitButton icon={<SearchOutlined />}>Search</KitButton>
-                <KitButton type="text" icon={<SearchOutlined />} />
-                <KitButton type="text" icon={<SearchOutlined />}>
+                <KitButton icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+                <KitButton icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>Search</KitButton>
+                <KitButton type="text" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+                <KitButton type="text" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                     Search
                 </KitButton>
-                <KitButton type="link" icon={<SearchOutlined />} />
-                <KitButton type="link" icon={<SearchOutlined />}>
+                <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+                <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                     Search
                 </KitButton>
-                <KitButton type="segmented" icon={<FilterOutlined />} />
-                <KitButton type="segmented" icon={<FilterOutlined />}>
-                    Filter <DownOutlined />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faFilter} />} />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faFilter} />}>
+                    Filter
                 </KitButton>
             </KitSpace>
         </KitSpace>

@@ -4,7 +4,7 @@ import {IKitSpacing} from './general/spacing';
 import {IKitTypography} from './general/typography';
 import {IKitButtonTheme} from './components/General/Button';
 import {IKitRateTheme} from './components/DataEntry/Rate';
-import {IKitTagTheme} from './components/DataEntry/Tag';
+import {IKitTagTheme} from './components/DataDisplay/Tag';
 import {IKitInputWrapperTheme} from './components/DataEntry/Input';
 import {IKitInputTheme} from './components/DataEntry/Input';
 import {IKitSliderTheme} from './components/DataEntry/Slider';

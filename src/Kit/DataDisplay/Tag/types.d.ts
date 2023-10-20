@@ -1,7 +1,7 @@
 import {TagProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import {ReactNode} from 'react';
-import {IKitTagTheme} from '@theme/types/components/DataEntry/Tag';
+import {IKitTagTheme} from '@theme/types/components/DataDisplay/Tag';
 
 export type AntdTagPropsToOmit = 'color' | 'checkableTag' | 'icon' | 'closable';
 

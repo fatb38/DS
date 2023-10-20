@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {KitTag} from '@kit/DataEntry/';
+import {KitTag} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {KitButton} from '@kit/General/';
 

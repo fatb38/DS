@@ -1,31 +1,37 @@
 import React from 'react';
 import {KitInput} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
-import {UserOutlined} from '@ant-design/icons';
+import {faUser} from '@fortawesome/free-regular-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const App = () => {
     return (
         <KitSpace>
             <KitSpace direction="vertical" style={{width: '400px', paddingRight: '20px'}}>
                 <KitInput placeholder="Prefix & default" helper="Helper" label="Label" allowClear={false} />
-                <KitInput placeholder="Prefix & default" prefix={<UserOutlined />} helper="Helper" label="Label" />
                 <KitInput
                     placeholder="Prefix & default"
-                    prefix={<UserOutlined />}
+                    prefix={<FontAwesomeIcon icon={faUser} />}
+                    helper="Helper"
+                    label="Label"
+                />
+                <KitInput
+                    placeholder="Prefix & default"
+                    prefix={<FontAwesomeIcon icon={faUser} />}
                     helper="Helper"
                     label="Label"
                     disabled
                 />
                 <KitInput
                     placeholder="Prefix & default"
-                    prefix={<UserOutlined />}
+                    prefix={<FontAwesomeIcon icon={faUser} />}
                     helper="Helper"
                     label="Label"
                     status="warning"
                 />
                 <KitInput
                     placeholder="Prefix & default"
-                    prefix={<UserOutlined />}
+                    prefix={<FontAwesomeIcon icon={faUser} />}
                     helper="Helper"
                     label="Label"
                     status="error"
@@ -35,20 +41,20 @@ const App = () => {
                 <KitInput.Password placeholder="Prefix & default" helper="Helper" label="Label" allowClear={false} />
                 <KitInput.Password
                     placeholder="Prefix & default"
-                    prefix={<UserOutlined />}
+                    prefix={<FontAwesomeIcon icon={faUser} />}
                     helper="Helper"
                     label="Label"
                 />
                 <KitInput.Password
                     placeholder="Prefix & default"
-                    prefix={<UserOutlined />}
+                    prefix={<FontAwesomeIcon icon={faUser} />}
                     helper="Helper"
                     label="Label"
                     disabled
                 />
                 <KitInput.Password
                     placeholder="Prefix & default"
-                    prefix={<UserOutlined />}
+                    prefix={<FontAwesomeIcon icon={faUser} />}
                     helper="Helper"
                     label="Label"
                     status="warning"
@@ -56,7 +62,7 @@ const App = () => {
                 />
                 <KitInput.Password
                     placeholder="Prefix & default"
-                    prefix={<UserOutlined />}
+                    prefix={<FontAwesomeIcon icon={faUser} />}
                     helper="Helper"
                     label="Label"
                     status="error"

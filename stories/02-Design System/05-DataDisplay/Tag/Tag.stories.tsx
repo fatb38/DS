@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {KitTag} from '@kit/DataEntry';
+import {KitTag} from '@kit/DataDisplay';
 import {argTypes, Template} from './data';
 
 const meta: Meta<typeof KitTag> = {
     component: KitTag,
-    title: 'Design System/DataEntry/Tag',
+    title: 'Design System/DataDisplay/Tag',
     argTypes: argTypes
 };
 

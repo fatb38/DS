@@ -3,15 +3,18 @@ import styled from 'styled-components';
 import cn from 'classnames';
 import IKitItemCard, {IStyledKitItemCard} from './types';
 import KitColorbar from './ColorBar';
-import {EditOutlined, EyeOutlined} from '@ant-design/icons';
 import {KitTypography, KitButton} from '@kit/General/';
 import {IKitImage} from '@kit/DataDisplay/Image/types';
 import {IKitIcon} from '@kit/General/Icon/types';
 import {IKitAvatar} from '../Avatar/types';
-import {KitCheckbox, KitTag} from '@kit/DataEntry';
+import {KitCheckbox} from '@kit/DataEntry';
+import {KitTag} from '@kit/DataDisplay';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {useKitTheme} from '@theme/theme-context';
 import {useKitLocale} from '@translation/locale-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEye} from '@fortawesome/free-regular-svg-icons';
+import {faPencil} from '@fortawesome/free-solid-svg-icons';
 
 const ItemCardWrapper = styled.div<IStyledKitItemCard>`
     display: grid;
@@ -192,6 +195,10 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
 
         .kit-icon {
             padding: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
         }
 
         .avatar-full {
@@ -277,7 +284,7 @@ const _getPicture = (picture, fullWidthAvatar) => {
             cloneProps = {
                 preview: {
                     ...(picture.props?.preview ?? {}),
-                    mask: <EyeOutlined />
+                    mask: <FontAwesomeIcon icon={faEye} />
                 },
                 width: '100%',
                 height: '100%',
@@ -368,7 +375,7 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
                             onClick={e => onEdit && onEdit(e)}
                             disabled={disabled}
                         >
-                            <EditOutlined />
+                            <FontAwesomeIcon icon={faPencil} />
                         </KitButton>
                     )}
                     {_getActions(actions, disabled)}

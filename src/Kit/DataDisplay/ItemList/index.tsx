@@ -1,11 +1,15 @@
 import React, {FunctionComponent, cloneElement, useState} from 'react';
 import {styled} from 'styled-components';
 import {IKitItemList, IStyledKitItemList} from './types';
-import {KitCheckbox, KitTag} from '@kit/DataEntry/';
+import {KitCheckbox} from '@kit/DataEntry/';
+import {KitTag} from '@kit/DataDisplay/';
 import {KitTypography} from '@kit/General/';
-import {RightOutlined, EyeOutlined} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
 import {useKitLocale} from '@translation/locale-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEye} from '@fortawesome/free-regular-svg-icons';
+import {faAngleRight} from '@fortawesome/free-solid-svg-icons';
+import useSecureClick from '@hooks/useSecureClick';
 
 const StyledItemList = styled.div<IStyledKitItemList>`
     display: grid;
@@ -63,7 +67,8 @@ const StyledItemList = styled.div<IStyledKitItemList>`
             align-items: center;
             justify-content: center;
 
-            img {
+            img,
+            svg {
                 width: auto;
                 max-width: 100%;
                 max-height: 100%;
@@ -186,6 +191,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
     disabled = false,
     onClick,
     className,
+    disableSecureClick,
     ...props
 }) => {
     const {theme} = useKitTheme();
@@ -255,7 +261,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
                 cloneProps = {
                     preview: {
                         ...(pictureJsx.props?.preview ?? {}),
-                        mask: <EyeOutlined />
+                        mask: <FontAwesomeIcon icon={faEye} />
                     },
                     width: '100%',
                     height: '100%',
@@ -350,17 +356,21 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
         );
     };
 
+    const _handleClickRafter = e => {
+        e.stopPropagation();
+        onRafterClick && onRafterClick();
+    };
+
+    const _handleClickRafterSecured = useSecureClick(_handleClickRafter);
+
     const _getRafter = () => {
         return (
             hasRafter && (
                 <div
                     className="kit-item-list-rafter"
-                    onClick={e => {
-                        e.stopPropagation();
-                        onRafterClick && onRafterClick();
-                    }}
+                    onClick={disableSecureClick ? _handleClickRafter : _handleClickRafterSecured}
                 >
-                    <RightOutlined />
+                    <FontAwesomeIcon icon={faAngleRight} />
                 </div>
             )
         );
@@ -375,15 +385,19 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
         return classes;
     };
 
+    const _handleClickItemList = e => {
+        e.stopPropagation();
+        onClick && onClick();
+    };
+
+    const _handleClickItemListSecured = useSecureClick(_handleClickItemList);
+
     return (
         <StyledItemList
             className={_getClasses()}
             $theme={theme.components.ItemList}
             $gridTemplateColumns={_generateGridTemplateColumns()}
-            onClick={e => {
-                e.stopPropagation();
-                onClick && onClick();
-            }}
+            onClick={disableSecureClick ? _handleClickItemList : _handleClickItemListSecured}
             {...props}
         >
             {_getCheckbox()}

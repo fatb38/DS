@@ -5,8 +5,9 @@ import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
 import {KitDropDown} from '@kit/Navigation/';
-import {MoreOutlined} from '@ant-design/icons';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';
 
 const StyledHeaderExtra = styled.div`
     margin-left: 4px;
@@ -110,7 +111,10 @@ export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({onSelectChan
                                     }}
                                 >
                                     <KitTooltip title="More">
-                                        <KitButton type="segmented" icon={<MoreOutlined />} />
+                                        <KitButton
+                                            type="segmented"
+                                            icon={<FontAwesomeIcon icon={faEllipsisVertical} />}
+                                        />
                                     </KitTooltip>
                                 </KitDropDown>
                             </div>

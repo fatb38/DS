@@ -3,8 +3,10 @@ import {Button as AntdButton} from 'antd';
 import {styled} from 'styled-components';
 import type {IKitButton, IStyledKitButton, KitButtonCompoundedComponent} from './types';
 import {ButtonType} from 'antd/lib/button';
-import {CheckCircleFilled} from '@ant-design/icons';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleCheck} from '@fortawesome/free-solid-svg-icons';
+import useSecureClick from '@hooks/useSecureClick';
 
 const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
     height: 40px;
@@ -24,7 +26,7 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
         border-color: ${({$theme}) => $theme.colors.border.default};
     }
 
-    &.ant-btn .ant-btn-icon .anticon {
+    &.ant-btn .ant-btn-icon svg {
         font-size: ${({$theme, $iconSize}) =>
             $iconSize === undefined ? $theme.typography.iconSize.m : $theme.typography.iconSize[$iconSize]}px;
     }
@@ -251,12 +253,16 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
         className,
         wrapperClassName,
         wrapperStyle,
+        onClick,
+        disableSecureClick,
         ...buttonProps
     },
     ref
 ) => {
     const {theme: kitTheme} = useKitTheme();
     const theme = kitTheme.components.Button;
+
+    const secureClick = useSecureClick(onClick);
 
     const _getTheme = () => {
         switch (type) {
@@ -316,10 +322,11 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
                 className={_getClasses()}
                 ghost={primaryModal}
                 type={_getAntdType()}
+                onClick={disableSecureClick ? onClick : secureClick}
                 ref={ref}
             ></StyledAntdButton>
             {type === 'segmented' && segmentedChecked && (
-                <CheckCircleFilled className="kit-btn-segmented-actived-icon" />
+                <FontAwesomeIcon icon={faCircleCheck} className="kit-btn-segmented-actived-icon" />
             )}
         </div>
     );

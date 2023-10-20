@@ -1,7 +1,9 @@
 import React, {ReactNode} from 'react';
 import {KitBreadcrumb, KitHeader} from '@kit/Navigation';
 import {KitButton, KitTypography} from '@kit/General';
-import {ControlOutlined, FilterOutlined, GroupOutlined, SortDescendingOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowUpZA, faFilter, faSliders} from '@fortawesome/free-solid-svg-icons';
+import {faObjectUngroup} from '@fortawesome/free-regular-svg-icons';
 
 const searchProps = {
     allowClear: true,
@@ -9,10 +11,10 @@ const searchProps = {
 };
 
 const actions: ReactNode[] = [
-    <KitButton icon={<FilterOutlined />}></KitButton>,
-    <KitButton icon={<GroupOutlined />}></KitButton>,
-    <KitButton icon={<SortDescendingOutlined />}></KitButton>,
-    <KitButton icon={<ControlOutlined />}>Vue</KitButton>
+    <KitButton icon={<FontAwesomeIcon icon={faFilter} />}></KitButton>,
+    <KitButton icon={<FontAwesomeIcon icon={faObjectUngroup} />}></KitButton>,
+    <KitButton icon={<FontAwesomeIcon icon={faArrowUpZA} />}></KitButton>,
+    <KitButton icon={<FontAwesomeIcon icon={faSliders} />}>Vue</KitButton>
 ];
 
 const menuItems = [

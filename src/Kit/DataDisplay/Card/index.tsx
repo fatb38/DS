@@ -5,7 +5,8 @@ import IKitCard, {IStyledKitCard, IStyledKitCardContentTitleContainer} from './t
 import {KitIcon, KitTypography} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
 import {useKitTheme} from '@theme/theme-context';
-import {LinkOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faLink} from '@fortawesome/free-solid-svg-icons';
 
 const StyledCard = styled(AntdCard)<IStyledKitCard>`
     font-family: ${({$theme}) => $theme.typography.fontFamily};
@@ -108,7 +109,7 @@ const StyledCard = styled(AntdCard)<IStyledKitCard>`
                 border-color: ${({$theme, $disabled}) =>
                     $disabled ? $theme.colors.actions.disabled : $theme.colors.actions.default};
             }
-            & li span span {
+            & li svg {
                 color: ${({$theme, $disabled}) =>
                     $disabled ? $theme.colors.actions.disabled : $theme.colors.actions.default};
 
@@ -167,20 +168,6 @@ const _getCover = (cover?: ReactNode) => {
     return cardCover;
 };
 
-const _getExtra = (disabled: boolean, extra?: ReactNode) => {
-    let cardExtra: null | ReactElement = null;
-
-    if (extra) {
-        const customExtra = extra as ReactElement;
-        cardExtra = cloneElement(customExtra, {
-            className: `kit-card-extra ${customExtra.props.className ?? ''}`,
-            href: disabled ? null : customExtra.props.href
-        });
-    }
-
-    return cardExtra;
-};
-
 const _getActions = (disabled: boolean, actions?: ReactNode[]) => {
     if (disabled && actions) {
         return actions?.reduce<ReactNode[]>((acc, action) => {
@@ -193,6 +180,20 @@ const _getActions = (disabled: boolean, actions?: ReactNode[]) => {
         }, []);
     }
     return actions;
+};
+
+const _getExtra = (disabled: boolean, extra?: ReactNode) => {
+    let cardExtra: null | ReactElement = null;
+
+    if (extra) {
+        const customExtra = extra as ReactElement;
+        cardExtra = cloneElement(customExtra, {
+            className: `kit-card-extra ${customExtra.props.className ?? ''}`,
+            href: disabled ? null : customExtra.props.href
+        });
+    }
+
+    return cardExtra;
 };
 
 export const KitCard: FunctionComponent<IKitCard> = ({
@@ -235,7 +236,7 @@ export const KitCard: FunctionComponent<IKitCard> = ({
                         onClick={disabled ? undefined : onContentTitleClick}
                     >
                         {onContentTitleClick && (
-                            <KitIcon className="kit-card-content-title-icon" icon={<LinkOutlined />} />
+                            <KitIcon className="kit-card-content-title-icon" icon={<FontAwesomeIcon icon={faLink} />} />
                         )}
                         {contentTitle && (
                             <KitTypography.Text className="card-content-title">{contentTitle}</KitTypography.Text>

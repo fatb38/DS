@@ -3,6 +3,9 @@ import {Image as AntdImage} from 'antd';
 import {IKitImage, IStyledKitImage, KitImageCompoundedComponent} from './types';
 import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEye} from '@fortawesome/free-solid-svg-icons';
+import {useKitLocale} from '@translation/locale-context';
 
 const StyledImage = styled(AntdImage)<IStyledKitImage>`
     border-radius: ${({$rounded, $theme}) =>
@@ -18,10 +21,41 @@ const StyledImage = styled(AntdImage)<IStyledKitImage>`
     }
 `;
 
-const Image: FunctionComponent<IKitImage> = ({rounded, bordered, ...props}) => {
-    const {theme} = useKitTheme();
+const MaskContainer = styled.div`
+    display: flex;
+    gap: 6px;
+`;
 
-    return <StyledImage $theme={theme.components.Image} $rounded={rounded} $bordered={bordered} {...props} />;
+const Image: FunctionComponent<IKitImage> = ({rounded, bordered, preview, ...props}) => {
+    const {theme} = useKitTheme();
+    const {locale} = useKitLocale();
+
+    const Mask = (
+        <MaskContainer>
+            <FontAwesomeIcon icon={faEye} />
+            {locale.Image.preview}
+        </MaskContainer>
+    );
+
+    const _getPreview = () => {
+        if (typeof preview === 'object') {
+            return {mask: Mask, ...preview};
+        }
+        if (preview === undefined) {
+            return {mask: Mask};
+        }
+        return preview;
+    };
+
+    return (
+        <StyledImage
+            $theme={theme.components.Image}
+            $rounded={rounded}
+            $bordered={bordered}
+            preview={_getPreview()}
+            {...props}
+        />
+    );
 };
 
 export const KitImage = Image as KitImageCompoundedComponent;

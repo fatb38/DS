@@ -1,6 +1,7 @@
 import {KitTree} from '@kit/DataDisplay';
-import {FolderOutlined, FileOutlined, CarryOutOutlined, FormOutlined} from '@ant-design/icons';
 import React from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCalendarCheck, faFile, faFolder, faPenToSquare} from '@fortawesome/free-regular-svg-icons';
 import {IEditorTemplate} from '../../../types';
 
 const basicData = [
@@ -46,22 +47,22 @@ const iconData = [
     {
         title: 'parent 1',
         key: '0-0',
-        icon: <FolderOutlined />,
+        icon: <FontAwesomeIcon icon={faFolder} />,
         children: [
             {
                 title: 'parent 1-0',
                 key: '0-0-0',
-                icon: <FolderOutlined />,
+                icon: <FontAwesomeIcon icon={faFolder} />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-0-0-0',
-                        icon: <FileOutlined />
+                        icon: <FontAwesomeIcon icon={faFile} />
                     },
                     {
                         title: 'leaf',
                         key: '0-0-0-1',
-                        icon: <FileOutlined />
+                        icon: <FontAwesomeIcon icon={faFile} />
                     }
                 ]
             }
@@ -73,17 +74,17 @@ const lineData = [
     {
         title: 'parent 1',
         key: '0-0',
-        icon: <CarryOutOutlined />,
+        icon: <FontAwesomeIcon icon={faCalendarCheck} />,
         children: [
             {
                 title: 'parent 1-0',
                 key: '0-0-0',
-                icon: <CarryOutOutlined />,
+                icon: <FontAwesomeIcon icon={faCalendarCheck} />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-0-0-0',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     },
                     {
                         title: (
@@ -93,42 +94,42 @@ const lineData = [
                             </>
                         ),
                         key: '0-0-0-1',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     },
                     {
                         title: 'leaf',
                         key: '0-0-0-2',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     }
                 ]
             },
             {
                 title: 'parent 1-1',
                 key: '0-0-1',
-                icon: <CarryOutOutlined />,
+                icon: <FontAwesomeIcon icon={faCalendarCheck} />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-0-1-0',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     }
                 ]
             },
             {
                 title: 'parent 1-2',
                 key: '0-0-2',
-                icon: <CarryOutOutlined />,
+                icon: <FontAwesomeIcon icon={faCalendarCheck} />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-0-2-0',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     },
                     {
                         title: 'leaf',
                         key: '0-0-2-1',
-                        icon: <CarryOutOutlined />,
-                        switcherIcon: <FormOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />,
+                        switcherIcon: <FontAwesomeIcon icon={faPenToSquare} />
                     }
                 ]
             }
@@ -137,22 +138,22 @@ const lineData = [
     {
         title: 'parent 2',
         key: '0-1',
-        icon: <CarryOutOutlined />,
+        icon: <FontAwesomeIcon icon={faCalendarCheck} />,
         children: [
             {
                 title: 'parent 2-0',
                 key: '0-1-0',
-                icon: <CarryOutOutlined />,
+                icon: <FontAwesomeIcon icon={faCalendarCheck} />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-1-0-0',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     },
                     {
                         title: 'leaf',
                         key: '0-1-0-1',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     }
                 ]
             }
@@ -668,17 +669,17 @@ const treeData = [
     {
         title: 'parent 1',
         key: '0-0',
-        icon: <CarryOutOutlined />,
+        icon: <FontAwesomeIcon icon={faCalendarCheck} />,
         children: [
             {
                 title: 'parent 1-0',
                 key: '0-0-0',
-                icon: <CarryOutOutlined />,
+                icon: <FontAwesomeIcon icon={faCalendarCheck} />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-0-0-0',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     },
                     {
                         title: (
@@ -688,42 +689,42 @@ const treeData = [
                             </>
                         ),
                         key: '0-0-0-1',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     },
                     {
                         title: 'leaf',
                         key: '0-0-0-2',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     }
                 ]
             },
             {
                 title: 'parent 1-1',
                 key: '0-0-1',
-                icon: <CarryOutOutlined />,
+                icon: <FontAwesomeIcon icon={faCalendarCheck} />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-0-1-0',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     }
                 ]
             },
             {
                 title: 'parent 1-2',
                 key: '0-0-2',
-                icon: <CarryOutOutlined />,
+                icon: <FontAwesomeIcon icon={faCalendarCheck} />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-0-2-0',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     },
                     {
                         title: 'leaf',
                         key: '0-0-2-1',
-                        icon: <CarryOutOutlined />,
-                        switcherIcon: <FormOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />,
+                        switcherIcon: <FontAwesomeIcon icon={faPenToSquare} />
                     }
                 ]
             }
@@ -732,22 +733,22 @@ const treeData = [
     {
         title: 'parent 2',
         key: '0-1',
-        icon: <CarryOutOutlined />,
+        icon: <FontAwesomeIcon icon={faCalendarCheck} />,
         children: [
             {
                 title: 'parent 2-0',
                 key: '0-1-0',
-                icon: <CarryOutOutlined />,
+                icon: <FontAwesomeIcon icon={faCalendarCheck} />,
                 children: [
                     {
                         title: 'leaf',
                         key: '0-1-0-0',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     },
                     {
                         title: 'leaf',
                         key: '0-1-0-1',
-                        icon: <CarryOutOutlined />
+                        icon: <FontAwesomeIcon icon={faCalendarCheck} />
                     }
                 ]
             }

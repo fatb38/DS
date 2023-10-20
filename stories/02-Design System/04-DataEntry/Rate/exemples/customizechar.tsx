@@ -1,15 +1,16 @@
 import React, {ReactNode} from 'react';
 import {KitRate} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout';
-import {FrownOutlined, MehOutlined, SmileOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faFaceFrown, faFaceMeh, faFaceSmile} from '@fortawesome/free-regular-svg-icons';
 
 const App = () => {
     const customIcons: Record<number, React.ReactNode> = {
-        1: <FrownOutlined />,
-        2: <FrownOutlined />,
-        3: <MehOutlined />,
-        4: <SmileOutlined />,
-        5: <SmileOutlined />
+        1: <FontAwesomeIcon icon={faFaceFrown} />,
+        2: <FontAwesomeIcon icon={faFaceFrown} />,
+        3: <FontAwesomeIcon icon={faFaceMeh} />,
+        4: <FontAwesomeIcon icon={faFaceSmile} />,
+        5: <FontAwesomeIcon icon={faFaceSmile} />
     };
 
     const charsNumber: (props) => ReactNode = ({index}: {index: number}) => index + 1;

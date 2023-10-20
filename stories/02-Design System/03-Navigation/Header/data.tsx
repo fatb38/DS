@@ -1,8 +1,10 @@
 import React, {ReactNode} from 'react';
-import {FilterOutlined, SortDescendingOutlined, GroupOutlined, ControlOutlined} from '@ant-design/icons';
 import {KitButton, KitTypography} from '@kit/General/';
 import {KitBreadcrumb, KitHeader} from '@kit/Navigation/';
 import {IEditorTemplate} from '../../../types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowUpZA, faFilter, faSliders} from '@fortawesome/free-solid-svg-icons';
+import {faObjectUngroup} from '@fortawesome/free-regular-svg-icons';
 
 const menuItems = [
     {
@@ -63,22 +65,22 @@ export const menuProps = {
 export const options = [
     {
         value: 'view',
-        icon: <ControlOutlined />,
+        icon: <FontAwesomeIcon icon={faSliders} />,
         label: 'Vue'
     },
     {
         value: 'save',
-        icon: <ControlOutlined />,
+        icon: <FontAwesomeIcon icon={faSliders} />,
         label: 'Enregistrer la vue',
         highlight: true
     }
 ];
 
 export const actions: ReactNode[] = [
-    <KitButton icon={<FilterOutlined />}></KitButton>,
-    <KitButton icon={<GroupOutlined />}></KitButton>,
-    <KitButton icon={<SortDescendingOutlined />}></KitButton>,
-    <KitButton icon={<ControlOutlined />}>Vue</KitButton>
+    <KitButton icon={<FontAwesomeIcon icon={faFilter} />}></KitButton>,
+    <KitButton icon={<FontAwesomeIcon icon={faObjectUngroup} />}></KitButton>,
+    <KitButton icon={<FontAwesomeIcon icon={faArrowUpZA} />}></KitButton>,
+    <KitButton icon={<FontAwesomeIcon icon={faSliders} />}>Vue</KitButton>
 ];
 
 export const breadcrumb = <KitBreadcrumb items={items} />;

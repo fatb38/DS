@@ -2,9 +2,10 @@ import React, {FunctionComponent} from 'react';
 import {KitButton} from '@kit/General';
 import {Upload as AntdUpload} from 'antd';
 import {IKitUpload, IStyledUpload} from './types';
-import {LoadingOutlined, PlusOutlined, UploadOutlined} from '@ant-design/icons';
 import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleNotch, faPlus, faUpload} from '@fortawesome/free-solid-svg-icons';
 
 const StyledUpload = styled(AntdUpload)<IStyledUpload>`
     &.ant-upload-wrapper {
@@ -95,11 +96,11 @@ const KitUpload: FunctionComponent<IKitUpload> = ({
             {...uploadProps}
         >
             {(listType === undefined || listType === 'text' || listType === 'picture') && (
-                <KitButton icon={<UploadOutlined />}>{uploadWording}</KitButton>
+                <KitButton icon={<FontAwesomeIcon icon={faUpload} />}>{uploadWording}</KitButton>
             )}
             {showUploadList && listType === 'picture-card' && (
                 <div>
-                    <PlusOutlined />
+                    <FontAwesomeIcon icon={faPlus} />
                     <div style={{marginTop: 8}}>{uploadWording}</div>
                 </div>
             )}
@@ -110,10 +111,10 @@ const KitUpload: FunctionComponent<IKitUpload> = ({
                         <img src={imageUrl} alt="avatar" style={{width: '100%'}} />
                     </div>
                 ) : (
-                    <div>
-                        {loading ? <LoadingOutlined /> : <PlusOutlined />}
+                    <>
+                        {loading ? <FontAwesomeIcon icon={faCircleNotch} spin /> : <FontAwesomeIcon icon={faPlus} />}
                         <div style={{marginTop: 8}}>{uploadWording}</div>
-                    </div>
+                    </>
                 ))}
         </StyledUpload>
     );
