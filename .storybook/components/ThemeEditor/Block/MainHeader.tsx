@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {StyledLinkButton} from './Field';
 
 const StyledHeader = styled.div`
     color: #73828c;
@@ -20,6 +21,20 @@ const StyledHeader = styled.div`
         Helvetica,
         Arial,
         sans-serif;
+
+    ${StyledLinkButton} {
+        text-transform: capitalize;
+        font-weight: normal;
+        cursor: pointer;
+
+        &:first-child {
+            margin-left: 2rem;
+        }
+    }
+
+    &:not(:hover) ${StyledLinkButton} {
+        display: none;
+    }
 `;
 
 export default StyledHeader;

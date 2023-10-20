@@ -2,6 +2,7 @@ import React, {FunctionComponent} from 'react';
 import styled from 'styled-components';
 import {IHeader} from '../types';
 import Icon from './Icon';
+import {StyledLinkButton} from './Field';
 
 export const StyledHeader = styled.div`
     font-family:
@@ -34,6 +35,20 @@ export const StyledHeader = styled.div`
         }
     }
 
+    ${StyledLinkButton} {
+        text-transform: capitalize;
+        font-weight: normal;
+        font-size: 11px;
+
+        &:first-of-type {
+            margin-left: 2rem;
+        }
+    }
+
+    &:not(:hover) ${StyledLinkButton} {
+        display: none;
+    }
+
     .reset {
         flex: 0;
         white-space: nowrap;
@@ -45,9 +60,29 @@ export const StyledHeader = styled.div`
     }
 `;
 
-const Header: FunctionComponent<IHeader> = ({title, level, onReset, resetText, onClick, collapsible, collapsed}) => {
+const Header: FunctionComponent<IHeader> = ({
+    title,
+    level,
+    onReset,
+    resetText,
+    onClick,
+    collapsible,
+    collapsed,
+    onCollapseAll,
+    onExpandAll
+}) => {
     const _handleClickReset = e => onReset && onReset(e);
     const _handleOnClick = e => onClick && onClick(e);
+    const _handleExpandAll = e => {
+        e.stopPropagation();
+        collapsible && collapsed && _handleOnClick(e);
+        onExpandAll && onExpandAll(e);
+    };
+    const _handleCollapseAll = e => {
+        e.stopPropagation();
+        collapsible && !collapsed && _handleOnClick(e);
+        onCollapseAll && onCollapseAll(e);
+    };
     const icon = collapsed ? 'arrowright' : 'arrowdown';
 
     return (
@@ -62,6 +97,8 @@ const Header: FunctionComponent<IHeader> = ({title, level, onReset, resetText, o
             >
                 {collapsible && <Icon icon={icon} />}
                 {title}
+                {onExpandAll && <StyledLinkButton onClick={_handleExpandAll}>Expand all</StyledLinkButton>}
+                {onCollapseAll && <StyledLinkButton onClick={_handleCollapseAll}>Collapse all</StyledLinkButton>}
             </div>
             {resetText && (
                 <div className="reset">

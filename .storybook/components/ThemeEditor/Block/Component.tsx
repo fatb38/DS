@@ -33,6 +33,11 @@ export const StyledComponentWrapper = styled.div<{
         min-height: 300px;
         border-bottom: 1px solid hsla(203, 50%, 30%, 0.15);
 
+        &.hidden {
+            visibility: collapse;
+            height: 0;
+        }
+
         &.tokensOnly {
             padding: 0;
             min-height: auto;
@@ -112,7 +117,17 @@ const StyledA11y = styled.div`
     font-size: 13px;
 `;
 
-const Component: FunctionComponent<IComponentBlock> = ({path, title, level, children, showA11yToggle, container}) => {
+const Component: FunctionComponent<IComponentBlock> = ({
+    path,
+    title,
+    level,
+    children,
+    showA11yToggle,
+    container,
+    registerExpandCollapse,
+    onCollapseGroup,
+    onExpandGroup
+}) => {
     const {setThemeValue} = useContext<IEditorContext>(EditorContext);
     const ref = useRef<{
         [id: string]: Function;
@@ -144,6 +159,15 @@ const Component: FunctionComponent<IComponentBlock> = ({path, title, level, chil
             rerun(testId);
         }
     }, [isOpen, showA11yToggle]);
+
+    useEffect(() => {
+        if (registerExpandCollapse) {
+            registerExpandCollapse(path, {
+                collapse: () => setIsOpen(false),
+                expand: () => setIsOpen(true)
+            });
+        }
+    }, []);
 
     const _addResetFunction = (path, resetFn) => {
         if (!ref.current) {
@@ -193,8 +217,16 @@ const Component: FunctionComponent<IComponentBlock> = ({path, title, level, chil
     if (container) {
         return (
             <StyledComponentWrapper $isOpen={isOpen} $container={true} className="container">
-                <Header title={title} level={_level} onClick={_handleOpen} collapsible collapsed={!isOpen} />
-                {isOpen && <div className={`content tokensOnly`}>{children}</div>}
+                <Header
+                    title={title}
+                    level={_level}
+                    onClick={_handleOpen}
+                    collapsible
+                    collapsed={!isOpen}
+                    onCollapseAll={onCollapseGroup}
+                    onExpandAll={onExpandGroup}
+                />
+                <div className={`content tokensOnly ${!isOpen ? 'hidden' : ''}`}>{children}</div>
             </StyledComponentWrapper>
         );
     }
@@ -209,6 +241,8 @@ const Component: FunctionComponent<IComponentBlock> = ({path, title, level, chil
                 collapsed={!isOpen}
                 onReset={_resetComponent}
                 resetText="resetAll"
+                onCollapseAll={onCollapseGroup}
+                onExpandAll={onExpandGroup}
             />
             {isOpen && (
                 <div className={`content ${!children ? 'tokensOnly' : ''}`}>

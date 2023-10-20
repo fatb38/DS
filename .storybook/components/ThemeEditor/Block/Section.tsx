@@ -1,9 +1,10 @@
-import React, {FunctionComponent, useContext, useEffect, useState} from 'react';
+import React, {FunctionComponent, cloneElement, useContext, useEffect, useMemo, useState} from 'react';
 import styled from 'styled-components';
 import {IEditorContext, ISection} from '../types';
 import {EditorContext} from '../Context';
 import {getValue} from '../util';
 import Icon from './Icon';
+import toArray from 'rc-util/lib/Children/toArray';
 
 export const StyledSection = styled.div`
     cursor: pointer;
@@ -82,6 +83,11 @@ const Section: FunctionComponent<ISection> = ({
 
     const icon = _isOpen ? 'arrowdown' : 'arrowright';
 
+    const _children = useMemo(
+        () => toArray(children).map(Child => cloneElement(Child, {isVisible: _isOpen})),
+        [children, _isOpen]
+    );
+
     return (
         <StyledSection>
             <div className="section-title" onClick={_handleClick} style={{paddingLeft: `${level * 0.5}rem`}}>
@@ -94,7 +100,7 @@ const Section: FunctionComponent<ISection> = ({
                 )}
             </div>
             <div className={`section-items ${_isOpen ? 'open' : ''}`}>
-                <div>{children}</div>
+                <div>{_children}</div>
             </div>
         </StyledSection>
     );

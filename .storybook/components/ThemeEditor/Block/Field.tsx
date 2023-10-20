@@ -171,7 +171,8 @@ const Field: FunctionComponent<IField> = ({
     _description,
     _label,
     addResetFunction,
-    onTokenChanged
+    onTokenChanged,
+    isVisible
 }) => {
     const {theme, setThemeValue} = useContext<IEditorContext>(EditorContext);
     const [showInput, setShowInput] = useState(false);
@@ -247,6 +248,10 @@ const Field: FunctionComponent<IField> = ({
             )}
         </ValueStyled>
     );
+
+    if (!isVisible) {
+        return null;
+    }
 
     return (
         <StyledField style={{paddingLeft: `${(level + 2) * 0.5}rem`}}>

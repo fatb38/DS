@@ -5,8 +5,10 @@ import {KitApp} from '../../../src/Kit/App';
 import {EditorContext} from './Context';
 import Component, {StyledComponentWrapper} from './Block/Component';
 import {KitButton, KitSpace} from '../../../src/Kit';
-import {IEditor, IEditorContext} from './types';
+import {CollapseExpandObject, IEditor, IEditorContext} from './types';
 import MainHeader from './Block/MainHeader';
+import {StyledLinkButton} from './Block/Field';
+import {StyledSection} from './Block/Section';
 
 const StyledTitle = styled.div`
     margin-bottom: 2rem;
@@ -34,6 +36,24 @@ const StyledH1 = styled.h1`
 const Editor: FunctionComponent<IEditor> = ({components}) => {
     const {theme, setTheme} = useContext<IEditorContext>(EditorContext);
     const fileRef = useRef<HTMLInputElement>(null);
+    const ref = useRef<{
+        [path: string]: CollapseExpandObject;
+    }>({});
+
+    const _registerExpandCollapse = (path, collapseExpandObject) => {
+        if (!ref.current) {
+            ref.current = {};
+        }
+        ref.current[path] = collapseExpandObject;
+    };
+
+    const _handleCollapseAll = () => Object.values(ref?.current ?? []).forEach(item => item.collapse());
+    const _handleExpandAll = () => {
+        Object.values(ref?.current ?? []).forEach(item => item.expand());
+    };
+
+    const _handleCollapseGroup = paths => paths.forEach(path => ref?.current[path] && ref?.current[path].collapse());
+    const _handleExpandGroup = paths => paths.forEach(path => ref?.current[path] && ref?.current[path].expand());
 
     const _downloadFile = () => {
         const link = document.createElement('a');
@@ -95,12 +115,17 @@ const Editor: FunctionComponent<IEditor> = ({components}) => {
             </StyledTitle>
             <Unstyled>
                 <KitApp customTheme={theme}>
-                    <MainHeader>General tokens</MainHeader>
+                    <MainHeader>General tokens </MainHeader>
                     <Component title="General" path="general" showA11yToggle={false} />
-                    <MainHeader>Components</MainHeader>
+                    <MainHeader>
+                        Components
+                        <StyledLinkButton onClick={_handleExpandAll}>Expand all</StyledLinkButton>
+                        <StyledLinkButton onClick={_handleCollapseAll}>Collapse all</StyledLinkButton>
+                    </MainHeader>
                     <StyledComponentWrapper $isOpen $container>
                         {components &&
                             Object.keys(components).map(group => {
+                                let paths = Object.values(components[group]).map(item => item.path);
                                 return (
                                     <Component
                                         key={group}
@@ -109,6 +134,9 @@ const Editor: FunctionComponent<IEditor> = ({components}) => {
                                         container
                                         showA11yToggle={false}
                                         level={0}
+                                        registerExpandCollapse={_registerExpandCollapse}
+                                        onCollapseGroup={() => _handleCollapseGroup(paths)}
+                                        onExpandGroup={() => _handleExpandGroup(paths)}
                                     >
                                         {Object.keys(components[group]).map(item => {
                                             const Item = components[group][item];
@@ -119,6 +147,7 @@ const Editor: FunctionComponent<IEditor> = ({components}) => {
                                                     title={Item.title}
                                                     showA11yToggle
                                                     level={1}
+                                                    registerExpandCollapse={_registerExpandCollapse}
                                                 >
                                                     <Item />
                                                 </Component>

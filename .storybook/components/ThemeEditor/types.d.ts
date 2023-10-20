@@ -1,5 +1,5 @@
 import {IKitTheme} from '@theme/types';
-import {FunctionComponent} from 'react';
+import {FunctionComponent, MouseEventHandler, ReactNode} from 'react';
 
 type JSONValue = string | null | number | boolean | {[x: string]: JSONValue} | Array<JSONValue>;
 
@@ -28,6 +28,9 @@ export interface IComponentBlock {
     showA11yToggle: boolean;
     container?: boolean;
     level?: number;
+    registerExpandCollapse?: (path: string, object: CollapseExpandObject) => void;
+    onCollapseGroup?: MouseEventHandler<HTMLAnchorElement>;
+    onExpandGroup?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 export interface IItem {
@@ -56,6 +59,7 @@ export interface IField {
     level: number;
     _min?: number;
     _description?: string;
+    isVisible?: boolean;
     addResetFunction?: (path: string, fn: Function) => void;
     onTokenChanged: Function;
 }
@@ -120,4 +124,6 @@ export interface IHeader {
     collapsible?: boolean;
     collapsed?: boolean;
     onClick?: Function;
+    onExpandAll?: MouseEventHandler<HTMLAnchorElement>;
+    onCollapseAll?: MouseEventHandler<HTMLAnchorElement>;
 }
