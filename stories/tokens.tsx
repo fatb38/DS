@@ -6344,6 +6344,16 @@ const forms = {
                             "_description": "hover color"
                         }
                     }
+                },
+                "border": {
+                    "_label": "border",
+                    "_path": "components.ItemList.itemList.border",
+                    "radius": {
+                        "_label": "radius",
+                        "_path": "components.ItemList.itemList.border.radius",
+                        "_type": "number",
+                        "_min": 0
+                    }
                 }
             },
             "title": {
