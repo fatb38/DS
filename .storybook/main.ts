@@ -1,4 +1,4 @@
-import type { StorybookConfig } from '@storybook/react-vite';
+import type {StorybookConfig} from '@storybook/react-vite';
 import remarkGfm from 'remark-gfm';
 
 const config: StorybookConfig = {
@@ -26,7 +26,7 @@ const config: StorybookConfig = {
         enableCrashReports: false,
         disableTelemetry: true
     },
-    staticDirs: [{ from: '../public', to: '/public' }],
+    staticDirs: [{from: '../public', to: '/public'}],
     docs: {
         autodocs: true,
         docsMode: true
