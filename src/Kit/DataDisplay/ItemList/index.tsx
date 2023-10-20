@@ -1,7 +1,8 @@
 import React, {FunctionComponent, cloneElement, useState} from 'react';
 import {styled} from 'styled-components';
 import {IKitItemList, IStyledKitItemList} from './types';
-import {KitCheckbox, KitTag} from '@kit/DataEntry/';
+import {KitCheckbox} from '@kit/DataEntry/';
+import {KitTag} from '@kit/DataDisplay/';
 import {KitTypography} from '@kit/General/';
 import {useKitTheme} from '@theme/theme-context';
 import {useKitLocale} from '@translation/locale-context';

@@ -1,4 +1,4 @@
-import {IKitTagTheme} from '@theme/types/components/DataEntry/Tag';
+import {IKitTagTheme} from '@theme/types/components/DataDisplay/Tag';
 
 export const mapTagKitTokenToAntdToken = (kitTagTheme: IKitTagTheme) => {
     const {colors, border} = kitTagTheme;

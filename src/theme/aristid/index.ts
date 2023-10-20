@@ -2,7 +2,7 @@ import {DeepPartial, IKitTheme, IKitThemeComponents, IKitThemeGeneral} from '@th
 import {KitAristidThemeGeneral} from './general';
 import {getKitRateTokens} from './components/DataEntry/Rate';
 import {getKitTooltipTokens} from './components/DataDisplay/Tooltip';
-import {getKitTagTokens} from './components/DataEntry/Tag';
+import {getKitTagTokens} from './components/DataDisplay/Tag';
 import {getKitInputTokens, getKitInputWrapperTokens} from './components/DataEntry/Input/';
 import {getKitAvatarGroupTokens, getKitAvatarTokens} from './components/DataDisplay/Avatar';
 import {getKitBadgeTokens} from './components/DataDisplay/Badge';

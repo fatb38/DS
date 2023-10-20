@@ -5,7 +5,7 @@ import {IKitSelect} from './types';
 import type {CustomTagProps} from 'rc-select/lib/BaseSelect';
 import {StyledBadge, StyledKitSelect, StyledLabel} from './style';
 import KitInputWrapper from '@kit/DataEntry/Input/InputWrapper';
-import {KitTag} from '@kit/DataEntry/';
+import {KitTag} from '@kit/DataDisplay/';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
