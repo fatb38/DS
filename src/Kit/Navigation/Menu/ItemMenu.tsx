@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, useState} from 'react';
 import {IKitMenuInfo, IStyledIemMenu, IKitItemMenu} from './types';
 import {css, styled} from 'styled-components';
 import {KitCheckbox} from '@kit/DataEntry/';
@@ -144,6 +144,8 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
     const isSelectable = onSelectChange !== undefined;
     const hasRafter = onRafterClick !== undefined;
 
+    const [showMoreTooltip, setShowMoreTooltip] = useState(false);
+
     const _getCheckbox = () => {
         return (
             isSelectable && (
@@ -219,10 +221,12 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                             >
                                 <KitDropDown
                                     menu={{
-                                        items: getMoreActionsDropDownItems()
+                                        items: _getMoreActionsDropDownItems()
                                     }}
+                                    trigger={['click']}
+                                    onOpenChange={() => setShowMoreTooltip(false)}
                                 >
-                                    <KitTooltip title="More">
+                                    <KitTooltip title="More" open={showMoreTooltip} onOpenChange={setShowMoreTooltip}>
                                         <KitIcon
                                             className="kit-action-more"
                                             icon={<FontAwesomeIcon icon={faEllipsisVertical} />}
@@ -237,7 +241,7 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
         }
     };
 
-    const getMoreActionsDropDownItems = (): MenuItemType[] | undefined => {
+    const _getMoreActionsDropDownItems = (): MenuItemType[] | undefined => {
         if (actions === undefined || actions.length === 0) {
             return undefined;
         }
