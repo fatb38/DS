@@ -221,7 +221,7 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                             >
                                 <KitDropDown
                                     menu={{
-                                        items: getMoreActionsDropDownItems()
+                                        items: _getMoreActionsDropDownItems()
                                     }}
                                     trigger={['click']}
                                     onOpenChange={() => setShowMoreTooltip(false)}
@@ -241,7 +241,7 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
         }
     };
 
-    const getMoreActionsDropDownItems = (): MenuItemType[] | undefined => {
+    const _getMoreActionsDropDownItems = (): MenuItemType[] | undefined => {
         if (actions === undefined || actions.length === 0) {
             return undefined;
         }
