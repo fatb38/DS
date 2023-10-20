@@ -18,7 +18,7 @@ import {EditorTemplate as Rate} from './02-Design System/04-DataEntry/Rate/data'
 import {EditorTemplate as Select} from './02-Design System/04-DataEntry/Select/data';
 import {EditorTemplate as Slider} from './02-Design System/04-DataEntry/Slider/data';
 import {EditorTemplate as Switch} from './02-Design System/04-DataEntry/Switch/data';
-import {EditorTemplate as Tag} from './02-Design System/04-DataEntry/Tag/data';
+import {EditorTemplate as Tag} from './02-Design System/05-DataDisplay/Tag/data';
 import {EditorTemplate as Upload} from './02-Design System/04-DataEntry/Upload/data';
 import {EditorTemplate as Avatar} from './02-Design System/05-DataDisplay/Avatar/data';
 import {EditorTemplateGroup as AvatarGroup} from './02-Design System/05-DataDisplay/Avatar/data';
@@ -65,7 +65,6 @@ export default {
         Select,
         Slider,
         Switch,
-        Tag,
         Upload
     },
     DataDisplay: {
@@ -78,6 +77,7 @@ export default {
         ItemCard,
         ItemList,
         Tabs,
+        Tag,
         Tooltip,
         Tree
     },
