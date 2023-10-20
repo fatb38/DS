@@ -10,7 +10,7 @@ const StyledKitIcon = styled.span<IStyledKitIcon>`
         if ($on) {
             return $color ?? $theme.colors.icon.on;
         }
-        return $theme.colors.icon.default;
+        return $color ?? $theme.colors.icon.default;
     }};
     background-color: ${({$on, $theme, $color, $backgroundColor}) => {
         if ($on) {
@@ -33,7 +33,7 @@ const StyledKitIcon = styled.span<IStyledKitIcon>`
         `}
 `;
 
-const colorToLightHSL = (color, lightness = 90): string | null => {
+const colorToLightHSL = (color, lightness = 95): string | null => {
     if (color?.startsWith('#')) {
         const rgbColor = convert.hex.rgb(color);
         const hslColor = convert.rgb.hsl(rgbColor);
@@ -60,7 +60,22 @@ export const KitIcon: FunctionComponent<IKitIcon> = ({
 }) => {
     const {theme} = useKitTheme();
 
-    const backgroundColor = useMemo(() => colorToLightHSL(color), [color]);
+    const _getColor = (color: string | undefined) => {
+        if (color && Object.keys(theme.general.colors.secondary).includes(color)) {
+            return theme.general.colors.secondary[color][`${color}400`];
+        }
+        return color;
+    };
+
+    const _getBackgroundColor = (color: string | undefined) => {
+        if (color && Object.keys(theme.general.colors.secondary).includes(color)) {
+            return theme.general.colors.secondary[color][`${color}100`];
+        }
+        return colorToLightHSL(color);
+    };
+
+    const calculatedColor = useMemo(() => _getColor(color), [color]);
+    const calculatedBackgroundColor = useMemo(() => _getBackgroundColor(color), [color]);
 
     const secureClick = useSecureClick(onClick);
 
@@ -68,8 +83,8 @@ export const KitIcon: FunctionComponent<IKitIcon> = ({
         <StyledKitIcon
             $theme={theme.components.Icon}
             className={'kit-icon ' + className}
-            $backgroundColor={backgroundColor}
-            $color={color}
+            $color={calculatedColor}
+            $backgroundColor={calculatedBackgroundColor}
             $on={on}
             $isClickable={onClick !== undefined}
             onClick={disableSecureClick ? onClick : secureClick}
