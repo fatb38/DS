@@ -57,7 +57,7 @@ const StyledKitModal = styled.div<IStyledKitModal>`
     }
 
     .kit-confirm-image-wrapper  {
-        width: 350px;
+        min-width: 350px;
         height: 150px;
         border-radius: ${({$theme}) => $theme.border.radius}px;
         background-size: cover;
