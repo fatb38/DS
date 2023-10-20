@@ -40,7 +40,7 @@ export interface IItem {
     _description?: string;
     _min?: number;
     _value?: string | number;
-    [x: string]: JSONValue;
+    [x: string]: JSONValue | undefined;
 }
 
 export type getItemsType = (

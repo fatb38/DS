@@ -3,6 +3,7 @@ import ImagePreview from '../ImagePreview';
 import classNames from 'classnames';
 import {ApiResponse, IFigmaImage, Remote} from './types';
 
+//@ts-ignore
 let FIGMA_ACCESS_TOKEN: string | null = import.meta.env.STORYBOOK_FIGMA_ACCESS_TOKEN ?? null;
 
 const figmaURLPattern = /https:\/\/([w.-]+.)?figma.com\/(file|proto)\/([0-9a-zA-Z]{22,128})(?:\/.*)?$/;
