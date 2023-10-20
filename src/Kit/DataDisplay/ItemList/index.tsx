@@ -20,7 +20,7 @@ const StyledItemList = styled.div<IStyledKitItemList>`
     background-color: ${({$theme}) => $theme.itemList.colors.background.default};
     box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
     border: 1px solid ${({$theme}) => $theme.itemList.colors.border.default};
-    border-radius: 7px;
+    border-radius: 8px;
 
     &:hover {
         border: 1px solid ${({$theme}) => $theme.itemList.colors.border.hover};
@@ -51,14 +51,11 @@ const StyledItemList = styled.div<IStyledKitItemList>`
         }
 
         &.kit-item-list-icon {
-            .anticon {
-                font-size: 2rem;
-                text-align: center;
-                width: 100%;
-                height: 100%;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
+            .kit-icon {
+                font-size: 1.5rem;
+                width: 34px;
+                height: 34px;
+                border-radius: 8px;
             }
         }
 
