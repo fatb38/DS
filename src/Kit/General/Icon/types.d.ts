@@ -18,4 +18,6 @@ export interface IStyledKitIcon extends Omit<IKitIcon, 'icon'> {
     $on?: boolean;
     $isClickable?: boolean;
     className?: string;
+    $backgroundColor?: string | null;
+    $color?: string;
 }
