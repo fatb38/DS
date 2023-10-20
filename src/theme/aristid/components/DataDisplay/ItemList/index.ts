@@ -2,7 +2,7 @@ import {IKitThemeGeneral} from '@theme/types';
 import {IKitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
 
 export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemListTheme => {
-    const {colors, typography} = generalTokens;
+    const {colors, typography, border} = generalTokens;
 
     return {
         itemList: {
@@ -16,6 +16,9 @@ export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemL
                     disabled: colors.secondary.mediumGrey.mediumGrey200,
                     hover: colors.primary.primary400
                 }
+            },
+            border: {
+                radius: border.radius.s
             }
         },
         title: {
