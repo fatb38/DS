@@ -15,7 +15,6 @@ export interface IKitColorsPalette {
             white: string;
         };
         background: string;
-        border: string;
         grey: {
             grey100: string;
             grey200: string;

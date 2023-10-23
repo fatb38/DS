@@ -17,7 +17,6 @@ export const colorsPalette: IKitColorsPalette = {
             white: '#FFFFFF'
         },
         background: '#F7F7F7',
-        border: '#9FB9FD',
         grey: {
             grey100: '#F1F3F5',
             grey200: '#DEE2E6',

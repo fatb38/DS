@@ -73,11 +73,6 @@ const forms = {
                     "_path": "general.colors.neutral.background",
                     "_type": "string"
                 },
-                "border": {
-                    "_label": "border",
-                    "_path": "general.colors.neutral.border",
-                    "_type": "string"
-                },
                 "grey": {
                     "_label": "grey",
                     "_path": "general.colors.neutral.grey",
