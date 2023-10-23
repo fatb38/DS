@@ -43,6 +43,8 @@ export const getPopupStyle = placement => {
     }
 };
 
+// "> div:not(.kit-select-dropdown-content) > .rc-virtual-list"     | This selector is used for AutoComplete DropDown content
+// ".kit-select-dropdown-content"                                   | This selector is used for Select DropDown content
 export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
     .ant-select-dropdown {
         background: transparent;
@@ -60,9 +62,19 @@ export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
                 transform: translate(-1px, -3px);
             }
 
+            > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
+                border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
+                transform: translate(0px, -4px);
+            }
+
             &.ant-select-dropdown-placement-topLeft, &.ant-select-dropdown-placement-topRight {
                 .kit-select-dropdown-content {
                     transform: translate(-1px, 3px);
+                    border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
+                }
+
+                > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
+                    transform: translate(0px, 4px);
                     border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
                 }
             }
@@ -74,16 +86,30 @@ export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
                 transform: translate(-1px, 3px);
             }
 
+            > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
+                border-radius: ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px 0 0 ;
+                transform: translate(0px, 4px);
+            }
+
             &.ant-select-dropdown-placement-bottomLeft, &.ant-select-dropdown-placement-bottomRight {
                 .kit-select-dropdown-content {
                     transform: translate(-1px, -3px);
                     border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
                 }
+
+                > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
+                    transform: translate(0px, -4px);
+                    border-radius: 0 0 ${({$theme}) => $theme.border.radius}px ${({$theme}) => $theme.border.radius}px ;
+                }
             }
         }
 
+        > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
         .kit-select-dropdown-content {
-            width: calc(100% + 42px);
+            &.kit-select-dropdown-content {
+                width: calc(100% + 42px);
+            }
+
             box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
             background-color: ${({$theme}) => $theme.colors.background.default};
             padding: 10px;
