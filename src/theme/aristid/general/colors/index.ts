@@ -18,14 +18,14 @@ export const colorsPalette: IKitColorsPalette = {
         },
         background: '#F7F7F7',
         border: '#9FB9FD',
-        gray: {
-            gray100: '#F1F3F5',
-            gray200: '#DEE2E6',
-            gray300: '#CED4DA',
-            gray400: '#ADB5BD',
-            gray500: '#868E96',
-            gray600: '#495057',
-            gray700: '#212529'
+        grey: {
+            grey100: '#F1F3F5',
+            grey200: '#DEE2E6',
+            grey300: '#CED4DA',
+            grey400: '#ADB5BD',
+            grey500: '#868E96',
+            grey600: '#495057',
+            grey700: '#212529'
         },
         black: '#000000',
         white: '#FFFFFF',

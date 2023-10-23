@@ -16,14 +16,14 @@ export interface IKitColorsPalette {
         };
         background: string;
         border: string;
-        gray: {
-            gray100: string;
-            gray200: string;
-            gray300: string;
-            gray400: string;
-            gray500: string;
-            gray600: string;
-            gray700: string;
+        grey: {
+            grey100: string;
+            grey200: string;
+            grey300: string;
+            grey400: string;
+            grey500: string;
+            grey600: string;
+            grey700: string;
         };
         black: string;
         white: string;

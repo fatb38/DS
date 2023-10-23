@@ -5,7 +5,7 @@ import {IKitTypography} from '@theme/types/general/typography';
 
 type AntdBadgeTypesToOmit = 'color' | 'size' | 'offset' | 'text';
 
-export type KitBadgeCountColor = 'default' | 'green' | 'blue' | 'blueInvert' | 'gray';
+export type KitBadgeCountColor = 'default' | 'green' | 'blue' | 'blueInvert' | 'grey';
 
 export interface IKitBadge extends Omit<BadgeProps, AntdBadgeTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     countColor?: KitBadgeCountColor;

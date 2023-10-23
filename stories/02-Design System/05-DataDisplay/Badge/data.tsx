@@ -5,7 +5,7 @@ import {IEditorTemplate} from '../../../types';
 
 const status = ['error', 'default', 'success', 'processing', 'warning'];
 
-const countColor = ['default', 'green', 'blue', 'blueInvert', 'gray'];
+const countColor = ['default', 'green', 'blue', 'blueInvert', 'grey'];
 
 export const argTypes = {
     count: {
@@ -86,7 +86,7 @@ export const argTypes = {
         },
         table: {
             type: {
-                summary: 'default | green | blue | blueInvert | gray'
+                summary: 'default | green | blue | blueInvert | grey'
             },
             category: 'Badge'
         }
@@ -133,7 +133,7 @@ export const EditorTemplate: IEditorTemplate = () => {
             <KitBadge countColor="blueInvert" count={5}>
                 <KitAvatar shape="square" size="large" />
             </KitBadge>
-            <KitBadge countColor="gray" count={5}>
+            <KitBadge countColor="grey" count={5}>
                 <KitAvatar shape="square" size="large" />
             </KitBadge>
         </KitSpace>

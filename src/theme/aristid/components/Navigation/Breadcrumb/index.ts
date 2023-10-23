@@ -8,7 +8,7 @@ export const getKitBreadcrumbTokens = (generalTokens: IKitThemeGeneral): IKitBre
         link: {
             colors: {
                 typography: {
-                    default: colors.neutral.gray.gray500
+                    default: colors.neutral.grey.grey500
                 }
             },
             typography: {

@@ -8,10 +8,10 @@ export const getKitTabsTokens = (generalTokens: IKitThemeGeneral): IKitTabsTheme
         card: {
             colors: {
                 background: {
-                    default: colors.neutral.gray.gray100
+                    default: colors.neutral.grey.grey100
                 },
                 border: {
-                    default: colors.neutral.gray.gray300,
+                    default: colors.neutral.grey.grey300,
                     active: colors.primary.primary400
                 }
             },
@@ -28,7 +28,7 @@ export const getKitTabsTokens = (generalTokens: IKitThemeGeneral): IKitTabsTheme
                 l: typography.fontSize5
             },
             colors: {
-                disabled: colors.neutral.gray.gray300,
+                disabled: colors.neutral.grey.grey300,
                 active: colors.primary.primary600,
                 hover: colors.primary.primary400,
                 selected: colors.primary.primary400
@@ -37,7 +37,7 @@ export const getKitTabsTokens = (generalTokens: IKitThemeGeneral): IKitTabsTheme
         extraContent: {
             colors: {
                 border: {
-                    default: colors.neutral.gray.gray300
+                    default: colors.neutral.grey.grey300
                 },
                 typography: {
                     default: colors.neutral.typography.black
