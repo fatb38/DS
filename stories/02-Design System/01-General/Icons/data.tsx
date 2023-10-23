@@ -12,6 +12,17 @@ import {IEditorTemplate} from '../../../types';
 import {KitPagination} from '@kit/Navigation';
 
 export const argTypes = {
+    color: {
+        name: 'color',
+        control: {type: 'color'},
+        description: 'Custom color for icon',
+        table: {
+            type: {
+                summary:
+                    '`hexadecimal` | `rgb` | `hsl` | `mediumGrey` | `yellow` | `oragne` | `pink` | `red` | `blue` | `green`  '
+            }
+        }
+    },
     disableSecureClick: {
         name: 'disableSecureClick',
         control: {type: 'boolean'},
