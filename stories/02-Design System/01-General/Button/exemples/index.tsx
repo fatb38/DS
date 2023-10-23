@@ -7,6 +7,7 @@ import Danger from './danger';
 import SegmentedActive from './segmentedActive';
 import SegmentedColors from './segmentedColors';
 import Compact from './compact';
+import TextColor from './textColor';
 
 import TypeSource from './type?raw';
 import IconSource from './icon?raw';
@@ -17,6 +18,7 @@ import DangerSource from './danger?raw';
 import SegmentedActiveSource from './segmentedActive?raw';
 import SegmentedColorsSource from './segmentedColors?raw';
 import CompactSource from './compact?raw';
+import TextColorSource from './textColor?raw';
 
 export const Sources = {
     Type: TypeSource,
@@ -27,7 +29,8 @@ export const Sources = {
     Danger: DangerSource,
     SegmentedActive: SegmentedActiveSource,
     SegmentedColors: SegmentedColorsSource,
-    Compact: CompactSource
+    Compact: CompactSource,
+    TextColor: TextColorSource
 };
 
 export default {
@@ -39,5 +42,6 @@ export default {
     Danger,
     SegmentedActive,
     SegmentedColors,
-    Compact
+    Compact,
+    TextColor
 };
