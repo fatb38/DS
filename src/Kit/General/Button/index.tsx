@@ -265,6 +265,10 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
     const secureClick = useSecureClick(onClick);
 
     const _getTheme = () => {
+        if (primaryModal) {
+            return theme.primary;
+        }
+
         switch (type) {
             case 'primary':
                 return theme.primary;
@@ -305,6 +309,8 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
 
         return classes;
     };
+
+    console.log('theme', _getTheme(), _getAntdType());
 
     return (
         <div
