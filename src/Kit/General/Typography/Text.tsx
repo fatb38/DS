@@ -37,4 +37,6 @@ const KitText = forwardRef<HTMLElement, IKitText>(({size = 'medium', ...props}, 
     );
 });
 
+KitText.displayName = 'KitText';
+
 export default KitText;

@@ -36,5 +36,6 @@ const KitParagraph = forwardRef<HTMLElement, IKitText>(({size = 'medium', ...pro
         />
     );
 });
+KitParagraph.displayName = 'KitParagraph';
 
 export default KitParagraph;

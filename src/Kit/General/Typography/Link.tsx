@@ -36,5 +36,6 @@ const KitLink = forwardRef<HTMLElement, IKitLink>(({size = 'medium', ...props}, 
         />
     );
 });
+KitLink.displayName = 'KitLink';
 
 export default KitLink;

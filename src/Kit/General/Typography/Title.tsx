@@ -10,5 +10,6 @@ const KitTitle = forwardRef<HTMLElement, IKitTitle>(({level = TITLE_LEVEL.h1, ..
     // @ts-ignore
     return <Base ref={ref} {...props} component={component} />;
 });
+KitTitle.displayName = 'KitTitle';
 
 export default KitTitle;
