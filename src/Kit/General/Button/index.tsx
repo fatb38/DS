@@ -310,8 +310,6 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
         return classes;
     };
 
-    console.log('theme', _getTheme(), _getAntdType());
-
     return (
         <div
             className={wrapperClassName ?? ''}
