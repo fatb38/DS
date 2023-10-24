@@ -170,7 +170,6 @@ const StyledAntdPassword = styled(AntdInput.Password)<IStyledAntdPassword>`
 const KitPassword: FunctionComponent<IKitPassword> = ({
     label,
     helper,
-    visibilityToggle,
     iconRender,
     allowClear = true,
     ...passwordProps
@@ -189,7 +188,6 @@ const KitPassword: FunctionComponent<IKitPassword> = ({
             <StyledAntdPassword
                 $theme={theme.components.Input.Password}
                 {...passwordProps}
-                visibilityToggle={visibilityToggle}
                 allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
                 iconRender={iconRender ?? _getIconRender}
             />

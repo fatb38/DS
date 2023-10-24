@@ -20,17 +20,6 @@ const App = () => {
                     <KitInput.Password prefix={<FontAwesomeIcon icon={faUser} />} disabled={true} />
                 </KitSpace>
             </KitSpace>
-            <KitSpace>
-                <KitInput.Password
-                    iconRender={visible =>
-                        visible ? <FontAwesomeIcon icon={faEye} /> : <FontAwesomeIcon icon={faEyeSlash} />
-                    }
-                    visibilityToggle={{visible: passwordVisible, onVisibleChange: setPasswordVisible}}
-                />
-                <KitButton type="primary" onClick={() => setPasswordVisible(prevState => !prevState)}>
-                    {passwordVisible ? 'Hide' : 'Show'}
-                </KitButton>
-            </KitSpace>
         </KitSpace>
     );
 };
