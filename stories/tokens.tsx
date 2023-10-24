@@ -9966,20 +9966,6 @@ const forms = {
             "link": {
                 "_label": "link",
                 "_path": "components.Breadcrumb.link",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.Breadcrumb.link.colors",
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.Breadcrumb.link.colors.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Breadcrumb.link.colors.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    }
-                },
                 "typography": {
                     "_label": "typography",
                     "_path": "components.Breadcrumb.link.typography",
