@@ -10,11 +10,14 @@ export type AntdButtonTypesToOmit = 'type' | 'size' | 'ghost' | 'shape' | 'style
 
 export type KitButtonIconSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
+type KitButtonTextColors = 'default' | 'black' | 'grey';
+
 export interface IKitButton extends Omit<ButtonProps, AntdButtonTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     type?: KitButtonType;
     segmentedActived?: boolean;
     segmentedChecked?: boolean;
     segmentedColor?: keyof IKitColorsPalette['secondary'];
+    textColor?: KitButtonTextColors;
     primaryModal?: boolean;
     iconSize?: KitButtonIconSize;
     wrapperClassName?: string;

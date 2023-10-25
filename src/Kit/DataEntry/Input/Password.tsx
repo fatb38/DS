@@ -170,7 +170,6 @@ const StyledAntdPassword = styled(AntdInput.Password)<IStyledAntdPassword>`
 const KitPassword: FunctionComponent<IKitPassword> = ({
     label,
     helper,
-    visibilityToggle,
     iconRender,
     allowClear = true,
     ...passwordProps

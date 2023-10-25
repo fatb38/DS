@@ -124,7 +124,11 @@ export interface IKitButtonTheme {
     };
     primary: IKitButtonThemePropeties;
     default: IKitButtonThemePropeties;
-    text: IKitButtonThemePropeties;
+    text: {
+        default: IKitButtonThemePropeties;
+        grey: IKitButtonThemePropeties;
+        black: IKitButtonThemePropeties;
+    };
     link: IKitButtonThemePropeties;
     segmented: {
         default: IKitButtonThemePropeties;

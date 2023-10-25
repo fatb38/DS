@@ -1206,266 +1206,804 @@ const forms = {
             "text": {
                 "_label": "text",
                 "_path": "components.Button.text",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.Button.text.colors",
+                "default": {
+                    "_label": "default",
+                    "_path": "components.Button.text.default",
+                    "colors": {
+                        "_label": "colors",
+                        "_path": "components.Button.text.default.colors",
+                        "typography": {
+                            "_label": "typography",
+                            "_path": "components.Button.text.default.colors.typography",
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.default.colors.typography.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.Button.text.default.colors.typography.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
+                            "disabled": {
+                                "_label": "disabled",
+                                "_path": "components.Button.text.default.colors.typography.disabled",
+                                "_type": "color",
+                                "_description": "disabled color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.default.colors.typography.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.default.colors.typography.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.default.colors.typography.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.default.colors.typography.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.default.colors.typography.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            },
+                            "iconCheck": {
+                                "_label": "iconCheck",
+                                "_path": "components.Button.text.default.colors.typography.iconCheck",
+                                "_type": "color"
+                            },
+                            "ghost": {
+                                "_label": "ghost",
+                                "_path": "components.Button.text.default.colors.typography.ghost",
+                                "_type": "color"
+                            }
+                        },
+                        "background": {
+                            "_label": "background",
+                            "_path": "components.Button.text.default.colors.background",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.Button.text.default.colors.background.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.default.colors.background.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.default.colors.background.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.default.colors.background.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "disabled": {
+                                "_label": "disabled",
+                                "_path": "components.Button.text.default.colors.background.disabled",
+                                "_type": "color",
+                                "_description": "disabled color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.default.colors.background.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.default.colors.background.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "hover": {
+                                    "_label": "hover",
+                                    "_path": "components.Button.text.default.colors.background.danger.hover",
+                                    "_type": "color",
+                                    "_description": "hover color"
+                                },
+                                "active": {
+                                    "_label": "active",
+                                    "_path": "components.Button.text.default.colors.background.danger.active",
+                                    "_type": "color",
+                                    "_description": "active color"
+                                },
+                                "focus": {
+                                    "_label": "focus",
+                                    "_path": "components.Button.text.default.colors.background.danger.focus",
+                                    "_type": "color",
+                                    "_description": "focus color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.default.colors.background.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            },
+                            "ghost": {
+                                "_label": "ghost",
+                                "_path": "components.Button.text.default.colors.background.ghost",
+                                "_type": "string"
+                            }
+                        },
+                        "border": {
+                            "_label": "border",
+                            "_path": "components.Button.text.default.colors.border",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.Button.text.default.colors.border.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.default.colors.border.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.default.colors.border.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.default.colors.border.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "disabled": {
+                                "_label": "disabled",
+                                "_path": "components.Button.text.default.colors.border.disabled",
+                                "_type": "color",
+                                "_description": "disabled color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.default.colors.border.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.default.colors.border.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "hover": {
+                                    "_label": "hover",
+                                    "_path": "components.Button.text.default.colors.border.danger.hover",
+                                    "_type": "color",
+                                    "_description": "hover color"
+                                },
+                                "active": {
+                                    "_label": "active",
+                                    "_path": "components.Button.text.default.colors.border.danger.active",
+                                    "_type": "color",
+                                    "_description": "active color"
+                                },
+                                "focus": {
+                                    "_label": "focus",
+                                    "_path": "components.Button.text.default.colors.border.danger.focus",
+                                    "_type": "color",
+                                    "_description": "focus color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.default.colors.border.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            }
+                        }
+                    },
                     "typography": {
                         "_label": "typography",
-                        "_path": "components.Button.text.colors.typography",
-                        "active": {
-                            "_label": "active",
-                            "_path": "components.Button.text.colors.typography.active",
-                            "_type": "color",
-                            "_description": "active color"
+                        "_path": "components.Button.text.default.typography",
+                        "fontWeight": {
+                            "_label": "fontWeight",
+                            "_path": "components.Button.text.default.typography.fontWeight",
+                            "_type": "number",
+                            "_min": 0
                         },
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Button.text.colors.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.Button.text.colors.typography.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Button.text.colors.typography.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "focus": {
-                            "_label": "focus",
-                            "_path": "components.Button.text.colors.typography.focus",
-                            "_type": "color",
-                            "_description": "focus color"
-                        },
-                        "danger": {
-                            "_label": "danger",
-                            "_path": "components.Button.text.colors.typography.danger",
+                        "iconSize": {
+                            "_label": "iconSize",
+                            "_path": "components.Button.text.default.typography.iconSize",
+                            "xs": {
+                                "_label": "xs",
+                                "_path": "components.Button.text.default.typography.iconSize.xs",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "s": {
+                                "_label": "s",
+                                "_path": "components.Button.text.default.typography.iconSize.s",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "m": {
+                                "_label": "m",
+                                "_path": "components.Button.text.default.typography.iconSize.m",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "l": {
+                                "_label": "l",
+                                "_path": "components.Button.text.default.typography.iconSize.l",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "xl": {
+                                "_label": "xl",
+                                "_path": "components.Button.text.default.typography.iconSize.xl",
+                                "_type": "number",
+                                "_min": 0
+                            }
+                        }
+                    },
+                    "compact": {
+                        "_label": "compact",
+                        "_path": "components.Button.text.default.compact",
+                        "border": {
+                            "_label": "border",
+                            "_path": "components.Button.text.default.compact.border",
+                            "radius": {
+                                "_label": "radius",
+                                "_path": "components.Button.text.default.compact.border.radius",
+                                "_type": "number",
+                                "_min": 0
+                            }
+                        }
+                    }
+                },
+                "grey": {
+                    "_label": "grey",
+                    "_path": "components.Button.text.grey",
+                    "colors": {
+                        "_label": "colors",
+                        "_path": "components.Button.text.grey.colors",
+                        "typography": {
+                            "_label": "typography",
+                            "_path": "components.Button.text.grey.colors.typography",
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.grey.colors.typography.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
                             "default": {
                                 "_label": "default",
-                                "_path": "components.Button.text.colors.typography.danger.default",
+                                "_path": "components.Button.text.grey.colors.typography.default",
                                 "_type": "color",
                                 "_description": "default color"
                             },
                             "disabled": {
                                 "_label": "disabled",
-                                "_path": "components.Button.text.colors.typography.danger.disabled",
+                                "_path": "components.Button.text.grey.colors.typography.disabled",
                                 "_type": "color",
                                 "_description": "disabled color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.grey.colors.typography.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.grey.colors.typography.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.grey.colors.typography.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.grey.colors.typography.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.grey.colors.typography.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            },
+                            "iconCheck": {
+                                "_label": "iconCheck",
+                                "_path": "components.Button.text.grey.colors.typography.iconCheck",
+                                "_type": "color"
+                            },
+                            "ghost": {
+                                "_label": "ghost",
+                                "_path": "components.Button.text.grey.colors.typography.ghost",
+                                "_type": "color"
                             }
                         },
-                        "iconCheck": {
-                            "_label": "iconCheck",
-                            "_path": "components.Button.text.colors.typography.iconCheck",
-                            "_type": "color"
-                        },
-                        "ghost": {
-                            "_label": "ghost",
-                            "_path": "components.Button.text.colors.typography.ghost",
-                            "_type": "color"
-                        }
-                    },
-                    "background": {
-                        "_label": "background",
-                        "_path": "components.Button.text.colors.background",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Button.text.colors.background.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Button.text.colors.background.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "active": {
-                            "_label": "active",
-                            "_path": "components.Button.text.colors.background.active",
-                            "_type": "color",
-                            "_description": "active color"
-                        },
-                        "focus": {
-                            "_label": "focus",
-                            "_path": "components.Button.text.colors.background.focus",
-                            "_type": "color",
-                            "_description": "focus color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.Button.text.colors.background.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        },
-                        "danger": {
-                            "_label": "danger",
-                            "_path": "components.Button.text.colors.background.danger",
+                        "background": {
+                            "_label": "background",
+                            "_path": "components.Button.text.grey.colors.background",
                             "default": {
                                 "_label": "default",
-                                "_path": "components.Button.text.colors.background.danger.default",
+                                "_path": "components.Button.text.grey.colors.background.default",
                                 "_type": "color",
                                 "_description": "default color"
                             },
                             "hover": {
                                 "_label": "hover",
-                                "_path": "components.Button.text.colors.background.danger.hover",
+                                "_path": "components.Button.text.grey.colors.background.hover",
                                 "_type": "color",
                                 "_description": "hover color"
                             },
                             "active": {
                                 "_label": "active",
-                                "_path": "components.Button.text.colors.background.danger.active",
+                                "_path": "components.Button.text.grey.colors.background.active",
                                 "_type": "color",
                                 "_description": "active color"
                             },
                             "focus": {
                                 "_label": "focus",
-                                "_path": "components.Button.text.colors.background.danger.focus",
+                                "_path": "components.Button.text.grey.colors.background.focus",
                                 "_type": "color",
                                 "_description": "focus color"
                             },
                             "disabled": {
                                 "_label": "disabled",
-                                "_path": "components.Button.text.colors.background.danger.disabled",
+                                "_path": "components.Button.text.grey.colors.background.disabled",
                                 "_type": "color",
                                 "_description": "disabled color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.grey.colors.background.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.grey.colors.background.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "hover": {
+                                    "_label": "hover",
+                                    "_path": "components.Button.text.grey.colors.background.danger.hover",
+                                    "_type": "color",
+                                    "_description": "hover color"
+                                },
+                                "active": {
+                                    "_label": "active",
+                                    "_path": "components.Button.text.grey.colors.background.danger.active",
+                                    "_type": "color",
+                                    "_description": "active color"
+                                },
+                                "focus": {
+                                    "_label": "focus",
+                                    "_path": "components.Button.text.grey.colors.background.danger.focus",
+                                    "_type": "color",
+                                    "_description": "focus color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.grey.colors.background.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            },
+                            "ghost": {
+                                "_label": "ghost",
+                                "_path": "components.Button.text.grey.colors.background.ghost",
+                                "_type": "string"
                             }
                         },
-                        "ghost": {
-                            "_label": "ghost",
-                            "_path": "components.Button.text.colors.background.ghost",
-                            "_type": "string"
-                        }
-                    },
-                    "border": {
-                        "_label": "border",
-                        "_path": "components.Button.text.colors.border",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Button.text.colors.border.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Button.text.colors.border.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "active": {
-                            "_label": "active",
-                            "_path": "components.Button.text.colors.border.active",
-                            "_type": "color",
-                            "_description": "active color"
-                        },
-                        "focus": {
-                            "_label": "focus",
-                            "_path": "components.Button.text.colors.border.focus",
-                            "_type": "color",
-                            "_description": "focus color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.Button.text.colors.border.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        },
-                        "danger": {
-                            "_label": "danger",
-                            "_path": "components.Button.text.colors.border.danger",
+                        "border": {
+                            "_label": "border",
+                            "_path": "components.Button.text.grey.colors.border",
                             "default": {
                                 "_label": "default",
-                                "_path": "components.Button.text.colors.border.danger.default",
+                                "_path": "components.Button.text.grey.colors.border.default",
                                 "_type": "color",
                                 "_description": "default color"
                             },
                             "hover": {
                                 "_label": "hover",
-                                "_path": "components.Button.text.colors.border.danger.hover",
+                                "_path": "components.Button.text.grey.colors.border.hover",
                                 "_type": "color",
                                 "_description": "hover color"
                             },
                             "active": {
                                 "_label": "active",
-                                "_path": "components.Button.text.colors.border.danger.active",
+                                "_path": "components.Button.text.grey.colors.border.active",
                                 "_type": "color",
                                 "_description": "active color"
                             },
                             "focus": {
                                 "_label": "focus",
-                                "_path": "components.Button.text.colors.border.danger.focus",
+                                "_path": "components.Button.text.grey.colors.border.focus",
                                 "_type": "color",
                                 "_description": "focus color"
                             },
                             "disabled": {
                                 "_label": "disabled",
-                                "_path": "components.Button.text.colors.border.danger.disabled",
+                                "_path": "components.Button.text.grey.colors.border.disabled",
                                 "_type": "color",
                                 "_description": "disabled color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.grey.colors.border.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.grey.colors.border.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "hover": {
+                                    "_label": "hover",
+                                    "_path": "components.Button.text.grey.colors.border.danger.hover",
+                                    "_type": "color",
+                                    "_description": "hover color"
+                                },
+                                "active": {
+                                    "_label": "active",
+                                    "_path": "components.Button.text.grey.colors.border.danger.active",
+                                    "_type": "color",
+                                    "_description": "active color"
+                                },
+                                "focus": {
+                                    "_label": "focus",
+                                    "_path": "components.Button.text.grey.colors.border.danger.focus",
+                                    "_type": "color",
+                                    "_description": "focus color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.grey.colors.border.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            }
+                        }
+                    },
+                    "typography": {
+                        "_label": "typography",
+                        "_path": "components.Button.text.grey.typography",
+                        "fontWeight": {
+                            "_label": "fontWeight",
+                            "_path": "components.Button.text.grey.typography.fontWeight",
+                            "_type": "number",
+                            "_min": 0
+                        },
+                        "iconSize": {
+                            "_label": "iconSize",
+                            "_path": "components.Button.text.grey.typography.iconSize",
+                            "xs": {
+                                "_label": "xs",
+                                "_path": "components.Button.text.grey.typography.iconSize.xs",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "s": {
+                                "_label": "s",
+                                "_path": "components.Button.text.grey.typography.iconSize.s",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "m": {
+                                "_label": "m",
+                                "_path": "components.Button.text.grey.typography.iconSize.m",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "l": {
+                                "_label": "l",
+                                "_path": "components.Button.text.grey.typography.iconSize.l",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "xl": {
+                                "_label": "xl",
+                                "_path": "components.Button.text.grey.typography.iconSize.xl",
+                                "_type": "number",
+                                "_min": 0
+                            }
+                        }
+                    },
+                    "compact": {
+                        "_label": "compact",
+                        "_path": "components.Button.text.grey.compact",
+                        "border": {
+                            "_label": "border",
+                            "_path": "components.Button.text.grey.compact.border",
+                            "radius": {
+                                "_label": "radius",
+                                "_path": "components.Button.text.grey.compact.border.radius",
+                                "_type": "number",
+                                "_min": 0
                             }
                         }
                     }
                 },
-                "typography": {
-                    "_label": "typography",
-                    "_path": "components.Button.text.typography",
-                    "fontWeight": {
-                        "_label": "fontWeight",
-                        "_path": "components.Button.text.typography.fontWeight",
-                        "_type": "number",
-                        "_min": 0
-                    },
-                    "iconSize": {
-                        "_label": "iconSize",
-                        "_path": "components.Button.text.typography.iconSize",
-                        "xs": {
-                            "_label": "xs",
-                            "_path": "components.Button.text.typography.iconSize.xs",
-                            "_type": "number",
-                            "_min": 0
+                "black": {
+                    "_label": "black",
+                    "_path": "components.Button.text.black",
+                    "colors": {
+                        "_label": "colors",
+                        "_path": "components.Button.text.black.colors",
+                        "typography": {
+                            "_label": "typography",
+                            "_path": "components.Button.text.black.colors.typography",
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.black.colors.typography.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.Button.text.black.colors.typography.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
+                            "disabled": {
+                                "_label": "disabled",
+                                "_path": "components.Button.text.black.colors.typography.disabled",
+                                "_type": "color",
+                                "_description": "disabled color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.black.colors.typography.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.black.colors.typography.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.black.colors.typography.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.black.colors.typography.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.black.colors.typography.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            },
+                            "iconCheck": {
+                                "_label": "iconCheck",
+                                "_path": "components.Button.text.black.colors.typography.iconCheck",
+                                "_type": "color"
+                            },
+                            "ghost": {
+                                "_label": "ghost",
+                                "_path": "components.Button.text.black.colors.typography.ghost",
+                                "_type": "color"
+                            }
                         },
-                        "s": {
-                            "_label": "s",
-                            "_path": "components.Button.text.typography.iconSize.s",
-                            "_type": "number",
-                            "_min": 0
+                        "background": {
+                            "_label": "background",
+                            "_path": "components.Button.text.black.colors.background",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.Button.text.black.colors.background.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.black.colors.background.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.black.colors.background.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.black.colors.background.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "disabled": {
+                                "_label": "disabled",
+                                "_path": "components.Button.text.black.colors.background.disabled",
+                                "_type": "color",
+                                "_description": "disabled color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.black.colors.background.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.black.colors.background.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "hover": {
+                                    "_label": "hover",
+                                    "_path": "components.Button.text.black.colors.background.danger.hover",
+                                    "_type": "color",
+                                    "_description": "hover color"
+                                },
+                                "active": {
+                                    "_label": "active",
+                                    "_path": "components.Button.text.black.colors.background.danger.active",
+                                    "_type": "color",
+                                    "_description": "active color"
+                                },
+                                "focus": {
+                                    "_label": "focus",
+                                    "_path": "components.Button.text.black.colors.background.danger.focus",
+                                    "_type": "color",
+                                    "_description": "focus color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.black.colors.background.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            },
+                            "ghost": {
+                                "_label": "ghost",
+                                "_path": "components.Button.text.black.colors.background.ghost",
+                                "_type": "string"
+                            }
                         },
-                        "m": {
-                            "_label": "m",
-                            "_path": "components.Button.text.typography.iconSize.m",
-                            "_type": "number",
-                            "_min": 0
-                        },
-                        "l": {
-                            "_label": "l",
-                            "_path": "components.Button.text.typography.iconSize.l",
-                            "_type": "number",
-                            "_min": 0
-                        },
-                        "xl": {
-                            "_label": "xl",
-                            "_path": "components.Button.text.typography.iconSize.xl",
-                            "_type": "number",
-                            "_min": 0
+                        "border": {
+                            "_label": "border",
+                            "_path": "components.Button.text.black.colors.border",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.Button.text.black.colors.border.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.black.colors.border.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.black.colors.border.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.black.colors.border.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "disabled": {
+                                "_label": "disabled",
+                                "_path": "components.Button.text.black.colors.border.disabled",
+                                "_type": "color",
+                                "_description": "disabled color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.black.colors.border.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.black.colors.border.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "hover": {
+                                    "_label": "hover",
+                                    "_path": "components.Button.text.black.colors.border.danger.hover",
+                                    "_type": "color",
+                                    "_description": "hover color"
+                                },
+                                "active": {
+                                    "_label": "active",
+                                    "_path": "components.Button.text.black.colors.border.danger.active",
+                                    "_type": "color",
+                                    "_description": "active color"
+                                },
+                                "focus": {
+                                    "_label": "focus",
+                                    "_path": "components.Button.text.black.colors.border.danger.focus",
+                                    "_type": "color",
+                                    "_description": "focus color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.black.colors.border.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            }
                         }
-                    }
-                },
-                "compact": {
-                    "_label": "compact",
-                    "_path": "components.Button.text.compact",
-                    "border": {
-                        "_label": "border",
-                        "_path": "components.Button.text.compact.border",
-                        "radius": {
-                            "_label": "radius",
-                            "_path": "components.Button.text.compact.border.radius",
+                    },
+                    "typography": {
+                        "_label": "typography",
+                        "_path": "components.Button.text.black.typography",
+                        "fontWeight": {
+                            "_label": "fontWeight",
+                            "_path": "components.Button.text.black.typography.fontWeight",
                             "_type": "number",
                             "_min": 0
+                        },
+                        "iconSize": {
+                            "_label": "iconSize",
+                            "_path": "components.Button.text.black.typography.iconSize",
+                            "xs": {
+                                "_label": "xs",
+                                "_path": "components.Button.text.black.typography.iconSize.xs",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "s": {
+                                "_label": "s",
+                                "_path": "components.Button.text.black.typography.iconSize.s",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "m": {
+                                "_label": "m",
+                                "_path": "components.Button.text.black.typography.iconSize.m",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "l": {
+                                "_label": "l",
+                                "_path": "components.Button.text.black.typography.iconSize.l",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "xl": {
+                                "_label": "xl",
+                                "_path": "components.Button.text.black.typography.iconSize.xl",
+                                "_type": "number",
+                                "_min": 0
+                            }
+                        }
+                    },
+                    "compact": {
+                        "_label": "compact",
+                        "_path": "components.Button.text.black.compact",
+                        "border": {
+                            "_label": "border",
+                            "_path": "components.Button.text.black.compact.border",
+                            "radius": {
+                                "_label": "radius",
+                                "_path": "components.Button.text.black.compact.border.radius",
+                                "_type": "number",
+                                "_min": 0
+                            }
                         }
                     }
                 }
@@ -9961,20 +10499,6 @@ const forms = {
             "link": {
                 "_label": "link",
                 "_path": "components.Breadcrumb.link",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.Breadcrumb.link.colors",
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.Breadcrumb.link.colors.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Breadcrumb.link.colors.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    }
-                },
                 "typography": {
                     "_label": "typography",
                     "_path": "components.Breadcrumb.link.typography",

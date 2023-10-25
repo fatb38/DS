@@ -1,7 +1,7 @@
 import React, {FunctionComponent} from 'react';
 import {IKitMenu} from './types';
 import {styled} from 'styled-components';
-import {KitTypography, KitIcon} from '@kit/General';
+import {KitTypography, KitButton} from '@kit/General';
 import {useKitTheme} from '@theme/theme-context';
 import {IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -97,8 +97,10 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
     const _getCloseIcon = () => {
         return (
             isClosable && (
-                <KitIcon
+                <KitButton
                     className="kit-menu-header-close"
+                    type="text"
+                    textColor="black"
                     icon={<FontAwesomeIcon icon={faXmark} />}
                     onClick={() => onCloseClick()}
                 />

@@ -31,6 +31,11 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
         border: 1px solid ${({$theme}) => $theme.card.colors.border.hover};
     }
 
+    .kit-card-select-button-wrapper {
+        line-height: 1.2;
+        font-size: 0.6rem;
+    }
+
     &:not(.kit-card-disabled) {
         .kit-card-select-button {
             border-radius: 3.5px;
@@ -83,6 +88,10 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
         .kit-card-icon,
         .kit-card-colorbar {
             margin-bottom: 8px;
+        }
+
+        .kit-card-colorbar {
+            align-self: center;
         }
 
         .kit-card-image,
@@ -322,7 +331,8 @@ const _getActions = (actions, disabled) => {
             key: index,
             type: 'default',
             disabled: disabled,
-            className: `${button.props.className ?? ''} kit-card-select-button`
+            className: `${button.props.className ?? ''} kit-card-select-button`,
+            wrapperClassName: `${button.props.wrapperClassName ?? ''} kit-card-select-button-wrapper`
         })
     );
 };
@@ -371,6 +381,7 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
                     )}
                     {onEdit && (
                         <KitButton
+                            wrapperClassName="kit-card-select-button-wrapper"
                             className="kit-card-select-button"
                             onClick={e => onEdit && onEdit(e)}
                             disabled={disabled}

@@ -10,6 +10,7 @@ import useSecureClick from '@hooks/useSecureClick';
 
 const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
     height: 40px;
+    width: 100%;
     min-width: 40px;
     box-shadow: none;
     color: ${({$theme}) => $theme.colors.typography.default};
@@ -250,6 +251,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
         segmentedChecked,
         segmentedActived,
         segmentedColor,
+        textColor,
         className,
         wrapperClassName,
         wrapperStyle,
@@ -265,13 +267,17 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
     const secureClick = useSecureClick(onClick);
 
     const _getTheme = () => {
+        if (primaryModal) {
+            return theme.primary;
+        }
+
         switch (type) {
             case 'primary':
                 return theme.primary;
             case 'link':
                 return theme.link;
             case 'text':
-                return theme.text;
+                return !textColor ? theme.text.default : theme.text[textColor];
             case 'segmented':
                 return !segmentedColor ? theme.segmented.default : theme.segmented[segmentedColor];
             case 'default':
