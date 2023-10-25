@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef} from 'react';
+import React, {Ref, useContext, useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import {Checkbox} from 'antd';
 import {IKitCheckbox} from './types';
@@ -157,7 +157,7 @@ const StyledKitCheckbox = styled(Checkbox)<{
     }
 `;
 
-const KitCheckbox = React.forwardRef<any, IKitCheckbox>(({danger, ...props}, ref) => {
+const KitCheckbox = React.forwardRef<HTMLInputElement, IKitCheckbox>(({danger, ...props}, ref) => {
     const checkboxGroup = useContext(GroupContext);
     const {theme} = useKitTheme();
     const mergedDisabled = checkboxGroup?.disabled || props.disabled;

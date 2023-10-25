@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import React, {forwardRef} from 'react';
 import {DatePicker as AntdDatePicker} from 'antd';
 import {IStyledRangePicker, IKitRangePicker} from './types';
 import styled from 'styled-components';
@@ -176,52 +176,48 @@ export const StyledRangePicker = styled.div<IStyledRangePicker>`
     }
 `;
 
-const KitDatePicker: FunctionComponent<IKitRangePicker> = ({
-    label,
-    helper,
-    suffixIcon,
-    picker,
-    allowClear = true,
-    ...rangePickerProps
-}) => {
-    const {theme} = useKitTheme();
+const KitDatePicker = forwardRef<any, IKitRangePicker>(
+    ({label, helper, suffixIcon, picker, allowClear = true, ...rangePickerProps}, ref) => {
+        const {theme} = useKitTheme();
 
-    const _getSuffixIcon = () => {
-        if (picker === 'time') {
-            return <FontAwesomeIcon icon={faClock} />;
-        }
-        return <FontAwesomeIcon icon={faCalendar} />;
-    };
+        const _getSuffixIcon = () => {
+            if (picker === 'time') {
+                return <FontAwesomeIcon icon={faClock} />;
+            }
+            return <FontAwesomeIcon icon={faCalendar} />;
+        };
 
-    const _isRangePickerDisabled = () => {
-        if (rangePickerProps.disabled === undefined) {
-            return false;
-        }
+        const _isRangePickerDisabled = () => {
+            if (rangePickerProps.disabled === undefined) {
+                return false;
+            }
 
-        if (typeof rangePickerProps.disabled === 'boolean') {
-            return rangePickerProps.disabled;
-        }
+            if (typeof rangePickerProps.disabled === 'boolean') {
+                return rangePickerProps.disabled;
+            }
 
-        return rangePickerProps.disabled[0] && rangePickerProps.disabled[1];
-    };
+            return rangePickerProps.disabled[0] && rangePickerProps.disabled[1];
+        };
 
-    return (
-        <KitInputWrapper
-            label={label}
-            helper={helper}
-            disabled={_isRangePickerDisabled()}
-            status={rangePickerProps.status}
-        >
-            <StyledRangePicker $theme={theme.components.DatePicker.RangePicker}>
-                <AntdDatePicker.RangePicker
-                    {...rangePickerProps}
-                    picker={picker}
-                    suffixIcon={suffixIcon ?? _getSuffixIcon()}
-                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : false}
-                />
-            </StyledRangePicker>
-        </KitInputWrapper>
-    );
-};
+        return (
+            <KitInputWrapper
+                label={label}
+                helper={helper}
+                disabled={_isRangePickerDisabled()}
+                status={rangePickerProps.status}
+            >
+                <StyledRangePicker $theme={theme.components.DatePicker.RangePicker}>
+                    <AntdDatePicker.RangePicker
+                        {...rangePickerProps}
+                        picker={picker}
+                        ref={ref}
+                        suffixIcon={suffixIcon ?? _getSuffixIcon()}
+                        allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : false}
+                    />
+                </StyledRangePicker>
+            </KitInputWrapper>
+        );
+    }
+);
 
 export default KitDatePicker;

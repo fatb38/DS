@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState, FocusEvent, MouseEvent, FunctionComponent} from 'react';
+import React, {useEffect, useState, FocusEvent, MouseEvent, forwardRef, Ref, RefObject} from 'react';
 import cn from 'classnames';
 import {KitIcon} from '../../General/';
 import {IKitSelect} from './types';
@@ -10,6 +10,7 @@ import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 import {faCheck, faCircleNotch, faChevronDown} from '@fortawesome/free-solid-svg-icons';
+import type {RefSelectProps} from 'antd';
 
 const _getOptionLabel = (props, theme) => (
     <div className="kit-select-option">
@@ -67,99 +68,93 @@ const _maxTagRender = omittedValues => {
     return <KitTag color="blueInvert">+{omittedValues.length} ...</KitTag>;
 };
 
-export const KitSelect: FunctionComponent<IKitSelect> = ({
-    options,
-    labelOnly,
-    label,
-    helper,
-    onClick,
-    onClear,
-    onBlur,
-    oneLineTags = false,
-    allowClear = true,
-    ...props
-}) => {
-    const selectRef = useRef<any>(null);
-    const {theme} = useKitTheme();
-    const [internalOptions, setOptions] = useState([]);
-    const [isOpen, setIsOpen] = useState(false);
+export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
+    (
+        {options, labelOnly, label, helper, onClick, onClear, onBlur, oneLineTags = false, allowClear = true, ...props},
+        ref?: Ref<RefSelectProps> | undefined
+    ) => {
+        const {theme} = useKitTheme();
+        const [internalOptions, setOptions] = useState([]);
+        const [isOpen, setIsOpen] = useState(false);
 
-    useEffect(() => {
-        if (!options) {
-            setOptions([]);
-        } else {
-            setOptions(_parseOptions(options, labelOnly, theme));
-        }
-    }, [options, labelOnly]);
+        useEffect(() => {
+            if (!options) {
+                setOptions([]);
+            } else {
+                setOptions(_parseOptions(options, labelOnly, theme));
+            }
+        }, [options, labelOnly]);
 
-    const _getClasses = () => {
-        return (
-            (props.className || '') +
-            ' ant-select-' +
-            (props.placement && props.placement.indexOf('top') >= 0 ? 'top' : 'bottom')
-        );
-    };
+        const _getClasses = () => {
+            return (
+                (props.className || '') +
+                ' ant-select-' +
+                (props.placement && props.placement.indexOf('top') >= 0 ? 'top' : 'bottom')
+            );
+        };
 
-    const _getDropdownClasses = () => {
-        return cn({
-            'kit-select-dropdown-top': props.placement && props.placement.indexOf('top') >= 0,
-            'kit-select-dropdown-bottom': !props.placement || props.placement.indexOf('top') < 0
-        });
-    };
+        const _getDropdownClasses = () => {
+            return cn({
+                'kit-select-dropdown-top': props.placement && props.placement.indexOf('top') >= 0,
+                'kit-select-dropdown-bottom': !props.placement || props.placement.indexOf('top') < 0
+            });
+        };
 
-    const _handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
-        if (selectRef.current) {
-            selectRef.current.focus();
-        }
+        const _handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
+            (ref as RefObject<RefSelectProps>).current?.focus();
 
-        if ((!props.mode && isOpen) || (props.mode && isOpen && (event.target as HTMLElement).closest('.ant-select'))) {
+            if (
+                (!props.mode && isOpen) ||
+                (props.mode && isOpen && (event.target as HTMLElement).closest('.ant-select'))
+            ) {
+                setIsOpen(false);
+            } else {
+                setIsOpen(true);
+            }
+
+            onClick && onClick(event);
+        };
+
+        const _handleOnClear = () => {
             setIsOpen(false);
-        } else {
-            setIsOpen(true);
-        }
+            onClear && onClear();
+        };
 
-        onClick && onClick(event);
-    };
+        const _handleOnBlur = (event: FocusEvent<HTMLElement, Element>) => {
+            setIsOpen(false);
+            onBlur && onBlur(event);
+        };
 
-    const _handleOnClear = () => {
-        setIsOpen(false);
-        onClear && onClear();
-    };
-
-    const _handleOnBlur = (event: FocusEvent<HTMLElement, Element>) => {
-        setIsOpen(false);
-        onBlur && onBlur(event);
-    };
-
-    return (
-        <KitInputWrapper label={label} helper={helper} disabled={props.disabled} status={props.status}>
-            <StyledKitSelect
-                $theme={theme.components.Select}
-                {...props}
-                className={_getClasses()}
-                popupClassName={_getDropdownClasses()}
-                options={internalOptions}
-                menuItemSelectedIcon={<KitIcon icon={<FontAwesomeIcon icon={faCheck} />} on />}
-                suffixIcon={
-                    props.loading ? (
-                        <FontAwesomeIcon icon={faCircleNotch} spin />
-                    ) : (
-                        <FontAwesomeIcon icon={faChevronDown} />
-                    )
-                }
-                allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
-                dropdownRender={_dropDownRenderer}
-                tagRender={props.mode ? _tagRender : undefined}
-                maxTagCount={oneLineTags ? 'responsive' : undefined}
-                maxTagPlaceholder={oneLineTags ? _maxTagRender : undefined}
-                ref={selectRef}
-                open={props.open !== undefined ? props.open : isOpen}
-                onClick={event => _handleOnClick(event)}
-                onClear={() => _handleOnClear()}
-                onBlur={event => _handleOnBlur(event)}
-            />
-        </KitInputWrapper>
-    );
-};
+        return (
+            <KitInputWrapper label={label} helper={helper} disabled={props.disabled} status={props.status}>
+                <StyledKitSelect
+                    $theme={theme.components.Select}
+                    {...props}
+                    className={_getClasses()}
+                    popupClassName={_getDropdownClasses()}
+                    options={internalOptions}
+                    menuItemSelectedIcon={<KitIcon icon={<FontAwesomeIcon icon={faCheck} />} on />}
+                    suffixIcon={
+                        props.loading ? (
+                            <FontAwesomeIcon icon={faCircleNotch} spin />
+                        ) : (
+                            <FontAwesomeIcon icon={faChevronDown} />
+                        )
+                    }
+                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
+                    dropdownRender={_dropDownRenderer}
+                    tagRender={props.mode ? _tagRender : undefined}
+                    maxTagCount={oneLineTags ? 'responsive' : undefined}
+                    maxTagPlaceholder={oneLineTags ? _maxTagRender : undefined}
+                    ref={ref}
+                    open={props.open !== undefined ? props.open : isOpen}
+                    onClick={event => _handleOnClick(event)}
+                    onClear={() => _handleOnClear()}
+                    onBlur={event => _handleOnBlur(event)}
+                />
+            </KitInputWrapper>
+        );
+    }
+);
 
 KitSelect.displayName = 'KitSelect';

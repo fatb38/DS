@@ -1,5 +1,5 @@
-import React, {FunctionComponent} from 'react';
-import {Input as AntdInput} from 'antd';
+import React, {forwardRef} from 'react';
+import {Input as AntdInput, InputRef} from 'antd';
 import {IKitTextArea, IStyledAntdTextArea} from './types';
 import {styled} from 'styled-components';
 import KitInputWrapper from './InputWrapper';
@@ -154,7 +154,7 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)<IStyledAntdTextArea>`
     }
 `;
 
-const KitTextArea: FunctionComponent<IKitTextArea> = ({label, helper, allowClear = true, ...textAreaProps}) => {
+const KitTextArea = forwardRef<InputRef, IKitTextArea>(({label, helper, allowClear = true, ...textAreaProps}, ref) => {
     const {theme} = useKitTheme();
 
     return (
@@ -162,10 +162,11 @@ const KitTextArea: FunctionComponent<IKitTextArea> = ({label, helper, allowClear
             <StyledAntdTextArea
                 $theme={theme.components.Input.TextArea}
                 {...textAreaProps}
+                ref={ref}
                 allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
             />
         </KitInputWrapper>
     );
-};
+});
 
 export default KitTextArea;
