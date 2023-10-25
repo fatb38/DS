@@ -88,39 +88,44 @@ const KitUpload = forwardRef<UploadRef, IKitUpload>(
         const {theme} = useKitTheme();
         const uploadWording = buttonWording ?? 'Upload';
 
-    return (
-        <StyledUpload
-            $theme={theme.components.Upload}
-            $listType={listType}
-            listType={listType}
-            showUploadList={showUploadList}
-            ref={ref}
-            {...uploadProps}
-        >
-            {(listType === undefined || listType === 'text' || listType === 'picture') && (
-                <KitButton icon={<FontAwesomeIcon icon={faUpload} />}>{uploadWording}</KitButton>
-            )}
-            {showUploadList && listType === 'picture-card' && (
-                <div>
-                    <FontAwesomeIcon icon={faPlus} />
-                    <div style={{marginLeft: 4}}>{uploadWording}</div>
-                </div>
-            )}
-            {!showUploadList &&
-                listType === 'picture-card' &&
-                (imageUrl ? (
-                    <div style={{width: '100%', padding: '8px'}}>
-                        <img src={imageUrl} alt="avatar" style={{width: '100%'}} />
-                    </div>
-                ) : (
-                    <>
-                        {loading ? <FontAwesomeIcon icon={faCircleNotch} spin /> : <FontAwesomeIcon icon={faPlus} />}
+        return (
+            <StyledUpload
+                $theme={theme.components.Upload}
+                $listType={listType}
+                listType={listType}
+                showUploadList={showUploadList}
+                ref={ref}
+                {...uploadProps}
+            >
+                {(listType === undefined || listType === 'text' || listType === 'picture') && (
+                    <KitButton icon={<FontAwesomeIcon icon={faUpload} />}>{uploadWording}</KitButton>
+                )}
+                {showUploadList && listType === 'picture-card' && (
+                    <div>
+                        <FontAwesomeIcon icon={faPlus} />
                         <div style={{marginLeft: 4}}>{uploadWording}</div>
-                    </>
-                ))}
-        </StyledUpload>
-    );
-};
+                    </div>
+                )}
+                {!showUploadList &&
+                    listType === 'picture-card' &&
+                    (imageUrl ? (
+                        <div style={{width: '100%', padding: '8px'}}>
+                            <img src={imageUrl} alt="avatar" style={{width: '100%'}} />
+                        </div>
+                    ) : (
+                        <>
+                            {loading ? (
+                                <FontAwesomeIcon icon={faCircleNotch} spin />
+                            ) : (
+                                <FontAwesomeIcon icon={faPlus} />
+                            )}
+                            <div style={{marginLeft: 4}}>{uploadWording}</div>
+                        </>
+                    ))}
+            </StyledUpload>
+        );
+    }
+);
 
 KitUpload.displayName = 'KitUpload';
 
