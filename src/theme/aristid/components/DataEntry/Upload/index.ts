@@ -54,7 +54,8 @@ export const getKitUploadTokens = (generalTokens: IKitThemeGeneral): IKitUploadT
                 },
                 typography: {
                     done: colors.primary.primary400,
-                    error: colors.secondary.red.red400
+                    error: colors.secondary.red.red400,
+                    uploading: colors.primary.primary400
                 }
             }
         },

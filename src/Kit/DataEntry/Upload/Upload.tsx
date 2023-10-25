@@ -59,6 +59,12 @@ const StyledUpload = styled(AntdUpload)<IStyledUpload>`
             padding: ${({$listType}) => ($listType === 'text' || $listType === undefined ? '4px' : 'auto')};
         }
 
+        .ant-upload-list-item-uploading {
+            .ant-upload-list-item-name {
+                color: ${({$theme}) => $theme.colors.list.typography.uploading};
+            }
+        }
+
         .ant-upload-list-item-progress {
             padding-right: ${({$listType}) => ($listType === 'text' || $listType === undefined ? '4px' : 'auto')};
         }
