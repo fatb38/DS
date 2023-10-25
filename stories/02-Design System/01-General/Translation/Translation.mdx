@@ -1,0 +1,27 @@
+import {Meta} from "@storybook/addon-docs";
+
+<Meta title="Design System/General/Translation" />
+
+# Translation
+
+The design system supports `French` and `English` translation. You can override translation by passing the props `locale` to KitApp.
+
+### Override
+
+A token system is available to override. As the design system is build on top of `antd`, the major part of tokens are override by antd [cf Antd translation documentation](https://ant.design/docs/react/i18n) and an other part of tokens are design system token. They folllow the same logic as antd.
+
+### Where you can find tokens ?
+
+Translation tokens are documentated in the section `Translation Tokens` of every components.
+
+### useKitLocale
+
+You can access all tokens inside KitApp with the hook `useKitLocale`.
+
+```tsx
+import {useKitLocale} from 'aristid-ds';
+
+const {locale} = useKitLocale();
+```
+
+The locale object contains information about the current translation.
