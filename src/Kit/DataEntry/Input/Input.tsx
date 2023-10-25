@@ -1,5 +1,5 @@
 import React, {forwardRef} from 'react';
-import {Input as AntdInput} from 'antd';
+import {Input as AntdInput, InputRef} from 'antd';
 import {IKitInput, IStyledAntdInput} from './types';
 import {styled} from 'styled-components';
 import KitInputWrapper from './InputWrapper';
@@ -177,7 +177,7 @@ const StyledAntdInput = styled(AntdInput)<IStyledAntdInput>`
     }
 `;
 
-const KitInput = forwardRef<any, IKitInput>(({label, helper, allowClear = true, ...inputProps}, ref) => {
+const KitInput = forwardRef<InputRef, IKitInput>(({label, helper, allowClear = true, ...inputProps}, ref) => {
     const {theme} = useKitTheme();
 
     return (

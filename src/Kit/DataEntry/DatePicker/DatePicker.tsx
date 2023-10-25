@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import React, {forwardRef} from 'react';
 import styled from 'styled-components';
 import {DatePicker as AntdDatePicker} from 'antd';
 import {IKitDatePicker, IStyledDatePicker} from './types';
@@ -6,6 +6,8 @@ import KitInputWrapper from '../Input/InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark, faCalendar, faClock} from '@fortawesome/free-regular-svg-icons';
+import {CommonPickerMethods, DatePickRef} from 'antd/lib/date-picker/generatePicker/interface';
+import {Dayjs} from 'dayjs';
 
 const StyledDatePicker = styled.div<IStyledDatePicker>`
     .ant-picker {
@@ -138,40 +140,36 @@ const StyledDatePicker = styled.div<IStyledDatePicker>`
     }
 `;
 
-const KitDatePicker: FunctionComponent<IKitDatePicker> = ({
-    label,
-    helper,
-    suffixIcon,
-    picker = 'date',
-    allowClear = true,
-    ...datePickerProps
-}) => {
-    const {theme} = useKitTheme();
+const KitDatePicker = forwardRef<any, IKitDatePicker>(
+    ({label, helper, suffixIcon, picker = 'date', allowClear = true, ...datePickerProps}, ref) => {
+        const {theme} = useKitTheme();
 
-    const _getSuffixIcon = () => {
-        if (picker === 'time') {
-            return <FontAwesomeIcon icon={faClock} />;
-        }
-        return <FontAwesomeIcon icon={faCalendar} />;
-    };
+        const _getSuffixIcon = () => {
+            if (picker === 'time') {
+                return <FontAwesomeIcon icon={faClock} />;
+            }
+            return <FontAwesomeIcon icon={faCalendar} />;
+        };
 
-    return (
-        <KitInputWrapper
-            label={label}
-            helper={helper}
-            disabled={datePickerProps.disabled}
-            status={datePickerProps.status}
-        >
-            <StyledDatePicker $theme={theme.components.DatePicker}>
-                <AntdDatePicker
-                    {...datePickerProps}
-                    picker={picker}
-                    suffixIcon={suffixIcon ?? _getSuffixIcon()}
-                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : false}
-                />
-            </StyledDatePicker>
-        </KitInputWrapper>
-    );
-};
+        return (
+            <KitInputWrapper
+                label={label}
+                helper={helper}
+                disabled={datePickerProps.disabled}
+                status={datePickerProps.status}
+            >
+                <StyledDatePicker $theme={theme.components.DatePicker}>
+                    <AntdDatePicker
+                        {...datePickerProps}
+                        picker={picker}
+                        ref={ref}
+                        suffixIcon={suffixIcon ?? _getSuffixIcon()}
+                        allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : false}
+                    />
+                </StyledDatePicker>
+            </KitInputWrapper>
+        );
+    }
+);
 
 export default KitDatePicker;

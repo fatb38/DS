@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, forwardRef} from 'react';
 import {KitButton} from '@kit/General';
 import {Upload as AntdUpload} from 'antd';
 import {IKitUpload, IStyledUpload} from './types';
@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleNotch, faPlus, faUpload} from '@fortawesome/free-solid-svg-icons';
+import {UploadRef} from 'antd/lib/upload/Upload';
 
 const StyledUpload = styled(AntdUpload)<IStyledUpload>`
     &.ant-upload-wrapper {
@@ -82,16 +83,10 @@ const StyledUpload = styled(AntdUpload)<IStyledUpload>`
     }
 `;
 
-const KitUpload: FunctionComponent<IKitUpload> = ({
-    listType = 'text',
-    loading,
-    imageUrl,
-    buttonWording,
-    showUploadList,
-    ...uploadProps
-}) => {
-    const {theme} = useKitTheme();
-    const uploadWording = buttonWording ?? 'Upload';
+const KitUpload = forwardRef<UploadRef, IKitUpload>(
+    ({listType = 'text', loading, imageUrl, buttonWording, showUploadList, ...uploadProps}, ref) => {
+        const {theme} = useKitTheme();
+        const uploadWording = buttonWording ?? 'Upload';
 
     return (
         <StyledUpload
@@ -99,6 +94,7 @@ const KitUpload: FunctionComponent<IKitUpload> = ({
             $listType={listType}
             listType={listType}
             showUploadList={showUploadList}
+            ref={ref}
             {...uploadProps}
         >
             {(listType === undefined || listType === 'text' || listType === 'picture') && (
