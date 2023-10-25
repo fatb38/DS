@@ -60,6 +60,12 @@ const StyledUpload = styled(AntdUpload)<IStyledUpload>`
             padding: ${({$listType}) => ($listType === 'text' || $listType === undefined ? '4px' : 'auto')};
         }
 
+        .ant-upload-list-item-uploading {
+            .ant-upload-list-item-name {
+                color: ${({$theme}) => $theme.colors.list.typography.uploading};
+            }
+        }
+
         .ant-upload-list-item-progress {
             padding-right: ${({$listType}) => ($listType === 'text' || $listType === undefined ? '4px' : 'auto')};
         }
@@ -97,7 +103,7 @@ const KitUpload = forwardRef<UploadRef, IKitUpload>(
                 {showUploadList && listType === 'picture-card' && (
                     <div>
                         <FontAwesomeIcon icon={faPlus} />
-                        <div style={{marginTop: 8}}>{uploadWording}</div>
+                        <div style={{marginLeft: 4}}>{uploadWording}</div>
                     </div>
                 )}
                 {!showUploadList &&
@@ -113,7 +119,7 @@ const KitUpload = forwardRef<UploadRef, IKitUpload>(
                             ) : (
                                 <FontAwesomeIcon icon={faPlus} />
                             )}
-                            <div style={{marginTop: 8}}>{uploadWording}</div>
+                            <div style={{marginLeft: 4}}>{uploadWording}</div>
                         </>
                     ))}
             </StyledUpload>
