@@ -101,7 +101,7 @@ const KitUpload: FunctionComponent<IKitUpload> = ({
             {showUploadList && listType === 'picture-card' && (
                 <div>
                     <FontAwesomeIcon icon={faPlus} />
-                    <div style={{marginTop: 8}}>{uploadWording}</div>
+                    <div style={{marginLeft: 4}}>{uploadWording}</div>
                 </div>
             )}
             {!showUploadList &&
@@ -113,7 +113,7 @@ const KitUpload: FunctionComponent<IKitUpload> = ({
                 ) : (
                     <>
                         {loading ? <FontAwesomeIcon icon={faCircleNotch} spin /> : <FontAwesomeIcon icon={faPlus} />}
-                        <div style={{marginTop: 8}}>{uploadWording}</div>
+                        <div style={{marginLeft: 4}}>{uploadWording}</div>
                     </>
                 ))}
         </StyledUpload>
