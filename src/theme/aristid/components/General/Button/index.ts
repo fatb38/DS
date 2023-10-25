@@ -130,7 +130,7 @@ const _getDefaultKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButton
     };
 };
 
-const _getTextKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['text'] => {
+const _getDefaultTextKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['text']['default'] => {
     const {typography, border, colors} = generalTokens;
 
     return {
@@ -190,6 +190,139 @@ const _getTextKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonThe
                 radius: border.radius.s
             }
         }
+    };
+};
+
+const _getGreyTextKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['text']['grey'] => {
+    const {typography, border, colors} = generalTokens;
+
+    return {
+        colors: {
+            typography: {
+                default: colors.secondary.mediumGrey.mediumGrey500,
+                hover: colors.secondary.mediumGrey.mediumGrey500,
+                active: colors.secondary.mediumGrey.mediumGrey500,
+                focus: colors.secondary.mediumGrey.mediumGrey500,
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
+                danger: {
+                    default: colors.secondary.red.red400,
+                    disabled: colors.secondary.mediumGrey.mediumGrey400
+                }
+            },
+            background: {
+                default: 'initial',
+                hover: colors.secondary.mediumGrey.mediumGrey100,
+                active: colors.primary.primary100,
+                focus: colors.neutral.white,
+                disabled: 'initial',
+                danger: {
+                    default: 'initial',
+                    hover: colors.secondary.red.red100,
+                    active: colors.secondary.red.red100,
+                    focus: colors.neutral.white,
+                    disabled: 'initial'
+                }
+            },
+            border: {
+                default: 'initial',
+                hover: colors.secondary.mediumGrey.mediumGrey100,
+                active: colors.primary.primary100,
+                focus: colors.secondary.mediumGrey.mediumGrey500,
+                disabled: 'initial',
+                danger: {
+                    default: 'initial',
+                    hover: colors.secondary.red.red400,
+                    active: colors.secondary.red.red400,
+                    focus: colors.secondary.red.red400,
+                    disabled: 'initial'
+                }
+            }
+        },
+        typography: {
+            fontWeight: typography.regularFontWeight,
+            iconSize: {
+                xs: typography.fontSize7,
+                s: typography.fontSize6,
+                m: typography.fontSize5,
+                l: typography.fontSize4,
+                xl: typography.fontSize3
+            }
+        },
+        compact: {
+            border: {
+                radius: border.radius.s
+            }
+        }
+    };
+};
+const _getBlackTextKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['text']['black'] => {
+    const {typography, border, colors} = generalTokens;
+
+    return {
+        colors: {
+            typography: {
+                default: colors.neutral.black,
+                hover: colors.neutral.black,
+                active: colors.neutral.black,
+                focus: colors.neutral.black,
+                disabled: colors.secondary.mediumGrey.mediumGrey400,
+                danger: {
+                    default: colors.secondary.red.red400,
+                    disabled: colors.secondary.mediumGrey.mediumGrey400
+                }
+            },
+            background: {
+                default: 'initial',
+                hover: colors.secondary.mediumGrey.mediumGrey100,
+                active: colors.primary.primary100,
+                focus: colors.neutral.white,
+                disabled: 'initial',
+                danger: {
+                    default: 'initial',
+                    hover: colors.secondary.red.red100,
+                    active: colors.secondary.red.red100,
+                    focus: colors.neutral.white,
+                    disabled: 'initial'
+                }
+            },
+            border: {
+                default: 'initial',
+                hover: colors.secondary.mediumGrey.mediumGrey100,
+                active: colors.primary.primary100,
+                focus: colors.neutral.black,
+                disabled: 'initial',
+                danger: {
+                    default: 'initial',
+                    hover: colors.secondary.red.red400,
+                    active: colors.secondary.red.red400,
+                    focus: colors.secondary.red.red400,
+                    disabled: 'initial'
+                }
+            }
+        },
+        typography: {
+            fontWeight: typography.regularFontWeight,
+            iconSize: {
+                xs: typography.fontSize7,
+                s: typography.fontSize6,
+                m: typography.fontSize5,
+                l: typography.fontSize4,
+                xl: typography.fontSize3
+            }
+        },
+        compact: {
+            border: {
+                radius: border.radius.s
+            }
+        }
+    };
+};
+
+const _getTextKitButtonTokens = (generalTokens: IKitThemeGeneral): IKitButtonTheme['text'] => {
+    return {
+        default: _getDefaultTextKitButtonTokens(generalTokens),
+        grey: _getGreyTextKitButtonTokens(generalTokens),
+        black: _getBlackTextKitButtonTokens(generalTokens)
     };
 };
 

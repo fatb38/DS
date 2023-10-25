@@ -251,6 +251,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
         segmentedChecked,
         segmentedActived,
         segmentedColor,
+        textColor,
         className,
         wrapperClassName,
         wrapperStyle,
@@ -276,7 +277,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
             case 'link':
                 return theme.link;
             case 'text':
-                return theme.text;
+                return !textColor ? theme.text.default : theme.text[textColor];
             case 'segmented':
                 return !segmentedColor ? theme.segmented.default : theme.segmented[segmentedColor];
             case 'default':
