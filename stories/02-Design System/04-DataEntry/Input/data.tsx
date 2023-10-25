@@ -248,6 +248,19 @@ export const argTypes = {
             category: 'Input.Password'
         }
     },
+    visibilityToggle: {
+        name: 'visibilityToggle',
+        description: 'Whether show toggle button or control password visible',
+        control: {type: 'boolean'},
+        table: {
+            type: {
+                summary: 'boolean | VisibilityToggle'
+            },
+            defaultValue: {summary: true},
+            category: 'Input.Password'
+        },
+        defaultValue: true
+    },
     visible: {
         name: 'visible',
         description: 'Whether the password is show or hide',
