@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, forwardRef} from 'react';
 import {Switch as AntdSwitch} from 'antd';
 import styled from 'styled-components';
 import {IKitSwitch, IStyledSwitch} from './types';
@@ -96,18 +96,19 @@ const StyledSwitch = styled(AntdSwitch)<IStyledSwitch>`
     }
 `;
 
-export const KitSwitch: FunctionComponent<IKitSwitch> = props => {
+export const KitSwitch = forwardRef<HTMLButtonElement, IKitSwitch>((props, ref) => {
     const {theme} = useKitTheme();
 
     return (
         <StyledSwitch
             $theme={theme.components.Switch}
             {...props}
+            ref={ref}
             checkedChildren={null}
             unCheckedChildren={null}
             size={'default'}
         />
     );
-};
+});
 
 KitSwitch.displayName = 'KitSwitch';

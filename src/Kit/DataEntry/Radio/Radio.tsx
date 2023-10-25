@@ -121,7 +121,7 @@ const StyledKitRadio = styled(Radio)<IStyledKitRadio>`
     }
 `;
 
-const KitRadio = forwardRef<any, KitRadioProps>((props, ref) => {
+const KitRadio = forwardRef<HTMLElement, KitRadioProps>((props, ref) => {
     const groupContext = useContext(RadioGroupContext);
     const {theme} = useKitTheme();
     const {className, danger, ...rest} = props;

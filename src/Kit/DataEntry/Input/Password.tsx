@@ -1,5 +1,5 @@
-import React, {FunctionComponent, useState} from 'react';
-import {Input as AntdInput} from 'antd';
+import React, {forwardRef} from 'react';
+import {Input as AntdInput, InputRef} from 'antd';
 import {IKitPassword, IStyledAntdPassword} from './types';
 import {styled} from 'styled-components';
 import KitInputWrapper from './InputWrapper';
@@ -167,32 +167,34 @@ const StyledAntdPassword = styled(AntdInput.Password)<IStyledAntdPassword>`
     }
 `;
 
-const KitPassword: FunctionComponent<IKitPassword> = ({
-    label,
-    helper,
-    iconRender,
-    allowClear = true,
-    ...passwordProps
-}) => {
-    const {theme} = useKitTheme();
+const KitPassword = forwardRef<InputRef, IKitPassword>(
+    ({label, helper, iconRender, allowClear = true, ...passwordProps}, ref) => {
+        const {theme} = useKitTheme();
 
-    const _getIconRender = (passwordVisible: boolean) => {
-        if (passwordVisible) {
-            return <FontAwesomeIcon icon={faEye} />;
-        }
-        return <FontAwesomeIcon icon={faEyeSlash} />;
-    };
+        const _getIconRender = (passwordVisible: boolean) => {
+            if (passwordVisible) {
+                return <FontAwesomeIcon icon={faEye} />;
+            }
+            return <FontAwesomeIcon icon={faEyeSlash} />;
+        };
 
-    return (
-        <KitInputWrapper label={label} helper={helper} disabled={passwordProps.disabled} status={passwordProps.status}>
-            <StyledAntdPassword
-                $theme={theme.components.Input.Password}
-                {...passwordProps}
-                allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
-                iconRender={iconRender ?? _getIconRender}
-            />
-        </KitInputWrapper>
-    );
-};
+        return (
+            <KitInputWrapper
+                label={label}
+                helper={helper}
+                disabled={passwordProps.disabled}
+                status={passwordProps.status}
+            >
+                <StyledAntdPassword
+                    $theme={theme.components.Input.Password}
+                    {...passwordProps}
+                    ref={ref}
+                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
+                    iconRender={iconRender ?? _getIconRender}
+                />
+            </KitInputWrapper>
+        );
+    }
+);
 
 export default KitPassword;
