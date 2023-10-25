@@ -1,5 +1,5 @@
 import { Meta, Canvas, Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import * as KitGridStories from './Grid.stories';
 
@@ -61,63 +61,63 @@ From the stack to the horizontal arrangement.
 You can create a basic grid system by using a single set of `Row` and `Col` grid assembly, all of the columns (Col) must be placed in `Row`.
 
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="grid-basic"/>
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="grid-basic"/>
 
 ##### Column offset
 
 `offset` can set the column to the right side. For example, using `offset = {4}` can set the element shifted to the right four columns width.
 
 
-<CustomCanvas content={Exemples.ColOffset} source={Sources.ColOffset} id="grid-offset"/>
+<CustomCanvas content={Examples.ColOffset} source={Sources.ColOffset} id="grid-offset"/>
 
 ##### Grid sort
 
 By using `push` and `pull` class you can easily change column order.
 
 
-<CustomCanvas content={Exemples.GridSort} source={Sources.GridSort} id="grid-sort"/>
+<CustomCanvas content={Examples.GridSort} source={Sources.GridSort} id="grid-sort"/>
 
 ##### Typesetting
 
 Child elements depending on the value of the `start`, `center`, `end`, which are defined in its parent node typesetting mode.
 
 
-<CustomCanvas content={Exemples.Typesetting} source={Sources.Typesetting} id="grid-typesetting"/>
+<CustomCanvas content={Examples.Typesetting} source={Sources.Typesetting} id="grid-typesetting"/>
 
 ##### Alignment
 
 Child elements vertically aligned.
 
 
-<CustomCanvas content={Exemples.Alignment} source={Sources.Alignment} id="grid-alignment"/>
+<CustomCanvas content={Examples.Alignment} source={Sources.Alignment} id="grid-alignment"/>
 
 ##### Order
 
 To change the element sort by `order`.
 
 
-<CustomCanvas content={Exemples.Order} source={Sources.Order} id="grid-order"/>
+<CustomCanvas content={Examples.Order} source={Sources.Order} id="grid-order"/>
 
 ##### Flex stretch
 
 Col provides `flex` prop to support fill rest.
 
 
-<CustomCanvas content={Exemples.Stretch} source={Sources.Stretch} id="grid-stretch"/>
+<CustomCanvas content={Examples.Stretch} source={Sources.Stretch} id="grid-stretch"/>
 
 ##### Responsive
 
 Referring to the Bootstrap responsive design, here preset six dimensions: `xs` `sm` `md` `lg` `xl` `xxl`.
 
 
-<CustomCanvas content={Exemples.Responsive} source={Sources.Responsive} id="grid-responsive"/>
+<CustomCanvas content={Examples.Responsive} source={Sources.Responsive} id="grid-responsive"/>
 
 ##### More responsive
 
 `span` `pull` `push` `offset` `order` property can be embedded into `xs` `sm` `md` `lg` `xl` `xxl` properties to use, where `xs={6}` is equivalent to `xs={{span: 6}}`.
 
 
-<CustomCanvas content={Exemples.MoreResponsive} source={Sources.MoreResponsive} id="grid-more-responsive"/>
+<CustomCanvas content={Examples.MoreResponsive} source={Sources.MoreResponsive} id="grid-more-responsive"/>
 
 ## Api
 

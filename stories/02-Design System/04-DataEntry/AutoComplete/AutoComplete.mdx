@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import * as KitAutoCompleteStories from './AutoComplete.stories';
 
@@ -51,38 +51,38 @@ The differences with Select are:
 
 Basic Usage, set data source of autocomplete with `options` property.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="autocomplete-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="autocomplete-basic" />
 
 ##### Customized
 You could set custom `Option` label
 
-<CustomCanvas content={Exemples.Customized} source={Sources.Customized}id="autocomplete-customized" />
+<CustomCanvas content={Examples.Customized} source={Sources.Customized}id="autocomplete-customized" />
 
 ##### Non-case-sensitive AutoComplete
 A non-case-sensitive AutoComplete
 
-<CustomCanvas content={Exemples.Noncasesensitive} source={Sources.Noncasesensitive} id="autocomplete-non-cassensitive" />
+<CustomCanvas content={Examples.Noncasesensitive} source={Sources.Noncasesensitive} id="autocomplete-non-cassensitive" />
 
 ##### Lookup-Patterns - Certain Category
 Demonstration of Lookup Patterns: Certain Category. Basic Usage, set options of autocomplete with options property.
 
-<CustomCanvas content={Exemples.Certaincategory} source={Sources.Certaincategory} id="autocomplete-certaincategory" />
+<CustomCanvas content={Examples.Certaincategory} source={Sources.Certaincategory} id="autocomplete-certaincategory" />
 
 ##### Lookup-Patterns - Uncertain Category
 Demonstration of Lookup Patterns: Uncertain Category.
 
-<CustomCanvas content={Exemples.Unertaincategory} source={Sources.Unertaincategory} id="autocomplete-uncertainCategory" />
+<CustomCanvas content={Examples.Unertaincategory} source={Sources.Unertaincategory} id="autocomplete-uncertainCategory" />
 
 ##### Status
 Add status to AutoComplete with `status`, which could be `error` or `warning`.
 
-<CustomCanvas content={Exemples.Status} source={Sources.Status} id="autocomplete-status" />
+<CustomCanvas content={Examples.Status} source={Sources.Status} id="autocomplete-status" />
 
 ##### Label and Helper
 
 Add `label` and/or `helper` properties to give field context.
 
-<CustomCanvas content={Exemples.Wrapper} source={Sources.Wrapper} id="autocomplete-wrapper" />
+<CustomCanvas content={Examples.Wrapper} source={Sources.Wrapper} id="autocomplete-wrapper" />
 
 ## API
 

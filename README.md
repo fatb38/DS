@@ -83,20 +83,21 @@ yarn storybook
 ### Usage in a project
 
 1. How To Import
-
 ```sh dark
 yarn add aristid-ds
+```
 
-or npm install aristid-ds
+```sh dark
+npm install aristid-ds
 ```
 
 2. How to use KitApp
 
 The **KitApp** is an essential context for the proper functioning of the **design system** components.
 
-The kitApp is mainly used to supply the various components with **style** overloads. For the moment, the KitApp provide a default **Aristid Theme**. In the futur, it will be possible to customize every component with theme tokens.
+The kitApp is mainly used to supply the various components with **style** and **translation** overloads. By default KitApp provides **Aristid Theme** but you can override to customize every component with theme tokens.
 
-> If you don't use KitApp, you'll get **missing styles** and **errors** when using components.
+> If you don't use KitApp, you'll get **missing styles / translation** and **errors** when using components.
 
 ```jsx dark
 import {KitApp} from "aristid-ds";
@@ -114,10 +115,11 @@ All components are exported directly from 'aristid-ds' package.
 import {KitButton, Kitcheckbox} from "aristid-ds";
 ```
 
+4. Theme
+You can override default theme by passing a theme configuration to the props `theme` of `KitApp`. All tokens are available in the documentation of each components in the section `Design Tokens`. Your theme configuration can be ease by using the **Theme Editor** available in the storybook. You can `edit` and `export` a **ready to use** configuration.
 
-4. Internationalization / themes (?)
-
-> Work in progress
+5. Internationalization
+You can override default translation by passing translation configuration to the props `locale`of the `KitApp`. Major part of tokens are override by antd [cf Antd translation documentation](https://ant.design/docs/react/i18n) and the other part is design system tokens. You can fin them in the section `Translation Tokens` of each components.
 
 <br/>
 
@@ -207,122 +209,123 @@ export {KitTooltip};
 
 #### Component documentation
 
-1. Create a new folder for the documentation of your component
+1. **Copy - Paste the template folder (stories/template)**
+    This folder contains all required files to create component documentation.
+    - `exemples` : contains all the code of exemples, index.tsx export all exemples in the convenient format.
+    - `data.tsx`: contains the API data (Args, Template, ...)
+    - `Component.mdx` : file that contains the component documentation (usage / exemples / api / tokens)
+    - `Component.stories.tsx` : file use by storybook as a story to test and display.
 
-```sh dark
-mkdir DESIGN-SYSTEM/stories/02-Design System/05-DataDisplay/Tooltip
-```
+</br>
 
-2. In this folder create two files
+2. **Implement examples**
+    Create all examples needed in the documentation.
 
-```sh dark
-cd Tooltip
-touch Tooltip.stories.mdx
-touch data.tsx
-```
-- Tooltip.stories.mdx : Contain all your documentation and exemples
-- data.tsx : Used mainly for the API section (Args, Template, ...)
+    ```tsx
+    // basic.tsx
+    import React from 'react';
 
-3. Create `exemples` for your component
+    const App = () => {
+        return (
+            <KitTooltip title"this is an example">
+                <div>Template Exemple</div>
+            </KitTooltip>
+        );
+    };
 
-```sh dark
-mkdir exemples
-cd exemples
-touch basic.tsx
-touch index.tsx
-```
-- basic.tsx : Contain your exemple
-- index.tsx : Used for export exemples and sources
+    export default App;
+    ```
 
-4. Exemple of `Tooltip/exemples/basic.tsx`
+</br>
 
-```tsx dark
-import React from 'react';
-import {KitTooltip} from '@aristid/design-system';
+3. **Export examples**
+    You have to export all of your examples in the index.tsx of the examples folder. It permits to export all files in the convenient format to be read by the custom canvas component.
 
-const App = () => {
-    return (
-        <KitTooltip title="Hey i'm a tooltip">
-            Tooltip will show on mouse enter.
-        </KitTooltip>
-    );
-};
+    ```tsx
+    import Basic from './basic';
 
-export default App;
-```
-<br/>
+    import BasicSource from './basic?raw';
 
-5. Exemple of `Tooltip/exemples/index.tsx`
+    export const Sources = {
+        Basic: BasicSource
+    };
+    export default {
+        Basic
+    };
+    ```
 
-```tsx dark
-import Basic from './basic';
-import BasicSource from './basic?raw';
+</br>
 
-export const Sources = {
-    Basic: BasicSource
-};
+4. **Modify Component.mdx**
+    - Rename Component in the file name by your component name (ex : Tooltip.mdx).
+    - Rename Component in the file by your component name.
+    - Complete all examples you want to display in documentation.
 
-export default {
-    Basic
-};
-```
+    ```tsx
+    // Tooltip.mdx
+    import { Meta, Story, Canvas } from "@storybook/addon-docs";
+    import { Controls } from "@storybook/addon-docs";
+    import { argTypes, Template } from "./data";
+    import Examples, { Sources } from './examples';
+    import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+    import DesignTokens from '../../.storybook/components/DesignTokens';
+    import fields from '../tokens';
+    import * as Tooltip from './Tooltip.stories';
 
-<br/>
+    <Meta of={Tooltip} />
 
-6. Exemple of `Tooltip/data.tsx`
+    # Tooltip
 
-```tsx dark
-import React from 'react';
-import {KitTooltip} from '@aristid/design-system';
+    Brief component description.
 
-export const TooltipArgTypes = {
-    title: {
-        name: 'title',
-        description: 'The text shown in the tooltip',
-        control: {type: 'text'},
-        table: {
-            type: {
-                summary: 'ReactNode | () => ReactNode'
-            },
-            category: 'Tooltip'
-        }
-    },
-    ...
-}
+    ## Examples
 
-export const Template = ({component, ...args}) => {
-    return (
-        <KitTooltip {...args}>
-            Tooltip will show on mouse enter.
-        </KitTooltip>
-    );
-};
-```
+    ##### Basic
+    Exemple description
 
-<br/>
+    <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="tooltip-basic"/>
 
-7. Exemple of `Tooltip/Tooltip.stories.mdx`
+    ## Api
 
-```tsx dark
-import { TooltipArgTypes, Template } from "./data";
-import Exemples, { Sources } from './exemples';
-import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+    <Canvas of={Tooltip.Api} />
 
-<Meta
-    title="Design System/DataDisplay/Tooltip"
-    argTypes={TooltipArgTypes}
-/>
+    <Controls of={Tooltip.Api} />
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
+    ## Design Tokens
 
-<Canvas>
-    <Story name="Tooltip">{Template.bind({})}</Story>
-</Canvas>
+    <DesignTokens path="components.Tooltip" tokens={fields?.components?.Tooltip} />
+    ```
 
-<Controls story="Tooltip" />
-```
+</br>
 
-<br/>
+5. **Modify Component.stories.tsx**
+    - Rename Component in the file name by your component name (ex : Tooltip.stories.tsx).
+    - Rename the meta object title attribute by the pass of the component (ex : title: 'Design System/DataDisplay/Tooltip'). The path specify where the component will be placed in the storybook.
+    - Replace KitComponent by your component (ex KitTooltip).
+
+    </br>
+
+    ```tsx
+    // Tooltip.stories.tsx
+    import type {Meta, StoryObj} from '@storybook/react';
+    import {KitTooltip} from '@components/DataDisplay';
+    import {argTypes, Template} from './data';
+
+    const meta: Meta<typeof KitTooltip> = {
+        component: KitTooltip,
+        title: 'Design System/DataDisplay/Tooltip',
+        argTypes: argTypes
+    };
+
+    export default meta;
+    type Story = StoryObj<typeof KitTooltip>;
+
+    export const Api: Story = {
+        render: Template
+    };
+    ```
+
+
 
 ## Contributing
 

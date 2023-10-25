@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -20,37 +20,37 @@ import * as KitRadioStories from './Radio.stories';
 
 The simplest use
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="radio-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="radio-basic" />
 
 ##### Disabled
 
 Radio unavailable.
 
-<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="radio-disabled" />
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="radio-disabled" />
 
 ##### Danger Radio
 
 Danger Radio
 
-<CustomCanvas content={Exemples.Danger} source={Sources.Danger} id="radio-danger" />
+<CustomCanvas content={Examples.Danger} source={Sources.Danger} id="radio-danger" />
 
 ##### Radio Group
 
 A group of radio components.
 
-<CustomCanvas content={Exemples.Group} source={Sources.Group} id="radio-group" />
+<CustomCanvas content={Examples.Group} source={Sources.Group} id="radio-group" />
 
 ##### Vertical Radio Group
 
 Vertical Radio.Group, with more radios.
 
-<CustomCanvas content={Exemples.VerticalGroup} source={Sources.VerticalGroup} id="radio-vertical-group" />
+<CustomCanvas content={Examples.VerticalGroup} source={Sources.VerticalGroup} id="radio-vertical-group" />
 
 ##### Radio group with name
 
 Passing the name property to all input[type="radio"] that are in the same Radio.Group. It is usually used to let the browser see your Radio.Group as a real "group" and keep the default behavior. For example, using left/right keyboard arrow to change your selection that in the same Radio.Group.
 
-<CustomCanvas content={Exemples.NamedGroup} source={Sources.NamedGroup} id="radio-named-group" />
+<CustomCanvas content={Examples.NamedGroup} source={Sources.NamedGroup} id="radio-named-group" />
 
 ## API
 

@@ -1,7 +1,7 @@
 import { Meta, Canvas, Source } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
 import * as KitHeaderStories from './Header.stories';
@@ -20,38 +20,38 @@ Header is displayed in top of the page. It allows showing, Title, breadcrumb, an
 ##### Basic
 The simplest usage (empty header)
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="header-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="header-basic" />
 
 ##### With Title
 The header can sho a Title. Just set the `title` prop
 
-<CustomCanvas content={Exemples.Title} source={Sources.Title} id="header-title" />
+<CustomCanvas content={Examples.Title} source={Sources.Title} id="header-title" />
 
 ##### With search
 It can also show a search field. just pass the `search`property with `Input` component props
 
-<CustomCanvas content={Exemples.Search} source={Sources.Search} id="header-search" />
+<CustomCanvas content={Examples.Search} source={Sources.Search} id="header-search" />
 
 ##### With Breadcrumb
 It can even display a breadcrumb with the `breadcrumb` property.
 
-<CustomCanvas content={Exemples.Breadcrumb} source={Sources.Breadcrumb} id="header-breadcrumd" />
+<CustomCanvas content={Examples.Breadcrumb} source={Sources.Breadcrumb} id="header-breadcrumd" />
 
 ##### With Plus actions
 You can display a '+' button on the right, simply y setting the `onPlusClick` property
 
-<CustomCanvas content={Exemples.PlusAction} source={Sources.PlusAction} id="header-plus" />
+<CustomCanvas content={Examples.PlusAction} source={Sources.PlusAction} id="header-plus" />
 
 ##### With actions
 Along with the '+' button, you can pass a set of actions. Actionscan be `Button` or `Select`. . Just set the `actions`property with an array of components.
 
-<CustomCanvas content={Exemples.Actions} source={Sources.Actions} id="header-actions" />
+<CustomCanvas content={Examples.Actions} source={Sources.Actions} id="header-actions" />
 
 ##### With all
 
 Header with all options to display.
 
-<CustomCanvas content={Exemples.All} source={Sources.All} id="header-all" />
+<CustomCanvas content={Examples.All} source={Sources.All} id="header-all" />
 
 
 ## API

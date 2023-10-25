@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -26,37 +26,37 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 Classic mode. File selection dialog pops up when upload button is clicked.
 
-<CustomCanvas content={Exemples.UploadByClicking} source={Sources.UploadByClicking} id="upload-upload-click" />
+<CustomCanvas content={Examples.UploadByClicking} source={Sources.UploadByClicking} id="upload-upload-click" />
 
 ##### Default Files
 
 Use `defaultFileList` for uploaded files when page init.
 
-<CustomCanvas content={Exemples.DefaultFiles} source={Sources.DefaultFiles} id="upload-default-files" />
+<CustomCanvas content={Examples.DefaultFiles} source={Sources.DefaultFiles} id="upload-default-files" />
 
 ##### Avatar
 
 Click to upload user's avatar, and validate size and format of picture with `beforeUpload`.
 
-<CustomCanvas content={Exemples.Avatar} source={Sources.Avatar} id="upload-avatar" />
+<CustomCanvas content={Examples.Avatar} source={Sources.Avatar} id="upload-avatar" />
 
 ##### Pictures Wall
 
 After users upload picture, the thumbnail will be shown in list. The upload button will disappear when count meets limitation.
 
-<CustomCanvas content={Exemples.PicturesWall} source={Sources.PicturesWall} id="upload-pictures-wall" />
+<CustomCanvas content={Examples.PicturesWall} source={Sources.PicturesWall} id="upload-pictures-wall" />
 
 ##### Crop image before uploading
 
 Use `antd-img-crop` to crop image before uploading.
 
-<CustomCanvas content={Exemples.Crop} source={Sources.Crop} id="upload-crop" />
+<CustomCanvas content={Examples.Crop} source={Sources.Crop} id="upload-crop" />
 
 ##### Pictures with list style
 
 If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not support local thumbnail show. Please use `thumbUrl` instead.
 
-<CustomCanvas content={Exemples.ListStyle} source={Sources.ListStyle} id="upload-list-style" />
+<CustomCanvas content={Examples.ListStyle} source={Sources.ListStyle} id="upload-list-style" />
 
 ##### Drag and Drop
 
@@ -64,7 +64,7 @@ You can drag files to a specific area, to upload. Alternatively, you can also up
 
 We can upload serveral files at once in modern browsers by giving the input the `multiple` attribute.
 
-<CustomCanvas content={Exemples.DragNDrop} source={Sources.DragNDrop} id="upload-dnd" />
+<CustomCanvas content={Examples.DragNDrop} source={Sources.DragNDrop} id="upload-dnd" />
 
 ##### Complete control over file list
 
@@ -74,55 +74,55 @@ You can accomplish all kinds of customed functions. The following shows two circ
 - limit the number of uploaded files.
 - read from response and show file link. 
 
-<CustomCanvas content={Exemples.CompleteControl} source={Sources.CompleteControl} id="upload-complete-control" />
+<CustomCanvas content={Examples.CompleteControl} source={Sources.CompleteControl} id="upload-complete-control" />
 
 ##### Upload directory
 
 You can select and upload a whole directory.
 
-<CustomCanvas content={Exemples.Directory} source={Sources.Directory} id="upload-directory" />
+<CustomCanvas content={Examples.Directory} source={Sources.Directory} id="upload-directory" />
 
 ##### Upload png file only
 
 `beforeUpload` only prevent upload behavior when return false or reject promise, the prevented file would still show in file list. Here is the example you can keep prevented files out of list by using `onChange`.
 
-<CustomCanvas content={Exemples.PngOnly} source={Sources.PngOnly} id="uploadpng-only" />
+<CustomCanvas content={Examples.PngOnly} source={Sources.PngOnly} id="uploadpng-only" />
 
 ##### Customize preview file
 
 Customize local preview. Can handle with non-image format files such as video.
 
-<CustomCanvas content={Exemples.CustomPreview} source={Sources.CustomPreview} id="upload-custom-preview" />
+<CustomCanvas content={Examples.CustomPreview} source={Sources.CustomPreview} id="upload-custom-preview" />
 
 ##### Aliyun OSS
 
 Use Aliyun OSS upload example.
 
-<CustomCanvas content={Exemples.AliyunOSS} source={Sources.AliyunOSS} id="upload-aliyun-oss" />
+<CustomCanvas content={Examples.AliyunOSS} source={Sources.AliyunOSS} id="upload-aliyun-oss" />
 
 ##### Upload manually
 
 Upload files manually after `beforeUpload` returns `false`.
 
-<CustomCanvas content={Exemples.Manual} source={Sources.Manual} id="upload-manual" />
+<CustomCanvas content={Examples.Manual} source={Sources.Manual} id="upload-manual" />
 
 ##### Transform file before request
 
 Use `transformFile` for transform file before request such as add a watermark.
 
-<CustomCanvas content={Exemples.Transform} source={Sources.Transform} id="upload-transform" />
+<CustomCanvas content={Examples.Transform} source={Sources.Transform} id="upload-transform" />
 
 ##### Custom action icon
 
 Use `showUploadList` for custom action icons of files.
 
-<CustomCanvas content={Exemples.CustomActionIcon} source={Sources.CustomActionIcon} id="upload-custom-action-icon" />
+<CustomCanvas content={Examples.CustomActionIcon} source={Sources.CustomActionIcon} id="upload-custom-action-icon" />
 
 ##### Customize Progress Bar
 
 Use `progress` for customize progress bar.
 
-<CustomCanvas content={Exemples.CustomProgress} source={Sources.CustomProgress} id="upload-custom-progress" />
+<CustomCanvas content={Examples.CustomProgress} source={Sources.CustomProgress} id="upload-custom-progress" />
 
 ## API
 
