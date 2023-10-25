@@ -53,11 +53,11 @@ const StyledRate = styled(AntdRate)<IStyledRate>`
                     content: '';
                     position: absolute;
                     width: 2px;
-                    height: 95%;
+                    height: 98%;
                     background-color: ${({$theme}) => $theme.colors.star.disabled};
                     transform-origin: 0 0;
                     transform: rotate(320deg);
-                    left: 0;
+                    left: 1px;
                 }
 
                 div[role='radio']::after {
@@ -87,7 +87,7 @@ export const KitRate: FunctionComponent<IKitRate> = ({
         <StyledRate
             $theme={theme.components.Rate}
             $color={color}
-            character={character ?? <FontAwesomeIcon icon={faStar} />}
+            character={character ?? <FontAwesomeIcon icon={faStar} width={20} />}
             $disabledStarTransparency={disabledStarTransparency ?? theme.general.colors.neutral.white}
             {...rateProps}
         />
