@@ -172,7 +172,7 @@ touch index.tsx
 touch types.d.ts
 ```
 
-3. Exemple of `Tooltip/index.tsx`
+3. Example of `Tooltip/index.tsx`
 
 ```tsx dark
 import React from 'react';
@@ -186,7 +186,7 @@ export const KitTooltip: React.FunctionComponent<IKitTooltip> = tooltipProps => 
 KitTooltip.displayName = 'KitTooltip';
 ```
 
-4. Exemple of `Tooltip/types.d.ts`
+4. Example of `Tooltip/types.d.ts`
 
 ```tsx dark
 import {TooltipProps} from 'antd';
@@ -211,9 +211,9 @@ export {KitTooltip};
 
 1. **Copy - Paste the template folder (stories/template)**
     This folder contains all required files to create component documentation.
-    - `exemples` : contains all the code of exemples, index.tsx export all exemples in the convenient format.
+    - `examples` : contains all the code of examples, index.tsx export all examples in the convenient format.
     - `data.tsx`: contains the API data (Args, Template, ...)
-    - `Component.mdx` : file that contains the component documentation (usage / exemples / api / tokens)
+    - `Component.mdx` : file that contains the component documentation (usage / examples / api / tokens)
     - `Component.stories.tsx` : file use by storybook as a story to test and display.
 
 </br>
@@ -228,7 +228,7 @@ export {KitTooltip};
     const App = () => {
         return (
             <KitTooltip title"this is an example">
-                <div>Template Exemple</div>
+                <div>Template Example</div>
             </KitTooltip>
         );
     };
@@ -281,7 +281,7 @@ export {KitTooltip};
     ## Examples
 
     ##### Basic
-    Exemple description
+    Example description
 
     <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="tooltip-basic"/>
 
@@ -341,7 +341,7 @@ git commit -m "type[(component)] : message"
 
 The type is telling us what change or iteration is being made. We have the following types:
 
-| Type  | Description | Exemple |
+| Type  | Description | Example |
 |---|---|---|
 | test | indicates any type of creation or alteration of test codes | Creation of unit tests |
 | feat | indicates the development of a new feature for the project. | Adding a service, functionality, endpoint, etc |
@@ -356,7 +356,7 @@ The type is telling us what change or iteration is being made. We have the follo
 | revert | indicates the reversal of a previous commit |
 
 
-Exemple :
+Example :
 
 ```sh
 git commit -m "style(Tooltip) : Change color on hover"

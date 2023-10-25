@@ -1,7 +1,7 @@
 import React from 'react';
 
 const App = () => {
-    return <div>Template Exemple</div>;
+    return <div>Template Example</div>;
 };
 
 export default App;
