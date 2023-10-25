@@ -10,6 +10,7 @@ import useSecureClick from '@hooks/useSecureClick';
 
 const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
     height: 40px;
+    width: 100%;
     min-width: 40px;
     box-shadow: none;
     color: ${({$theme}) => $theme.colors.typography.default};
