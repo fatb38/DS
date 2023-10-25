@@ -6,17 +6,13 @@ import {useKitTheme} from '@theme/theme-context';
 
 <Meta title="Design System/General/Colors" />
 
-# How to use
+# How to use    
 
-## Import
-
-```tsx
-import theme from "/libs/components/theme";
-```
-
-## Usage
+## Import and usage
 
 ```tsx
+import {useKitTheme} from 'aristid-ds';
+
 const {theme} = useKitTheme();
 
 const primaryColor = theme.general.colors.primary.primary100;
@@ -65,23 +61,16 @@ const secondaryRedColor = theme.general.colors.secondary.red.red100;
         }}
     />
     <ColorItem
-        title="Border"
+        title="grey"
         subtitle=""
         colors={{
-            "border": KitAristidThemeGeneral.colors.neutral.border,
-        }}
-    />
-    <ColorItem
-        title="Gray"
-        subtitle=""
-        colors={{
-            "gray100": KitAristidThemeGeneral.colors.neutral.gray.gray100,
-            "gray200": KitAristidThemeGeneral.colors.neutral.gray.gray200,
-            "gray300": KitAristidThemeGeneral.colors.neutral.gray.gray300,
-            "gray400": KitAristidThemeGeneral.colors.neutral.gray.gray400,
-            "gray500": KitAristidThemeGeneral.colors.neutral.gray.gray500,
-            "gray600": KitAristidThemeGeneral.colors.neutral.gray.gray600,
-            "gray700": KitAristidThemeGeneral.colors.neutral.gray.gray700,
+            "grey100": KitAristidThemeGeneral.colors.neutral.grey.grey100,
+            "grey200": KitAristidThemeGeneral.colors.neutral.grey.grey200,
+            "grey300": KitAristidThemeGeneral.colors.neutral.grey.grey300,
+            "grey400": KitAristidThemeGeneral.colors.neutral.grey.grey400,
+            "grey500": KitAristidThemeGeneral.colors.neutral.grey.grey500,
+            "grey600": KitAristidThemeGeneral.colors.neutral.grey.grey600,
+            "grey700": KitAristidThemeGeneral.colors.neutral.grey.grey700,
         }}
     />
 </ColorPalette>

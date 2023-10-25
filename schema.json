@@ -90,46 +90,46 @@
                         "border": {
                             "type": "string"
                         },
-                        "gray": {
+                        "grey": {
                             "type": "object",
                             "properties": {
-                                "gray100": {
+                                "grey100": {
                                     "type": "string"
                                 },
-                                "gray200": {
+                                "grey200": {
                                     "type": "string"
                                 },
-                                "gray300": {
+                                "grey300": {
                                     "type": "string"
                                 },
-                                "gray400": {
+                                "grey400": {
                                     "type": "string"
                                 },
-                                "gray500": {
+                                "grey500": {
                                     "type": "string"
                                 },
-                                "gray600": {
+                                "grey600": {
                                     "type": "string"
                                 },
-                                "gray700": {
+                                "grey700": {
                                     "type": "string"
                                 }
                             },
                             "required": [
-                                "gray100",
-                                "gray200",
-                                "gray300",
-                                "gray400",
-                                "gray500",
-                                "gray600",
-                                "gray700"
+                                "grey100",
+                                "grey200",
+                                "grey300",
+                                "grey400",
+                                "grey500",
+                                "grey600",
+                                "grey700"
                             ]
                         }
                     },
                     "required": [
                         "background",
                         "border",
-                        "gray",
+                        "grey",
                         "typography"
                     ]
                 },

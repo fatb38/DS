@@ -17,7 +17,7 @@ const App = () => {
             <KitBadge countColor="blueInvert" count={5}>
                 <KitAvatar shape="square" size="large" />
             </KitBadge>
-            <KitBadge countColor="gray" count={5}>
+            <KitBadge countColor="grey" count={5}>
                 <KitAvatar shape="square" size="large" />
             </KitBadge>
         </KitSpace>

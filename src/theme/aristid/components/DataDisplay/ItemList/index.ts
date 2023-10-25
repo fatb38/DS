@@ -50,7 +50,7 @@ export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemL
         },
         rafter: {
             colors: {
-                default: colors.neutral.gray.gray400,
+                default: colors.neutral.grey.grey400,
                 disabled: colors.secondary.mediumGrey.mediumGrey400,
                 hover: colors.primary.primary400
             }

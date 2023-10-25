@@ -73,47 +73,42 @@ const forms = {
                     "_path": "general.colors.neutral.background",
                     "_type": "string"
                 },
-                "border": {
-                    "_label": "border",
-                    "_path": "general.colors.neutral.border",
-                    "_type": "string"
-                },
-                "gray": {
-                    "_label": "gray",
-                    "_path": "general.colors.neutral.gray",
-                    "gray100": {
-                        "_label": "gray100",
-                        "_path": "general.colors.neutral.gray.gray100",
+                "grey": {
+                    "_label": "grey",
+                    "_path": "general.colors.neutral.grey",
+                    "grey100": {
+                        "_label": "grey100",
+                        "_path": "general.colors.neutral.grey.grey100",
                         "_type": "string"
                     },
-                    "gray200": {
-                        "_label": "gray200",
-                        "_path": "general.colors.neutral.gray.gray200",
+                    "grey200": {
+                        "_label": "grey200",
+                        "_path": "general.colors.neutral.grey.grey200",
                         "_type": "string"
                     },
-                    "gray300": {
-                        "_label": "gray300",
-                        "_path": "general.colors.neutral.gray.gray300",
+                    "grey300": {
+                        "_label": "grey300",
+                        "_path": "general.colors.neutral.grey.grey300",
                         "_type": "string"
                     },
-                    "gray400": {
-                        "_label": "gray400",
-                        "_path": "general.colors.neutral.gray.gray400",
+                    "grey400": {
+                        "_label": "grey400",
+                        "_path": "general.colors.neutral.grey.grey400",
                         "_type": "string"
                     },
-                    "gray500": {
-                        "_label": "gray500",
-                        "_path": "general.colors.neutral.gray.gray500",
+                    "grey500": {
+                        "_label": "grey500",
+                        "_path": "general.colors.neutral.grey.grey500",
                         "_type": "string"
                     },
-                    "gray600": {
-                        "_label": "gray600",
-                        "_path": "general.colors.neutral.gray.gray600",
+                    "grey600": {
+                        "_label": "grey600",
+                        "_path": "general.colors.neutral.grey.grey600",
                         "_type": "string"
                     },
-                    "gray700": {
-                        "_label": "gray700",
-                        "_path": "general.colors.neutral.gray.gray700",
+                    "grey700": {
+                        "_label": "grey700",
+                        "_path": "general.colors.neutral.grey.grey700",
                         "_type": "string"
                     }
                 },
@@ -6176,11 +6171,11 @@ const forms = {
                         "_type": "color",
                         "_description": "blueInvert color"
                     },
-                    "gray": {
-                        "_label": "gray",
-                        "_path": "components.Badge.colors.background.gray",
+                    "grey": {
+                        "_label": "grey",
+                        "_path": "components.Badge.colors.background.grey",
                         "_type": "color",
-                        "_description": "gray color"
+                        "_description": "grey color"
                     },
                     "primary": {
                         "_label": "primary",
@@ -6234,11 +6229,11 @@ const forms = {
                         "_type": "color",
                         "_description": "blueInvert color"
                     },
-                    "gray": {
-                        "_label": "gray",
-                        "_path": "components.Badge.colors.typography.gray",
+                    "grey": {
+                        "_label": "grey",
+                        "_path": "components.Badge.colors.typography.grey",
                         "_type": "color",
-                        "_description": "gray color"
+                        "_description": "grey color"
                     }
                 }
             },

@@ -11,7 +11,7 @@ export const getKitBadgeTokens = (generalTokens: IKitThemeGeneral): IKitBadgeThe
                 green: colors.secondary.green.green400,
                 blue: colors.primary.primary400,
                 blueInvert: colors.primary.primary100,
-                gray: colors.neutral.background,
+                grey: colors.neutral.background,
                 primary: colors.primary.primary400,
                 error: colors.secondary.red.red400,
                 success: colors.secondary.green.green400,
@@ -22,7 +22,7 @@ export const getKitBadgeTokens = (generalTokens: IKitThemeGeneral): IKitBadgeThe
                 green: colors.neutral.typography.white,
                 blue: colors.neutral.typography.white,
                 blueInvert: colors.secondary.blue.blue400,
-                gray: colors.neutral.typography.black60
+                grey: colors.neutral.typography.black60
             }
         },
         typography: {

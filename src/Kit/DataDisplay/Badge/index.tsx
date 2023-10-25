@@ -33,10 +33,10 @@ const StyledAntdBadge = styled(AntdBadge)<IStyledKitBadge>`
                         background: ${$theme.colors.background.blueInvert};
                         color: ${$theme.colors.typography.blueInvert};
                     `;
-                case 'gray':
+                case 'grey':
                     return css`
-                        background: ${$theme.colors.background.gray};
-                        color: ${$theme.colors.typography.gray};
+                        background: ${$theme.colors.background.grey};
+                        color: ${$theme.colors.typography.grey};
                     `;
             }
         }}

@@ -22,10 +22,10 @@ export interface IKitBadgeTheme {
              */
             blueInvert: string;
             /**
-             * gray color
+             * grey color
              * @TJS-type color
              */
-            gray: string;
+            grey: string;
             /**
              * primary color
              * @TJS-type color
@@ -69,10 +69,10 @@ export interface IKitBadgeTheme {
              */
             blueInvert: string;
             /**
-             * gray color
+             * grey color
              * @TJS-type color
              */
-            gray: string;
+            grey: string;
         };
     };
     typography: {
