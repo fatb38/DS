@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitDatePicker, KitInput, KitInputNumber, KitSelect} from '@kit/DataEntry/';
+import {KitColorPicker, KitDatePicker, KitInput, KitInputNumber, KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleCheck, faUser} from '@fortawesome/free-regular-svg-icons';
@@ -421,6 +421,10 @@ export const EditorTemplateWrapper: IEditorTemplate = () => {
                 <KitSelect {...wrapperProps} disabled placeholder="Select" />
                 <KitSelect {...wrapperProps} status="warning" placeholder="Select" />
                 <KitSelect {...wrapperProps} status="error" placeholder="Select" />
+            </KitSpace>
+            <KitSpace direction="horizontal" size="m">
+                <KitColorPicker {...wrapperProps} showText />
+                <KitColorPicker {...wrapperProps} disabled showText />
             </KitSpace>
         </KitSpace>
     );

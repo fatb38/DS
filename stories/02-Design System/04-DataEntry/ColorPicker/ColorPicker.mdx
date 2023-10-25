@@ -1,0 +1,122 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Exemples, { Sources } from './exemples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
+import * as KitColorPickerStories from './ColorPicker.stories';
+
+<Meta of={KitColorPickerStories} />
+
+<style></style>
+
+# Colorpicker
+
+Components providing color selection.
+
+## Usage
+
+Used when the user needs to customize the color selection.
+
+## Examples
+
+##### Basic
+
+Basic Usage.
+
+<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="colorpicker-basic" />
+
+##### Show Text
+
+Renders the default text of the trigger, effective when `showText` is `true`. When customizing text, you can use `showText` as a function to return custom text.
+
+<CustomCanvas content={Exemples.ShowText} source={Sources.ShowText} id="colorpicker-showtext" />
+
+##### Controlled Mode
+
+Set the component to controlled mode.
+
+<CustomCanvas content={Exemples.Controlled} source={Sources.Controlled} id="colorpicker-controlled" />
+
+##### Color Change Completed
+
+The callback will be called only when the color selection is completed.
+
+<CustomCanvas content={Exemples.ChangeCompleted} source={Sources.ChangeCompleted} id="colorpicker-changecompleted" />
+
+##### Disabled
+
+Set to disabled state.
+
+<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="colorpicker-disabled" />
+
+##### Disabled Alpha
+
+Disabled color alpha.
+
+<CustomCanvas content={Exemples.DisabledAlpha} source={Sources.DisabledAlpha} id="colorpicker-disabledalpha" />
+
+##### Clear Color
+
+Allow clear color.
+
+<CustomCanvas content={Exemples.ClearColor} source={Sources.ClearColor} id="colorpicker-clearcolor" />
+
+##### Custom Trigger
+
+Triggers for customizing color panels.
+
+<CustomCanvas content={Exemples.CustomTrigger} source={Sources.CustomTrigger} id="colorpicker-customtrigger" />
+
+##### Custom Trigger Event
+
+Triggers event for customizing color panels, provide options `click` and `hover`.
+
+<CustomCanvas content={Exemples.CustomTriggerEvent} source={Sources.CustomTriggerEvent} id="colorpicker-customtriggerevent" />
+
+##### Color Format
+
+Encoding formats, support `HEX`, `HSB`, `RGB`.
+
+<CustomCanvas content={Exemples.ColorFormat} source={Sources.ColorFormat} id="colorpicker-colorformat" />
+
+##### Preset Color
+
+Set the presets color of the color picker.
+
+<CustomCanvas content={Exemples.PresetColor} source={Sources.PresetColor} id="colorpicker-presetcolor" />
+
+##### Custom Render Panel
+
+Rendering of the free control panel via `panelRender`.
+
+<CustomCanvas content={Exemples.CustomPanel} source={Sources.CustomPanel} id="colorpicker-custompanel" />
+
+##### Label and Helper
+
+Add `label` and/or `helper` properties to give field context.
+
+<CustomCanvas content={Exemples.Wrapper} source={Sources.Wrapper} id="colorpicker-wrapper" />
+
+## Api
+
+<Canvas of={KitColorPickerStories.Api} />
+
+
+<Controls of={KitColorPickerStories.Api} />
+
+## KitColor
+
+| Property | Description | Type | Default |
+| - | - | - | - |
+| toHex  | Convert to `hex` format characters, the return type like: `1677ff` | `() => string` | -
+| toHexString  | Convert to `hex` format color string, the return type like: `#1677ff` |` () => string` | -
+| toHsb | Convert to `hsb` object | `() => ({ h: number, s: number, b: number, a number })` | -
+| toHsbString | Convert to `hsb` format color string, the return type like: `hsb(215, 91%, 100%)` | `() => string` | -
+| toRgb | Convert to `rgb` object	 | `() => ({ r: number, g: number, b: number, a number })` | -
+| toRgbString | Convert to `rgb` format color string, the return type like: `rgb(22, 119, 255)`	| `() => string` | -
+
+
+## Design Tokens
+
+<DesignTokens path="components.ColorPicker" tokens={fields?.components?.ColorPicker} />

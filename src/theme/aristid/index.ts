@@ -37,6 +37,7 @@ import {getKitSnackBarTokens} from './components/Feedback/SnackBar';
 import {getKitIconTokens} from './components/General/Icon';
 import {overrideGeneralTokens} from '@theme/utils/theme-builder';
 import {getKitTypographyTokens} from './components/General/Typography';
+import {getKitColorPickerTokens} from './components/DataEntry/ColorPicker';
 
 const _getKitComponentsTokens = (generalTokens: IKitThemeGeneral): IKitThemeComponents => {
     return {
@@ -77,7 +78,8 @@ const _getKitComponentsTokens = (generalTokens: IKitThemeGeneral): IKitThemeComp
         SnackBar: getKitSnackBarTokens(generalTokens),
         Divider: getKitDividerTokens(generalTokens),
         Icon: getKitIconTokens(generalTokens),
-        Typography: getKitTypographyTokens(generalTokens)
+        Typography: getKitTypographyTokens(generalTokens),
+        ColorPicker: getKitColorPickerTokens(generalTokens)
     };
 };
 

@@ -9,3 +9,4 @@ export {KitDatePicker} from './DatePicker';
 export {KitAutoComplete} from './AutoComplete';
 export {KitUpload} from './Upload';
 export {KitSlider} from './Slider';
+export {KitColorPicker} from './ColorPicker';
