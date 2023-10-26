@@ -24,7 +24,9 @@ ARiSTiD design system documentation.
     - [Code structure](#code-structure)
     - [Creating a component](#creating-a-component)
         - [Component code](#component-code)
+        - [Component Theming](#component-theming)
         - [Component documentation](#component-documentation)
+    - [Important](#important)
 2. [Contributing](#contributing)
     - [Commit](#commit)
     - [Gitflow](#gitflow)
@@ -207,6 +209,73 @@ export {KitTooltip};
 
 <br/>
 
+### Component Theming
+Every components **style** of the design system can be **override** by tokens. 
+
+1. **Create a token file type**
+    The `theme`folder is structure as same as the Kit folder.
+    <br/>
+
+    ```sh dark
+    mkdir DESIGN-SYSTEM/src/theme/type/components/DataDisplay/tooltip
+    ```
+
+    <br/> 
+    In this file, you have all the tokens type definition. The tokens follow some rules you can find here [TODO]
+
+2. **Create a token file**
+    The token file is the definition of all tokens with their value. It exports a function that create the theme for the cmponent. You define this file in the `aristid` that is the default theme of the design system.
+
+    ```sh dark
+    mkdir DESIGN-SYSTEM/src/theme/aristid/components/DataDisplay/tooltip
+    ```
+
+3. **Global theme type**
+    After that, go to file `src/theme/type/index.tsx`to add your component type. This files contains all components that can be override.
+
+4. **Global theme**
+    You can now add your component in the `src/theme/aristid/index.tsx`  and you add your component and the function that creates tokens defined in point 2.
+
+5. **Component Antd mapper**
+    As we use both `antd` and `design system` tokens, we normalize all token to follow a same model. If your component uses antd tokens, you have to add a mapper in the `src/theme/utils/tokens-mapper` folder. This folder as the same folder structure as the rest of the application.
+
+    <br/>
+    Example of component mapper :
+
+    ```tsx
+    // utils/tokens-mapper/DataDisplay/Tag
+
+    import {IKitTagTheme} from '@theme/types/components/DataDisplay/Tag';
+
+    export const mapTagKitTokenToAntdToken = (kitTagTheme: IKitTagTheme) => {
+        const {colors, border} = kitTagTheme;
+
+        return {
+            defaultBg: colors.default.background.default,
+            defaultColor: colors.default.typography.default,
+            borderRadiusSM: border.radius
+        };
+    };
+    ```
+
+6. **Global theme mapper**
+    After that, you have to add your component mapper to the global mapper in the file `src/theme/utils/tokens-mapper/index.tsx`.
+
+7. **Theme consumption**
+    You can use the theme in your styled component by calling the hook `useKitTheme`. You can get the component theme by calling `theme.components.Tooltip`.
+
+    </br>
+
+    ```tsx
+    const {theme} = useKitTheme();
+
+    const tooltipTheme = theme.components.Tooltip;
+
+    return <KitTooltip $theme={tooltipTheme} />;
+    ```
+
+<br/>
+
 #### Component documentation
 
 1. **Copy - Paste the template folder (stories/template)**
@@ -325,7 +394,37 @@ export {KitTooltip};
     };
     ```
 
+6. **Import Component Theme Editor Template**
+    In the `data.tsx` file, you defined a `EditorTemplate`. It permits to modify in live all tokens and get a preview of the component. You have to import this Editor in the `stories/index.tsx`and add it inside the object that contains all theme editor that already exist.
 
+    ```tsx
+    import {EditorTemplate as Tooltip} from './02-Design System/05-DataDisplay/Tooltip/data';
+
+    export default {
+        ...
+        DataDisplay: {
+            ...
+            Tooltip
+            ...
+        }
+        ...
+    }
+
+    ```
+
+7. **Design tokens generation**
+    When everything is setup, you have to run the tokens-generator script to generate all design tokens in the documentation.
+
+    ```sh
+    node tokens-generator.js
+    ```
+
+    After the script run, section `Design Tokens` documentation is up to date with all design tokens.
+
+
+
+## Important
+Every import of antd library should pass by `antd` or `/lib/antd`. `es` import will lead to issues in the build process.
 
 ## Contributing
 
