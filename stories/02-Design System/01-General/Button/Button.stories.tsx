@@ -17,7 +17,7 @@ export const Api: Story = {
 };
 
 export const Primary: Story = {
-    render: () => <KitButton type="primary">Chromatic </KitButton>,
+    render: () => <KitButton type="default">Chromatic </KitButton>,
     parameters: {
         chromatic: {disableSnapshot: false}
     }
