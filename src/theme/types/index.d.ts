@@ -39,6 +39,7 @@ import {IKitProgressTheme} from './components/Feedback/Progress';
 import {IKitSnackBarTheme} from './components/Feedback/SnackBar';
 import {IKitIconTheme} from './components/General/Icon';
 import {IKitTypographyTheme} from './components/General/Typography';
+import {IKitColorPickerTheme} from './components/DataEntry/ColorPicker';
 import {ThemeConfig} from 'antd';
 
 export type DeepPartial<T> = T extends object
@@ -93,6 +94,7 @@ export interface IKitThemeComponents {
     Breadcrumb: IKitBreadcrumbTheme;
     Icon: IKitIconTheme;
     Typography: IKitTypographyTheme;
+    ColorPicker: IKitColorPickerTheme;
 }
 
 export interface IKitTheme {

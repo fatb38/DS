@@ -10798,6 +10798,189 @@ const forms = {
                     }
                 }
             }
+        },
+        "ColorPicker": {
+            "_label": "ColorPicker",
+            "_path": "components.ColorPicker",
+            "colors": {
+                "_label": "colors",
+                "_path": "components.ColorPicker.colors",
+                "background": {
+                    "_label": "background",
+                    "_path": "components.ColorPicker.colors.background",
+                    "default": {
+                        "_label": "default",
+                        "_path": "components.ColorPicker.colors.background.default",
+                        "_type": "color",
+                        "_description": "default color"
+                    },
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.ColorPicker.colors.background.disabled",
+                        "_type": "color",
+                        "_description": "disabled color"
+                    }
+                },
+                "typography": {
+                    "_label": "typography",
+                    "_path": "components.ColorPicker.colors.typography",
+                    "default": {
+                        "_label": "default",
+                        "_path": "components.ColorPicker.colors.typography.default",
+                        "_type": "color",
+                        "_description": "default color"
+                    },
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.ColorPicker.colors.typography.disabled",
+                        "_type": "color",
+                        "_description": "default color"
+                    }
+                },
+                "border": {
+                    "_label": "border",
+                    "_path": "components.ColorPicker.colors.border",
+                    "default": {
+                        "_label": "default",
+                        "_path": "components.ColorPicker.colors.border.default",
+                        "_type": "color",
+                        "_description": "default color"
+                    },
+                    "hover": {
+                        "_label": "hover",
+                        "_path": "components.ColorPicker.colors.border.hover",
+                        "_type": "color",
+                        "_description": "hover color"
+                    },
+                    "focused": {
+                        "_label": "focused",
+                        "_path": "components.ColorPicker.colors.border.focused",
+                        "_type": "color",
+                        "_description": "focused color"
+                    },
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.ColorPicker.colors.border.disabled",
+                        "_type": "color",
+                        "_description": "disabled color"
+                    }
+                }
+            },
+            "typography": {
+                "_label": "typography",
+                "_path": "components.ColorPicker.typography",
+                "fontFamily": {
+                    "_label": "fontFamily",
+                    "_path": "components.ColorPicker.typography.fontFamily",
+                    "_type": "string"
+                },
+                "fontSize": {
+                    "_label": "fontSize",
+                    "_path": "components.ColorPicker.typography.fontSize",
+                    "_type": "number",
+                    "_min": 0
+                },
+                "fontWeight": {
+                    "_label": "fontWeight",
+                    "_path": "components.ColorPicker.typography.fontWeight",
+                    "_type": "number",
+                    "_min": 0
+                }
+            },
+            "border": {
+                "_label": "border",
+                "_path": "components.ColorPicker.border",
+                "radius": {
+                    "_label": "radius",
+                    "_path": "components.ColorPicker.border.radius",
+                    "_type": "number",
+                    "_min": 0
+                }
+            },
+            "colorBlock": {
+                "_label": "colorBlock",
+                "_path": "components.ColorPicker.colorBlock",
+                "border": {
+                    "_label": "border",
+                    "_path": "components.ColorPicker.colorBlock.border",
+                    "radius": {
+                        "_label": "radius",
+                        "_path": "components.ColorPicker.colorBlock.border.radius",
+                        "_type": "number",
+                        "_min": 0
+                    }
+                }
+            },
+            "panel": {
+                "_label": "panel",
+                "_path": "components.ColorPicker.panel",
+                "input": {
+                    "_label": "input",
+                    "_path": "components.ColorPicker.panel.input",
+                    "typography": {
+                        "_label": "typography",
+                        "_path": "components.ColorPicker.panel.input.typography",
+                        "fontWeight": {
+                            "_label": "fontWeight",
+                            "_path": "components.ColorPicker.panel.input.typography.fontWeight",
+                            "_type": "number",
+                            "_min": 0
+                        }
+                    },
+                    "colors": {
+                        "_label": "colors",
+                        "_path": "components.ColorPicker.panel.input.colors",
+                        "prefix": {
+                            "_label": "prefix",
+                            "_path": "components.ColorPicker.panel.input.colors.prefix",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.ColorPicker.panel.input.colors.prefix.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            }
+                        }
+                    }
+                },
+                "select": {
+                    "_label": "select",
+                    "_path": "components.ColorPicker.panel.select",
+                    "typography": {
+                        "_label": "typography",
+                        "_path": "components.ColorPicker.panel.select.typography",
+                        "fontWeight": {
+                            "_label": "fontWeight",
+                            "_path": "components.ColorPicker.panel.select.typography.fontWeight",
+                            "_type": "number",
+                            "_min": 0
+                        }
+                    },
+                    "colors": {
+                        "_label": "colors",
+                        "_path": "components.ColorPicker.panel.select.colors",
+                        "typography": {
+                            "_label": "typography",
+                            "_path": "components.ColorPicker.panel.select.colors.typography",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.ColorPicker.panel.select.colors.typography.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            }
+                        },
+                        "rafter": {
+                            "_label": "rafter",
+                            "_path": "components.ColorPicker.panel.select.colors.rafter",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.ColorPicker.panel.select.colors.rafter.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 };
