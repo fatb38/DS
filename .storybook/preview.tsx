@@ -21,6 +21,7 @@ const Container = ({children, ...props}) => {
 };
 
 export const parameters = {
+    chromatic: {disableSnapshot: true},
     controls: {
         matchers: {
             color: /(background|color)$/i,
