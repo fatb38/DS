@@ -5,11 +5,7 @@ import {KitColor} from '@kit/DataEntry/ColorPicker/types';
 const App = () => {
     const [color, setColor] = useState<KitColor | string>('#1677ff');
 
-    return (
-        <>
-            <KitColorPicker showText value={color} onChange={setColor} />
-        </>
-    );
+    return <KitColorPicker showText value={color} onChange={setColor} />;
 };
 
 export default App;
