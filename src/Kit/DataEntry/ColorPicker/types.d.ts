@@ -1,7 +1,7 @@
 import {ColorPickerProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import {IKitColorPickerTheme} from '@theme/types/components/DataEntry/ColorPicker';
-import type {Color} from 'antd/es/color-picker';
+import type {Color} from 'antd/lib/color-picker';
 
 type AntdColorPickerTypesToOmit = 'size';
 
