@@ -22,7 +22,6 @@
     "build-all": "yarn build && yarn build-storybook",
     "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
     "chromatic": "chromatic --exit-zero-on-changes"
-    
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
@@ -82,7 +81,8 @@
     "storybook-docs-toc": "^1.7.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
-    "vite-plugin-dts": "^3.5.3"
+    "vite-plugin-dts": "^3.5.3",
+    "vite-plugin-turbosnap": "^1.0.3"
   },
   "peerDependencies": {
     "antd": "^5.8.1",
