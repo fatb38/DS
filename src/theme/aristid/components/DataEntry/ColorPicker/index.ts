@@ -70,7 +70,7 @@ export const getKitColorPickerTokens = (generalTokens: IKitThemeGeneral): IKitCo
                         default: colors.neutral.black
                     },
                     empty: {
-                        default: colors.secondary.mediumGrey.mediumGrey400
+                        default: colors.secondary.mediumGrey.mediumGrey300
                     }
                 }
             }
