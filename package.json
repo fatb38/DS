@@ -20,7 +20,8 @@
     "storybook": "storybook dev -p 6006 --docs",
     "build-storybook": "env=production storybook build --docs",
     "build-all": "yarn build && yarn build-storybook",
-    "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
+    "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
+    "chromatic": "chromatic"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
@@ -68,6 +69,7 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
     "babel-loader": "^8.3.0",
+    "chromatic": "^7.5.0",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
