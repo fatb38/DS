@@ -8,7 +8,7 @@ import ItemMenuAll from './ItemMenu/itemMenuAll';
 import MenuBasic from './Menu/menuBasic';
 import MenuHeader from './Menu/menuHeader';
 import MenuHeaderButton from './Menu/menuHeaderButton';
-import MenuExemple from './Menu/menuExemple';
+import MenuExample from './Menu/menuExample';
 
 import ItemMenuBasicSource from './ItemMenu/itemMenuBasic?raw';
 import ItemMenuTypeSource from './ItemMenu/itemMenuType?raw';
@@ -20,7 +20,7 @@ import ItemMenuAllSource from './ItemMenu/itemMenuAll?raw';
 import MenuBasicSource from './Menu/menuBasic?raw';
 import MenuHeaderSource from './Menu/menuHeader?raw';
 import MenuHeaderButtonSource from './Menu/menuHeaderButton?raw';
-import MenuExempleSource from './Menu/menuExemple?raw';
+import MenuExampleSource from './Menu/menuExample?raw';
 
 export const Sources = {
     ItemMenuBasic: ItemMenuBasicSource,
@@ -33,7 +33,7 @@ export const Sources = {
     MenuBasic: MenuBasicSource,
     MenuHeader: MenuHeaderSource,
     MenuHeaderButton: MenuHeaderButtonSource,
-    MenuExemple: MenuExempleSource
+    MenuExample: MenuExampleSource
 };
 
 export default {
@@ -47,5 +47,5 @@ export default {
     MenuBasic,
     MenuHeader,
     MenuHeaderButton,
-    MenuExemple
+    MenuExample
 };

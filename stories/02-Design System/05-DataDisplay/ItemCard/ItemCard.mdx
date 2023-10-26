@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -24,52 +24,52 @@ The simplest usage.
 
 ###### Horizontal layout (default)
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="card-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="card-basic" />
 
 ###### Vertical layout
 
-<CustomCanvas content={Exemples.Vertical} source={Sources.Vertical} id="card-vertical" />
+<CustomCanvas content={Examples.Vertical} source={Sources.Vertical} id="card-vertical" />
 
 ##### With icon
 display an icon instead of image
 
-<CustomCanvas content={Exemples.Icon} source={Sources.Icon} id="card-icon" />
+<CustomCanvas content={Examples.Icon} source={Sources.Icon} id="card-icon" />
 
 ##### With Avatar
 display an Avatar
 
-<CustomCanvas content={Exemples.Avatar} source={Sources.Avatar} id="card-avatar" />
+<CustomCanvas content={Examples.Avatar} source={Sources.Avatar} id="card-avatar" />
 
 ##### With Tags
 add tags in the Card
 
-<CustomCanvas content={Exemples.Tags} source={Sources.Tags} id="card-tags" />
+<CustomCanvas content={Examples.Tags} source={Sources.Tags} id="card-tags" />
 
 
 ##### With colors
 show colors bar near image
 
-<CustomCanvas content={Exemples.Colors} source={Sources.Colors} id="card-colors" />
+<CustomCanvas content={Examples.Colors} source={Sources.Colors} id="card-colors" />
 
 ##### Selectable
 set the card selectable. Simply provide the `onSelectChange` property to enable selection.
 
-<CustomCanvas content={Exemples.Selectable} source={Sources.Selectable} id="card-selectable" />
+<CustomCanvas content={Examples.Selectable} source={Sources.Selectable} id="card-selectable" />
 
 ##### Editable
 allow to edit the item assicated to the card. Simply provide the `onEdit` property to enable edition.
 
-<CustomCanvas content={Exemples.Editable} source={Sources.Editable} id="card-editable" />
+<CustomCanvas content={Examples.Editable} source={Sources.Editable} id="card-editable" />
 
 ##### With actions
 add actions near select checkbox.
 
-<CustomCanvas content={Exemples.Actions} source={Sources.Actions} id="card-actions" />
+<CustomCanvas content={Examples.Actions} source={Sources.Actions} id="card-actions" />
 
 ##### Disabled
 Card element in disabled state.
 
-<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="card-disabled" />
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="card-disabled" />
 
 ## Api
 

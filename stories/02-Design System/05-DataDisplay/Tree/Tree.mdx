@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -22,31 +22,31 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 The most basic usage, tell you how to use checkable, selectable, disabled, defaultExpandKeys, and etc.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="tree-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="tree-basic" />
 
 ##### Selectable
 
 You can select multiple nodes.
 
-<CustomCanvas content={Exemples.Selectable} source={Sources.Selectable} id="tree-selectable" />
+<CustomCanvas content={Examples.Selectable} source={Sources.Selectable} id="tree-selectable" />
 
 ##### Customize Icon
 
 You can customize icons for different nodes.
 
-<CustomCanvas content={Exemples.CustomIcon} source={Sources.CustomIcon} id="tree-custom-icon" />
+<CustomCanvas content={Examples.CustomIcon} source={Sources.CustomIcon} id="tree-custom-icon" />
 
 ##### Customize collapse/expand icon
 
 customize collapse/expand icon of tree node
 
-<CustomCanvas content={Exemples.CustomCollapseIcon} source={Sources.CustomCollapseIcon} id="tree-custom-collapse-icon" />
+<CustomCanvas content={Examples.CustomCollapseIcon} source={Sources.CustomCollapseIcon} id="tree-custom-collapse-icon" />
 
 ##### Tree with line
 
 Tree with connected line between nodes, turn on by `showLine`, customize the preset icon by `switcherIcon`.
 
-<CustomCanvas content={Exemples.Line} source={Sources.Line} id="tree-line" />
+<CustomCanvas content={Examples.Line} source={Sources.Line} id="tree-line" />
 
 ## Api
 

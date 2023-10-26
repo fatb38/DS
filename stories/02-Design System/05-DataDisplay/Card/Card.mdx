@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import { argTypes, Template } from "./data";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -20,44 +20,44 @@ A card can be used to display content related to a single subject. The content c
 ## Examples
 
 ##### Basic
-This is a basic Card exemple.
+This is a basic Card example.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="template-basic"/>
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="template-basic"/>
 
 ##### Image
 Card with an image.
 
-<CustomCanvas content={Exemples.WithImage} source={Sources.WithImage} id="template-with-image"/>
+<CustomCanvas content={Examples.WithImage} source={Sources.WithImage} id="template-with-image"/>
 
 ##### Content
 Card with a content.
 
-<CustomCanvas content={Exemples.WithContent} source={Sources.WithContent} id="template-with-content"/>
+<CustomCanvas content={Examples.WithContent} source={Sources.WithContent} id="template-with-content"/>
 
 ##### Extra
 You can pass an extra action on the Header with props `extra`.
 
-<CustomCanvas content={Exemples.Extra} source={Sources.Extra} id="template-extra"/>
+<CustomCanvas content={Examples.Extra} source={Sources.Extra} id="template-extra"/>
 
 ##### Actions
 You can pass some actions to the card with props `actions`.
 
-<CustomCanvas content={Exemples.Actions} source={Sources.Actions} id="template-actions"/>
+<CustomCanvas content={Examples.Actions} source={Sources.Actions} id="template-actions"/>
 
 ##### Disabled
 Card, extra and actions can be disabled with props `disabled`.
 
-<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="template-disabled"/>
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="template-disabled"/>
 
 ##### Separator
 Separator between title and content with the props `separator`.
 
-<CustomCanvas content={Exemples.Separator} source={Sources.Separator} id="template-separator"/>
+<CustomCanvas content={Examples.Separator} source={Sources.Separator} id="template-separator"/>
 
 ##### Redirection link
 Link icon is display when an action is pass to props `onContentTitleClick`.
 
-<CustomCanvas content={Exemples.Link} source={Sources.Link} id="template-link"/>
+<CustomCanvas content={Examples.Link} source={Sources.Link} id="template-link"/>
 
 ## Api
 

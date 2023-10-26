@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -24,27 +24,27 @@ Basic text writing, including headings, body text, lists, and more.
 Display title in different level.
 
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="typography-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="typography-basic" />
 
 ##### Text and Link component
 
 Provides multiple types of text and link.
 
-<CustomCanvas content={Exemples.TextLink} source={Sources.TextLink} id="typography-link" />
+<CustomCanvas content={Examples.TextLink} source={Sources.TextLink} id="typography-link" />
 
 ##### Ellipsis
 
 Multiple line ellipsis support. You can use tooltip to config ellipsis tooltip. Recommend `expandable` when have lots of content.
 
-<CustomCanvas content={Exemples.Ellispis} source={Sources.Ellispis} id="typography-ellipsis" />
+<CustomCanvas content={Examples.Ellispis} source={Sources.Ellispis} id="typography-ellipsis" />
 
 You can ellipsis content from middle by customize `ellipsis={{ suffix: ... }}`.
 
-<CustomCanvas content={Exemples.SuffixEllipsis} source={Sources.SuffixEllipsis} id="typography-suffix-ellipsis" />
+<CustomCanvas content={Examples.SuffixEllipsis} source={Sources.SuffixEllipsis} id="typography-suffix-ellipsis" />
 
 ##### Suffix support
 
-<CustomCanvas content={Exemples.Suffix} source={Sources.Suffix} id="typography-suffix" />
+<CustomCanvas content={Examples.Suffix} source={Sources.Suffix} id="typography-suffix" />
 
 ## API
 

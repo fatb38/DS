@@ -24,7 +24,9 @@ ARiSTiD design system documentation.
     - [Code structure](#code-structure)
     - [Creating a component](#creating-a-component)
         - [Component code](#component-code)
+        - [Component Theming](#component-theming)
         - [Component documentation](#component-documentation)
+    - [Important](#important)
 2. [Contributing](#contributing)
     - [Commit](#commit)
     - [Gitflow](#gitflow)
@@ -83,20 +85,21 @@ yarn storybook
 ### Usage in a project
 
 1. How To Import
-
 ```sh dark
 yarn add aristid-ds
+```
 
-or npm install aristid-ds
+```sh dark
+npm install aristid-ds
 ```
 
 2. How to use KitApp
 
 The **KitApp** is an essential context for the proper functioning of the **design system** components.
 
-The kitApp is mainly used to supply the various components with **style** overloads. For the moment, the KitApp provide a default **Aristid Theme**. In the futur, it will be possible to customize every component with theme tokens.
+The kitApp is mainly used to supply the various components with **style** and **translation** overloads. By default KitApp provides **Aristid Theme** but you can override to customize every component with theme tokens.
 
-> If you don't use KitApp, you'll get **missing styles** and **errors** when using components.
+> If you don't use KitApp, you'll get **missing styles / translation** and **errors** when using components.
 
 ```jsx dark
 import {KitApp} from "aristid-ds";
@@ -114,10 +117,11 @@ All components are exported directly from 'aristid-ds' package.
 import {KitButton, Kitcheckbox} from "aristid-ds";
 ```
 
+4. Theme
+You can override default theme by passing a theme configuration to the props `theme` of `KitApp`. All tokens are available in the documentation of each components in the section `Design Tokens`. Your theme configuration can be ease by using the **Theme Editor** available in the storybook. You can `edit` and `export` a **ready to use** configuration.
 
-4. Internationalization / themes (?)
-
-> Work in progress
+5. Internationalization
+You can override default translation by passing translation configuration to the props `locale`of the `KitApp`. Major part of tokens are override by antd [cf Antd translation documentation](https://ant.design/docs/react/i18n) and the other part is design system tokens. You can fin them in the section `Translation Tokens` of each components.
 
 <br/>
 
@@ -170,7 +174,7 @@ touch index.tsx
 touch types.d.ts
 ```
 
-3. Exemple of `Tooltip/index.tsx`
+3. Example of `Tooltip/index.tsx`
 
 ```tsx dark
 import React from 'react';
@@ -184,7 +188,7 @@ export const KitTooltip: React.FunctionComponent<IKitTooltip> = tooltipProps => 
 KitTooltip.displayName = 'KitTooltip';
 ```
 
-4. Exemple of `Tooltip/types.d.ts`
+4. Example of `Tooltip/types.d.ts`
 
 ```tsx dark
 import {TooltipProps} from 'antd';
@@ -205,124 +209,222 @@ export {KitTooltip};
 
 <br/>
 
+### Component Theming
+Every components **style** of the design system can be **override** by tokens. 
+
+1. **Create a token file type**
+    The `theme`folder is structure as same as the Kit folder.
+    <br/>
+
+    ```sh dark
+    mkdir DESIGN-SYSTEM/src/theme/type/components/DataDisplay/tooltip
+    ```
+
+    <br/> 
+    In this file, you have all the tokens type definition. The tokens follow some rules you can find here [TODO]
+
+2. **Create a token file**
+    The token file is the definition of all tokens with their value. It exports a function that create the theme for the cmponent. You define this file in the `aristid` that is the default theme of the design system.
+
+    ```sh dark
+    mkdir DESIGN-SYSTEM/src/theme/aristid/components/DataDisplay/tooltip
+    ```
+
+3. **Global theme type**
+    After that, go to file `src/theme/type/index.tsx`to add your component type. This files contains all components that can be override.
+
+4. **Global theme**
+    You can now add your component in the `src/theme/aristid/index.tsx`  and you add your component and the function that creates tokens defined in point 2.
+
+5. **Component Antd mapper**
+    As we use both `antd` and `design system` tokens, we normalize all token to follow a same model. If your component uses antd tokens, you have to add a mapper in the `src/theme/utils/tokens-mapper` folder. This folder as the same folder structure as the rest of the application.
+
+    <br/>
+    Example of component mapper :
+
+    ```tsx
+    // utils/tokens-mapper/DataDisplay/Tag
+
+    import {IKitTagTheme} from '@theme/types/components/DataDisplay/Tag';
+
+    export const mapTagKitTokenToAntdToken = (kitTagTheme: IKitTagTheme) => {
+        const {colors, border} = kitTagTheme;
+
+        return {
+            defaultBg: colors.default.background.default,
+            defaultColor: colors.default.typography.default,
+            borderRadiusSM: border.radius
+        };
+    };
+    ```
+
+6. **Global theme mapper**
+    After that, you have to add your component mapper to the global mapper in the file `src/theme/utils/tokens-mapper/index.tsx`.
+
+7. **Theme consumption**
+    You can use the theme in your styled component by calling the hook `useKitTheme`. You can get the component theme by calling `theme.components.Tooltip`.
+
+    </br>
+
+    ```tsx
+    const {theme} = useKitTheme();
+
+    const tooltipTheme = theme.components.Tooltip;
+
+    return <KitTooltip $theme={tooltipTheme} />;
+    ```
+
+<br/>
+
 #### Component documentation
 
-1. Create a new folder for the documentation of your component
+1. **Copy - Paste the template folder (stories/template)**
+    This folder contains all required files to create component documentation.
+    - `examples` : contains all the code of examples, index.tsx export all examples in the convenient format.
+    - `data.tsx`: contains the API data (Args, Template, ...)
+    - `Component.mdx` : file that contains the component documentation (usage / examples / api / tokens)
+    - `Component.stories.tsx` : file use by storybook as a story to test and display.
 
-```sh dark
-mkdir DESIGN-SYSTEM/stories/02-Design System/05-DataDisplay/Tooltip
-```
+</br>
 
-2. In this folder create two files
+2. **Implement examples**
+    Create all examples needed in the documentation.
 
-```sh dark
-cd Tooltip
-touch Tooltip.stories.mdx
-touch data.tsx
-```
-- Tooltip.stories.mdx : Contain all your documentation and exemples
-- data.tsx : Used mainly for the API section (Args, Template, ...)
+    ```tsx
+    // basic.tsx
+    import React from 'react';
 
-3. Create `exemples` for your component
+    const App = () => {
+        return (
+            <KitTooltip title"this is an example">
+                <div>Template Example</div>
+            </KitTooltip>
+        );
+    };
 
-```sh dark
-mkdir exemples
-cd exemples
-touch basic.tsx
-touch index.tsx
-```
-- basic.tsx : Contain your exemple
-- index.tsx : Used for export exemples and sources
+    export default App;
+    ```
 
-4. Exemple of `Tooltip/exemples/basic.tsx`
+</br>
 
-```tsx dark
-import React from 'react';
-import {KitTooltip} from '@aristid/design-system';
+3. **Export examples**
+    You have to export all of your examples in the index.tsx of the examples folder. It permits to export all files in the convenient format to be read by the custom canvas component.
 
-const App = () => {
-    return (
-        <KitTooltip title="Hey i'm a tooltip">
-            Tooltip will show on mouse enter.
-        </KitTooltip>
-    );
-};
+    ```tsx
+    import Basic from './basic';
 
-export default App;
-```
-<br/>
+    import BasicSource from './basic?raw';
 
-5. Exemple of `Tooltip/exemples/index.tsx`
+    export const Sources = {
+        Basic: BasicSource
+    };
+    export default {
+        Basic
+    };
+    ```
 
-```tsx dark
-import Basic from './basic';
-import BasicSource from './basic?raw';
+</br>
 
-export const Sources = {
-    Basic: BasicSource
-};
+4. **Modify Component.mdx**
+    - Rename Component in the file name by your component name (ex : Tooltip.mdx).
+    - Rename Component in the file by your component name.
+    - Complete all examples you want to display in documentation.
 
-export default {
-    Basic
-};
-```
+    ```tsx
+    // Tooltip.mdx
+    import { Meta, Story, Canvas } from "@storybook/addon-docs";
+    import { Controls } from "@storybook/addon-docs";
+    import { argTypes, Template } from "./data";
+    import Examples, { Sources } from './examples';
+    import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+    import DesignTokens from '../../.storybook/components/DesignTokens';
+    import fields from '../tokens';
+    import * as Tooltip from './Tooltip.stories';
 
-<br/>
+    <Meta of={Tooltip} />
 
-6. Exemple of `Tooltip/data.tsx`
+    # Tooltip
 
-```tsx dark
-import React from 'react';
-import {KitTooltip} from '@aristid/design-system';
+    Brief component description.
 
-export const TooltipArgTypes = {
-    title: {
-        name: 'title',
-        description: 'The text shown in the tooltip',
-        control: {type: 'text'},
-        table: {
-            type: {
-                summary: 'ReactNode | () => ReactNode'
-            },
-            category: 'Tooltip'
+    ## Examples
+
+    ##### Basic
+    Example description
+
+    <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="tooltip-basic"/>
+
+    ## Api
+
+    <Canvas of={Tooltip.Api} />
+
+    <Controls of={Tooltip.Api} />
+
+    ## Design Tokens
+
+    <DesignTokens path="components.Tooltip" tokens={fields?.components?.Tooltip} />
+    ```
+
+</br>
+
+5. **Modify Component.stories.tsx**
+    - Rename Component in the file name by your component name (ex : Tooltip.stories.tsx).
+    - Rename the meta object title attribute by the pass of the component (ex : title: 'Design System/DataDisplay/Tooltip'). The path specify where the component will be placed in the storybook.
+    - Replace KitComponent by your component (ex KitTooltip).
+
+    </br>
+
+    ```tsx
+    // Tooltip.stories.tsx
+    import type {Meta, StoryObj} from '@storybook/react';
+    import {KitTooltip} from '@components/DataDisplay';
+    import {argTypes, Template} from './data';
+
+    const meta: Meta<typeof KitTooltip> = {
+        component: KitTooltip,
+        title: 'Design System/DataDisplay/Tooltip',
+        argTypes: argTypes
+    };
+
+    export default meta;
+    type Story = StoryObj<typeof KitTooltip>;
+
+    export const Api: Story = {
+        render: Template
+    };
+    ```
+
+6. **Import Component Theme Editor Template**
+    In the `data.tsx` file, you defined a `EditorTemplate`. It permits to modify in live all tokens and get a preview of the component. You have to import this Editor in the `stories/index.tsx`and add it inside the object that contains all theme editor that already exist.
+
+    ```tsx
+    import {EditorTemplate as Tooltip} from './02-Design System/05-DataDisplay/Tooltip/data';
+
+    export default {
+        ...
+        DataDisplay: {
+            ...
+            Tooltip
+            ...
         }
-    },
-    ...
-}
+        ...
+    }
 
-export const Template = ({component, ...args}) => {
-    return (
-        <KitTooltip {...args}>
-            Tooltip will show on mouse enter.
-        </KitTooltip>
-    );
-};
-```
+    ```
 
-<br/>
+7. **Design tokens generation**
+    When everything is setup, you have to run the tokens-generator script to generate all design tokens in the documentation.
 
-7. Exemple of `Tooltip/Tooltip.stories.mdx`
+    ```sh
+    node tokens-generator.js
+    ```
 
-```tsx dark
-import { TooltipArgTypes, Template } from "./data";
-import Exemples, { Sources } from './exemples';
-import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+    After the script run, section `Design Tokens` documentation is up to date with all design tokens.
 
-<Meta
-    title="Design System/DataDisplay/Tooltip"
-    argTypes={TooltipArgTypes}
-/>
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} />
 
-<Canvas>
-    <Story name="Tooltip">{Template.bind({})}</Story>
-</Canvas>
-
-<Controls story="Tooltip" />
-```
-
-<br/>
+## Important
+Every import of antd library should pass by `antd` or `/lib/antd`. `es` import will lead to issues in the build process.
 
 ## Contributing
 
@@ -338,7 +440,7 @@ git commit -m "type[(component)] : message"
 
 The type is telling us what change or iteration is being made. We have the following types:
 
-| Type  | Description | Exemple |
+| Type  | Description | Example |
 |---|---|---|
 | test | indicates any type of creation or alteration of test codes | Creation of unit tests |
 | feat | indicates the development of a new feature for the project. | Adding a service, functionality, endpoint, etc |
@@ -353,7 +455,7 @@ The type is telling us what change or iteration is being made. We have the follo
 | revert | indicates the reversal of a previous commit |
 
 
-Exemple :
+Example :
 
 ```sh
 git commit -m "style(Tooltip) : Change color on hover"

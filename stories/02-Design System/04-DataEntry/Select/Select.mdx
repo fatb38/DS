@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -22,39 +22,39 @@ Select component to select value from options.
 ##### Basic
 Basic Usage.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="select-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="select-basic" />
 
 ##### Disabled
 Disabled state.
 
-<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="select-disabled" />
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="select-disabled" />
 
 ##### With Downlad Icon
 Code sample to display with a downlad icon.
 
-<CustomCanvas content={Exemples.Download} source={Sources.Download} id="select-download-icon" />
+<CustomCanvas content={Examples.Download} source={Sources.Download} id="select-download-icon" />
 
 ##### Option Group
 Using `OptGroup` to group the options.
 
-<CustomCanvas content={Exemples.Group} source={Sources.Group} id="select-group" />
+<CustomCanvas content={Examples.Group} source={Sources.Group} id="select-group" />
 
 ##### Mode
 - `multiple` : selecting from existing items.
 - `tags`: selecting from existing items and transform input to tag.
 
-<CustomCanvas content={Exemples.Multipleandtags} source={Sources.Multipleandtags} id="select-multiple-tags" />
+<CustomCanvas content={Examples.Multipleandtags} source={Sources.Multipleandtags} id="select-multiple-tags" />
 
 ##### Status
 Add status to KitSelect with `status`, which could be `error` or `warning`.
 
-<CustomCanvas content={Exemples.Status} source={Sources.Status} id="select-status" />
+<CustomCanvas content={Examples.Status} source={Sources.Status} id="select-status" />
 
 ##### Label and Helper
 
 Add `label` and/or `helper` properties to give field context.
 
-<CustomCanvas content={Exemples.Wrapper} source={Sources.Wrapper} id="select-wrapper" />
+<CustomCanvas content={Examples.Wrapper} source={Sources.Wrapper} id="select-wrapper" />
 
 ## API
 

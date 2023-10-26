@@ -1,7 +1,7 @@
 import React from 'react';
 import {IEditorTemplate} from '../types';
 
-export const KitTemplate: React.FunctionComponent = () => {
+export const KitComponent: React.FunctionComponent = () => {
     return null;
 };
 

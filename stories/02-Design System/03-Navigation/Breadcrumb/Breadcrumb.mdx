@@ -1,7 +1,7 @@
 import { Meta, Canvas, Source } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
 import * as KitBreadcrumbStories from './Breadcrumb.stories';
@@ -22,27 +22,27 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 ##### Basic
 The simplest use.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="breadcrumb-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="breadcrumb-basic" />
 
 ##### With an icon
 The icon should be placed in front of the text.
 
-<CustomCanvas content={Exemples.Icon} source={Sources.Icon} id="breadcrumb-icon" />
+<CustomCanvas content={Examples.Icon} source={Sources.Icon} id="breadcrumb-icon" />
 
 ##### Configuring the separator
 The separator can be customized by setting the separator property: `separator=">"`.
 
-<CustomCanvas content={Exemples.Separator} source={Sources.Separator} id="breadcrumb-separator" />
+<CustomCanvas content={Examples.Separator} source={Sources.Separator} id="breadcrumb-separator" />
 
 ##### Bread crumbs with drop down menu
 Breadcrumbs support drop down menu.
 
-<CustomCanvas content={Exemples.Dropdown} source={Sources.Dropdown} id="breadcrumb-dropdown" />
+<CustomCanvas content={Examples.Dropdown} source={Sources.Dropdown} id="breadcrumb-dropdown" />
 
 ##### Configuring the Separator Independently
 Customize separator for each other.
 
-<CustomCanvas content={Exemples.IndependentSeparator} source={Sources.IndependentSeparator} id="breadcrumb-independent-separator" />
+<CustomCanvas content={Examples.IndependentSeparator} source={Sources.IndependentSeparator} id="breadcrumb-independent-separator" />
 
 ## API
 
