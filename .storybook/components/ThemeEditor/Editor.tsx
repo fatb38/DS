@@ -8,7 +8,6 @@ import {KitButton, KitSpace} from '../../../src/Kit';
 import {CollapseExpandObject, IEditor, IEditorContext} from './types';
 import MainHeader from './Block/MainHeader';
 import {StyledLinkButton} from './Block/Field';
-import {StyledSection} from './Block/Section';
 
 const StyledTitle = styled.div`
     margin-bottom: 2rem;
@@ -125,7 +124,7 @@ const Editor: FunctionComponent<IEditor> = ({components}) => {
                     <StyledComponentWrapper $isOpen $container>
                         {components &&
                             Object.keys(components).map(group => {
-                                let paths = Object.values(components[group]).map(item => item.path);
+                                const paths = Object.values(components[group]).map(item => item.path);
                                 return (
                                     <Component
                                         key={group}

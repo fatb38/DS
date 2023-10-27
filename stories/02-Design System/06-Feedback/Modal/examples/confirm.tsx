@@ -94,13 +94,15 @@ const App = () => {
                     <KitCheckbox onChange={handleshowSecondCta}>Show Secondary Cta</KitCheckbox>
                 </KitSpace>
             </KitSpace>
-            <StyleContainer id="modal-test-container"></StyleContainer>
-            <ConfirmDialog
-                isOpen
-                parentSelector={getContainer}
-                {...modalProps}
-                okCancel={modalProps.showSecondaryCta}
-            ></ConfirmDialog>
+            <StyleContainer id="modal-test-container">
+                <ConfirmDialog
+                    isOpen
+                    parentSelector={getContainer}
+                    {...modalProps}
+                    okCancel={modalProps.showSecondaryCta}
+                    appElement={document.getElementById('storybook-docs')}
+                />
+            </StyleContainer>
         </KitSpace>
     );
 };
