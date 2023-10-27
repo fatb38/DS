@@ -101,7 +101,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         };
 
         const _handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
-            (ref as RefObject<RefSelectProps>).current?.focus();
+            (ref as RefObject<RefSelectProps>)?.current?.focus();
 
             if (
                 (!props.mode && isOpen) ||
