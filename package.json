@@ -17,10 +17,11 @@
     "generate-tokens": "node tokens-generator.js",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006 --docs",
+    "storybook": "storybook dev -p 6006",
     "build-storybook": "env=production storybook build --docs",
     "build-all": "yarn build && yarn build-storybook",
-    "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
+    "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
@@ -46,6 +47,7 @@
     "react-uuid": "^2.0.0",
     "remark-gfm": "^3.0.1",
     "short-unique-id": "^5.0.2",
+    "storybook-addon-pseudo-states": "^2.1.2",
     "styled-components": "^6.0.7",
     "typescript-json-schema": "^0.61.0",
     "updeep": "^1.2.4",
@@ -68,6 +70,7 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
     "babel-loader": "^8.3.0",
+    "chromatic": "^7.5.0",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
@@ -79,7 +82,8 @@
     "storybook-docs-toc": "^1.7.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
-    "vite-plugin-dts": "^3.5.3"
+    "vite-plugin-dts": "^3.5.3",
+    "vite-plugin-turbosnap": "^1.0.3"
   },
   "peerDependencies": {
     "antd": "^5.8.1",
