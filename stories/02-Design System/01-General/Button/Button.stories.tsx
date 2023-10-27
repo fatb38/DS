@@ -86,28 +86,26 @@ export const DefaultButton: Story = {
 
 export const Danger: Story = {
     render: () => (
-        <div>
-            <div style={{display: 'flex', gap: '8px'}}>
-                <KitButton type="primary" danger>
-                    Danger
-                </KitButton>
-                <KitButton type="primary" id="hover" danger>
-                    Hover
-                </KitButton>
-                <KitButton type="primary" id="focus" danger>
-                    Focus
-                </KitButton>
-                <KitButton type="primary" disabled danger>
-                    Disabled
-                </KitButton>
-                <KitButton type="primary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger />
-                <KitButton type="primary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger>
-                    Search
-                </KitButton>
-                <KitButton type="primary" loading danger>
-                    Loading
-                </KitButton>
-            </div>
+        <div style={{display: 'flex', gap: '8px'}}>
+            <KitButton type="primary" danger>
+                Danger
+            </KitButton>
+            <KitButton type="primary" id="hover" danger>
+                Hover
+            </KitButton>
+            <KitButton type="primary" id="focus" danger>
+                Focus
+            </KitButton>
+            <KitButton type="primary" disabled danger>
+                Disabled
+            </KitButton>
+            <KitButton type="primary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger />
+            <KitButton type="primary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger>
+                Search
+            </KitButton>
+            <KitButton type="primary" loading danger>
+                Loading
+            </KitButton>
         </div>
     ),
     parameters: {
