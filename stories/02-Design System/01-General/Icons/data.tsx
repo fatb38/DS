@@ -19,7 +19,7 @@ export const argTypes = {
         table: {
             type: {
                 summary:
-                    '`hexadecimal` | `rgb` | `hsl` | `mediumGrey` | `yellow` | `oragne` | `pink` | `red` | `blue` | `green`  '
+                    '`hexadecimal` | `rgb` | `hsl` | `mediumGrey` | `yellow` | `orange` | `pink` | `red` | `blue` | `green` '
             }
         }
     },

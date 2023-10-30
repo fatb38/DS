@@ -1,30 +1,3 @@
-interface IKitTagThemeColor {
-    background: {
-        /**
-         * default color
-         * @TJS-type color
-         */
-        default: string;
-    };
-    typography: {
-        /**
-         * default color
-         * @TJS-type color
-         */
-        default: string;
-        /**
-         * hover color
-         * @TJS-type color
-         */
-        hover: string;
-        /**
-         * closeIcon color
-         * @TJS-type color
-         */
-        closeIcon: string;
-    };
-}
-
 export interface IKitTagTheme {
     colors: {
         default: {
@@ -43,10 +16,6 @@ export interface IKitTagTheme {
                 default: string;
             };
         };
-        red: IKitTagThemeColor;
-        green: IKitTagThemeColor;
-        blue: IKitTagThemeColor;
-        blueInvert: IKitTagThemeColor;
     };
     typography: {
         fontFamily: string;

@@ -1,8 +1,9 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, useMemo} from 'react';
 import {Badge as AntdBadge} from 'antd';
 import {IKitBadge, IStyledKitBadge} from './types';
 import {css, styled} from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
+import {getColor, getLighterColor} from '@utils/functions';
 
 const StyledAntdBadge = styled(AntdBadge)<IStyledKitBadge>`
     height: 16px;
@@ -11,35 +12,8 @@ const StyledAntdBadge = styled(AntdBadge)<IStyledKitBadge>`
     font-size: ${({$typographyTheme}) => $typographyTheme.fontSize7}px;
 
     .ant-badge-count {
-        ${({$countColor, $theme}) => {
-            switch ($countColor) {
-                case 'default':
-                    return css`
-                        background: ${$theme.colors.background.default};
-                        color: ${$theme.colors.typography.default};
-                    `;
-                case 'green':
-                    return css`
-                        background: ${$theme.colors.background.green};
-                        color: ${$theme.colors.typography.green};
-                    `;
-                case 'blue':
-                    return css`
-                        background: ${$theme.colors.background.blue};
-                        color: ${$theme.colors.typography.blue};
-                    `;
-                case 'blueInvert':
-                    return css`
-                        background: ${$theme.colors.background.blueInvert};
-                        color: ${$theme.colors.typography.blueInvert};
-                    `;
-                case 'grey':
-                    return css`
-                        background: ${$theme.colors.background.grey};
-                        color: ${$theme.colors.typography.grey};
-                    `;
-            }
-        }}
+        background: ${({$backgroundColor}) => $backgroundColor};
+        color: ${({$fontColor}) => $fontColor};
     }
 
     &.ant-badge {
@@ -63,14 +37,25 @@ const StyledAntdBadge = styled(AntdBadge)<IStyledKitBadge>`
     }
 `;
 
-export const KitBadge: FunctionComponent<IKitBadge> = ({countColor = 'default', ...badgeProps}) => {
+export const KitBadge: FunctionComponent<IKitBadge> = ({color, secondaryColorInvert = false, ...badgeProps}) => {
     const {theme} = useKitTheme();
+
+    const calculatedBackgroundColor = useMemo(
+        () => getColor(theme, color, secondaryColorInvert),
+        [color, secondaryColorInvert, theme]
+    );
+
+    const calculatedFontColor = useMemo(
+        () => getLighterColor(theme, color, secondaryColorInvert),
+        [color, secondaryColorInvert, theme]
+    );
 
     return (
         <StyledAntdBadge
             $theme={theme.components.Badge}
             $typographyTheme={theme.general.typography}
-            $countColor={countColor}
+            $backgroundColor={calculatedBackgroundColor}
+            $fontColor={calculatedFontColor}
             {...badgeProps}
         />
     );

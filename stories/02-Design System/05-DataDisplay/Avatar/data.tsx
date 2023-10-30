@@ -7,8 +7,6 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const shape = ['circle', 'square'];
 
-const color = ['default', 'blueInvert', 'yellow', 'brown', 'darkblue'];
-
 const pophoverPlacement = ['top', 'bottom'];
 
 const pophoverTrigger = ['hover', 'click', 'focus'];
@@ -70,16 +68,25 @@ export const argTypes = {
     },
     color: {
         name: 'color',
-        description:
-            'The color of avatar. If custom color provided, the text color will adapt to maintain sufficient contrast.',
-        options: color,
+        control: {type: 'color'},
+        description: 'Set a color',
+        table: {
+            type: {
+                summary:
+                    '`hexadecimal` | `rgb` | `hsl` | `mediumGrey` | `yellow` | `orange` | `pink` | `red` | `blue` | `green`'
+            },
+            category: 'Avatar'
+        }
+    },
+    secondaryColorInvert: {
+        name: 'secondaryColorInvert',
+        description: 'Allow colors invertion only if color is set with a KitColorKeys',
         control: {
-            type: 'select',
-            defaultValue: 'default'
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: 'default | blueInvert | `string`'
+                summary: 'boolean'
             },
             category: 'Avatar'
         }
@@ -257,23 +264,19 @@ export const Template = args => {
 export const EditorTemplate: IEditorTemplate = () => {
     return (
         <KitSpace>
+            <KitAvatar shape="circle" size="small">
+                A
+            </KitAvatar>
+            <KitAvatar shape="circle">A</KitAvatar>
             <KitAvatar shape="circle" size="large">
                 A
             </KitAvatar>
-            <KitAvatar shape="square" size="large">
+            <KitAvatar shape="square" size="small">
                 V
             </KitAvatar>
-            <KitAvatar color="default" size="large">
-                A
-            </KitAvatar>
-            <KitAvatar color="blueInvert" size="large">
-                T
-            </KitAvatar>
-            <KitAvatar color="lightcoral" size="large">
-                A
-            </KitAvatar>
-            <KitAvatar color="brown" size="large">
-                R
+            <KitAvatar shape="square">V</KitAvatar>
+            <KitAvatar shape="square" size="large">
+                V
             </KitAvatar>
         </KitSpace>
     );

@@ -47,6 +47,7 @@ export default defineConfig({
             '@kit': path.resolve(__dirname, './src/Kit'),
             '@theme': path.resolve(__dirname, './src/theme'),
             '@hooks': path.resolve(__dirname, './src/hooks'),
+            '@utils': path.resolve(__dirname, './src/utils'),
             '@translation': path.resolve(__dirname, './src/translation')
         }
     },

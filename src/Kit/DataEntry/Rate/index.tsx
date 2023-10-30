@@ -1,32 +1,15 @@
-import React, {forwardRef} from 'react';
+import React, {forwardRef, useMemo} from 'react';
 import {Rate as AntdRate} from 'antd';
 import {IStyledRate, IKitRate} from './types';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar} from '@fortawesome/free-solid-svg-icons';
 import type {RateRef} from 'rc-rate/lib/Rate';
+import {getColor} from '@utils/functions';
 
 const StyledRate = styled(AntdRate)<IStyledRate>`
-    ${({$color, $theme}) => {
-        switch ($color) {
-            case 'default':
-                // Use default one from theme
-                return;
-            case 'red':
-                return css`
-                    color: ${$theme.colors.star.active.red};
-                `;
-            case 'green':
-                return css`
-                    color: ${$theme.colors.star.active.green};
-                `;
-            case 'blue':
-                return css`
-                    color: ${$theme.colors.star.active.blue};
-                `;
-        }
-    }}
+    color: ${({$activeStarColor}) => $activeStarColor};
 
     &.ant-rate .ant-rate-star {
         &:not(.ant-rate-star-half):not(.ant-rate-star-full) {
@@ -77,13 +60,15 @@ const StyledRate = styled(AntdRate)<IStyledRate>`
 `;
 
 export const KitRate = forwardRef<RateRef, IKitRate>(
-    ({color = 'default', disabledStarTransparency, character, ...rateProps}, ref) => {
+    ({color, disabledStarTransparency, character, ...rateProps}, ref) => {
         const {theme} = useKitTheme();
+
+        const calculatedActiveStarColor = useMemo(() => getColor(theme, color), [color]);
 
         return (
             <StyledRate
                 $theme={theme.components.Rate}
-                $color={color}
+                $activeStarColor={calculatedActiveStarColor}
                 ref={ref}
                 character={character ?? <FontAwesomeIcon icon={faStar} width={20} />}
                 $disabledStarTransparency={disabledStarTransparency ?? theme.general.colors.neutral.white}

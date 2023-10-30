@@ -1,18 +1,17 @@
 import {RateProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import {IKitRateTheme} from '@theme/types/components/DataEntry/Rate';
+import {KitColorProp} from '@utils/functions/types';
 
 type AntdRateTypesToOmit = '';
 
-type KitRateColor = 'default' | 'red' | 'green' | 'blue';
-
 export interface IKitRate extends Omit<RateProps, AntdRateTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
-    color?: KitRateColor;
+    color?: KitColorProp;
     disabledStarTransparency?: string;
 }
 
 export interface IStyledRate {
     $theme: IKitRateTheme;
-    $color: KitRateColor;
+    $activeStarColor: string;
     $disabledStarTransparency: string;
 }

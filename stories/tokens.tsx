@@ -4698,24 +4698,6 @@ const forms = {
                             "_path": "components.Rate.colors.star.active.default",
                             "_type": "color",
                             "_description": "default color"
-                        },
-                        "red": {
-                            "_label": "red",
-                            "_path": "components.Rate.colors.star.active.red",
-                            "_type": "color",
-                            "_description": "red color"
-                        },
-                        "green": {
-                            "_label": "green",
-                            "_path": "components.Rate.colors.star.active.green",
-                            "_type": "color",
-                            "_description": "green color"
-                        },
-                        "blue": {
-                            "_label": "blue",
-                            "_path": "components.Rate.colors.star.active.blue",
-                            "_type": "color",
-                            "_description": "blue color"
                         }
                     }
                 }
@@ -4801,150 +4783,6 @@ const forms = {
                             "_path": "components.Tag.colors.default.typography.default",
                             "_type": "color",
                             "_description": "default color"
-                        }
-                    }
-                },
-                "red": {
-                    "_label": "red",
-                    "_path": "components.Tag.colors.red",
-                    "background": {
-                        "_label": "background",
-                        "_path": "components.Tag.colors.red.background",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.red.background.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    },
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.Tag.colors.red.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.red.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Tag.colors.red.typography.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "closeIcon": {
-                            "_label": "closeIcon",
-                            "_path": "components.Tag.colors.red.typography.closeIcon",
-                            "_type": "color",
-                            "_description": "closeIcon color"
-                        }
-                    }
-                },
-                "green": {
-                    "_label": "green",
-                    "_path": "components.Tag.colors.green",
-                    "background": {
-                        "_label": "background",
-                        "_path": "components.Tag.colors.green.background",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.green.background.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    },
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.Tag.colors.green.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.green.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Tag.colors.green.typography.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "closeIcon": {
-                            "_label": "closeIcon",
-                            "_path": "components.Tag.colors.green.typography.closeIcon",
-                            "_type": "color",
-                            "_description": "closeIcon color"
-                        }
-                    }
-                },
-                "blue": {
-                    "_label": "blue",
-                    "_path": "components.Tag.colors.blue",
-                    "background": {
-                        "_label": "background",
-                        "_path": "components.Tag.colors.blue.background",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.blue.background.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    },
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.Tag.colors.blue.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.blue.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Tag.colors.blue.typography.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "closeIcon": {
-                            "_label": "closeIcon",
-                            "_path": "components.Tag.colors.blue.typography.closeIcon",
-                            "_type": "color",
-                            "_description": "closeIcon color"
-                        }
-                    }
-                },
-                "blueInvert": {
-                    "_label": "blueInvert",
-                    "_path": "components.Tag.colors.blueInvert",
-                    "background": {
-                        "_label": "background",
-                        "_path": "components.Tag.colors.blueInvert.background",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.blueInvert.background.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    },
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.Tag.colors.blueInvert.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.blueInvert.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Tag.colors.blueInvert.typography.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "closeIcon": {
-                            "_label": "closeIcon",
-                            "_path": "components.Tag.colors.blueInvert.typography.closeIcon",
-                            "_type": "color",
-                            "_description": "closeIcon color"
                         }
                     }
                 }
@@ -6078,12 +5916,6 @@ const forms = {
                         "_path": "components.Avatar.colors.background.default",
                         "_type": "color",
                         "_description": "default color"
-                    },
-                    "blueInvert": {
-                        "_label": "blueInvert",
-                        "_path": "components.Avatar.colors.background.blueInvert",
-                        "_type": "color",
-                        "_description": "blueInvert color"
                     }
                 },
                 "typography": {
@@ -6094,18 +5926,6 @@ const forms = {
                         "_path": "components.Avatar.colors.typography.default",
                         "_type": "color",
                         "_description": "default color"
-                    },
-                    "blueInvert": {
-                        "_label": "blueInvert",
-                        "_path": "components.Avatar.colors.typography.blueInvert",
-                        "_type": "color",
-                        "_description": "blueInvert color"
-                    },
-                    "dark": {
-                        "_label": "dark",
-                        "_path": "components.Avatar.colors.typography.dark",
-                        "_type": "color",
-                        "_description": "dark color"
                     }
                 }
             }
@@ -6153,30 +5973,6 @@ const forms = {
                         "_type": "color",
                         "_description": "default color"
                     },
-                    "green": {
-                        "_label": "green",
-                        "_path": "components.Badge.colors.background.green",
-                        "_type": "color",
-                        "_description": "green color"
-                    },
-                    "blue": {
-                        "_label": "blue",
-                        "_path": "components.Badge.colors.background.blue",
-                        "_type": "color",
-                        "_description": "blue color"
-                    },
-                    "blueInvert": {
-                        "_label": "blueInvert",
-                        "_path": "components.Badge.colors.background.blueInvert",
-                        "_type": "color",
-                        "_description": "blueInvert color"
-                    },
-                    "grey": {
-                        "_label": "grey",
-                        "_path": "components.Badge.colors.background.grey",
-                        "_type": "color",
-                        "_description": "grey color"
-                    },
                     "primary": {
                         "_label": "primary",
                         "_path": "components.Badge.colors.background.primary",
@@ -6210,30 +6006,6 @@ const forms = {
                         "_path": "components.Badge.colors.typography.default",
                         "_type": "color",
                         "_description": "default color"
-                    },
-                    "green": {
-                        "_label": "green",
-                        "_path": "components.Badge.colors.typography.green",
-                        "_type": "color",
-                        "_description": "green color"
-                    },
-                    "blue": {
-                        "_label": "blue",
-                        "_path": "components.Badge.colors.typography.blue",
-                        "_type": "color",
-                        "_description": "blue color"
-                    },
-                    "blueInvert": {
-                        "_label": "blueInvert",
-                        "_path": "components.Badge.colors.typography.blueInvert",
-                        "_type": "color",
-                        "_description": "blueInvert color"
-                    },
-                    "grey": {
-                        "_label": "grey",
-                        "_path": "components.Badge.colors.typography.grey",
-                        "_type": "color",
-                        "_description": "grey color"
                     }
                 }
             },
@@ -8787,6 +8559,12 @@ const forms = {
                             "_path": "components.Upload.colors.list.typography.error",
                             "_type": "color",
                             "_description": "error color"
+                        },
+                        "uploading": {
+                            "_label": "uploading",
+                            "_path": "components.Upload.colors.list.typography.uploading",
+                            "_type": "color",
+                            "_description": "uploading color"
                         }
                     }
                 }
@@ -10974,6 +10752,54 @@ const forms = {
                             "default": {
                                 "_label": "default",
                                 "_path": "components.ColorPicker.panel.select.colors.rafter.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            }
+                        }
+                    }
+                },
+                "preset": {
+                    "_label": "preset",
+                    "_path": "components.ColorPicker.panel.preset",
+                    "typography": {
+                        "_label": "typography",
+                        "_path": "components.ColorPicker.panel.preset.typography",
+                        "fontWeight": {
+                            "_label": "fontWeight",
+                            "_path": "components.ColorPicker.panel.preset.typography.fontWeight",
+                            "_type": "number",
+                            "_min": 0
+                        }
+                    },
+                    "colors": {
+                        "_label": "colors",
+                        "_path": "components.ColorPicker.panel.preset.colors",
+                        "typography": {
+                            "_label": "typography",
+                            "_path": "components.ColorPicker.panel.preset.colors.typography",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.ColorPicker.panel.preset.colors.typography.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            }
+                        },
+                        "rafter": {
+                            "_label": "rafter",
+                            "_path": "components.ColorPicker.panel.preset.colors.rafter",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.ColorPicker.panel.preset.colors.rafter.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            }
+                        },
+                        "empty": {
+                            "_label": "empty",
+                            "_path": "components.ColorPicker.panel.preset.colors.empty",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.ColorPicker.panel.preset.colors.empty.default",
                                 "_type": "color",
                                 "_description": "default color"
                             }

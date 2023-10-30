@@ -2,10 +2,11 @@ import {ReactNode, MouseEvent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {IconComponentProps} from '@ant-design/icons/lib/components/Icon';
 import {IKitIconTheme} from '@theme/types/components/General/Icon';
+import {KitColorProp} from '@utils/functions/types';
 
 export interface IKitIcon extends IconComponentProps, KitHTMLAttributes<HTMLSpanElement> {
     on?: boolean;
-    color?: string;
+    color?: KitColorProp;
     displayName?: string;
     icon: ReactNode;
     className?: string;
@@ -19,5 +20,5 @@ export interface IStyledKitIcon extends Omit<IKitIcon, 'icon'> {
     $isClickable?: boolean;
     className?: string;
     $backgroundColor?: string;
-    $color?: string;
+    $iconColor?: string;
 }

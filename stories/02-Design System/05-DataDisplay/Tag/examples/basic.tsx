@@ -19,7 +19,7 @@ const App = () => {
             </KitSpace>
             <br />
             <KitSpace>
-                <KitButton type="primary" onClick={() => setIsTagVisible(!isTagVisible)}>
+                <KitButton type="primary" disableSecureClick onClick={() => setIsTagVisible(!isTagVisible)}>
                     {isTagVisible ? 'Hide Tag2' : 'Show Tag2'}
                 </KitButton>
             </KitSpace>

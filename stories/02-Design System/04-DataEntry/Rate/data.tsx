@@ -3,8 +3,6 @@ import React from 'react';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
 
-const color = ['default', 'green', 'red', 'blue'];
-
 export const argTypes = {
     allowClear: {
         name: 'allowClear',
@@ -32,18 +30,14 @@ export const argTypes = {
     },
     color: {
         name: 'color',
+        control: {type: 'color'},
         description: 'Set a color',
-        options: color,
-        control: {
-            type: 'select',
-            defaultValue: 'default'
-        },
         table: {
             type: {
-                summary: 'default | red | green | blue'
+                summary:
+                    '`hexadecimal` | `rgb` | `hsl` | `mediumGrey` | `yellow` | `orange` | `pink` | `red` | `blue` | `green`'
             },
-            category: 'Rate',
-            defaultValue: {summary: 'default'}
+            category: 'Rate'
         }
     },
     disabledStarTransparency: {
@@ -197,11 +191,8 @@ export const Template = ({...args}) => {
 export const EditorTemplate: IEditorTemplate = () => {
     return (
         <KitSpace size="m" direction="vertical">
-            <KitRate disabled />
             <KitRate defaultValue={3} />
-            <KitRate defaultValue={3} color="red" />
-            <KitRate defaultValue={3} color="green" />
-            <KitRate defaultValue={3} color="blue" />
+            <KitRate defaultValue={3} disabled />
         </KitSpace>
     );
 };

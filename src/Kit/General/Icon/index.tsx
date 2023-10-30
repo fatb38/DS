@@ -3,18 +3,18 @@ import {css, styled} from 'styled-components';
 import {IKitIcon, IStyledKitIcon} from './types';
 import {useKitTheme} from '@theme/theme-context';
 import useSecureClick from '@hooks/useSecureClick';
-import convert from 'color-convert';
+import {getColor, getLighterColor} from '@utils/functions';
 
 const StyledKitIcon = styled.span<IStyledKitIcon>`
-    color: ${({$on, $theme, $color}) => {
+    color: ${({$on, $theme, $iconColor}) => {
         if ($on) {
-            return $color ?? $theme.colors.icon.on;
+            return $iconColor ?? $theme.colors.icon.on;
         }
-        return $color ?? $theme.colors.icon.default;
+        return $iconColor ?? $theme.colors.icon.default;
     }};
-    background-color: ${({$on, $theme, $color, $backgroundColor}) => {
+    background-color: ${({$on, $theme, $iconColor, $backgroundColor}) => {
         if ($on) {
-            return $color ? $backgroundColor : $theme.colors.background.on;
+            return $iconColor ? $backgroundColor : $theme.colors.background.on;
         }
         return $theme.colors.background.default;
     }};
@@ -33,22 +33,6 @@ const StyledKitIcon = styled.span<IStyledKitIcon>`
         `}
 `;
 
-const colorToLightHSL = (color, lightness = 95): string | null => {
-    if (color?.startsWith('#')) {
-        const rgbColor = convert.hex.rgb(color);
-        const hslColor = convert.rgb.hsl(rgbColor);
-        return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
-    } else if (color?.startsWith('rgb')) {
-        const rgbColor = color.match(/\d+/g).map(Number);
-        const hslColor = convert.rgb.hsl(rgbColor);
-        return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
-    } else if (color?.startsWith('hsl')) {
-        const hslColor = color.match(/\d+/g).map(Number);
-        return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
-    }
-    return null;
-};
-
 export const KitIcon: FunctionComponent<IKitIcon> = ({
     className,
     on,
@@ -60,22 +44,8 @@ export const KitIcon: FunctionComponent<IKitIcon> = ({
 }) => {
     const {theme} = useKitTheme();
 
-    const _getColor = (color: string | undefined) => {
-        if (color && Object.keys(theme.general.colors.secondary).includes(color)) {
-            return theme.general.colors.secondary[color][`${color}400`];
-        }
-        return color;
-    };
-
-    const _getBackgroundColor = (color: string | undefined) => {
-        if (color && Object.keys(theme.general.colors.secondary).includes(color)) {
-            return theme.general.colors.secondary[color][`${color}100`];
-        }
-        return colorToLightHSL(color);
-    };
-
-    const calculatedColor = useMemo(() => _getColor(color), [color]);
-    const calculatedBackgroundColor = useMemo(() => _getBackgroundColor(color), [color]);
+    const calculatedIconColor = useMemo(() => getColor(theme, color), [color, theme]);
+    const calculatedBackgroundColor = useMemo(() => getLighterColor(theme, color), [color, theme]);
 
     const secureClick = useSecureClick(onClick);
 
@@ -83,7 +53,7 @@ export const KitIcon: FunctionComponent<IKitIcon> = ({
         <StyledKitIcon
             $theme={theme.components.Icon}
             className={'kit-icon ' + className}
-            $color={calculatedColor}
+            $iconColor={calculatedIconColor}
             $backgroundColor={calculatedBackgroundColor}
             $on={on}
             $isClickable={onClick !== undefined}

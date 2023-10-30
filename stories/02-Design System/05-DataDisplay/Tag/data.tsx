@@ -3,8 +3,6 @@ import {KitTag} from '@kit/DataDisplay/';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
 
-const color = ['default', 'green', 'red', 'blue', 'blueInvert'];
-
 const TagArgTypes = {
     label: {
         name: 'label',
@@ -24,15 +22,25 @@ const TagArgTypes = {
     },
     color: {
         name: 'color',
+        control: {type: 'color'},
         description: 'Set a color',
-        options: color,
+        table: {
+            type: {
+                summary:
+                    '`hexadecimal` | `rgb` | `hsl` | `mediumGrey` | `yellow` | `orange` | `pink` | `red` | `blue` | `green`'
+            },
+            category: 'Tag'
+        }
+    },
+    secondaryColorInvert: {
+        name: 'secondaryColorInvert',
+        description: 'Allow colors invertion only if color is set with a KitColorKeys',
         control: {
-            type: 'select',
-            defaultValue: 'default'
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: 'default | red | green | blue | blueInvert'
+                summary: 'boolean'
             },
             category: 'Tag'
         }
@@ -62,18 +70,6 @@ export const EditorTemplate: IEditorTemplate = () => {
     return (
         <KitSpace>
             <KitTag onClose={() => {}}>Tag</KitTag>
-            <KitTag onClose={() => {}} color="blue">
-                Tag
-            </KitTag>
-            <KitTag onClose={() => {}} color="blueInvert">
-                Tag
-            </KitTag>
-            <KitTag onClose={() => {}} color="green">
-                Tag
-            </KitTag>
-            <KitTag onClose={() => {}} color="red">
-                Tag
-            </KitTag>
         </KitSpace>
     );
 };

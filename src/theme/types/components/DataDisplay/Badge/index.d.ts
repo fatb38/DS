@@ -7,26 +7,6 @@ export interface IKitBadgeTheme {
              */
             default: string;
             /**
-             * green color
-             * @TJS-type color
-             */
-            green: string;
-            /**
-             * blue color
-             * @TJS-type color
-             */
-            blue: string;
-            /**
-             * blueInvert color
-             * @TJS-type color
-             */
-            blueInvert: string;
-            /**
-             * grey color
-             * @TJS-type color
-             */
-            grey: string;
-            /**
              * primary color
              * @TJS-type color
              */
@@ -53,26 +33,6 @@ export interface IKitBadgeTheme {
              * @TJS-type color
              */
             default: string;
-            /**
-             * green color
-             * @TJS-type color
-             */
-            green: string;
-            /**
-             * blue color
-             * @TJS-type color
-             */
-            blue: string;
-            /**
-             * blueInvert color
-             * @TJS-type color
-             */
-            blueInvert: string;
-            /**
-             * grey color
-             * @TJS-type color
-             */
-            grey: string;
         };
     };
     typography: {

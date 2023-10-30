@@ -53,7 +53,7 @@ const _tagRender = (props: CustomTagProps) => {
     };
 
     return (
-        <KitTag color="blueInvert" onMouseDown={onPreventMouseDown} onClose={onClose}>
+        <KitTag color="blue" secondaryColorInvert onMouseDown={onPreventMouseDown} onClose={onClose}>
             {typeof label === 'object' && label}
             {typeof label === 'string' && (
                 <div className="kit-select-option">
@@ -65,7 +65,11 @@ const _tagRender = (props: CustomTagProps) => {
 };
 
 const _maxTagRender = omittedValues => {
-    return <KitTag color="blueInvert">+{omittedValues.length} ...</KitTag>;
+    return (
+        <KitTag color="blue" secondaryColorInvert>
+            +{omittedValues.length} ...
+        </KitTag>
+    );
 };
 
 export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(

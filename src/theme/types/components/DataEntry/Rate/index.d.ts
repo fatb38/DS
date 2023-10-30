@@ -17,21 +17,6 @@ export interface IKitRateTheme {
                  * @TJS-type color
                  */
                 default: string;
-                /**
-                 * red color
-                 * @TJS-type color
-                 */
-                red: string;
-                /**
-                 * green color
-                 * @TJS-type color
-                 */
-                green: string;
-                /**
-                 * blue color
-                 * @TJS-type color
-                 */
-                blue: string;
             };
         };
     };

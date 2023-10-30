@@ -56,8 +56,8 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>HSL format</KitTypography.Text>
             <KitSpace>
                 <KitSpace direction="vertical">
-                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="#fcba03" />
-                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color="#fcba03" />
+                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="hsla(44, 97%, 50%, 1)" />
+                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color="hsla(44, 97%, 50%, 1)" />
                 </KitSpace>
                 <KitSpace direction="vertical">
                     <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="hsla(225, 100%, 23%, 1)" />

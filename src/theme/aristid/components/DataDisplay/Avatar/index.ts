@@ -7,13 +7,10 @@ export const getKitAvatarTokens = (generalTokens: IKitThemeGeneral): IKitAvatarT
     return {
         colors: {
             background: {
-                default: colors.neutral.black60,
-                blueInvert: colors.primary.primary100
+                default: colors.neutral.black60
             },
             typography: {
-                default: colors.neutral.typography.white,
-                blueInvert: colors.secondary.blue.blue200,
-                dark: colors.neutral.typography.black
+                default: colors.neutral.typography.white
             }
         }
     };
