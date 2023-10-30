@@ -58,7 +58,6 @@ const StyledCard = styled(AntdCard)<IStyledKitCard>`
             }
         }
         .ant-card-cover {
-            padding: ${({$sideSpacing}) => ($sideSpacing ? '0px 16px' : '0px')};
             height: 252px;
             overflow: hidden;
             background-color: ${({$theme, $disabled}) =>
@@ -205,7 +204,6 @@ export const KitCard: FunctionComponent<IKitCard> = ({
     actions,
     onContentTitleClick,
     separator = false,
-    sideSpacing = true,
     disabled = false,
     ...props
 }) => {
@@ -219,7 +217,6 @@ export const KitCard: FunctionComponent<IKitCard> = ({
         <StyledCard
             $theme={theme.components.Card}
             $disabled={disabled}
-            $sideSpacing={sideSpacing}
             $separator={separator}
             style={customStyle}
             extra={_getExtra(disabled, extra)}

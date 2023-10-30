@@ -17,7 +17,6 @@ export default interface IKitCard extends Omit<CardProps, AntdCardTypesToOmit> {
     disabled?: boolean;
     contentTitle?: string;
     contentDescription?: string;
-    sideSpacing?: boolean;
     separator?: boolean;
     onContentTitleClick?: () => void;
 }
@@ -25,7 +24,6 @@ export default interface IKitCard extends Omit<CardProps, AntdCardTypesToOmit> {
 export interface IStyledKitCard {
     $theme: IKitCardTheme;
     $disabled: boolean;
-    $sideSpacing: boolean;
     $separator: boolean;
 }
 
