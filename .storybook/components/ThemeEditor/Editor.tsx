@@ -7,7 +7,6 @@ import Component, {StyledComponentWrapper} from './Block/Component';
 import {KitButton, KitSpace} from '../../../src/Kit';
 import {CollapseExpandObject, IEditor, IEditorContext} from './types';
 import MainHeader from './Block/MainHeader';
-import {StyledLinkButton} from './Block/Field';
 
 const StyledTitle = styled.div`
     margin-bottom: 2rem;
@@ -39,16 +38,11 @@ const Editor: FunctionComponent<IEditor> = ({components}) => {
         [path: string]: CollapseExpandObject;
     }>({});
 
-    const _registerExpandCollapse = (path, collapseExpandObject) => {
+    const _registerExpandCollapse = (path: string, collapseExpandObject: CollapseExpandObject) => {
         if (!ref.current) {
             ref.current = {};
         }
         ref.current[path] = collapseExpandObject;
-    };
-
-    const _handleCollapseAll = () => Object.values(ref?.current ?? []).forEach(item => item.collapse());
-    const _handleExpandAll = () => {
-        Object.values(ref?.current ?? []).forEach(item => item.expand());
     };
 
     const _handleCollapseGroup = paths => paths.forEach(path => ref?.current[path] && ref?.current[path].collapse());
@@ -116,11 +110,7 @@ const Editor: FunctionComponent<IEditor> = ({components}) => {
                 <KitApp customTheme={theme}>
                     <MainHeader>General tokens </MainHeader>
                     <Component title="General" path="general" showA11yToggle={false} />
-                    <MainHeader>
-                        Components
-                        <StyledLinkButton onClick={_handleExpandAll}>Expand all</StyledLinkButton>
-                        <StyledLinkButton onClick={_handleCollapseAll}>Collapse all</StyledLinkButton>
-                    </MainHeader>
+                    <MainHeader>Components</MainHeader>
                     <StyledComponentWrapper $isOpen $container>
                         {components &&
                             Object.keys(components).map(group => {
