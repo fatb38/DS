@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 import {KitTypography} from '@kit/General';
 import {useKitTheme} from '@theme/theme-context';
+import {KitColorProp} from '@utils/functions/types';
 
 const App = () => {
     const {theme} = useKitTheme();
@@ -21,14 +22,18 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
             <KitSpace>
                 {secondaryColors.map((color: string) => (
-                    <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} color={color} />
+                    <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} color={color as KitColorProp} />
                 ))}
             </KitSpace>
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>Inverted Secondary Colors</KitTypography.Text>
             <KitSpace>
                 {secondaryColors.map((color: string) => (
-                    <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} color={color} secondaryColorInvert />
+                    <KitAvatar
+                        icon={<FontAwesomeIcon icon={faUser} />}
+                        color={color as KitColorProp}
+                        secondaryColorInvert
+                    />
                 ))}
             </KitSpace>
             <br />
