@@ -32,7 +32,7 @@ const config: StorybookConfig = {
     staticDirs: [{from: '../public', to: '/public'}],
     docs: {
         autodocs: true,
-        docsMode: true
+        docsMode: false
     },
     async viteFinal(config, {configType}) {
         return mergeConfig(config, {
