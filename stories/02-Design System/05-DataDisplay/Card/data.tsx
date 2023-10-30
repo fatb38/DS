@@ -125,18 +125,6 @@ const CardArgTypes = {
             defaultValue: {summary: false},
             category: 'Card'
         }
-    },
-    sideSpacing: {
-        name: 'sideSpacing',
-        description: 'Space around Card image',
-        control: {type: 'boolean'},
-        table: {
-            type: {
-                summary: 'Boolean'
-            },
-            defaultValue: {summary: true},
-            category: 'Card'
-        }
     }
 };
 
