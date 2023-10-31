@@ -390,21 +390,21 @@ export const EditorTemplate: IEditorTemplate = () => {
             uid: '1',
             name: 'xxx.png',
             status: 'uploading',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+            url: 'public/images/portrait.png',
             percent: 33
         },
         {
             uid: '2',
             name: 'yyy.png',
             status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+            url: 'public/images/portrait.png',
         },
         {
             uid: '3',
             name: 'zzz.png',
             status: 'error',
             response: 'Server Error 500',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+            url: 'public/images/portrait.png',
         }
     ];
 

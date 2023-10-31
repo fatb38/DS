@@ -52,7 +52,7 @@ const App = () => {
         setModalProps({
             ...modalProps,
             image: !modalProps.image
-                ? 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+                ? 'public/images/portrait.png'
                 : undefined
         });
 

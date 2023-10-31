@@ -10,7 +10,7 @@ const App = () => {
             uid: '-1',
             name: 'image.png',
             status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+            url: 'public/images/portrait.png',
         }
     ]);
 
