@@ -1,7 +1,10 @@
 # Workflow name
 name: Publish Package to npmjs
 on:
-  push: tags
+  push:
+    tags:
+      - '*'
+
 jobs:
   build:
     runs-on: ubuntu-latest
