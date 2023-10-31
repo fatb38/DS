@@ -17,7 +17,10 @@ export default meta;
 type Story = StoryObj<typeof KitAvatar>;
 
 export const Api: Story = {
-    render: Template
+    render: Template,
+    parameters: {
+        chromatic: {disableSnapshot: true}
+    }
 };
 
 const url = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
@@ -136,7 +139,7 @@ export const Group: Story = {
     }
 };
 
-export const badge: Story = {
+export const Badge: Story = {
     render: () => (
         <div style={{display: 'flex', gap: '20px'}}>
             <KitBadge count={1}>
