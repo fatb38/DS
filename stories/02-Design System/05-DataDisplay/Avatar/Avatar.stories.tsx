@@ -75,12 +75,13 @@ export const Color: Story = {
             <p style={{fontWeight: 'bold', margin: 0}}>Secondary Colors</p>
             <div style={{display: 'flex', gap: '10px'}}>
                 {secondaryColors.map((color: string) => (
-                    <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} color={color as KitColorProp} />
+                    <KitAvatar key={color} icon={<FontAwesomeIcon icon={faUser} />} color={color as KitColorProp} />
                 ))}
             </div>
             <div style={{display: 'flex', gap: '10px'}}>
                 {secondaryColors.map((color: string) => (
                     <KitAvatar
+                        key={color}
                         icon={<FontAwesomeIcon icon={faUser} />}
                         color={color as KitColorProp}
                         secondaryColorInvert

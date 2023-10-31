@@ -69,7 +69,7 @@ export const Color: Story = {
             <p style={{fontWeight: 'bold', margin: 0}}>Secondary Colors</p>
             <div style={{display: 'flex', gap: '20px', marginBottom: '30px'}}>
                 {secondaryColors.map((color: string) => (
-                    <KitBadge count={5} color={color as KitColorProp}>
+                    <KitBadge key={color} count={5} color={color as KitColorProp}>
                         <KitAvatar shape="square" size="large" />
                     </KitBadge>
                 ))}
@@ -77,7 +77,7 @@ export const Color: Story = {
             <p style={{fontWeight: 'bold', margin: 0}}>Inverted Secondary Colors</p>
             <div style={{display: 'flex', gap: '20px', marginBottom: '30px'}}>
                 {secondaryColors.map((color: string) => (
-                    <KitBadge count={5} color={color as KitColorProp} secondaryColorInvert>
+                    <KitBadge key={color} count={5} color={color as KitColorProp} secondaryColorInvert>
                         <KitAvatar shape="square" size="large" />
                     </KitBadge>
                 ))}
