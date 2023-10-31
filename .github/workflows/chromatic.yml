@@ -8,7 +8,6 @@ on:
   push:
     branches:
       - 'feature/**'
-      - 'release/**'
 
 # List of jobs
 jobs:
@@ -29,6 +28,6 @@ jobs:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           exitZeroOnChanges: true
-          onlyChanged: true
+          onlyChanged: true # enables turboSnap
         env:
           CI: true
