@@ -14,6 +14,7 @@
     "copy-typescript-definitions": "copyfiles -u 1 \"src/**/*.d.ts\" dist",
     "build": "tsc && vite build && yarn copy-typescript-definitions",
     "build-stats": "STATS=true tsc && vite build",
+    "ci": "yarn && yarn build",
     "generate-tokens": "node tokens-generator.js",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
