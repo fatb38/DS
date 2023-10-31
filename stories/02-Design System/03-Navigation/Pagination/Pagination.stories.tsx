@@ -13,7 +13,10 @@ export default meta;
 type Story = StoryObj<typeof KitPagination>;
 
 export const Api: Story = {
-    render: Template
+    render: Template,
+    parameters: {
+        chromatic: {disableSnapshot: true}
+    }
 };
 
 export const Basic: Story = {
@@ -24,6 +27,7 @@ export const Basic: Story = {
                 total={100}
                 showSizeChanger
                 showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+                showQuickJumper
             />
             <KitPagination
                 disabled
@@ -31,6 +35,24 @@ export const Basic: Story = {
                 total={100}
                 showSizeChanger
                 showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+                showQuickJumper
+            />
+            <KitPagination
+                defaultCurrent={1}
+                total={100}
+                showSizeChanger
+                showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+                size="small"
+                showQuickJumper
+            />
+            <KitPagination
+                disabled
+                defaultCurrent={1}
+                total={100}
+                showSizeChanger
+                showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+                size="small"
+                showQuickJumper
             />
         </div>
     ),
@@ -48,6 +70,7 @@ export const Bordered: Story = {
                 bordered
                 showSizeChanger
                 showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+                showQuickJumper
             />
             <KitPagination
                 disabled
@@ -56,6 +79,26 @@ export const Bordered: Story = {
                 bordered
                 showSizeChanger
                 showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+                showQuickJumper
+            />
+            <KitPagination
+                defaultCurrent={1}
+                total={100}
+                bordered
+                showSizeChanger
+                showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+                size="small"
+                showQuickJumper
+            />
+            <KitPagination
+                disabled
+                defaultCurrent={1}
+                total={100}
+                bordered
+                showSizeChanger
+                showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+                size="small"
+                showQuickJumper
             />
         </div>
     ),
@@ -79,6 +122,21 @@ export const Simple: Story = {
                 defaultCurrent={2}
                 total={100}
                 showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+            />
+            <KitPagination
+                simple
+                defaultCurrent={2}
+                total={100}
+                showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+                size="small"
+            />
+            <KitPagination
+                disabled
+                simple
+                defaultCurrent={2}
+                total={100}
+                showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
+                size="small"
             />
         </div>
     ),

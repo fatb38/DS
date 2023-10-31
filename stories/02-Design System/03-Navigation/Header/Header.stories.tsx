@@ -16,7 +16,10 @@ export default meta;
 type Story = StoryObj<typeof KitHeader>;
 
 export const Api: Story = {
-    render: Template
+    render: Template,
+    parameters: {
+        chromatic: {disableSnapshot: true}
+    }
 };
 
 const searchProps = {
@@ -85,10 +88,6 @@ export const FullHeader: Story = {
         />
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
-        pseudo: {
-            hover: '#hover',
-            focus: '#focus'
-        }
+        chromatic: {disableSnapshot: false}
     }
 };

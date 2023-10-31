@@ -17,7 +17,10 @@ export default meta;
 type Story = StoryObj<typeof KitDropDown>;
 
 export const Api: Story = {
-    render: Template
+    render: Template,
+    parameters: {
+        chromatic: {disableSnapshot: true}
+    }
 };
 
 const items: IKitDropdownMenu['items'] = [
@@ -48,11 +51,7 @@ export const Basic: Story = {
         </KitDropDown>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
-        pseudo: {
-            hover: '#hover',
-            focus: '#focus'
-        }
+        chromatic: {disableSnapshot: false}
     }
 };
 
@@ -188,10 +187,6 @@ export const GroupAndDisabled: Story = {
         );
     },
     parameters: {
-        chromatic: {disableSnapshot: false},
-        pseudo: {
-            hover: '#hover',
-            focus: '#focus'
-        }
+        chromatic: {disableSnapshot: false}
     }
 };

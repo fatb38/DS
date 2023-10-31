@@ -13,7 +13,10 @@ export default meta;
 type Story = StoryObj<typeof KitSteps>;
 
 export const Api: Story = {
-    render: Template
+    render: Template,
+    parameters: {
+        chromatic: {disableSnapshot: true}
+    }
 };
 
 export const Basic: Story = {
