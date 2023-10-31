@@ -1,29 +1,35 @@
-export interface KitCollapseThemeAntd {
+export interface IKitCollapseTheme {
     colors: {
         background: {
+            /**
+             * default color
+             * @TJS-type color
+             */
             default: string;
-        };
-        border: {
-            default: string;
-        };
-    };
-    border: {
-        radius: number;
-    };
-}
-
-export interface KitCollapseThemeStyled {
-    colors: {
-        background: {
+            /**
+             * active color
+             * @TJS-type color
+             */
             active: string;
         };
         border: {
+            /**
+             * default color
+             * @TJS-type color
+             */
+            default: string;
+            /**
+             * active color
+             * @TJS-type color
+             */
             active: string;
         };
     };
     border: {
+        /**
+         * @minimum 0
+         * @TJS-type number
+         */
         radius: number;
     };
 }
-
-export type KitCollapseTheme = KitCollapseThemeAntd & KitCollapseThemeStyled;

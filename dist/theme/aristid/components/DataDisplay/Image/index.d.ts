@@ -1,14 +1,3 @@
-export declare const KitImageTheme: {
-    colors: {
-        border: {
-            none: string;
-            default: string;
-        };
-    };
-    border: {
-        radius: {
-            default: number;
-            rounded: number;
-        };
-    };
-};
+import { IKitThemeGeneral } from '../../../../types';
+import { IKitImageTheme } from '../../../../types/components/DataDisplay/Image';
+export declare const getKitImageTokens: (generalTokens: IKitThemeGeneral) => IKitImageTheme;

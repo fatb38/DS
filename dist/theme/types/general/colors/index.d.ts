@@ -1,12 +1,12 @@
-export interface KitColorsPalette {
+export interface IKitColorsPalette {
     primary: {
-        blue100: string;
-        blue200: string;
-        blue300: string;
-        blue400: string;
-        blue500: string;
-        blue600: string;
-        blue700: string;
+        primary100: string;
+        primary200: string;
+        primary300: string;
+        primary400: string;
+        primary500: string;
+        primary600: string;
+        primary700: string;
     };
     neutral: {
         typography: {
@@ -25,6 +25,9 @@ export interface KitColorsPalette {
             gray600: string;
             gray700: string;
         };
+        black: string;
+        white: string;
+        black60: string;
     };
     secondary: {
         mediumGrey: {
@@ -93,4 +96,4 @@ export interface KitColorsPalette {
     };
 }
 
-export type KitColorKeys = keyof KitColorsPalette['secondary'];
+export type KitColorKeys = keyof IKitColorsPalette['secondary'];

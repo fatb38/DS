@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
-import { KitCustomTheme, KitTheme } from './types';
+import React, { Dispatch, ReactNode, SetStateAction } from 'react';
+import { IKitCustomTheme, IKitTheme } from './types';
 export declare const useKitTheme: () => {
-    theme: KitTheme;
-    overrideTheme: (customTheme?: KitCustomTheme) => void;
+    theme: IKitTheme;
+    setCustomTheme: Dispatch<SetStateAction<IKitCustomTheme | undefined>>;
 };
 export declare const KitThemeProvider: ({ children }: {
     children: ReactNode;

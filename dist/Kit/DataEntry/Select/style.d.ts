@@ -1,9 +1,7 @@
 /// <reference types="react" />
 /// <reference types="react" />
-import { IKitSelectTheme } from '../../../theme/types/components/DataEntry/Select';
-export declare const StyledBadge: import("styled-components").IStyledComponent<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, {
-    $theme: IKitSelectColorBarThemeStyled;
-}>>;
+import { IStyledKitSelect, IStyledKitSelectColorBadge, IStyledKitSelectDropDown } from './types';
+export declare const StyledBadge: import("styled-components").IStyledComponent<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, IStyledKitSelectColorBadge>>;
 export declare const StyledLabel: import("styled-components").IStyledComponent<"web", {
     ref?: import("react").LegacyRef<HTMLDivElement> | undefined;
     key?: import("react").Key | null | undefined;
@@ -56,59 +54,59 @@ export declare const StyledLabel: import("styled-components").IStyledComponent<"
     unselectable?: "on" | "off" | undefined;
     inputMode?: "none" | "search" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | undefined;
     is?: string | undefined;
-    'aria-activedescendant'?: string | undefined;
-    'aria-atomic'?: (boolean | "false" | "true") | undefined;
-    'aria-autocomplete'?: "none" | "inline" | "list" | "both" | undefined;
-    'aria-braillelabel'?: string | undefined;
-    'aria-brailleroledescription'?: string | undefined;
-    'aria-busy'?: (boolean | "false" | "true") | undefined;
-    'aria-checked'?: boolean | "mixed" | "false" | "true" | undefined;
-    'aria-colcount'?: number | undefined;
-    'aria-colindex'?: number | undefined;
-    'aria-colindextext'?: string | undefined;
-    'aria-colspan'?: number | undefined;
-    'aria-controls'?: string | undefined;
-    'aria-current'?: boolean | "time" | "step" | "page" | "false" | "true" | "location" | "date" | undefined;
-    'aria-describedby'?: string | undefined;
-    'aria-description'?: string | undefined;
-    'aria-details'?: string | undefined;
-    'aria-disabled'?: (boolean | "false" | "true") | undefined;
-    'aria-dropeffect'?: "none" | "link" | "copy" | "move" | "execute" | "popup" | undefined;
-    'aria-errormessage'?: string | undefined;
-    'aria-expanded'?: (boolean | "false" | "true") | undefined;
-    'aria-flowto'?: string | undefined;
-    'aria-grabbed'?: (boolean | "false" | "true") | undefined;
-    'aria-haspopup'?: boolean | "grid" | "dialog" | "menu" | "listbox" | "false" | "true" | "tree" | undefined;
-    'aria-hidden'?: (boolean | "false" | "true") | undefined;
-    'aria-invalid'?: boolean | "false" | "true" | "grammar" | "spelling" | undefined;
-    'aria-keyshortcuts'?: string | undefined;
-    'aria-label'?: string | undefined;
-    'aria-labelledby'?: string | undefined;
-    'aria-level'?: number | undefined;
-    'aria-live'?: "off" | "assertive" | "polite" | undefined;
-    'aria-modal'?: (boolean | "false" | "true") | undefined;
-    'aria-multiline'?: (boolean | "false" | "true") | undefined;
-    'aria-multiselectable'?: (boolean | "false" | "true") | undefined;
-    'aria-orientation'?: "horizontal" | "vertical" | undefined;
-    'aria-owns'?: string | undefined;
-    'aria-placeholder'?: string | undefined;
-    'aria-posinset'?: number | undefined;
-    'aria-pressed'?: boolean | "mixed" | "false" | "true" | undefined;
-    'aria-readonly'?: (boolean | "false" | "true") | undefined;
-    'aria-relevant'?: "text" | "all" | "additions" | "additions removals" | "additions text" | "removals" | "removals additions" | "removals text" | "text additions" | "text removals" | undefined;
-    'aria-required'?: (boolean | "false" | "true") | undefined;
-    'aria-roledescription'?: string | undefined;
-    'aria-rowcount'?: number | undefined;
-    'aria-rowindex'?: number | undefined;
-    'aria-rowindextext'?: string | undefined;
-    'aria-rowspan'?: number | undefined;
-    'aria-selected'?: (boolean | "false" | "true") | undefined;
-    'aria-setsize'?: number | undefined;
-    'aria-sort'?: "none" | "ascending" | "descending" | "other" | undefined;
-    'aria-valuemax'?: number | undefined;
-    'aria-valuemin'?: number | undefined;
-    'aria-valuenow'?: number | undefined;
-    'aria-valuetext'?: string | undefined;
+    "aria-activedescendant"?: string | undefined;
+    "aria-atomic"?: (boolean | "false" | "true") | undefined;
+    "aria-autocomplete"?: "none" | "inline" | "list" | "both" | undefined;
+    "aria-braillelabel"?: string | undefined;
+    "aria-brailleroledescription"?: string | undefined;
+    "aria-busy"?: (boolean | "false" | "true") | undefined;
+    "aria-checked"?: boolean | "mixed" | "false" | "true" | undefined;
+    "aria-colcount"?: number | undefined;
+    "aria-colindex"?: number | undefined;
+    "aria-colindextext"?: string | undefined;
+    "aria-colspan"?: number | undefined;
+    "aria-controls"?: string | undefined;
+    "aria-current"?: boolean | "time" | "step" | "page" | "false" | "true" | "location" | "date" | undefined;
+    "aria-describedby"?: string | undefined;
+    "aria-description"?: string | undefined;
+    "aria-details"?: string | undefined;
+    "aria-disabled"?: (boolean | "false" | "true") | undefined;
+    "aria-dropeffect"?: "none" | "link" | "copy" | "move" | "execute" | "popup" | undefined;
+    "aria-errormessage"?: string | undefined;
+    "aria-expanded"?: (boolean | "false" | "true") | undefined;
+    "aria-flowto"?: string | undefined;
+    "aria-grabbed"?: (boolean | "false" | "true") | undefined;
+    "aria-haspopup"?: boolean | "grid" | "dialog" | "menu" | "listbox" | "false" | "true" | "tree" | undefined;
+    "aria-hidden"?: (boolean | "false" | "true") | undefined;
+    "aria-invalid"?: boolean | "false" | "true" | "grammar" | "spelling" | undefined;
+    "aria-keyshortcuts"?: string | undefined;
+    "aria-label"?: string | undefined;
+    "aria-labelledby"?: string | undefined;
+    "aria-level"?: number | undefined;
+    "aria-live"?: "off" | "assertive" | "polite" | undefined;
+    "aria-modal"?: (boolean | "false" | "true") | undefined;
+    "aria-multiline"?: (boolean | "false" | "true") | undefined;
+    "aria-multiselectable"?: (boolean | "false" | "true") | undefined;
+    "aria-orientation"?: "horizontal" | "vertical" | undefined;
+    "aria-owns"?: string | undefined;
+    "aria-placeholder"?: string | undefined;
+    "aria-posinset"?: number | undefined;
+    "aria-pressed"?: boolean | "mixed" | "false" | "true" | undefined;
+    "aria-readonly"?: (boolean | "false" | "true") | undefined;
+    "aria-relevant"?: "text" | "all" | "additions" | "additions removals" | "additions text" | "removals" | "removals additions" | "removals text" | "text additions" | "text removals" | undefined;
+    "aria-required"?: (boolean | "false" | "true") | undefined;
+    "aria-roledescription"?: string | undefined;
+    "aria-rowcount"?: number | undefined;
+    "aria-rowindex"?: number | undefined;
+    "aria-rowindextext"?: string | undefined;
+    "aria-rowspan"?: number | undefined;
+    "aria-selected"?: (boolean | "false" | "true") | undefined;
+    "aria-setsize"?: number | undefined;
+    "aria-sort"?: "none" | "ascending" | "descending" | "other" | undefined;
+    "aria-valuemax"?: number | undefined;
+    "aria-valuemin"?: number | undefined;
+    "aria-valuenow"?: number | undefined;
+    "aria-valuetext"?: string | undefined;
     children?: import("react").ReactNode;
     dangerouslySetInnerHTML?: {
         __html: string | TrustedHTML;
@@ -289,16 +287,12 @@ export declare const getPopupStyle: (placement: any) => {
     borderBottomLeftRadius?: undefined;
     borderBottomRightRadius?: undefined;
 };
-export declare const SelectDropDownStyle: import("react").NamedExoticComponent<import("styled-components").ExecutionProps & {
-    $theme: IKitSelectDropDownThemeStyled;
-}>;
+export declare const SelectDropDownStyle: import("react").NamedExoticComponent<import("styled-components").ExecutionProps & IStyledKitSelectDropDown>;
 export declare const StyledKitSelect: import("styled-components").IStyledComponent<"web", import("styled-components/dist/types").Substitute<import("antd").SelectProps<unknown, import("rc-select/lib/Select").DefaultOptionType | import("rc-select/lib/Select").BaseOptionType> & {
     children?: import("react").ReactNode;
 } & {
     ref?: import("react").Ref<import("antd").RefSelectProps> | undefined;
-}, {
-    $theme: IKitSelectTheme;
-}>> & (<ValueType = any, OptionType extends import("rc-select/lib/Select").DefaultOptionType | import("rc-select/lib/Select").BaseOptionType = import("rc-select/lib/Select").DefaultOptionType>(props: import("antd").SelectProps<ValueType, OptionType> & {
+}, IStyledKitSelect>> & (<ValueType = any, OptionType extends import("rc-select/lib/Select").DefaultOptionType | import("rc-select/lib/Select").BaseOptionType = import("rc-select/lib/Select").DefaultOptionType>(props: import("antd").SelectProps<ValueType, OptionType> & {
     children?: import("react").ReactNode;
 } & {
     ref?: import("react").Ref<import("antd").RefSelectProps> | undefined;

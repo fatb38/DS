@@ -1,10 +1,11 @@
 import {InputProps} from 'antd';
 import {PasswordProps, TextAreaProps} from 'antd/lib/input';
 import {KitHTMLAttributes} from '../../../types';
+import {IKitInputTheme} from '@theme/types/components/DataEntry/Input';
 
 type AntdInputTypesToOmit = 'styles' | 'type' | 'bordered' | 'size' | 'addonBefore' | 'addonAfter';
 
-export interface KitInputProps
+export interface IKitInput
     extends Omit<InputProps, AntdInputTypesToOmit>,
         KitHTMLAttributes<HTMLSpanElement | HTMLInputElement> {
     label?: string;
@@ -12,7 +13,7 @@ export interface KitInputProps
     allowClear?: boolean;
 }
 
-export interface KitTextAreaProps
+export interface IKitTextArea
     extends Omit<TextAreaProps, AntdInputTypesToOmit>,
         KitHTMLAttributes<HTMLSpanElement | HTMLInputElement> {
     label?: string;
@@ -20,7 +21,7 @@ export interface KitTextAreaProps
     allowClear?: boolean;
 }
 
-export interface KitPasswordProps
+export interface IKitPassword
     extends Omit<PasswordProps, AntdInputTypesToOmit>,
         KitHTMLAttributes<HTMLSpanElement | HTMLInputElement> {
     label?: string;
@@ -28,9 +29,21 @@ export interface KitPasswordProps
     allowClear?: boolean;
 }
 
-export interface KitInputWrapperProps extends KitHTMLAttributes<HTMLDivElement> {
+export interface IKitInputWrapper extends KitHTMLAttributes<HTMLDivElement> {
     label?: string;
     helper?: string;
     disabled?: boolean;
     status?: '' | 'warning' | 'error';
+}
+
+export interface IStyledAntdInput {
+    $theme: IKitInputTheme;
+}
+
+export interface IStyledAntdPassword {
+    $theme: IKitInputTheme['Password'];
+}
+
+export interface IStyledAntdTextArea {
+    $theme: IKitInputTheme['TextArea'];
 }
