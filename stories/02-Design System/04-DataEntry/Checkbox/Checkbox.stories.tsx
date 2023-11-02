@@ -64,6 +64,7 @@ export const Danger: Story = {
         chromatic: {disableSnapshot: false}
     }
 };
+
 export const Group: Story = {
     render: () => {
         const plainOptions = ['Apple', 'Pear', 'Orange'];
