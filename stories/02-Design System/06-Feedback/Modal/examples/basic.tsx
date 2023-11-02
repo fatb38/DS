@@ -23,6 +23,7 @@ const App = () => {
                 close={handleCancel}
                 isOpen={isModalOpen}
                 footer={<KitButton onClick={handleCancel}>Close</KitButton>}
+                appElement={document.getElementById('storybook-docs')}
             >
                 <p>Some contents...</p>
                 <p>Some contents...</p>

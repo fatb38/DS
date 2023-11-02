@@ -23,6 +23,7 @@ export const StyledHeader = styled.div`
     background: #f6f9fc;
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     .title {
         font-weight: 700;

@@ -39,7 +39,7 @@ const KitAppConfig: FunctionComponent<{customTheme?: IKitCustomTheme; locale?: I
     customTheme
 }) => {
     const {theme, setCustomTheme} = useKitTheme();
-    const {locale: kitLocale, setKitLocale} = useKitLocale();
+    const {setKitLocale} = useKitLocale();
 
     useEffect(() => {
         if (customTheme !== undefined) {
