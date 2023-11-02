@@ -1,0 +1,19 @@
+# Workflow name
+name: Publish dev storybook
+on:
+  push:
+    branches:
+      - 'develop'
+
+jobs:
+  storybook-develop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: build-storybook
+        run: yarn && yarn build-storybook
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: storybook-dev
+          path: ./storybook-static
