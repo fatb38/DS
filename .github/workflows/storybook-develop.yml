@@ -1,6 +1,8 @@
 # Workflow name
 name: Publish dev storybook
+
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'develop'
