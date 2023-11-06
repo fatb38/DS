@@ -1,4 +1,4 @@
-import React, {useEffect, useState, FocusEvent, MouseEvent, forwardRef, Ref, RefObject} from 'react';
+import React, {useEffect, useState, FocusEvent, MouseEvent, forwardRef, Ref, RefObject, useRef} from 'react';
 import cn from 'classnames';
 import {KitIcon} from '../../General/';
 import {IKitSelect} from './types';
@@ -11,6 +11,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 import {faCheck, faCircleNotch, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 import type {RefSelectProps} from 'antd';
+import {useDebouncedCallback} from 'use-debounce';
+import ShortUniqueId from 'short-unique-id';
 
 const _getOptionLabel = (props, theme) => (
     <div className="kit-select-option">
@@ -82,14 +84,65 @@ const _getDropdownClasses = (placement: IKitSelect['placement']) => {
         'kit-select-dropdown-bottom': !placement || placement.indexOf('top') < 0
     });
 };
+
+const _fixSelectRender = (id: string) => {
+    const inputElement = document.getElementById(id);
+    const selectElement = inputElement?.closest('.ant-select');
+    const dropDownElement = document.getElementById(id + '_list')?.closest('.ant-select-dropdown');
+
+    if (selectElement && dropDownElement) {
+        const isDropDownOnTop = dropDownElement.className.indexOf('ant-select-dropdown-placement-top') >= 0;
+        const isDropDownOnBottom = dropDownElement.className.indexOf('ant-select-dropdown-placement-bottom') >= 0;
+
+        if (isDropDownOnTop) {
+            selectElement.classList.remove('ant-select-bottom');
+            selectElement.classList.add('ant-select-top');
+        }
+
+        if (isDropDownOnBottom) {
+            selectElement.classList.remove('ant-select-top');
+            selectElement.classList.add('ant-select-bottom');
+        }
+    }
+};
+
+const uid = new ShortUniqueId({length: 10, dictionary: 'alpha'});
+
 export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
     (
-        {options, labelOnly, label, helper, onClick, onClear, onBlur, oneLineTags = false, allowClear = true, ...props},
+        {
+            id,
+            options,
+            labelOnly,
+            label,
+            helper,
+            onClick,
+            onClear,
+            onBlur,
+            oneLineTags = false,
+            allowClear = true,
+            ...props
+        },
         ref?: Ref<RefSelectProps> | undefined
     ) => {
         const {theme} = useKitTheme();
         const [internalOptions, setOptions] = useState([]);
         const [isOpen, setIsOpen] = useState(false);
+        const internalKitSelectRef = useRef(id ?? uid.rnd());
+
+        useEffect(() => {
+            if (isOpen) {
+                requestAnimationFrame(() => {
+                    _fixSelectRender(internalKitSelectRef.current);
+                });
+
+                document.addEventListener('scroll', _handleDocumentScroll);
+            }
+
+            return () => {
+                document.removeEventListener('scroll', _handleDocumentScroll);
+            };
+        }, [isOpen]);
 
         useEffect(() => {
             if (!options) {
@@ -98,6 +151,10 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                 setOptions(_parseOptions(options, labelOnly, theme));
             }
         }, [options, labelOnly]);
+
+        const _handleDocumentScroll = useDebouncedCallback(_ => {
+            _fixSelectRender(internalKitSelectRef.current);
+        }, 15);
 
         const _handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
             (ref as RefObject<RefSelectProps>)?.current?.focus();
@@ -129,7 +186,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                 <StyledKitSelect
                     $theme={theme.components.Select}
                     {...props}
-                    className={_getClasses()}
+                    id={internalKitSelectRef.current}
                     className={_getClasses(props.className, props.placement)}
                     popupClassName={_getDropdownClasses(props.placement)}
                     options={internalOptions}
