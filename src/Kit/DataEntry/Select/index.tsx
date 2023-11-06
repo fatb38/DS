@@ -72,6 +72,16 @@ const _maxTagRender = omittedValues => {
     );
 };
 
+const _getClasses = (className: IKitSelect['className'], placement: IKitSelect['placement']) => {
+    return (className || '') + ' ant-select-' + (placement && placement.indexOf('top') >= 0 ? 'top' : 'bottom');
+};
+
+const _getDropdownClasses = (placement: IKitSelect['placement']) => {
+    return cn({
+        'kit-select-dropdown-top': placement && placement.indexOf('top') >= 0,
+        'kit-select-dropdown-bottom': !placement || placement.indexOf('top') < 0
+    });
+};
 export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
     (
         {options, labelOnly, label, helper, onClick, onClear, onBlur, oneLineTags = false, allowClear = true, ...props},
@@ -88,21 +98,6 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                 setOptions(_parseOptions(options, labelOnly, theme));
             }
         }, [options, labelOnly]);
-
-        const _getClasses = () => {
-            return (
-                (props.className || '') +
-                ' ant-select-' +
-                (props.placement && props.placement.indexOf('top') >= 0 ? 'top' : 'bottom')
-            );
-        };
-
-        const _getDropdownClasses = () => {
-            return cn({
-                'kit-select-dropdown-top': props.placement && props.placement.indexOf('top') >= 0,
-                'kit-select-dropdown-bottom': !props.placement || props.placement.indexOf('top') < 0
-            });
-        };
 
         const _handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
             (ref as RefObject<RefSelectProps>)?.current?.focus();
@@ -135,7 +130,8 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                     $theme={theme.components.Select}
                     {...props}
                     className={_getClasses()}
-                    popupClassName={_getDropdownClasses()}
+                    className={_getClasses(props.className, props.placement)}
+                    popupClassName={_getDropdownClasses(props.placement)}
                     options={internalOptions}
                     menuItemSelectedIcon={<KitIcon icon={<FontAwesomeIcon icon={faCheck} />} on />}
                     suffixIcon={
