@@ -16,6 +16,7 @@ import {IKitLocale} from '@translation/types';
 import {KitLocaleProvider, useKitLocale} from '@translation/locale-context';
 import {mapKitLocaleToAntdLocale} from '@translation/utils';
 import {ColorPickerPanelStyle} from '@kit/DataEntry/ColorPicker/style';
+import {TourStyle} from '@kit/DataDisplay/Tour/style';
 
 export const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;
@@ -65,6 +66,7 @@ const KitAppConfig: FunctionComponent<{customTheme?: IKitCustomTheme; locale?: I
                 <DatePickerDropDownStyle $theme={theme.components.DatePicker.DropDown} />
                 <NotificationStyle $theme={theme.components.Notification} />
                 <TypographyStyle $theme={theme.components.Typography} />
+                <TourStyle $buttonTheme={theme.components.Button} />
                 {children}
             </KitNotificationProvider>
         </ConfigProvider>

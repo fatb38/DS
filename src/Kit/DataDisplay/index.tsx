@@ -9,3 +9,4 @@ export {KitTooltip} from './Tooltip';
 export {KitTree} from './Tree';
 export {KitTabs} from './Tabs';
 export {KitTag} from './Tag';
+export {KitTour} from './Tour';
