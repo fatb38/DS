@@ -133,5 +133,10 @@ export const DropDownStyle = createGlobalStyle<IDropDownStyle>`
                 transition: all 0s;
             }
         }
+
+        &.ant-dropdown .ant-dropdown-menu {
+            max-height: 256px;
+            overflow: auto;
+        }
     }
 `;

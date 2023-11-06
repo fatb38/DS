@@ -9,6 +9,7 @@ import CascadingMenu from './cascadingMenu';
 import ContextMenu from './contextMenu';
 import SelectableMenu from './selectableMenu';
 import HidingMenu from './hidingMenu';
+import Scrollable from './scrollable';
 
 import BasicSource from './basic?raw';
 import PlacementSource from './placement?raw';
@@ -21,6 +22,7 @@ import CascadingMenuSource from './cascadingMenu?raw';
 import ContextMenuSource from './contextMenu?raw';
 import SelectableMenuSource from './selectableMenu?raw';
 import HidingMenuSource from './hidingMenu?raw';
+import ScrollableSource from './scrollable?raw';
 
 export const Sources = {
     Basic: BasicSource,
@@ -33,7 +35,8 @@ export const Sources = {
     CascadingMenu: CascadingMenuSource,
     ContextMenu: ContextMenuSource,
     SelectableMenu: SelectableMenuSource,
-    HidingMenu: HidingMenuSource
+    HidingMenu: HidingMenuSource,
+    Scrollable: ScrollableSource
 };
 
 export default {
@@ -47,5 +50,6 @@ export default {
     CascadingMenu,
     ContextMenu,
     SelectableMenu,
-    HidingMenu
+    HidingMenu,
+    Scrollable
 };
