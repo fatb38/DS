@@ -74,6 +74,11 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
             min-width: 16px;
             color: ${({$theme}) => $theme.select.colors.typography.disabled};
         }
+
+        .kit-card-tags .ant-tag,
+        .kit-card-icon {
+            opacity: 0.4;
+        }
     }
 
     &.kit-card-vertical {

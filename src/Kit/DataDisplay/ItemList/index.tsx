@@ -171,8 +171,9 @@ const StyledItemList = styled.div<IStyledKitItemList>`
             }
         }
 
-        .kit-item-list-tag {
-            opacity: 0.35;
+        .kit-item-list-tag,
+        .kit-item-list-icon {
+            opacity: 0.4;
         }
     }
 `;
