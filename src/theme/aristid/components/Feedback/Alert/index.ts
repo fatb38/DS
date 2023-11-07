@@ -24,7 +24,7 @@ export const getKitAlertTokens = (generalTokens: IKitThemeGeneral): IKitAlertThe
             icon: {
                 alert: {
                     success: colors.secondary.green.green400,
-                    info: colors.primary.primary400,
+                    info: colors.secondary.blue.blue400,
                     warning: colors.secondary.yellow.yellow400,
                     error: colors.secondary.red.red400
                 }
