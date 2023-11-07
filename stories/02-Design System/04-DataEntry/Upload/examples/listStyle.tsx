@@ -15,8 +15,8 @@ const App = () => {
                     uid: '-1',
                     name: 'yyy.png',
                     status: 'done',
-                    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-                    thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+                    url: 'public/images/portrait.png',
+                    thumbUrl: 'public/images/portrait.png',
                 },
                 {
                     uid: '-2',

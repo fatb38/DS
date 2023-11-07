@@ -181,7 +181,7 @@ export const EditorTemplate: IEditorTemplate = () => {
             bordered
             rounded
             width={200}
-            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            src='public/images/portrait.png'
         />
     );
 };

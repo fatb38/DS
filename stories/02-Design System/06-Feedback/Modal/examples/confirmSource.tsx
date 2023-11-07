@@ -27,7 +27,7 @@ const options = [
 const App = () => {
     const handleShowConfirm = () => {
         KitModal.confirm({
-            image: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+            image: 'public/images/portrait.png',
             title: 'confirm action',
             firstLine: 'Do you confirm this action ?',
             secondLine: 'you can also show some complementary text',

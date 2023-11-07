@@ -20,11 +20,11 @@ const App = () => {
             <KitImage
                 width={200}
                 style={{display: 'none'}}
-                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
+                src='public/images/portraitBlur.png'
                 preview={{
                     visible,
                     scaleStep,
-                    src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+                    src: 'public/images/portrait.png',
                     onVisibleChange: value => {
                         setVisible(value);
                     }

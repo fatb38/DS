@@ -67,7 +67,7 @@ const ConfirmDialog = ({
                 break;
         }
     }
-    const mergedOkCancel = okCancel ?? type === 'confirm';
+    const mergedOkCancel = okCancel || type === 'confirm';
 
     const _onClick = actionFn => () => {
         actionFn && actionFn();
@@ -106,7 +106,7 @@ const ConfirmDialog = ({
                 <KitSpace size={theme.spacing.vertical.items}>
                     {mergedIcon}
                     <KitSpace direction="vertical" size={theme.spacing.vertical.text}>
-                        <div className="ant-modal-title">{title}</div>
+                        {title && <div className="ant-modal-title">{title}</div>}
                         <div className="ant-modal-body">{firstLine}</div>
                         {secondLine && <div className="ant-modal-body">{secondLine}</div>}
                     </KitSpace>
