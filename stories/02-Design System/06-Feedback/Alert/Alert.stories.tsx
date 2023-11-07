@@ -21,23 +21,16 @@ export const Api: Story = {
 
 export const Types: Story = {
     render: () => (
-        <>
+        <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
             <KitAlert type="success" message="Success Text" />
-            <br />
             <KitAlert type="info" message="Info Text" />
-            <br />
             <KitAlert type="warning" message="Warning Text" />
-            <br />
             <KitAlert type="error" message="Error Text" />
-            <br/>
             <KitAlert type="success" message="Success Text" showIcon/>
-            <br />
             <KitAlert type="info" message="Info Text" showIcon/>
-            <br />
             <KitAlert type="warning" message="Warning Text" showIcon/>
-            <br />
             <KitAlert type="error" message="Error Text" showIcon/>
-        </>
+        </div>
     ),
     parameters: {
         chromatic: {disableSnapshot: false}
@@ -46,59 +39,52 @@ export const Types: Story = {
 
 export const Description: Story = {
     render: () => (
-        <>
-            <KitAlert
+        <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+             <KitAlert
                 type="success"
                 message="Success Text"
                 description="Success Description Success Description Success Description"
             />
-            <br />
             <KitAlert
                 type="info"
                 message="Info Text"
                 description="Info Description Info Description Info Description Info Description"
             />
-            <br />
             <KitAlert
                 type="warning"
                 message="Warning Text"
                 description="Warning Description Warning Description Warning Description Warning Description"
             />
-            <br />
             <KitAlert
                 type="error"
                 message="Error Text"
                 description="Error Description Error Description Error Description Error Description"
             />
-            <br/>
             <KitAlert
                 type="success"
                 message="Success Text"
                 description="Success Description Success Description Success Description"
                 showIcon
             />
-            <br />
             <KitAlert
                 type="info"
                 message="Info Text"
                 description="Info Description Info Description Info Description Info Description"
                 showIcon
             />
-            <br />
             <KitAlert
                 type="warning"
                 message="Warning Text"
                 description="Warning Description Warning Description Warning Description Warning Description"
                 showIcon
             />
-            <br />
             <KitAlert
                 type="error"
                 message="Error Text"
                 description="Error Description Error Description Error Description Error Description"
                 showIcon
             />
-        </>
+        </div>
     ),
     parameters: {
         chromatic: {disableSnapshot: false}
@@ -107,15 +93,12 @@ export const Description: Story = {
 
 export const Banner: Story = {
     render: () => (
-        <>
+        <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
             <KitAlert type="success" message="Success Text" banner/>
-            <br />
             <KitAlert type="info" message="Info Text" banner/>
-            <br />
             <KitAlert type="warning" message="Warning Text" banner/>
-            <br />
             <KitAlert type="error" message="Error Text" banner/>
-        </>
+        </div>
     ),
     parameters: {
         chromatic: {disableSnapshot: false}

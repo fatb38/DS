@@ -63,7 +63,7 @@ export const Basic: Story = {
         </>
     ),
     parameters: {
-        chromatic: {disableSnapshot: true}
+        chromatic: {disableSnapshot: false}
     }
 };
 
@@ -85,7 +85,7 @@ export const FullConfirm: Story = {
         </>
     ),
     parameters: {
-        chromatic: {disableSnapshot: true}
+        chromatic: {disableSnapshot: false}
     }
 }
 
@@ -158,6 +158,6 @@ export const ConfirmTypes: Story = {
         </>
     ),
     parameters: {
-        chromatic: {disableSnapshot: true}
+        chromatic: {disableSnapshot: false}
     }
 };
