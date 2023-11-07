@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {KitTooltip, KitTour} from '@kit/DataDisplay';
+import {KitTour} from '@kit/DataDisplay';
 import {argTypes, Template} from './data';
 
 const meta: Meta<typeof KitTour> = {

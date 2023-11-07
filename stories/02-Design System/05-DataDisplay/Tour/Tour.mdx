@@ -4,9 +4,9 @@ import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
-import * as KitTootlipStories from './Tour.stories';
+import * as KitTourStories from './Tour.stories';
 
-<Meta of={KitTootlipStories} />
+<Meta of={KitTourStories} />
 
 # Tour
 
@@ -42,13 +42,19 @@ Custom mask style.
 
 <CustomCanvas content={Examples.CustomMask} source={Sources.CustomMask} id="tour-custom-mask" />
 
-{/* ## Api
+##### Custom indicator
 
-<Canvas of={KitTootlipStories.Api} />
+Custom indicator.
 
-<Controls of={KitTootlipStories.Api} />
+<CustomCanvas content={Examples.CustomIndicator} source={Sources.CustomIndicator} id="tour-custom-indicator" />
+
+## Api
+
+<Canvas of={KitTourStories.Api} />
+
+<Controls of={KitTourStories.Api} />
 
 
 ## Design Tokens
 
-<DesignTokens path="components.Tooltip" tokens={fields?.components?.Tooltip} /> */}
+<DesignTokens path="components.Tooltip" tokens={fields?.components?.Tour} />
