@@ -2,9 +2,9 @@ import {faCircleXmark, faRectangleXmark} from '@fortawesome/free-regular-svg-ico
 import {faEllipsis, faXmark} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitTour} from '@kit/DataDisplay';
+import {IKitTour} from '@kit/DataDisplay/Tour/types';
 import {KitButton, KitIcon} from '@kit/General';
 import {KitDivider, KitSpace} from '@kit/Layout';
-import {TourProps} from 'antd';
 import React, {useRef, useState} from 'react';
 import {IEditorTemplate} from 'stories/types';
 
@@ -340,7 +340,7 @@ export const Template = args => {
     const refSave = useRef(null);
     const refMore = useRef(null);
 
-    const customSteps: TourProps['steps'] = [
+    const customSteps: IKitTour['steps'] = [
         {
             title: 'Upload File',
             description: 'Put your files here.',
@@ -388,7 +388,30 @@ export const Template = args => {
 };
 
 export const EditorTemplate: IEditorTemplate = () => {
-    return <div />;
+    const refUpload = useRef(null);
+
+    const [_open, setOpen] = useState(false);
+
+    const customSteps: IKitTour['steps'] = [
+        {
+            title: 'Upload File',
+            description: 'Put your files here.',
+            target: () => refUpload.current
+        }
+    ];
+
+    return (
+        <>
+            <KitButton type="primary" onClick={() => setOpen(true)}>
+                Begin Tour
+            </KitButton>
+
+            <KitDivider />
+
+            <KitButton ref={refUpload}> Upload</KitButton>
+            <KitTour open={_open} steps={customSteps} onClose={() => setOpen(false)} />
+        </>
+    );
 };
 EditorTemplate.path = 'components.Tour';
 EditorTemplate.title = 'Tour';

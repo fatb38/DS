@@ -31,6 +31,7 @@ import {EditorTemplate as ItemCard} from './02-Design System/05-DataDisplay/Item
 import {EditorTemplate as ItemList} from './02-Design System/05-DataDisplay/ItemList/data';
 import {EditorTemplate as Tabs} from './02-Design System/05-DataDisplay/Tabs/data';
 import {EditorTemplate as Tooltip} from './02-Design System/05-DataDisplay/Tooltip/data';
+import {EditorTemplate as Tour} from './02-Design System/05-DataDisplay/Tour/data';
 import {EditorTemplate as Tree} from './02-Design System/05-DataDisplay/Tree/data';
 import {EditorTemplate as Alert} from './02-Design System/06-Feedback/Alert/data';
 import {EditorTemplate as Modal} from './02-Design System/06-Feedback/Modal/data';
@@ -81,6 +82,7 @@ export default {
         Tabs,
         Tag,
         Tooltip,
+        Tour,
         Tree
     },
     Feedback: {
