@@ -3,6 +3,7 @@ import {KitDatePicker} from '@kit/DataEntry';
 import {argTypes, Template} from './data';
 import React from 'react';
 import dayjs from 'dayjs';
+import {within} from '@storybook/testing-library';
 
 const meta: Meta<typeof KitDatePicker> = {
     component: KitDatePicker,
@@ -22,20 +23,32 @@ export const Api: Story = {
 
 export const BasicDate: Story = {
     render: () => (
-        <div style={{width: '400px', display: 'flex', gap: '400px'}}>
+        <div style={{width: '400px', display: 'flex', gap: '200px'}}>
             <KitDatePicker open />
+            <KitDatePicker data-testid="focus" />
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const datePicker = canvas.getByTestId('focus');
+        datePicker.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
 };
 export const BasicDateTime: Story = {
     render: () => (
-        <div style={{width: '400px', display: 'flex', gap: '400px'}}>
+        <div style={{display: 'flex', gap: '200px'}}>
             <KitDatePicker open picker="time" />
+            <KitDatePicker picker="time" data-testid="focus" />
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const datePicker = canvas.getByTestId('focus');
+        datePicker.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
@@ -43,10 +56,16 @@ export const BasicDateTime: Story = {
 
 export const BasicDateWeek: Story = {
     render: () => (
-        <div style={{width: '400px', display: 'flex', gap: '400px'}}>
+        <div style={{display: 'flex', gap: '200px'}}>
             <KitDatePicker open picker="week" />
+            <KitDatePicker picker="week" data-testid="focus" />
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const datePicker = canvas.getByTestId('focus');
+        datePicker.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
@@ -54,10 +73,16 @@ export const BasicDateWeek: Story = {
 
 export const BasicDateMounth: Story = {
     render: () => (
-        <div style={{width: '400px', display: 'flex', gap: '400px'}}>
+        <div style={{display: 'flex', gap: '200px'}}>
             <KitDatePicker open picker="month" />
+            <KitDatePicker picker="month" data-testid="focus" />
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const datePicker = canvas.getByTestId('focus');
+        datePicker.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
@@ -65,10 +90,16 @@ export const BasicDateMounth: Story = {
 
 export const BasicDateQuarter: Story = {
     render: () => (
-        <div style={{width: '400px', display: 'flex', gap: '400px'}}>
+        <div style={{display: 'flex', gap: '200px'}}>
             <KitDatePicker open picker="quarter" />
+            <KitDatePicker picker="quarter" data-testid="focus" />
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const datePicker = canvas.getByTestId('focus');
+        datePicker.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
@@ -76,10 +107,16 @@ export const BasicDateQuarter: Story = {
 
 export const BasicDateYear: Story = {
     render: () => (
-        <div style={{width: '400px', display: 'flex', gap: '400px'}}>
+        <div style={{display: 'flex', gap: '200px'}}>
             <KitDatePicker open picker="year" />
+            <KitDatePicker picker="year" data-testid="focus" />
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const datePicker = canvas.getByTestId('focus');
+        datePicker.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
@@ -87,10 +124,15 @@ export const BasicDateYear: Story = {
 
 export const BasicRange: Story = {
     render: () => (
-        <div style={{width: '400px', display: 'flex', gap: '400px'}}>
+        <div style={{display: 'flex', gap: '200px'}}>
             <KitDatePicker.RangePicker open />
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const datePicker = canvas.getByTestId('focus');
+        datePicker.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }

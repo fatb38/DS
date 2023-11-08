@@ -2,6 +2,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {KitRadio} from '@kit/DataEntry';
 import {argTypes, Template} from './data';
 import React from 'react';
+import {within} from '@storybook/testing-library';
 
 const meta: Meta<typeof KitRadio> = {
     component: KitRadio,
@@ -24,6 +25,9 @@ export const Basic: Story = {
         <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
             <div style={{display: 'flex', gap: '10px'}}>
                 <KitRadio>Unchecked</KitRadio>
+                <KitRadio defaultChecked data-testid="focus">
+                    Checked
+                </KitRadio>
                 <KitRadio defaultChecked>Checked</KitRadio>
             </div>
             <div style={{display: 'flex', gap: '10px'}}>
@@ -34,6 +38,11 @@ export const Basic: Story = {
             </div>
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const radio = canvas.getByTestId('focus');
+        radio.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
@@ -46,6 +55,9 @@ export const Danger: Story = {
             <KitRadio danger defaultChecked>
                 Checked
             </KitRadio>
+            <KitRadio danger defaultChecked data-testid="focus">
+                Checked
+            </KitRadio>
             <KitRadio danger disabled>
                 Disabled Unchecked
             </KitRadio>
@@ -54,6 +66,11 @@ export const Danger: Story = {
             </KitRadio>
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const radio = canvas.getByTestId('focus');
+        radio.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
@@ -64,10 +81,17 @@ export const Group: Story = {
         <KitRadio.Group>
             <KitRadio value={1}>A</KitRadio>
             <KitRadio value={2}>B</KitRadio>
-            <KitRadio value={3}>C</KitRadio>
+            <KitRadio value={3} data-testid="focus">
+                C
+            </KitRadio>
             <KitRadio value={4}>D</KitRadio>
         </KitRadio.Group>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const radio = canvas.getByTestId('focus');
+        radio.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }

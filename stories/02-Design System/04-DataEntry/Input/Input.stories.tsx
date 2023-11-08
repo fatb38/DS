@@ -5,6 +5,7 @@ import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {within} from '@storybook/testing-library';
 
 const meta: Meta<typeof KitInput> = {
     component: KitInput,
@@ -25,10 +26,16 @@ export const Api: Story = {
 export const Basic: Story = {
     render: () => (
         <div style={{display: 'flex', gap: '10px'}}>
+            <KitInput placeholder="Default" data-testid="focus" />
             <KitInput placeholder="Default" />
             <KitInput placeholder="Disabled" disabled />
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const input = canvas.getByTestId('focus');
+        input.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
@@ -38,6 +45,7 @@ export const Password: Story = {
     render: () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
             <div style={{display: 'flex', gap: '10px'}}>
+                <KitInput.Password data-testid="focus" />
                 <KitInput.Password />
                 <KitInput.Password prefix={<FontAwesomeIcon icon={faUser} />} />
             </div>
@@ -47,6 +55,11 @@ export const Password: Story = {
             </div>
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const input = canvas.getByTestId('focus');
+        input.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
@@ -56,6 +69,7 @@ export const TextArea: Story = {
     render: () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
             <div style={{display: 'flex', gap: '10px'}}>
+                <KitInput.TextArea placeholder="Default" data-testid="focus" />
                 <KitInput.TextArea placeholder="Default" />
                 <KitInput.TextArea placeholder="Disabled" disabled={true} />
             </div>
@@ -66,6 +80,11 @@ export const TextArea: Story = {
             </div>
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const input = canvas.getByTestId('focus');
+        input.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
@@ -75,6 +94,7 @@ export const Couting: Story = {
     render: () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '40px'}}>
             <div style={{display: 'flex', gap: '10px'}}>
+                <KitInput placeholder="Input" defaultValue="Default" showCount maxLength={20} data-testid="focus" />
                 <KitInput placeholder="Input" defaultValue="Default" showCount maxLength={20} />
                 <KitInput placeholder="Input" defaultValue="Default" showCount maxLength={20} disabled={true} />
             </div>
@@ -96,6 +116,11 @@ export const Couting: Story = {
             </div>
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const input = canvas.getByTestId('focus');
+        input.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
@@ -135,7 +160,7 @@ export const LabelHelperStatus: Story = {
     render: () => (
         <div style={{display: 'flex', gap: '30px'}}>
             <div style={{width: '200px', display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                <KitInput placeholder="Prefix & default" helper="Helper" label="Label" allowClear={false} />
+                <KitInput placeholder="Prefix & default" helper="Helper" label="Label" allowClear={false} id="focus" />
                 <KitInput
                     placeholder="Prefix & default"
                     prefix={<FontAwesomeIcon icon={faUser} />}

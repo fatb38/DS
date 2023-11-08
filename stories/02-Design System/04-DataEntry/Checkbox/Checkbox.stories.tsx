@@ -1,6 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitCheckbox} from '@kit/DataEntry';
 import {argTypes, Template} from './data';
+import {within} from '@storybook/testing-library';
 import React from 'react';
 
 const meta: Meta<typeof KitCheckbox> = {
@@ -23,6 +24,9 @@ export const Basic: Story = {
     render: () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
             <div style={{display: 'flex', gap: '10px'}}>
+                <KitCheckbox data-testid="focus" checked={true}>
+                    Checked
+                </KitCheckbox>
                 <KitCheckbox checked={true}>Checked</KitCheckbox>
                 <KitCheckbox checked={true} disabled>
                     Disabled checked
@@ -38,6 +42,11 @@ export const Basic: Story = {
             </div>
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const checkbox = canvas.getByTestId('focus');
+        checkbox.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
@@ -55,11 +64,19 @@ export const Danger: Story = {
             <KitCheckbox defaultChecked danger>
                 Checked
             </KitCheckbox>
+            <KitCheckbox defaultChecked danger data-testid="focus">
+                Checked
+            </KitCheckbox>
             <KitCheckbox defaultChecked disabled danger>
                 Disabled
             </KitCheckbox>
         </div>
     ),
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement);
+        const checkbox = canvas.getByTestId('focus');
+        checkbox.focus();
+    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }

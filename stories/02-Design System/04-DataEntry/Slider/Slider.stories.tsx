@@ -26,6 +26,7 @@ export const Basic: Story = {
     render: () => (
         <div style={{width: '400px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
             <KitSlider defaultValue={40} />
+            <KitSlider defaultValue={40} />
             <KitSlider defaultValue={40} disabled />
             <KitSlider range defaultValue={[30, 60]} />
             <KitSlider range defaultValue={[30, 60]} disabled />
