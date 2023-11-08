@@ -116,29 +116,21 @@ export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
             overflow: hidden;
             border-radius: 7px ;
 
-            .ant-select-item, .ant-select-item-option, .ant-select-item-option-selected {
-                border-radius: 7px;
+            .ant-select-item {
                 border: none;
-                min-height: 32px;
+                min-height: 36px;
                 font-weight: ${({$theme}) => $theme.typography.fontWeight.selected};
                 color: ${({$theme}) => $theme.colors.typography.selected};
 
-                .ant-select-item-option-content {
-                    display: flex;
-                    align-items: center;
+                &:last-of-type {
+                    min-height: 32px;
                 }
-            }
 
-            .ant-select-item {
                 &.ant-select-item-option {
                     padding: 0;
                     margin: 0;
                     border: none;
                     background: transparent;
-
-                    &:not(:last-child) {
-                        margin-bottom: 5px;
-                    }
 
                     &.ant-select-item-option-grouped {
                         margin-left: 5px;
@@ -146,6 +138,14 @@ export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
 
                     &[title] {
                         padding-left: 10px;
+                    }
+
+                    .ant-select-item-option-content {
+                        display: flex;
+                        align-items: center;
+                        min-height: 32px;
+                        height: 32px;
+                        border-radius: 7px;
                     }
 
                     .kit-select-option {
@@ -168,18 +168,27 @@ export const SelectDropDownStyle = createGlobalStyle<IStyledKitSelectDropDown>`
                 }
 
                 &.ant-select-item-option-selected {
-                    background: ${({$theme}) => $theme.colors.background.selected};
-                    font-weight: ${({$theme}) => $theme.typography.fontWeight.selected};
-                    color: ${({$theme}) => $theme.colors.typography.selected};
+                    .ant-select-item-option-content {
+                        background: ${({$theme}) => $theme.colors.background.selected};
+                        font-weight: ${({$theme}) => $theme.typography.fontWeight.selected};
+                        color: ${({$theme}) => $theme.colors.typography.selected};
+                        border-radius: 7px 0 0 7px;
+                    }
+
+                    .ant-select-item-option-state {
+                        background: ${({$theme}) => $theme.colors.background.selected};
+                        border-radius: 0 7px 7px 0;
+                        height: 32px;
+                    }
                 }
 
-                &.ant-select-item-option-active {
+                &.ant-select-item-option-active .ant-select-item-option-content {
                     background: ${({$theme}) => $theme.colors.background.active};
                     font-weight: ${({$theme}) => $theme.typography.fontWeight.active};
                     color: ${({$theme}) => $theme.colors.typography.active};
                 }
 
-                &.ant-select-item-option-disabled {
+                &.ant-select-item-option-disabled .ant-select-item-option-content {
                     opacity: .5;
                 }
 
