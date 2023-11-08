@@ -1,14 +1,9 @@
 <div align="center" className="header-block">
-    <img src="https://www.aristid.com/wp-content/uploads/2021/09/logo-aristid-bleu-2.png" height="100px" alt="Aristid logo" />
+<img src="https://www.aristid.com/wp-content/uploads/2021/09/logo-aristid-bleu-2.png" height="100px" alt="Aristid logo" />
 
+ARiSTiD Design System Readme.
 
-ARiSTiD design system documentation.
-
-[View Demo](https://storybook.aristid.com/?path=/docs/introduction--docs)
-·
-[Report Bug](https://gitlab.aristid.com/dev/design-system/-/issuess)
-·
-[Request Feature](https://gitlab.aristid.com/dev/design-system/-/issues)
+[Our Storybook](https://storybook.aristid.com/?path=/docs/design-icons--docs)
 </div>
 
 <hr>
@@ -16,23 +11,23 @@ ARiSTiD design system documentation.
 <details open className="toc-block">
     <summary>Table of Contents</summary>
 
-1. [Getting started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-    - [Usage in a project](#usage-in-a-project)
-2. [Development](#development)
-    - [Code structure](#code-structure)
-    - [Creating a component](#creating-a-component)
-        - [Component code](#component-code)
-        - [Component Theming](#component-theming)
-        - [Component documentation](#component-documentation)
-    - [Important](#important)
-2. [Contributing](#contributing)
-    - [Commit](#commit)
-    - [Gitflow](#gitflow)
-        - [Feature](#feature)
-        - [Release](#release)
-        - [Hotfix](#hotfix)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage in a project](#usage-in-a-project)
+- [Development](#development)
+  - [Code structure](#code-structure)
+  - [Creating a component](#creating-a-component)
+    - [Component code](#component-code)
+  - [Component theming](#component-theming)
+    - [Component documentation](#component-documentation)
+- [Important](#important)
+- [Contributing](#contributing)
+  - [Commit](#commit)
+  - [Gitflow](#gitflow)
+    - [Feature](#feature)
+    - [Release](#release)
+    - [Hotfix](#hotfix)
 </details>
 <hr>
 
@@ -95,11 +90,9 @@ npm install aristid-ds
 
 2. How to use KitApp
 
-The **KitApp** is an essential context for the proper functioning of the **design system** components.
+The **KitApp** is an essential context for the proper functioning of the **design system** components. This context is mainly used to supply the various components with **style** and **translation** overloads.
 
-The kitApp is mainly used to supply the various components with **style** and **translation** overloads. By default KitApp provides **Aristid Theme** but you can override to customize every component with theme tokens.
-
-> If you don't use KitApp, you'll get **missing styles / translation** and **errors** when using components.
+By default KitApp provides **Aristid Theme** but you can override to customize every component with theme tokens.
 
 ```jsx dark
 import {KitApp} from "aristid-ds";
@@ -109,7 +102,9 @@ import {KitApp} from "aristid-ds";
 </KitApp>
 ```
 
-3. Usage
+> If you don't use KitApp, you'll get **missing styles / translation** and **errors** when using components.
+
+1. Usage
 
 All components are exported directly from 'aristid-ds' package.
 
@@ -129,24 +124,41 @@ You can override default translation by passing translation configuration to the
 
 ### Code structure
 
+<span style="float: right;"></span>
 
-1. 📁 .storybook (💡 Configuration files of Storybook)
-2. 📁 src (💡 Design system code)
-    - 📁 fonts
-    - 📁 icons (💡 Custom icons components)
-    -  📁 Kit (💡 Components are in this folder and follow the same structure as in "stories/02-Design System/")
+1. 📁 .storybook <span style="float: right;">(💡 Configuration files of Storybook)</span>
+2. 📁 src <span style="float: right;">(💡 Design system code folder)</span>
+    - 📁 fonts <span style="float: right;">(💡 Provided font)</span>
+    - 📁 hooks <span style="float: right;">(💡 Custom Hooks)</span>
+    - 📁 Kit <span style="float: right;">(💡 Components code)</span>
         - 📁 App
         - 📁 DataDisplay
         - 📁 DataEntry
         - 📁 Feedback
         - 📁 General
         - 📁 Layout
-    -  📁 theme (💡 Theme variables declaration)
-    - index.tsx (💡 Components export)
-    -  vite-env.d.ts
-3. 📁 stories (💡 Storybook documentation)
+        - index.tsx
+    - 📁 theme <span style="float: right;">(💡 Theming code)</span>
+       - 📁 aristid <span style="float: right;">(💡 Default theme use by `KitApp`)</span>
+       - 📁 types  <span style="float: right;">(💡 Themes types declaration)</span>
+       - 📁 utils <span style="float: right;">(💡 All themes utils)</span>
+          -  📁 theme-builder <span style="float: right;">(💡 Use to build active theme)</span>
+          -  📁 tokens-mapper <span style="float: right;">(💡 Use to map our custom tokens with Antd tokens)</span>
+          -  theme-context.tsx
+    - 📁 translation <span style="float: right;">(💡 Translation code)</span>
+       - 📁 en-US <span style="float: right;">(💡 `en-US` custom tokens)</span>
+       - 📁 fr-FR <span style="float: right;">(💡 `fr-FR` custom tokens)</span>
+       - 📁 types <span style="float: right;">(💡 Translation types declaration)</span>
+       - 📁 utils <span style="float: right;">(💡 All translation utils)</span>
+       - locale-context.tsx
+     - 📁 utils <span style="float: right;">(💡 All components utils)</span>
+       - 📁 functions <span style="float: right;">(💡 Function use in several components)</span>
+    - index.tsx
+    - vite-env.d.ts
+3. 📁 stories <span style="float: right;">(💡 Storybook documentation)</span>
     - 📁 01-Design
-    - 📁 02-Design System (💡 Components documentation are in this folder)
+      - themeEditor.mdx <span style="float: right;">(💡 Live theme editor page)</span>
+    - 📁 02-Design System <span style="float: right;">(💡 Components folder)</span>
         - 📁 01-General
         - 📁 02-Layout
         - 📁 03-Navigation
@@ -155,6 +167,10 @@ You can override default translation by passing translation configuration to the
         - 📁 06-Feedback
     - 📁 assets
     - 📁 Root
+    - 📁 template
+    - index.tsx <span style="float: right;">(💡 Export all EditorTemplate for themeEditor.mdx)</span>
+    - tokens.tsx <span style="float: right;">(💡 Theme tokens generate by tokens-generator.js)</span>
+    - types.d.ts
 <br/>
 
 ### Creating a component
@@ -209,7 +225,7 @@ export {KitTooltip};
 
 <br/>
 
-### Component Theming
+### Component theming
 Every components **style** of the design system can be **override** by tokens. 
 
 1. **Create a token file type**
