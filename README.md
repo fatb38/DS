@@ -1,7 +1,9 @@
 <div align="center" className="header-block">
 <img src="https://www.aristid.com/wp-content/uploads/2021/09/logo-aristid-bleu-2.png" height="100px" alt="Aristid logo" />
 
-ARiSTiD Design System Documentation.
+ARiSTiD Design System Readme.
+
+[Our Storybook](https://storybook.aristid.com/?path=/docs/design-icons--docs)
 </div>
 
 <hr>
