@@ -128,11 +128,6 @@ export const BasicRange: Story = {
             <KitDatePicker.RangePicker open />
         </div>
     ),
-    play: async ({canvasElement}) => {
-        const canvas = within(canvasElement);
-        const datePicker = canvas.getByTestId('focus');
-        datePicker.focus();
-    },
     parameters: {
         chromatic: {disableSnapshot: false}
     }
