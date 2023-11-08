@@ -13,14 +13,14 @@ const KitSliderContainer = styled.div`
 
 const StartIcon = styled.div<{$theme: IKitSliderTheme}>`
     position: absolute;
-    top: -2px;
+    top: 8px;
     left: 0;
     color: ${({$theme}) => $theme.startIcon.colors.default};
 `;
 
 const EndIcon = styled.div<{$theme: IKitSliderTheme}>`
     position: absolute;
-    top: -2px;
+    top: 8px;
     right: 0;
     color: ${({$theme}) => $theme.endIcon.colors.default};
 `;
