@@ -31,12 +31,19 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
             onBlur,
             onChange,
             popupClassName,
+            wrapperClassName,
             ...props
         },
         ref?: Ref<RefSelectProps> | undefined
     ) => {
         return (
-            <KitInputWrapper label={label} helper={helper} disabled={disabled} status={status}>
+            <KitInputWrapper
+                label={label}
+                helper={helper}
+                disabled={disabled}
+                status={status}
+                className={wrapperClassName}
+            >
                 <StyledKitAutoComplete
                     {...props}
                     disabled={disabled}

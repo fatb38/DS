@@ -154,7 +154,7 @@ const StyledAntdInputNumber = styled(AntdInputNumber)<IStyledAntdInputNumber>`
 `;
 
 export const KitInputNumber = forwardRef<HTMLInputElement, KitInputNumberProps>(
-    ({label, helper, ...inputNumberProps}, ref) => {
+    ({label, helper, wrapperClassName, ...inputNumberProps}, ref) => {
         const {theme} = useKitTheme();
 
         return (
@@ -163,6 +163,7 @@ export const KitInputNumber = forwardRef<HTMLInputElement, KitInputNumberProps>(
                 helper={helper}
                 disabled={inputNumberProps.disabled}
                 status={inputNumberProps.status}
+                className={wrapperClassName}
             >
                 <StyledAntdInputNumber $theme={theme.components.InputNumber} ref={ref} {...inputNumberProps} />
             </KitInputWrapper>

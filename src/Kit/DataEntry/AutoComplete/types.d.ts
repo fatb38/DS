@@ -6,4 +6,5 @@ export interface IKitAutoComplete extends AutoCompleteProps<T, E>, KitHTMLAttrib
     helper?: string;
     allowClear?: boolean;
     placeholder?: string;
+    wrapperClassName?: string;
 }

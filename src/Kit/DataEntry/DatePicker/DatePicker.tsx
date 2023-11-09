@@ -141,7 +141,7 @@ const StyledDatePicker = styled.div<IStyledDatePicker>`
 `;
 
 const KitDatePicker = forwardRef<any, IKitDatePicker>(
-    ({label, helper, suffixIcon, picker = 'date', allowClear = true, ...datePickerProps}, ref) => {
+    ({label, helper, suffixIcon, wrapperClassName, picker = 'date', allowClear = true, ...datePickerProps}, ref) => {
         const {theme} = useKitTheme();
 
         const _getSuffixIcon = () => {
@@ -157,6 +157,7 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
                 helper={helper}
                 disabled={datePickerProps.disabled}
                 status={datePickerProps.status}
+                className={wrapperClassName}
             >
                 <StyledDatePicker $theme={theme.components.DatePicker}>
                     <AntdDatePicker

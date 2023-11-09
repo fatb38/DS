@@ -177,19 +177,27 @@ const StyledAntdInput = styled(AntdInput)<IStyledAntdInput>`
     }
 `;
 
-const KitInput = forwardRef<InputRef, IKitInput>(({label, helper, allowClear = true, ...inputProps}, ref) => {
-    const {theme} = useKitTheme();
+const KitInput = forwardRef<InputRef, IKitInput>(
+    ({label, helper, wrapperClassName, allowClear = true, ...inputProps}, ref) => {
+        const {theme} = useKitTheme();
 
-    return (
-        <KitInputWrapper label={label} helper={helper} disabled={inputProps.disabled} status={inputProps.status}>
-            <StyledAntdInput
-                ref={ref}
-                $theme={theme.components.Input}
-                {...inputProps}
-                allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
-            />
-        </KitInputWrapper>
-    );
-});
+        return (
+            <KitInputWrapper
+                label={label}
+                helper={helper}
+                disabled={inputProps.disabled}
+                status={inputProps.status}
+                className={wrapperClassName}
+            >
+                <StyledAntdInput
+                    ref={ref}
+                    $theme={theme.components.Input}
+                    {...inputProps}
+                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
+                />
+            </KitInputWrapper>
+        );
+    }
+);
 
 export default KitInput;
