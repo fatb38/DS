@@ -6,7 +6,7 @@ import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar} from '@fortawesome/free-solid-svg-icons';
 import type {RateRef} from 'rc-rate/lib/Rate';
-import {getColor} from '@utils/functions';
+import {getColor, isValidColor} from '@utils/functions';
 
 const StyledRate = styled(AntdRate)<IStyledRate>`
     color: ${({$activeStarColor}) => $activeStarColor};
@@ -63,7 +63,13 @@ export const KitRate = forwardRef<RateRef, IKitRate>(
     ({color, disabledStarTransparency, character, ...rateProps}, ref) => {
         const {theme} = useKitTheme();
 
-        const calculatedActiveStarColor = useMemo(() => getColor(theme, color), [color]);
+        const calculatedActiveStarColor = useMemo(() => {
+            if (!color || !isValidColor(theme.general.colors, color)) {
+                return theme.components.Rate.colors.star.active;
+            }
+
+            return getColor(theme.general.colors, color);
+        }, [color, theme]);
 
         return (
             <StyledRate

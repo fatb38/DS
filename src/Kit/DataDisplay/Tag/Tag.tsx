@@ -5,7 +5,7 @@ import {IKitTag, IStyledAntdTag} from './types';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
-import {getColor, getLighterColor} from '@utils/functions';
+import {getColor, getLighterColor, isValidColor} from '@utils/functions';
 
 const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
     padding: 4px 8px;
@@ -46,15 +46,21 @@ const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
 const KitTag: FunctionComponent<IKitTag> = ({closeIcon, color, secondaryColorInvert = false, ...tagProps}) => {
     const {theme} = useKitTheme();
 
-    const calculatedBackgroundColor = useMemo(
-        () => getColor(theme, color, secondaryColorInvert),
-        [color, secondaryColorInvert, theme]
-    );
+    const calculatedBackgroundColor = useMemo(() => {
+        if (!color || !isValidColor(theme.general.colors, color)) {
+            return theme.components.Tag.colors.default.background.default;
+        }
 
-    const calculatedFontColor = useMemo(
-        () => getLighterColor(theme, color, secondaryColorInvert),
-        [color, secondaryColorInvert, theme]
-    );
+        return getColor(theme.general.colors, color, secondaryColorInvert);
+    }, [color, secondaryColorInvert, theme]);
+
+    const calculatedFontColor = useMemo(() => {
+        if (!color || !isValidColor(theme.general.colors, color)) {
+            return theme.components.Tag.colors.default.typography.default;
+        }
+
+        return getLighterColor(theme.general.colors, color, secondaryColorInvert);
+    }, [color, secondaryColorInvert, theme]);
 
     return (
         <StyledAntdTag

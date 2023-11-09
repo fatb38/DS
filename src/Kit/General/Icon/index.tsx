@@ -3,7 +3,7 @@ import {css, styled} from 'styled-components';
 import {IKitIcon, IStyledKitIcon} from './types';
 import {useKitTheme} from '@theme/theme-context';
 import useSecureClick from '@hooks/useSecureClick';
-import {getColor, getLighterColor} from '@utils/functions';
+import {getColor, getLighterColor, isValidColor} from '@utils/functions';
 
 const StyledKitIcon = styled.span<IStyledKitIcon>`
     color: ${({$on, $theme, $iconColor}) => {
@@ -44,8 +44,21 @@ export const KitIcon: FunctionComponent<IKitIcon> = ({
 }) => {
     const {theme} = useKitTheme();
 
-    const calculatedIconColor = useMemo(() => getColor(theme, color), [color, theme]);
-    const calculatedBackgroundColor = useMemo(() => getLighterColor(theme, color), [color, theme]);
+    const calculatedIconColor = useMemo(() => {
+        if (!color || !isValidColor(theme.general.colors, color)) {
+            return undefined;
+        }
+
+        return getColor(theme.general.colors, color);
+    }, [color, theme]);
+
+    const calculatedBackgroundColor = useMemo(() => {
+        if (!color || !isValidColor(theme.general.colors, color)) {
+            return undefined;
+        }
+
+        return getLighterColor(theme.general.colors, color);
+    }, [color, theme]);
 
     const secureClick = useSecureClick(onClick);
 
