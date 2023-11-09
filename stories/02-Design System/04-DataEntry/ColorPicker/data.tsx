@@ -256,6 +256,16 @@ export const argTypes = {
             },
             category: 'ColorPicker'
         }
+    },
+    wrapperClassName: {
+        name: 'wrapperClassName',
+        description: 'Component wrapper class name',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'ColorPicker'
+        }
     }
 };
 

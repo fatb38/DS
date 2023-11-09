@@ -168,7 +168,7 @@ const StyledAntdPassword = styled(AntdInput.Password)<IStyledAntdPassword>`
 `;
 
 const KitPassword = forwardRef<InputRef, IKitPassword>(
-    ({label, helper, iconRender, allowClear = true, ...passwordProps}, ref) => {
+    ({label, helper, iconRender, wrapperClassName, allowClear = true, ...passwordProps}, ref) => {
         const {theme} = useKitTheme();
 
         const _getIconRender = (passwordVisible: boolean) => {
@@ -184,6 +184,7 @@ const KitPassword = forwardRef<InputRef, IKitPassword>(
                 helper={helper}
                 disabled={passwordProps.disabled}
                 status={passwordProps.status}
+                className={wrapperClassName}
             >
                 <StyledAntdPassword
                     $theme={theme.components.Input.Password}

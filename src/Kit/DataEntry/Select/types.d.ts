@@ -40,6 +40,7 @@ export interface IKitSelect
     oneLineTags?: boolean;
     options?: IKitOption[];
     labelOnly?: boolean | null;
+    wrapperClassName?: string;
 }
 
 interface IKitOption extends Omit<OptionProps, 'children'> {

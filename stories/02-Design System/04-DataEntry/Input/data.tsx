@@ -285,6 +285,16 @@ export const argTypes = {
             defaultValue: {summary: false},
             category: 'Input.Password.visibilityToggle'
         }
+    },
+    wrapperClassName: {
+        name: 'wrapperClassName',
+        description: 'Component wrapper class name',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Input'
+        }
     }
 };
 

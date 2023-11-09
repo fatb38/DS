@@ -154,19 +154,27 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)<IStyledAntdTextArea>`
     }
 `;
 
-const KitTextArea = forwardRef<InputRef, IKitTextArea>(({label, helper, allowClear = true, ...textAreaProps}, ref) => {
-    const {theme} = useKitTheme();
+const KitTextArea = forwardRef<InputRef, IKitTextArea>(
+    ({label, helper, wrapperClassName, allowClear = true, ...textAreaProps}, ref) => {
+        const {theme} = useKitTheme();
 
-    return (
-        <KitInputWrapper label={label} helper={helper} disabled={textAreaProps.disabled} status={textAreaProps.status}>
-            <StyledAntdTextArea
-                $theme={theme.components.Input.TextArea}
-                {...textAreaProps}
-                ref={ref}
-                allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
-            />
-        </KitInputWrapper>
-    );
-});
+        return (
+            <KitInputWrapper
+                label={label}
+                helper={helper}
+                disabled={textAreaProps.disabled}
+                status={textAreaProps.status}
+                className={wrapperClassName}
+            >
+                <StyledAntdTextArea
+                    $theme={theme.components.Input.TextArea}
+                    {...textAreaProps}
+                    ref={ref}
+                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
+                />
+            </KitInputWrapper>
+        );
+    }
+);
 
 export default KitTextArea;

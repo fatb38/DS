@@ -17,6 +17,7 @@ interface IDatePickerProps extends Omit<DatePickerProps, 'picker'> {
 export type IKitDatePicker = IDatePickerProps &
     IInternalDatePicker & {
         cellRender?: DatePickerProps['cellrender'];
+        wrapperClassName?: string;
     };
 
 // Use "never" instead of Omit properties to avoid issues with Antd type/interface declarations

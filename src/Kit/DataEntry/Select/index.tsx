@@ -119,6 +119,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             onClick,
             onClear,
             onBlur,
+            wrapperClassName,
             oneLineTags = false,
             allowClear = true,
             ...props
@@ -182,7 +183,13 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         };
 
         return (
-            <KitInputWrapper label={label} helper={helper} disabled={props.disabled} status={props.status}>
+            <KitInputWrapper
+                label={label}
+                helper={helper}
+                disabled={props.disabled}
+                status={props.status}
+                className={wrapperClassName}
+            >
                 <StyledKitSelect
                     $theme={theme.components.Select}
                     {...props}
