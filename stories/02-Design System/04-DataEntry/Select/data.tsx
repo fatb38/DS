@@ -368,6 +368,16 @@ const SelectArgTypes = {
             category: 'Select'
         },
         defaultValue: () => {}
+    },
+    wrapperClassName: {
+        name: 'wrapperClassName',
+        description: 'Component wrapper class name',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Select'
+        }
     }
 };
 

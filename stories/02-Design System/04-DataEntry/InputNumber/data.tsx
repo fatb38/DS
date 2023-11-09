@@ -274,6 +274,16 @@ export const argTypes = {
             },
             category: 'InputNumber'
         }
+    },
+    wrapperClassName: {
+        name: 'wrapperClassName',
+        description: 'Component wrapper class name',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'InputNumber'
+        }
     }
 };
 

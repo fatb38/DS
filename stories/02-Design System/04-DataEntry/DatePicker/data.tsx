@@ -412,6 +412,16 @@ const CommonArgs = {
             },
             category: 'Common API'
         }
+    },
+    wrapperClassName: {
+        name: 'wrapperClassName',
+        description: 'Component wrapper class name',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Common API'
+        }
     }
 };
 
