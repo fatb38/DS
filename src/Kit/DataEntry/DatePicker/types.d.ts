@@ -12,6 +12,8 @@ interface IInternalDatePicker {
 
 interface IDatePickerProps extends Omit<DatePickerProps, 'picker'> {
     picker?: 'time' | 'date' | 'week' | 'month' | 'year' | 'quarter';
+    showTime?: boolean | object;
+    disabledTime?: any;
 }
 
 export type IKitDatePicker = IDatePickerProps &

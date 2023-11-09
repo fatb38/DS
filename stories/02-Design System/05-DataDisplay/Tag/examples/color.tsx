@@ -3,6 +3,7 @@ import {KitTag} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {KitTypography} from '@kit/General';
 import {useKitTheme} from '@theme/theme-context';
+import {KitColorProp} from '@utils/functions/types';
 
 const App = () => {
     const {theme} = useKitTheme();
@@ -19,14 +20,16 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
             <KitSpace>
                 {secondaryColors.map((color: string) => (
-                    <KitTag color={color}>{color}</KitTag>
+                    <KitTag key={color} color={color as KitColorProp}>
+                        {color}
+                    </KitTag>
                 ))}
             </KitSpace>
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>Inverted Secondary Colors</KitTypography.Text>
             <KitSpace>
                 {secondaryColors.map((color: string) => (
-                    <KitTag color={color} secondaryColorInvert>
+                    <KitTag key={color} color={color as KitColorProp} secondaryColorInvert>
                         {color}
                     </KitTag>
                 ))}
