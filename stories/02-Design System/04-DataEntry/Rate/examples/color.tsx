@@ -24,11 +24,11 @@ const App = () => {
                 ))}
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>RGB format</KitTypography.Text>
+            <KitTypography.Text style={{fontWeight: 'bold'}}>RGB(A) format</KitTypography.Text>
             <KitSpace size="m">
-                <KitRate defaultValue={3} color="rgba(252, 186, 3)" />
-                <KitRate defaultValue={3} color="rgba(0, 29, 117)" />
-                <KitRate defaultValue={3} color="rgba(133, 0, 101)" />
+                <KitRate defaultValue={3} color="rgb(252, 186, 3)" />
+                <KitRate defaultValue={3} color="rgb(0, 29, 117)" />
+                <KitRate defaultValue={3} color="rgba(133, 0, 101, 1)" />
             </KitSpace>
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>HEX format</KitTypography.Text>
@@ -38,10 +38,10 @@ const App = () => {
                 <KitRate defaultValue={3} color="#850065" />
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>HSL format</KitTypography.Text>
+            <KitTypography.Text style={{fontWeight: 'bold'}}>HSL(A) format</KitTypography.Text>
             <KitSpace size="m">
-                <KitRate defaultValue={3} color="hsla(44, 97%, 50%, 1)" />
-                <KitRate defaultValue={3} color="hsla(225, 100%, 23%, 1)" />
+                <KitRate defaultValue={3} color="hsl(44, 97%, 50%)" />
+                <KitRate defaultValue={3} color="hsl(225, 100%, 23%)" />
                 <KitRate defaultValue={3} color="hsla(314, 100%, 26%, 1)" />
             </KitSpace>
         </KitSpace>

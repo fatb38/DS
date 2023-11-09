@@ -37,11 +37,11 @@ const App = () => {
                 ))}
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>RGB format</KitTypography.Text>
+            <KitTypography.Text style={{fontWeight: 'bold'}}>RGB(A) format</KitTypography.Text>
             <KitSpace>
-                <KitAvatar color="rgba(252, 186, 3)">Y</KitAvatar>
-                <KitAvatar color="rgba(0, 29, 117)">D</KitAvatar>
-                <KitAvatar color="rgba(133, 0, 101)">P</KitAvatar>
+                <KitAvatar color="rgb(252, 186, 3)">Y</KitAvatar>
+                <KitAvatar color="rgb(0, 29, 117)">D</KitAvatar>
+                <KitAvatar color="rgba(133, 0, 101, 1)">P</KitAvatar>
             </KitSpace>
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>HEX format</KitTypography.Text>
@@ -51,10 +51,10 @@ const App = () => {
                 <KitAvatar color="#850065">P</KitAvatar>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>HSL format</KitTypography.Text>
+            <KitTypography.Text style={{fontWeight: 'bold'}}>HSL(A) format</KitTypography.Text>
             <KitSpace>
-                <KitAvatar color="hsla(44, 97%, 50%, 1)">Y</KitAvatar>
-                <KitAvatar color="hsla(225, 100%, 23%, 1)">D</KitAvatar>
+                <KitAvatar color="hsl(44, 97%, 50%)">Y</KitAvatar>
+                <KitAvatar color="hsl(225, 100%, 23%)">D</KitAvatar>
                 <KitAvatar color="hsla(314, 100%, 26%, 1)">P</KitAvatar>
             </KitSpace>
         </KitSpace>
