@@ -22,6 +22,10 @@ const StyledAntdInput = styled(AntdInput)<IStyledAntdInput>`
     &.ant-input-affix-wrapper {
         padding: 0px 12px;
 
+        &:focus-within {
+            border-color: ${({$theme}) => $theme.colors.border.hover};
+        }
+
         .ant-input-prefix {
             margin-inline-end: 10px;
             color: ${({$theme}) => $theme.colors.prefix.default};
