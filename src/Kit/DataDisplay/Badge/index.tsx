@@ -1,9 +1,9 @@
 import React, {FunctionComponent, useMemo} from 'react';
 import {Badge as AntdBadge} from 'antd';
 import {IKitBadge, IStyledKitBadge} from './types';
-import {css, styled} from 'styled-components';
+import {styled} from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {getColor, getLighterColor} from '@utils/functions';
+import {getColor, getLighterColor, isValidColor} from '@utils/functions';
 
 const StyledAntdBadge = styled(AntdBadge)<IStyledKitBadge>`
     height: 16px;
@@ -40,15 +40,21 @@ const StyledAntdBadge = styled(AntdBadge)<IStyledKitBadge>`
 export const KitBadge: FunctionComponent<IKitBadge> = ({color, secondaryColorInvert = false, ...badgeProps}) => {
     const {theme} = useKitTheme();
 
-    const calculatedBackgroundColor = useMemo(
-        () => getColor(theme, color, secondaryColorInvert),
-        [color, secondaryColorInvert, theme]
-    );
+    const calculatedBackgroundColor = useMemo(() => {
+        if (!color || !isValidColor(theme.general.colors, color)) {
+            return theme.components.Badge.colors.background.default;
+        }
 
-    const calculatedFontColor = useMemo(
-        () => getLighterColor(theme, color, secondaryColorInvert),
-        [color, secondaryColorInvert, theme]
-    );
+        return getColor(theme.general.colors, color, secondaryColorInvert);
+    }, [color, secondaryColorInvert, theme]);
+
+    const calculatedFontColor = useMemo(() => {
+        if (!color || !isValidColor(theme.general.colors, color)) {
+            return theme.components.Badge.colors.typography.default;
+        }
+
+        return getLighterColor(theme.general.colors, color, secondaryColorInvert);
+    }, [color, secondaryColorInvert, theme]);
 
     return (
         <StyledAntdBadge

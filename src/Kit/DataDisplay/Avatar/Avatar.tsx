@@ -3,7 +3,7 @@ import {Avatar as AntdAvatar} from 'antd';
 import {IKitAvatar, IStyledKitAvatar} from './types';
 import {styled} from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {getColor, getContrastColor, getLighterColor} from '@utils/functions';
+import {getColor, getContrastColor, getLighterColor, isValidColor} from '@utils/functions';
 
 const StyledAntdAvatar = styled(AntdAvatar)<IStyledKitAvatar>`
     &:not(.ant-avatar-image) {
@@ -16,27 +16,27 @@ const KitAvatar: FunctionComponent<IKitAvatar> = ({color, secondaryColorInvert =
     const {theme} = useKitTheme();
 
     const calculatedIconColor = useMemo(() => {
-        if (!color) {
+        if (!color || !isValidColor(theme.general.colors, color)) {
             return theme.components.Avatar.colors.typography.default;
         }
 
         if (Object.keys(theme.general.colors.secondary).indexOf(color) > -1) {
-            return getLighterColor(theme, color, secondaryColorInvert);
+            return getLighterColor(theme.general.colors, color, secondaryColorInvert);
         }
 
-        return getContrastColor(theme, color);
+        return getContrastColor(theme.general.colors, color);
     }, [color, secondaryColorInvert, theme]);
 
     const calculatedBackgroundColor = useMemo(() => {
-        if (!color) {
+        if (!color || !isValidColor(theme.general.colors, color)) {
             return theme.components.Avatar.colors.background.default;
         }
 
         if (Object.keys(theme.general.colors.secondary).indexOf(color) > -1) {
-            return getColor(theme, color, secondaryColorInvert);
+            return getColor(theme.general.colors, color, secondaryColorInvert);
         }
 
-        return getColor(theme, color);
+        return getColor(theme.general.colors, color);
     }, [color, secondaryColorInvert, theme]);
 
     return (
