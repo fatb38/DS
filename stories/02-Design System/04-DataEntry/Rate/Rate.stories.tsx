@@ -3,7 +3,6 @@ import {KitRate} from '@kit/DataEntry';
 import {argTypes, Template} from './data';
 import React from 'react';
 import {colorsPalette} from '@theme/aristid/general/colors';
-import {KitColorProp} from '@utils/functions/types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHeart} from '@fortawesome/free-regular-svg-icons';
 
@@ -73,7 +72,7 @@ export const Color: Story = {
                 <p style={{fontWeight: 'bold', margin: 0}}>Secondary Colors</p>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
                     {secondaryColors.map((color: string) => (
-                        <KitRate key={color} defaultValue={3} color={color as KitColorProp} />
+                        <KitRate key={color} defaultValue={3} color={color} />
                     ))}
                 </div>
                 <p style={{fontWeight: 'bold', margin: 0}}>RGB format</p>

@@ -5,7 +5,6 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faClock} from '@fortawesome/free-regular-svg-icons';
 import React from 'react';
 import {KitIcon} from '@kit/General';
-import {KitColorProp} from '@utils/functions/types';
 import {colorsPalette} from '@theme/aristid/general/colors';
 
 const meta: Meta<typeof KitBadge> = {
@@ -69,7 +68,7 @@ export const Color: Story = {
             <p style={{fontWeight: 'bold', margin: 0}}>Secondary Colors</p>
             <div style={{display: 'flex', gap: '20px', marginBottom: '30px'}}>
                 {secondaryColors.map((color: string) => (
-                    <KitBadge key={color} count={5} color={color as KitColorProp}>
+                    <KitBadge key={color} count={5} color={color}>
                         <KitAvatar shape="square" size="large" />
                     </KitBadge>
                 ))}
@@ -77,7 +76,7 @@ export const Color: Story = {
             <p style={{fontWeight: 'bold', margin: 0}}>Inverted Secondary Colors</p>
             <div style={{display: 'flex', gap: '20px', marginBottom: '30px'}}>
                 {secondaryColors.map((color: string) => (
-                    <KitBadge key={color} count={5} color={color as KitColorProp} secondaryColorInvert>
+                    <KitBadge key={color} count={5} color={color} secondaryColorInvert>
                         <KitAvatar shape="square" size="large" />
                     </KitBadge>
                 ))}

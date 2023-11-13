@@ -3,7 +3,6 @@ import {KitAvatar, KitBadge} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {KitTypography} from '@kit/General';
 import {useKitTheme} from '@theme/theme-context';
-import {KitColorProp} from '@utils/functions/types';
 
 const App = () => {
     const {theme} = useKitTheme();
@@ -22,7 +21,7 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
             <KitSpace size="m">
                 {secondaryColors.map((color: string) => (
-                    <KitBadge count={5} color={color as KitColorProp} key={color + '_default'}>
+                    <KitBadge count={5} color={color} key={color + '_default'}>
                         <KitAvatar shape="square" size="large" />
                     </KitBadge>
                 ))}
@@ -31,7 +30,7 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>Inverted Secondary Colors</KitTypography.Text>
             <KitSpace size="m">
                 {secondaryColors.map((color: string) => (
-                    <KitBadge count={5} color={color as KitColorProp} key={color + '_inverted'} secondaryColorInvert>
+                    <KitBadge count={5} color={color} key={color + '_inverted'} secondaryColorInvert>
                         <KitAvatar shape="square" size="large" />
                     </KitBadge>
                 ))}

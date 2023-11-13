@@ -3,7 +3,6 @@ import {KitRate} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout';
 import {KitTypography} from '@kit/General';
 import {useKitTheme} from '@theme/theme-context';
-import {KitColorProp} from '@utils/functions/types';
 
 const App = () => {
     const {theme} = useKitTheme();
@@ -20,7 +19,7 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
             <KitSpace size="m">
                 {secondaryColors.map((color: string) => (
-                    <KitRate key={color} defaultValue={3} color={color as KitColorProp} />
+                    <KitRate key={color} defaultValue={3} color={color} />
                 ))}
             </KitSpace>
             <br />

@@ -3,7 +3,6 @@ import {KitIcon, KitSpace, KitTypography} from '@kit/index';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload} from '@fortawesome/free-solid-svg-icons';
 import {useKitTheme} from '@theme/theme-context';
-import {KitColorProp} from '@utils/functions/types';
 
 const App = () => {
     const {theme} = useKitTheme();
@@ -16,8 +15,8 @@ const App = () => {
             <KitSpace>
                 {secondaryColors.map((color: string) => (
                     <KitSpace direction="vertical" key={color}>
-                        <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color={color as KitColorProp} />
-                        <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color={color as KitColorProp} />
+                        <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color={color} />
+                        <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color={color} />
                     </KitSpace>
                 ))}
             </KitSpace>

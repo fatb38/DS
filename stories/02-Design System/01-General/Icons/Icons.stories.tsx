@@ -5,7 +5,6 @@ import {argTypes, Template} from './data';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload} from '@fortawesome/free-solid-svg-icons';
 import {useKitTheme} from '@theme/theme-context';
-import {KitColorProp} from '@utils/functions/types';
 
 const meta: Meta<typeof KitIcon> = {
     component: KitIcon,
@@ -49,8 +48,8 @@ export const Colors: Story = {
                 <div style={{display: 'inline-flex', gap: '8px'}}>
                     {secondaryColors.map((color: string) => (
                         <div style={{display: 'inline-flex', gap: '8px', flexDirection: 'column'}} key={color}>
-                            <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color={color as KitColorProp} />
-                            <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color={color as KitColorProp} />
+                            <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color={color} />
+                            <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color={color} />
                         </div>
                     ))}
                 </div>
