@@ -5,7 +5,6 @@ import Readonly from './readonly';
 import Allowclear from './allowclear';
 import Color from './color';
 import Otherchar from './otherchar';
-import Customizechar from './customizechar';
 
 import BasicSource from './basic?raw';
 import HalfSource from './half?raw';
@@ -14,7 +13,6 @@ import ReadonlySource from './readonly?raw';
 import AllowclearSource from './allowclear?raw';
 import ColorSource from './color?raw';
 import OthercharSource from './otherchar?raw';
-import CustomizecharSource from './customizechar?raw';
 
 export const Sources = {
     Basic: BasicSource,
@@ -23,8 +21,7 @@ export const Sources = {
     Readonly: ReadonlySource,
     Allowclear: AllowclearSource,
     Color: ColorSource,
-    Otherchar: OthercharSource,
-    Customizechar: CustomizecharSource
+    Otherchar: OthercharSource
 };
 export default {
     Basic,
@@ -33,6 +30,5 @@ export default {
     Readonly,
     Allowclear,
     Color,
-    Otherchar,
-    Customizechar
+    Otherchar
 };
