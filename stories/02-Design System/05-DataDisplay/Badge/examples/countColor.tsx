@@ -22,7 +22,7 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
             <KitSpace size="m">
                 {secondaryColors.map((color: string) => (
-                    <KitBadge count={5} color={color as KitColorProp}>
+                    <KitBadge count={5} color={color as KitColorProp} key={color + '_default'}>
                         <KitAvatar shape="square" size="large" />
                     </KitBadge>
                 ))}
@@ -31,7 +31,7 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>Inverted Secondary Colors</KitTypography.Text>
             <KitSpace size="m">
                 {secondaryColors.map((color: string) => (
-                    <KitBadge count={5} color={color as KitColorProp} secondaryColorInvert>
+                    <KitBadge count={5} color={color as KitColorProp} key={color + '_inverted'} secondaryColorInvert>
                         <KitAvatar shape="square" size="large" />
                     </KitBadge>
                 ))}

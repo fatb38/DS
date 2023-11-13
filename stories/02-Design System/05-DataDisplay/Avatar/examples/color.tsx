@@ -22,7 +22,11 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
             <KitSpace>
                 {secondaryColors.map((color: string) => (
-                    <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} color={color as KitColorProp} />
+                    <KitAvatar
+                        icon={<FontAwesomeIcon icon={faUser} />}
+                        color={color as KitColorProp}
+                        key={color + '_default'}
+                    />
                 ))}
             </KitSpace>
             <br />
@@ -32,6 +36,7 @@ const App = () => {
                     <KitAvatar
                         icon={<FontAwesomeIcon icon={faUser} />}
                         color={color as KitColorProp}
+                        key={color + '_inverted'}
                         secondaryColorInvert
                     />
                 ))}

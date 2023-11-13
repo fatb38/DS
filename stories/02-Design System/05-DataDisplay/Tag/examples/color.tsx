@@ -19,14 +19,16 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
             <KitSpace>
                 {secondaryColors.map((color: string) => (
-                    <KitTag color={color}>{color}</KitTag>
+                    <KitTag color={color} key={color + '_default'}>
+                        {color}
+                    </KitTag>
                 ))}
             </KitSpace>
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>Inverted Secondary Colors</KitTypography.Text>
             <KitSpace>
                 {secondaryColors.map((color: string) => (
-                    <KitTag color={color} secondaryColorInvert>
+                    <KitTag color={color} key={color + '_inverted'} secondaryColorInvert>
                         {color}
                     </KitTag>
                 ))}
