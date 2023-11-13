@@ -22,7 +22,7 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
             <KitSpace size="m">
                 {secondaryColors.map((color: string) => (
-                    <KitBadge count={5} color={color as KitColorProp}>
+                    <KitBadge count={5} color={color as KitColorProp} key={color + '_default'}>
                         <KitAvatar shape="square" size="large" />
                     </KitBadge>
                 ))}
@@ -31,21 +31,21 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>Inverted Secondary Colors</KitTypography.Text>
             <KitSpace size="m">
                 {secondaryColors.map((color: string) => (
-                    <KitBadge count={5} color={color as KitColorProp} secondaryColorInvert>
+                    <KitBadge count={5} color={color as KitColorProp} key={color + '_inverted'} secondaryColorInvert>
                         <KitAvatar shape="square" size="large" />
                     </KitBadge>
                 ))}
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>RGB format</KitTypography.Text>
+            <KitTypography.Text style={{fontWeight: 'bold'}}>RGB(A) format</KitTypography.Text>
             <KitSpace size="m">
-                <KitBadge count={5} color="rgba(252, 186, 3)">
+                <KitBadge count={5} color="rgb(252, 186, 3)">
                     <KitAvatar shape="square" size="large" />
                 </KitBadge>
-                <KitBadge count={5} color="rgba(0, 29, 117)">
+                <KitBadge count={5} color="rgb(0, 29, 117)">
                     <KitAvatar shape="square" size="large" />
                 </KitBadge>
-                <KitBadge count={5} color="rgba(133, 0, 101)">
+                <KitBadge count={5} color="rgba(133, 0, 101, 1)">
                     <KitAvatar shape="square" size="large" />
                 </KitBadge>
             </KitSpace>
@@ -63,12 +63,12 @@ const App = () => {
                 </KitBadge>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>HSL format</KitTypography.Text>
+            <KitTypography.Text style={{fontWeight: 'bold'}}>HSL(A) format</KitTypography.Text>
             <KitSpace size="m">
-                <KitBadge count={5} color="hsla(44, 97%, 50%, 1)">
+                <KitBadge count={5} color="hsl(44, 97%, 50%)">
                     <KitAvatar shape="square" size="large" />
                 </KitBadge>
-                <KitBadge count={5} color="hsla(225, 100%, 23%, 1)">
+                <KitBadge count={5} color="hsl(225, 100%, 23%)">
                     <KitAvatar shape="square" size="large" />
                 </KitBadge>
                 <KitBadge count={5} color="hsla(314, 100%, 26%, 1)">

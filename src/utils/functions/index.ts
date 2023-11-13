@@ -1,34 +1,52 @@
 import convert from 'color-convert';
 import colorString from 'color-string';
-import {IKitTheme} from '@theme/types';
 import {KitColorProp} from './types';
+import {IKitColorsPalette} from '@theme/types/general/colors';
 
-export const getColor = (theme: IKitTheme, color: KitColorProp, isInvert: boolean = false) => {
+export const isValidColor = (themeColors: IKitColorsPalette, color: string): boolean => {
+    const isKeyOfSecondaryColors = Object.keys(themeColors.secondary).includes(color);
+    const rgbRegex = /^rgb\(\s*(\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3})\s*\)$/i;
+    const rgbaRegex = /^rgba\(\s*(\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*(0?(\.\d+)?|1(\.0+)?)\s*)\)$/i;
+    const hexRegex = /^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})$/i;
+    const hslRegex = /^hsl\(\s*(\d{1,3}\s*,\s*\d{1,3}%\s*,\s*\d{1,3}%)\s*\)$/i;
+    const hslaRegex = /^hsla\(\s*(\d{1,3}\s*,\s*\d{1,3}%\s*,\s*\d{1,3}%\s*,\s*(0?(\.\d+)?|1(\.0+)?)\s*)\)$/i;
+
+    return (
+        isKeyOfSecondaryColors ||
+        rgbRegex.test(color) ||
+        rgbaRegex.test(color) ||
+        hexRegex.test(color) ||
+        hslRegex.test(color) ||
+        hslaRegex.test(color)
+    );
+};
+
+export const getColor = (themeColors: IKitColorsPalette, color: KitColorProp, isInvert: boolean = false) => {
     const colorAccent = isInvert ? 100 : 400;
 
-    if (color && Object.keys(theme.general.colors.secondary).includes(color)) {
-        return theme.general.colors.secondary[color][`${color}${colorAccent}`];
+    if (color && Object.keys(themeColors.secondary).includes(color)) {
+        return themeColors.secondary[color][`${color}${colorAccent}`];
     }
 
     return color;
 };
 
-export const getLighterColor = (theme: IKitTheme, color: KitColorProp, isInvert: boolean = false) => {
+export const getLighterColor = (themeColors: IKitColorsPalette, color: KitColorProp, isInvert: boolean = false) => {
     const colorAccent = isInvert ? 400 : 100;
 
-    if (color && Object.keys(theme.general.colors.secondary).includes(color)) {
-        return theme.general.colors.secondary[color][`${color}${colorAccent}`];
+    if (color && Object.keys(themeColors.secondary).includes(color)) {
+        return themeColors.secondary[color][`${color}${colorAccent}`];
     }
 
     return _colorToLightHSL(color);
 };
 
-export const getContrastColor = (theme: IKitTheme, color: KitColorProp) => {
+export const getContrastColor = (themeColors: IKitColorsPalette, color: KitColorProp) => {
     if (color === undefined) {
-        return theme.general.colors.neutral.black;
+        return themeColors.neutral.black;
     }
 
-    let convertedColor = getColor(theme, color);
+    let convertedColor = getColor(themeColors, color);
 
     if (convertedColor?.startsWith('#') || convertedColor?.startsWith('rgb')) {
         convertedColor = colorString.get.rgb(convertedColor);
@@ -39,7 +57,7 @@ export const getContrastColor = (theme: IKitTheme, color: KitColorProp) => {
 
     const yiq = (convertedColor[0] * 299 + convertedColor[1] * 587 + convertedColor[2] * 114) / 1000;
 
-    return yiq < 128 ? theme.general.colors.neutral.white : theme.general.colors.neutral.black;
+    return yiq < 128 ? themeColors.neutral.white : themeColors.neutral.black;
 };
 
 const _colorToLightHSL = (color, lightness = 95): string | null => {
