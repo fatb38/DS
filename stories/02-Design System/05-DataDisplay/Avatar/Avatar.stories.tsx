@@ -5,7 +5,6 @@ import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 import {colorsPalette} from '@theme/aristid/general/colors';
-import {KitColorProp} from '@utils/functions/types';
 
 const meta: Meta<typeof KitAvatar> = {
     component: KitAvatar,
@@ -75,7 +74,7 @@ export const Color: Story = {
             <p style={{fontWeight: 'bold', margin: 0}}>Secondary Colors</p>
             <div style={{display: 'flex', gap: '10px'}}>
                 {secondaryColors.map((color: string) => (
-                    <KitAvatar key={color} icon={<FontAwesomeIcon icon={faUser} />} color={color as KitColorProp} />
+                    <KitAvatar key={color} icon={<FontAwesomeIcon icon={faUser} />} color={color} />
                 ))}
             </div>
             <div style={{display: 'flex', gap: '10px'}}>
@@ -83,7 +82,7 @@ export const Color: Story = {
                     <KitAvatar
                         key={color}
                         icon={<FontAwesomeIcon icon={faUser} />}
-                        color={color as KitColorProp}
+                        color={color}
                         secondaryColorInvert
                     />
                 ))}

@@ -8,17 +8,17 @@ interface IInternalDatePicker {
     label?: string;
     helper?: string;
     allowClear?: boolean;
+    cellRender?: DatePickerProps['cellrender'];
+    wrapperClassName?: string;
+    disabledTime?: any;
 }
 
 interface IDatePickerProps extends Omit<DatePickerProps, 'picker'> {
     picker?: 'time' | 'date' | 'week' | 'month' | 'year' | 'quarter';
+    showTime?: boolean | object;
 }
 
-export type IKitDatePicker = IDatePickerProps &
-    IInternalDatePicker & {
-        cellRender?: DatePickerProps['cellrender'];
-        wrapperClassName?: string;
-    };
+export type IKitDatePicker = IDatePickerProps & IInternalDatePicker;
 
 // Use "never" instead of Omit properties to avoid issues with Antd type/interface declarations
 interface IInternalRangerPicker {

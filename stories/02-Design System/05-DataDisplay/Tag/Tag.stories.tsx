@@ -3,7 +3,6 @@ import {KitTag} from '@kit/DataDisplay';
 import {argTypes, Template} from './data';
 import React from 'react';
 import {colorsPalette} from '@theme/aristid/general/colors';
-import {KitColorProp} from '@utils/functions/types';
 
 const meta: Meta<typeof KitTag> = {
     component: KitTag,
@@ -46,7 +45,7 @@ export const Color: Story = {
             <p style={{fontWeight: 'bold', margin: 0}}>Secondary Colors</p>
             <div style={{display: 'flex', gap: '10px'}}>
                 {secondaryColors.map((color: string) => (
-                    <KitTag key={color} color={color as KitColorProp}>
+                    <KitTag key={color} color={color}>
                         {color}
                     </KitTag>
                 ))}
@@ -55,7 +54,7 @@ export const Color: Story = {
             <p style={{fontWeight: 'bold', margin: 0}}>Inverted Secondary Colors</p>
             <div style={{display: 'flex', gap: '10px'}}>
                 {secondaryColors.map((color: string) => (
-                    <KitTag key={color} color={color as KitColorProp} secondaryColorInvert>
+                    <KitTag key={color} color={color} secondaryColorInvert>
                         {color}
                     </KitTag>
                 ))}

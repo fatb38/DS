@@ -6,7 +6,7 @@ import {StyledAntdColorPicker} from './style';
 
 // Note: ref is not supported by Antd for this component right now. Hopefuly it will change in a near futur
 export const KitColorPicker = forwardRef<RefAttributes<HTMLDivElement>, KitColorPickerProps>(
-    ({label, helper, rootClassName, ...colorPickerProps}, ref) => {
+    ({label, helper, rootClassName, ...colorPickerProps}, _ref) => {
         const {theme} = useKitTheme();
 
         return (

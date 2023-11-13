@@ -6,8 +6,6 @@ import KitInputWrapper from '../Input/InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark, faCalendar, faClock} from '@fortawesome/free-regular-svg-icons';
-import {CommonPickerMethods, DatePickRef} from 'antd/lib/date-picker/generatePicker/interface';
-import {Dayjs} from 'dayjs';
 
 const StyledDatePicker = styled.div<IStyledDatePicker>`
     .ant-picker {
