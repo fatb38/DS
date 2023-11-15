@@ -11,13 +11,6 @@ export interface IKitRateTheme {
              * @TJS-type color
              */
             disabled: string;
-            active: {
-                /**
-                 * default color
-                 * @TJS-type color
-                 */
-                default: string;
-            };
         };
     };
 }

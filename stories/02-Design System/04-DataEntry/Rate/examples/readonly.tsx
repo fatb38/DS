@@ -6,10 +6,7 @@ const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitSpace>
-                <KitRate disabled defaultValue={2} />
-            </KitSpace>
-            <KitSpace style={{backgroundColor: 'lightBlue'}}>
-                <KitRate disabled defaultValue={2} disabledStarTransparency="lightBlue" />
+                <KitRate disabled defaultValue={2.5} />
             </KitSpace>
         </KitSpace>
     );

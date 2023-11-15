@@ -4689,16 +4689,6 @@ const forms = {
                         "_path": "components.Rate.colors.star.disabled",
                         "_type": "color",
                         "_description": "disabled color"
-                    },
-                    "active": {
-                        "_label": "active",
-                        "_path": "components.Rate.colors.star.active",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Rate.colors.star.active.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
                     }
                 }
             }

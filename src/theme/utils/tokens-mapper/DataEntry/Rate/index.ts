@@ -4,6 +4,6 @@ export const mapRateKitTokenToAntdToken = (kitRateTheme: IKitRateTheme) => {
     const {colors} = kitRateTheme;
 
     return {
-        starColor: colors.star.active.default
+        starColor: colors.star.default
     };
 };

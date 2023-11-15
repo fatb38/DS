@@ -40,18 +40,6 @@ export const argTypes = {
             category: 'Rate'
         }
     },
-    disabledStarTransparency: {
-        name: 'disabledStarTransparency',
-        description: 'Set a color to match the background and keep the transparency effect of disabled striped stars',
-        control: {type: 'text'},
-        table: {
-            type: {
-                summary: 'string'
-            },
-            category: 'Rate',
-            defaultValue: {summary: '#FFFFFF'}
-        }
-    },
     autoFocus: {
         name: 'autoFocus',
         description: 'If get focus when component mounted',
@@ -64,15 +52,37 @@ export const argTypes = {
             defaultValue: {summary: false}
         }
     },
-    character: {
-        name: 'character',
-        description: 'The custom character of rate',
+    defaultIcon: {
+        name: 'defaultIcon',
+        description: 'Default rate icon',
         table: {
             type: {
-                summary: 'ReactNode | (RateProps) => ReactNode'
+                summary: 'ReactNode'
             },
             category: 'Rate',
-            defaultValue: {summary: 'faStar'}
+            defaultValue: {summary: '<FontAwesomeIcon icon={faStar} />  [from regular]'}
+        }
+    },
+    halfIcon: {
+        name: 'halfIcon',
+        description: 'Half rate icon',
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            category: 'Rate',
+            defaultValue: {summary: '<FontAwesomeIcon icon={faStarHalfStroke} /> [from regular]'}
+        }
+    },
+    activeIcon: {
+        name: 'activeIcon',
+        description: 'Active rate icon',
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            category: 'Rate',
+            defaultValue: {summary: '<FontAwesomeIcon icon={faStar} /> [from solid]'}
         }
     },
     count: {

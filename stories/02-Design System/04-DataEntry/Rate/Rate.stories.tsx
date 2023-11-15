@@ -4,7 +4,9 @@ import {argTypes, Template} from './data';
 import React from 'react';
 import {colorsPalette} from '@theme/aristid/general/colors';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faHeart} from '@fortawesome/free-regular-svg-icons';
+import {faCircle as faCircleDefault} from '@fortawesome/free-regular-svg-icons';
+import {faCircle as faCircleActive} from '@fortawesome/free-solid-svg-icons';
+import {faCircleHalfStroke as faCircleHalf} from '@fortawesome/free-solid-svg-icons';
 
 const meta: Meta<typeof KitRate> = {
     component: KitRate,
@@ -39,9 +41,13 @@ export const Basic: Story = {
 export const OtherCharacters: Story = {
     render: () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
-            <KitRate character={<FontAwesomeIcon icon={faHeart} />} allowHalf defaultValue={2.5} />
-            <KitRate character="A" allowHalf style={{fontSize: 36}} defaultValue={2.5} />
-            <KitRate character="好" allowHalf defaultValue={2.5} />
+            <KitRate
+                allowHalf
+                value={2.5}
+                defaultIcon={<FontAwesomeIcon icon={faCircleDefault} />}
+                halfIcon={<FontAwesomeIcon icon={faCircleHalf} />}
+                activeIcon={<FontAwesomeIcon icon={faCircleActive} />}
+            />
         </div>
     ),
     parameters: {
@@ -53,9 +59,6 @@ export const ReadOnly: Story = {
     render: () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
             <KitRate disabled defaultValue={2} />
-            <div style={{backgroundColor: 'lightBlue', width: 'fit-content'}}>
-                <KitRate disabled defaultValue={2} disabledStarTransparency="lightBlue" />
-            </div>
         </div>
     ),
     parameters: {
