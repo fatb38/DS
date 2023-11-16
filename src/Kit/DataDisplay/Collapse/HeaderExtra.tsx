@@ -1,12 +1,13 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, useState} from 'react';
 import styled from 'styled-components';
 import {IKitMenuInfo, IKitHeaderExtra} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
 import {KitDropDown} from '@kit/Navigation/';
-import {MoreOutlined} from '@ant-design/icons';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';
 
 const StyledHeaderExtra = styled.div`
     margin-left: 4px;
@@ -31,6 +32,8 @@ const StyledHeaderExtra = styled.div`
 `;
 
 export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({onSelectChange, actions}) => {
+    const [showMoreTooltip, setShowMoreTooltip] = useState(false);
+
     const _getCheckbox = () => {
         return (
             onSelectChange !== undefined && (
@@ -108,9 +111,14 @@ export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({onSelectChan
                                     menu={{
                                         items: _getMoreActionsDropDownItems()
                                     }}
+                                    trigger={['click']}
+                                    onOpenChange={() => setShowMoreTooltip(false)}
                                 >
-                                    <KitTooltip title="More">
-                                        <KitButton type="segmented" icon={<MoreOutlined />} />
+                                    <KitTooltip title="More" open={showMoreTooltip} onOpenChange={setShowMoreTooltip}>
+                                        <KitButton
+                                            type="segmented"
+                                            icon={<FontAwesomeIcon icon={faEllipsisVertical} />}
+                                        />
                                     </KitTooltip>
                                 </KitDropDown>
                             </div>

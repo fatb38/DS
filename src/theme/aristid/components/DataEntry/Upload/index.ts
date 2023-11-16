@@ -10,7 +10,7 @@ const getKitDraggerTokens = (generalTokens: IKitThemeGeneral): IKitUploadTheme['
                 default: colors.secondary.mediumGrey.mediumGrey100
             },
             border: {
-                default: colors.neutral.gray.gray400,
+                default: colors.neutral.grey.grey400,
                 hover: colors.primary.primary400
             },
             dragIcon: {
@@ -18,7 +18,7 @@ const getKitDraggerTokens = (generalTokens: IKitThemeGeneral): IKitUploadTheme['
             },
             typography: {
                 text: colors.neutral.typography.black,
-                hint: colors.neutral.gray.gray400,
+                hint: colors.neutral.grey.grey400,
                 item: colors.primary.primary400
             }
         },
@@ -48,13 +48,14 @@ export const getKitUploadTokens = (generalTokens: IKitThemeGeneral): IKitUploadT
                     hover: 'rgba(6, 32, 100, 0.5)'
                 },
                 border: {
-                    default: colors.neutral.gray.gray400,
+                    default: colors.neutral.grey.grey400,
                     uploading: colors.primary.primary400,
                     error: colors.secondary.red.red400
                 },
                 typography: {
                     done: colors.primary.primary400,
-                    error: colors.secondary.red.red400
+                    error: colors.secondary.red.red400,
+                    uploading: colors.primary.primary400
                 }
             }
         },

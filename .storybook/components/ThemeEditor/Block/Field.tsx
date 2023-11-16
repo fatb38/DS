@@ -2,14 +2,17 @@ import React, {FunctionComponent, useContext, useEffect, useState} from 'react';
 import {KitTooltip} from '../../../../src/Kit';
 import {EditorContext} from '../Context';
 import styled, {css} from 'styled-components';
-import {QuestionCircleOutlined} from '@ant-design/icons';
 import {ColorControl} from '@storybook/blocks';
 import {useDebouncedCallback} from 'use-debounce';
 import {getValue} from '../util';
 import {IEditorContext, IField} from '../types';
+import Icon from './Icon';
 
 const StyledField = styled.div`
     padding: 0.5rem 0 0.25rem 0;
+    &:last-child {
+        border-bottom: 1px solid hsla(203, 50%, 30%, 0.15);
+    }
 `;
 
 export const StyledLinkButton = styled.a`
@@ -38,10 +41,11 @@ const StyledFieldToggle = styled.div`
 
     .label {
         flex: 1;
+        font-size: 0.9rem;
     }
 
     .btn {
-        flex: 0;
+        display: none;
         font-size: 0.8rem;
         line-height: 1.3rem;
         font-family:
@@ -58,6 +62,10 @@ const StyledFieldToggle = styled.div`
         color: #1677ff;
         white-space: nowrap;
     }
+
+    &:hover .btn {
+        display: inline;
+    }
 `;
 
 const StyledInputWrapper = styled.div`
@@ -65,17 +73,16 @@ const StyledInputWrapper = styled.div`
 
     .label {
         margin-bottom: 4px;
-        font-size: 1rem;
+        font-size: 0.9rem;
 
         > * {
             vertical-align: baseline;
         }
 
-        .anticon {
+        .icon {
             font-size: 0.8rem;
             color: #1677ff;
             cursor: pointer;
-            margin-right: 0.25rem;
         }
     }
 
@@ -85,6 +92,10 @@ const StyledInputWrapper = styled.div`
         margin-bottom: 4px;
         font-size: 0.8rem;
         font-style: italic;
+    }
+
+    .component-row .input {
+        display: inline-block;
     }
 `;
 
@@ -159,7 +170,9 @@ const Field: FunctionComponent<IField> = ({
     level,
     _description,
     _label,
-    addResetFunction
+    addResetFunction,
+    onTokenChanged,
+    isVisible
 }) => {
     const {theme, setThemeValue} = useContext<IEditorContext>(EditorContext);
     const [showInput, setShowInput] = useState(false);
@@ -171,6 +184,7 @@ const Field: FunctionComponent<IField> = ({
             value = parseInt(value, 10) || '';
         }
         setThemeValue(_path, value);
+        onTokenChanged && onTokenChanged();
     }, 500);
 
     const _handleChangedEvent = e => {
@@ -235,6 +249,10 @@ const Field: FunctionComponent<IField> = ({
         </ValueStyled>
     );
 
+    if (!isVisible) {
+        return null;
+    }
+
     return (
         <StyledField style={{paddingLeft: `${(level + 2) * 0.5}rem`}}>
             {showInput && (
@@ -242,16 +260,18 @@ const Field: FunctionComponent<IField> = ({
                     <div className="label">
                         {_description && (
                             <KitTooltip title={_description}>
-                                <QuestionCircleOutlined />
+                                <span className="icon">
+                                    <Icon icon="question" />
+                                </span>
                             </KitTooltip>
                         )}
                         <span>{_label}</span>
                         {valueElement}
                     </div>
                     <div className="component-row">
-                        {_getComponent()}
+                        <div className="input">{_getComponent()}</div>
                         <StyledLinkButton className="clearValue" onClick={_handleClearClick}>
-                            Reset
+                            <Icon icon="undo" />
                         </StyledLinkButton>
                     </div>
                     <div className="helper">{_path}</div>
@@ -262,8 +282,10 @@ const Field: FunctionComponent<IField> = ({
                     <span className="label">
                         {_label}
                         {valueElement}
+                        <StyledLinkButton className="btn">
+                            <Icon icon="edit" />
+                        </StyledLinkButton>
                     </span>
-                    <StyledLinkButton className="btn">Set value</StyledLinkButton>
                 </StyledFieldToggle>
             )}
         </StyledField>

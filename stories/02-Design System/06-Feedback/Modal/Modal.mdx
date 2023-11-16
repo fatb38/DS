@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
 import { Source } from '@storybook/blocks';
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -36,12 +36,12 @@ KitModal.confirm({...});
 ##### Basic
 show basic modal
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="modal-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="modal-basic" />
 
 ### Show confirm dialog
 Show a confirm Dialog. There are 4 types of confirm : `info`, `warning`, `success`, `error`, `confirm`. A confirm can display an image and an icon
 
-<CustomCanvas content={Exemples.Confirm} source={Sources.Confirm} id="modal-confirm" />
+<CustomCanvas content={Examples.Confirm} source={Sources.Confirm} id="modal-confirm" />
 
 ## Api
 

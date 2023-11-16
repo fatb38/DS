@@ -1,8 +1,9 @@
 import React from 'react';
 import {KitSwitch} from '@kit/DataEntry/';
-import {CheckOutlined, CloseOutlined} from '@ant-design/icons';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCheck, faXmark} from '@fortawesome/free-solid-svg-icons';
 
 const SwitchArgTypes = {
     label: {
@@ -169,9 +170,9 @@ export const argTypes = {
 export const getIcon = value => {
     switch (value) {
         case 'checkOutlined':
-            return <CheckOutlined />;
+            return <FontAwesomeIcon icon={faCheck} />;
         case 'CloseOutlined':
-            return <CloseOutlined />;
+            return <FontAwesomeIcon icon={faXmark} />;
         default:
             return null;
     }

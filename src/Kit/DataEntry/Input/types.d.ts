@@ -11,6 +11,7 @@ export interface IKitInput
     label?: string;
     helper?: string;
     allowClear?: boolean;
+    wrapperClassName?: string;
 }
 
 export interface IKitTextArea
@@ -19,6 +20,7 @@ export interface IKitTextArea
     label?: string;
     helper?: string;
     allowClear?: boolean;
+    wrapperClassName?: string;
 }
 
 export interface IKitPassword
@@ -27,6 +29,7 @@ export interface IKitPassword
     label?: string;
     helper?: string;
     allowClear?: boolean;
+    wrapperClassName?: string;
 }
 
 export interface IKitInputWrapper extends KitHTMLAttributes<HTMLDivElement> {
@@ -34,6 +37,7 @@ export interface IKitInputWrapper extends KitHTMLAttributes<HTMLDivElement> {
     helper?: string;
     disabled?: boolean;
     status?: '' | 'warning' | 'error';
+    className?: string;
 }
 
 export interface IStyledAntdInput {

@@ -1,10 +1,11 @@
 import React, {forwardRef} from 'react';
-import {Input as AntdInput} from 'antd';
+import {Input as AntdInput, InputRef} from 'antd';
 import {IKitInput, IStyledAntdInput} from './types';
 import {styled} from 'styled-components';
-import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 
 const StyledAntdInput = styled(AntdInput)<IStyledAntdInput>`
     &.ant-input,
@@ -20,6 +21,10 @@ const StyledAntdInput = styled(AntdInput)<IStyledAntdInput>`
 
     &.ant-input-affix-wrapper {
         padding: 0px 12px;
+
+        &:focus-within {
+            border-color: ${({$theme}) => $theme.colors.border.hover};
+        }
 
         .ant-input-prefix {
             margin-inline-end: 10px;
@@ -176,19 +181,27 @@ const StyledAntdInput = styled(AntdInput)<IStyledAntdInput>`
     }
 `;
 
-const KitInput = forwardRef<any, IKitInput>(({label, helper, allowClear = true, ...inputProps}, ref) => {
-    const {theme} = useKitTheme();
+const KitInput = forwardRef<InputRef, IKitInput>(
+    ({label, helper, wrapperClassName, allowClear = true, ...inputProps}, ref) => {
+        const {theme} = useKitTheme();
 
-    return (
-        <KitInputWrapper label={label} helper={helper} disabled={inputProps.disabled} status={inputProps.status}>
-            <StyledAntdInput
-                ref={ref}
-                $theme={theme.components.Input}
-                {...inputProps}
-                allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
-            />
-        </KitInputWrapper>
-    );
-});
+        return (
+            <KitInputWrapper
+                label={label}
+                helper={helper}
+                disabled={inputProps.disabled}
+                status={inputProps.status}
+                className={wrapperClassName}
+            >
+                <StyledAntdInput
+                    ref={ref}
+                    $theme={theme.components.Input}
+                    {...inputProps}
+                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
+                />
+            </KitInputWrapper>
+        );
+    }
+);
 
 export default KitInput;

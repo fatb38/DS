@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import {Unstyled} from '@storybook/addon-docs';
 import {KitApp} from '../../../src/Kit/App';
 import {EditorContext} from './Context';
-import Component from './Block/Component';
+import Component, {StyledComponentWrapper} from './Block/Component';
 import {KitButton, KitSpace} from '../../../src/Kit';
-import {IEditor, IEditorContext} from './types';
+import {CollapseExpandObject, IEditor, IEditorContext} from './types';
+import MainHeader from './Block/MainHeader';
 
 const StyledTitle = styled.div`
     margin-bottom: 2rem;
@@ -33,6 +34,19 @@ const StyledH1 = styled.h1`
 const Editor: FunctionComponent<IEditor> = ({components}) => {
     const {theme, setTheme} = useContext<IEditorContext>(EditorContext);
     const fileRef = useRef<HTMLInputElement>(null);
+    const ref = useRef<{
+        [path: string]: CollapseExpandObject;
+    }>({});
+
+    const _registerExpandCollapse = (path: string, collapseExpandObject: CollapseExpandObject) => {
+        if (!ref.current) {
+            ref.current = {};
+        }
+        ref.current[path] = collapseExpandObject;
+    };
+
+    const _handleCollapseGroup = paths => paths.forEach(path => ref?.current[path] && ref?.current[path].collapse());
+    const _handleExpandGroup = paths => paths.forEach(path => ref?.current[path] && ref?.current[path].expand());
 
     const _downloadFile = () => {
         const link = document.createElement('a');
@@ -94,18 +108,44 @@ const Editor: FunctionComponent<IEditor> = ({components}) => {
             </StyledTitle>
             <Unstyled>
                 <KitApp customTheme={theme}>
-                    <Component title="General" path="general" />
-                    {components &&
-                        Object.keys(components).map(group => {
-                            return Object.keys(components[group]).map(item => {
-                                const Item = components[group][item];
+                    <MainHeader>General tokens </MainHeader>
+                    <Component title="General" path="general" showA11yToggle={false} />
+                    <MainHeader>Components</MainHeader>
+                    <StyledComponentWrapper $isOpen $container>
+                        {components &&
+                            Object.keys(components).map(group => {
+                                const paths = Object.values(components[group]).map(item => item.path);
                                 return (
-                                    <Component key={item} path={Item.path} title={Item.title}>
-                                        <Item />
+                                    <Component
+                                        key={group}
+                                        title={group}
+                                        path={group}
+                                        container
+                                        showA11yToggle={false}
+                                        level={0}
+                                        registerExpandCollapse={_registerExpandCollapse}
+                                        onCollapseGroup={() => _handleCollapseGroup(paths)}
+                                        onExpandGroup={() => _handleExpandGroup(paths)}
+                                    >
+                                        {Object.keys(components[group]).map(item => {
+                                            const Item = components[group][item];
+                                            return (
+                                                <Component
+                                                    key={item}
+                                                    path={Item.path}
+                                                    title={Item.title}
+                                                    showA11yToggle
+                                                    level={1}
+                                                    registerExpandCollapse={_registerExpandCollapse}
+                                                >
+                                                    <Item />
+                                                </Component>
+                                            );
+                                        })}
                                     </Component>
                                 );
-                            });
-                        })}
+                            })}
+                    </StyledComponentWrapper>
                 </KitApp>
             </Unstyled>
         </>

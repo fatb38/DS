@@ -18,7 +18,8 @@ import {EditorTemplate as Rate} from './02-Design System/04-DataEntry/Rate/data'
 import {EditorTemplate as Select} from './02-Design System/04-DataEntry/Select/data';
 import {EditorTemplate as Slider} from './02-Design System/04-DataEntry/Slider/data';
 import {EditorTemplate as Switch} from './02-Design System/04-DataEntry/Switch/data';
-import {EditorTemplate as Tag} from './02-Design System/04-DataEntry/Tag/data';
+import {EditorTemplate as ColorPicker} from './02-Design System/04-DataEntry/ColorPicker/data';
+import {EditorTemplate as Tag} from './02-Design System/05-DataDisplay/Tag/data';
 import {EditorTemplate as Upload} from './02-Design System/04-DataEntry/Upload/data';
 import {EditorTemplate as Avatar} from './02-Design System/05-DataDisplay/Avatar/data';
 import {EditorTemplateGroup as AvatarGroup} from './02-Design System/05-DataDisplay/Avatar/data';
@@ -30,6 +31,7 @@ import {EditorTemplate as ItemCard} from './02-Design System/05-DataDisplay/Item
 import {EditorTemplate as ItemList} from './02-Design System/05-DataDisplay/ItemList/data';
 import {EditorTemplate as Tabs} from './02-Design System/05-DataDisplay/Tabs/data';
 import {EditorTemplate as Tooltip} from './02-Design System/05-DataDisplay/Tooltip/data';
+import {EditorTemplate as Tour} from './02-Design System/05-DataDisplay/Tour/data';
 import {EditorTemplate as Tree} from './02-Design System/05-DataDisplay/Tree/data';
 import {EditorTemplate as Alert} from './02-Design System/06-Feedback/Alert/data';
 import {EditorTemplate as Modal} from './02-Design System/06-Feedback/Modal/data';
@@ -56,6 +58,7 @@ export default {
     },
     DataEntry: {
         Checkbox,
+        ColorPicker,
         DatePicker,
         Input,
         InputWrapper,
@@ -65,7 +68,6 @@ export default {
         Select,
         Slider,
         Switch,
-        Tag,
         Upload
     },
     DataDisplay: {
@@ -78,7 +80,9 @@ export default {
         ItemCard,
         ItemList,
         Tabs,
+        Tag,
         Tooltip,
+        Tour,
         Tree
     },
     Feedback: {

@@ -1,0 +1,60 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Examples, { Sources } from './examples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
+import * as KitTourStories from './Tour.stories';
+
+<Meta of={KitTourStories} />
+
+# Tour
+
+A popup component for guiding users through a product.
+
+## Usage
+
+Use when you want to guide users through a product.
+
+## Examples
+
+##### Basic
+
+The most basic usage.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="tour-basic" />
+
+##### Non-modal
+
+Use `mask={false}` to make Tour non-modal. At the meantime it is recommended to use with `type="primary"` to emphasize the guide itself.
+
+<CustomCanvas content={Examples.NoModal} source={Sources.NoModal} id="tour-no-modal" />
+
+##### Placement
+
+Change the placement of the guide relative to the target, there are 12 placements available. When `target={null}` the guide will show in the center.
+
+<CustomCanvas content={Examples.Placement} source={Sources.Placement} id="tour-placement" />
+
+##### Custom mask style
+
+Custom mask style.
+
+<CustomCanvas content={Examples.CustomMask} source={Sources.CustomMask} id="tour-custom-mask" />
+
+##### Custom indicator
+
+Custom indicator.
+
+<CustomCanvas content={Examples.CustomIndicator} source={Sources.CustomIndicator} id="tour-custom-indicator" />
+
+## Api
+
+<Canvas of={KitTourStories.Api} />
+
+<Controls of={KitTourStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Tooltip" tokens={fields?.components?.Tour} />

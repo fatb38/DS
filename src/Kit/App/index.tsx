@@ -15,6 +15,8 @@ import {mapKitThemeToAntdTheme} from '@theme/utils/tokens-mapper';
 import {IKitLocale} from '@translation/types';
 import {KitLocaleProvider, useKitLocale} from '@translation/locale-context';
 import {mapKitLocaleToAntdLocale} from '@translation/utils';
+import {ColorPickerPanelStyle} from '@kit/DataEntry/ColorPicker/style';
+import {TourStyle} from '@kit/DataDisplay/Tour/style';
 
 export const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;
@@ -38,7 +40,7 @@ const KitAppConfig: FunctionComponent<{customTheme?: IKitCustomTheme; locale?: I
     customTheme
 }) => {
     const {theme, setCustomTheme} = useKitTheme();
-    const {locale: kitLocale, setKitLocale} = useKitLocale();
+    const {setKitLocale} = useKitLocale();
 
     useEffect(() => {
         if (customTheme !== undefined) {
@@ -57,12 +59,14 @@ const KitAppConfig: FunctionComponent<{customTheme?: IKitCustomTheme; locale?: I
             <KitNotificationProvider>
                 <KitSnackBarProvider />
                 <GlobalStyles />
+                <ColorPickerPanelStyle $theme={theme.components.ColorPicker} />
                 <DropDownStyle $theme={theme.components.DropDown} />
                 <SelectDropDownStyle $theme={theme.components.Select.DropDown} />
                 <TabsDropDownStyle $theme={theme.components.Tabs.DropDown} />
                 <DatePickerDropDownStyle $theme={theme.components.DatePicker.DropDown} />
                 <NotificationStyle $theme={theme.components.Notification} />
                 <TypographyStyle $theme={theme.components.Typography} />
+                <TourStyle $buttonTheme={theme.components.Button} $generalTheme={theme.general} />
                 {children}
             </KitNotificationProvider>
         </ConfigProvider>

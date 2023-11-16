@@ -5,8 +5,6 @@ import {IEditorTemplate} from '../../../types';
 
 const status = ['error', 'default', 'success', 'processing', 'warning'];
 
-const countColor = ['default', 'green', 'blue', 'blueInvert', 'gray'];
-
 export const argTypes = {
     count: {
         name: 'count',
@@ -76,17 +74,27 @@ export const argTypes = {
             category: 'Badge'
         }
     },
-    countColor: {
-        name: 'countColor',
-        description: 'Set Badge count a color',
-        options: countColor,
+    color: {
+        name: 'color',
+        control: {type: 'color'},
+        description: 'Set a color',
+        table: {
+            type: {
+                summary:
+                    '`hexadecimal` | `rgb` | `hsl` | `mediumGrey` | `yellow` | `orange` | `pink` | `red` | `blue` | `green`'
+            },
+            category: 'Badge'
+        }
+    },
+    secondaryColorInvert: {
+        name: 'secondaryColorInvert',
+        description: 'Allow colors invertion only if color is set with a KitColorKeys',
         control: {
-            type: 'select',
-            defaultValue: 'default'
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: 'default | green | blue | blueInvert | gray'
+                summary: 'boolean'
             },
             category: 'Badge'
         }
@@ -121,20 +129,23 @@ export const Template = args => {
 export const EditorTemplate: IEditorTemplate = () => {
     return (
         <KitSpace size="s">
-            <KitBadge countColor="default" count={5}>
+            <KitBadge count={5}>
                 <KitAvatar shape="square" size="large" />
             </KitBadge>
-            <KitBadge countColor="green" count={5}>
-                <KitAvatar shape="square" size="large" />
+            <KitBadge dot status="success">
+                Success
             </KitBadge>
-            <KitBadge countColor="blue" count={5}>
-                <KitAvatar shape="square" size="large" />
+            <KitBadge dot status="error">
+                Error
             </KitBadge>
-            <KitBadge countColor="blueInvert" count={5}>
-                <KitAvatar shape="square" size="large" />
+            <KitBadge dot status="default">
+                Default
             </KitBadge>
-            <KitBadge countColor="gray" count={5}>
-                <KitAvatar shape="square" size="large" />
+            <KitBadge dot status="processing">
+                Processing
+            </KitBadge>
+            <KitBadge dot status="warning">
+                Warning
             </KitBadge>
         </KitSpace>
     );

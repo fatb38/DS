@@ -2,11 +2,10 @@ import React from 'react';
 import {KitAvatar} from '@kit/DataDisplay';
 import {KitDivider, KitSpace} from '@kit/Layout';
 import {IEditorTemplate} from '../../../types';
-import { UserOutlined } from '@ant-design/icons';
+import {faUser} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const shape = ['circle', 'square'];
-
-const color = ['default', 'blueInvert', 'yellow', 'brown', 'darkblue'];
 
 const pophoverPlacement = ['top', 'bottom'];
 
@@ -69,16 +68,25 @@ export const argTypes = {
     },
     color: {
         name: 'color',
-        description:
-            'The color of avatar. If custom color provided, the text color will adapt to maintain sufficient contrast.',
-        options: color,
+        control: {type: 'color'},
+        description: 'Set a color',
+        table: {
+            type: {
+                summary:
+                    '`hexadecimal` | `rgb` | `hsl` | `mediumGrey` | `yellow` | `orange` | `pink` | `red` | `blue` | `green`'
+            },
+            category: 'Avatar'
+        }
+    },
+    secondaryColorInvert: {
+        name: 'secondaryColorInvert',
+        description: 'Allow colors invertion only if color is set with a KitColorKeys',
         control: {
-            type: 'select',
-            defaultValue: 'default'
+            type: 'boolean'
         },
         table: {
             type: {
-                summary: 'default | blueInvert | `string`'
+                summary: 'boolean'
             },
             category: 'Avatar'
         }
@@ -256,23 +264,19 @@ export const Template = args => {
 export const EditorTemplate: IEditorTemplate = () => {
     return (
         <KitSpace>
+            <KitAvatar shape="circle" size="small">
+                A
+            </KitAvatar>
+            <KitAvatar shape="circle">A</KitAvatar>
             <KitAvatar shape="circle" size="large">
                 A
             </KitAvatar>
-            <KitAvatar shape="square" size="large">
+            <KitAvatar shape="square" size="small">
                 V
             </KitAvatar>
-            <KitAvatar color="default" size="large">
-                A
-            </KitAvatar>
-            <KitAvatar color="blueInvert" size="large">
-                T
-            </KitAvatar>
-            <KitAvatar color="lightcoral" size="large">
-                A
-            </KitAvatar>
-            <KitAvatar color="brown" size="large">
-                R
+            <KitAvatar shape="square">V</KitAvatar>
+            <KitAvatar shape="square" size="large">
+                V
             </KitAvatar>
         </KitSpace>
     );
@@ -282,37 +286,37 @@ EditorTemplate.title = 'Avatar';
 
 export const EditorTemplateGroup: IEditorTemplate = () => {
     const url = 'https://xsgames.co/randomusers/avatar.php?g=pixel&key=1';
-    
+
     return (
         <KitSpace direction="vertical" size={16}>
-        <KitDivider orientation="left">Default KitAvatar.Group</KitDivider>
-        <KitAvatar.Group>
-            <KitAvatar src={url} />
-            <KitAvatar>K</KitAvatar>
-            <KitAvatar icon={<UserOutlined />} />
-        </KitAvatar.Group>
-        <KitDivider orientation="left">KitAvatar.Group with limit</KitDivider>
-        <KitAvatar.Group maxCount={2}>
-            <KitAvatar src={url} />
-            <KitAvatar>K</KitAvatar>
-            <KitAvatar icon={<UserOutlined />} />
-            <KitAvatar icon={<UserOutlined />} />
-        </KitAvatar.Group>
-        <KitDivider orientation="left">KitAvatar.Group with max popover on click</KitDivider>
-        <KitAvatar.Group maxCount={2} maxPopoverTrigger="click">
-            <KitAvatar src={url} />
-            <KitAvatar>K</KitAvatar>
-            <KitAvatar icon={<UserOutlined />} />
-            <KitAvatar icon={<UserOutlined />} />
-        </KitAvatar.Group>
-        <KitDivider orientation="left">KitAvatar.Group with limit and size large</KitDivider>
-        <KitAvatar.Group maxCount={2} size="large">
-            <KitAvatar src={url} />
-            <KitAvatar>K</KitAvatar>
-            <KitAvatar icon={<UserOutlined />} />
-            <KitAvatar icon={<UserOutlined />} />
-        </KitAvatar.Group>
-    </KitSpace>
+            <KitDivider orientation="left">Default KitAvatar.Group</KitDivider>
+            <KitAvatar.Group>
+                <KitAvatar src={url} />
+                <KitAvatar>K</KitAvatar>
+                <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} />
+            </KitAvatar.Group>
+            <KitDivider orientation="left">KitAvatar.Group with limit</KitDivider>
+            <KitAvatar.Group maxCount={2}>
+                <KitAvatar src={url} />
+                <KitAvatar>K</KitAvatar>
+                <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} />
+                <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} />
+            </KitAvatar.Group>
+            <KitDivider orientation="left">KitAvatar.Group with max popover on click</KitDivider>
+            <KitAvatar.Group maxCount={2} maxPopoverTrigger="click">
+                <KitAvatar src={url} />
+                <KitAvatar>K</KitAvatar>
+                <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} />
+                <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} />
+            </KitAvatar.Group>
+            <KitDivider orientation="left">KitAvatar.Group with limit and size large</KitDivider>
+            <KitAvatar.Group maxCount={2} size="large">
+                <KitAvatar src={url} />
+                <KitAvatar>K</KitAvatar>
+                <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} />
+                <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} />
+            </KitAvatar.Group>
+        </KitSpace>
     );
 };
 EditorTemplateGroup.path = 'components.AvatarGroup';

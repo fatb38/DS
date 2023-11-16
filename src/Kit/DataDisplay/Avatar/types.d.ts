@@ -3,19 +3,20 @@ import {GroupProps} from 'antd/lib/avatar';
 import {KitHTMLAttributes} from '../../../types';
 import {IKitAvatarTheme} from '@theme/types/components/DataDisplay/Avatar';
 import {FunctionComponent} from 'react';
+import {KitColorProp} from '@utils/functions/types';
 
 type AntdAvatarTypesToOmit = '';
 type AntdAvatarGroupTypesToOmit = 'maxStyle';
 
-export type KitAvatarColorType = 'default' | 'blueInvert' | string;
-
 export interface IKitAvatar extends Omit<AvatarProps, AntdAvatarTypesToOmit>, KitHTMLAttributes<HTMLSpanElement> {
-    color?: KitAvatarColorType;
+    color?: KitColorProp;
+    secondaryColorInvert?: boolean;
 }
 
 export interface IStyledKitAvatar {
     $theme: IKitAvatarTheme;
-    $color: KitAvatarColorType;
+    $iconColor: string;
+    $backgroundColor: string;
 }
 
 export interface IKitAvatarGroup

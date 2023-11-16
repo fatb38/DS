@@ -47,7 +47,7 @@ export const DropDownStyle = createGlobalStyle<IDropDownStyle>`
                 min-height: 32px;
                 font-weight: ${({$theme}) => $theme.menuItem.typography.fontWeight};
                 color: ${({$theme}) => $theme.menuItem.colors.typography.default};
-                padding: 0 10px;
+                padding: 0;
 
                 &:not(:last-child) {
                     margin-bottom: 5px;
@@ -69,13 +69,17 @@ export const DropDownStyle = createGlobalStyle<IDropDownStyle>`
                 }
             }
 
+            .ant-dropdown-menu-item > .ant-dropdown-menu-title-content {
+                padding: 0 10px;
+            }
+
             .ant-dropdown-menu-submenu {
                 display: flex;
                 align-items: center;
 
                 .ant-dropdown-menu-submenu-title {
                     background-color: initial;
-                    padding: 0;
+                    padding: 0 10px;
                     font-weight: ${({$theme}) => $theme.subMenu.title.typography.fontWeight};
                     color: ${({$theme}) => $theme.subMenu.title.colors.typography.default};
                     width: 100%;
@@ -128,6 +132,11 @@ export const DropDownStyle = createGlobalStyle<IDropDownStyle>`
             a {
                 transition: all 0s;
             }
+        }
+
+        &.ant-dropdown .ant-dropdown-menu {
+            max-height: 256px;
+            overflow: auto;
         }
     }
 `;

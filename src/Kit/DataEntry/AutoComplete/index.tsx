@@ -1,10 +1,11 @@
-import React, {FunctionComponent} from 'react';
-import {AutoComplete as AntdAutoComplete} from 'antd';
-import {SearchOutlined} from '@ant-design/icons';
+import React, {Ref, forwardRef} from 'react';
+import {AutoComplete as AntdAutoComplete, RefSelectProps} from 'antd';
 import {KitInput} from '@kit/DataEntry/';
 import type {IKitAutoComplete} from './types';
 import KitInputWrapper from '../Input/InputWrapper';
 import styled from 'styled-components';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 export const StyledKitAutoComplete = styled(AntdAutoComplete)`
     &.ant-select-auto-complete.ant-select-open {
@@ -15,41 +16,54 @@ export const StyledKitAutoComplete = styled(AntdAutoComplete)`
     }
 `;
 
-export const KitAutoComplete: FunctionComponent<IKitAutoComplete> = ({
-    allowClear,
-    label,
-    helper,
-    autoFocus,
-    defaultValue,
-    disabled,
-    placeholder,
-    status,
-    value,
-    onBlur,
-    onChange,
-    popupClassName,
-    ...props
-}) => {
-    return (
-        <KitInputWrapper label={label} helper={helper} disabled={disabled} status={status}>
-            <StyledKitAutoComplete
-                {...props}
+export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
+    (
+        {
+            allowClear,
+            label,
+            helper,
+            autoFocus,
+            defaultValue,
+            disabled,
+            placeholder,
+            status,
+            value,
+            onBlur,
+            onChange,
+            popupClassName,
+            wrapperClassName,
+            ...props
+        },
+        ref?: Ref<RefSelectProps> | undefined
+    ) => {
+        return (
+            <KitInputWrapper
+                label={label}
+                helper={helper}
                 disabled={disabled}
-                popupClassName={`ant-select-dropdown kit-select-dropdown-bottom ${popupClassName || ''}`}
+                status={status}
+                className={wrapperClassName}
             >
-                <KitInput
-                    prefix={<SearchOutlined />}
-                    allowClear={allowClear}
-                    autoFocus={autoFocus}
-                    defaultValue={defaultValue}
-                    placeholder={placeholder}
-                    status={status}
-                    value={value}
-                    onBlur={onBlur}
-                />
-            </StyledKitAutoComplete>
-        </KitInputWrapper>
-    );
-};
+                <StyledKitAutoComplete
+                    {...props}
+                    disabled={disabled}
+                    ref={ref}
+                    popupClassName={`ant-select-dropdown kit-select-dropdown-bottom ${popupClassName || ''}`}
+                >
+                    <KitInput
+                        prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />}
+                        allowClear={allowClear}
+                        autoFocus={autoFocus}
+                        defaultValue={defaultValue}
+                        placeholder={placeholder}
+                        status={status}
+                        value={value}
+                        onBlur={onBlur}
+                    />
+                </StyledKitAutoComplete>
+            </KitInputWrapper>
+        );
+    }
+);
 
 KitAutoComplete.displayName = 'KitAutoComplete';

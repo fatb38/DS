@@ -3,7 +3,8 @@ import {KitSelect} from '@kit/DataEntry/';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
 import {useKitTheme} from '@theme/theme-context';
-import {FileOutlined} from '@ant-design/icons';
+import {faFile} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const SelectArgTypes = {
     label: {
@@ -367,6 +368,16 @@ const SelectArgTypes = {
             category: 'Select'
         },
         defaultValue: () => {}
+    },
+    wrapperClassName: {
+        name: 'wrapperClassName',
+        description: 'Component wrapper class name',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Select'
+        }
     }
 };
 
@@ -409,22 +420,22 @@ export const EditorTemplate: IEditorTemplate = () => {
     const iconOptions = [
         {
             value: 'file-1',
-            icon: <FileOutlined />,
+            icon: <FontAwesomeIcon icon={faFile} />,
             label: 'File 1'
         },
         {
             value: 'file-2',
-            icon: <FileOutlined />,
+            icon: <FontAwesomeIcon icon={faFile} />,
             label: 'File 2'
         },
         {
             value: 'file-3-1',
-            icon: <FileOutlined />,
+            icon: <FontAwesomeIcon icon={faFile} />,
             label: 'File 3.1'
         },
         {
             value: 'file-3-2',
-            icon: <FileOutlined />,
+            icon: <FontAwesomeIcon icon={faFile} />,
             label: 'File 3.2'
         }
     ];

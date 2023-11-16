@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -24,49 +24,49 @@ When a numeric value needs to be provided.
 
 Numeric-only input box.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="inputnumber-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="inputnumber-basic" />
 
 ##### Disabled
 
 Click the button to toggle between available and disabled states.
 
-<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="inputnumber-disabled" />
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="inputnumber-disabled" />
 
 ##### High precision decimals
 
 Use `stringMode` to support high precision decimals support. `onChange` will return string value instead. You need polyfill of BigInt if browser not support.
 
-<CustomCanvas content={Exemples.Precision} source={Sources.Precision} id="inputnumber-precision" />
+<CustomCanvas content={Examples.Precision} source={Sources.Precision} id="inputnumber-precision" />
 
 ##### Keyboard
 
 Control keyboard behavior by `keyboard`.
 
-<CustomCanvas content={Exemples.Keyboard} source={Sources.Keyboard} id="inputnumber-keyboard" />
+<CustomCanvas content={Examples.Keyboard} source={Sources.Keyboard} id="inputnumber-keyboard" />
 
 ##### Prefix
 
 Add a prefix inside input.
 
-<CustomCanvas content={Exemples.Prefix} source={Sources.Prefix} id="inputnumber-prefix" />
+<CustomCanvas content={Examples.Prefix} source={Sources.Prefix} id="inputnumber-prefix" />
 
 ##### Out of range
 
 Show warning style when `value` is out of range by control.
 
-<CustomCanvas content={Exemples.Outrange} source={Sources.Outrange} id="inputnumber-out-range" />
+<CustomCanvas content={Examples.Outrange} source={Sources.Outrange} id="inputnumber-out-range" />
 
 ##### Status
 
 Add status to InputNumber with `status`, which could be `error` or `warning`.
 
-<CustomCanvas content={Exemples.Status} source={Sources.Status} id="inputnumber-status" />
+<CustomCanvas content={Examples.Status} source={Sources.Status} id="inputnumber-status" />
 
 ##### Label and Helper
 
 Add `label` and/or `helper` properties to give field context.
 
-<CustomCanvas content={Exemples.Wrapper} source={Sources.Wrapper} id="inputnumber-wrapper" />
+<CustomCanvas content={Examples.Wrapper} source={Sources.Wrapper} id="inputnumber-wrapper" />
 
 ## Api
 

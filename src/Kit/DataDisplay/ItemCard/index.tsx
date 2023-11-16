@@ -3,15 +3,18 @@ import styled from 'styled-components';
 import cn from 'classnames';
 import IKitItemCard, {IStyledKitItemCard} from './types';
 import KitColorbar from './ColorBar';
-import {EditOutlined, EyeOutlined} from '@ant-design/icons';
 import {KitTypography, KitButton} from '@kit/General/';
 import {IKitImage} from '@kit/DataDisplay/Image/types';
 import {IKitIcon} from '@kit/General/Icon/types';
 import {IKitAvatar} from '../Avatar/types';
-import {KitCheckbox, KitTag} from '@kit/DataEntry';
+import {KitCheckbox} from '@kit/DataEntry';
+import {KitTag} from '@kit/DataDisplay';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {useKitTheme} from '@theme/theme-context';
 import {useKitLocale} from '@translation/locale-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEye} from '@fortawesome/free-regular-svg-icons';
+import {faPencil} from '@fortawesome/free-solid-svg-icons';
 
 const ItemCardWrapper = styled.div<IStyledKitItemCard>`
     display: grid;
@@ -26,6 +29,11 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
 
     &:not(.kit-card-disabled):hover {
         border: 1px solid ${({$theme}) => $theme.card.colors.border.hover};
+    }
+
+    .kit-card-select-button-wrapper {
+        line-height: 1.2;
+        font-size: 0.6rem;
     }
 
     &:not(.kit-card-disabled) {
@@ -66,6 +74,11 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
             min-width: 16px;
             color: ${({$theme}) => $theme.select.colors.typography.disabled};
         }
+
+        .kit-card-tags .ant-tag,
+        .kit-card-icon {
+            opacity: 0.4;
+        }
     }
 
     &.kit-card-vertical {
@@ -80,6 +93,10 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
         .kit-card-icon,
         .kit-card-colorbar {
             margin-bottom: 8px;
+        }
+
+        .kit-card-colorbar {
+            align-self: center;
         }
 
         .kit-card-image,
@@ -192,6 +209,10 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
 
         .kit-icon {
             padding: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
         }
 
         .avatar-full {
@@ -277,7 +298,7 @@ const _getPicture = (picture, fullWidthAvatar) => {
             cloneProps = {
                 preview: {
                     ...(picture.props?.preview ?? {}),
-                    mask: <EyeOutlined />
+                    mask: <FontAwesomeIcon icon={faEye} />
                 },
                 width: '100%',
                 height: '100%',
@@ -315,7 +336,8 @@ const _getActions = (actions, disabled) => {
             key: index,
             type: 'default',
             disabled: disabled,
-            className: `${button.props.className ?? ''} kit-card-select-button`
+            className: `${button.props.className ?? ''} kit-card-select-button`,
+            wrapperClassName: `${button.props.wrapperClassName ?? ''} kit-card-select-button-wrapper`
         })
     );
 };
@@ -364,11 +386,12 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
                     )}
                     {onEdit && (
                         <KitButton
+                            wrapperClassName="kit-card-select-button-wrapper"
                             className="kit-card-select-button"
                             onClick={e => onEdit && onEdit(e)}
                             disabled={disabled}
                         >
-                            <EditOutlined />
+                            <FontAwesomeIcon icon={faPencil} />
                         </KitButton>
                     )}
                     {_getActions(actions, disabled)}

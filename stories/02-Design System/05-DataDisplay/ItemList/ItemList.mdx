@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -22,48 +22,48 @@ Use the ItemList to display a repeated piece of information in, for instance, a 
 
 A basic ItemList can contain a `title` and/or a `description`.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="itemlist-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="itemlist-basic" />
 
 ##### Selectable
 
 To mark an ItemList as selectable, use the `onSelectChange` property.
 
-<CustomCanvas content={Exemples.Selectable} source={Sources.Selectable} id="itemlist-selectable" />
+<CustomCanvas content={Examples.Selectable} source={Sources.Selectable} id="itemlist-selectable" />
 
 ##### Picture
 
 ItemList can contain a picture using the `picture` property.
 
-<CustomCanvas content={Exemples.Picture} source={Sources.Picture} id="itemlist-picture" />
+<CustomCanvas content={Examples.Picture} source={Sources.Picture} id="itemlist-picture" />
 
 ##### Tag
 
 ItemList can display a tag using the `tagNumber` property.
 
-<CustomCanvas content={Exemples.Tag} source={Sources.Tag} id="itemlist-tag" />
+<CustomCanvas content={Examples.Tag} source={Sources.Tag} id="itemlist-tag" />
 
 ##### Rafter
 
 ItemList can display a rafter using the `onRafterClick` property.
 
-<CustomCanvas content={Exemples.Rafter} source={Sources.Rafter} id="itemlist-rafter" />
+<CustomCanvas content={Examples.Rafter} source={Sources.Rafter} id="itemlist-rafter" />
 
 ##### With everything
 
 ItemList with all options to display.
 
-<CustomCanvas content={Exemples.All} source={Sources.All} id="itemlist-all" />
+<CustomCanvas content={Examples.All} source={Sources.All} id="itemlist-all" />
 
 ##### Sizing
 
 ItemList has no defined width. It will take the width of its parent container
 
-<CustomCanvas content={Exemples.Sizing} source={Sources.Sizing} id="itemlist-sizing" />
+<CustomCanvas content={Examples.Sizing} source={Sources.Sizing} id="itemlist-sizing" />
 ##### Disabled
 
 To mark an ItemList as disabled, add the `disabled` property.
 
-<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="itemlist-disabled" />
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="itemlist-disabled" />
 
 ## API
 
@@ -75,3 +75,10 @@ To mark an ItemList as disabled, add the `disabled` property.
 ## Design Tokens
 
 <DesignTokens path="components.ItemList" tokens={fields?.components?.ItemList} />
+
+## Translation Tokens
+
+|   | en-US | fr-FR |
+|---|-------|-------|
+| more | More | Plus |
+| less | Less | Moins |

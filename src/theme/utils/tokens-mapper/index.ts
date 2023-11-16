@@ -16,11 +16,12 @@ import {
     mapRateKitTokenToAntdToken,
     mapSelectKitTokenToAntdToken,
     mapSliderKitTokenToAntdToken,
-    mapTagKitTokenToAntdToken
+    mapTagKitTokenToAntdToken,
+    mapColorPickerKitTokenToAntdToken
 } from './DataEntry';
 import {mapAlertKitTokenToAntdToken, mapProgressKitTokenToAntdToken} from './Feedback';
 import {mapDividerKitTokenToAntdToken} from './Layout';
-import {mapStepsKitTokenToAntdToken} from './Navigation';
+import {mapStepsKitTokenToAntdToken, mapPaginationKitTokenToAntdToken} from './Navigation';
 import {mapButtonKitTokenToAntdToken} from './General';
 
 export const mapKitThemeToAntdTheme = (theme: IKitTheme): ThemeConfig => {
@@ -45,7 +46,9 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme): ThemeConfig => {
             Select: mapSelectKitTokenToAntdToken(components.Select),
             Slider: mapSliderKitTokenToAntdToken(components.Slider),
             Steps: mapStepsKitTokenToAntdToken(components.Steps),
-            Tag: mapTagKitTokenToAntdToken(components.Tag)
+            Tag: mapTagKitTokenToAntdToken(components.Tag),
+            Pagination: mapPaginationKitTokenToAntdToken(components.Pagination),
+            ColorPicker: mapColorPickerKitTokenToAntdToken(components.ColorPicker)
         }
     };
 };

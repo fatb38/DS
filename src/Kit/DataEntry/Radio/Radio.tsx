@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {IStyledKitRadio, KitRadioProps} from './types';
 import RadioGroupContext from './context';
 import {useKitTheme} from '@theme/theme-context';
+import {RadioRef} from 'antd/es/radio';
 
 const StyledKitRadio = styled(Radio)<IStyledKitRadio>`
     font-weight: ${({$theme}) => $theme.typography.fontWeight};
@@ -121,7 +122,7 @@ const StyledKitRadio = styled(Radio)<IStyledKitRadio>`
     }
 `;
 
-const KitRadio = forwardRef<any, KitRadioProps>((props, ref) => {
+const KitRadio = forwardRef<RadioRef, KitRadioProps>((props, ref) => {
     const groupContext = useContext(RadioGroupContext);
     const {theme} = useKitTheme();
     const {className, danger, ...rest} = props;

@@ -6,24 +6,24 @@ export const getKitSnackBarTokens = (generalTokens: IKitThemeGeneral): IKitSnack
 
     return {
         colors: {
-            background: colors.neutral.gray.gray700,
-            border: colors.neutral.gray.gray700,
+            background: colors.neutral.grey.grey700,
+            border: colors.neutral.grey.grey700,
             typography: {
-                title: colors.neutral.gray.gray400
+                title: colors.neutral.grey.grey400
             },
             cta: {
                 border: {
-                    default: colors.neutral.gray.gray200,
-                    hover: colors.neutral.gray.gray400
+                    default: colors.neutral.grey.grey200,
+                    hover: colors.neutral.grey.grey400
                 },
                 typography: {
-                    default: colors.neutral.gray.gray200,
-                    hover: colors.neutral.gray.gray400
+                    default: colors.neutral.grey.grey200,
+                    hover: colors.neutral.grey.grey400
                 }
             },
             closeIcon: {
-                default: colors.neutral.gray.gray400,
-                hover: colors.neutral.gray.gray500
+                default: colors.neutral.grey.grey400,
+                hover: colors.neutral.grey.grey500
             }
         },
         typography: {

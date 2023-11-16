@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -22,38 +22,39 @@ Obviously (🤭) when you need to display an avatar.
 
 Three sizes and two shapes are available.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="avatar-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="avatar-basic" />
 
 ##### Type
 
 Image, Icon, letter and text are supported.
 
-<CustomCanvas content={Exemples.Type} source={Sources.Type} id="avatar-type" />
+<CustomCanvas content={Examples.Type} source={Sources.Type} id="avatar-type" />
 
 ##### Color
 
 Letter and text can have colors and background colors.
 When using custom color value, text color is automatically selected to allow optimal contrast level.
+If the given color is invalid, the default color will be applied.
 
-<CustomCanvas content={Exemples.Color} source={Sources.Color} id="avatar-color" />
+<CustomCanvas content={Examples.Color} source={Sources.Color} id="avatar-color" />
 
 ##### Avatar.Group
 
 Avatar group display.
 
-<CustomCanvas content={Exemples.Group} source={Sources.Group} id="avatar-group" />
+<CustomCanvas content={Examples.Group} source={Sources.Group} id="avatar-group" />
 
 ##### With Badge
 
 Usually used for reminders and notifications.
 
-<CustomCanvas content={Exemples.Badge} source={Sources.Badge} id="avatar-badge" />
+<CustomCanvas content={Examples.Badge} source={Sources.Badge} id="avatar-badge" />
 
 ##### Responsive Size
 
 Avatar size can be automatically adjusted based on the screen size.
 
-<CustomCanvas content={Exemples.Responsive} source={Sources.Responsive} id="avatar-responsive" />
+<CustomCanvas content={Examples.Responsive} source={Sources.Responsive} id="avatar-responsive" />
 
 ## Api
 

@@ -1,12 +1,12 @@
 import React, {ReactNode} from 'react';
 import Modal from './Modal';
-import {KitInfoOutlined, KitWarningOutlined} from '../../../icons';
-import {CheckOutlined, ExclamationOutlined} from '@ant-design/icons';
 import {KitButton, KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {IKitConfirmDialog} from './types';
 import {useLocale} from 'antd/lib/locale';
 import {useKitTheme} from '@theme/theme-context';
+import {faCheck, faExclamation, faInfo, faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const ConfirmDialog = ({
     icon,
@@ -14,7 +14,7 @@ const ConfirmDialog = ({
     firstLine,
     secondLine,
     image,
-    type = "confirm",
+    type = 'confirm',
     isOpen,
     width,
     portalClassName,
@@ -35,27 +35,39 @@ const ConfirmDialog = ({
     if (icon === true || icon === undefined) {
         switch (type) {
             case 'info':
-                mergedIcon = <KitIcon icon={<KitInfoOutlined />} on className="kit-confirm-icon" />;
+                mergedIcon = <KitIcon icon={<FontAwesomeIcon icon={faInfo} />} on className="kit-confirm-icon" />;
                 break;
             case 'success':
                 mergedIcon = (
-                    <KitIcon icon={<CheckOutlined />} on className="kit-confirm-icon kit-confirm-icon-success" />
+                    <KitIcon
+                        icon={<FontAwesomeIcon icon={faCheck} />}
+                        on
+                        className="kit-confirm-icon kit-confirm-icon-success"
+                    />
                 );
                 break;
             case 'error':
                 mergedIcon = (
-                    <KitIcon icon={<ExclamationOutlined />} on className="kit-confirm-icon kit-confirm-icon-error" />
+                    <KitIcon
+                        icon={<FontAwesomeIcon icon={faExclamation} />}
+                        on
+                        className="kit-confirm-icon kit-confirm-icon-error"
+                    />
                 );
                 break;
             case 'warning':
             default:
                 mergedIcon = (
-                    <KitIcon icon={<KitWarningOutlined />} on className="kit-confirm-icon kit-confirm-icon-warning" />
+                    <KitIcon
+                        icon={<FontAwesomeIcon icon={faTriangleExclamation} />}
+                        on
+                        className="kit-confirm-icon kit-confirm-icon-warning"
+                    />
                 );
                 break;
         }
     }
-    const mergedOkCancel = okCancel ?? type === 'confirm';
+    const mergedOkCancel = okCancel || type === 'confirm';
 
     const _onClick = actionFn => () => {
         actionFn && actionFn();
@@ -94,7 +106,7 @@ const ConfirmDialog = ({
                 <KitSpace size={theme.spacing.vertical.items}>
                     {mergedIcon}
                     <KitSpace direction="vertical" size={theme.spacing.vertical.text}>
-                        <div className="ant-modal-title">{title}</div>
+                        {title && <div className="ant-modal-title">{title}</div>}
                         <div className="ant-modal-body">{firstLine}</div>
                         {secondLine && <div className="ant-modal-body">{secondLine}</div>}
                     </KitSpace>

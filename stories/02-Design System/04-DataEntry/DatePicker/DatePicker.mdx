@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -24,78 +24,78 @@ By clicking the input box, you can select a date from a popup calendar.
 
 Basic use case. Users can select or input a date in panel.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="datepicker-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="datepicker-basic" />
 
 ##### Range Picker
 
 Set range picker type by picker prop.
 
-<CustomCanvas content={Exemples.Rangepicker} source={Sources.Rangepicker} id="datepicker-range" />
+<CustomCanvas content={Examples.Rangepicker} source={Sources.Rangepicker} id="datepicker-range" />
 
 ##### Choose Time
 
 This property provide an additional time selection. When `showTime` is an Object, its properties will be passed on to built-in `TimePicker`.
 
-<CustomCanvas content={Exemples.Choosetime} source={Sources.Choosetime} id="datepicker-choose-time" />
+<CustomCanvas content={Examples.Choosetime} source={Sources.Choosetime} id="datepicker-choose-time" />
 
 ##### Date Format
 
 We can set the date format by `format`. When `format` is an array, the input box can be entered in any of the valid formats of the array.
 
-<CustomCanvas content={Exemples.Dateformat} source={Sources.Dateformat} id="datepicker-date-format" />
+<CustomCanvas content={Examples.Dateformat} source={Sources.Dateformat} id="datepicker-date-format" />
 
 ##### Disabled Date & Time
 
 Disabled part of dates and time by `disabledDate` and `disabledTime` respectively, and `disabledTime` only works with `showTime`.
 
-<CustomCanvas content={Exemples.Disableddate} source={Sources.Disableddate} id="datepicker-disabled-date" />
+<CustomCanvas content={Examples.Disableddate} source={Sources.Disableddate} id="datepicker-disabled-date" />
 
 ##### Disabled
 
 A disabled state of the `KitDatePicker`. You can also set as array to disable one of input.
 
-<CustomCanvas content={Exemples.Disabled} source={Sources.Disabled} id="datepicker-disabled" />
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="datepicker-disabled" />
 
 ##### Preset Ranges
 
 We can set preset ranges to RangePicker to improve user experience.
 
-<CustomCanvas content={Exemples.Presetrange} source={Sources.Presetrange} id="datepicker-preset-ranges" />
+<CustomCanvas content={Examples.Presetrange} source={Sources.Presetrange} id="datepicker-preset-ranges" />
 
 ##### Select range dates in 7 days
 
 Using `changeOnBlur` work with `onCalendarChange` and `disabledDate` to limit date selection.
 
-<CustomCanvas content={Exemples.Selectrange} source={Sources.Selectrange} id="datepicker-select-range" />
+<CustomCanvas content={Examples.Selectrange} source={Sources.Selectrange} id="datepicker-select-range" />
 
 ##### Extra Footer
 
 Render extra footer in panel for customized requirements.
 
-<CustomCanvas content={Exemples.Extrafooter} source={Sources.Extrafooter} id="datepicker-extra-footer" />
+<CustomCanvas content={Examples.Extrafooter} source={Sources.Extrafooter} id="datepicker-extra-footer" />
 
 ##### Status
 
 Add status to KitDatePicker with `status`, which could be `error` or `warning`.
 
-<CustomCanvas content={Exemples.Status} source={Sources.Status} id="datepicker-status" />
+<CustomCanvas content={Examples.Status} source={Sources.Status} id="datepicker-status" />
 ##### Label and Helper
 
 Add `label` and/or `helper` properties to give field context.
 
-<CustomCanvas content={Exemples.Wrapper} source={Sources.Wrapper} id="datepicker-wrapper" />
+<CustomCanvas content={Examples.Wrapper} source={Sources.Wrapper} id="datepicker-wrapper" />
 
 ##### Customized Cell Rendering
 
 We can customize the rendering of the cells in the calendar by providing a `cellRender` function to `KitDatePicker`.
 
-<CustomCanvas content={Exemples.Customcell} source={Sources.Customcell} id="datepicker-custom-cell" />
+<CustomCanvas content={Examples.Customcell} source={Sources.Customcell} id="datepicker-custom-cell" />
 
 ##### Placement
 
 You can manually specify the position of the popup via `placement`.
 
-<CustomCanvas content={Exemples.Placement} source={Sources.Placement} id="datepicker-placement" />
+<CustomCanvas content={Examples.Placement} source={Sources.Placement} id="datepicker-placement" />
 
 ## Api
 

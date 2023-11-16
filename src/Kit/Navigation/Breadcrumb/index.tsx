@@ -10,7 +10,7 @@ const StyledBreadcrumb = styled(Breadcrumb)<IStyledBreadcrumb>`
     li:not(:last-child) .ant-breadcrumb-link a {
         font-family: ${({$theme}) => $theme.link.typography.fontFamily};
         font-weight: ${({$theme}) => $theme.link.typography.fontWeight};
-        color: ${({$theme}) => $theme.link.colors.typography.default};
+        color: inherit;
     }
 `;
 

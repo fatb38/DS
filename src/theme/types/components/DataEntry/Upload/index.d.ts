@@ -113,6 +113,11 @@ export interface IKitUploadTheme {
                  * @TJS-type color
                  */
                 error: string;
+                /**
+                 * uploading color
+                 * @TJS-type color
+                 */
+                uploading: string;
             };
         };
     };

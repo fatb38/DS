@@ -6,11 +6,6 @@ export interface IKitAvatarTheme {
              * @TJS-type color
              */
             default: string;
-            /**
-             * blueInvert color
-             * @TJS-type color
-             */
-            blueInvert: string;
         };
         typography: {
             /**
@@ -18,16 +13,6 @@ export interface IKitAvatarTheme {
              * @TJS-type color
              */
             default: string;
-            /**
-             * blueInvert color
-             * @TJS-type color
-             */
-            blueInvert: string;
-            /**
-             * dark color
-             * @TJS-type color
-             */
-            dark: string;
         };
     };
 }

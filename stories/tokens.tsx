@@ -73,47 +73,42 @@ const forms = {
                     "_path": "general.colors.neutral.background",
                     "_type": "string"
                 },
-                "border": {
-                    "_label": "border",
-                    "_path": "general.colors.neutral.border",
-                    "_type": "string"
-                },
-                "gray": {
-                    "_label": "gray",
-                    "_path": "general.colors.neutral.gray",
-                    "gray100": {
-                        "_label": "gray100",
-                        "_path": "general.colors.neutral.gray.gray100",
+                "grey": {
+                    "_label": "grey",
+                    "_path": "general.colors.neutral.grey",
+                    "grey100": {
+                        "_label": "grey100",
+                        "_path": "general.colors.neutral.grey.grey100",
                         "_type": "string"
                     },
-                    "gray200": {
-                        "_label": "gray200",
-                        "_path": "general.colors.neutral.gray.gray200",
+                    "grey200": {
+                        "_label": "grey200",
+                        "_path": "general.colors.neutral.grey.grey200",
                         "_type": "string"
                     },
-                    "gray300": {
-                        "_label": "gray300",
-                        "_path": "general.colors.neutral.gray.gray300",
+                    "grey300": {
+                        "_label": "grey300",
+                        "_path": "general.colors.neutral.grey.grey300",
                         "_type": "string"
                     },
-                    "gray400": {
-                        "_label": "gray400",
-                        "_path": "general.colors.neutral.gray.gray400",
+                    "grey400": {
+                        "_label": "grey400",
+                        "_path": "general.colors.neutral.grey.grey400",
                         "_type": "string"
                     },
-                    "gray500": {
-                        "_label": "gray500",
-                        "_path": "general.colors.neutral.gray.gray500",
+                    "grey500": {
+                        "_label": "grey500",
+                        "_path": "general.colors.neutral.grey.grey500",
                         "_type": "string"
                     },
-                    "gray600": {
-                        "_label": "gray600",
-                        "_path": "general.colors.neutral.gray.gray600",
+                    "grey600": {
+                        "_label": "grey600",
+                        "_path": "general.colors.neutral.grey.grey600",
                         "_type": "string"
                     },
-                    "gray700": {
-                        "_label": "gray700",
-                        "_path": "general.colors.neutral.gray.gray700",
+                    "grey700": {
+                        "_label": "grey700",
+                        "_path": "general.colors.neutral.grey.grey700",
                         "_type": "string"
                     }
                 },
@@ -1211,266 +1206,804 @@ const forms = {
             "text": {
                 "_label": "text",
                 "_path": "components.Button.text",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.Button.text.colors",
+                "default": {
+                    "_label": "default",
+                    "_path": "components.Button.text.default",
+                    "colors": {
+                        "_label": "colors",
+                        "_path": "components.Button.text.default.colors",
+                        "typography": {
+                            "_label": "typography",
+                            "_path": "components.Button.text.default.colors.typography",
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.default.colors.typography.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.Button.text.default.colors.typography.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
+                            "disabled": {
+                                "_label": "disabled",
+                                "_path": "components.Button.text.default.colors.typography.disabled",
+                                "_type": "color",
+                                "_description": "disabled color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.default.colors.typography.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.default.colors.typography.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.default.colors.typography.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.default.colors.typography.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.default.colors.typography.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            },
+                            "iconCheck": {
+                                "_label": "iconCheck",
+                                "_path": "components.Button.text.default.colors.typography.iconCheck",
+                                "_type": "color"
+                            },
+                            "ghost": {
+                                "_label": "ghost",
+                                "_path": "components.Button.text.default.colors.typography.ghost",
+                                "_type": "color"
+                            }
+                        },
+                        "background": {
+                            "_label": "background",
+                            "_path": "components.Button.text.default.colors.background",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.Button.text.default.colors.background.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.default.colors.background.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.default.colors.background.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.default.colors.background.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "disabled": {
+                                "_label": "disabled",
+                                "_path": "components.Button.text.default.colors.background.disabled",
+                                "_type": "color",
+                                "_description": "disabled color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.default.colors.background.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.default.colors.background.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "hover": {
+                                    "_label": "hover",
+                                    "_path": "components.Button.text.default.colors.background.danger.hover",
+                                    "_type": "color",
+                                    "_description": "hover color"
+                                },
+                                "active": {
+                                    "_label": "active",
+                                    "_path": "components.Button.text.default.colors.background.danger.active",
+                                    "_type": "color",
+                                    "_description": "active color"
+                                },
+                                "focus": {
+                                    "_label": "focus",
+                                    "_path": "components.Button.text.default.colors.background.danger.focus",
+                                    "_type": "color",
+                                    "_description": "focus color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.default.colors.background.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            },
+                            "ghost": {
+                                "_label": "ghost",
+                                "_path": "components.Button.text.default.colors.background.ghost",
+                                "_type": "string"
+                            }
+                        },
+                        "border": {
+                            "_label": "border",
+                            "_path": "components.Button.text.default.colors.border",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.Button.text.default.colors.border.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.default.colors.border.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.default.colors.border.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.default.colors.border.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "disabled": {
+                                "_label": "disabled",
+                                "_path": "components.Button.text.default.colors.border.disabled",
+                                "_type": "color",
+                                "_description": "disabled color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.default.colors.border.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.default.colors.border.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "hover": {
+                                    "_label": "hover",
+                                    "_path": "components.Button.text.default.colors.border.danger.hover",
+                                    "_type": "color",
+                                    "_description": "hover color"
+                                },
+                                "active": {
+                                    "_label": "active",
+                                    "_path": "components.Button.text.default.colors.border.danger.active",
+                                    "_type": "color",
+                                    "_description": "active color"
+                                },
+                                "focus": {
+                                    "_label": "focus",
+                                    "_path": "components.Button.text.default.colors.border.danger.focus",
+                                    "_type": "color",
+                                    "_description": "focus color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.default.colors.border.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            }
+                        }
+                    },
                     "typography": {
                         "_label": "typography",
-                        "_path": "components.Button.text.colors.typography",
-                        "active": {
-                            "_label": "active",
-                            "_path": "components.Button.text.colors.typography.active",
-                            "_type": "color",
-                            "_description": "active color"
+                        "_path": "components.Button.text.default.typography",
+                        "fontWeight": {
+                            "_label": "fontWeight",
+                            "_path": "components.Button.text.default.typography.fontWeight",
+                            "_type": "number",
+                            "_min": 0
                         },
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Button.text.colors.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.Button.text.colors.typography.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Button.text.colors.typography.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "focus": {
-                            "_label": "focus",
-                            "_path": "components.Button.text.colors.typography.focus",
-                            "_type": "color",
-                            "_description": "focus color"
-                        },
-                        "danger": {
-                            "_label": "danger",
-                            "_path": "components.Button.text.colors.typography.danger",
+                        "iconSize": {
+                            "_label": "iconSize",
+                            "_path": "components.Button.text.default.typography.iconSize",
+                            "xs": {
+                                "_label": "xs",
+                                "_path": "components.Button.text.default.typography.iconSize.xs",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "s": {
+                                "_label": "s",
+                                "_path": "components.Button.text.default.typography.iconSize.s",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "m": {
+                                "_label": "m",
+                                "_path": "components.Button.text.default.typography.iconSize.m",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "l": {
+                                "_label": "l",
+                                "_path": "components.Button.text.default.typography.iconSize.l",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "xl": {
+                                "_label": "xl",
+                                "_path": "components.Button.text.default.typography.iconSize.xl",
+                                "_type": "number",
+                                "_min": 0
+                            }
+                        }
+                    },
+                    "compact": {
+                        "_label": "compact",
+                        "_path": "components.Button.text.default.compact",
+                        "border": {
+                            "_label": "border",
+                            "_path": "components.Button.text.default.compact.border",
+                            "radius": {
+                                "_label": "radius",
+                                "_path": "components.Button.text.default.compact.border.radius",
+                                "_type": "number",
+                                "_min": 0
+                            }
+                        }
+                    }
+                },
+                "grey": {
+                    "_label": "grey",
+                    "_path": "components.Button.text.grey",
+                    "colors": {
+                        "_label": "colors",
+                        "_path": "components.Button.text.grey.colors",
+                        "typography": {
+                            "_label": "typography",
+                            "_path": "components.Button.text.grey.colors.typography",
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.grey.colors.typography.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
                             "default": {
                                 "_label": "default",
-                                "_path": "components.Button.text.colors.typography.danger.default",
+                                "_path": "components.Button.text.grey.colors.typography.default",
                                 "_type": "color",
                                 "_description": "default color"
                             },
                             "disabled": {
                                 "_label": "disabled",
-                                "_path": "components.Button.text.colors.typography.danger.disabled",
+                                "_path": "components.Button.text.grey.colors.typography.disabled",
                                 "_type": "color",
                                 "_description": "disabled color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.grey.colors.typography.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.grey.colors.typography.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.grey.colors.typography.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.grey.colors.typography.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.grey.colors.typography.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            },
+                            "iconCheck": {
+                                "_label": "iconCheck",
+                                "_path": "components.Button.text.grey.colors.typography.iconCheck",
+                                "_type": "color"
+                            },
+                            "ghost": {
+                                "_label": "ghost",
+                                "_path": "components.Button.text.grey.colors.typography.ghost",
+                                "_type": "color"
                             }
                         },
-                        "iconCheck": {
-                            "_label": "iconCheck",
-                            "_path": "components.Button.text.colors.typography.iconCheck",
-                            "_type": "color"
-                        },
-                        "ghost": {
-                            "_label": "ghost",
-                            "_path": "components.Button.text.colors.typography.ghost",
-                            "_type": "color"
-                        }
-                    },
-                    "background": {
-                        "_label": "background",
-                        "_path": "components.Button.text.colors.background",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Button.text.colors.background.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Button.text.colors.background.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "active": {
-                            "_label": "active",
-                            "_path": "components.Button.text.colors.background.active",
-                            "_type": "color",
-                            "_description": "active color"
-                        },
-                        "focus": {
-                            "_label": "focus",
-                            "_path": "components.Button.text.colors.background.focus",
-                            "_type": "color",
-                            "_description": "focus color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.Button.text.colors.background.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        },
-                        "danger": {
-                            "_label": "danger",
-                            "_path": "components.Button.text.colors.background.danger",
+                        "background": {
+                            "_label": "background",
+                            "_path": "components.Button.text.grey.colors.background",
                             "default": {
                                 "_label": "default",
-                                "_path": "components.Button.text.colors.background.danger.default",
+                                "_path": "components.Button.text.grey.colors.background.default",
                                 "_type": "color",
                                 "_description": "default color"
                             },
                             "hover": {
                                 "_label": "hover",
-                                "_path": "components.Button.text.colors.background.danger.hover",
+                                "_path": "components.Button.text.grey.colors.background.hover",
                                 "_type": "color",
                                 "_description": "hover color"
                             },
                             "active": {
                                 "_label": "active",
-                                "_path": "components.Button.text.colors.background.danger.active",
+                                "_path": "components.Button.text.grey.colors.background.active",
                                 "_type": "color",
                                 "_description": "active color"
                             },
                             "focus": {
                                 "_label": "focus",
-                                "_path": "components.Button.text.colors.background.danger.focus",
+                                "_path": "components.Button.text.grey.colors.background.focus",
                                 "_type": "color",
                                 "_description": "focus color"
                             },
                             "disabled": {
                                 "_label": "disabled",
-                                "_path": "components.Button.text.colors.background.danger.disabled",
+                                "_path": "components.Button.text.grey.colors.background.disabled",
                                 "_type": "color",
                                 "_description": "disabled color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.grey.colors.background.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.grey.colors.background.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "hover": {
+                                    "_label": "hover",
+                                    "_path": "components.Button.text.grey.colors.background.danger.hover",
+                                    "_type": "color",
+                                    "_description": "hover color"
+                                },
+                                "active": {
+                                    "_label": "active",
+                                    "_path": "components.Button.text.grey.colors.background.danger.active",
+                                    "_type": "color",
+                                    "_description": "active color"
+                                },
+                                "focus": {
+                                    "_label": "focus",
+                                    "_path": "components.Button.text.grey.colors.background.danger.focus",
+                                    "_type": "color",
+                                    "_description": "focus color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.grey.colors.background.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            },
+                            "ghost": {
+                                "_label": "ghost",
+                                "_path": "components.Button.text.grey.colors.background.ghost",
+                                "_type": "string"
                             }
                         },
-                        "ghost": {
-                            "_label": "ghost",
-                            "_path": "components.Button.text.colors.background.ghost",
-                            "_type": "string"
-                        }
-                    },
-                    "border": {
-                        "_label": "border",
-                        "_path": "components.Button.text.colors.border",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Button.text.colors.border.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Button.text.colors.border.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "active": {
-                            "_label": "active",
-                            "_path": "components.Button.text.colors.border.active",
-                            "_type": "color",
-                            "_description": "active color"
-                        },
-                        "focus": {
-                            "_label": "focus",
-                            "_path": "components.Button.text.colors.border.focus",
-                            "_type": "color",
-                            "_description": "focus color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.Button.text.colors.border.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        },
-                        "danger": {
-                            "_label": "danger",
-                            "_path": "components.Button.text.colors.border.danger",
+                        "border": {
+                            "_label": "border",
+                            "_path": "components.Button.text.grey.colors.border",
                             "default": {
                                 "_label": "default",
-                                "_path": "components.Button.text.colors.border.danger.default",
+                                "_path": "components.Button.text.grey.colors.border.default",
                                 "_type": "color",
                                 "_description": "default color"
                             },
                             "hover": {
                                 "_label": "hover",
-                                "_path": "components.Button.text.colors.border.danger.hover",
+                                "_path": "components.Button.text.grey.colors.border.hover",
                                 "_type": "color",
                                 "_description": "hover color"
                             },
                             "active": {
                                 "_label": "active",
-                                "_path": "components.Button.text.colors.border.danger.active",
+                                "_path": "components.Button.text.grey.colors.border.active",
                                 "_type": "color",
                                 "_description": "active color"
                             },
                             "focus": {
                                 "_label": "focus",
-                                "_path": "components.Button.text.colors.border.danger.focus",
+                                "_path": "components.Button.text.grey.colors.border.focus",
                                 "_type": "color",
                                 "_description": "focus color"
                             },
                             "disabled": {
                                 "_label": "disabled",
-                                "_path": "components.Button.text.colors.border.danger.disabled",
+                                "_path": "components.Button.text.grey.colors.border.disabled",
                                 "_type": "color",
                                 "_description": "disabled color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.grey.colors.border.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.grey.colors.border.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "hover": {
+                                    "_label": "hover",
+                                    "_path": "components.Button.text.grey.colors.border.danger.hover",
+                                    "_type": "color",
+                                    "_description": "hover color"
+                                },
+                                "active": {
+                                    "_label": "active",
+                                    "_path": "components.Button.text.grey.colors.border.danger.active",
+                                    "_type": "color",
+                                    "_description": "active color"
+                                },
+                                "focus": {
+                                    "_label": "focus",
+                                    "_path": "components.Button.text.grey.colors.border.danger.focus",
+                                    "_type": "color",
+                                    "_description": "focus color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.grey.colors.border.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            }
+                        }
+                    },
+                    "typography": {
+                        "_label": "typography",
+                        "_path": "components.Button.text.grey.typography",
+                        "fontWeight": {
+                            "_label": "fontWeight",
+                            "_path": "components.Button.text.grey.typography.fontWeight",
+                            "_type": "number",
+                            "_min": 0
+                        },
+                        "iconSize": {
+                            "_label": "iconSize",
+                            "_path": "components.Button.text.grey.typography.iconSize",
+                            "xs": {
+                                "_label": "xs",
+                                "_path": "components.Button.text.grey.typography.iconSize.xs",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "s": {
+                                "_label": "s",
+                                "_path": "components.Button.text.grey.typography.iconSize.s",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "m": {
+                                "_label": "m",
+                                "_path": "components.Button.text.grey.typography.iconSize.m",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "l": {
+                                "_label": "l",
+                                "_path": "components.Button.text.grey.typography.iconSize.l",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "xl": {
+                                "_label": "xl",
+                                "_path": "components.Button.text.grey.typography.iconSize.xl",
+                                "_type": "number",
+                                "_min": 0
+                            }
+                        }
+                    },
+                    "compact": {
+                        "_label": "compact",
+                        "_path": "components.Button.text.grey.compact",
+                        "border": {
+                            "_label": "border",
+                            "_path": "components.Button.text.grey.compact.border",
+                            "radius": {
+                                "_label": "radius",
+                                "_path": "components.Button.text.grey.compact.border.radius",
+                                "_type": "number",
+                                "_min": 0
                             }
                         }
                     }
                 },
-                "typography": {
-                    "_label": "typography",
-                    "_path": "components.Button.text.typography",
-                    "fontWeight": {
-                        "_label": "fontWeight",
-                        "_path": "components.Button.text.typography.fontWeight",
-                        "_type": "number",
-                        "_min": 0
-                    },
-                    "iconSize": {
-                        "_label": "iconSize",
-                        "_path": "components.Button.text.typography.iconSize",
-                        "xs": {
-                            "_label": "xs",
-                            "_path": "components.Button.text.typography.iconSize.xs",
-                            "_type": "number",
-                            "_min": 0
+                "black": {
+                    "_label": "black",
+                    "_path": "components.Button.text.black",
+                    "colors": {
+                        "_label": "colors",
+                        "_path": "components.Button.text.black.colors",
+                        "typography": {
+                            "_label": "typography",
+                            "_path": "components.Button.text.black.colors.typography",
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.black.colors.typography.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.Button.text.black.colors.typography.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
+                            "disabled": {
+                                "_label": "disabled",
+                                "_path": "components.Button.text.black.colors.typography.disabled",
+                                "_type": "color",
+                                "_description": "disabled color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.black.colors.typography.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.black.colors.typography.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.black.colors.typography.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.black.colors.typography.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.black.colors.typography.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            },
+                            "iconCheck": {
+                                "_label": "iconCheck",
+                                "_path": "components.Button.text.black.colors.typography.iconCheck",
+                                "_type": "color"
+                            },
+                            "ghost": {
+                                "_label": "ghost",
+                                "_path": "components.Button.text.black.colors.typography.ghost",
+                                "_type": "color"
+                            }
                         },
-                        "s": {
-                            "_label": "s",
-                            "_path": "components.Button.text.typography.iconSize.s",
-                            "_type": "number",
-                            "_min": 0
+                        "background": {
+                            "_label": "background",
+                            "_path": "components.Button.text.black.colors.background",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.Button.text.black.colors.background.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.black.colors.background.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.black.colors.background.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.black.colors.background.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "disabled": {
+                                "_label": "disabled",
+                                "_path": "components.Button.text.black.colors.background.disabled",
+                                "_type": "color",
+                                "_description": "disabled color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.black.colors.background.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.black.colors.background.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "hover": {
+                                    "_label": "hover",
+                                    "_path": "components.Button.text.black.colors.background.danger.hover",
+                                    "_type": "color",
+                                    "_description": "hover color"
+                                },
+                                "active": {
+                                    "_label": "active",
+                                    "_path": "components.Button.text.black.colors.background.danger.active",
+                                    "_type": "color",
+                                    "_description": "active color"
+                                },
+                                "focus": {
+                                    "_label": "focus",
+                                    "_path": "components.Button.text.black.colors.background.danger.focus",
+                                    "_type": "color",
+                                    "_description": "focus color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.black.colors.background.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            },
+                            "ghost": {
+                                "_label": "ghost",
+                                "_path": "components.Button.text.black.colors.background.ghost",
+                                "_type": "string"
+                            }
                         },
-                        "m": {
-                            "_label": "m",
-                            "_path": "components.Button.text.typography.iconSize.m",
-                            "_type": "number",
-                            "_min": 0
-                        },
-                        "l": {
-                            "_label": "l",
-                            "_path": "components.Button.text.typography.iconSize.l",
-                            "_type": "number",
-                            "_min": 0
-                        },
-                        "xl": {
-                            "_label": "xl",
-                            "_path": "components.Button.text.typography.iconSize.xl",
-                            "_type": "number",
-                            "_min": 0
+                        "border": {
+                            "_label": "border",
+                            "_path": "components.Button.text.black.colors.border",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.Button.text.black.colors.border.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
+                            "hover": {
+                                "_label": "hover",
+                                "_path": "components.Button.text.black.colors.border.hover",
+                                "_type": "color",
+                                "_description": "hover color"
+                            },
+                            "active": {
+                                "_label": "active",
+                                "_path": "components.Button.text.black.colors.border.active",
+                                "_type": "color",
+                                "_description": "active color"
+                            },
+                            "focus": {
+                                "_label": "focus",
+                                "_path": "components.Button.text.black.colors.border.focus",
+                                "_type": "color",
+                                "_description": "focus color"
+                            },
+                            "disabled": {
+                                "_label": "disabled",
+                                "_path": "components.Button.text.black.colors.border.disabled",
+                                "_type": "color",
+                                "_description": "disabled color"
+                            },
+                            "danger": {
+                                "_label": "danger",
+                                "_path": "components.Button.text.black.colors.border.danger",
+                                "default": {
+                                    "_label": "default",
+                                    "_path": "components.Button.text.black.colors.border.danger.default",
+                                    "_type": "color",
+                                    "_description": "default color"
+                                },
+                                "hover": {
+                                    "_label": "hover",
+                                    "_path": "components.Button.text.black.colors.border.danger.hover",
+                                    "_type": "color",
+                                    "_description": "hover color"
+                                },
+                                "active": {
+                                    "_label": "active",
+                                    "_path": "components.Button.text.black.colors.border.danger.active",
+                                    "_type": "color",
+                                    "_description": "active color"
+                                },
+                                "focus": {
+                                    "_label": "focus",
+                                    "_path": "components.Button.text.black.colors.border.danger.focus",
+                                    "_type": "color",
+                                    "_description": "focus color"
+                                },
+                                "disabled": {
+                                    "_label": "disabled",
+                                    "_path": "components.Button.text.black.colors.border.danger.disabled",
+                                    "_type": "color",
+                                    "_description": "disabled color"
+                                }
+                            }
                         }
-                    }
-                },
-                "compact": {
-                    "_label": "compact",
-                    "_path": "components.Button.text.compact",
-                    "border": {
-                        "_label": "border",
-                        "_path": "components.Button.text.compact.border",
-                        "radius": {
-                            "_label": "radius",
-                            "_path": "components.Button.text.compact.border.radius",
+                    },
+                    "typography": {
+                        "_label": "typography",
+                        "_path": "components.Button.text.black.typography",
+                        "fontWeight": {
+                            "_label": "fontWeight",
+                            "_path": "components.Button.text.black.typography.fontWeight",
                             "_type": "number",
                             "_min": 0
+                        },
+                        "iconSize": {
+                            "_label": "iconSize",
+                            "_path": "components.Button.text.black.typography.iconSize",
+                            "xs": {
+                                "_label": "xs",
+                                "_path": "components.Button.text.black.typography.iconSize.xs",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "s": {
+                                "_label": "s",
+                                "_path": "components.Button.text.black.typography.iconSize.s",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "m": {
+                                "_label": "m",
+                                "_path": "components.Button.text.black.typography.iconSize.m",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "l": {
+                                "_label": "l",
+                                "_path": "components.Button.text.black.typography.iconSize.l",
+                                "_type": "number",
+                                "_min": 0
+                            },
+                            "xl": {
+                                "_label": "xl",
+                                "_path": "components.Button.text.black.typography.iconSize.xl",
+                                "_type": "number",
+                                "_min": 0
+                            }
+                        }
+                    },
+                    "compact": {
+                        "_label": "compact",
+                        "_path": "components.Button.text.black.compact",
+                        "border": {
+                            "_label": "border",
+                            "_path": "components.Button.text.black.compact.border",
+                            "radius": {
+                                "_label": "radius",
+                                "_path": "components.Button.text.black.compact.border.radius",
+                                "_type": "number",
+                                "_min": 0
+                            }
                         }
                     }
                 }
@@ -4156,34 +4689,6 @@ const forms = {
                         "_path": "components.Rate.colors.star.disabled",
                         "_type": "color",
                         "_description": "disabled color"
-                    },
-                    "active": {
-                        "_label": "active",
-                        "_path": "components.Rate.colors.star.active",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Rate.colors.star.active.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "red": {
-                            "_label": "red",
-                            "_path": "components.Rate.colors.star.active.red",
-                            "_type": "color",
-                            "_description": "red color"
-                        },
-                        "green": {
-                            "_label": "green",
-                            "_path": "components.Rate.colors.star.active.green",
-                            "_type": "color",
-                            "_description": "green color"
-                        },
-                        "blue": {
-                            "_label": "blue",
-                            "_path": "components.Rate.colors.star.active.blue",
-                            "_type": "color",
-                            "_description": "blue color"
-                        }
                     }
                 }
             }
@@ -4268,150 +4773,6 @@ const forms = {
                             "_path": "components.Tag.colors.default.typography.default",
                             "_type": "color",
                             "_description": "default color"
-                        }
-                    }
-                },
-                "red": {
-                    "_label": "red",
-                    "_path": "components.Tag.colors.red",
-                    "background": {
-                        "_label": "background",
-                        "_path": "components.Tag.colors.red.background",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.red.background.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    },
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.Tag.colors.red.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.red.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Tag.colors.red.typography.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "closeIcon": {
-                            "_label": "closeIcon",
-                            "_path": "components.Tag.colors.red.typography.closeIcon",
-                            "_type": "color",
-                            "_description": "closeIcon color"
-                        }
-                    }
-                },
-                "green": {
-                    "_label": "green",
-                    "_path": "components.Tag.colors.green",
-                    "background": {
-                        "_label": "background",
-                        "_path": "components.Tag.colors.green.background",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.green.background.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    },
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.Tag.colors.green.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.green.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Tag.colors.green.typography.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "closeIcon": {
-                            "_label": "closeIcon",
-                            "_path": "components.Tag.colors.green.typography.closeIcon",
-                            "_type": "color",
-                            "_description": "closeIcon color"
-                        }
-                    }
-                },
-                "blue": {
-                    "_label": "blue",
-                    "_path": "components.Tag.colors.blue",
-                    "background": {
-                        "_label": "background",
-                        "_path": "components.Tag.colors.blue.background",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.blue.background.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    },
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.Tag.colors.blue.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.blue.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Tag.colors.blue.typography.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "closeIcon": {
-                            "_label": "closeIcon",
-                            "_path": "components.Tag.colors.blue.typography.closeIcon",
-                            "_type": "color",
-                            "_description": "closeIcon color"
-                        }
-                    }
-                },
-                "blueInvert": {
-                    "_label": "blueInvert",
-                    "_path": "components.Tag.colors.blueInvert",
-                    "background": {
-                        "_label": "background",
-                        "_path": "components.Tag.colors.blueInvert.background",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.blueInvert.background.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    },
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.Tag.colors.blueInvert.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Tag.colors.blueInvert.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Tag.colors.blueInvert.typography.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "closeIcon": {
-                            "_label": "closeIcon",
-                            "_path": "components.Tag.colors.blueInvert.typography.closeIcon",
-                            "_type": "color",
-                            "_description": "closeIcon color"
                         }
                     }
                 }
@@ -5545,12 +5906,6 @@ const forms = {
                         "_path": "components.Avatar.colors.background.default",
                         "_type": "color",
                         "_description": "default color"
-                    },
-                    "blueInvert": {
-                        "_label": "blueInvert",
-                        "_path": "components.Avatar.colors.background.blueInvert",
-                        "_type": "color",
-                        "_description": "blueInvert color"
                     }
                 },
                 "typography": {
@@ -5561,18 +5916,6 @@ const forms = {
                         "_path": "components.Avatar.colors.typography.default",
                         "_type": "color",
                         "_description": "default color"
-                    },
-                    "blueInvert": {
-                        "_label": "blueInvert",
-                        "_path": "components.Avatar.colors.typography.blueInvert",
-                        "_type": "color",
-                        "_description": "blueInvert color"
-                    },
-                    "dark": {
-                        "_label": "dark",
-                        "_path": "components.Avatar.colors.typography.dark",
-                        "_type": "color",
-                        "_description": "dark color"
                     }
                 }
             }
@@ -5620,30 +5963,6 @@ const forms = {
                         "_type": "color",
                         "_description": "default color"
                     },
-                    "green": {
-                        "_label": "green",
-                        "_path": "components.Badge.colors.background.green",
-                        "_type": "color",
-                        "_description": "green color"
-                    },
-                    "blue": {
-                        "_label": "blue",
-                        "_path": "components.Badge.colors.background.blue",
-                        "_type": "color",
-                        "_description": "blue color"
-                    },
-                    "blueInvert": {
-                        "_label": "blueInvert",
-                        "_path": "components.Badge.colors.background.blueInvert",
-                        "_type": "color",
-                        "_description": "blueInvert color"
-                    },
-                    "gray": {
-                        "_label": "gray",
-                        "_path": "components.Badge.colors.background.gray",
-                        "_type": "color",
-                        "_description": "gray color"
-                    },
                     "primary": {
                         "_label": "primary",
                         "_path": "components.Badge.colors.background.primary",
@@ -5677,30 +5996,6 @@ const forms = {
                         "_path": "components.Badge.colors.typography.default",
                         "_type": "color",
                         "_description": "default color"
-                    },
-                    "green": {
-                        "_label": "green",
-                        "_path": "components.Badge.colors.typography.green",
-                        "_type": "color",
-                        "_description": "green color"
-                    },
-                    "blue": {
-                        "_label": "blue",
-                        "_path": "components.Badge.colors.typography.blue",
-                        "_type": "color",
-                        "_description": "blue color"
-                    },
-                    "blueInvert": {
-                        "_label": "blueInvert",
-                        "_path": "components.Badge.colors.typography.blueInvert",
-                        "_type": "color",
-                        "_description": "blueInvert color"
-                    },
-                    "gray": {
-                        "_label": "gray",
-                        "_path": "components.Badge.colors.typography.gray",
-                        "_type": "color",
-                        "_description": "gray color"
                     }
                 }
             },
@@ -6343,6 +6638,16 @@ const forms = {
                             "_type": "color",
                             "_description": "hover color"
                         }
+                    }
+                },
+                "border": {
+                    "_label": "border",
+                    "_path": "components.ItemList.itemList.border",
+                    "radius": {
+                        "_label": "radius",
+                        "_path": "components.ItemList.itemList.border.radius",
+                        "_type": "number",
+                        "_min": 0
                     }
                 }
             },
@@ -8244,6 +8549,12 @@ const forms = {
                             "_path": "components.Upload.colors.list.typography.error",
                             "_type": "color",
                             "_description": "error color"
+                        },
+                        "uploading": {
+                            "_label": "uploading",
+                            "_path": "components.Upload.colors.list.typography.uploading",
+                            "_type": "color",
+                            "_description": "uploading color"
                         }
                     }
                 }
@@ -9956,20 +10267,6 @@ const forms = {
             "link": {
                 "_label": "link",
                 "_path": "components.Breadcrumb.link",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.Breadcrumb.link.colors",
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.Breadcrumb.link.colors.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Breadcrumb.link.colors.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    }
-                },
                 "typography": {
                     "_label": "typography",
                     "_path": "components.Breadcrumb.link.typography",
@@ -10266,6 +10563,237 @@ const forms = {
                             "string",
                             "number"
                         ]
+                    }
+                }
+            }
+        },
+        "ColorPicker": {
+            "_label": "ColorPicker",
+            "_path": "components.ColorPicker",
+            "colors": {
+                "_label": "colors",
+                "_path": "components.ColorPicker.colors",
+                "background": {
+                    "_label": "background",
+                    "_path": "components.ColorPicker.colors.background",
+                    "default": {
+                        "_label": "default",
+                        "_path": "components.ColorPicker.colors.background.default",
+                        "_type": "color",
+                        "_description": "default color"
+                    },
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.ColorPicker.colors.background.disabled",
+                        "_type": "color",
+                        "_description": "disabled color"
+                    }
+                },
+                "typography": {
+                    "_label": "typography",
+                    "_path": "components.ColorPicker.colors.typography",
+                    "default": {
+                        "_label": "default",
+                        "_path": "components.ColorPicker.colors.typography.default",
+                        "_type": "color",
+                        "_description": "default color"
+                    },
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.ColorPicker.colors.typography.disabled",
+                        "_type": "color",
+                        "_description": "default color"
+                    }
+                },
+                "border": {
+                    "_label": "border",
+                    "_path": "components.ColorPicker.colors.border",
+                    "default": {
+                        "_label": "default",
+                        "_path": "components.ColorPicker.colors.border.default",
+                        "_type": "color",
+                        "_description": "default color"
+                    },
+                    "hover": {
+                        "_label": "hover",
+                        "_path": "components.ColorPicker.colors.border.hover",
+                        "_type": "color",
+                        "_description": "hover color"
+                    },
+                    "focused": {
+                        "_label": "focused",
+                        "_path": "components.ColorPicker.colors.border.focused",
+                        "_type": "color",
+                        "_description": "focused color"
+                    },
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.ColorPicker.colors.border.disabled",
+                        "_type": "color",
+                        "_description": "disabled color"
+                    }
+                }
+            },
+            "typography": {
+                "_label": "typography",
+                "_path": "components.ColorPicker.typography",
+                "fontFamily": {
+                    "_label": "fontFamily",
+                    "_path": "components.ColorPicker.typography.fontFamily",
+                    "_type": "string"
+                },
+                "fontSize": {
+                    "_label": "fontSize",
+                    "_path": "components.ColorPicker.typography.fontSize",
+                    "_type": "number",
+                    "_min": 0
+                },
+                "fontWeight": {
+                    "_label": "fontWeight",
+                    "_path": "components.ColorPicker.typography.fontWeight",
+                    "_type": "number",
+                    "_min": 0
+                }
+            },
+            "border": {
+                "_label": "border",
+                "_path": "components.ColorPicker.border",
+                "radius": {
+                    "_label": "radius",
+                    "_path": "components.ColorPicker.border.radius",
+                    "_type": "number",
+                    "_min": 0
+                }
+            },
+            "colorBlock": {
+                "_label": "colorBlock",
+                "_path": "components.ColorPicker.colorBlock",
+                "border": {
+                    "_label": "border",
+                    "_path": "components.ColorPicker.colorBlock.border",
+                    "radius": {
+                        "_label": "radius",
+                        "_path": "components.ColorPicker.colorBlock.border.radius",
+                        "_type": "number",
+                        "_min": 0
+                    }
+                }
+            },
+            "panel": {
+                "_label": "panel",
+                "_path": "components.ColorPicker.panel",
+                "input": {
+                    "_label": "input",
+                    "_path": "components.ColorPicker.panel.input",
+                    "typography": {
+                        "_label": "typography",
+                        "_path": "components.ColorPicker.panel.input.typography",
+                        "fontWeight": {
+                            "_label": "fontWeight",
+                            "_path": "components.ColorPicker.panel.input.typography.fontWeight",
+                            "_type": "number",
+                            "_min": 0
+                        }
+                    },
+                    "colors": {
+                        "_label": "colors",
+                        "_path": "components.ColorPicker.panel.input.colors",
+                        "prefix": {
+                            "_label": "prefix",
+                            "_path": "components.ColorPicker.panel.input.colors.prefix",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.ColorPicker.panel.input.colors.prefix.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            }
+                        }
+                    }
+                },
+                "select": {
+                    "_label": "select",
+                    "_path": "components.ColorPicker.panel.select",
+                    "typography": {
+                        "_label": "typography",
+                        "_path": "components.ColorPicker.panel.select.typography",
+                        "fontWeight": {
+                            "_label": "fontWeight",
+                            "_path": "components.ColorPicker.panel.select.typography.fontWeight",
+                            "_type": "number",
+                            "_min": 0
+                        }
+                    },
+                    "colors": {
+                        "_label": "colors",
+                        "_path": "components.ColorPicker.panel.select.colors",
+                        "typography": {
+                            "_label": "typography",
+                            "_path": "components.ColorPicker.panel.select.colors.typography",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.ColorPicker.panel.select.colors.typography.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            }
+                        },
+                        "rafter": {
+                            "_label": "rafter",
+                            "_path": "components.ColorPicker.panel.select.colors.rafter",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.ColorPicker.panel.select.colors.rafter.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            }
+                        }
+                    }
+                },
+                "preset": {
+                    "_label": "preset",
+                    "_path": "components.ColorPicker.panel.preset",
+                    "typography": {
+                        "_label": "typography",
+                        "_path": "components.ColorPicker.panel.preset.typography",
+                        "fontWeight": {
+                            "_label": "fontWeight",
+                            "_path": "components.ColorPicker.panel.preset.typography.fontWeight",
+                            "_type": "number",
+                            "_min": 0
+                        }
+                    },
+                    "colors": {
+                        "_label": "colors",
+                        "_path": "components.ColorPicker.panel.preset.colors",
+                        "typography": {
+                            "_label": "typography",
+                            "_path": "components.ColorPicker.panel.preset.colors.typography",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.ColorPicker.panel.preset.colors.typography.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            }
+                        },
+                        "rafter": {
+                            "_label": "rafter",
+                            "_path": "components.ColorPicker.panel.preset.colors.rafter",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.ColorPicker.panel.preset.colors.rafter.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            }
+                        },
+                        "empty": {
+                            "_label": "empty",
+                            "_path": "components.ColorPicker.panel.preset.colors.empty",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.ColorPicker.panel.preset.colors.empty.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            }
+                        }
                     }
                 }
             }

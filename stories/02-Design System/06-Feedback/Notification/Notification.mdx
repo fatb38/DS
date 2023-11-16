@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -23,38 +23,38 @@ To display a notification message at any of the four corners of the viewport. Ty
 ##### Basic
 The simplest usage that close the notification box after 4.5s.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="notification-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="notification-basic" />
 
 ##### Duration after which the notification box is closed
 **Duration** can be used to specify how long the notification stays open. After the duration time elapses, the notification closes automatically. If not specified, default value is 4.5 seconds. If you set the value to 0, the notification box will never close automatically.
 
-<CustomCanvas content={Exemples.Duration} source={Sources.Duration} id="notification-duration" />
+<CustomCanvas content={Examples.Duration} source={Sources.Duration} id="notification-duration" />
 
 ##### Notification with icon
 A notification box with a icon at the left side.
 
-<CustomCanvas content={Exemples.Icon} source={Sources.Icon} id="notification-icon" />
+<CustomCanvas content={Examples.Icon} source={Sources.Icon} id="notification-icon" />
 
 ##### Customized Icon
 The icon can be customized to any react node.
 
-<CustomCanvas content={Exemples.CustomIcon} source={Sources.CustomIcon} id="notification-custom-icon" />
+<CustomCanvas content={Examples.CustomIcon} source={Sources.CustomIcon} id="notification-custom-icon" />
 
 ##### Custom close button
 To customize the style or font of the close button.
 
-<CustomCanvas content={Exemples.CustomClose} source={Sources.CustomClose} id="notification-custom-close" />
+<CustomCanvas content={Examples.CustomClose} source={Sources.CustomClose} id="notification-custom-close" />
 
 
 ##### Placement
 A notification box can appear from the **topLeft**, **topRight**, **bottomLeft** or **bottomRight** of the viewport.
 
-<CustomCanvas content={Exemples.Placement} source={Sources.Placement} id="notification-placement" />
+<CustomCanvas content={Examples.Placement} source={Sources.Placement} id="notification-placement" />
 
 ##### Update Message Content
 Update content with unique key.
 
-<CustomCanvas content={Exemples.UpdateMessage} source={Sources.UpdateMessage} id="notification-update-message" />
+<CustomCanvas content={Examples.UpdateMessage} source={Sources.UpdateMessage} id="notification-update-message" />
 
 ## Api
 

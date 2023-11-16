@@ -1,5 +1,5 @@
 import {IKitTheme} from '@theme/types';
-import {FunctionComponent} from 'react';
+import {FunctionComponent, MouseEventHandler, ReactNode} from 'react';
 
 type JSONValue = string | null | number | boolean | {[x: string]: JSONValue} | Array<JSONValue>;
 
@@ -25,6 +25,12 @@ export interface IComponentBlock {
     children?: ReactNode;
     title: string;
     path: string;
+    showA11yToggle: boolean;
+    container?: boolean;
+    level?: number;
+    registerExpandCollapse?: (path: string, object: CollapseExpandObject) => void;
+    onCollapseGroup?: MouseEventHandler<HTMLAnchorElement>;
+    onExpandGroup?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 export interface IItem {
@@ -34,7 +40,7 @@ export interface IItem {
     _description?: string;
     _min?: number;
     _value?: string | number;
-    [x: string]: JSONValue;
+    [x: string]: JSONValue | undefined;
 }
 
 export type getItemsType = (
@@ -53,7 +59,9 @@ export interface IField {
     level: number;
     _min?: number;
     _description?: string;
+    isVisible?: boolean;
     addResetFunction?: (path: string, fn: Function) => void;
+    onTokenChanged: Function;
 }
 
 export interface ISection {
@@ -70,6 +78,8 @@ export interface IToken {
     path: string;
     addResetFunction?: (path: string, fn: Function) => void;
     onResetSection?: (path: string) => void;
+    onTokenChanged: Function;
+    level?: number;
 }
 
 export interface IThemeData {
@@ -100,4 +110,20 @@ export interface IEditorWrapper {
     components: {
         [id: string]: IComponents;
     };
+}
+
+export interface IExpandIcon {
+    icon: string;
+}
+
+export interface IHeader {
+    title: string;
+    level?: number;
+    onReset?: Function;
+    resetText?: string;
+    collapsible?: boolean;
+    collapsed?: boolean;
+    onClick?: Function;
+    onExpandAll?: MouseEventHandler<HTMLAnchorElement>;
+    onCollapseAll?: MouseEventHandler<HTMLAnchorElement>;
 }

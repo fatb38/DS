@@ -2,7 +2,7 @@ import { Meta, Canvas, Controls } from "@storybook/addon-docs";
 import Gallery from './data';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
 
@@ -42,6 +42,7 @@ import * as KitIconStories from './Icons.stories';
 
         .icon-name {
             text-align: center;
+            font-size: 12px;
         }
     `}
 </style>
@@ -50,25 +51,25 @@ import * as KitIconStories from './Icons.stories';
 
 Aristid Icon is a on/off state icon
 
-## Exemples
+## Examples
 
 ##### Basic
 
 A basic Icon with on without `on` property.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="icon-basic" />
-
-##### Hoverable
-
-Show Icon with `on` property on hover state.
-
-<CustomCanvas content={Exemples.Hoverable} source={Sources.Hoverable} id="icon-hoverable" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="icon-basic" />
 
 ##### Clickable
 
 Icon can be clickable using `onClick` property.
 
-<CustomCanvas content={Exemples.Clickable} source={Sources.Clickable} id="icon-clickable" />
+<CustomCanvas content={Examples.Clickable} source={Sources.Clickable} id="icon-clickable" />
+
+##### Color
+
+Customized Icon with `color`property. If the given color is invalid, the default color will be applied.
+
+<CustomCanvas content={Examples.Colors} source={Sources.Colors} id="icon-colors" />
 
 ## Api
 

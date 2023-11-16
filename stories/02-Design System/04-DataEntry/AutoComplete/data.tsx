@@ -294,6 +294,16 @@ export const argTypes = {
             category: 'AutoComplete',
             defaultValue: {summary: '-'}
         }
+    },
+    wrapperClassName: {
+        name: 'wrapperClassName',
+        description: 'Component wrapper class name',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'AutoComplete'
+        }
     }
 };
 

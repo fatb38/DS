@@ -1,10 +1,11 @@
-import React, {FunctionComponent} from 'react';
-import {Input as AntdInput} from 'antd';
+import React, {forwardRef} from 'react';
+import {Input as AntdInput, InputRef} from 'antd';
 import {IKitTextArea, IStyledAntdTextArea} from './types';
 import {styled} from 'styled-components';
-import {CloseCircleOutlined} from '@ant-design/icons';
 import KitInputWrapper from './InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 
 const StyledAntdTextArea = styled(AntdInput.TextArea)<IStyledAntdTextArea>`
     &.ant-input,
@@ -153,18 +154,27 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)<IStyledAntdTextArea>`
     }
 `;
 
-const KitTextArea: FunctionComponent<IKitTextArea> = ({label, helper, allowClear = true, ...textAreaProps}) => {
-    const {theme} = useKitTheme();
+const KitTextArea = forwardRef<InputRef, IKitTextArea>(
+    ({label, helper, wrapperClassName, allowClear = true, ...textAreaProps}, ref) => {
+        const {theme} = useKitTheme();
 
-    return (
-        <KitInputWrapper label={label} helper={helper} disabled={textAreaProps.disabled} status={textAreaProps.status}>
-            <StyledAntdTextArea
-                $theme={theme.components.Input.TextArea}
-                {...textAreaProps}
-                allowClear={allowClear ? {clearIcon: <CloseCircleOutlined />} : undefined}
-            />
-        </KitInputWrapper>
-    );
-};
+        return (
+            <KitInputWrapper
+                label={label}
+                helper={helper}
+                disabled={textAreaProps.disabled}
+                status={textAreaProps.status}
+                className={wrapperClassName}
+            >
+                <StyledAntdTextArea
+                    $theme={theme.components.Input.TextArea}
+                    {...textAreaProps}
+                    ref={ref}
+                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
+                />
+            </KitInputWrapper>
+        );
+    }
+);
 
 export default KitTextArea;

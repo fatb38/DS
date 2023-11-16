@@ -7,14 +7,8 @@ export const getKitRateTokens = (generalTokens: IKitThemeGeneral): IKitRateTheme
     return {
         colors: {
             star: {
-                default: colors.secondary.mediumGrey.mediumGrey100,
-                disabled: colors.secondary.mediumGrey.mediumGrey100,
-                active: {
-                    default: colors.secondary.yellow.yellow300,
-                    red: colors.secondary.red.red300,
-                    green: colors.secondary.green.green300,
-                    blue: colors.secondary.blue.blue300
-                }
+                default: colors.secondary.yellow.yellow400,
+                disabled: colors.secondary.mediumGrey.mediumGrey300
             }
         }
     };

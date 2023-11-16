@@ -2,17 +2,18 @@ import {BadgeProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import {IKitBadgeTheme} from '@theme/types/components/DataDisplay/Badge';
 import {IKitTypography} from '@theme/types/general/typography';
+import {KitColorProp} from '@utils/functions/types';
 
 type AntdBadgeTypesToOmit = 'color' | 'size' | 'offset' | 'text';
 
-export type KitBadgeCountColor = 'default' | 'green' | 'blue' | 'blueInvert' | 'gray';
-
 export interface IKitBadge extends Omit<BadgeProps, AntdBadgeTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
-    countColor?: KitBadgeCountColor;
+    color?: KitColorProp;
+    secondaryColorInvert?: boolean;
 }
 
 export interface IStyledKitBadge {
     $theme: IKitBadgeTheme;
     $typographyTheme: IKitTypography;
-    $countColor: KitBadgeCountColor;
+    $backgroundColor: string;
+    $fontColor: string;
 }

@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -23,49 +23,43 @@ Rate component.
 
 The simplest usage.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="rate-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="rate-basic" />
 
 ##### Half star
 
 Support select half star.
 
-<CustomCanvas content={Exemples.Half} source={Sources.Half} id="rate-half" />
+<CustomCanvas content={Examples.Half} source={Sources.Half} id="rate-half" />
 
 ##### Show copywriting
 
 Add copywriting in rate components.
 
-<CustomCanvas content={Exemples.Copywriting} source={Sources.Copywriting} id="rate-copywriting" />
+<CustomCanvas content={Examples.Copywriting} source={Sources.Copywriting} id="rate-copywriting" />
 
 ##### Read only
 
 Read only, can't use mouse to interact.
 
-<CustomCanvas content={Exemples.Readonly} source={Sources.Readonly} id="rate-read-only" />
+<CustomCanvas content={Examples.Readonly} source={Sources.Readonly} id="rate-read-only" />
 
 ##### Clear star
 
 Support set allow to clear star when click again.
 
-<CustomCanvas content={Exemples.Allowclear} source={Sources.Allowclear} id="rate-allow-clear" />
+<CustomCanvas content={Examples.Allowclear} source={Sources.Allowclear} id="rate-allow-clear" />
 
 ##### Rate Color
 
-We preset a series of colorful Rate styles for use in different situations..
+We preset a series of colorful Rate styles for use in different situations. If the given color is invalid, the default color will be applied.
 
-<CustomCanvas content={Exemples.Color} source={Sources.Color} id="rate-color" />
+<CustomCanvas content={Examples.Color} source={Sources.Color} id="rate-color" />
 
 ##### Other Character
 
-Replace the default star to other character like alphabet, digit, iconfont or even Chinese word.
+Replace the default star to other icon. For correct rendering, you need to set these following properties : `defaultIcon`, `halfIcon` and `activeIcon`
 
-<CustomCanvas content={Exemples.Otherchar} source={Sources.Otherchar} id="rate-other-character" />
-
-##### Customize character
-
-Can customize each character using `(RateProps) => ReactNode`.
-
-<CustomCanvas content={Exemples.Customizechar} source={Sources.Customizechar} id="rate-custom-character" />
+<CustomCanvas content={Examples.Otherchar} source={Sources.Otherchar} id="rate-other-character" />
 
 ## API
 

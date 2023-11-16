@@ -1,89 +1,79 @@
-import React, {FunctionComponent} from 'react';
+import React, {ReactNode, forwardRef, useMemo} from 'react';
 import {Rate as AntdRate} from 'antd';
 import {IStyledRate, IKitRate} from './types';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faStar as faStarActive} from '@fortawesome/free-solid-svg-icons';
+import {faStar as faStarDefault, faStarHalfStroke as faStarHalf} from '@fortawesome/free-regular-svg-icons';
+import type {RateRef} from 'rc-rate/lib/Rate';
+import {getColor, isValidColor} from '@utils/functions';
+import {StarProps} from 'rc-rate/lib/Star';
 
 const StyledRate = styled(AntdRate)<IStyledRate>`
-    ${({$color, $theme}) => {
-        switch ($color) {
-            case 'default':
-                // Use default one from theme
-                return;
-            case 'red':
-                return css`
-                    color: ${$theme.colors.star.active.red};
-                `;
-            case 'green':
-                return css`
-                    color: ${$theme.colors.star.active.green};
-                `;
-            case 'blue':
-                return css`
-                    color: ${$theme.colors.star.active.blue};
-                `;
-        }
-    }}
+    color: ${({$activeStarColor}) => $activeStarColor};
 
     &.ant-rate .ant-rate-star {
         &:not(.ant-rate-star-half):not(.ant-rate-star-full) {
             .ant-rate-star-first {
-                color: ${({$theme}) => $theme.colors.star.default};
+                color: ${({$activeStarColor}) => $activeStarColor};
             }
         }
 
         &:not(.ant-rate-star-full) {
             .ant-rate-star-second {
-                color: ${({$theme}) => $theme.colors.star.default};
+                color: ${({$activeStarColor}) => $activeStarColor};
             }
         }
     }
 
-    &.ant-rate-disabled {
+    &.ant-rate-disabled .ant-rate-star {
         cursor: not-allowed;
+        color: ${({$theme}) => $theme.colors.star.disabled};
 
-        .ant-rate-star {
-            cursor: not-allowed;
-
-            &:not(.ant-rate-star-half):not(.ant-rate-star-full) {
-                div[role='radio']::after,
-                div[role='radio']::before {
-                    content: '';
-                    position: absolute;
-                    width: 2px;
-                    height: 95%;
-                    background-color: ${({$theme}) => $theme.colors.star.disabled};
-                    transform-origin: 0 0;
-                    transform: rotate(320deg);
-                    left: 0;
-                }
-
-                div[role='radio']::after {
-                    top: 2px;
-                    padding-bottom: 4px;
-                    border-radius: 2px;
-                }
-
-                div[role='radio']::before {
-                    background-color: ${({$disabledStarTransparency}) => $disabledStarTransparency};
-                    top: 5px;
-                }
+        &:not(.ant-rate-star-half):not(.ant-rate-star-full) {
+            .ant-rate-star-first,
+            .ant-rate-star-second {
+                color: ${({$theme}) => $theme.colors.star.disabled};
             }
         }
     }
 `;
 
-export const KitRate: FunctionComponent<IKitRate> = ({color = 'default', disabledStarTransparency, ...rateProps}) => {
-    const {theme} = useKitTheme();
+const _getCharacter = (props: StarProps, defaultIcon?: ReactNode, halfIcon?: ReactNode, activeIcon?: ReactNode) => {
+    if (props.index !== undefined && props.value !== undefined && props.index < props.value) {
+        if (props.index + 0.5 === props.value) {
+            return halfIcon ?? <FontAwesomeIcon icon={faStarHalf} />;
+        }
 
-    return (
-        <StyledRate
-            $theme={theme.components.Rate}
-            $color={color}
-            $disabledStarTransparency={disabledStarTransparency ?? theme.general.colors.neutral.white}
-            {...rateProps}
-        />
-    );
+        return activeIcon ?? <FontAwesomeIcon icon={faStarActive} />;
+    }
+
+    return defaultIcon ?? <FontAwesomeIcon icon={faStarDefault} />;
 };
+
+export const KitRate = forwardRef<RateRef, IKitRate>(
+    ({color, defaultIcon, halfIcon, activeIcon, ...rateProps}, ref) => {
+        const {theme} = useKitTheme();
+
+        const calculatedActiveStarColor = useMemo(() => {
+            if (!color || !isValidColor(theme.general.colors, color)) {
+                return theme.components.Rate.colors.star.default;
+            }
+
+            return getColor(theme.general.colors, color);
+        }, [color, theme]);
+
+        return (
+            <StyledRate
+                $theme={theme.components.Rate}
+                $activeStarColor={calculatedActiveStarColor}
+                ref={ref}
+                character={props => _getCharacter(props, defaultIcon, halfIcon, activeIcon)}
+                {...rateProps}
+            />
+        );
+    }
+);
 
 KitRate.displayName = 'KitRate';

@@ -1,0 +1,44 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Examples, { Sources } from './examples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
+import * as KitTagStories from './Tag.stories';
+
+<Meta of={KitTagStories} />
+
+<style></style>
+
+# Tag
+
+Tag for categorizing or markup.
+
+## Usage
+- It can be used to tag by dimension or property.
+
+- When categorizing.
+
+## Examples
+
+##### Basic
+Usage of basic Tag, and it could be closable by set closable property. Closable Tag supports onClose events.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="tag-basic" />
+
+##### Tag Color
+
+We preset a series of colorful Badge styles for use in different situations. If the given color is invalid, the default color will be applied.
+
+<CustomCanvas content={Examples.Color} source={Sources.Color} id="tag-color" />
+
+## API
+
+<Canvas of={KitTagStories.Api} />
+
+<Controls of={KitTagStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Tag" tokens={fields?.components?.Tag} />

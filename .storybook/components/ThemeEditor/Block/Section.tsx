@@ -1,23 +1,25 @@
-import {DownCircleOutlined, RightCircleOutlined} from '@ant-design/icons';
-import React, {FunctionComponent, useContext, useEffect, useState} from 'react';
+import React, {FunctionComponent, cloneElement, useContext, useEffect, useMemo, useState} from 'react';
 import styled from 'styled-components';
 import {IEditorContext, ISection} from '../types';
 import {EditorContext} from '../Context';
 import {getValue} from '../util';
+import Icon from './Icon';
+import toArray from 'rc-util/lib/Children/toArray';
 
 export const StyledSection = styled.div`
     cursor: pointer;
+
     .section-title {
         background: #f6f9fc;
-        border-bottom: 1px solid hsla(203, 50%, 30%, 0.15);
         color: #2e3438;
-        padding: 8px 16px 8px 0.5rem;
+        padding: 5px 12px;
         display: flex;
+        align-items: center;
+        font-size: 12px;
+        text-transform: capitalize;
+        color: rgba(46, 52, 56, 0.8);
+        border-bottom: 1px solid hsla(203, 50%, 30%, 0.15);
 
-        .anticon {
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-        }
         .title-value {
             flex: 1;
         }
@@ -35,12 +37,16 @@ export const StyledSection = styled.div`
     }
 
     .section-items {
-        display: none;
+        > div {
+            display: none;
+        }
 
         &.open {
-            display: block;
+            > div {
+                display: block;
+                border-top: none;
+            }
         }
-        /* padding-left: 1rem; */
     }
 `;
 
@@ -75,10 +81,17 @@ const Section: FunctionComponent<ISection> = ({
         setDefaultValue(getValue(theme, path));
     }, [theme, path]);
 
+    const icon = _isOpen ? 'arrowdown' : 'arrowright';
+
+    const _children = useMemo(
+        () => toArray(children).map(Child => cloneElement(Child, {isVisible: _isOpen})),
+        [children, _isOpen]
+    );
+
     return (
         <StyledSection>
             <div className="section-title" onClick={_handleClick} style={{paddingLeft: `${level * 0.5}rem`}}>
-                {_isOpen ? <DownCircleOutlined /> : <RightCircleOutlined />}
+                <Icon icon={icon} />
                 <div className="title-value">{title}</div>
                 {value && (
                     <a className="section-reset" onClick={_handleResetSection}>
@@ -86,7 +99,9 @@ const Section: FunctionComponent<ISection> = ({
                     </a>
                 )}
             </div>
-            <div className={`section-items ${_isOpen ? 'open' : ''}`}>{children}</div>
+            <div className={`section-items ${_isOpen ? 'open' : ''}`}>
+                <div>{_children}</div>
+            </div>
         </StyledSection>
     );
 };

@@ -8,12 +8,14 @@ export interface IRow {
     _label?: string;
     _description?: string;
     _path?: string;
+    visible?: boolean;
 }
 
 export interface ISection {
     title: string;
     level: number;
     children: ReactNode;
+    visible?: boolean;
 }
 
 export interface ITokensList {

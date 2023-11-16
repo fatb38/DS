@@ -31,6 +31,13 @@ export interface IKitItemListTheme {
                 hover: string;
             };
         };
+        border: {
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
+            radius: number;
+        };
     };
     title: {
         typography: {

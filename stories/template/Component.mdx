@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { argTypes, Template } from "./data";
+import Examples, { Sources } from './examples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../.storybook/components/DesignTokens';
+import fields from '../tokens';
+import * as Component from './Component.stories';
+
+<Meta of={KitCardStories} />
+
+# Component
+
+Component's description
+
+## Examples
+
+##### Basic
+Example description
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="component-basic"/>
+
+## Api
+
+<Canvas of={Component.Api} />
+
+<Controls of={Component.Api} />
+
+## Design Tokens
+
+<DesignTokens path="components.Component" tokens={fields?.components?.Component} />

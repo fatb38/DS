@@ -1,4 +1,4 @@
-import React, {FunctionComponent, createContext, useCallback, useEffect, useRef, useState} from 'react';
+import React, {FunctionComponent, createContext, useCallback, useRef, useState} from 'react';
 import u from 'updeep';
 import {IEditorContext, IEditorProvider, IJSONObject} from './types';
 import {getKitAristidTheme} from '../../../src/theme/aristid';
@@ -16,8 +16,15 @@ const _isEmptyObject = value => {
 };
 
 export const EditorProvider: FunctionComponent<IEditorProvider> = ({children, schema}) => {
+    const value = useThemeEditorContext(schema);
+
+    return <EditorContext.Provider value={value}>{children}</EditorContext.Provider>;
+};
+
+const useThemeEditorContext = (schema: IJSONObject): IEditorContext => {
     const [theme, setTheme] = useState({});
     const defaultTheme = getKitAristidTheme();
+
     const fields = useRef<IJSONObject>(schema);
 
     const setThemeValue = useCallback(
@@ -41,23 +48,11 @@ export const EditorProvider: FunctionComponent<IEditorProvider> = ({children, sc
         [theme]
     );
 
-    let value = {
+    return {
         theme,
         defaultTheme,
-        fields: fields.current,
+        setTheme,
         setThemeValue,
-        setTheme
+        fields: fields.current
     };
-
-    useEffect(() => {
-        value = {
-            theme,
-            defaultTheme,
-            fields: fields.current,
-            setThemeValue,
-            setTheme
-        };
-    });
-
-    return <EditorContext.Provider value={value}>{children}</EditorContext.Provider>;
 };

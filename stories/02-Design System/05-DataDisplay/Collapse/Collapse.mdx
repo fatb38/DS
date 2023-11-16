@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 import { Controls } from "@storybook/addon-docs";
-import Exemples, { Sources } from './exemples';
+import Examples, { Sources } from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -23,43 +23,43 @@ A content area which can be collapsed and expanded.
 
 By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
 
-<CustomCanvas content={Exemples.Basic} source={Sources.Basic} id="collapse-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="collapse-basic" />
 
 ##### Size
 
 If a large or small collapse is desired, set the `size` property to either `large` or `small` respectively. Omit the `size` property for a collapse with the default size.
 
-<CustomCanvas content={Exemples.Size} source={Sources.Size} id="collapse-size" />
+<CustomCanvas content={Examples.Size} source={Sources.Size} id="collapse-size" />
 
 ##### Accordion
 
 In accordion mode, only one panel can be expanded at a time.
 
-<CustomCanvas content={Exemples.Accordion} source={Sources.Accordion} id="collapse-acordion" />
+<CustomCanvas content={Examples.Accordion} source={Sources.Accordion} id="collapse-acordion" />
 
 ##### Nested panel
 
 `Collapse` is nested inside the `Collapse`.
 
-<CustomCanvas content={Exemples.Nested} source={Sources.Nested} id="collapse-nested" />
+<CustomCanvas content={Examples.Nested} source={Sources.Nested} id="collapse-nested" />
 
 ##### Custom header content
 
 Render header content with a proper layout in the top-left corner of each panel. To do so, you can use `KitCollapse.Header`.
 
-<CustomCanvas content={Exemples.CustomHeaderContent} source={Sources.CustomHeaderContent} id="collapse-custom-header-content" />
+<CustomCanvas content={Examples.CustomHeaderContent} source={Sources.CustomHeaderContent} id="collapse-custom-header-content" />
 
 ##### Custom header extra actions
 
 Render extra element in the top-right corner of each panel. To do so, you can use `KitCollapse.HeaderExtra`.
 
-<CustomCanvas content={Exemples.CustomHeaderExtra} source={Sources.CustomHeaderExtra} id="collapse-custom-header-extra" />
+<CustomCanvas content={Examples.CustomHeaderExtra} source={Sources.CustomHeaderExtra} id="collapse-custom-header-extra" />
 
 ##### Collapsible
 
 Specify the trigger area of collapsible by `collapsible`.
 
-<CustomCanvas content={Exemples.Collapsible} source={Sources.Collapsible} id="collapse-collapsible" />
+<CustomCanvas content={Examples.Collapsible} source={Sources.Collapsible} id="collapse-collapsible" />
 
 ## API
 

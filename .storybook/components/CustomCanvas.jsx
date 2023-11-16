@@ -94,10 +94,13 @@ export const StyledToggle = styled.div`
             outline: 0 none;
         }
 
+        &.invalid {
+            color: orange;
+        }
     }
 `;
 
-const uid = new ShortUniqueId({ length: 10, dictionary: 'alpha' });
+const uid = new ShortUniqueId({length: 10, dictionary: 'alpha'});
 
 const CustomCanvas = ({id, withSource, content, source, backgroundColor, a11y = true, ...props}) => {
     const ref = useRef(null);
@@ -108,7 +111,7 @@ const CustomCanvas = ({id, withSource, content, source, backgroundColor, a11y = 
     const {active, addItem, results} = useContext(AccessibilityContext);
     const Component = content ?? 'div';
     const cleanedSource = cleanSource(source || '');
-    
+
     const showSourceToggle = !withSource || withSource === 'always' || withSource === 'auto';
     const showA11yToggle = a11y && active;
 
@@ -129,12 +132,12 @@ const CustomCanvas = ({id, withSource, content, source, backgroundColor, a11y = 
     const toggleA11y = () => {
         setShowA11y(!showA11y);
         setShowCode(false);
-    }
+    };
 
     const toggleCode = () => {
         setShowCode(!showCode);
         setShowA11y(false);
-    }
+    };
 
     return (
         <Unstyled>
@@ -148,18 +151,20 @@ const CustomCanvas = ({id, withSource, content, source, backgroundColor, a11y = 
                             <button className="toggle-btn" onClick={toggleCode}>
                                 {showCode ? 'Hide code' : 'Show code'}
                             </button>
-                            {showA11yToggle && <button className="toggle-btn" onClick={toggleA11y}>
-                                {showA11y ? 'Hide a11y' : 'Show a11y'}
-                            </button>}
+                            {showA11yToggle && (
+                                <button className="toggle-btn" onClick={toggleA11y}>
+                                    {showA11y ? 'Hide accessibility' : 'Show accessibility'}
+                                </button>
+                            )}
                         </StyledToggle>
                     )}
                 </StyledContent>
                 {showCode && <Source style={{margin: 0}} className="canvas-source" code={cleanedSource} dark />}
-                {showA11y &&
+                {showA11y && (
                     <StyledA11y>
                         <A11YPanel id={storyId.current} />
                     </StyledA11y>
-                }
+                )}
             </StyledCanvas>
         </Unstyled>
     );

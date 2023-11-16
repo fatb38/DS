@@ -1,5 +1,5 @@
-import React, {FunctionComponent} from 'react';
-import {InputNumber as AntdInputNumber} from 'antd';
+import React, {forwardRef} from 'react';
+import {InputNumber as AntdInputNumber, InputRef} from 'antd';
 import {IStyledAntdInputNumber, KitInputNumberProps} from './types';
 import {styled} from 'styled-components';
 import KitInputWrapper from '../Input/InputWrapper';
@@ -153,19 +153,22 @@ const StyledAntdInputNumber = styled(AntdInputNumber)<IStyledAntdInputNumber>`
     }
 `;
 
-export const KitInputNumber: FunctionComponent<KitInputNumberProps> = ({label, helper, ...inputNumberProps}) => {
-    const {theme} = useKitTheme();
+export const KitInputNumber = forwardRef<HTMLInputElement, KitInputNumberProps>(
+    ({label, helper, wrapperClassName, ...inputNumberProps}, ref) => {
+        const {theme} = useKitTheme();
 
-    return (
-        <KitInputWrapper
-            label={label}
-            helper={helper}
-            disabled={inputNumberProps.disabled}
-            status={inputNumberProps.status}
-        >
-            <StyledAntdInputNumber $theme={theme.components.InputNumber} {...inputNumberProps} />
-        </KitInputWrapper>
-    );
-};
+        return (
+            <KitInputWrapper
+                label={label}
+                helper={helper}
+                disabled={inputNumberProps.disabled}
+                status={inputNumberProps.status}
+                className={wrapperClassName}
+            >
+                <StyledAntdInputNumber $theme={theme.components.InputNumber} ref={ref} {...inputNumberProps} />
+            </KitInputWrapper>
+        );
+    }
+);
 
 KitInputNumber.displayName = 'KitInputNumber';
