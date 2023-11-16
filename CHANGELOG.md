@@ -31,8 +31,9 @@
 ### 🚨 Tests
 
 * **Chromatic:**
-  * Add tests for `DataDisplay` folder (@evoiron)
-  * Add tests for `DataEntry` folder (@evoiron)
+  * Add tests for `DataDisplay` folder (@Delmotte-Vincent)
+  * Add tests for `DataEntry` folder (@Delmotte-Vincent)
+  * Add tests for `Layout` folder (@Delmotte-Vincent)
   * Add tests for `General` folder (@evoiron)
   * Add tests for `Feedback` folder (@evoiron)
 
