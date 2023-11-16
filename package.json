@@ -101,7 +101,8 @@
     "public/images/logo.png",
     "public/images/gitflow-release.png",
     "public/images/gitflow-hotfix.png",
-    "public/images/gitflow-feature.png"
+    "public/images/gitflow-feature.png",
+    "CHANGELOG.md"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
