@@ -66,7 +66,7 @@ const KitAppConfig: FunctionComponent<{customTheme?: IKitCustomTheme; locale?: I
                 <DatePickerDropDownStyle $theme={theme.components.DatePicker.DropDown} />
                 <NotificationStyle $theme={theme.components.Notification} />
                 <TypographyStyle $theme={theme.components.Typography} />
-                <TourStyle $buttonTheme={theme.components.Button} />
+                <TourStyle $buttonTheme={theme.components.Button} $generalTheme={theme.general} />
                 {children}
             </KitNotificationProvider>
         </ConfigProvider>

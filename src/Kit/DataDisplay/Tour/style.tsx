@@ -1,14 +1,13 @@
 import {createGlobalStyle} from 'styled-components';
 import {IStyledAntdTour} from './types';
-import {colorsPalette} from '@theme/aristid/general/colors';
 
 export const TourStyle = createGlobalStyle<IStyledAntdTour>`
     .ant-tour-primary {
         .ant-tour-arrow::after, .ant-tour-arrow::before {
-            background-color: ${colorsPalette.primary.primary400};
+            background-color: ${({$generalTheme}) => $generalTheme.colors.primary.primary400};
         }
         .ant-tour-content .ant-tour-inner {
-            background-color: ${colorsPalette.primary.primary400};
+            background-color: ${({$generalTheme}) => $generalTheme.colors.primary.primary400};
         }
     }
 
@@ -17,9 +16,12 @@ export const TourStyle = createGlobalStyle<IStyledAntdTour>`
             align-items: center;
 
             .ant-tour-buttons .ant-btn{
+
                 height: 40px;
                 min-width: 40px;
                 box-shadow: none;
+                padding: 6.6px 15px;
+                border-radius: ${({$buttonTheme}) => $buttonTheme.border.radius}px;
 
                 &.ant-btn-primary {
                     color: ${({$buttonTheme}) => $buttonTheme.primary.colors.typography.default};
