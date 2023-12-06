@@ -16,7 +16,6 @@ export interface IKitColorbar {
 }
 
 export interface IStyledKitColorbar {
-    $theme: IKitItemCardTheme;
     $column: boolean;
 }
 
@@ -37,7 +36,6 @@ export default interface IKitItemCard extends Omit<KitHTMLAttributes<HTMLDivElem
 }
 
 export interface IStyledKitItemCard {
-    $theme: IKitItemCardTheme;
     $disabled: boolean;
     $vertical?: boolean;
 }

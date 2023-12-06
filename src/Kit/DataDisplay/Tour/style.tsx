@@ -1,13 +1,14 @@
 import {createGlobalStyle} from 'styled-components';
 import {IStyledAntdTour} from './types';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
 export const TourStyle = createGlobalStyle<IStyledAntdTour>`
     .ant-tour-primary {
         .ant-tour-arrow::after, .ant-tour-arrow::before {
-            background-color: ${({$generalTheme}) => $generalTheme.colors.primary.primary400};
+            background-color: var(${kitColorsPaletteCssTokens.primary.primary400});
         }
         .ant-tour-content .ant-tour-inner {
-            background-color: ${({$generalTheme}) => $generalTheme.colors.primary.primary400};
+            background-color: var(${kitColorsPaletteCssTokens.primary.primary400});
         }
     }
 
@@ -75,5 +76,6 @@ export const TourStyle = createGlobalStyle<IStyledAntdTour>`
                 }
             }
         }
-    }
+
+}
 `;

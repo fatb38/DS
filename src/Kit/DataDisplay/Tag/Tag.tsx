@@ -1,13 +1,16 @@
-import React, {FunctionComponent, useMemo} from 'react';
+import React, {CSSProperties, FunctionComponent, useMemo} from 'react';
 import {Tag} from 'antd';
 import styled from 'styled-components';
-import {IKitTag, IStyledAntdTag} from './types';
+import {IKitTag} from './types';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
 import {getColor, getLighterColor, isValidColor} from '@utils/functions';
+import {kitTagCssTokens} from '@theme/aristid/components/DataDisplay/Tag';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 
-const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
+const StyledAntdTag = styled(Tag)`
     padding: 4px 8px;
     border: none;
     height: 24px;
@@ -18,9 +21,9 @@ const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
 
     &,
     a {
-        font-size: ${({$theme}) => $theme.typography.fontSize}px;
-        font-family: ${({$theme}) => $theme.typography.fontFamily};
-        font-weight: ${({$theme}) => $theme.typography.fontWeight};
+        font-size: calc(var(${kitTagCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize7})) * 1px);
+        font-family: var(${kitTagCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
+        font-weight: var(${kitTagCssTokens.typography.fontWeight}, var(${typographyCssTokens.regularFontWeight}));
         line-height: 16px;
         box-sizing: border-box;
         display: flex;
@@ -31,43 +34,63 @@ const StyledAntdTag = styled(Tag)<IStyledAntdTag>`
         margin-left: 8px;
     }
 
-    background: ${({$backgroundColor}) => $backgroundColor};
-    color: ${({$color}) => $color};
+    background: var(
+        ${kitTagCssTokens.colors.default.background.default},
+        var(${kitColorsPaletteCssTokens.primary.primary100})
+    );
+    color: var(
+        ${kitTagCssTokens.colors.default.typography.default},
+        var(${kitColorsPaletteCssTokens.neutral.typography.black})
+    );
 
     .ant-tag-close-icon {
-        color: ${({$color}) => $color};
+        color: var(
+            ${kitTagCssTokens.colors.default.typography.default},
+            var(${kitColorsPaletteCssTokens.neutral.typography.black})
+        );
 
         &:hover {
-            color: ${({$color}) => $color};
+            color: var(
+                ${kitTagCssTokens.colors.default.typography.default},
+                var(${kitColorsPaletteCssTokens.neutral.typography.black})
+            );
         }
     }
 `;
 
-const KitTag: FunctionComponent<IKitTag> = ({closeIcon, color, secondaryColorInvert = false, ...tagProps}) => {
-    const {theme} = useKitTheme();
+const getCustomColors = (
+    color: IKitTag['color'],
+    secondaryColorInvert: IKitTag['secondaryColorInvert']
+): CSSProperties | null => {
+    if (color && isValidColor(color)) {
+        return {
+            [kitTagCssTokens.colors.default.background.default]: getColor(color, secondaryColorInvert),
+            [kitTagCssTokens.colors.default.typography.default]: getLighterColor(color, secondaryColorInvert)
+        } as CSSProperties;
+    }
+    return null;
+};
 
-    const calculatedBackgroundColor = useMemo(() => {
-        if (!color || !isValidColor(theme.general.colors, color)) {
-            return theme.components.Tag.colors.default.background.default;
-        }
+const KitTag: FunctionComponent<IKitTag> = ({
+    className,
+    closeIcon,
+    color,
+    style,
+    secondaryColorInvert = false,
+    ...tagProps
+}) => {
+    const {appId} = useKitTheme();
 
-        return getColor(theme.general.colors, color, secondaryColorInvert);
-    }, [color, secondaryColorInvert, theme]);
-
-    const calculatedFontColor = useMemo(() => {
-        if (!color || !isValidColor(theme.general.colors, color)) {
-            return theme.components.Tag.colors.default.typography.default;
-        }
-
-        return getLighterColor(theme.general.colors, color, secondaryColorInvert);
-    }, [color, secondaryColorInvert, theme]);
+    const customStyle = useMemo(
+        () => ({...style, ...getCustomColors(color, secondaryColorInvert)}),
+        [color, secondaryColorInvert, style]
+    );
 
     return (
         <StyledAntdTag
             {...tagProps}
-            $theme={theme.components.Tag}
-            $color={calculatedFontColor}
-            $backgroundColor={calculatedBackgroundColor}
+            style={customStyle}
+            className={`${appId} ${className}`}
             closeIcon={closeIcon ?? <FontAwesomeIcon icon={faXmark} />}
             closable={!!tagProps.onClose}
         />

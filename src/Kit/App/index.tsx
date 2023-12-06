@@ -1,4 +1,4 @@
-import React, {FunctionComponent, ReactNode, useEffect} from 'react';
+import React, {FunctionComponent, ReactNode, useEffect, PropsWithChildren} from 'react';
 import {ConfigProvider} from 'antd';
 import GlobalStyles from './style';
 import KitSnackBarProvider from '@kit/Feedback/SnackBar/SnackBarProvider';
@@ -22,9 +22,10 @@ export const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;
     locale?: IKitLocale;
     children?: ReactNode;
-}> = ({children, locale, customTheme}) => {
+    id?: string;
+}> = ({children, locale, customTheme, id}) => {
     return (
-        <KitThemeProvider>
+        <KitThemeProvider customTheme={customTheme} id={id}>
             <KitLocaleProvider>
                 <KitAppConfig customTheme={customTheme} locale={locale}>
                     {children}
@@ -34,11 +35,12 @@ export const KitApp: FunctionComponent<{
     );
 };
 
-const KitAppConfig: FunctionComponent<{customTheme?: IKitCustomTheme; locale?: IKitLocale; children?: ReactNode}> = ({
-    children,
-    locale,
-    customTheme
-}) => {
+const KitAppConfig: FunctionComponent<
+    PropsWithChildren<{
+        customTheme?: IKitCustomTheme;
+        locale?: IKitLocale;
+    }>
+> = ({children, locale, customTheme}) => {
     const {theme, setCustomTheme} = useKitTheme();
     const {setKitLocale} = useKitLocale();
 
@@ -55,18 +57,18 @@ const KitAppConfig: FunctionComponent<{customTheme?: IKitCustomTheme; locale?: I
     }, [locale]);
 
     return (
-        <ConfigProvider theme={mapKitThemeToAntdTheme(theme)} locale={mapKitLocaleToAntdLocale(locale)}>
+        <ConfigProvider theme={mapKitThemeToAntdTheme(theme, customTheme)} locale={mapKitLocaleToAntdLocale(locale)}>
             <KitNotificationProvider>
                 <KitSnackBarProvider />
                 <GlobalStyles />
                 <ColorPickerPanelStyle $theme={theme.components.ColorPicker} />
                 <DropDownStyle $theme={theme.components.DropDown} />
                 <SelectDropDownStyle $theme={theme.components.Select.DropDown} />
-                <TabsDropDownStyle $theme={theme.components.Tabs.DropDown} />
+                <TabsDropDownStyle />
                 <DatePickerDropDownStyle $theme={theme.components.DatePicker.DropDown} />
                 <NotificationStyle $theme={theme.components.Notification} />
                 <TypographyStyle $theme={theme.components.Typography} />
-                <TourStyle $buttonTheme={theme.components.Button} $generalTheme={theme.general} />
+                <TourStyle $buttonTheme={theme.components.Button} />
                 {children}
             </KitNotificationProvider>
         </ConfigProvider>

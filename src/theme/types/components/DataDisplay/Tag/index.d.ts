@@ -38,3 +38,24 @@ export interface IKitTagTheme {
         radius: number;
     };
 }
+
+export interface IKitTagCssTokens {
+    colors: {
+        default: {
+            background: {
+                default: string;
+            };
+            typography: {
+                default: string;
+            };
+        };
+    };
+    typography: {
+        fontFamily: string;
+        fontSize: string;
+        fontWeight: string;
+    };
+    border: {
+        radius: string;
+    };
+}

@@ -1,18 +1,38 @@
-import React, {Dispatch, ReactNode, SetStateAction, createContext, useEffect, useState} from 'react';
+import React, {
+    Dispatch,
+    SetStateAction,
+    createContext,
+    useEffect,
+    useState,
+    FC,
+    PropsWithChildren,
+    useRef
+} from 'react';
 
 // TODO: Later add option to have more arisitd themes
 import {getKitAristidTheme} from './aristid';
 import {IKitCustomTheme, IKitTheme} from './types';
-import {merge} from 'lodash';
+import {createGlobalStyle} from 'styled-components';
+import {toCssVariables} from '@utils/functions';
+import uuid from 'react-uuid';
+import AristidTheme from './default-theme';
 
 type KitThemeContext =
     | {
           theme: IKitTheme;
           setCustomTheme: Dispatch<SetStateAction<IKitCustomTheme | undefined>>;
+          appId: string;
       }
     | undefined;
 
 const KitThemeContext = createContext<KitThemeContext>(undefined);
+const kitAristidTheme = getKitAristidTheme();
+
+const CustomVariables = createGlobalStyle<{customTheme: any; id: any}>`
+    .${props => props.id} {
+        ${props => toCssVariables(props.customTheme)};
+    }
+`;
 
 export const useKitTheme = () => {
     const context = React.useContext(KitThemeContext);
@@ -22,25 +42,33 @@ export const useKitTheme = () => {
     return context;
 };
 
-export const KitThemeProvider = ({children}: {children: ReactNode}) => {
-    const value = useKitThemeProvider();
-    return <KitThemeContext.Provider value={value}>{children}</KitThemeContext.Provider>;
+export const KitThemeProvider: FC<PropsWithChildren<{customTheme: any; id?: string}>> = ({
+    children,
+    customTheme,
+    id
+}) => {
+    const value = useKitThemeProvider(id);
+
+    return (
+        <KitThemeContext.Provider value={value}>
+            {AristidTheme.getGlobalStyles()}
+            {customTheme && <CustomVariables id={value.appId} customTheme={customTheme} />}
+            {children}
+        </KitThemeContext.Provider>
+    );
 };
 
-const defaultKitAristidTheme = getKitAristidTheme();
+const useKitThemeProvider = (id?: string) => {
+    const internalId = useRef(id || 'ds-' + uuid().substring(0, 8));
+    const [theme, setTheme] = useState<IKitTheme>(kitAristidTheme);
+    const [customTheme, setCustomTheme] = useState<IKitCustomTheme | undefined>(undefined);
 
-const useKitThemeProvider = () => {
-    const [theme, setTheme] = useState<IKitTheme>(defaultKitAristidTheme);
-    const [customTheme, setCustomTheme] = useState<IKitCustomTheme>();
+    // TODO to remove
+    // useEffect(() => {
+    //     if (customTheme !== undefined) {
+    //         setTheme(prevState => ({...prevState, components: kitAristidTheme.components}));
+    //     }
+    // }, [customTheme]);
 
-    useEffect(() => {
-        if (customTheme !== undefined) {
-            const kitTheme = getKitAristidTheme(customTheme['general']);
-            const kitComponentsTheme = merge(kitTheme['components'], customTheme['components']);
-
-            setTheme({...kitTheme, components: kitComponentsTheme});
-        }
-    }, [customTheme]);
-
-    return {theme, setCustomTheme};
+    return {theme, setCustomTheme, appId: internalId.current};
 };

@@ -1,5 +1,11 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitAvatarGroupTheme, IKitAvatarTheme} from '@theme/types/components/DataDisplay/Avatar';
+import {
+    IKitAvatarCssTokens,
+    IKitAvatarGroupCssTokens,
+    IKitAvatarGroupTheme,
+    IKitAvatarTheme
+} from '@theme/types/components/DataDisplay/Avatar';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitAvatarTokens = (generalTokens: IKitThemeGeneral): IKitAvatarTheme => {
     const {colors} = generalTokens;
@@ -30,3 +36,25 @@ export const getKitAvatarGroupTokens = (generalTokens: IKitThemeGeneral): IKitAv
         }
     };
 };
+
+export const kitAvatarCssTokens = generateCssTokens<IKitAvatarCssTokens>('--components-Avatar', {
+    colors: {
+        background: {
+            default: ''
+        },
+        typography: {
+            default: ''
+        }
+    }
+});
+
+export const kitAvatarGroupCssTokens = generateCssTokens<IKitAvatarGroupCssTokens>('--components-AvatarGroup', {
+    colors: {
+        background: {
+            default: ''
+        },
+        typography: {
+            default: ''
+        }
+    }
+});

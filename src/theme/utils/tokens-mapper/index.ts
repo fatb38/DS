@@ -1,4 +1,4 @@
-import {IKitTheme} from '@theme/types';
+import { IKitCustomTheme, IKitTheme } from "@theme/types";
 import {ThemeConfig} from 'antd';
 import {
     mapBadgeKitTokenToAntdToken,
@@ -23,9 +23,11 @@ import {mapAlertKitTokenToAntdToken, mapProgressKitTokenToAntdToken} from './Fee
 import {mapDividerKitTokenToAntdToken} from './Layout';
 import {mapStepsKitTokenToAntdToken, mapPaginationKitTokenToAntdToken} from './Navigation';
 import {mapButtonKitTokenToAntdToken} from './General';
+import { merge } from "lodash";
 
-export const mapKitThemeToAntdTheme = (theme: IKitTheme): ThemeConfig => {
-    const {components} = theme;
+export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCustomTheme): ThemeConfig => {
+    const components = merge(theme.components, customTheme?.components)
+
     return {
         components: {
             Alert: mapAlertKitTokenToAntdToken(components.Alert),

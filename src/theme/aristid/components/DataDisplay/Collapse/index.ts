@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitCollapseTheme} from '@theme/types/components/DataDisplay/Collapse';
+import {IKitCollapseCssTokens, IKitCollapseTheme} from '@theme/types/components/DataDisplay/Collapse';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator.ts';
 
 export const getKitCollapseTokens = (generalTokens: IKitThemeGeneral): IKitCollapseTheme => {
     const {colors, border} = generalTokens;
@@ -20,3 +21,8 @@ export const getKitCollapseTokens = (generalTokens: IKitThemeGeneral): IKitColla
         }
     };
 };
+
+export const kitCollapseCssTokens = generateCssTokens<IKitCollapseCssTokens>('--components-Collapse', {
+    border: {radius: ''},
+    colors: {background: {active: '', default: ''}, border: {active: '', default: ''}}
+});

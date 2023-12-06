@@ -208,3 +208,106 @@ export interface IKitItemCardTheme {
         };
     };
 }
+
+export interface IKitItemCardCssTokens {
+    card: {
+        colors: {
+            background: {
+                default: string;
+                disabled: string;
+            };
+            border: {
+                default: string;
+                hover: string;
+            };
+        };
+        border: {
+            radius: string;
+        };
+        typography: {
+            fontFamily: string;
+        };
+    };
+    colorBar: {
+        thickness: string;
+        border: {
+            radius: string;
+        };
+    };
+    select: {
+        colors: {
+            background: {
+                disabled: string;
+            };
+            typography: {
+                default: string;
+                disabled: string;
+            };
+        };
+    };
+    expend: {
+        colors: {
+            typography: {
+                default: string;
+                hover: string;
+                disabled: string;
+            };
+        };
+    };
+    image: {
+        colors: {
+            border: {
+                default: string;
+            };
+        };
+        border: {
+            radius: string;
+        };
+    };
+    icon: {
+        colors: {
+            border: {
+                default: string;
+            };
+        };
+        border: {
+            radius: string;
+        };
+    };
+    title: {
+        colors: {
+            typography: {
+                default: string;
+                disabled: string;
+            };
+        };
+        typography: {
+            fontSize: number;
+            fontWeight: string;
+        };
+    };
+    description: {
+        colors: {
+            typography: {
+                default: string;
+                disabled: string;
+            };
+        };
+        typography: {
+            fontSize: string;
+            fontWeight: string;
+        };
+    };
+    footer: {
+        colors: {
+            typography: {
+                default: string;
+                disabled: string;
+            };
+        };
+        typography: {
+            fontSize: string;
+            fontWeight: string;
+        };
+    };
+}

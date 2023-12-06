@@ -39,3 +39,21 @@ export interface IKitBadgeTheme {
         fontFamily: string;
     };
 }
+
+export interface IKitBadgeCssTokens {
+    colors: {
+        background: {
+            default: string;
+            primary: string;
+            error: string;
+            success: string;
+            warning: string;
+        };
+        typography: {
+            default: string;
+        };
+    };
+    typography: {
+        fontFamily: string;
+    };
+}

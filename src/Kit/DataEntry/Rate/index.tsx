@@ -57,11 +57,11 @@ export const KitRate = forwardRef<RateRef, IKitRate>(
         const {theme} = useKitTheme();
 
         const calculatedActiveStarColor = useMemo(() => {
-            if (!color || !isValidColor(theme.general.colors, color)) {
+            if (!color || !isValidColor(color)) {
                 return theme.components.Rate.colors.star.default;
             }
 
-            return getColor(theme.general.colors, color);
+            return getColor(color);
         }, [color, theme]);
 
         return (

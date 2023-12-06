@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitImageTheme} from '@theme/types/components/DataDisplay/Image';
+import {IKitImageCssTokens, IKitImageTheme} from '@theme/types/components/DataDisplay/Image';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator.ts';
 
 export const getKitImageTokens = (generalTokens: IKitThemeGeneral): IKitImageTheme => {
     const {colors, border} = generalTokens;
@@ -19,3 +20,8 @@ export const getKitImageTokens = (generalTokens: IKitThemeGeneral): IKitImageThe
         }
     };
 };
+
+export const kitImageCssTokens = generateCssTokens<IKitImageCssTokens>('--components-Image', {
+    border: {radius: {default: '', rounded: ''}},
+    colors: {border: {default: '', none: ''}}
+});

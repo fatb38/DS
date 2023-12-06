@@ -1,11 +1,14 @@
 import React, {FunctionComponent} from 'react';
 import {Collapse as AntdCollapse} from 'antd';
-import {IKitCollapse, IStyledKitCollapse} from './types';
+import {IKitCollapse} from './types';
 import styled from 'styled-components';
+import {kitCollapseCssTokens} from '@theme/aristid/components/DataDisplay/Collapse';
+import {borderCssTokens} from '@theme/aristid/general/border';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {useKitTheme} from '@theme/theme-context';
 
-const StyledCollapse = styled(AntdCollapse)<IStyledKitCollapse>`
-    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
+const StyledCollapse = styled(AntdCollapse)`
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
 
     .ant-collapse-item .ant-collapse-header {
         align-items: center;
@@ -13,41 +16,56 @@ const StyledCollapse = styled(AntdCollapse)<IStyledKitCollapse>`
 
     .ant-collapse-item:first-of-type,
     .ant-collapse-item:first-of-type .ant-collapse-header {
-        border-top-left-radius: ${({$theme}) => $theme.border.radius}px;
-        border-top-right-radius: ${({$theme}) => $theme.border.radius}px;
+        border-top-left-radius: calc(
+            var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
+        );
+        border-top-right-radius: calc(
+            var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
+        );
     }
 
     .ant-collapse-item:last-of-type {
         &:not(.ant-collapse-item-active),
         &:not(.ant-collapse-item-active) .ant-collapse-header {
-            border-bottom-left-radius: ${({$theme}) => $theme.border.radius}px;
-            border-bottom-right-radius: ${({$theme}) => $theme.border.radius}px;
+            border-bottom-left-radius: calc(
+                var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
+            );
+            border-bottom-right-radius: calc(
+                var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
+            );
         }
 
         &.ant-collapse-item-active .ant-collapse-header {
-            border-bottom-left-radius: 0px;
-            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
     }
 
     .ant-collapse-item-active {
-        outline: solid 1px ${({$theme}) => $theme.colors.border.active};
+        outline: solid 1px
+            var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
         border-bottom: none;
 
         > .ant-collapse-header {
-            background-color: ${({$theme}) => $theme.colors.background.active};
+            background-color: var(
+                ${kitCollapseCssTokens.colors.background.active},
+                var(${kitColorsPaletteCssTokens.primary.primary100})
+            );
         }
 
         > .ant-collapse-content {
-            border-color: ${({$theme}) => $theme.colors.border.active};
+            border-color: var(
+                ${kitCollapseCssTokens.colors.border.active},
+                var(${kitColorsPaletteCssTokens.primary.primary400})
+            );
         }
     }
 `;
 
-export const KitCollapse: FunctionComponent<IKitCollapse> = collapseProps => {
-    const {theme} = useKitTheme();
+export const KitCollapse: FunctionComponent<IKitCollapse> = ({className, ...collapseProps}) => {
+    const {appId} = useKitTheme();
 
-    return <StyledCollapse $theme={theme.components.Collapse} {...collapseProps} />;
+    return <StyledCollapse {...collapseProps} className={`${appId} ${className ?? ''}`} />;
 };
 
 KitCollapse.displayName = 'KitCollapse';

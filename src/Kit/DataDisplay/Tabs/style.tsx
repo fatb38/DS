@@ -1,20 +1,22 @@
 import {createGlobalStyle} from 'styled-components';
-import {IStyledKitTabsDropDown} from './types';
+import {kitTabsCssTokens} from '@theme/aristid/components/DataDisplay/Tabs';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-export const TabsDropDownStyle = createGlobalStyle<IStyledKitTabsDropDown>`
+export const TabsDropDownStyle = createGlobalStyle`
     .ant-tabs-dropdown,
     .ant-tabs-dropdown-menu.ant-tabs-dropdown-menu-submenu {
         padding: 10px;
         border-radius: 7px;
-        font-family: ${({$theme}) => $theme.typography.fontFamily};
-        font-weight: ${({$theme}) => $theme.typography.fontWeight};
-        background-color: ${({$theme}) => $theme.colors.background.default};
-        color: ${({$theme}) => $theme.colors.typography.default};
+        font-family: var(${kitTabsCssTokens.DropDown.typography.fontFamily},var(${typographyCssTokens.fontFamily}));
+        font-weight: var(${kitTabsCssTokens.DropDown.typography.fontWeight},var(${typographyCssTokens.mediumfontWeight}));
+        background-color: var(${kitTabsCssTokens.DropDown.colors.background.default},var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100}));
+        color: var(${kitTabsCssTokens.DropDown.colors.typography.default},var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500}));
         box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
 
         .ant-tabs-dropdown-menu {
             padding: 0px;
-            background-color: ${({$theme}) => $theme.menu.colors.background.default};
+            background-color: var(${kitTabsCssTokens.DropDown.menu.colors.background.default},var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100}));
             box-shadow: none;
 
             .ant-tabs-dropdown-menu-item,
@@ -22,8 +24,8 @@ export const TabsDropDownStyle = createGlobalStyle<IStyledKitTabsDropDown>`
                 border-radius: 7px;
                 border: none;
                 min-height: 32px;
-                font-weight: ${({$theme}) => $theme.menuItem.typography.fontWeight};
-                color: ${({$theme}) => $theme.menuItem.colors.typography.default};
+                font-weight: var(${kitTabsCssTokens.DropDown.menuItem.typography.fontWeight},var(${typographyCssTokens.mediumfontWeight}));
+                color: var(${kitTabsCssTokens.DropDown.menuItem.colors.typography.default},var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500}));
                 padding: 0 10px;
 
                 &:not(:last-child) {
@@ -31,17 +33,17 @@ export const TabsDropDownStyle = createGlobalStyle<IStyledKitTabsDropDown>`
                 }
 
                 &.ant-tabs-dropdown-menu-item-active {
-                    background-color: ${({$theme}) => $theme.menuItem.colors.background.active};
-                    color: ${({$theme}) => $theme.menuItem.colors.typography.active};
+                    background-color: var(${kitTabsCssTokens.DropDown.menuItem.colors.background.active},var(${kitColorsPaletteCssTokens.primary.primary100}));
+                    color: var(${kitTabsCssTokens.DropDown.menuItem.colors.typography.active},var(${kitColorsPaletteCssTokens.primary.primary400}));
                 }
 
                 &.ant-tabs-dropdown-menu-item-selected {
-                    background-color: ${({$theme}) => $theme.menuItem.colors.background.selected};
+                    background-color: var(${kitTabsCssTokens.DropDown.menuItem.colors.background.selected},var(${kitColorsPaletteCssTokens.primary.primary100}));
                 }
 
                 &.ant-tabs-dropdown-menu-item-disabled {
-                    background-color: ${({$theme}) => $theme.menuItem.colors.background.disabled};
-                    color: ${({$theme}) => $theme.menuItem.colors.typography.disabled};
+                    background-color: var(${kitTabsCssTokens.DropDown.menuItem.colors.background.disabled},var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100}));
+                    color: var(${kitTabsCssTokens.DropDown.menuItem.colors.typography.disabled},var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}));
                     cursor: not-allowed;
                 }
             }

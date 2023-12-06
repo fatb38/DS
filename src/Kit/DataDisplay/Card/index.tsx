@@ -7,115 +7,163 @@ import {KitSpace} from '@kit/Layout';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faLink} from '@fortawesome/free-solid-svg-icons';
+import {kitCardCssTokens} from '@theme/aristid/components/DataDisplay/Card';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
 const StyledCard = styled(AntdCard)<IStyledKitCard>`
-    font-family: ${({$theme}) => $theme.typography.fontFamily};
+    font-family: var(${kitCardCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
     overflow: hidden;
 
     &.ant-card-bordered {
-        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
         border: 1px solid
-            ${({$theme, $disabled}) => ($disabled ? $theme.colors.border.disabled : $theme.colors.border.default)};
+            ${({$disabled}) =>
+                $disabled
+                    ? `var(${kitCardCssTokens.colors.border.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`
+                    : `var(${kitCardCssTokens.colors.border.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`};
 
         &:focus,
         &:focus-visible,
         &:focus-within {
             border: 1px dashed
-                ${({$theme, $disabled}) => ($disabled ? $theme.colors.border.disabled : $theme.colors.border.focus)};
-            box-shadow: 0px 0px 16px 0px
-                ${({$theme, $disabled}) =>
-                    $disabled ? `${$theme.colors.shadow.focus}14` : `${$theme.colors.shadow.focus}14`};
+                ${({$disabled}) =>
+                    $disabled
+                        ? `var(${kitCardCssTokens.colors.border.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`
+                        : `var(${kitCardCssTokens.colors.border.focus}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
+            box-shadow: 0 0 16px 0
+                var(${kitCardCssTokens.colors.shadow.focus}, var(${kitColorsPaletteCssTokens.primary.primary100}));
         }
 
         &:hover {
             border: 1px solid
-                ${({$theme, $disabled}) => ($disabled ? $theme.colors.border.disabled : $theme.colors.border.hover)};
-            box-shadow: 0px 0px 24px 0px
-                ${({$theme, $disabled}) =>
-                    $disabled ? `${$theme.colors.shadow.disabled}14` : `${$theme.colors.shadow.hover}14`};
+                ${({$disabled}) =>
+                    $disabled
+                        ? `var(${kitCardCssTokens.colors.border.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`
+                        : `var(${kitCardCssTokens.colors.border.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
+            box-shadow: 0 0 24px 0
+                ${({$disabled}) =>
+                    $disabled
+                        ? `var(${kitCardCssTokens.colors.shadow.disabled}, var(${kitColorsPaletteCssTokens.primary.primary100}))`
+                        : `var(${kitCardCssTokens.colors.shadow.hover}, var(${kitColorsPaletteCssTokens.primary.primary100}))`};
         }
     }
 
     &.ant-card {
         .ant-card-head {
             padding: 24px 16px;
-            border-bottom: ${({$theme, $separator}) =>
-                $separator ? `1px solid ${$theme.colors.separator.default}` : 'none'};
-            background-color: ${({$theme, $disabled}) =>
-                $disabled ? $theme.colors.background.disabled : $theme.colors.background.default};
+            border-bottom: ${({$separator}) =>
+                $separator
+                    ? `1px solid var(${kitCardCssTokens.colors.separator.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`
+                    : 'none'};
+            background-color: ${({$disabled}) =>
+                $disabled
+                    ? `var(${kitCardCssTokens.colors.background.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100}))`
+                    : `var(${kitCardCssTokens.colors.background.default}, none)`};
 
             .ant-card-head-wrapper {
                 gap: 16px;
 
                 .ant-card-head-title {
-                    color: ${({$theme, $disabled}) =>
+                    color: ${({$disabled}) =>
                         $disabled
-                            ? $theme.colors.typography.headerTitle.disabled
-                            : $theme.colors.typography.headerTitle.default};
-                    font-size: ${({$theme}) => `${$theme.typography.headerTitle.fontSize}px`};
-                    font-weight: ${({$theme}) => $theme.typography.headerTitle.fontWeight};
+                            ? `var(${kitCardCssTokens.colors.typography.headerTitle.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
+                            : `var(${kitCardCssTokens.colors.typography.headerTitle.default}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
+                    font-size: calc(
+                        var(${kitCardCssTokens.typography.headerTitle.fontSize}, var(${typographyCssTokens.fontSize3})) *
+                            1px
+                    );
+                    font-weight: var(
+                        ${kitCardCssTokens.typography.headerTitle.fontWeight},
+                        var(${typographyCssTokens.boldFontWeight})
+                    );
                 }
             }
         }
+
         .ant-card-cover {
             height: 252px;
             overflow: hidden;
-            background-color: ${({$theme, $disabled}) =>
-                $disabled ? $theme.colors.background.disabled : $theme.colors.background.default};
+            background-color: ${({$disabled}) =>
+                $disabled
+                    ? `var(${kitCardCssTokens.colors.background.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100}))`
+                    : `var(${kitCardCssTokens.colors.background.default}, none)`};
 
             & img {
                 border-radius: 0;
             }
         }
+
         .ant-card-body {
             padding: 24px 16px;
-            background-color: ${({$theme, $disabled}) =>
-                $disabled ? $theme.colors.background.disabled : $theme.colors.background.default};
+            background-color: ${({$disabled}) =>
+                $disabled
+                    ? `var(${kitCardCssTokens.colors.background.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100}))`
+                    : `var(${kitCardCssTokens.colors.background.default}, none)`};
         }
 
         .card-content-title {
-            color: ${({$theme, $disabled}) =>
+            color: ${({$disabled}) =>
                 $disabled
-                    ? $theme.colors.typography.contentTitle.disabled
-                    : $theme.colors.typography.contentTitle.default};
-            font-size: ${({$theme}) => `${$theme.typography.contentTitle.fontSize}px`};
-            font-weight: ${({$theme}) => $theme.typography.contentTitle.fontWeight};
+                    ? `var(${kitCardCssTokens.colors.typography.contentTitle.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
+                    : `var(${kitCardCssTokens.colors.typography.contentTitle.default}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
+            font-size: calc(
+                var(${kitCardCssTokens.typography.contentTitle.fontSize}, var(${typographyCssTokens.fontSize2})) * 1px
+            );
+            font-weight: var(
+                ${kitCardCssTokens.typography.contentTitle.fontWeight},
+                var(${typographyCssTokens.boldFontWeight})
+            );
             line-height: normal;
         }
 
         .card-content-description {
-            color: ${({$theme, $disabled}) =>
+            color: ${({$disabled}) =>
                 $disabled
-                    ? $theme.colors.typography.description.disabled
-                    : $theme.colors.typography.description.default};
-            font-size: ${({$theme}) => `${$theme.typography.desciption.fontSize}px`};
+                    ? `var(${kitCardCssTokens.colors.typography.description.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}))`
+                    : `var(${kitCardCssTokens.colors.typography.description.default}, var(${kitColorsPaletteCssTokens.neutral.typography.black}))`};
+            font-size: calc(
+                var(${kitCardCssTokens.typography.description.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px
+            );
             line-height: normal;
-            font-weight: ${({$theme}) => $theme.typography.desciption.fontWeight};
+            font-weight: var(
+                ${kitCardCssTokens.typography.description.fontWeight},
+                var(${typographyCssTokens.regularFontWeight})
+            );
         }
 
         .ant-card-cover {
-            margin-top: 0px;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
+            margin-top: 0;
+            margin-inline-start: 0;
+            margin-inline-end: 0;
         }
 
         .ant-card-actions {
             border-top: none;
-            background-color: ${({$theme, $disabled}) =>
-                $disabled ? $theme.colors.background.disabled : $theme.colors.background.default};
+            background-color: ${({$disabled}) =>
+                $disabled
+                    ? `var(${kitCardCssTokens.colors.background.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100}))`
+                    : `var(${kitCardCssTokens.colors.background.default}, none)`};
 
             & > li:not(:last-child) {
-                border-color: ${({$theme, $disabled}) =>
-                    $disabled ? $theme.colors.actions.disabled : $theme.colors.actions.default};
+                border-color: ${({$disabled}) =>
+                    $disabled
+                        ? `var(${kitCardCssTokens.colors.actions.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}))`
+                        : `var(${kitCardCssTokens.colors.actions.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500}))`};
             }
+
             & li svg {
-                color: ${({$theme, $disabled}) =>
-                    $disabled ? $theme.colors.actions.disabled : $theme.colors.actions.default};
+                color: ${({$disabled}) =>
+                    $disabled
+                        ? `var(${kitCardCssTokens.colors.actions.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}))`
+                        : `var(${kitCardCssTokens.colors.actions.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500}))`};
 
                 &:hover {
                     cursor: ${({$disabled}) => ($disabled ? 'not-allowed' : 'inherit')};
-                    color: ${({$theme, $disabled}) =>
-                        $disabled ? $theme.colors.actions.disabled : $theme.colors.actions.hover};
+                    color: ${({$disabled}) =>
+                        $disabled
+                            ? `var(${kitCardCssTokens.colors.actions.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}))`
+                            : `var(${kitCardCssTokens.colors.actions.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
                 }
             }
         }
@@ -127,21 +175,27 @@ const StyledCard = styled(AntdCard)<IStyledKitCard>`
         }
 
         .kit-card-content-title-icon {
-            color: ${({$theme, $disabled}) =>
+            color: ${({$disabled}) =>
                 $disabled
-                    ? $theme.colors.typography.contentTitle.disabled
-                    : $theme.colors.typography.contentTitle.default};
-            font-size: ${({$theme}) => $theme.typography.linkIcon.fontSize}px;
+                    ? `var(${kitCardCssTokens.colors.typography.contentTitle.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
+                    : `var(${kitCardCssTokens.colors.typography.contentTitle.default}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
+            font-size: calc(
+                var(${kitCardCssTokens.typography.linkIcon.fontSize}, var(${typographyCssTokens.fontSize3})) * 1px
+            );
             padding: 0;
         }
 
         .kit-card-extra {
-            color: ${({$theme, $disabled}) =>
-                $disabled ? $theme.colors.typography.extra.disabled : $theme.colors.typography.extra.default};
+            color: ${({$disabled}) =>
+                $disabled
+                    ? `var(${kitCardCssTokens.colors.typography.extra.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
+                    : `var(${kitCardCssTokens.colors.typography.extra.default}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
 
             &:hover {
-                color: ${({$theme, $disabled}) =>
-                    $disabled ? $theme.colors.typography.extra.disabled : $theme.colors.typography.extra.hover};
+                color: ${({$disabled}) =>
+                    $disabled
+                        ? `var(${kitCardCssTokens.colors.typography.extra.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
+                        : `var(${kitCardCssTokens.colors.typography.extra.hover}, var(${kitColorsPaletteCssTokens.primary.primary300}))`};
                 cursor: ${({$disabled}) => ($disabled ? 'not-allowed' : 'cursor')};
             }
         }
@@ -203,11 +257,12 @@ export const KitCard: FunctionComponent<IKitCard> = ({
     contentDescription,
     actions,
     onContentTitleClick,
+    className,
     separator = false,
     disabled = false,
     ...props
 }) => {
-    const {theme} = useKitTheme();
+    const {appId} = useKitTheme();
 
     const customStyle: CSSProperties = {
         width: style?.width ?? '340px'
@@ -215,15 +270,15 @@ export const KitCard: FunctionComponent<IKitCard> = ({
 
     return (
         <StyledCard
-            $theme={theme.components.Card}
+            {...props}
             $disabled={disabled}
             $separator={separator}
+            className={`${appId} ${className}`}
             style={customStyle}
             extra={_getExtra(disabled, extra)}
             cover={_getCover(cover)}
             bodyStyle={contentTitle || contentDescription ? {} : {padding: 0, height: 0}}
             actions={_getActions(disabled, actions)}
-            {...props}
         >
             <KitSpace direction="vertical">
                 {(contentTitle || onContentTitleClick) && (

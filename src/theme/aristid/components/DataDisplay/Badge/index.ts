@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitBadgeTheme} from '@theme/types/components/DataDisplay/Badge';
+import {IKitBadgeCssTokens, IKitBadgeTheme} from '@theme/types/components/DataDisplay/Badge';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitBadgeTokens = (generalTokens: IKitThemeGeneral): IKitBadgeTheme => {
     const {colors, typography} = generalTokens;
@@ -22,3 +23,21 @@ export const getKitBadgeTokens = (generalTokens: IKitThemeGeneral): IKitBadgeThe
         }
     };
 };
+
+export const kitBadgeCssTokens = generateCssTokens<IKitBadgeCssTokens>('--components-Badge', {
+    colors: {
+        background: {
+            default: '',
+            primary: '',
+            error: '',
+            success: '',
+            warning: ''
+        },
+        typography: {
+            default: ''
+        }
+    },
+    typography: {
+        fontFamily: ''
+    }
+});

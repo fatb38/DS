@@ -1,37 +1,61 @@
 import React, {FunctionComponent} from 'react';
 import {Tree as AntdTree} from 'antd';
 import styled from 'styled-components';
-import {IKitTree, IStyledKitTree} from './types';
+import {IKitTree} from './types';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {kitTreeCssTokens} from '@theme/aristid/components/DataDisplay/Tree';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {useKitTheme} from '@theme/theme-context';
 
-const StyledTree = styled(AntdTree)<IStyledKitTree>`
+const StyledTree = styled(AntdTree)`
     .ant-tree-treenode {
         padding: 0;
-        font-weight: ${({$theme}) => $theme.treenode.typography.fontWeight};
+        font-weight: var(
+            ${kitTreeCssTokens.treenode.typography.fontWeight},
+            var(${typographyCssTokens.regularFontWeight})
+        );
 
         &:hover {
-            background-color: ${({$theme}) => $theme.treenode.colors.background.hover};
-            color: ${({$theme}) => $theme.treenode.colors.typography.hover};
+            background-color: var(
+                ${kitTreeCssTokens.treenode.colors.background.hover},
+                var(${kitColorsPaletteCssTokens.primary.primary100})
+            );
+            color: var(
+                ${kitTreeCssTokens.treenode.colors.typography.hover},
+                var(${kitColorsPaletteCssTokens.primary.primary400})
+            );
         }
 
         &.ant-tree-treenode-selected {
-            background-color: ${({$theme}) => $theme.treenode.colors.background.selected};
+            background-color: var(
+                ${kitTreeCssTokens.treenode.colors.background.selected},
+                var(${kitColorsPaletteCssTokens.primary.primary100})
+            );
         }
 
         &.ant-tree-treenode-disabled {
-            color: ${({$theme}) => $theme.treenode.colors.typography.disabled};
+            color: var(
+                ${kitTreeCssTokens.treenode.colors.typography.disabled},
+                var(${kitColorsPaletteCssTokens.neutral.typography.black60})
+            );
 
             &:hover:not(.ant-tree-treenode-selected) {
                 background-color: inherit;
             }
 
             .ant-tree-node-content-wrapper {
-                color: ${({$theme}) => $theme.treenode.colors.typography.disabled};
+                color: var(
+                    ${kitTreeCssTokens.treenode.colors.typography.disabled},
+                    var(${kitColorsPaletteCssTokens.neutral.typography.black60})
+                );
             }
         }
 
         .ant-tree-indent {
-            background-color: ${({$theme}) => $theme.treenode.colors.background.indent};
+            background-color: var(
+                ${kitTreeCssTokens.treenode.colors.background.indent},
+                var(${kitColorsPaletteCssTokens.neutral.white})
+            );
         }
 
         .ant-tree-switcher {
@@ -45,44 +69,86 @@ const StyledTree = styled(AntdTree)<IStyledKitTree>`
             margin-inline-end: 0px;
 
             .ant-tree-checkbox-inner {
-                background-color: ${({$theme}) => $theme.checkbox.colors.background.default};
-                border: 1px solid ${({$theme}) => $theme.checkbox.colors.border.default};
+                background-color: var(
+                    ${kitTreeCssTokens.checkbox.colors.background.default},
+                    var(${kitColorsPaletteCssTokens.neutral.white})
+                );
+                border: 1px solid
+                    var(
+                        ${kitTreeCssTokens.checkbox.colors.border.default},
+                        var(${kitColorsPaletteCssTokens.neutral.black60})
+                    );
             }
 
             .ant-tree-checkbox-inner:after {
-                border-color: ${({$theme}) => $theme.checkbox.colors.icon.default};
+                border-color: var(
+                    ${kitTreeCssTokens.checkbox.colors.icon.default},
+                    var(${kitColorsPaletteCssTokens.neutral.black60})
+                );
             }
 
             &:hover .ant-tree-checkbox-inner {
-                border: 1px solid ${({$theme}) => $theme.checkbox.colors.border.hover};
+                border: 1px solid
+                    var(
+                        ${kitTreeCssTokens.checkbox.colors.border.hover},
+                        var(${kitColorsPaletteCssTokens.primary.primary400})
+                    );
             }
 
             &.ant-tree-checkbox-checked {
                 .ant-tree-checkbox-inner:after {
-                    border-color: ${({$theme}) => $theme.checkbox.colors.icon.checked};
+                    border-color: var(
+                        ${kitTreeCssTokens.checkbox.colors.icon.checked},
+                        var(${kitColorsPaletteCssTokens.neutral.white})
+                    );
                 }
 
                 .ant-tree-checkbox-inner {
-                    background-color: ${({$theme}) => $theme.checkbox.colors.background.checked.default};
-                    border: 1px solid ${({$theme}) => $theme.checkbox.colors.border.checked.default};
+                    background-color: var(
+                        ${kitTreeCssTokens.checkbox.colors.background.checked.default},
+                        var(${kitColorsPaletteCssTokens.primary.primary400})
+                    );
+                    border: 1px solid
+                        var(
+                            ${kitTreeCssTokens.checkbox.colors.border.checked.default},
+                            var(${kitColorsPaletteCssTokens.primary.primary400})
+                        );
                 }
 
                 &:hover .ant-tree-checkbox-inner {
-                    background-color: ${({$theme}) => $theme.checkbox.colors.background.checked.hover};
-                    border-color: ${({$theme}) => $theme.checkbox.colors.border.checked.hover};
+                    background-color: var(
+                        ${kitTreeCssTokens.checkbox.colors.background.checked.hover},
+                        var(${kitColorsPaletteCssTokens.primary.primary500})
+                    );
+                    border-color: var(
+                        ${kitTreeCssTokens.checkbox.colors.border.checked.hover},
+                        var(${kitColorsPaletteCssTokens.primary.primary500})
+                    );
                 }
             }
 
             &.ant-tree-checkbox-indeterminate {
                 &:not(.ant-tree-checkbox-disabled) {
                     .ant-tree-checkbox-inner {
-                        background-color: ${({$theme}) => $theme.checkbox.colors.background.checked.default};
-                        border-color: ${({$theme}) => $theme.checkbox.colors.border.checked.default};
+                        background-color: var(
+                            ${kitTreeCssTokens.checkbox.colors.background.checked.default},
+                            var(${kitColorsPaletteCssTokens.primary.primary400})
+                        );
+                        border-color: var(
+                            ${kitTreeCssTokens.checkbox.colors.border.checked.default},
+                            var(${kitColorsPaletteCssTokens.primary.primary400})
+                        );
                     }
 
                     &:hover .ant-tree-checkbox-inner {
-                        background-color: ${({$theme}) => $theme.checkbox.colors.background.checked.hover};
-                        border-color: ${({$theme}) => $theme.checkbox.colors.border.checked.hover};
+                        background-color: var(
+                            ${kitTreeCssTokens.checkbox.colors.background.checked.hover},
+                            var(${kitColorsPaletteCssTokens.primary.primary500})
+                        );
+                        border-color: var(
+                            ${kitTreeCssTokens.checkbox.colors.border.checked.hover},
+                            var(${kitColorsPaletteCssTokens.primary.primary500})
+                        );
                     }
 
                     .ant-tree-checkbox-inner:after {
@@ -95,15 +161,28 @@ const StyledTree = styled(AntdTree)<IStyledKitTree>`
             }
 
             &.ant-tree-checkbox-disabled {
-                color: ${({$theme}) => $theme.checkbox.colors.icon.disabled};
+                color: var(
+                    ${kitTreeCssTokens.checkbox.colors.icon.disabled},
+                    var(${kitColorsPaletteCssTokens.neutral.black60})
+                );
 
                 .ant-tree-checkbox-inner {
-                    background-color: ${({$theme}) => $theme.checkbox.colors.background.disabled};
-                    border: 1px solid ${({$theme}) => $theme.checkbox.colors.border.disabled};
+                    background-color: var(
+                        ${kitTreeCssTokens.checkbox.colors.background.disabled},
+                        var(${kitColorsPaletteCssTokens.neutral.white})
+                    );
+                    border: 1px solid
+                        var(
+                            ${kitTreeCssTokens.checkbox.colors.border.disabled},
+                            var(${kitColorsPaletteCssTokens.neutral.black60})
+                        );
                 }
 
                 .ant-tree-checkbox-inner:after {
-                    border-color: ${({$theme}) => $theme.checkbox.colors.icon.disabled};
+                    border-color: var(
+                        ${kitTreeCssTokens.checkbox.colors.icon.disabled},
+                        var(${kitColorsPaletteCssTokens.neutral.black60})
+                    );
                 }
             }
         }
@@ -143,13 +222,12 @@ const StyledTree = styled(AntdTree)<IStyledKitTree>`
     }
 `;
 
-export const KitTree: FunctionComponent<IKitTree> = ({...treeProps}) => {
-    const {theme} = useKitTheme();
-
+export const KitTree: FunctionComponent<IKitTree> = ({className, ...treeProps}) => {
+    const {appId} = useKitTheme();
     return (
         <StyledTree
-            $theme={theme.components.Tree}
             {...treeProps}
+            className={`${appId} ${className}`}
             blockNode={true}
             draggable={false}
             onDragEnd={undefined}

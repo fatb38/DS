@@ -1,4 +1,4 @@
-import {IKitTypography} from '@theme/types/general/typography';
+import {IKitTypography, IKitTypographyCssTokens} from '@theme/types/general/typography';
 
 export const typography: IKitTypography = {
     fontFamily: 'Inter',
@@ -21,4 +21,29 @@ export const typography: IKitTypography = {
     lineHeight5: 1.2,
     lineHeight6: 1.2,
     lineHeight7: 1.2
+};
+
+const base = '--general-typography';
+
+export const typographyCssTokens: IKitTypographyCssTokens = {
+    fontFamily: `${base}-fontFamily`,
+    fontStyle: `${base}-fontStyle`,
+    defaultFontWeight: `${base}-defaultFontWeight`,
+    mediumfontWeight: `${base}-mediumfontWeight`,
+    regularFontWeight: `${base}-regularFontWeight`,
+    boldFontWeight: `${base}-boldFontWeight`,
+    fontSize1: `${base}-fontSize1`,
+    fontSize2: `${base}-fontSize2`,
+    fontSize3: `${base}-fontSize3`,
+    fontSize4: `${base}-fontSize4`,
+    fontSize5: `${base}-fontSize5`,
+    fontSize6: `${base}-fontSize6`,
+    fontSize7: `${base}-fontSize7`,
+    lineHeight1: `${base}-lineHeight1`,
+    lineHeight2: `${base}-lineHeight2`,
+    lineHeight3: `${base}-lineHeight3`,
+    lineHeight4: `${base}-lineHeight4`,
+    lineHeight5: `${base}-lineHeight5`,
+    lineHeight6: `${base}-lineHeight6`,
+    lineHeight7: `${base}-lineHeight7`
 };

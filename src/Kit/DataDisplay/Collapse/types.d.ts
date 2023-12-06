@@ -37,10 +37,6 @@ export interface IKitHeaderExtra {
     actions?: IKitHeaderExtraActions;
 }
 
-export interface IStyledKitCollapse {
-    $theme: IKitCollapseTheme;
-}
-
 export type KitCollapseCompoundedComponent = FunctionComponent<IKitCollapse> & {
     Header: FunctionComponent<IKitHeader>;
     HeaderExtra: FunctionComponent<IKitHeaderExtra>;

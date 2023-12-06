@@ -1,4 +1,4 @@
-import {IKitBorder} from '@theme/types/general/border';
+import {IKitBorder, IKitBorderCssTokens} from '@theme/types/general/border';
 
 export const border: IKitBorder = {
     radius: {
@@ -13,4 +13,21 @@ export const border: IKitBorder = {
         pills: 1000
     },
     width: 0
+};
+
+const base = '--general-border';
+
+export const borderCssTokens: IKitBorderCssTokens = {
+    radius: {
+        square: `${base}-radius-square`,
+        xxs: `${base}-radius-xxs`,
+        xs: `${base}-radius-xs`,
+        s: `${base}-radius-s`,
+        m: `${base}-radius-m`,
+        l: `${base}-radius-l`,
+        xl: `${base}-radius-xl`,
+        xxl: `${base}-radius-xxl`,
+        pills: `${base}-radius-pills`
+    },
+    width: `${base}-width`
 };

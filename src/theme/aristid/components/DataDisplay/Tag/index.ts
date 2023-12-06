@@ -1,5 +1,5 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitTagTheme} from '@theme/types/components/DataDisplay/Tag';
+import {IKitTagCssTokens, IKitTagTheme} from '@theme/types/components/DataDisplay/Tag';
 
 export const getKitTagTokens = (generalTokens: IKitThemeGeneral): IKitTagTheme => {
     const {colors, typography, border} = generalTokens;
@@ -24,4 +24,27 @@ export const getKitTagTokens = (generalTokens: IKitThemeGeneral): IKitTagTheme =
             radius: border.radius.s
         }
     };
+};
+
+const base = '--components-Tag';
+
+export const kitTagCssTokens: IKitTagCssTokens = {
+    colors: {
+        default: {
+            background: {
+                default: `${base}-colors-default-background-default`
+            },
+            typography: {
+                default: `${base}-colors-typography-default`
+            }
+        }
+    },
+    typography: {
+        fontFamily: `${base}-typography-fontFamily`,
+        fontSize: `${base}-typography-fontSize`,
+        fontWeight: `${base}-typography-fontWeight`
+    },
+    border: {
+        radius: `${base}-border-radius`
+    }
 };

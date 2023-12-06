@@ -1,52 +1,56 @@
-import React, {FunctionComponent, useMemo} from 'react';
+import React, {CSSProperties, FunctionComponent, useMemo} from 'react';
 import {Avatar as AntdAvatar} from 'antd';
-import {IKitAvatar, IStyledKitAvatar} from './types';
+import {IKitAvatar} from './types';
 import {styled} from 'styled-components';
 import {useKitTheme} from '@theme/theme-context';
-import {getColor, getContrastColor, getLighterColor, isValidColor} from '@utils/functions';
+import {getColor, getContrastColor, getLighterColor, isSecondaryColor, isValidColor} from '@utils/functions';
+import {kitAvatarCssTokens} from '@theme/aristid/components/DataDisplay/Avatar';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-const StyledAntdAvatar = styled(AntdAvatar)<IStyledKitAvatar>`
+const StyledAntdAvatar = styled(AntdAvatar)`
     &:not(.ant-avatar-image) {
-        background: ${({$backgroundColor}) => $backgroundColor};
-        color: ${({$iconColor}) => $iconColor};
+        background: var(
+            ${kitAvatarCssTokens.colors.background.default},
+            var(${kitColorsPaletteCssTokens.neutral.black60})
+        );
+        color: var(
+            ${kitAvatarCssTokens.colors.typography.default},
+            var(${kitColorsPaletteCssTokens.neutral.typography.white})
+        );
     }
 `;
 
-const KitAvatar: FunctionComponent<IKitAvatar> = ({color, secondaryColorInvert = false, ...avatarProps}) => {
-    const {theme} = useKitTheme();
+const getCustomColors = (
+    color: IKitAvatar['color'],
+    secondaryColorInvert: IKitAvatar['secondaryColorInvert']
+): CSSProperties | null => {
+    if (!color || !isValidColor(color)) {
+        return null;
+    }
 
-    const calculatedIconColor = useMemo(() => {
-        if (!color || !isValidColor(theme.general.colors, color)) {
-            return theme.components.Avatar.colors.typography.default;
-        }
+    return {
+        [kitAvatarCssTokens.colors.background.default]: getColor(color, secondaryColorInvert),
+        [kitAvatarCssTokens.colors.typography.default]: isSecondaryColor(color)
+            ? getLighterColor(color, secondaryColorInvert)
+            : getContrastColor(color)
+    } as CSSProperties;
+};
 
-        if (Object.keys(theme.general.colors.secondary).indexOf(color) > -1) {
-            return getLighterColor(theme.general.colors, color, secondaryColorInvert);
-        }
+const KitAvatar: FunctionComponent<IKitAvatar> = ({
+    color,
+    className,
+    style,
+    secondaryColorInvert = false,
+    ...avatarProps
+}) => {
+    const {appId} = useKitTheme();
 
-        return getContrastColor(theme.general.colors, color);
-    }, [color, secondaryColorInvert, theme]);
-
-    const calculatedBackgroundColor = useMemo(() => {
-        if (!color || !isValidColor(theme.general.colors, color)) {
-            return theme.components.Avatar.colors.background.default;
-        }
-
-        if (Object.keys(theme.general.colors.secondary).indexOf(color) > -1) {
-            return getColor(theme.general.colors, color, secondaryColorInvert);
-        }
-
-        return getColor(theme.general.colors, color);
-    }, [color, secondaryColorInvert, theme]);
-
-    return (
-        <StyledAntdAvatar
-            $theme={theme.components.Avatar}
-            $backgroundColor={calculatedBackgroundColor}
-            $iconColor={calculatedIconColor}
-            {...avatarProps}
-        />
+    const customStyle = useMemo(
+        () => ({...style, ...getCustomColors(color, secondaryColorInvert)}),
+        [color, secondaryColorInvert, style]
     );
+
+    return <StyledAntdAvatar style={customStyle} className={`${appId} ${className ?? ''}`} {...avatarProps} />;
 };
 
 KitAvatar.displayName = 'KitAvatar';

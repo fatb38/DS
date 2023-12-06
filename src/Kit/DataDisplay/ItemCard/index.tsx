@@ -15,20 +15,32 @@ import {useKitLocale} from '@translation/locale-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-regular-svg-icons';
 import {faPencil} from '@fortawesome/free-solid-svg-icons';
+import {kitItemCardCssTokens} from '@theme/aristid/components/DataDisplay/ItemCard';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {borderCssTokens} from '@theme/aristid/general/border';
 
 const ItemCardWrapper = styled.div<IStyledKitItemCard>`
     display: grid;
     padding: 16px;
-    font-family: ${({$theme}) => $theme.card.typography.fontFamily};
-    background: ${({$theme}) => $theme.card.colors.background.default};
-    border-radius: ${({$theme}) => $theme.card.border.radius}px;
+    font-family: var(${kitItemCardCssTokens.card.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
+    background: var(
+        ${kitItemCardCssTokens.card.colors.background.default},
+        var(${kitColorsPaletteCssTokens.neutral.white})
+    );
+    border-radius: calc(var(${kitItemCardCssTokens.card.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
     min-width: 248px;
     width: 248px;
-    border: 1px solid ${({$theme}) => $theme.card.colors.border.default};
+    border: 1px solid
+        var(
+            ${kitItemCardCssTokens.card.colors.border.default},
+            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
+        );
 
     &:not(.kit-card-disabled):hover {
-        border: 1px solid ${({$theme}) => $theme.card.colors.border.hover};
+        border: 1px solid
+            var(${kitItemCardCssTokens.card.colors.border.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}));
     }
 
     .kit-card-select-button-wrapper {
@@ -44,35 +56,56 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
             width: 16px;
             height: 16px;
             min-width: 16px;
-            color: ${({$theme}) => $theme.select.colors.typography.default};
+            color: var(
+                ${kitItemCardCssTokens.select.colors.typography.default},
+                var(${kitColorsPaletteCssTokens.primary.primary400})
+            );
         }
     }
 
     &.kit-card-disabled {
-        background: ${({$theme}) => $theme.card.colors.background.disabled};
+        background: var(
+            ${kitItemCardCssTokens.card.colors.background.disabled},
+            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
+        );
         pointer-events: none;
 
         .kit-card-data {
             .kit-card-title {
-                color: ${({$theme}) => $theme.title.colors.typography.disabled};
+                color: var(
+                    ${kitItemCardCssTokens.title.colors.typography.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
             }
             .kit-card-desc {
-                color: ${({$theme}) => $theme.description.colors.typography.disabled};
+                color: var(
+                    ${kitItemCardCssTokens.description.colors.typography.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
             }
             .kit-card-footer {
-                color: ${({$theme}) => $theme.footer.colors.typography.disabled};
+                color: var(
+                    ${kitItemCardCssTokens.footer.colors.typography.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
             }
         }
 
         .kit-card-select-button {
             border-radius: 3.5px;
             font-size: 0.6rem;
-            background: ${({$theme}) => $theme.select.colors.background.disabled};
+            background: var(
+                ${kitItemCardCssTokens.select.colors.background.disabled},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
+            );
             padding: 0;
             width: 16px;
             height: 16px;
             min-width: 16px;
-            color: ${({$theme}) => $theme.select.colors.typography.disabled};
+            color: var(
+                ${kitItemCardCssTokens.select.colors.typography.disabled},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+            );
         }
 
         .kit-card-tags .ant-tag,
@@ -161,13 +194,14 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
     .kit-card-image {
         grid-area: picto;
         height: 64px;
-        border-radius: ${({$theme}) => $theme.image.border.radius}px;
+        border-radius: calc(var(${kitItemCardCssTokens.image.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
         opacity: ${({$disabled}) => ($disabled ? 0.5 : 1)};
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        border: 1px solid ${({$theme}) => $theme.image.colors.border.default};
+        border: 1px solid
+            var(${kitItemCardCssTokens.image.colors.border.default}, var(${kitColorsPaletteCssTokens.neutral.black60}));
 
         .kit-card-image-image {
             display: flex;
@@ -186,12 +220,13 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
         grid-area: picto;
         height: 64px;
         width: 64px;
-        border-radius: ${({$theme}) => $theme.icon.border.radius}px;
+        border-radius: calc(var(${kitItemCardCssTokens.icon.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        border: 1px solid ${({$theme}) => $theme.icon.colors.border.default};
+        border: 1px solid
+            var(${kitItemCardCssTokens.icon.colors.border.default}, var(${kitColorsPaletteCssTokens.neutral.black60}));
 
         &.noBorder {
             border-color: transparent;
@@ -243,31 +278,67 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
         }
 
         .kit-card-title {
-            font-size: ${({$theme}) => $theme.title.typography.fontSize}px;
-            font-weight: ${({$theme}) => $theme.title.typography.fontWeight};
-            color: ${({$theme}) => $theme.title.colors.typography.default};
+            font-size: calc(
+                var(${kitItemCardCssTokens.title.typography.fontSize}, var(${typographyCssTokens.fontSize6})) * 1px
+            );
+            font-weight: var(
+                ${kitItemCardCssTokens.title.typography.fontWeight},
+                var(${typographyCssTokens.boldFontWeight})
+            );
+            color: var(
+                ${kitItemCardCssTokens.title.colors.typography.default},
+                var(${kitColorsPaletteCssTokens.primary.primary600})
+            );
         }
         .kit-card-desc {
-            font-size: ${({$theme}) => $theme.description.typography.fontSize}px;
-            font-weight: ${({$theme}) => $theme.description.typography.fontWeight};
-            color: ${({$theme}) => $theme.description.colors.typography.default};
+            font-size: calc(
+                var(${kitItemCardCssTokens.description.typography.fontSize}, var(${typographyCssTokens.fontSize5})) *
+                    1px
+            );
+            font-weight: var(
+                ${kitItemCardCssTokens.description.typography.fontWeight},
+                var(${typographyCssTokens.regularFontWeight})
+            );
+            color: var(
+                ${kitItemCardCssTokens.description.colors.typography.default},
+                var(${kitColorsPaletteCssTokens.primary.primary600})
+            );
 
             .ant-typography-expand {
                 visibility: hidden;
             }
         }
         .kit-card-footer {
-            font-size: ${({$theme}) => $theme.footer.typography.fontSize}px;
-            font-weight: ${({$theme}) => $theme.footer.typography.fontWeight};
-            color: ${({$theme}) => $theme.footer.colors.typography.default};
+            font-size: calc(
+                var(${kitItemCardCssTokens.footer.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px
+            );
+            font-weight: var(
+                ${kitItemCardCssTokens.footer.typography.fontWeight},
+                var(${typographyCssTokens.boldFontWeight})
+            );
+            color: var(
+                ${kitItemCardCssTokens.footer.colors.typography.default},
+                var(${kitColorsPaletteCssTokens.primary.primary600})
+            );
         }
 
         .kit-card-description-collexp {
-            color: ${({$disabled, $theme}) =>
-                $disabled ? $theme.expend.colors.typography.disabled : $theme.expend.colors.typography.default};
+            color: ${({$disabled}) =>
+                $disabled
+                    ? `var(
+                ${kitItemCardCssTokens.expend.colors.typography.disabled},
+                var(${kitColorsPaletteCssTokens.primary.primary600})
+            )`
+                    : `var(
+                ${kitItemCardCssTokens.expend.colors.typography.default},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+            )`};
 
             &:hover {
-                color: ${({$theme}) => $theme.expend.colors.typography.hover};
+                color: var(
+                    ${kitItemCardCssTokens.expend.colors.typography.hover},
+                    var(${kitColorsPaletteCssTokens.primary.primary400})
+                );
             }
 
             &.kit-card-description-collapse {
@@ -359,21 +430,21 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
     extrainfo,
     tags,
     actions,
+    className,
     onSelectChange,
     onEdit,
     disabled = false,
     ...props
 }) => {
-    const {theme} = useKitTheme();
+    const {appId} = useKitTheme();
     const {locale} = useKitLocale();
     const [descriptionVisible, setDescriptionVisible] = useState(false);
     const [isDescriptionEllipsis, setIsDescriptionEllipsis] = useState(false);
 
     return (
         <ItemCardWrapper
-            $theme={theme.components.ItemCard}
             $disabled={disabled}
-            className={_getSWrapperClassName(vertical, disabled, props.className ?? '')}
+            className={`${appId} ${_getSWrapperClassName(vertical, disabled, className ?? '')}`}
             {...props}
         >
             {(onSelectChange || onEdit || actions) && (

@@ -10,10 +10,3 @@ export interface IKitBadge extends Omit<BadgeProps, AntdBadgeTypesToOmit>, KitHT
     color?: KitColorProp;
     secondaryColorInvert?: boolean;
 }
-
-export interface IStyledKitBadge {
-    $theme: IKitBadgeTheme;
-    $typographyTheme: IKitTypography;
-    $backgroundColor: string;
-    $fontColor: string;
-}

@@ -22,7 +22,6 @@ export default interface IKitCard extends Omit<CardProps, AntdCardTypesToOmit> {
 }
 
 export interface IStyledKitCard {
-    $theme: IKitCardTheme;
     $disabled: boolean;
     $separator: boolean;
 }

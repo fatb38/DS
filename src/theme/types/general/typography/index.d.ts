@@ -20,3 +20,26 @@ export interface IKitTypography {
     lineHeight6: number;
     lineHeight7: number;
 }
+
+export interface IKitTypographyCssTokens {
+    fontFamily: string;
+    fontStyle: string;
+    defaultFontWeight: string;
+    boldFontWeight: string;
+    mediumfontWeight: string;
+    regularFontWeight: string;
+    fontSize1: string;
+    fontSize2: string;
+    fontSize3: string;
+    fontSize4: string;
+    fontSize5: string;
+    fontSize6: string;
+    fontSize7: string;
+    lineHeight1: string;
+    lineHeight2: string;
+    lineHeight3: string;
+    lineHeight4: string;
+    lineHeight5: string;
+    lineHeight6: string;
+    lineHeight7: string;
+}

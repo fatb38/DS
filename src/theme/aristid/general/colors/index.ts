@@ -1,4 +1,4 @@
-import {IKitColorsPalette} from '@theme/types/general/colors';
+import {IKitColorsPalette, IKitColorsPaletteCssTokens} from '@theme/types/general/colors';
 
 export const colorsPalette: IKitColorsPalette = {
     primary: {
@@ -93,6 +93,105 @@ export const colorsPalette: IKitColorsPalette = {
             green500: '#009876',
             green600: '#025744',
             green700: '#051511'
+        }
+    }
+};
+
+const base = '--general-colors';
+
+export const kitColorsPaletteCssTokens: IKitColorsPaletteCssTokens = {
+    primary: {
+        primary100: `${base}-primary-primary100`,
+        primary200: `${base}-primary-primary200`,
+        primary300: `${base}-primary-primary300`,
+        primary400: `${base}-primary-primary400`,
+        primary500: `${base}-primary-primary500`,
+        primary600: `${base}-primary-primary600`,
+        primary700: `${base}-primary-primary700`
+    },
+    neutral: {
+        typography: {
+            black: `${base}-neutral-typography-black`,
+            black60: `${base}-neutral-typography-black60`,
+            white: `${base}-neutral-typography-white`
+        },
+        background: `${base}-neutral-background`,
+        grey: {
+            grey100: `${base}-neutral-grey-grey100`,
+            grey200: `${base}-neutral-grey-grey200`,
+            grey300: `${base}-neutral-grey-grey300`,
+            grey400: `${base}-neutral-grey-grey400`,
+            grey500: `${base}-neutral-grey-grey500`,
+            grey600: `${base}-neutral-grey-grey600`,
+            grey700: `${base}-neutral-grey-grey700`
+        },
+        black: `${base}-neutral-black`,
+        white: `${base}-neutral-white`,
+        black60: `${base}-neutral-black60`
+    },
+    secondary: {
+        mediumGrey: {
+            mediumGrey100: `${base}-secondary-mediumGrey-mediumGrey100`,
+            mediumGrey200: `${base}-secondary-mediumGrey-mediumGrey200`,
+            mediumGrey300: `${base}-secondary-mediumGrey-mediumGrey300`,
+            mediumGrey400: `${base}-secondary-mediumGrey-mediumGrey400`,
+            mediumGrey500: `${base}-secondary-mediumGrey-mediumGrey500`,
+            mediumGrey600: `${base}-secondary-mediumGrey-mediumGrey600`,
+            mediumGrey700: `${base}-secondary-mediumGrey-mediumGrey700`
+        },
+        yellow: {
+            yellow100: `${base}-secondary-yellow-yellow100`,
+            yellow200: `${base}-secondary-yellow-yellow200`,
+            yellow300: `${base}-secondary-yellow-yellow300`,
+            yellow400: `${base}-secondary-yellow-yellow400`,
+            yellow500: `${base}-secondary-yellow-yellow500`,
+            yellow600: `${base}-secondary-yellow-yellow600`,
+            yellow700: `${base}-secondary-yellow-yellow700`
+        },
+        orange: {
+            orange100: `${base}-secondary-orange-orange100`,
+            orange200: `${base}-secondary-orange-orange200`,
+            orange300: `${base}-secondary-orange-orange300`,
+            orange400: `${base}-secondary-orange-orange400`,
+            orange500: `${base}-secondary-orange-orange500`,
+            orange600: `${base}-secondary-orange-orange600`,
+            orange700: `${base}-secondary-orange-orange700`
+        },
+        pink: {
+            pink100: `${base}-secondary-pink-pink100`,
+            pink200: `${base}-secondary-pink-pink200`,
+            pink300: `${base}-secondary-pink-pink300`,
+            pink400: `${base}-secondary-pink-pink400`,
+            pink500: `${base}-secondary-pink-pink500`,
+            pink600: `${base}-secondary-pink-pink600`,
+            pink700: `${base}-secondary-pink-pink700`
+        },
+        red: {
+            red100: `${base}-secondary-red-red100`,
+            red200: `${base}-secondary-red-red200`,
+            red300: `${base}-secondary-red-red300`,
+            red400: `${base}-secondary-red-red400`,
+            red500: `${base}-secondary-red-red500`,
+            red600: `${base}-secondary-red-red600`,
+            red700: `${base}-secondary-red-red700`
+        },
+        blue: {
+            blue100: `${base}-secondary-blue-blue100`,
+            blue200: `${base}-secondary-blue-blue200`,
+            blue300: `${base}-secondary-blue-blue300`,
+            blue400: `${base}-secondary-blue-blue400`,
+            blue500: `${base}-secondary-blue-blue500`,
+            blue600: `${base}-secondary-blue-blue600`,
+            blue700: `${base}-secondary-blue-blue700`
+        },
+        green: {
+            green100: `${base}-secondary-green-green100`,
+            green200: `${base}-secondary-green-green200`,
+            green300: `${base}-secondary-green-green300`,
+            green400: `${base}-secondary-green-green400`,
+            green500: `${base}-secondary-green-green500`,
+            green600: `${base}-secondary-green-green600`,
+            green700: `${base}-secondary-green-green700`
         }
     }
 };

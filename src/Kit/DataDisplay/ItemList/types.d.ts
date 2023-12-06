@@ -16,6 +16,5 @@ export interface IKitItemList extends KitHTMLAttributes<HTMLDivElement> {
 }
 
 export interface IStyledKitItemList {
-    $theme: IKitItemListTheme;
     $gridTemplateColumns: string;
 }

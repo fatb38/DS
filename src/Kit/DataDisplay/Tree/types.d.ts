@@ -18,7 +18,3 @@ type AntdTreeTypesToOmit =
 export interface IKitTree
     extends Omit<TreeProps<BasicDataNode | DataNode>, AntdTreeTypesToOmit>,
         KitHTMLAttributes<HTMLDivElement> {}
-
-export interface IStyledKitTree {
-    $theme: IKitTreeTheme;
-}

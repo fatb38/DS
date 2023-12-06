@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
+import {IKitItemListCssTokens, IKitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemListTheme => {
     const {colors, typography, border} = generalTokens;
@@ -57,3 +58,56 @@ export const getKitItemListTokens = (generalTokens: IKitThemeGeneral): IKitItemL
         }
     };
 };
+
+export const kitItemListCssTokens = generateCssTokens<IKitItemListCssTokens>('--components-ItemList', {
+    itemList: {
+        colors: {
+            background: {
+                default: '',
+                disabled: ''
+            },
+            border: {
+                default: '',
+                disabled: '',
+                hover: ''
+            }
+        },
+        border: {
+            radius: 0
+        }
+    },
+    title: {
+        typography: {
+            fontWeight: '',
+            fontSize: ''
+        },
+        colors: {
+            default: '',
+            disabled: ''
+        }
+    },
+    description: {
+        typography: {
+            fontWeight: '',
+            fontSize: ''
+        },
+        colors: {
+            default: '',
+            disabled: ''
+        }
+    },
+    collexp: {
+        colors: {
+            default: '',
+            disabled: '',
+            hover: ''
+        }
+    },
+    rafter: {
+        colors: {
+            default: '',
+            disabled: '',
+            hover: ''
+        }
+    }
+});

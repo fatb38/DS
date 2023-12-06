@@ -45,20 +45,20 @@ export const KitIcon: FunctionComponent<IKitIcon> = ({
     const {theme} = useKitTheme();
 
     const calculatedIconColor = useMemo(() => {
-        if (!color || !isValidColor(theme.general.colors, color)) {
+        if (!color || !isValidColor(color)) {
             return undefined;
         }
 
-        return getColor(theme.general.colors, color);
-    }, [color, theme]);
+        return getColor(color);
+    }, [color]);
 
     const calculatedBackgroundColor = useMemo(() => {
-        if (!color || !isValidColor(theme.general.colors, color)) {
+        if (!color || !isValidColor(color)) {
             return undefined;
         }
 
-        return getLighterColor(theme.general.colors, color);
-    }, [color, theme]);
+        return getLighterColor(color);
+    }, [color]);
 
     const secureClick = useSecureClick(onClick);
 
