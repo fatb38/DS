@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitSwitchTheme} from '@theme/types/components/DataEntry/Switch';
+import {IKitSwitchCssTokens, IKitSwitchTheme} from '@theme/types/components/DataEntry/Switch';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitSwitchTokens = (generalTokens: IKitThemeGeneral): IKitSwitchTheme => {
     const {colors} = generalTokens;
@@ -32,3 +33,31 @@ export const getKitSwitchTokens = (generalTokens: IKitThemeGeneral): IKitSwitchT
         }
     };
 };
+
+export const kitSwitchCssTokens = generateCssTokens<IKitSwitchCssTokens>('--components-Switch', {
+    colors: {
+        background: {
+            default: {
+                on: '',
+                off: ''
+            },
+            disabled: ''
+        },
+        handle: {
+            background: {
+                default: {
+                    on: '',
+                    off: ''
+                },
+                disabled: ''
+            },
+            border: {
+                default: {
+                    on: '',
+                    off: ''
+                },
+                disabled: ''
+            }
+        }
+    }
+});

@@ -6,15 +6,15 @@ import {StyledAntdColorPicker} from './style';
 
 // Note: ref is not supported by Antd for this component right now. Hopefuly it will change in a near futur
 export const KitColorPicker = forwardRef<RefAttributes<HTMLDivElement>, KitColorPickerProps>(
-    ({label, helper, rootClassName, ...colorPickerProps}, _ref) => {
-        const {theme} = useKitTheme();
+    ({label, className, helper, rootClassName, ...colorPickerProps}, _ref) => {
+        const {appId} = useKitTheme();
 
         return (
             <KitInputWrapper label={label} helper={helper} disabled={colorPickerProps.disabled}>
                 <StyledAntdColorPicker
-                    $theme={theme.components.ColorPicker}
                     {...colorPickerProps}
-                    rootClassName={`kit-color-picker ${rootClassName}`}
+                    rootClassName={`${appId} kit-color-picker ${rootClassName ?? ''}`}
+                    className={`${appId} ${className ?? ''}`}
                 />
             </KitInputWrapper>
         );

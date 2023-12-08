@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitInputNumberTheme} from '@theme/types/components/DataEntry/InputNumber';
+import {IKitInputNumberCssTokens, IKitInputNumberTheme} from '@theme/types/components/DataEntry/InputNumber';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitInputNumberTokens = (generalTokens: IKitThemeGeneral): IKitInputNumberTheme => {
     const {colors, typography, border} = generalTokens;
@@ -56,3 +57,55 @@ export const getKitInputNumberTokens = (generalTokens: IKitThemeGeneral): IKitIn
         }
     };
 };
+
+export const kitInputNumberCssTokens = generateCssTokens<IKitInputNumberCssTokens>('--components-InputNumber', {
+    colors: {
+        background: {
+            default: '',
+            disabled: '',
+            error: '',
+            warning: ''
+        },
+        border: {
+            default: '',
+            hover: '',
+            focused: '',
+            disabled: '',
+            error: '',
+            warning: ''
+        },
+        prefix: {
+            default: '',
+            disabled: '',
+            error: '',
+            warning: ''
+        },
+        typography: {
+            content: {
+                default: '',
+                disabled: '',
+                error: '',
+                warning: ''
+            },
+            placeholder: {
+                default: '',
+                disabled: '',
+                error: '',
+                warning: ''
+            }
+        }
+    },
+    typography: {
+        fontFamily: '',
+        fontSize: '',
+        content: {
+            fontWeight: ''
+        },
+        placeholder: {
+            fontWeight: ''
+        }
+    },
+    border: {
+        radius: ''
+    }
+});

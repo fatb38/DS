@@ -1,7 +1,6 @@
 import {RadioProps, RadioGroupProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import {ReactNode, CSSProperties} from 'react';
-import {IKitRadioTheme} from '@theme/types/components/DataEntry/Radio';
 
 export interface KitRadioProps extends RadioProps, KitHTMLAttributes<HTMLLabelElement> {
     danger?: boolean;
@@ -18,8 +17,4 @@ export interface KitRadioProps extends RadioProps, KitHTMLAttributes<HTMLLabelEl
 export interface KitRadioGroupProps extends RadioGroupProps, KitHTMLAttributes<HTMLDivElement> {
     defaultValue?: any;
     value?: any;
-}
-
-export interface IStyledKitRadio {
-    $theme: IKitRadioTheme;
 }

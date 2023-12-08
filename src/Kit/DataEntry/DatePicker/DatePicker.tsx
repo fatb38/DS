@@ -1,18 +1,24 @@
 import React, {forwardRef} from 'react';
 import styled from 'styled-components';
 import {DatePicker as AntdDatePicker} from 'antd';
-import {IKitDatePicker, IStyledDatePicker} from './types';
+import {IKitDatePicker} from './types';
 import KitInputWrapper from '../Input/InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark, faCalendar, faClock} from '@fortawesome/free-regular-svg-icons';
+import {kitDatePickerCssTokens} from '@theme/aristid/components/DataEntry/DatePicker';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-const StyledDatePicker = styled.div<IStyledDatePicker>`
+const StyledDatePicker = styled.div`
     .ant-picker {
         height: 40px;
         padding: 0px 12px 0px 8px;
         min-width: 165px;
-        font-weight: ${({$theme}) => $theme.typography.fontWeight.placeholder};
+        font-weight: var(
+            ${kitDatePickerCssTokens.typography.fontWeight.placeholder},
+            var(${typographyCssTokens.regularFontWeight})
+        );
 
         .ant-picker-input {
             display: grid;
@@ -21,17 +27,29 @@ const StyledDatePicker = styled.div<IStyledDatePicker>`
 
             input {
                 grid-area: input;
-                font-weight: ${({$theme}) => $theme.typography.fontWeight.content};
-                font-family: ${({$theme}) => $theme.typography.fontFamily};
+                font-weight: var(
+                    ${kitDatePickerCssTokens.typography.fontWeight.content},
+                    var(${typographyCssTokens.mediumfontWeight})
+                );
+                font-family: var(
+                    ${kitDatePickerCssTokens.typography.fontFamily},
+                    var(${typographyCssTokens.fontFamily})
+                );
 
                 &::placeholder {
-                    font-weight: ${({$theme}) => $theme.typography.fontWeight.placeholder};
+                    font-weight: var(
+                        ${kitDatePickerCssTokens.typography.fontWeight.placeholder},
+                        var(${typographyCssTokens.regularFontWeight})
+                    );
                 }
             }
 
             .ant-picker-suffix {
                 grid-area: icon;
-                color: ${({$theme}) => $theme.colors.icon.default};
+                color: var(
+                    ${kitDatePickerCssTokens.colors.icon.default},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
+                );
             }
 
             .ant-picker-clear {
@@ -43,86 +61,152 @@ const StyledDatePicker = styled.div<IStyledDatePicker>`
                 transform: none;
                 transition: none;
                 opacity: 1;
-                color: ${({$theme}) => $theme.colors.clearIcon.default};
+                color: var(
+                    ${kitDatePickerCssTokens.colors.clearIcon.default},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
+                );
             }
         }
 
         &.ant-picker-disabled {
-            border-color: ${({$theme}) => $theme.colors.border.disabled};
+            border-color: var(
+                ${kitDatePickerCssTokens.colors.border.disabled},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
+            );
 
             .ant-picker-input {
                 input {
-                    color: ${({$theme}) => $theme.colors.typography.content.disabled};
+                    color: var(
+                        ${kitDatePickerCssTokens.colors.typography.content.disabled},
+                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                    );
 
                     &::placeholder {
-                        color: ${({$theme}) => $theme.colors.typography.placeholder.disabled};
+                        color: var(
+                            ${kitDatePickerCssTokens.colors.typography.placeholder.disabled},
+                            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                        );
                     }
                 }
 
                 .ant-picker-suffix {
-                    color: ${({$theme}) => $theme.colors.icon.disabled};
+                    color: var(
+                        ${kitDatePickerCssTokens.colors.icon.disabled},
+                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                    );
                 }
 
                 .ant-picker-clear {
-                    color: ${({$theme}) => $theme.colors.clearIcon.disabled};
+                    color: var(
+                        ${kitDatePickerCssTokens.colors.clearIcon.disabled},
+                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                    );
                 }
             }
         }
 
         &.ant-picker-status-warning:not(.ant-picker-disabled) {
-            background-color: ${({$theme}) => $theme.colors.background.warning};
-            border-color: ${({$theme}) => $theme.colors.border.warning};
+            background-color: var(
+                ${kitDatePickerCssTokens.colors.background.warning},
+                var(${kitColorsPaletteCssTokens.secondary.orange.orange100})
+            );
+            border-color: var(
+                ${kitDatePickerCssTokens.colors.border.warning},
+                var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+            );
             box-shadow: none;
 
             &:hover {
-                background-color: ${({$theme}) => $theme.colors.background.warning};
-                border-color: ${({$theme}) => $theme.colors.border.warning};
+                background-color: var(
+                    ${kitDatePickerCssTokens.colors.background.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange100})
+                );
+                border-color: var(
+                    ${kitDatePickerCssTokens.colors.border.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                );
             }
 
             .ant-picker-input {
                 input {
-                    color: ${({$theme}) => $theme.colors.typography.content.warning};
+                    color: var(
+                        ${kitDatePickerCssTokens.colors.typography.content.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                    );
 
                     &::placeholder {
-                        color: ${({$theme}) => $theme.colors.typography.placeholder.warning};
+                        color: var(
+                            ${kitDatePickerCssTokens.colors.typography.placeholder.warning},
+                            var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                        );
                     }
                 }
 
                 .ant-picker-suffix {
-                    color: ${({$theme}) => $theme.colors.icon.warning};
+                    color: var(
+                        ${kitDatePickerCssTokens.colors.icon.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                    );
                 }
 
                 .ant-picker-clear {
-                    color: ${({$theme}) => $theme.colors.clearIcon.warning};
+                    color: var(
+                        ${kitDatePickerCssTokens.colors.clearIcon.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange500})
+                    );
                 }
             }
         }
 
         &.ant-picker-status-error:not(.ant-picker-disabled) {
-            background-color: ${({$theme}) => $theme.colors.background.error};
-            border-color: ${({$theme}) => $theme.colors.border.error};
+            background-color: var(
+                ${kitDatePickerCssTokens.colors.background.error},
+                var(${kitColorsPaletteCssTokens.secondary.red.red100})
+            );
+            border-color: var(
+                ${kitDatePickerCssTokens.colors.border.error},
+                var(${kitColorsPaletteCssTokens.secondary.red.red400})
+            );
             box-shadow: none;
 
             &:hover {
-                background-color: ${({$theme}) => $theme.colors.background.error};
-                border-color: ${({$theme}) => $theme.colors.border.error};
+                background-color: var(
+                    ${kitDatePickerCssTokens.colors.background.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red100})
+                );
+                border-color: var(
+                    ${kitDatePickerCssTokens.colors.border.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                );
             }
 
             .ant-picker-input {
                 input {
-                    color: ${({$theme}) => $theme.colors.typography.content.error};
+                    color: var(
+                        ${kitDatePickerCssTokens.colors.typography.content.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                    );
 
                     &::placeholder {
-                        color: ${({$theme}) => $theme.colors.typography.placeholder.error};
+                        color: var(
+                            ${kitDatePickerCssTokens.colors.typography.placeholder.error},
+                            var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                        );
                     }
                 }
 
                 .ant-picker-suffix {
-                    color: ${({$theme}) => $theme.colors.icon.error};
+                    color: var(
+                        ${kitDatePickerCssTokens.colors.icon.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                    );
                 }
 
                 .ant-picker-clear {
-                    color: ${({$theme}) => $theme.colors.clearIcon.error};
+                    color: var(
+                        ${kitDatePickerCssTokens.colors.clearIcon.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                    );
                 }
             }
         }
@@ -139,8 +223,20 @@ const StyledDatePicker = styled.div<IStyledDatePicker>`
 `;
 
 const KitDatePicker = forwardRef<any, IKitDatePicker>(
-    ({label, helper, suffixIcon, wrapperClassName, picker = 'date', allowClear = true, ...datePickerProps}, ref) => {
-        const {theme} = useKitTheme();
+    (
+        {
+            label,
+            helper,
+            suffixIcon,
+            className,
+            wrapperClassName,
+            picker = 'date',
+            allowClear = true,
+            ...datePickerProps
+        },
+        ref
+    ) => {
+        const {appId} = useKitTheme();
 
         const _getSuffixIcon = () => {
             if (picker === 'time') {
@@ -157,13 +253,14 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
                 status={datePickerProps.status}
                 className={wrapperClassName}
             >
-                <StyledDatePicker $theme={theme.components.DatePicker}>
+                <StyledDatePicker>
                     <AntdDatePicker
                         {...datePickerProps}
                         picker={picker}
                         ref={ref}
                         suffixIcon={suffixIcon ?? _getSuffixIcon()}
                         allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : false}
+                        className={`${appId} ${className ?? ''}`}
                     />
                 </StyledDatePicker>
             </KitInputWrapper>

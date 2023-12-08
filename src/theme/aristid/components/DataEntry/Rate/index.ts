@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitRateTheme} from '@theme/types/components/DataEntry/Rate';
+import {IKitRateCssTokens, IKitRateTheme} from '@theme/types/components/DataEntry/Rate';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator.ts';
 
 export const getKitRateTokens = (generalTokens: IKitThemeGeneral): IKitRateTheme => {
     const {colors} = generalTokens;
@@ -13,3 +14,7 @@ export const getKitRateTokens = (generalTokens: IKitThemeGeneral): IKitRateTheme
         }
     };
 };
+
+export const kitRateCssTokens = generateCssTokens<IKitRateCssTokens>('--components-Rate', {
+    colors: {star: {default: '', disabled: ''}}
+});

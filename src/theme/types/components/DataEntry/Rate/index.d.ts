@@ -14,3 +14,12 @@ export interface IKitRateTheme {
         };
     };
 }
+
+export interface IKitRateCssTokens {
+    colors: {
+        star: {
+            default: string;
+            disabled: string;
+        };
+    };
+}

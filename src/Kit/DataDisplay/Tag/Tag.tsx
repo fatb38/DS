@@ -90,7 +90,7 @@ const KitTag: FunctionComponent<IKitTag> = ({
         <StyledAntdTag
             {...tagProps}
             style={customStyle}
-            className={`${appId} ${className}`}
+            className={`${appId} ${className ?? ''}`}
             closeIcon={closeIcon ?? <FontAwesomeIcon icon={faXmark} />}
             closable={!!tagProps.onClose}
         />

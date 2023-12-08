@@ -35,7 +35,7 @@ const KitAvatarGroup: FunctionComponent<IKitAvatarGroup> = ({className, maxCount
             {...avatarGroupProps}
             maxCount={maxCount}
             $shouldOverrideLastAvatarStyle={!!maxCount}
-            className={`${appId} ${className}`}
+            className={`${appId} ${className ?? ''}`}
             maxStyle={{
                 cursor: avatarGroupProps.maxPopoverTrigger === 'click' ? 'pointer' : 'initial'
             }}

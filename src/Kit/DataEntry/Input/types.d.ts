@@ -1,7 +1,6 @@
 import {InputProps} from 'antd';
 import {PasswordProps, TextAreaProps} from 'antd/lib/input';
 import {KitHTMLAttributes} from '../../../types';
-import {IKitInputTheme} from '@theme/types/components/DataEntry/Input';
 
 type AntdInputTypesToOmit = 'styles' | 'type' | 'bordered' | 'size' | 'addonBefore' | 'addonAfter';
 
@@ -38,16 +37,4 @@ export interface IKitInputWrapper extends KitHTMLAttributes<HTMLDivElement> {
     disabled?: boolean;
     status?: '' | 'warning' | 'error';
     className?: string;
-}
-
-export interface IStyledAntdInput {
-    $theme: IKitInputTheme;
-}
-
-export interface IStyledAntdPassword {
-    $theme: IKitInputTheme['Password'];
-}
-
-export interface IStyledAntdTextArea {
-    $theme: IKitInputTheme['TextArea'];
 }

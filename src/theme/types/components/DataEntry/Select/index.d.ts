@@ -273,3 +273,97 @@ export interface IKitSelectTheme {
     DropDown: IKitSelectDropDownTheme;
     ColorBadge: IKitSelectColorBarTheme;
 }
+
+export interface IKitSelectCssTokens {
+    height: string;
+    border: {
+        radius: string;
+    };
+    colors: {
+        border: {
+            hover: string;
+            focused: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        typography: {
+            content: {
+                default: string;
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+            placeholder: {
+                default: string;
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+        };
+        icon: {
+            arrow: {
+                default: string;
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+            clear: {
+                default: string;
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+        };
+        background: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+    };
+    typography: {
+        fontFamily: string;
+        fontSize: string;
+        fontWeight: {
+            content: string;
+            placeholder: string;
+        };
+    };
+}
+
+export interface IKitSelectColorBadgeCssTokens {
+    height: string;
+    width: string;
+    border: {
+        radius: string;
+    };
+}
+
+export interface IKitSelectDropDownCssTokens {
+    colors: {
+        typography: {
+            default: string;
+            selected: string;
+            active: string;
+            group: string;
+        };
+        background: {
+            default: string;
+            selected: string;
+            active: string;
+        };
+    };
+    typography: {
+        fontFamily: string;
+        fontWeight: {
+            default: string;
+            selected: string;
+            active: string;
+            group: string;
+        };
+    };
+    border: {
+        radius: string;
+    };
+}

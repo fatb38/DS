@@ -1,13 +1,16 @@
 import React, {forwardRef} from 'react';
 import {DatePicker as AntdDatePicker} from 'antd';
-import {IStyledRangePicker, IKitRangePicker} from './types';
+import {IKitRangePicker} from './types';
 import styled from 'styled-components';
 import KitInputWrapper from '../Input/InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark, faClock, faCalendar} from '@fortawesome/free-regular-svg-icons';
+import {kitDatePickerCssTokens} from '@theme/aristid/components/DataEntry/DatePicker';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-export const StyledRangePicker = styled.div<IStyledRangePicker>`
+export const StyledRangePicker = styled.div`
     .ant-picker.ant-picker-range {
         display: grid;
         grid-template-areas: 'icon input1 separator input2 clear';
@@ -15,13 +18,19 @@ export const StyledRangePicker = styled.div<IStyledRangePicker>`
         height: 40px;
         min-width: 270px;
         padding: 0px 12px 0px 8px;
-        font-weight: ${({$theme}) => $theme.typography.fontWeight.placeholder};
+        font-weight: var(
+            ${kitDatePickerCssTokens.RangePicker.typography.fontWeight.placeholder},
+            var(${typographyCssTokens.regularFontWeight})
+        );
 
         .ant-picker-range-separator {
             grid-area: separator;
 
             .ant-picker-separator {
-                color: ${({$theme}) => $theme.colors.separator.default};
+                color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.separator.default},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
+                );
             }
         }
 
@@ -41,18 +50,30 @@ export const StyledRangePicker = styled.div<IStyledRangePicker>`
 
         .ant-picker-input {
             input {
-                font-weight: ${({$theme}) => $theme.typography.fontWeight.content};
-                font-family: ${({$theme}) => $theme.typography.fontFamily};
+                font-weight: var(
+                    ${kitDatePickerCssTokens.RangePicker.typography.fontWeight.content},
+                    var(${typographyCssTokens.mediumfontWeight})
+                );
+                font-family: var(
+                    ${kitDatePickerCssTokens.RangePicker.typography.fontFamily},
+                    var(${typographyCssTokens.fontFamily})
+                );
 
                 &::placeholder {
-                    font-weight: ${({$theme}) => $theme.typography.fontWeight.placeholder};
+                    font-weight: var(
+                        ${kitDatePickerCssTokens.RangePicker.typography.fontWeight.placeholder},
+                        var(${typographyCssTokens.regularFontWeight})
+                    );
                 }
             }
         }
 
         .ant-picker-suffix {
             grid-area: icon;
-            color: ${({$theme}) => $theme.colors.icon.default};
+            color: var(
+                ${kitDatePickerCssTokens.RangePicker.colors.icon.default},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
+            );
         }
 
         .ant-picker-clear {
@@ -64,104 +85,182 @@ export const StyledRangePicker = styled.div<IStyledRangePicker>`
             transform: none;
             transition: none;
             opacity: 1;
-            color: ${({$theme}) => $theme.colors.clearIcon.default};
+            color: var(
+                ${kitDatePickerCssTokens.RangePicker.colors.clearIcon.default},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
+            );
         }
 
         .ant-picker-input {
             input[disabled] {
-                color: ${({$theme}) => $theme.colors.typography.content.disabled};
+                color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.typography.content.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
             }
         }
 
         &.ant-picker-disabled {
-            border-color: ${({$theme}) => $theme.colors.border.disabled};
+            border-color: var(
+                ${kitDatePickerCssTokens.RangePicker.colors.border.disabled},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
+            );
 
             .ant-picker-input {
                 input {
-                    color: ${({$theme}) => $theme.colors.typography.content.disabled};
+                    color: var(
+                        ${kitDatePickerCssTokens.RangePicker.colors.typography.content.disabled},
+                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                    );
 
                     &::placeholder {
-                        color: ${({$theme}) => $theme.colors.typography.placeholder.disabled};
+                        color: var(
+                            ${kitDatePickerCssTokens.RangePicker.colors.typography.placeholder.disabled},
+                            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                        );
                     }
                 }
             }
 
             .ant-picker-range-separator .ant-picker-separator {
-                color: ${({$theme}) => $theme.colors.separator.disabled};
+                color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.separator.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
             }
 
             .ant-picker-suffix {
-                color: ${({$theme}) => $theme.colors.icon.disabled};
+                color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.icon.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
             }
 
             .ant-picker-clear {
-                color: ${({$theme}) => $theme.colors.clearIcon.disabled};
+                color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.clearIcon.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
             }
         }
 
         &.ant-picker-status-warning:not(.ant-picker-disabled) {
-            background-color: ${({$theme}) => $theme.colors.background.warning};
-            border-color: ${({$theme}) => $theme.colors.border.warning};
+            background-color: var(
+                ${kitDatePickerCssTokens.RangePicker.colors.background.warning},
+                var(${kitColorsPaletteCssTokens.secondary.orange.orange100})
+            );
+            border-color: var(
+                ${kitDatePickerCssTokens.RangePicker.colors.border.warning},
+                var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+            );
             box-shadow: none;
 
             &:hover {
-                background-color: ${({$theme}) => $theme.colors.background.warning};
-                border-color: ${({$theme}) => $theme.colors.border.warning};
+                background-color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.background.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange100})
+                );
+                border-color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.border.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                );
             }
 
             .ant-picker-input {
                 input {
-                    color: ${({$theme}) => $theme.colors.typography.content.warning};
+                    color: var(
+                        ${kitDatePickerCssTokens.RangePicker.colors.typography.content.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                    );
 
                     &::placeholder {
-                        color: ${({$theme}) => $theme.colors.typography.placeholder.warning};
+                        color: var(
+                            ${kitDatePickerCssTokens.RangePicker.colors.typography.placeholder.warning},
+                            var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                        );
                     }
                 }
             }
 
             .ant-picker-range-separator .ant-picker-separator {
-                color: ${({$theme}) => $theme.colors.separator.warning};
+                color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.separator.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange300})
+                );
             }
 
             .ant-picker-suffix {
-                color: ${({$theme}) => $theme.colors.icon.warning};
+                color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.icon.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                );
             }
 
             .ant-picker-clear {
-                color: ${({$theme}) => $theme.colors.clearIcon.warning};
+                color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.clearIcon.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange500})
+                );
             }
         }
 
         &.ant-picker-status-error:not(.ant-picker-disabled) {
-            background-color: ${({$theme}) => $theme.colors.background.error};
-            border-color: ${({$theme}) => $theme.colors.border.error};
+            background-color: var(
+                ${kitDatePickerCssTokens.RangePicker.colors.background.error},
+                var(${kitColorsPaletteCssTokens.secondary.red.red100})
+            );
+            border-color: var(
+                ${kitDatePickerCssTokens.RangePicker.colors.border.error},
+                var(${kitColorsPaletteCssTokens.secondary.red.red400})
+            );
             box-shadow: none;
 
             &:hover {
-                background-color: ${({$theme}) => $theme.colors.background.error};
-                border-color: ${({$theme}) => $theme.colors.border.error};
+                background-color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.background.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red100})
+                );
+                border-color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.border.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                );
             }
 
             .ant-picker-input {
                 input {
-                    color: ${({$theme}) => $theme.colors.typography.content.error};
+                    color: var(
+                        ${kitDatePickerCssTokens.RangePicker.colors.typography.content.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                    );
 
                     &::placeholder {
-                        color: ${({$theme}) => $theme.colors.typography.placeholder.error};
+                        color: var(
+                            ${kitDatePickerCssTokens.RangePicker.colors.typography.placeholder.error},
+                            var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                        );
                     }
                 }
             }
 
             .ant-picker-range-separator .ant-picker-separator {
-                color: ${({$theme}) => $theme.colors.separator.error};
+                color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.separator.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red300})
+                );
             }
 
             .ant-picker-suffix {
-                color: ${({$theme}) => $theme.colors.icon.error};
+                color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.icon.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                );
             }
 
             .ant-picker-clear {
-                color: ${({$theme}) => $theme.colors.clearIcon.error};
+                color: var(
+                    ${kitDatePickerCssTokens.RangePicker.colors.clearIcon.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                );
             }
         }
 
@@ -177,8 +276,8 @@ export const StyledRangePicker = styled.div<IStyledRangePicker>`
 `;
 
 const KitDatePicker = forwardRef<any, IKitRangePicker>(
-    ({label, helper, suffixIcon, picker, allowClear = true, ...rangePickerProps}, ref) => {
-        const {theme} = useKitTheme();
+    ({label, className, helper, suffixIcon, picker, allowClear = true, ...rangePickerProps}, ref) => {
+        const {appId} = useKitTheme();
 
         const _getSuffixIcon = () => {
             if (picker === 'time') {
@@ -206,13 +305,14 @@ const KitDatePicker = forwardRef<any, IKitRangePicker>(
                 disabled={_isRangePickerDisabled()}
                 status={rangePickerProps.status}
             >
-                <StyledRangePicker $theme={theme.components.DatePicker.RangePicker}>
+                <StyledRangePicker>
                     <AntdDatePicker.RangePicker
                         {...rangePickerProps}
                         picker={picker}
                         ref={ref}
                         suffixIcon={suffixIcon ?? _getSuffixIcon()}
                         allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : false}
+                        className={`${appId} ${className ?? ''}`}
                     />
                 </StyledRangePicker>
             </KitInputWrapper>

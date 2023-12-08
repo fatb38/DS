@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitCheckboxTheme} from '@theme/types/components/DataEntry/Checkbox';
+import {IKitCheckboxCssTokens, IKitCheckboxTheme} from '@theme/types/components/DataEntry/Checkbox';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitCheckboxTokens = (generalTokens: IKitThemeGeneral): IKitCheckboxTheme => {
     const {colors, typography, border} = generalTokens;
@@ -47,3 +48,46 @@ export const getKitCheckboxTokens = (generalTokens: IKitThemeGeneral): IKitCheck
         }
     };
 };
+
+export const kitCheckboxCssTokens = generateCssTokens<IKitCheckboxCssTokens>('--components-Checkbox', {
+    colors: {
+        background: {
+            check: '',
+            hover: '',
+            focus: '',
+            disabled: '',
+            danger: {
+                default: '',
+                hover: ''
+            }
+        },
+        border: {
+            default: '',
+            check: '',
+            hover: '',
+            focus: '',
+            disabled: '',
+            danger: {
+                default: '',
+                hover: '',
+                focus: ''
+            }
+        },
+        typography: {
+            disabled: '',
+            danger: {
+                disabled: ''
+            }
+        }
+    },
+    typography: {
+        fontWeight: '',
+        fontFamily: '',
+        fontSize: '',
+        lineHeight: '',
+        lineWidth: ''
+    },
+    border: {
+        radius: ''
+    }
+});

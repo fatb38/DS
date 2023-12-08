@@ -232,7 +232,7 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
             border-color: transparent;
         }
 
-        .anticon {
+        svg {
             font-size: 2rem;
             text-align: center;
             width: 100%;

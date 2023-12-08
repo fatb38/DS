@@ -20,11 +20,6 @@ export interface IKitDragger extends Omit<DraggerProps, AntdDraggerTypesToOmit> 
     description?: string;
 }
 
-export interface IStyledDragger {
-    $theme: IKitUploadTheme['Dragger'];
-}
-
 export interface IStyledUpload {
     $listType: String;
-    $theme: IKitUploadTheme;
 }

@@ -24,8 +24,8 @@ export const Api: Story = {
 export const BasicDate: Story = {
     render: () => (
         <div style={{width: '400px', display: 'flex', gap: '200px'}}>
-            <KitDatePicker open />
-            <KitDatePicker data-testid="focus" />
+            <KitDatePicker open value={dayjs('2023-06-06', 'YYYY-MM-DD')} />
+            <KitDatePicker data-testid="focus" value={dayjs('2023-06-06', 'YYYY-MM-DD')} />
         </div>
     ),
     play: async ({canvasElement}) => {
@@ -57,8 +57,8 @@ export const BasicDateTime: Story = {
 export const BasicDateWeek: Story = {
     render: () => (
         <div style={{display: 'flex', gap: '200px'}}>
-            <KitDatePicker open picker="week" />
-            <KitDatePicker picker="week" data-testid="focus" />
+            <KitDatePicker open picker="week" value={dayjs('2023-06-06', 'YYYY-MM-DD')} />
+            <KitDatePicker picker="week" data-testid="focus" value={dayjs('2023-06-06', 'YYYY-MM-DD')} />
         </div>
     ),
     play: async ({canvasElement}) => {
@@ -125,7 +125,10 @@ export const BasicDateYear: Story = {
 export const BasicRange: Story = {
     render: () => (
         <div style={{display: 'flex', gap: '200px'}}>
-            <KitDatePicker.RangePicker open />
+            <KitDatePicker.RangePicker
+                open
+                value={[dayjs('2023-06-06', 'YYYY-MM-DD'), dayjs('2023-06-07', 'YYYY-MM-DD')]}
+            />
         </div>
     ),
     parameters: {
@@ -147,7 +150,11 @@ export const BasicRangeTime: Story = {
 export const BasicRangeWeek: Story = {
     render: () => (
         <div style={{width: '400px', display: 'flex', gap: '400px'}}>
-            <KitDatePicker.RangePicker picker="week" open />
+            <KitDatePicker.RangePicker
+                value={[dayjs('2023-06-06', 'YYYY-MM-DD'), dayjs('2023-06-07', 'YYYY-MM-DD')]}
+                picker="week"
+                open
+            />
         </div>
     ),
     parameters: {

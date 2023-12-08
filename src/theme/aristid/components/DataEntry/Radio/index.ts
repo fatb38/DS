@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitRadioTheme} from '@theme/types/components/DataEntry/Radio';
+import {IKitRadioCssTokens, IKitRadioTheme} from '@theme/types/components/DataEntry/Radio';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator.ts';
 
 export const getKitRadioTokens = (generalTokens: IKitThemeGeneral): IKitRadioTheme => {
     const {colors, typography} = generalTokens;
@@ -50,3 +51,13 @@ export const getKitRadioTokens = (generalTokens: IKitThemeGeneral): IKitRadioThe
         }
     };
 };
+
+export const kitRadioCssTokens = generateCssTokens<IKitRadioCssTokens>('--components-Radio', {
+    colors: {
+        background: {checked: '', danger: {default: '', hover: ''}, default: '', disabled: '', hover: ''},
+        border: {checked: '', danger: {default: '', hover: ''}, default: '', disabled: '', hover: ''},
+        bullet: {danger: {default: '', hover: ''}, default: '', disabled: '', hover: ''},
+        typography: {danger: {disabled: ''}, disabled: ''}
+    },
+    typography: {fontFamily: '', fontSize: '', fontWeight: '', lineHeight: ''}
+});

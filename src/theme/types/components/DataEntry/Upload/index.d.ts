@@ -123,3 +123,56 @@ export interface IKitUploadTheme {
     };
     Dragger: IKitDraggerTheme;
 }
+
+export interface IKitUploadDraggerCssTokens {
+    colors: {
+        background: {
+            default: string;
+        };
+        border: {
+            default: string;
+            hover: string;
+        };
+        dragIcon: {
+            default: string;
+        };
+        typography: {
+            text: string;
+            hint: string;
+            item: string;
+        };
+    };
+    typography: {
+        fontSize: string;
+        fontWeight: string;
+        lineHeight: string;
+    };
+}
+
+export interface IKitUploadCssTokens {
+    colors: {
+        card: {
+            border: {
+                default: string;
+            };
+            background: {
+                default: string;
+            };
+        };
+        list: {
+            preview: {
+                hover: string;
+            };
+            border: {
+                default: string;
+                uploading: string;
+                error: string;
+            };
+            typography: {
+                done: string;
+                error: string;
+                uploading: string;
+            };
+        };
+    };
+}

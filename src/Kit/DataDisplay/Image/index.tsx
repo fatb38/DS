@@ -60,7 +60,7 @@ const Image: FunctionComponent<IKitImage> = ({rounded, bordered, preview, classN
 
     return (
         <StyledImage
-            className={`${appId} ${className}`}
+            className={`${appId} ${className ?? ''}`}
             $rounded={rounded}
             $bordered={bordered}
             preview={_getPreview()}

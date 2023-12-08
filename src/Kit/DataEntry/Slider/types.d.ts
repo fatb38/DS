@@ -21,7 +21,6 @@ export interface IKitSliderRange extends Omit<SliderRangeProps, AntdSliderTypesT
 }
 
 export interface IStyledKitSlider {
-    $theme: IKitSliderTheme;
     $isStartIcon: boolean;
     $isEndIcon: boolean;
 }

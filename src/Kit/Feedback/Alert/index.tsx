@@ -46,10 +46,6 @@ const StyledAntdAlert = styled(AntdAlert)<IStyledKitAlert>`
         margin-top: 3px;
     }
 
-    .anticon.anticon-close {
-        font-size: ${({$theme}) => $theme.icon.close.size}px;
-    }
-
     &.ant-alert-success {
         svg {
             color: ${({$theme}) => $theme.colors.icon.alert.success};

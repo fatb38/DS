@@ -273,7 +273,7 @@ export const KitCard: FunctionComponent<IKitCard> = ({
             {...props}
             $disabled={disabled}
             $separator={separator}
-            className={`${appId} ${className}`}
+            className={`${appId} ${className ?? ''}`}
             style={customStyle}
             extra={_getExtra(disabled, extra)}
             cover={_getCover(cover)}

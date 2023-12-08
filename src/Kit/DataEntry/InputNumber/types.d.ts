@@ -11,7 +11,3 @@ export interface KitInputNumberProps
     helper?: string;
     wrapperClassName?: string;
 }
-
-export interface IStyledAntdInputNumber {
-    $theme: IKitInputNumberTheme;
-}

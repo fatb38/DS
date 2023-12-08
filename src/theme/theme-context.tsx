@@ -1,13 +1,4 @@
-import React, {
-    Dispatch,
-    SetStateAction,
-    createContext,
-    useEffect,
-    useState,
-    FC,
-    PropsWithChildren,
-    useRef
-} from 'react';
+import React, {Dispatch, SetStateAction, createContext, useState, FC, PropsWithChildren, useRef} from 'react';
 
 // TODO: Later add option to have more arisitd themes
 import {getKitAristidTheme} from './aristid';

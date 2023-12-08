@@ -92,7 +92,7 @@ export const DropDownStyle = createGlobalStyle<IDropDownStyle>`
                         position: initial;
                         float: right;
 
-                        .anticon {
+                        svg {
                             color: ${({$theme}) => $theme.subMenu.expIcon.colors.typography.default};
                         }
                     }
@@ -106,7 +106,7 @@ export const DropDownStyle = createGlobalStyle<IDropDownStyle>`
                         color: ${({$theme}) => $theme.subMenu.title.colors.typography.active};
                     }
 
-                    .ant-dropdown-menu-submenu-expand-icon .anticon {
+                    .ant-dropdown-menu-submenu-expand-icon svg {
                         color: ${({$theme}) => $theme.subMenu.expIcon.colors.typography.active};
                     }
                 }
@@ -117,7 +117,7 @@ export const DropDownStyle = createGlobalStyle<IDropDownStyle>`
                         color: ${({$theme}) => $theme.subMenu.title.colors.typography.disabled};
                         cursor: not-allowed;
 
-                        .ant-dropdown-menu-submenu-expand-icon .anticon {
+                        .ant-dropdown-menu-submenu-expand-icon svg {
                             background-color: ${({$theme}) => $theme.subMenu.expIcon.colors.background.disabled};
                             color: ${({$theme}) => $theme.subMenu.expIcon.colors.typography.disabled};
                         }

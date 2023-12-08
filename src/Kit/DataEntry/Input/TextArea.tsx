@@ -1,26 +1,38 @@
 import React, {forwardRef} from 'react';
 import {Input as AntdInput, InputRef} from 'antd';
-import {IKitTextArea, IStyledAntdTextArea} from './types';
+import {IKitTextArea} from './types';
 import {styled} from 'styled-components';
 import KitInputWrapper from './InputWrapper';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
+import {kitTextAreaCssTokens} from '@theme/aristid/components/DataEntry/Input';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-const StyledAntdTextArea = styled(AntdInput.TextArea)<IStyledAntdTextArea>`
+const StyledAntdTextArea = styled(AntdInput.TextArea)`
     &.ant-input,
     .ant-input {
         padding: 4px 10px;
-        font-weight: ${({$theme}) => $theme.typography.content.fontWeight};
+        font-weight: var(
+            ${kitTextAreaCssTokens.typography.content.fontWeight},
+            var(${typographyCssTokens.mediumfontWeight})
+        );
 
         &::placeholder {
-            font-weight: ${({$theme}) => $theme.typography.placeholder.fontWeight};
+            font-weight: var(
+                ${kitTextAreaCssTokens.typography.placeholder.fontWeight},
+                var(${typographyCssTokens.regularFontWeight})
+            );
         }
     }
 
     .ant-input-suffix {
         .ant-input-clear-icon {
-            color: ${({$theme}) => $theme.colors.clearIcon.default};
+            color: var(
+                ${kitTextAreaCssTokens.colors.clearIcon.default},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
+            );
         }
     }
 
@@ -34,112 +46,189 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)<IStyledAntdTextArea>`
         &.ant-input-textarea-show-count {
             .ant-input-data-count {
                 bottom: -23px;
-                color: ${({$theme}) => $theme.colors.showCount.default};
-                font-size: ${({$theme}) => $theme.typography.showCount.fontSize}px;
-                font-weight: ${({$theme}) => $theme.typography.showCount.fontWeight};
+                color: var(
+                    ${kitTextAreaCssTokens.colors.showCount.default},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
+                );
+                font-size: calc(
+                    var(
+                        ${kitTextAreaCssTokens.typography.showCount.fontSize},
+                        var(${typographyCssTokens.fontSize7}) * 1px
+                    )
+                );
+                font-weight: var(
+                    ${kitTextAreaCssTokens.typography.showCount.fontWeight},
+                    var(${typographyCssTokens.regularFontWeight})
+                );
             }
         }
 
         &.ant-input-affix-wrapper-disabled {
             .ant-input-data-count {
-                color: ${({$theme}) => $theme.colors.showCount.disabled};
+                color: var(
+                    ${kitTextAreaCssTokens.colors.showCount.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
             }
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${({$theme}) => $theme.colors.clearIcon.disabled};
+                    color: var(
+                        ${kitTextAreaCssTokens.colors.clearIcon.disabled},
+                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                    );
                 }
             }
         }
 
         &.ant-input-affix-wrapper-status-error {
             .ant-input-data-count {
-                color: ${({$theme}) => $theme.colors.showCount.error};
+                color: var(
+                    ${kitTextAreaCssTokens.colors.showCount.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red300})
+                );
             }
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${({$theme}) => $theme.colors.clearIcon.error};
+                    color: var(
+                        ${kitTextAreaCssTokens.colors.clearIcon.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                    );
                 }
             }
 
             &:hover,
             &:focus {
-                border-color: ${({$theme}) => $theme.colors.border.error};
+                border-color: var(
+                    ${kitTextAreaCssTokens.colors.border.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                );
             }
         }
 
         &.ant-input-affix-wrapper-status-warning {
             .ant-input-data-count {
-                color: ${({$theme}) => $theme.colors.showCount.warning};
+                color: var(
+                    ${kitTextAreaCssTokens.colors.showCount.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange300})
+                );
             }
 
             .ant-input-suffix {
                 .ant-input-clear-icon {
-                    color: ${({$theme}) => $theme.colors.clearIcon.warning};
+                    color: var(
+                        ${kitTextAreaCssTokens.colors.clearIcon.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange500})
+                    );
                 }
             }
 
             &:hover,
             &:focus {
-                border-color: ${({$theme}) => $theme.colors.border.warning};
+                border-color: var(
+                    ${kitTextAreaCssTokens.colors.border.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                );
             }
         }
     }
 
     &.ant-input-disabled,
     .ant-input-disabled {
-        border-color: ${({$theme}) => $theme.colors.border.disabled};
-        color: ${({$theme}) => $theme.colors.typography.content.disabled};
+        border-color: var(
+            ${kitTextAreaCssTokens.colors.border.disabled},
+            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
+        );
+        color: var(
+            ${kitTextAreaCssTokens.colors.typography.content.disabled},
+            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+        );
 
         &:hover {
-            border-color: ${({$theme}) => $theme.colors.border.disabled};
+            border-color: var(
+                ${kitTextAreaCssTokens.colors.border.disabled},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
+            );
         }
 
         &::placeholder {
-            color: ${({$theme}) => $theme.colors.typography.placeholder.disabled};
+            color: var(
+                ${kitTextAreaCssTokens.colors.typography.placeholder.disabled},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+            );
         }
     }
 
     &.ant-input-status-error,
     &.ant-input-affix-wrapper-status-error,
     .ant-input-status-error {
-        background-color: ${({$theme}) => $theme.colors.background.error};
-        color: ${({$theme}) => $theme.colors.typography.content.error};
+        background-color: var(
+            ${kitTextAreaCssTokens.colors.background.error},
+            var(${kitColorsPaletteCssTokens.secondary.red.red100})
+        );
+        color: var(
+            ${kitTextAreaCssTokens.colors.typography.content.error},
+            var(${kitColorsPaletteCssTokens.secondary.red.red400})
+        );
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
-            border-color: ${({$theme}) => $theme.colors.border.error};
+            border-color: var(
+                ${kitTextAreaCssTokens.colors.border.error},
+                var(${kitColorsPaletteCssTokens.secondary.red.red400})
+            );
             box-shadow: none;
 
             &:hover,
             &:focus {
-                border-color: ${({$theme}) => $theme.colors.border.error};
+                border-color: var(
+                    ${kitTextAreaCssTokens.colors.border.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                );
             }
         }
 
         &::placeholder {
-            color: ${({$theme}) => $theme.colors.typography.placeholder.error};
+            color: var(
+                ${kitTextAreaCssTokens.colors.typography.placeholder.error},
+                var(${kitColorsPaletteCssTokens.secondary.red.red400})
+            );
         }
     }
 
     &.ant-input-status-warning,
     &.ant-input-affix-wrapper-status-warning,
     .ant-input-status-warning {
-        background-color: ${({$theme}) => $theme.colors.background.warning};
-        color: ${({$theme}) => $theme.colors.typography.content.warning};
+        background-color: var(
+            ${kitTextAreaCssTokens.colors.background.warning},
+            var(${kitColorsPaletteCssTokens.secondary.orange.orange100})
+        );
+        color: var(
+            ${kitTextAreaCssTokens.colors.typography.content.warning},
+            var(${kitColorsPaletteCssTokens.secondary.orange.orange500})
+        );
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
-            border-color: ${({$theme}) => $theme.colors.border.warning};
+            border-color: var(
+                ${kitTextAreaCssTokens.colors.border.warning},
+                var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+            );
             box-shadow: none;
 
             &:hover,
             &:focus {
-                border-color: ${({$theme}) => $theme.colors.border.warning};
+                border-color: var(
+                    ${kitTextAreaCssTokens.colors.border.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                );
             }
         }
 
         &::placeholder {
-            color: ${({$theme}) => $theme.colors.typography.placeholder.warning};
+            color: var(
+                ${kitTextAreaCssTokens.colors.typography.placeholder.warning},
+                var(${kitColorsPaletteCssTokens.secondary.orange.orange500})
+            );
         }
     }
 
@@ -155,8 +244,8 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)<IStyledAntdTextArea>`
 `;
 
 const KitTextArea = forwardRef<InputRef, IKitTextArea>(
-    ({label, helper, wrapperClassName, allowClear = true, ...textAreaProps}, ref) => {
-        const {theme} = useKitTheme();
+    ({label, className, helper, wrapperClassName, allowClear = true, ...textAreaProps}, ref) => {
+        const {appId} = useKitTheme();
 
         return (
             <KitInputWrapper
@@ -167,10 +256,10 @@ const KitTextArea = forwardRef<InputRef, IKitTextArea>(
                 className={wrapperClassName}
             >
                 <StyledAntdTextArea
-                    $theme={theme.components.Input.TextArea}
                     {...textAreaProps}
                     ref={ref}
                     allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
+                    className={`${appId} ${className ?? ''}`}
                 />
             </KitInputWrapper>
         );

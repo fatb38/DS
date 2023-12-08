@@ -227,7 +227,7 @@ export const KitTree: FunctionComponent<IKitTree> = ({className, ...treeProps}) 
     return (
         <StyledTree
             {...treeProps}
-            className={`${appId} ${className}`}
+            className={`${appId} ${className ?? ''}`}
             blockNode={true}
             draggable={false}
             onDragEnd={undefined}

@@ -1,4 +1,4 @@
-import React, {FunctionComponent, forwardRef} from 'react';
+import React, {forwardRef} from 'react';
 import {KitButton} from '@kit/General';
 import {Upload as AntdUpload} from 'antd';
 import {IKitUpload, IStyledUpload} from './types';
@@ -7,6 +7,8 @@ import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleNotch, faPlus, faUpload} from '@fortawesome/free-solid-svg-icons';
 import {UploadRef} from 'antd/lib/upload/Upload';
+import {kitUploadCssTokens} from '@theme/aristid/components/DataEntry/Upload';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
 const StyledUpload = styled(AntdUpload)<IStyledUpload>`
     &.ant-upload-wrapper {
@@ -15,22 +17,37 @@ const StyledUpload = styled(AntdUpload)<IStyledUpload>`
                 height: 104px;
                 width: 104px;
                 border-radius: 2px;
-                border-color: ${({$theme}) => $theme.colors.card.border.default};
-                background-color: ${({$theme}) => $theme.colors.card.background.default};
+                border-color: var(
+                    ${kitUploadCssTokens.colors.card.border.default},
+                    var(${kitColorsPaletteCssTokens.primary.primary400})
+                );
+                background-color: var(
+                    ${kitUploadCssTokens.colors.card.background.default},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
+                );
             }
 
             .ant-upload-list.ant-upload-list-picture-card {
                 .ant-upload-list-item {
                     border-radius: 2px;
-                    border: 1px solid ${({$theme}) => $theme.colors.list.border.default};
+                    border: 1px solid
+                        var(
+                            ${kitUploadCssTokens.colors.list.border.default},
+                            var(${kitColorsPaletteCssTokens.neutral.grey.grey400})
+                        );
+
                     &:hover::before {
                         width: 86px;
                         height: 86px;
-                        background-color: ${({$theme}) => $theme.colors.list.preview.hover};
+                        background-color: var(${kitUploadCssTokens.colors.list.preview.hover}, rgba(6, 32, 100, 0.5));
                     }
 
                     &.ant-upload-list-item-uploading {
-                        border: 1px dashed ${({$theme}) => $theme.colors.list.border.uploading};
+                        border: 1px dashed
+                            var(
+                                ${kitUploadCssTokens.colors.list.border.uploading},
+                                var(${kitColorsPaletteCssTokens.primary.primary400})
+                            );
                     }
                 }
                 .ant-upload-list-item-container {
@@ -42,8 +59,14 @@ const StyledUpload = styled(AntdUpload)<IStyledUpload>`
                     width: 86px;
                 }
                 .ant-upload-list-item-error {
-                    border-color: ${({$theme}) => $theme.colors.list.border.error};
-                    color: ${({$theme}) => $theme.colors.list.typography.error};
+                    border-color: var(
+                        ${kitUploadCssTokens.colors.list.border.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                    );
+                    color: var(
+                        ${kitUploadCssTokens.colors.list.typography.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                    );
                 }
             }
             .ant-upload-list-picture {
@@ -62,7 +85,10 @@ const StyledUpload = styled(AntdUpload)<IStyledUpload>`
 
         .ant-upload-list-item-uploading {
             .ant-upload-list-item-name {
-                color: ${({$theme}) => $theme.colors.list.typography.uploading};
+                color: var(
+                    ${kitUploadCssTokens.colors.list.typography.uploading},
+                    var(${kitColorsPaletteCssTokens.primary.primary400})
+                );
             }
         }
 
@@ -71,31 +97,40 @@ const StyledUpload = styled(AntdUpload)<IStyledUpload>`
         }
 
         .ant-upload-list-item-done {
-            border-color: ${({$theme}) => $theme.colors.list.border.default};
+            border-color: var(
+                ${kitUploadCssTokens.colors.list.border.default},
+                var(${kitColorsPaletteCssTokens.neutral.grey.grey400})
+            );
             .ant-upload-list-item-name {
-                color: ${({$theme}) => $theme.colors.list.typography.done};
+                color: var(
+                    ${kitUploadCssTokens.colors.list.typography.done},
+                    var(${kitColorsPaletteCssTokens.primary.primary400})
+                );
             }
         }
 
         .ant-upload-list-item-error {
-            color: ${({$theme}) => $theme.colors.list.typography.error};
+            color: var(
+                ${kitUploadCssTokens.colors.list.typography.error},
+                var(${kitColorsPaletteCssTokens.secondary.red.red400})
+            );
         }
     }
 `;
 
 const KitUpload = forwardRef<UploadRef, IKitUpload>(
-    ({listType = 'text', loading, imageUrl, buttonWording, showUploadList, ...uploadProps}, ref) => {
-        const {theme} = useKitTheme();
+    ({listType = 'text', loading, imageUrl, buttonWording, showUploadList, className, ...uploadProps}, ref) => {
+        const {appId} = useKitTheme();
         const uploadWording = buttonWording ?? 'Upload';
 
         return (
             <StyledUpload
-                $theme={theme.components.Upload}
+                {...uploadProps}
                 $listType={listType}
                 listType={listType}
                 showUploadList={showUploadList}
                 ref={ref}
-                {...uploadProps}
+                className={`${appId} ${className ?? ''}`}
             >
                 {(listType === undefined || listType === 'text' || listType === 'picture') && (
                     <KitButton icon={<FontAwesomeIcon icon={faUpload} />}>{uploadWording}</KitButton>

@@ -154,3 +154,75 @@ export interface IKitColorPickerTheme {
         };
     };
 }
+export interface IKitColorPickerCssTokens {
+    colors: {
+        background: {
+            default: string;
+            disabled: string;
+        };
+        typography: {
+            default: string;
+            disabled: string;
+        };
+        border: {
+            default: string;
+            hover: string;
+            focused: string;
+            disabled: string;
+        };
+    };
+    typography: {
+        fontFamily: string;
+        fontSize: string;
+        fontWeight: string;
+    };
+    border: {
+        radius: string;
+    };
+    colorBlock: {
+        border: {
+            radius: string;
+        };
+    };
+    panel: {
+        input: {
+            typography: {
+                fontWeight: string;
+            };
+            colors: {
+                prefix: {
+                    default: string;
+                };
+            };
+        };
+        select: {
+            typography: {
+                fontWeight: string;
+            };
+            colors: {
+                typography: {
+                    default: string;
+                };
+                rafter: {
+                    default: string;
+                };
+            };
+        };
+        preset: {
+            typography: {
+                fontWeight: string;
+            };
+            colors: {
+                typography: {
+                    default: string;
+                };
+                rafter: {
+                    default: string;
+                };
+                empty: {
+                    default: string;
+                };
+            };
+        };
+    };
+}

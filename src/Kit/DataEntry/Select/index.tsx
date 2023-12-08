@@ -14,11 +14,11 @@ import type {RefSelectProps} from 'antd';
 import {useDebouncedCallback} from 'use-debounce';
 import ShortUniqueId from 'short-unique-id';
 
-const _getOptionLabel = (props, theme) => (
+const _getOptionLabel = props => (
     <div className="kit-select-option">
         {props.icon && <KitIcon className="kit-select-option-icon" icon={props.icon} on />}
         {!props.icon && (
-            <StyledBadge $theme={theme.components.Select.ColorBadge} className="kit-select-option-badge">
+            <StyledBadge className="kit-select-option-badge">
                 {props.color && <div className="kit-select-option-color" style={{backgroundColor: props.color}} />}
             </StyledBadge>
         )}
@@ -26,16 +26,16 @@ const _getOptionLabel = (props, theme) => (
     </div>
 );
 
-const _parseOptions = (list, labelOnly, theme) => {
+const _parseOptions = (list, labelOnly) => {
     return list.map(({className, disabled, value, options, ...rest}) => {
         if (options) {
             return {
                 label: rest.label,
-                options: _parseOptions(options, labelOnly, theme)
+                options: _parseOptions(options, labelOnly)
             };
         }
         return {
-            label: labelOnly ? <StyledLabel>{rest.label}</StyledLabel> : _getOptionLabel(rest, theme),
+            label: labelOnly ? <StyledLabel>{rest.label}</StyledLabel> : _getOptionLabel(rest),
             className: rest.highlight ? `${className} kit-select-highlight-option` : className,
             disabled,
             value
@@ -74,11 +74,11 @@ const _maxTagRender = omittedValues => {
     );
 };
 
-const _getClasses = (className: IKitSelect['className'], placement: IKitSelect['placement']) => {
-    return (className || '') + ' ant-select-' + (placement && placement.indexOf('top') >= 0 ? 'top' : 'bottom');
+const _getPlacementClasses = (placement: IKitSelect['placement']) => {
+    return ' ant-select-' + (placement && placement.indexOf('top') >= 0 ? 'top' : 'bottom');
 };
 
-const _getDropdownClasses = (placement: IKitSelect['placement']) => {
+const _getPopupPlacementClasses = (placement: IKitSelect['placement']) => {
     return cn({
         'kit-select-dropdown-top': placement && placement.indexOf('top') >= 0,
         'kit-select-dropdown-bottom': !placement || placement.indexOf('top') < 0
@@ -116,17 +116,20 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             labelOnly,
             label,
             helper,
+            placement,
             onClick,
             onClear,
             onBlur,
             wrapperClassName,
+            className,
+            popupClassName,
             oneLineTags = false,
             allowClear = true,
             ...props
         },
         ref?: Ref<RefSelectProps> | undefined
     ) => {
-        const {theme} = useKitTheme();
+        const {appId} = useKitTheme();
         const [internalOptions, setOptions] = useState([]);
         const [isOpen, setIsOpen] = useState(false);
         const internalKitSelectRef = useRef(id ?? uid.rnd());
@@ -149,7 +152,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             if (!options) {
                 setOptions([]);
             } else {
-                setOptions(_parseOptions(options, labelOnly, theme));
+                setOptions(_parseOptions(options, labelOnly));
             }
         }, [options, labelOnly]);
 
@@ -191,12 +194,12 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                 className={wrapperClassName}
             >
                 <StyledKitSelect
-                    $theme={theme.components.Select}
                     {...props}
                     id={internalKitSelectRef.current}
-                    className={_getClasses(props.className, props.placement)}
-                    popupClassName={_getDropdownClasses(props.placement)}
+                    className={`${appId} ${className ?? ''} ${_getPlacementClasses(placement)}`}
+                    popupClassName={`${appId} ${popupClassName ?? ''} ${_getPopupPlacementClasses(placement)}`}
                     options={internalOptions}
+                    placement={placement}
                     menuItemSelectedIcon={<KitIcon icon={<FontAwesomeIcon icon={faCheck} />} on />}
                     suffixIcon={
                         props.loading ? (

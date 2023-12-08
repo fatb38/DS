@@ -30,10 +30,6 @@ export const StyledHeader = styled.div`
         text-transform: uppercase;
         flex: 1;
         cursor: pointer;
-
-        .anticon {
-            margin-right: 1rem;
-        }
     }
 
     ${StyledLinkButton} {

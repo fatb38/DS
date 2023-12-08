@@ -2,6 +2,7 @@ import React from 'react';
 import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import type {IKitDatePicker} from '@kit/DataEntry/DatePicker/types';
+import dayjs from 'dayjs';
 
 const App = () => {
     const onChange: IKitDatePicker['onChange'] = (date, dateString) => {

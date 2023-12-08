@@ -61,11 +61,11 @@ const KitAppConfig: FunctionComponent<
             <KitNotificationProvider>
                 <KitSnackBarProvider />
                 <GlobalStyles />
-                <ColorPickerPanelStyle $theme={theme.components.ColorPicker} />
+                <ColorPickerPanelStyle />
                 <DropDownStyle $theme={theme.components.DropDown} />
-                <SelectDropDownStyle $theme={theme.components.Select.DropDown} />
+                <SelectDropDownStyle />
                 <TabsDropDownStyle />
-                <DatePickerDropDownStyle $theme={theme.components.DatePicker.DropDown} />
+                <DatePickerDropDownStyle />
                 <NotificationStyle $theme={theme.components.Notification} />
                 <TypographyStyle $theme={theme.components.Typography} />
                 <TourStyle $buttonTheme={theme.components.Button} />
