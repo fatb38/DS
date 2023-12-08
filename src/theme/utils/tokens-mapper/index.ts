@@ -1,4 +1,4 @@
-import { IKitCustomTheme, IKitTheme } from "@theme/types";
+import {IKitCustomTheme, IKitTheme} from '@theme/types';
 import {ThemeConfig} from 'antd';
 import {
     mapBadgeKitTokenToAntdToken,
@@ -23,10 +23,10 @@ import {mapAlertKitTokenToAntdToken, mapProgressKitTokenToAntdToken} from './Fee
 import {mapDividerKitTokenToAntdToken} from './Layout';
 import {mapStepsKitTokenToAntdToken, mapPaginationKitTokenToAntdToken} from './Navigation';
 import {mapButtonKitTokenToAntdToken} from './General';
-import { merge } from "lodash";
+import {merge} from 'lodash';
 
 export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCustomTheme): ThemeConfig => {
-    const components = merge(theme.components, customTheme?.components)
+    const components = merge(theme.components, customTheme?.components);
 
     return {
         components: {
@@ -47,9 +47,9 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCusto
             Rate: mapRateKitTokenToAntdToken(components.Rate),
             Select: mapSelectKitTokenToAntdToken(components.Select),
             Slider: mapSliderKitTokenToAntdToken(components.Slider),
-            Steps: mapStepsKitTokenToAntdToken(components.Steps),
+            Steps: mapStepsKitTokenToAntdToken(),
             Tag: mapTagKitTokenToAntdToken(components.Tag),
-            Pagination: mapPaginationKitTokenToAntdToken(components.Pagination),
+            Pagination: mapPaginationKitTokenToAntdToken(),
             ColorPicker: mapColorPickerKitTokenToAntdToken(components.ColorPicker)
         }
     };
