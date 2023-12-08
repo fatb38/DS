@@ -1,6 +1,6 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitStepsTheme} from '@theme/types/components/Navigation/Steps';
+import {IKitStepsCssTokens, IKitStepsTheme} from '@theme/types/components/Navigation/Steps';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitStepsTokens = (generalTokens: IKitThemeGeneral): IKitStepsTheme => {
     const {colors, typography} = generalTokens;
@@ -30,3 +30,28 @@ export const getKitStepsTokens = (generalTokens: IKitThemeGeneral): IKitStepsThe
         }
     };
 };
+
+export const kitStepsCssTokens = generateCssTokens<IKitStepsCssTokens>('--components-Steps', {
+    colors: {
+        dot: {
+            default: ''
+        },
+        split: {
+            default: ''
+        },
+        typography: {
+            description: {
+                default: '',
+                active: ''
+            },
+            text: {
+                default: '',
+                active: ''
+            }
+        }
+    },
+    typography: {
+        fontfamily: '',
+        fontSize: ''
+    }
+});

@@ -18,3 +18,16 @@ export interface IKitHeaderTheme {
         };
     };
 }
+
+export interface IKitHeaderCssTokens {
+    colors: {
+        background: {
+            default: string;
+        };
+        typography: {
+            input: {
+                default: string;
+            };
+        };
+    };
+}

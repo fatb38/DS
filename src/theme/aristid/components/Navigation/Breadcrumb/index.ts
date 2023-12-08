@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitBreadcrumbTheme} from '@theme/types/components/Navigation/Breadcrumb';
+import {IKitBreadcrumbCssTokens, IKitBreadcrumbTheme} from '@theme/types/components/Navigation/Breadcrumb';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitBreadcrumbTokens = (generalTokens: IKitThemeGeneral): IKitBreadcrumbTheme => {
     const {typography} = generalTokens;
@@ -13,3 +14,12 @@ export const getKitBreadcrumbTokens = (generalTokens: IKitThemeGeneral): IKitBre
         }
     };
 };
+
+export const kitBreadcrumbCssTokens = generateCssTokens<IKitBreadcrumbCssTokens>('--components-Breadcrumb', {
+    link: {
+        typography: {
+            fontFamily: '',
+            fontWeight: ''
+        }
+    }
+});

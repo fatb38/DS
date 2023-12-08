@@ -1,36 +1,48 @@
 import React from 'react';
 import {Pagination} from 'antd';
 import styled from 'styled-components';
-import {IKitPagination, IStyledAntdPagination} from './types';
+import {IKitPagination} from './types';
 import {useKitTheme} from '@theme/theme-context';
+import {kitPaginationCssTokens} from '@theme/aristid/components/Navigation/Pagination';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 
-const StyledAntdPagination = styled(Pagination)<IStyledAntdPagination>`
+const StyledAntdPagination = styled(Pagination)`
     &.kit-pagination-bordered:not(.ant-pagination-mini) {
         .ant-pagination-item:not(.ant-pagination-item-active) {
-            border-color: ${({$theme}) => $theme.pagination.border.default};
+            border-color: var(
+                ${kitPaginationCssTokens.pagination.border.default},
+                var(${kitColorsPaletteCssTokens.neutral.black60})
+            );
         }
 
         &:not(.ant-pagination-disabled) .ant-pagination-item:hover {
-            border-color: ${({$theme}) => $theme.pagination.border.hover};
-            background-color: ${({$theme}) => $theme.pagination.colors.background.hover};
+            border-color: var(
+                ${kitPaginationCssTokens.pagination.border.hover},
+                var(${kitColorsPaletteCssTokens.primary.primary400})
+            );
+            background-color: var(
+                ${kitPaginationCssTokens.pagination.colors.background.hover},
+                var(${kitColorsPaletteCssTokens.neutral.white})
+            );
         }
 
         .ant-pagination-next,
         .ant-pagination-prev {
-            background-color: ${({$theme}) => $theme.prevNext.colors.background.default};
-            border: 1px solid ${({$theme}) => $theme.prevNext.colors.border.default};
+            background-color: var(${kitPaginationCssTokens.prevNext.colors.background.default}, 'transparent');
+            border: 1px solid var(${kitPaginationCssTokens.prevNext.colors.border.default}, 'transparent');
         }
     }
 
     &.ant-pagination-mini:not(.ant-pagination-disabled) {
         .ant-pagination-item,
         .ant-pagination-item-active {
-            background: ${({$theme}) => $theme.pagination.colors.background.default};
+            background: var(${kitPaginationCssTokens.pagination.colors.background.default}, 'transparent');
         }
 
         .ant-pagination-next,
-        .ant-pagination-pre {
-            background: ${({$theme}) => $theme.prevNext.colors.background.default};
+        .ant-pagination-prev {
+            background: var(${kitPaginationCssTokens.prevNext.colors.background.default}, 'transparent');
         }
     }
 
@@ -48,23 +60,32 @@ const StyledAntdPagination = styled(Pagination)<IStyledAntdPagination>`
     &:not(.ant-pagination-disabled) {
         .ant-pagination-next,
         .ant-pagination-prev {
-            background-color: ${({$theme}) => $theme.prevNext.colors.background.default};
-            border: 1px solid ${({$theme}) => $theme.prevNext.colors.border.default};
+            background-color: var(${kitPaginationCssTokens.prevNext.colors.background.default}, 'transparent');
+            border: 1px solid var(${kitPaginationCssTokens.prevNext.colors.border.default}, 'transparent');
 
             a {
                 color: inherit;
             }
 
             &:hover {
-                border-color: ${({$theme}) => $theme.prevNext.colors.border.hover};
-                color: ${({$theme}) => $theme.prevNext.colors.typography.hover};
+                border-color: var(
+                    ${kitPaginationCssTokens.prevNext.colors.border.hover},
+                    var(${kitColorsPaletteCssTokens.primary.primary400})
+                );
+                color: var(
+                    ${kitPaginationCssTokens.prevNext.colors.typography.hover},
+                    var(${kitColorsPaletteCssTokens.primary.primary400})
+                );
 
                 .ant-pagination-item-link {
-                    background-color: ${({$theme}) => $theme.prevNext.colors.background.default};
+                    background-color: var(${kitPaginationCssTokens.prevNext.colors.background.default}, 'transparent');
                 }
 
                 button {
-                    color: ${({$theme}) => $theme.prevNext.colors.typography.hover};
+                    color: var(
+                        ${kitPaginationCssTokens.prevNext.colors.typography.hover},
+                        var(${kitColorsPaletteCssTokens.primary.primary400})
+                    );
                 }
             }
         }
@@ -81,13 +102,18 @@ const StyledAntdPagination = styled(Pagination)<IStyledAntdPagination>`
 
     &.ant-pagination-disabled {
         .ant-pagination-item-active a {
-            color: ${({$theme}) => $theme.pagination.colors.typography.disabledActive};
+            color: var(
+                ${kitPaginationCssTokens.pagination.colors.typography.disabledActive},
+                var(${kitColorsPaletteCssTokens.neutral.typography.white})
+            );
         }
     }
 
     & .kit-pagination-prev,
     & .kit-pagination-next {
-        font-size: ${({$theme}) => $theme.prevNext.typography.fontSize * 0.75}px;
+        font-size: calc(
+            var(${kitPaginationCssTokens.prevNext.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 0.75px
+        );
     }
 
     & .ant-pagination-options-quick-jumper {
@@ -96,7 +122,10 @@ const StyledAntdPagination = styled(Pagination)<IStyledAntdPagination>`
 
         input {
             height: 24px;
-            border-color: ${({$theme}) => $theme.quickJumper.colors.border.default};
+            border-color: var(
+                ${kitPaginationCssTokens.quickJumper.colors.border.default},
+                var(${kitColorsPaletteCssTokens.neutral.black60})
+            );
         }
     }
 
@@ -105,8 +134,14 @@ const StyledAntdPagination = styled(Pagination)<IStyledAntdPagination>`
 
         .ant-select-selector {
             height: 24px;
-            background: ${({$theme}) => $theme.selector.colors.background.default};
-            border-color: ${({$theme}) => $theme.selector.colors.border.default};
+            background: var(
+                ${kitPaginationCssTokens.selector.colors.background.default},
+                var(${kitColorsPaletteCssTokens.neutral.white})
+            );
+            border-color: var(
+                ${kitPaginationCssTokens.selector.colors.border.default},
+                var(${kitColorsPaletteCssTokens.neutral.black60})
+            );
 
             input,
             .ant-select-selection-item {
@@ -117,23 +152,18 @@ const StyledAntdPagination = styled(Pagination)<IStyledAntdPagination>`
     }
 `;
 
-export const KitPagination: React.FunctionComponent<IKitPagination> = paginationProps => {
-    const {theme} = useKitTheme();
+export const KitPagination: React.FunctionComponent<IKitPagination> = ({className, bordered, ...props}) => {
+    const {appId} = useKitTheme();
 
     const _itemRender: IKitPagination['itemRender'] = (_, type, originalElement) => {
-        // if (type === 'prev') {
-        //     return <KitIcon icon={<KitDropdownOutlined />} className="kit-pagination-prev"/>;
-        // }
-        // if (type === 'next') {
-        // return <KitIcon icon={<KitDropdownOutlined />}  className="kit-pagination-next"/>;
-        // }
-        return paginationProps.itemRender ? paginationProps.itemRender(_, type, originalElement) : originalElement;
+        return props.itemRender ? props.itemRender(_, type, originalElement) : originalElement;
     };
 
-    const mergedProps = {
-        ...paginationProps,
-        itemRender: _itemRender,
-        className: `${paginationProps.bordered ? 'kit-pagination-bordered' : ''} ${paginationProps.className || ''}`
-    };
-    return <StyledAntdPagination $theme={theme.components.Pagination} {...mergedProps} />;
+    return (
+        <StyledAntdPagination
+            {...props}
+            itemRender={_itemRender}
+            className={`${appId} ${className ?? ''} ${bordered ? 'kit-pagination-bordered' : ''}`}
+        />
+    );
 };

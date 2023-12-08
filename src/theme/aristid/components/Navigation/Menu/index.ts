@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
+import {IKitMenuCssTokens, IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitMenuTokens = (generalTokens: IKitThemeGeneral): IKitMenuTheme => {
     const {colors} = generalTokens;
@@ -40,3 +41,39 @@ export const getKitMenuTokens = (generalTokens: IKitThemeGeneral): IKitMenuTheme
         }
     };
 };
+
+export const kitMenuCssTokens = generateCssTokens<IKitMenuCssTokens>('--components-Menu', {
+    colors: {
+        background: {
+            default: ''
+        }
+    },
+    itemMenu: {
+        colors: {
+            background: {
+                default: '',
+                active: '',
+                hover: '',
+                danger: ''
+            },
+            border: {
+                active: ''
+            },
+            value: {
+                default: ''
+            },
+            rafter: {
+                default: '',
+                hover: ''
+            },
+            title: {
+                default: '',
+                danger: ''
+            },
+            icon: {
+                default: '',
+                danger: ''
+            }
+        }
+    }
+});

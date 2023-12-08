@@ -3,14 +3,16 @@ import styled from 'styled-components';
 import {KitTypography, KitButton} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {KitInput} from '@kit/DataEntry/';
-import {IHeader, IStyledHeaderWrapper} from './types';
+import {IKitHeader} from './types';
 import {useKitTheme} from '@theme/theme-context';
 import {faMagnifyingGlass, faPlus} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {kitHeaderCssTokens} from '@theme/aristid/components/Navigation/Header';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-const StyledHeaderWrapper = styled.div<IStyledHeaderWrapper>`
+const StyledHeaderWrapper = styled.div`
     padding: 16px 32px;
-    background: ${({$theme}) => $theme.colors.background.default};
+    background: var(${kitHeaderCssTokens.colors.background.default}, var(${kitColorsPaletteCssTokens.neutral.white}));
     display: grid;
     grid-template-areas:
         'breadcrumb breadcrumb breadcrumb'
@@ -35,7 +37,10 @@ const StyledHeaderWrapper = styled.div<IStyledHeaderWrapper>`
         max-width: 422px;
 
         input::placeholder {
-            color: ${({$theme}) => $theme.colors.typography.input.default};
+            color: var(
+                ${kitHeaderCssTokens.colors.typography.input.default},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
+            );
         }
     }
 
@@ -62,7 +67,7 @@ const StyledHeaderWrapper = styled.div<IStyledHeaderWrapper>`
     }
 `;
 
-const _getActions = (actions, onPlusClick) => {
+const _getActions = (actions?: IKitHeader['actions'], onPlusClick?: IKitHeader['onPlusClick']) => {
     if (!actions && !onPlusClick) {
         return null;
     }
@@ -99,8 +104,16 @@ const _getActions = (actions, onPlusClick) => {
     );
 };
 
-export const KitHeader: FunctionComponent<IHeader> = ({title, search, breadcrumb, actions, onPlusClick, ...props}) => {
-    const {theme} = useKitTheme();
+export const KitHeader: FunctionComponent<IKitHeader> = ({
+    title,
+    search,
+    breadcrumb,
+    actions,
+    onPlusClick,
+    className,
+    ...props
+}) => {
+    const {appId} = useKitTheme();
 
     const breadcrumbToDisplay = breadcrumb
         ? cloneElement(breadcrumb, {
@@ -113,7 +126,7 @@ export const KitHeader: FunctionComponent<IHeader> = ({title, search, breadcrumb
     }, [actions, onPlusClick]);
 
     return (
-        <StyledHeaderWrapper $theme={theme.components.Header} {...props}>
+        <StyledHeaderWrapper {...props} className={`${appId} ${className ?? ''} `}>
             {title && (
                 <KitTypography.Title level="h2" className="kit-header-title">
                     {title}

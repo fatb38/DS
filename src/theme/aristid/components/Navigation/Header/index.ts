@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitHeaderTheme} from '@theme/types/components/Navigation/Header';
+import {IKitHeaderCssTokens, IKitHeaderTheme} from '@theme/types/components/Navigation/Header';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitHeaderTokens = (generalTokens: IKitThemeGeneral): IKitHeaderTheme => {
     const {colors} = generalTokens;
@@ -17,3 +18,16 @@ export const getKitHeaderTokens = (generalTokens: IKitThemeGeneral): IKitHeaderT
         }
     };
 };
+
+export const kitHeaderCssTokens = generateCssTokens<IKitHeaderCssTokens>('--components-Header', {
+    colors: {
+        background: {
+            default: ''
+        },
+        typography: {
+            input: {
+                default: ''
+            }
+        }
+    }
+});

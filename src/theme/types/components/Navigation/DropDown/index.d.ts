@@ -198,3 +198,100 @@ export interface IKitDropDownTheme {
         };
     };
 }
+
+export interface IKitDropDownCssTokens {
+    colors: {
+        background: {
+            default: string;
+        };
+        typography: {
+            default: string;
+        };
+    };
+    typography: {
+        fontFamily: string;
+        fontWeight: string;
+    };
+    menu: {
+        colors: {
+            background: {
+                default: string;
+            };
+        };
+    };
+    menuItem: {
+        colors: {
+            background: {
+                active: string;
+                selected: string;
+                disabled: string;
+            };
+            typography: {
+                default: string;
+                active: string;
+                disabled: string;
+            };
+        };
+        typography: {
+            fontWeight: string;
+        };
+        divider: {
+            colors: {
+                background: {
+                    default: string;
+                };
+            };
+        };
+    };
+    menuItemGroup: {
+        title: {
+            colors: {
+                typography: {
+                    default: string;
+                };
+            };
+            typography: {
+                fontSize: string;
+                fontWeight: string;
+            };
+        };
+    };
+    subMenu: {
+        colors: {
+            background: {
+                active: string;
+            };
+            typography: {
+                active: string;
+            };
+        };
+        title: {
+            colors: {
+                background: {
+                    disabled: string;
+                };
+                typography: {
+                    default: string;
+                    active: string;
+                    disabled: string;
+                };
+            };
+            typography: {
+                fontWeight: string;
+            };
+        };
+        expIcon: {
+            colors: {
+                background: {
+                    default: string;
+                    disabled: string;
+                };
+                typography: {
+                    default: string;
+                    active: string;
+                    disabled: string;
+                };
+            };
+        };
+    };
+}
