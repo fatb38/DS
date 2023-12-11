@@ -9,21 +9,21 @@ import {
 } from './DataDisplay';
 import {
     mapCheckboxKitTokenToAntdToken,
-    mapInputKitTokenToAntdToken,
     mapInputNumberKitTokenToAntdToken,
     mapRadioKitTokenToAntdToken,
     mapRateKitTokenToAntdToken,
     mapSelectKitTokenToAntdToken,
     mapSliderKitTokenToAntdToken,
-    mapTagKitTokenToAntdToken,
-    colorPickerKitTokenToAntdToken,
-    datePickerKitTokenToAntdToken
+    mapTagKitTokenToAntdToken
 } from './DataEntry';
 import {stepsKitTokenToAntdToken, paginationKitTokenToAntdToken} from './Navigation';
 import {buttonKitTokenToAntdToken} from './General';
 import {merge} from 'lodash';
 import {dividerKitTokenToAntdToken} from './Layout';
 import {alertKitTokenToAntdToken, progressKitTokenToAntdToken} from './Feedback';
+import {datePickerKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/DatePicker';
+import {mapInputKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Input';
+import {colorPickerKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/ColorPicker';
 
 export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCustomTheme): ThemeConfig => {
     const components = merge(theme.components, customTheme?.components);
@@ -40,7 +40,7 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCusto
             Tabs: tabsKitTokenToAntdToken,
             Tooltip: tooltipKitTokenToAntdToken,
             Tree: treeKitTokenToAntdToken,
-            Input: mapInputKitTokenToAntdToken(components.Input),
+            Input: mapInputKitTokenToAntdToken,
             InputNumber: mapInputNumberKitTokenToAntdToken(components.InputNumber),
             Progress: progressKitTokenToAntdToken,
             Radio: mapRadioKitTokenToAntdToken(components.Radio),
