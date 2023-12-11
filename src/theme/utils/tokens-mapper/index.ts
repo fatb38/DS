@@ -9,7 +9,6 @@ import {
 } from './DataDisplay';
 import {
     mapCheckboxKitTokenToAntdToken,
-    mapDatePickerKitTokenToAntdToken,
     mapInputKitTokenToAntdToken,
     mapInputNumberKitTokenToAntdToken,
     mapRadioKitTokenToAntdToken,
@@ -17,7 +16,8 @@ import {
     mapSelectKitTokenToAntdToken,
     mapSliderKitTokenToAntdToken,
     mapTagKitTokenToAntdToken,
-    colorPickerKitTokenToAntdToken
+    colorPickerKitTokenToAntdToken,
+    datePickerKitTokenToAntdToken
 } from './DataEntry';
 import {stepsKitTokenToAntdToken, paginationKitTokenToAntdToken} from './Navigation';
 import {buttonKitTokenToAntdToken} from './General';
@@ -35,7 +35,7 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCusto
             Button: buttonKitTokenToAntdToken,
             Checkbox: mapCheckboxKitTokenToAntdToken(components.Checkbox),
             Collapse: collapseKitTokenToAntdToken,
-            DatePicker: mapDatePickerKitTokenToAntdToken(components.DatePicker),
+            DatePicker: datePickerKitTokenToAntdToken,
             Divider: dividerKitTokenToAntdToken,
             Tabs: tabsKitTokenToAntdToken,
             Tooltip: tooltipKitTokenToAntdToken,

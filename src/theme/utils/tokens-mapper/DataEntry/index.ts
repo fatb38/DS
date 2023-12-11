@@ -1,5 +1,5 @@
 export {mapCheckboxKitTokenToAntdToken} from './Checkbox';
-export {mapDatePickerKitTokenToAntdToken} from './DatePicker';
+export {datePickerKitTokenToAntdToken} from './DatePicker';
 export {mapInputKitTokenToAntdToken} from './Input';
 export {mapInputNumberKitTokenToAntdToken} from './InputNumber';
 export {mapRadioKitTokenToAntdToken} from './Radio';
