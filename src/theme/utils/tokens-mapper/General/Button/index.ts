@@ -1,13 +1,15 @@
-import {IKitButtonTheme} from '@theme/types/components/General/Button';
+import {kitButtonCssTokens} from '@theme/aristid/components/General/Button';
+import {borderCssTokens} from '@theme/aristid/general/border';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 
-export const mapButtonKitTokenToAntdToken = (kitButtonTheme: IKitButtonTheme) => {
-    const {typography, border} = kitButtonTheme;
-
-    return {
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize,
-        fontSizeLG: typography.fontSize,
-        lineHeight: typography.lineHeight,
-        borderRadius: border.radius
-    };
+export const buttonKitTokenToAntdToken = {
+    fontFamily: `var(${kitButtonCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`,
+    fontSize:
+        `calc(var(${kitButtonCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px)` as unknown as number,
+    fontSizeLG:
+        `calc(var(${kitButtonCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px)` as unknown as number,
+    lineHeight:
+        `var(${kitButtonCssTokens.typography.lineHeight}, var(${typographyCssTokens.lineHeight5}))` as unknown as number,
+    borderRadius:
+        `calc(var(${kitButtonCssTokens.border.radius}, var(${borderCssTokens.radius.pills})) * 1px)` as unknown as number
 };

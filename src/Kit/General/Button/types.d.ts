@@ -2,7 +2,7 @@ import {IKitColorsPalette} from '@theme/types/general/colors';
 import {ButtonProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import {CSSProperties, ForwardRefExoticComponent, RefAttributes} from 'react';
-import {IKitButtonThemePropeties} from '@theme/types/components/General/Button';
+import {IKitButtonPropetiesCssTokens} from '@theme/types/components/General/Button';
 
 export type KitButtonType = 'primary' | 'default' | 'text' | 'link' | 'segmented';
 
@@ -26,7 +26,10 @@ export interface IKitButton extends Omit<ButtonProps, AntdButtonTypesToOmit>, Ki
 }
 
 export interface IStyledKitButton {
-    $theme: IKitButtonThemePropeties;
+    $buttonCssTokens: {
+        custom: IKitButtonPropetiesCssTokens;
+        default: IKitButtonPropetiesCssTokens;
+    };
     $iconSize?: KitButtonIconSize;
 }
 

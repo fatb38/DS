@@ -1,1 +1,1 @@
-export {mapButtonKitTokenToAntdToken} from './Button';
+export {buttonKitTokenToAntdToken} from './Button';

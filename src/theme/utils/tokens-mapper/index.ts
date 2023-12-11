@@ -20,7 +20,7 @@ import {
     mapColorPickerKitTokenToAntdToken
 } from './DataEntry';
 import {stepsKitTokenToAntdToken, paginationKitTokenToAntdToken} from './Navigation';
-import {mapButtonKitTokenToAntdToken} from './General';
+import {buttonKitTokenToAntdToken} from './General';
 import {merge} from 'lodash';
 import {dividerKitTokenToAntdToken} from './Layout';
 import {alertKitTokenToAntdToken, progressKitTokenToAntdToken} from './Feedback';
@@ -32,7 +32,7 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCusto
         components: {
             Alert: alertKitTokenToAntdToken,
             Badge: badgeKitTokenToAntdToken,
-            Button: mapButtonKitTokenToAntdToken(components.Button),
+            Button: buttonKitTokenToAntdToken,
             Checkbox: mapCheckboxKitTokenToAntdToken(components.Checkbox),
             Collapse: collapseKitTokenToAntdToken,
             DatePicker: mapDatePickerKitTokenToAntdToken(components.DatePicker),
