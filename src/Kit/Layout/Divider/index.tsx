@@ -2,11 +2,14 @@ import React, {FunctionComponent} from 'react';
 import {Divider as AntdDivider} from 'antd';
 import {css, styled} from 'styled-components';
 import {IStyledAntdDivider, IKitDivider} from './types';
+import {kitDividerCssTokens} from '@theme/aristid/components/Layout/Divider';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {useKitTheme} from '@theme/theme-context';
 
 const StyledAntdDivider = styled(AntdDivider)<IStyledAntdDivider>`
     &.ant-divider {
-        font-weight: ${({$theme}) => $theme.typography.fontWeight};
+        font-weight: var(${kitDividerCssTokens.typography.fontWeight}, var(${typographyCssTokens.mediumfontWeight}));
 
         ${({$noMargin}) =>
             $noMargin &&
@@ -14,24 +17,27 @@ const StyledAntdDivider = styled(AntdDivider)<IStyledAntdDivider>`
                 margin: 0px;
             `}
 
-        ${({$color, $theme}) =>
+        ${({$color}) =>
             $color === 'lightGrey' &&
             css`
-                border-color: ${$theme.colors.split.lightGrey};
+                border-color: var(
+                    ${kitDividerCssTokens.colors.split.lightGrey},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
+                );
             `}
     }
 `;
 
-export const KitDivider: FunctionComponent<IKitDivider> = ({noMargin = false, color = 'default', ...dividerProps}) => {
-    const {theme} = useKitTheme();
+export const KitDivider: FunctionComponent<IKitDivider> = ({
+    noMargin = false,
+    color = 'default',
+    className,
+    ...props
+}) => {
+    const {appId} = useKitTheme();
 
     return (
-        <StyledAntdDivider
-            $theme={theme.components.Divider}
-            {...dividerProps}
-            $noMargin={noMargin}
-            $color={color}
-        ></StyledAntdDivider>
+        <StyledAntdDivider {...props} className={`${appId} ${className ?? ''}`} $noMargin={noMargin} $color={color} />
     );
 };
 

@@ -19,10 +19,10 @@ import {
     mapTagKitTokenToAntdToken,
     mapColorPickerKitTokenToAntdToken
 } from './DataEntry';
-import {mapDividerKitTokenToAntdToken} from './Layout';
 import {stepsKitTokenToAntdToken, paginationKitTokenToAntdToken} from './Navigation';
 import {mapButtonKitTokenToAntdToken} from './General';
 import {merge} from 'lodash';
+import {dividerKitTokenToAntdToken} from './Layout';
 import {alertKitTokenToAntdToken, progressKitTokenToAntdToken} from './Feedback';
 
 export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCustomTheme): ThemeConfig => {
@@ -36,7 +36,7 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCusto
             Checkbox: mapCheckboxKitTokenToAntdToken(components.Checkbox),
             Collapse: collapseKitTokenToAntdToken,
             DatePicker: mapDatePickerKitTokenToAntdToken(components.DatePicker),
-            Divider: mapDividerKitTokenToAntdToken(components.Divider),
+            Divider: dividerKitTokenToAntdToken,
             Tabs: tabsKitTokenToAntdToken,
             Tooltip: tooltipKitTokenToAntdToken,
             Tree: treeKitTokenToAntdToken,

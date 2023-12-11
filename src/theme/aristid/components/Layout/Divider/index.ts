@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitDividerTheme} from '@theme/types/components/Layout/Divider';
+import {IKitDividerCssTokens, IKitDividerTheme} from '@theme/types/components/Layout/Divider';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitDividerTokens = (generalTokens: IKitThemeGeneral): IKitDividerTheme => {
     const {colors, typography} = generalTokens;
@@ -22,3 +23,21 @@ export const getKitDividerTokens = (generalTokens: IKitThemeGeneral): IKitDivide
         }
     };
 };
+
+export const kitDividerCssTokens = generateCssTokens<IKitDividerCssTokens>('--components-Divider', {
+    colors: {
+        typography: {
+            default: ''
+        },
+        split: {
+            default: '',
+            lightGrey: ''
+        }
+    },
+    typography: {
+        fontFamily: '',
+        fontWeight: '',
+        fontSize: '',
+        lineHeight: ''
+    }
+});

@@ -41,20 +41,14 @@ const KitAppConfig: FunctionComponent<
         locale?: IKitLocale;
     }>
 > = ({children, locale, customTheme}) => {
-    const {theme, setCustomTheme} = useKitTheme();
+    const {theme} = useKitTheme();
     const {setKitLocale} = useKitLocale();
-
-    useEffect(() => {
-        if (customTheme !== undefined) {
-            setCustomTheme(customTheme);
-        }
-    }, [customTheme]);
 
     useEffect(() => {
         if (locale !== undefined) {
             setKitLocale(locale);
         }
-    }, [locale]);
+    }, [locale, setKitLocale]);
 
     return (
         <ConfigProvider theme={mapKitThemeToAntdTheme(theme, customTheme)} locale={mapKitLocaleToAntdLocale(locale)}>

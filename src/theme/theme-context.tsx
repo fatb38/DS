@@ -1,25 +1,26 @@
-import React, {Dispatch, SetStateAction, createContext, useState, FC, PropsWithChildren, useRef} from 'react';
+import React, {createContext, FC, PropsWithChildren, useRef} from 'react';
 
 // TODO: Later add option to have more arisitd themes
 import {getKitAristidTheme} from './aristid';
-import {IKitCustomTheme, IKitTheme} from './types';
+import {IKitCustomTheme, IKitTheme, IKitThemeGeneral} from './types';
 import {createGlobalStyle} from 'styled-components';
 import {toCssVariables} from '@utils/functions';
 import uuid from 'react-uuid';
 import AristidTheme from './default-theme';
+import {merge} from 'lodash';
 
 type KitThemeContext =
     | {
           theme: IKitTheme;
-          setCustomTheme: Dispatch<SetStateAction<IKitCustomTheme | undefined>>;
           appId: string;
+          spacing: IKitThemeGeneral['spacing'];
       }
     | undefined;
 
 const KitThemeContext = createContext<KitThemeContext>(undefined);
 const kitAristidTheme = getKitAristidTheme();
 
-const CustomVariables = createGlobalStyle<{customTheme: any; id: any}>`
+const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: string}>`
     .${props => props.id} {
         ${props => toCssVariables(props.customTheme)};
     }
@@ -33,12 +34,12 @@ export const useKitTheme = () => {
     return context;
 };
 
-export const KitThemeProvider: FC<PropsWithChildren<{customTheme: any; id?: string}>> = ({
+export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomTheme; id?: string}>> = ({
     children,
     customTheme,
     id
 }) => {
-    const value = useKitThemeProvider(id);
+    const value = useKitThemeProvider(kitAristidTheme, id, customTheme);
 
     return (
         <KitThemeContext.Provider value={value}>
@@ -49,17 +50,12 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme: any; id?: stri
     );
 };
 
-const useKitThemeProvider = (id?: string) => {
+const useKitThemeProvider = (theme: IKitTheme, id?: string, customTheme?: IKitCustomTheme) => {
     const internalId = useRef(id || 'ds-' + uuid().substring(0, 8));
-    const [theme, setTheme] = useState<IKitTheme>(kitAristidTheme);
-    const [customTheme, setCustomTheme] = useState<IKitCustomTheme | undefined>(undefined);
 
-    // TODO to remove
-    // useEffect(() => {
-    //     if (customTheme !== undefined) {
-    //         setTheme(prevState => ({...prevState, components: kitAristidTheme.components}));
-    //     }
-    // }, [customTheme]);
+    // We can't use css variables for the Spacing component so we need to pass this object
+    const mergeSpacing = merge(theme.general.spacing, customTheme?.general?.spacing);
 
-    return {theme, setCustomTheme, appId: internalId.current};
+    //TODO Remove theme
+    return {theme, appId: internalId.current, spacing: mergeSpacing};
 };

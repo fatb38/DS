@@ -1,42 +1,44 @@
-import React, {FunctionComponent, useMemo} from 'react';
+import React, {FunctionComponent, useCallback, useMemo} from 'react';
 import {Space as AntdSpace} from 'antd';
 import type {IKitSpace} from './types';
 import {SpaceCompactProps} from 'antd/lib/space/Compact';
 import {useKitTheme} from '@theme/theme-context';
+import {SpaceSize} from 'antd/lib/space';
 
-const Space: React.FunctionComponent<IKitSpace> = props => {
-    const {theme} = useKitTheme();
-    const spacingTheme = theme.general.spacing;
+const Space: FunctionComponent<IKitSpace> = ({size, ...props}) => {
+    const {spacing} = useKitTheme();
 
-    let {size, ...rest} = props;
-    size = size ?? 'xs';
+    const customSize = size ?? 'xs';
 
-    const _getAntdSize = size => {
-        if (typeof size === 'number') {
-            return size;
-        }
+    const _getAntdSize = useCallback(
+        (size: number | string): number => {
+            if (typeof size === 'number') {
+                return size;
+            }
 
-        if (typeof size === 'string') {
-            return spacingTheme[size];
-        }
+            if (typeof size === 'string') {
+                return spacing[size] as number;
+            }
 
-        return undefined;
-    };
+            return 0;
+        },
+        [spacing]
+    );
 
     const gapSize = useMemo(() => {
-        if (typeof size === 'object') {
-            let [verticalSpacing, horizontalSpacing] = size;
+        if (typeof customSize === 'object') {
+            let [verticalSpacing, horizontalSpacing] = customSize;
 
             verticalSpacing = _getAntdSize(verticalSpacing);
             horizontalSpacing = _getAntdSize(horizontalSpacing);
 
-            return [verticalSpacing, horizontalSpacing];
+            return [verticalSpacing, horizontalSpacing] as [SpaceSize, SpaceSize];
         }
 
-        return _getAntdSize(size);
-    }, [size]);
+        return _getAntdSize(customSize) as SpaceSize;
+    }, [customSize, _getAntdSize]);
 
-    return <AntdSpace size={gapSize} {...rest} />;
+    return <AntdSpace {...props} size={gapSize} />;
 };
 
 type CompoundedComponent = FunctionComponent<IKitSpace> & {
