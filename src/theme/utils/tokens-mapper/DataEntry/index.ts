@@ -1,5 +1,4 @@
 export {mapCheckboxKitTokenToAntdToken} from './Checkbox';
-export {mapRadioKitTokenToAntdToken} from './Radio';
 export {mapRateKitTokenToAntdToken} from './Rate';
 export {mapSelectKitTokenToAntdToken} from './Select';
 export {mapSliderKitTokenToAntdToken} from './Slider';
