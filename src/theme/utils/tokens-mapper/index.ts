@@ -1,11 +1,11 @@
 import {IKitCustomTheme, IKitTheme} from '@theme/types';
 import {ThemeConfig} from 'antd';
 import {
-    mapBadgeKitTokenToAntdToken,
-    mapCollapseKitTokenToAntdToken,
-    mapTabsKitTokenToAntdToken,
-    mapTooltipKitTokenToAntdToken,
-    mapTreeKitTokenToAntdToken
+    badgeKitTokenToAntdToken,
+    collapseKitTokenToAntdToken,
+    tabsKitTokenToAntdToken,
+    tooltipKitTokenToAntdToken,
+    treeKitTokenToAntdToken
 } from './DataDisplay';
 import {
     mapCheckboxKitTokenToAntdToken,
@@ -20,7 +20,7 @@ import {
     mapColorPickerKitTokenToAntdToken
 } from './DataEntry';
 import {mapDividerKitTokenToAntdToken} from './Layout';
-import {mapStepsKitTokenToAntdToken, mapPaginationKitTokenToAntdToken} from './Navigation';
+import {stepsKitTokenToAntdToken, paginationKitTokenToAntdToken} from './Navigation';
 import {mapButtonKitTokenToAntdToken} from './General';
 import {merge} from 'lodash';
 import {alertKitTokenToAntdToken, progressKitTokenToAntdToken} from './Feedback';
@@ -31,15 +31,15 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCusto
     return {
         components: {
             Alert: alertKitTokenToAntdToken,
-            Badge: mapBadgeKitTokenToAntdToken(components.Badge),
+            Badge: badgeKitTokenToAntdToken,
             Button: mapButtonKitTokenToAntdToken(components.Button),
             Checkbox: mapCheckboxKitTokenToAntdToken(components.Checkbox),
-            Collapse: mapCollapseKitTokenToAntdToken(components.Collapse),
+            Collapse: collapseKitTokenToAntdToken,
             DatePicker: mapDatePickerKitTokenToAntdToken(components.DatePicker),
             Divider: mapDividerKitTokenToAntdToken(components.Divider),
-            Tabs: mapTabsKitTokenToAntdToken(components.Tabs),
-            Tooltip: mapTooltipKitTokenToAntdToken(components.Tooltip),
-            Tree: mapTreeKitTokenToAntdToken(components.Tree),
+            Tabs: tabsKitTokenToAntdToken,
+            Tooltip: tooltipKitTokenToAntdToken,
+            Tree: treeKitTokenToAntdToken,
             Input: mapInputKitTokenToAntdToken(components.Input),
             InputNumber: mapInputNumberKitTokenToAntdToken(components.InputNumber),
             Progress: progressKitTokenToAntdToken,
@@ -47,9 +47,9 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCusto
             Rate: mapRateKitTokenToAntdToken(components.Rate),
             Select: mapSelectKitTokenToAntdToken(components.Select),
             Slider: mapSliderKitTokenToAntdToken(components.Slider),
-            Steps: mapStepsKitTokenToAntdToken(),
+            Steps: stepsKitTokenToAntdToken,
             Tag: mapTagKitTokenToAntdToken(components.Tag),
-            Pagination: mapPaginationKitTokenToAntdToken(),
+            Pagination: paginationKitTokenToAntdToken,
             ColorPicker: mapColorPickerKitTokenToAntdToken(components.ColorPicker)
         }
     };

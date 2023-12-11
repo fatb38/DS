@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitTooltipTheme} from '@theme/types/components/DataDisplay/Tooltip';
+import {IKitTooltipCssTokens, IKitTooltipTheme} from '@theme/types/components/DataDisplay/Tooltip';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitTooltipTokens = (generalTokens: IKitThemeGeneral): IKitTooltipTheme => {
     const {colors, border, typography} = generalTokens;
@@ -22,3 +23,21 @@ export const getKitTooltipTokens = (generalTokens: IKitThemeGeneral): IKitToolti
         }
     };
 };
+
+export const kitTooltipCssToken = generateCssTokens<IKitTooltipCssTokens>('--components-Tooltip', {
+    colors: {
+        background: {
+            default: ''
+        },
+        typography: {
+            default: ''
+        }
+    },
+    border: {
+        radius: ''
+    },
+    typography: {
+        fontFamily: '',
+        fontSize: ''
+    }
+});

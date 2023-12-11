@@ -1,2 +1,2 @@
-export {mapPaginationKitTokenToAntdToken} from './Pagination';
-export {mapStepsKitTokenToAntdToken} from './Steps';
+export {paginationKitTokenToAntdToken} from './Pagination';
+export {stepsKitTokenToAntdToken} from './Steps';
