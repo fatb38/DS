@@ -9,7 +9,6 @@ import {
 } from './DataDisplay';
 import {
     mapCheckboxKitTokenToAntdToken,
-    mapInputNumberKitTokenToAntdToken,
     mapRadioKitTokenToAntdToken,
     mapRateKitTokenToAntdToken,
     mapSelectKitTokenToAntdToken,
@@ -24,6 +23,7 @@ import {alertKitTokenToAntdToken, progressKitTokenToAntdToken} from './Feedback'
 import {datePickerKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/DatePicker';
 import {mapInputKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Input';
 import {colorPickerKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/ColorPicker';
+import {inputNumberKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/InputNumber';
 
 export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCustomTheme): ThemeConfig => {
     const components = merge(theme.components, customTheme?.components);
@@ -41,7 +41,7 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCusto
             Tooltip: tooltipKitTokenToAntdToken,
             Tree: treeKitTokenToAntdToken,
             Input: mapInputKitTokenToAntdToken,
-            InputNumber: mapInputNumberKitTokenToAntdToken(components.InputNumber),
+            InputNumber: inputNumberKitTokenToAntdToken,
             Progress: progressKitTokenToAntdToken,
             Radio: mapRadioKitTokenToAntdToken(components.Radio),
             Rate: mapRateKitTokenToAntdToken(components.Rate),
