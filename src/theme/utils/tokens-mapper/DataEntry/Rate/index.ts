@@ -1,9 +1,6 @@
-import {IKitRateTheme} from '@theme/types/components/DataEntry/Rate';
+import {kitRateCssTokens} from '@theme/aristid/components/DataEntry/Rate';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-export const mapRateKitTokenToAntdToken = (kitRateTheme: IKitRateTheme) => {
-    const {colors} = kitRateTheme;
-
-    return {
-        starColor: colors.star.default
-    };
+export const rateKitTokenToAntdToken = {
+    starColor: `var(${kitRateCssTokens.colors.star.default}, var(${kitColorsPaletteCssTokens.secondary.yellow.yellow400}))`
 };
