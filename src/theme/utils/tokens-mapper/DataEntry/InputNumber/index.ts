@@ -12,7 +12,7 @@ export const inputNumberKitTokenToAntdToken = {
     colorTextPlaceholder: `var(${kitInputNumberCssTokens.colors.typography.placeholder.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500}))`,
     colorText: `var(${kitInputNumberCssTokens.colors.typography.content.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}))`,
     borderRadius:
-        `calc(var(${kitInputNumberCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px` as unknown as number,
+        `calc(var(${kitInputNumberCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px)` as unknown as number,
     fontFamily: `var(${kitInputNumberCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`,
     fontSize: `calc(var(${kitInputNumberCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px)` as unknown as number
 };
