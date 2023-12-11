@@ -1,18 +1,16 @@
-import {IKitAlertTheme} from '@theme/types/components/Feedback/Alert';
+import {kitAlertCssTokens} from '@theme/aristid/components/Feedback/Alert';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 
-export const mapAlertKitTokenToAntdToken = (kitAlertTheme: IKitAlertTheme) => {
-    const {colors, typography} = kitAlertTheme;
-
-    return {
-        colorSuccessBg: colors.background.success,
-        colorSuccessBorder: colors.border.success,
-        colorInfoBg: colors.background.info,
-        colorInfoBorder: colors.border.info,
-        colorWarningBg: colors.background.warning,
-        colorWarningBorder: colors.border.warning,
-        colorErrorBg: colors.background.error,
-        colorErrorBorder: colors.border.error,
-        colorText: colors.typography.default,
-        fontFamily: typography.fontFamily
-    };
+export const alertKitTokenToAntdToken = {
+    colorSuccessBg: `var(${kitAlertCssTokens.colors.background.success}, var(${kitColorsPaletteCssTokens.secondary.green.green100}))`,
+    colorSuccessBorder: `var(${kitAlertCssTokens.colors.border.success}, var(${kitColorsPaletteCssTokens.secondary.green.green300}))`,
+    colorInfoBg: `var(${kitAlertCssTokens.colors.background.info}, var(${kitColorsPaletteCssTokens.secondary.blue.blue100}))`,
+    colorInfoBorder: `var(${kitAlertCssTokens.colors.border.info}, var(${kitColorsPaletteCssTokens.secondary.blue.blue300}))`,
+    colorWarningBg: `var(${kitAlertCssTokens.colors.background.warning}, var(${kitColorsPaletteCssTokens.secondary.yellow.yellow100}))`,
+    colorWarningBorder: `var(${kitAlertCssTokens.colors.border.warning}, var(${kitColorsPaletteCssTokens.secondary.yellow.yellow300}))`,
+    colorErrorBg: `var(${kitAlertCssTokens.colors.background.error}, var(${kitColorsPaletteCssTokens.secondary.red.red100}))`,
+    colorErrorBorder: `var(${kitAlertCssTokens.colors.border.error}, var(${kitColorsPaletteCssTokens.secondary.red.red400}))`,
+    colorText: `var(${kitAlertCssTokens.colors.typography.default}, var(${kitColorsPaletteCssTokens.neutral.typography.black}))`,
+    fontFamily: `var(${kitAlertCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`
 };

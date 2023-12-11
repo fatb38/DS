@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitProgressTheme} from '@theme/types/components/Feedback/Progress';
+import {IKitProgressCssTokens, IKitProgressTheme} from '@theme/types/components/Feedback/Progress';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitProgressTokens = (generalTokens: IKitThemeGeneral): IKitProgressTheme => {
     const {colors, typography} = generalTokens;
@@ -25,3 +26,24 @@ export const getKitProgressTokens = (generalTokens: IKitThemeGeneral): IKitProgr
         }
     };
 };
+
+export const kitProgressCssTokens = generateCssTokens<IKitProgressCssTokens>('--components-Progress', {
+    colors: {
+        background: '',
+        progress: {
+            info: '',
+            success: '',
+            error: ''
+        }
+    },
+    typography: {
+        fontFamily: '',
+        fontSize: ''
+    },
+    circle: {
+        typography: {
+            fontWeight: '',
+            fontSize: ''
+        }
+    }
+});

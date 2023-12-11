@@ -4,9 +4,11 @@ import {KitButton, KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {IKitConfirmDialog} from './types';
 import {useLocale} from 'antd/lib/locale';
-import {useKitTheme} from '@theme/theme-context';
 import {faCheck, faExclamation, faInfo, faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {getCssPropertyValue} from '@theme/utils';
+import {kitModalCssTokens} from '@theme/aristid/components/Feedback/Modal';
+import {spacingCssTokens} from '@theme/aristid/general/spacing';
 
 const ConfirmDialog = ({
     icon,
@@ -15,7 +17,6 @@ const ConfirmDialog = ({
     secondLine,
     image,
     type = 'confirm',
-    isOpen,
     width,
     portalClassName,
     okCancel,
@@ -24,10 +25,9 @@ const ConfirmDialog = ({
     onOk,
     okText,
     close,
+    isOpen = false,
     ...props
 }: IKitConfirmDialog) => {
-    const {theme: kitTheme} = useKitTheme();
-    const theme = kitTheme.components.Modal;
     const [locale] = useLocale('Modal');
 
     let mergedIcon: ReactNode = icon;
@@ -84,6 +84,14 @@ const ConfirmDialog = ({
         </KitButton>
     );
 
+    const itemsVerticalSpacing = +(getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)
+        ? getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)
+        : getCssPropertyValue(spacingCssTokens.m));
+
+    const textVerticalSpacing = +(getCssPropertyValue(kitModalCssTokens.spacing.vertical.text)
+        ? getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)
+        : getCssPropertyValue(spacingCssTokens.xs));
+
     return (
         <Modal
             isOpen={isOpen}
@@ -99,13 +107,13 @@ const ConfirmDialog = ({
             }
             {...props}
         >
-            <KitSpace direction="vertical" size={theme.spacing.vertical.items}>
+            <KitSpace direction="vertical" size={itemsVerticalSpacing}>
                 {image && (
                     <div className="kit-confirm-image-wrapper" style={{backgroundImage: 'url(' + image + ')'}}></div>
                 )}
-                <KitSpace size={theme.spacing.vertical.items}>
+                <KitSpace size={itemsVerticalSpacing}>
                     {mergedIcon}
-                    <KitSpace direction="vertical" size={theme.spacing.vertical.text}>
+                    <KitSpace direction="vertical" size={textVerticalSpacing}>
                         {title && <div className="ant-modal-title">{title}</div>}
                         <div className="ant-modal-body">{firstLine}</div>
                         {secondLine && <div className="ant-modal-body">{secondLine}</div>}

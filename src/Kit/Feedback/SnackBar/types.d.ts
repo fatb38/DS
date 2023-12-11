@@ -17,7 +17,6 @@ export interface IKitOpenSnackBar {
 }
 
 export interface IStyledKitSnackBar {
-    $theme: IKitSnackBarTheme;
     $showCtaContainer: boolean;
     $showCloseContainer: boolean;
 }

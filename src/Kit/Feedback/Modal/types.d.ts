@@ -1,7 +1,6 @@
-import { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
+import {FunctionComponent, ReactNode} from 'react';
 import type ReactModal from 'react-modal';
-import { KitHTMLAttributes } from '../../../types';
-import { IKitModalTheme } from '@theme/types/components/Feedback/Modal';
+import {KitHTMLAttributes} from '../../../types';
 
 type propsToOmit =
     | 'bodyOpenClassName'
@@ -15,7 +14,7 @@ type propsToOmit =
 //todo delete Omit<title role className style>
 export interface IKitModal
     extends Omit<ReactModal.Props, propsToOmit>,
-    Omit<KitHTMLAttributes<HTMLDivElement>, 'title' | 'role' | 'className' | 'style'> {
+        Omit<KitHTMLAttributes<HTMLDivElement>, 'title' | 'role' | 'className' | 'style'> {
     width?: string;
     showCloseIcon?: boolean;
     close?: (args: any[]) => void;
@@ -36,14 +35,6 @@ export interface IKitConfirmDialog extends IKitModal {
     okText?: string;
     onCancel?: () => {};
     onOk?: () => {};
-}
-
-export interface IStyledKitModal {
-    $theme: IKitModalTheme;
-}
-
-export interface IStyledKitModalOverlay {
-    $theme: IKitModalTheme['Overlay'];
 }
 
 export type ConfigUpdate = IKitConfirmDialog | ((prevConfig: IKitConfirmDialog) => IKitConfirmDialog);

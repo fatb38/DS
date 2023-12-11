@@ -1,15 +1,21 @@
-import React, {FunctionComponent} from 'react';
+import React, {CSSProperties, FunctionComponent} from 'react';
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
-import {IKitModal, IStyledKitModal, IStyledKitModalOverlay} from './types';
+import {IKitModal} from './types';
 import {KitSpace} from '@kit/Layout/';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
+import {kitModalCssTokens} from '@theme/aristid/components/Feedback/Modal';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {borderCssTokens} from '@theme/aristid/general/border';
+import {spacingCssTokens} from '@theme/aristid/general/spacing';
+import {getCssPropertyValue} from '@theme/utils';
 
-const StyledOverlay = styled.div<IStyledKitModalOverlay>`
+const StyledOverlay = styled.div`
     &.kit-modal-overlay {
-        background: ${({$theme}) => $theme.colors.background.default};
+        background: var(${kitModalCssTokens.Overlay.colors.background.default}, rgba(0, 0, 0, 0.45));
         inset: 0px;
         position: fixed;
         display: flex;
@@ -19,13 +25,16 @@ const StyledOverlay = styled.div<IStyledKitModalOverlay>`
     }
 `;
 
-const StyledKitModal = styled.div<IStyledKitModal>`
-    font-family: ${({$theme}) => $theme.typography.fontFamily};
-    font-size: ${({$theme}) => $theme.typography.fontSize.content}px;
-    font-weight: ${({$theme}) => $theme.typography.fontWeight.content};
-    background: ${({$theme}) => $theme.colors.background.default};
-    border-radius: ${({$theme}) => $theme.border.radius}px;
-    box-shadow: ${({$theme}) => $theme.shadow};
+const StyledKitModal = styled.div`
+    font-family: var(${kitModalCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
+    font-size: calc(var(${kitModalCssTokens.typography.fontSize.content}, var(${typographyCssTokens.fontSize5})) * 1px);
+    font-weight: var(${kitModalCssTokens.typography.fontWeight.content}, var(${typographyCssTokens.regularFontWeight}));
+    background: var(${kitModalCssTokens.colors.background.default}, var(${kitColorsPaletteCssTokens.neutral.white}));
+    border-radius: calc(var(${kitModalCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+    box-shadow:
+        0 6px 16px 0 rgba(0, 0, 0, 0.08),
+        0 3px 6px -4px rgba(0, 0, 0, 0.12),
+        0 9px 28px 8px rgba(0, 0, 0, 0.05);
     padding: 32px 32px 24px 32px;
     display: flex;
     position: relative;
@@ -52,14 +61,16 @@ const StyledKitModal = styled.div<IStyledKitModal>`
     }
 
     .kit-modal-title {
-        font-size: ${({$theme}) => $theme.typography.fontSize.title}px;
-        font-weight: ${({$theme}) => $theme.typography.fontWeight.title};
+        font-size: calc(
+            var(${kitModalCssTokens.typography.fontSize.title}, var(${typographyCssTokens.fontSize4})) * 1px
+        );
+        font-weight: var(${kitModalCssTokens.typography.fontWeight.title}, var(${typographyCssTokens.boldFontWeight}));
     }
 
-    .kit-confirm-image-wrapper  {
+    .kit-confirm-image-wrapper {
         min-width: 350px;
         height: 150px;
-        border-radius: ${({$theme}) => $theme.border.radius}px;
+        border-radius: calc(var(${kitModalCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -76,28 +87,46 @@ const StyledKitModal = styled.div<IStyledKitModal>`
         padding: 12px;
 
         &.kit-confirm-icon-info {
-            color: ${({$theme}) => $theme.colors.icon.info};
-            background: ${({$theme}) => $theme.colors.background.info};
+            color: var(${kitModalCssTokens.colors.icon.info}, var(${kitColorsPaletteCssTokens.primary.primary400}));
+            background: var(
+                ${kitModalCssTokens.colors.background.info},
+                var(${kitColorsPaletteCssTokens.primary.primary100})
+            );
         }
 
         &.kit-confirm-icon-success {
-            color: ${({$theme}) => $theme.colors.icon.success};
-            background: ${({$theme}) => $theme.colors.background.success};
+            color: var(
+                ${kitModalCssTokens.colors.icon.success},
+                var(${kitColorsPaletteCssTokens.secondary.green.green400})
+            );
+            background: var(
+                ${kitModalCssTokens.colors.background.success},
+                var(${kitColorsPaletteCssTokens.secondary.green.green100})
+            );
         }
 
         &.kit-confirm-icon-warning {
-            color: ${({$theme}) => $theme.colors.icon.warning};
-            background: ${({$theme}) => $theme.colors.background.warning};
+            color: var(
+                ${kitModalCssTokens.colors.icon.warning},
+                var(${kitColorsPaletteCssTokens.secondary.orange.orange500})
+            );
+            background: var(
+                ${kitModalCssTokens.colors.background.warning},
+                var(${kitColorsPaletteCssTokens.secondary.orange.orange100})
+            );
         }
 
         &.kit-confirm-icon-error {
-            color: ${({$theme}) => $theme.colors.icon.error};
-            background: ${({$theme}) => $theme.colors.background.error};
+            color: var(${kitModalCssTokens.colors.icon.error}, var(${kitColorsPaletteCssTokens.secondary.red.red400}));
+            background: var(
+                ${kitModalCssTokens.colors.background.error},
+                var(${kitColorsPaletteCssTokens.secondary.red.red100})
+            );
         }
     }
 
     .kit-modal-footer {
-        margin-top: ${({$theme}) => $theme.spacing.vertical.items}px;
+        margin-top: calc(var(${kitModalCssTokens.spacing.vertical.items}, var(${spacingCssTokens.m})) * 1px);
     }
 `;
 
@@ -108,12 +137,12 @@ const Modal: FunctionComponent<IKitModal> = ({
     height = 'initial',
     ...props
 }: IKitModal) => {
-    const {theme} = useKitTheme();
+    const {appId} = useKitTheme();
 
     const styles = {
         ...style,
         content: {...style?.content, width: width, height: height}
-    };
+    } as CSSProperties;
 
     const _onOverlayClick = () => {
         props.showCloseIcon && props.close?.([true]);
@@ -122,18 +151,20 @@ const Modal: FunctionComponent<IKitModal> = ({
     const mergedProps = {
         ...props,
         style: styles,
-        className: `kit-modal-wrapper ${props.className}`,
+        className: `${appId} kit-modal-wrapper ${props.className}`,
         overlayElement: (overlayProps, contentElement) => (
-            <StyledOverlay $theme={theme.components.Modal.Overlay} {...overlayProps}>
-                {contentElement}
-            </StyledOverlay>
+            <StyledOverlay {...overlayProps}>{contentElement}</StyledOverlay>
         ),
-        overlayClassName: `kit-modal-overlay ${props.overlayClassName}`
+        overlayClassName: `${appId} kit-modal-overlay ${props.overlayClassName}`
     };
+
+    const kitSpaceSize = +(getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)
+        ? getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)
+        : getCssPropertyValue(spacingCssTokens.m));
 
     return (
         <ReactModal {...mergedProps} shouldCloseOnOverlayClick={props.showCloseIcon} onRequestClose={_onOverlayClick}>
-            <StyledKitModal $theme={theme.components.Modal}>
+            <StyledKitModal>
                 <div className="kit-modal-content-wrapper">
                     {props.showCloseIcon && (
                         <FontAwesomeIcon icon={faCircleXmark} className="kit-modal-close" onClick={_onOverlayClick} />
@@ -143,7 +174,7 @@ const Modal: FunctionComponent<IKitModal> = ({
                     {props.footer && (
                         <KitSpace
                             className="kit-modal-footer"
-                            size={theme.components.Modal.spacing.vertical.items}
+                            size={kitSpaceSize}
                             align="end"
                             style={{justifyContent: 'end', width: '100%'}}
                         >

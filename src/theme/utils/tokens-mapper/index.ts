@@ -19,18 +19,18 @@ import {
     mapTagKitTokenToAntdToken,
     mapColorPickerKitTokenToAntdToken
 } from './DataEntry';
-import {mapAlertKitTokenToAntdToken, mapProgressKitTokenToAntdToken} from './Feedback';
 import {mapDividerKitTokenToAntdToken} from './Layout';
 import {mapStepsKitTokenToAntdToken, mapPaginationKitTokenToAntdToken} from './Navigation';
 import {mapButtonKitTokenToAntdToken} from './General';
 import {merge} from 'lodash';
+import {alertKitTokenToAntdToken, progressKitTokenToAntdToken} from './Feedback';
 
 export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCustomTheme): ThemeConfig => {
     const components = merge(theme.components, customTheme?.components);
 
     return {
         components: {
-            Alert: mapAlertKitTokenToAntdToken(components.Alert),
+            Alert: alertKitTokenToAntdToken,
             Badge: mapBadgeKitTokenToAntdToken(components.Badge),
             Button: mapButtonKitTokenToAntdToken(components.Button),
             Checkbox: mapCheckboxKitTokenToAntdToken(components.Checkbox),
@@ -42,7 +42,7 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCusto
             Tree: mapTreeKitTokenToAntdToken(components.Tree),
             Input: mapInputKitTokenToAntdToken(components.Input),
             InputNumber: mapInputNumberKitTokenToAntdToken(components.InputNumber),
-            Progress: mapProgressKitTokenToAntdToken(components.Progress),
+            Progress: progressKitTokenToAntdToken,
             Radio: mapRadioKitTokenToAntdToken(components.Radio),
             Rate: mapRateKitTokenToAntdToken(components.Rate),
             Select: mapSelectKitTokenToAntdToken(components.Select),

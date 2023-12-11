@@ -20,12 +20,8 @@ export interface IKitNotification {
     info: KitNotificationStaticFn;
     destroy: (key?: React.Key) => void;
     open: KitNotificationStaticFn;
-};
+}
 
 export interface IKitNotificationContext {
     kitNotification: IKitNotification;
-}
-
-export interface IStyledKitNotification {
-    $theme: IKitNotificationTheme;
 }

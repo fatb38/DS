@@ -15,7 +15,7 @@ const resetReactHotToastStyle: CSSProperties = {
 const ARISTID_TOASTSER_PROVIDER_CLASSNAME = 'aristid-ds-toaster';
 
 const KitSnackBarProvider: FunctionComponent = () => {
-    let [hasProvider, setHasProvider] = useState(true);
+    const [hasProvider, setHasProvider] = useState(true);
 
     useEffect(() => {
         const providerElem = document.querySelector(`.${ARISTID_TOASTSER_PROVIDER_CLASSNAME}`);

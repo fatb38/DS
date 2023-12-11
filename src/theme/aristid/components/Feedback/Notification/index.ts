@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitNotificationTheme} from '@theme/types/components/Feedback/Notification';
+import {IKitNotificationCssTokens, IKitNotificationTheme} from '@theme/types/components/Feedback/Notification';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitNotificationTokens = (generalTokens: IKitThemeGeneral): IKitNotificationTheme => {
     const {colors, typography} = generalTokens;
@@ -39,3 +40,38 @@ export const getKitNotificationTokens = (generalTokens: IKitThemeGeneral): IKitN
         }
     };
 };
+
+export const kitNotificationCssTokens = generateCssTokens<IKitNotificationCssTokens>('--components-Notification', {
+    colors: {
+        typography: {
+            message: {
+                info: '',
+                success: '',
+                warning: '',
+                error: ''
+            }
+        },
+        icon: {
+            info: '',
+            success: '',
+            warning: '',
+            error: '',
+            background: {
+                info: '',
+                success: '',
+                warning: '',
+                error: ''
+            }
+        }
+    },
+    typography: {
+        fontFamily: '',
+        fontSize: {
+            message: '',
+            content: ''
+        },
+        fontWeight: {
+            message: ''
+        }
+    }
+});

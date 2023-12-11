@@ -66,7 +66,7 @@ const KitAppConfig: FunctionComponent<
                 <SelectDropDownStyle />
                 <TabsDropDownStyle />
                 <DatePickerDropDownStyle />
-                <NotificationStyle $theme={theme.components.Notification} />
+                <NotificationStyle />
                 <TypographyStyle $theme={theme.components.Typography} />
                 <TourStyle $buttonTheme={theme.components.Button} />
                 {children}

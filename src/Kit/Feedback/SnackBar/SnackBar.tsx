@@ -5,6 +5,9 @@ import {IKitOpenSnackBar, IKitSnackBar, IStyledKitSnackBar} from './types';
 import {useKitTheme} from '@theme/theme-context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
+import {kitSnackBarCssTokens} from '@theme/aristid/components/Feedback/SnackBar';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 
 const DEFAULT_DURATION = 4000;
 
@@ -36,11 +39,14 @@ const StyledSnackBar = styled.div<IStyledKitSnackBar>`
     align-items: center;
     min-height: 24px;
     padding: 8px 16px;
-    background-color: ${({$theme}) => $theme.colors.background};
-    border: 1px solid ${({$theme}) => $theme.colors.border};
+    background-color: var(
+        ${kitSnackBarCssTokens.colors.background},
+        var(${kitColorsPaletteCssTokens.neutral.grey.grey700})
+    );
+    border: 1px solid var(${kitSnackBarCssTokens.colors.border}, var(${kitColorsPaletteCssTokens.neutral.grey.grey700}));
     border-radius: 7px;
     box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.3);
-    font-family: ${({$theme}) => $theme.typography.fontFamily};
+    font-family: var(${kitSnackBarCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
 
     .kit-snackbar-grid-one {
         min-width: 150px;
@@ -57,9 +63,17 @@ const StyledSnackBar = styled.div<IStyledKitSnackBar>`
 
     .kit-snackbar-grid {
         .kit-snackbar-title {
-            color: ${({$theme}) => $theme.colors.typography.title};
-            font-size: ${({$theme}) => $theme.typography.title.fontSize};
-            font-weight: ${({$theme}) => $theme.typography.title.fontWeight};
+            color: var(
+                ${kitSnackBarCssTokens.colors.typography.title},
+                var(${kitColorsPaletteCssTokens.neutral.grey.grey400})
+            );
+            font-size: calc(
+                var(${kitSnackBarCssTokens.typography.title.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px
+            );
+            font-weight: var(
+                ${kitSnackBarCssTokens.typography.title.fontWeight},
+                var(${typographyCssTokens.regularFontWeight})
+            );
         }
 
         .kit-snackbar-cta-container {
@@ -67,48 +81,70 @@ const StyledSnackBar = styled.div<IStyledKitSnackBar>`
             line-height: 23px;
             width: fit-content;
             padding: 0px 12px;
-            border: 0.499px solid ${({$theme}) => $theme.colors.cta.border.default};
+            border: 0.499px solid
+                var(
+                    ${kitSnackBarCssTokens.colors.cta.border.default},
+                    var(${kitColorsPaletteCssTokens.neutral.grey.grey200})
+                );
             border-radius: 14px;
             cursor: pointer;
 
             .kit-snackbar-cta {
-                color: ${({$theme}) => $theme.colors.cta.typography.default};
+                color: var(
+                    ${kitSnackBarCssTokens.colors.cta.typography.default},
+                    var(${kitColorsPaletteCssTokens.neutral.grey.grey200})
+                );
                 font-size: 10px;
-                font-weight: ${({$theme}) => $theme.typography.cta.fontWeight};
+                font-weight: var(
+                    ${kitSnackBarCssTokens.typography.cta.fontWeight},
+                    var(${typographyCssTokens.mediumfontWeight})
+                );
                 text-transform: uppercase;
             }
 
             &:hover {
-                border-color: ${({$theme}) => $theme.colors.cta.border.hover};
+                border-color: var(
+                    ${kitSnackBarCssTokens.colors.cta.border.hover},
+                    var(${kitColorsPaletteCssTokens.neutral.grey.grey400})
+                );
 
                 .kit-snackbar-cta {
-                    color: ${({$theme}) => $theme.colors.cta.typography.hover};
+                    color: var(
+                        ${kitSnackBarCssTokens.colors.cta.typography.hover},
+                        var(${kitColorsPaletteCssTokens.neutral.grey.grey400})
+                    );
                 }
             }
         }
 
         .kit-snackbar-close-container {
-            color: ${({$theme}) => $theme.colors.closeIcon.default};
+            color: var(
+                ${kitSnackBarCssTokens.colors.closeIcon.default},
+                var(${kitColorsPaletteCssTokens.neutral.grey.grey400})
+            );
             font-size: 12px;
             cursor: pointer;
 
             &:hover {
-                color: ${({$theme}) => $theme.colors.closeIcon.hover};
+                color: var(
+                    ${kitSnackBarCssTokens.colors.closeIcon.hover},
+                    var(${kitColorsPaletteCssTokens.neutral.grey.grey500})
+                );
             }
         }
     }
 `;
 
-const KitSnackBar: FunctionComponent<IKitSnackBar> = ({message, ctaText, ctaOnClick, closable}) => {
-    const {theme} = useKitTheme();
+const KitSnackBar: FunctionComponent<IKitSnackBar> = ({message, className, ctaText, ctaOnClick, closable}) => {
+    const {appId} = useKitTheme();
     const showCtaContainer = ctaText !== undefined && ctaOnClick !== undefined;
     const showCloseContainer = closable !== undefined;
 
     return (
         <StyledSnackBar
-            $theme={theme.components.SnackBar}
             $showCtaContainer={showCtaContainer}
             $showCloseContainer={showCloseContainer}
+            className={`${appId} ${className ?? ''}`}
         >
             <div className="kit-snackbar-grid kit-snackbar-grid-one">
                 <div className="kit-snackbar-title">{message}</div>

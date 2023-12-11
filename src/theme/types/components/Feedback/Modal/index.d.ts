@@ -111,3 +111,48 @@ export interface IKitModalTheme {
         };
     };
 }
+export interface IKitModalCssTokens {
+    typography: {
+        fontFamily: string;
+        fontSize: {
+            title: string;
+            content: string;
+        };
+        fontWeight: {
+            title: string;
+            content: string;
+        };
+    };
+    shadow: string;
+    spacing: {
+        vertical: {
+            items: string;
+            text: string;
+        };
+    };
+    border: {
+        radius: string;
+    };
+    colors: {
+        background: {
+            default: string;
+            info: string;
+            success: string;
+            warning: string;
+            error: string;
+        };
+        icon: {
+            info: string;
+            success: string;
+            warning: string;
+            error: string;
+        };
+    };
+    Overlay: {
+        colors: {
+            background: {
+                default: string;
+            };
+        };
+    };
+}
