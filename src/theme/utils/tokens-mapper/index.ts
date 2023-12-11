@@ -17,7 +17,7 @@ import {
     mapSelectKitTokenToAntdToken,
     mapSliderKitTokenToAntdToken,
     mapTagKitTokenToAntdToken,
-    mapColorPickerKitTokenToAntdToken
+    colorPickerKitTokenToAntdToken
 } from './DataEntry';
 import {stepsKitTokenToAntdToken, paginationKitTokenToAntdToken} from './Navigation';
 import {buttonKitTokenToAntdToken} from './General';
@@ -50,7 +50,7 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCusto
             Steps: stepsKitTokenToAntdToken,
             Tag: mapTagKitTokenToAntdToken(components.Tag),
             Pagination: paginationKitTokenToAntdToken,
-            ColorPicker: mapColorPickerKitTokenToAntdToken(components.ColorPicker)
+            ColorPicker: colorPickerKitTokenToAntdToken
         }
     };
 };
