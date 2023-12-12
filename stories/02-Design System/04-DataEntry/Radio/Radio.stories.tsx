@@ -38,7 +38,7 @@ export const Basic: Story = {
             </div>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const radio = canvas.getByTestId('focus');
         radio.focus();
@@ -66,7 +66,7 @@ export const Danger: Story = {
             </KitRadio>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const radio = canvas.getByTestId('focus');
         radio.focus();
@@ -87,7 +87,7 @@ export const Group: Story = {
             <KitRadio value={4}>D</KitRadio>
         </KitRadio.Group>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const radio = canvas.getByTestId('focus');
         radio.focus();

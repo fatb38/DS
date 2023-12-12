@@ -1,7 +1,5 @@
 import {BadgeProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
-import {IKitBadgeTheme} from '@theme/types/components/DataDisplay/Badge';
-import {IKitTypography} from '@theme/types/general/typography';
 import {KitColorProp} from '@utils/functions/types';
 
 type AntdBadgeTypesToOmit = 'color' | 'size' | 'offset' | 'text';

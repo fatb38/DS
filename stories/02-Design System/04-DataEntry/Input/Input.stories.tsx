@@ -31,7 +31,7 @@ export const Basic: Story = {
             <KitInput placeholder="Disabled" disabled />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const input = canvas.getByTestId('focus');
         input.focus();
@@ -55,7 +55,7 @@ export const Password: Story = {
             </div>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const input = canvas.getByTestId('focus');
         input.focus();
@@ -80,7 +80,7 @@ export const TextArea: Story = {
             </div>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const input = canvas.getByTestId('focus');
         input.focus();
@@ -116,7 +116,7 @@ export const Couting: Story = {
             </div>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const input = canvas.getByTestId('focus');
         input.focus();

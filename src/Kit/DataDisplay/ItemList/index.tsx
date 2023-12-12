@@ -1,4 +1,4 @@
-import React, {FunctionComponent, MouseEvent, MouseEventHandler, cloneElement, useState} from 'react';
+import React, {FunctionComponent, MouseEvent, cloneElement, useState} from 'react';
 import {styled} from 'styled-components';
 import {IKitItemList, IStyledKitItemList} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';

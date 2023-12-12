@@ -2,6 +2,7 @@ import convert from 'color-convert';
 import colorString from 'color-string';
 import {KitColorProp} from './types';
 import {colorsPalette} from '@theme/aristid/general/colors';
+import {HSL} from 'color-convert/conversions';
 
 export const toCssVariables = (tokens, prefix = '-', items = {}) => {
     if (!tokens) {
@@ -79,7 +80,7 @@ export const getContrastColor = (color: KitColorProp) => {
     return yiq < 128 ? colorsPalette.neutral.white : colorsPalette.neutral.black;
 };
 
-const _colorToLightHSL = (color, lightness = 95): string | null => {
+const _colorToLightHSL = (color: KitColorProp, lightness = 95): string | null => {
     if (color?.startsWith('#')) {
         const rgbColor = convert.hex.rgb(color);
         const hslColor = convert.rgb.hsl(rgbColor);

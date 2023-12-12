@@ -10,7 +10,7 @@ const App = () => {
             uid: '-1',
             name: 'image.png',
             status: 'done',
-            url: 'public/images/portrait.png',
+            url: 'public/images/portrait.png'
         }
     ]);
 

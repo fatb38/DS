@@ -78,7 +78,14 @@ export const argTypes = {
     }
 };
 
-export const Template = args => {
+type TemplateArgs = {
+    message: string;
+    ctaText?: string;
+    closable?: boolean;
+    duration?: number;
+};
+
+export const Template = (args: TemplateArgs) => {
     return (
         <div>
             <KitSnackBarProvider />

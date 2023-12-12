@@ -28,7 +28,7 @@ export const Basic: Story = {
             <KitInputNumber min={1} max={10} placeholder="1" disabled />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const inputNumber = canvas.getByTestId('focus');
         inputNumber.focus();
@@ -56,7 +56,7 @@ export const LabelHelperStatus: Story = {
             <KitInputNumber prefix="￥" placeholder="2" helper="Helper" label="Label" status="error" />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const inputNumber = canvas.getByTestId('focus');
         inputNumber.focus();

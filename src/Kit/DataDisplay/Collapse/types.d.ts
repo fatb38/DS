@@ -2,7 +2,6 @@ import {CollapseProps} from 'antd';
 import {ReactNode, MouseEvent, ReactInstance, KeyboardEvent, FunctionComponent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
-import {IKitCollapseTheme} from '@theme/types/components/DataDisplay/Collapse';
 
 type AntdCollapseTypesToOmit = 'bordered' | 'expandIconPosition' | 'ghost';
 

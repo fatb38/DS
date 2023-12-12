@@ -4,6 +4,7 @@ import {KitDivider, KitSpace} from '@kit/Layout';
 import {IEditorTemplate} from '../../../types';
 import {faUser} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {IKitAvatar} from '@kit/DataDisplay/Avatar/types';
 
 const shape = ['circle', 'square'];
 
@@ -236,8 +237,12 @@ export const argTypes = {
     }
 };
 
-export const Template = args => {
-    const {component, ...props} = args;
+interface IAvatarTemplateArgs extends Omit<IKitAvatar, 'color'> {
+    sizeGroup?: IKitAvatar['size'];
+}
+
+export const Template = (args: IAvatarTemplateArgs) => {
+    const {sizeGroup, ...props} = args;
     return (
         <>
             <KitSpace>
@@ -246,7 +251,7 @@ export const Template = args => {
             <br />
             <br />
             <KitSpace>
-                <KitAvatar.Group {...props} size={props.sizeGroup}>
+                <KitAvatar.Group {...props} size={sizeGroup}>
                     <KitAvatar>G</KitAvatar>
                     <KitAvatar>R</KitAvatar>
                     <KitAvatar>E</KitAvatar>

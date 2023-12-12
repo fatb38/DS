@@ -14,7 +14,7 @@ const useSecureClick = (onClick, timeout = 500) => {
                 }, timeout);
             }
         },
-        [onClick]
+        [onClick, timeout]
     );
 
     return secureClick;

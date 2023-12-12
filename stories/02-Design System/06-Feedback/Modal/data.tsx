@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {KitModal} from '@kit/Feedback/';
 import {KitButton} from '@kit/General/';
 import {IEditorTemplate} from '../../../types';

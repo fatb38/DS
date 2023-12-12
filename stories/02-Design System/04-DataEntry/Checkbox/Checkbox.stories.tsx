@@ -42,7 +42,7 @@ export const Basic: Story = {
             </div>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const checkbox = canvas.getByTestId('focus');
         checkbox.focus();
@@ -72,7 +72,7 @@ export const Danger: Story = {
             </KitCheckbox>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const checkbox = canvas.getByTestId('focus');
         checkbox.focus();

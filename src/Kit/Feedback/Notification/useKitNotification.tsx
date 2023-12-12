@@ -45,7 +45,7 @@ export function useKitNotification() {
     if (context === undefined) {
         throw new Error('useKitNotification must be inside a context');
     }
-    return context as IKitNotificationContext;
+    return context;
 }
 
 export const KitNotificationProvider = ({children}) => {

@@ -1,4 +1,3 @@
-import {IKitNotificationTheme} from '@theme/types/components/Feedback/Notification';
 import {ArgsProps} from 'antd/lib/notification/interface';
 
 type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';

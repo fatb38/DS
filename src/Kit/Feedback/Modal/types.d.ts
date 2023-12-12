@@ -33,8 +33,8 @@ export interface IKitConfirmDialog extends IKitModal {
     cancelText?: string;
     close?: (...args: any[]) => void;
     okText?: string;
-    onCancel?: () => {};
-    onOk?: () => {};
+    onCancel?: () => void;
+    onOk?: () => void;
 }
 
 export type ConfigUpdate = IKitConfirmDialog | ((prevConfig: IKitConfirmDialog) => IKitConfirmDialog);

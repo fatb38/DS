@@ -1,28 +1,5 @@
-import React, {useState} from 'react';
-import {KitModal, KitButton, KitSpace, KitSelect, KitCheckbox} from '@kit/index';
-
-const options = [
-    {
-        label: 'info',
-        value: 'info'
-    },
-    {
-        label: 'success',
-        value: 'success'
-    },
-    {
-        label: 'error',
-        value: 'error'
-    },
-    {
-        label: 'warning',
-        value: 'warning'
-    },
-    {
-        label: 'confirm',
-        value: 'confirm'
-    }
-];
+import React from 'react';
+import {KitModal, KitButton, KitSpace} from '@kit/index';
 
 const App = () => {
     const handleShowConfirm = () => {

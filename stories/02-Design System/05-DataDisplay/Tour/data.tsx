@@ -23,7 +23,7 @@ const placement = [
     'rightBottom'
 ];
 
-const getCloseIcon = (icon: string) => {
+const getCloseIcon = (icon?: string) => {
     switch (icon) {
         case 'faCircleXmark':
             return <KitIcon icon={<FontAwesomeIcon icon={faCircleXmark} />} />;
@@ -334,8 +334,12 @@ export const argTypes = {
     }
 };
 
-export const Template = args => {
-    const {steps, open, closeIcon, ...tourArgs} = args;
+interface ITourTemplateArgs extends IKitTour {
+    closeIcon?: string;
+}
+
+export const Template = (args: ITourTemplateArgs) => {
+    const {closeIcon, ...tourArgs} = args;
     const refUpload = useRef(null);
     const refSave = useRef(null);
     const refMore = useRef(null);

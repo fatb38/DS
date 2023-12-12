@@ -181,7 +181,7 @@ export const argTypes = {
     }
 };
 
-export const getIcon = ({icon}) => {
+const getIcon = icon => {
     switch (icon) {
         case 'faMagnifyingGlass':
             return <KitIcon icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />;
@@ -195,7 +195,7 @@ export const getIcon = ({icon}) => {
     }
 };
 
-export const getCloseIcon = ({closeIcon}) => {
+const getCloseIcon = closeIcon => {
     switch (closeIcon) {
         case 'faCircleXmark':
             return <KitIcon icon={<FontAwesomeIcon icon={faCircleXmark} />} />;
@@ -209,17 +209,23 @@ export const getCloseIcon = ({closeIcon}) => {
     }
 };
 
-export const Template = args => {
+interface ITemplateArgs extends IKitNotificationArgs {
+    closeIcon?: string;
+    icon?: string;
+    duration?: number;
+}
+
+export const Template = (args: ITemplateArgs) => {
     const {kitNotification} = useKitNotification();
 
     const openNotification = (type: 'open' | 'info' | 'success' | 'warning' | 'error') => {
         if (checkRequiredField(args, ['message', 'description'])) {
-            kitNotification[type]({...args, icon: getIcon(args), closeIcon: getCloseIcon(args)});
+            kitNotification[type]({...args, icon: getIcon(args.icon), closeIcon: getCloseIcon(args.closeIcon)});
         } else {
             kitNotification[type]({
                 ...args,
-                icon: getIcon(args),
-                closeIcon: getCloseIcon(args),
+                icon: getIcon(args.icon),
+                closeIcon: getCloseIcon(args.closeIcon),
                 message: 'Some field are required',
                 description: 'Some required fields are not fulfill !'
             });
@@ -237,7 +243,7 @@ export const Template = args => {
     );
 };
 
-export const checkRequiredField = (args, requiredFields: string[]) => {
+const checkRequiredField = (args: ITemplateArgs, requiredFields: string[]) => {
     return !requiredFields.some((field: string) => args[field] === undefined || args[field] === '');
 };
 

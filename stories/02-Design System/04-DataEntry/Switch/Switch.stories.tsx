@@ -38,7 +38,7 @@ export const Basic: Story = {
             </div>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const inputNumber = canvas.getByTestId('focus');
         inputNumber.focus();

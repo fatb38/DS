@@ -28,7 +28,7 @@ export const BasicDate: Story = {
             <KitDatePicker data-testid="focus" value={dayjs('2023-06-06', 'YYYY-MM-DD')} />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const datePicker = canvas.getByTestId('focus');
         datePicker.focus();
@@ -44,7 +44,7 @@ export const BasicDateTime: Story = {
             <KitDatePicker picker="time" data-testid="focus" />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const datePicker = canvas.getByTestId('focus');
         datePicker.focus();
@@ -61,7 +61,7 @@ export const BasicDateWeek: Story = {
             <KitDatePicker picker="week" data-testid="focus" value={dayjs('2023-06-06', 'YYYY-MM-DD')} />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const datePicker = canvas.getByTestId('focus');
         datePicker.focus();
@@ -78,7 +78,7 @@ export const BasicDateMounth: Story = {
             <KitDatePicker picker="month" data-testid="focus" />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const datePicker = canvas.getByTestId('focus');
         datePicker.focus();
@@ -95,7 +95,7 @@ export const BasicDateQuarter: Story = {
             <KitDatePicker picker="quarter" data-testid="focus" />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const datePicker = canvas.getByTestId('focus');
         datePicker.focus();
@@ -112,7 +112,7 @@ export const BasicDateYear: Story = {
             <KitDatePicker picker="year" data-testid="focus" />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const datePicker = canvas.getByTestId('focus');
         datePicker.focus();
