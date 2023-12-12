@@ -7,7 +7,6 @@ import {
     tooltipKitTokenToAntdToken,
     treeKitTokenToAntdToken
 } from './DataDisplay';
-import {mapSliderKitTokenToAntdToken} from './DataEntry';
 import {stepsKitTokenToAntdToken, paginationKitTokenToAntdToken} from './Navigation';
 import {buttonKitTokenToAntdToken} from './General';
 import {merge} from 'lodash';
@@ -22,6 +21,7 @@ import {rateKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Rate
 import {selectKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Select';
 import {tagKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Tag';
 import {mapCheckboxKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Checkbox';
+import {mapSliderKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Slider';
 
 export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCustomTheme): ThemeConfig => {
     const components = merge(theme.components, customTheme?.components);
