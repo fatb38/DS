@@ -1,6 +1,6 @@
 import React, {useEffect, useState, FocusEvent, MouseEvent, forwardRef, Ref, RefObject, useRef} from 'react';
 import cn from 'classnames';
-import {KitIcon} from '../../General/';
+import {KitIcon} from '@kit/General';
 import {IKitSelect} from './types';
 import type {CustomTagProps} from 'rc-select/lib/BaseSelect';
 import {StyledBadge, StyledKitSelect, StyledLabel} from './style';

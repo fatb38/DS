@@ -22,6 +22,7 @@ const EndIcon = styled.div`
 `;
 
 const StyledKitSlider = styled(AntdSlider)<IStyledKitSlider>`
+    flex-grow: 1;
     margin-left: ${({$isStartIcon}) => ($isStartIcon ? '20px' : '0px')};
     margin-right: ${({$isEndIcon}) => ($isEndIcon ? '20px' : '0px')};
 
