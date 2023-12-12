@@ -7,7 +7,7 @@ import {
     tooltipKitTokenToAntdToken,
     treeKitTokenToAntdToken
 } from './DataDisplay';
-import {mapCheckboxKitTokenToAntdToken, mapSliderKitTokenToAntdToken} from './DataEntry';
+import {mapSliderKitTokenToAntdToken} from './DataEntry';
 import {stepsKitTokenToAntdToken, paginationKitTokenToAntdToken} from './Navigation';
 import {buttonKitTokenToAntdToken} from './General';
 import {merge} from 'lodash';
@@ -21,6 +21,7 @@ import {radioKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Rad
 import {rateKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Rate';
 import {selectKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Select';
 import {tagKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Tag';
+import {mapCheckboxKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Checkbox';
 
 export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCustomTheme): ThemeConfig => {
     const components = merge(theme.components, customTheme?.components);
@@ -30,7 +31,7 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCusto
             Alert: alertKitTokenToAntdToken,
             Badge: badgeKitTokenToAntdToken,
             Button: buttonKitTokenToAntdToken,
-            Checkbox: mapCheckboxKitTokenToAntdToken(components.Checkbox),
+            Checkbox: mapCheckboxKitTokenToAntdToken,
             Collapse: collapseKitTokenToAntdToken,
             DatePicker: datePickerKitTokenToAntdToken,
             Divider: dividerKitTokenToAntdToken,
