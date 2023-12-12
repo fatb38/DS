@@ -30,25 +30,25 @@ export const mapKitThemeToAntdTheme = (theme: IKitTheme, customTheme?: IKitCusto
         components: {
             Alert: alertKitTokenToAntdToken,
             Badge: badgeKitTokenToAntdToken,
-            Button: buttonKitTokenToAntdToken,
+            Button: buttonKitTokenToAntdToken(components.Button),
             Checkbox: mapCheckboxKitTokenToAntdToken(components.Checkbox),
-            Collapse: collapseKitTokenToAntdToken,
+            Collapse: collapseKitTokenToAntdToken(components.Collapse),
             ColorPicker: colorPickerKitTokenToAntdToken(components.ColorPicker),
             DatePicker: datePickerKitTokenToAntdToken(components.DatePicker),
-            Divider: dividerKitTokenToAntdToken,
+            Divider: dividerKitTokenToAntdToken(components.Divider),
             Input: mapInputKitTokenToAntdToken(components.Input),
             InputNumber: inputNumberKitTokenToAntdToken(components.InputNumber),
-            Pagination: paginationKitTokenToAntdToken,
+            Pagination: paginationKitTokenToAntdToken(components.Pagination),
             Progress: progressKitTokenToAntdToken,
             Radio: radioKitTokenToAntdToken(components.Radio),
             Rate: rateKitTokenToAntdToken,
             Select: selectKitTokenToAntdToken(components.Select),
             Slider: mapSliderKitTokenToAntdToken(components.Slider),
-            Steps: stepsKitTokenToAntdToken,
-            Tabs: tabsKitTokenToAntdToken,
+            Steps: stepsKitTokenToAntdToken(components.Steps),
+            Tabs: tabsKitTokenToAntdToken(components.Tabs),
             Tag: tagKitTokenToAntdToken(components.Tag),
-            Tree: treeKitTokenToAntdToken,
-            Tooltip: tooltipKitTokenToAntdToken
+            Tree: treeKitTokenToAntdToken(components.Tree),
+            Tooltip: tooltipKitTokenToAntdToken(components.Tooltip)
         }
     };
 };
