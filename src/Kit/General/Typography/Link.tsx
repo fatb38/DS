@@ -15,7 +15,7 @@ const StyledKitLink = styled(Typography.Link)<IStyledKitLink>`
         return $typographyTheme.fontSize6;
     }}px;
     line-height: ${({$typographyTheme, size}) => {
-        const typographyKey = 'lineHeight' + sizeTofontSize[size] ?? 6;
+        const typographyKey = 'lineHeight' + sizeTofontSize[size];
         if (typographyKey in $typographyTheme) {
             return $typographyTheme[typographyKey as keyof IKitTypography];
         }

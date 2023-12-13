@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {ChangeEvent, ChangeEventHandler, useEffect, useMemo, useState} from 'react';
 import {Card, Empty} from 'antd';
 import * as FaSolidIcons from '@fortawesome/free-solid-svg-icons';
 import * as FaRegularIcons from '@fortawesome/free-regular-svg-icons';
@@ -10,6 +10,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitTooltip} from '@kit/DataDisplay';
 import {IEditorTemplate} from '../../../types';
 import {KitPagination} from '@kit/Navigation';
+import {IconDefinition} from '@fortawesome/free-solid-svg-icons';
 
 export const argTypes = {
     color: {
@@ -75,7 +76,7 @@ export const argTypes = {
     }
 };
 
-export const getIcon = ({icon}) => {
+const getIcon = ({icon}) => {
     switch (icon) {
         case 'faUser':
             return <FontAwesomeIcon icon={FaSolidIcons.faUser} />;
@@ -98,15 +99,15 @@ export const Template = args => {
 };
 
 const convertToFontAwesomeIconName = (inputString: string): string => {
-    const camelCase = inputString.replace(/-([a-z])/g, (_, group) => group.toUpperCase());
+    const camelCase = inputString.replace(/-([a-z])/g, (_, group: string) => group.toUpperCase());
     return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
 };
 
 const filterIcons = (key: string) => key !== 'fas' && key !== 'prefix';
-const sortIconByAlphabetically = (a, b) => a.iconName.localeCompare(b.iconName);
+const sortIconByAlphabetically = (a: IconDefinition, b: IconDefinition) => a.iconName.localeCompare(b.iconName);
 
-const removeDuplicateIcons = (icons: any[]) => {
-    return icons.reduce((accumulator, current) => {
+const removeDuplicateIcons = (icons: IconDefinition[]) => {
+    return icons.reduce<IconDefinition[]>((accumulator, current) => {
         if (!accumulator.some(icon => icon.iconName === current.iconName)) {
             accumulator.push(current);
         }
@@ -119,18 +120,18 @@ const getRegularIcons = () => {
     const lastKeys = filteredFaRegularIconsKeys.pop();
     let filteredLastKeys: string[] = [];
     if (lastKeys !== undefined) {
-        filteredLastKeys = Object.keys(FaRegularIcons[lastKeys]).filter(filterIcons);
+        filteredLastKeys = Object.keys(FaRegularIcons[lastKeys] as IconDefinition).filter(filterIcons);
     }
     const fullFaRegularIconsKeys = filteredFaRegularIconsKeys.concat(filteredLastKeys);
-    const fullFaRegularIcons = fullFaRegularIconsKeys.map(icon => FaRegularIcons[icon]);
+    const fullFaRegularIcons = fullFaRegularIconsKeys.map(icon => FaRegularIcons[icon] as IconDefinition);
     const faRegularIcons = removeDuplicateIcons(fullFaRegularIcons);
 
     return faRegularIcons.sort(sortIconByAlphabetically);
 };
 
-const getSolidIcons = () => {
+const getSolidIcons = (): IconDefinition[] => {
     const filteredFaSolidIconsKeys = Object.keys(FaSolidIcons).filter(filterIcons);
-    const filteredFaSolidIcons = filteredFaSolidIconsKeys.map(icon => FaSolidIcons[icon]);
+    const filteredFaSolidIcons = filteredFaSolidIconsKeys.map(icon => FaSolidIcons[icon] as IconDefinition);
     return removeDuplicateIcons(filteredFaSolidIcons).sort(sortIconByAlphabetically);
 };
 
@@ -143,7 +144,7 @@ const Gallery = () => {
     const [type, setType] = useState('solid');
     const [tooltipTitle, setTooltipTitle] = useState(DEFAULT_TOOLTIP_TITLE);
     const [searchIconName, setSearchIconName] = useState('');
-    const [icons, setIcons] = useState<any[]>([]);
+    const [icons, setIcons] = useState<IconDefinition[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
@@ -177,17 +178,17 @@ const Gallery = () => {
     }, [type, searchIconName]);
 
     const _handleChangeIconType = ({target: {value}}: RadioChangeEvent) => {
-        setType(value);
+        setType(value as string);
     };
 
-    const _handleCopyIcon = icon => {
+    const _handleCopyIcon = (icon: IconDefinition) => {
         setTooltipTitle('Copied successfully ✅');
         const iconImportName = convertToFontAwesomeIconName(icon.iconName);
         navigator.clipboard.writeText(`<FontAwesomeIcon icon={fa${iconImportName}}} />`);
     };
 
-    const _handleSearchIconName = event => {
-        const {value} = event?.target;
+    const _handleSearchIconName = (event: ChangeEvent<HTMLInputElement>) => {
+        const {value} = event.target;
         setSearchIconName(value);
     };
 
@@ -195,11 +196,11 @@ const Gallery = () => {
         setCurrentPage(currentPage);
     };
 
-    const iconsToDisplay: any[] = useMemo(() => {
+    const iconsToDisplay: IconDefinition[] = useMemo(() => {
         const startIndex = (currentPage - 1) * 50;
         const endIndex = startIndex + 50;
         return icons.slice(startIndex, endIndex);
-    }, [icons, currentPage, type, searchIconName]);
+    }, [icons, currentPage]);
 
     return (
         <div className="gallery">
