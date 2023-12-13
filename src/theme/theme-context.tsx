@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import React, {createContext, FC, PropsWithChildren, useLayoutEffect, useRef, useState} from 'react';
 
 // TODO: Later add option to have more arisitd themes
@@ -19,7 +18,6 @@ type KitThemeContext =
     | undefined;
 
 const KitThemeContext = createContext<KitThemeContext>(undefined);
-const kitAristidTheme = getKitAristidTheme();
 
 const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: string}>`
     .${props => props.id} {
@@ -43,7 +41,8 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
     id
 }) => {
     const [cssTokens, setCssTokens] = useState<Record<string, string> | null>(null);
-    const value = useKitThemeProvider(kitAristidTheme, id, customTheme);
+    const {theme, appId, spacing} = useKitThemeProvider(getKitAristidTheme(), id, customTheme);
+    const globalStyleHtmlElement = document.getElementById(globalStyleId);
 
     useLayoutEffect(() => {
         const generalTheme = getKitAristidTheme()?.general;
@@ -51,23 +50,23 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
         setCssTokens(tokens);
     }, []);
 
-    const el = document.getElementById(globalStyleId);
-
     return (
-        <KitThemeContext.Provider value={value}>
-            {cssTokens !== null && el === null && (
-                <Style id={globalStyleId} hasSourceMap={false}>
-                    {`
-                    :root{
-                        ${Object.keys(cssTokens)
-                            .map(key => `${key}: ${cssTokens[key]}`)
-                            .join(';')}
-                    }
-                `}
-                </Style>
+        <KitThemeContext.Provider value={{theme, appId, spacing}}>
+            {cssTokens !== null && globalStyleHtmlElement === null && (
+                <>
+                    <Style id={globalStyleId} hasSourceMap={false}>
+                        {`
+                            :root{
+                                ${Object.keys(cssTokens)
+                                    .map(key => `${key}: ${cssTokens[key]}`)
+                                    .join(';')}
+                            }
+                        `}
+                    </Style>
+                    {customTheme && <CustomVariables id={appId} customTheme={customTheme} />}
+                    {children}
+                </>
             )}
-            {customTheme && <CustomVariables id={value.appId} customTheme={customTheme} />}
-            {children}
         </KitThemeContext.Provider>
     );
 };
@@ -75,9 +74,9 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
 const useKitThemeProvider = (theme: IKitTheme, id?: string, customTheme?: IKitCustomTheme) => {
     const internalId = useRef(id || 'ds-' + uuid().substring(0, 8));
 
-    // We can't use css variables for the Spacing component so we need to pass this object
+    // We can't use css variables for the Spacing component, so we need to pass this object
     const mergeSpacing = merge(theme.general.spacing, customTheme?.general?.spacing);
 
-    //TODO Remove theme
+    // TODO Remove theme
     return {theme, appId: internalId.current, spacing: mergeSpacing};
 };
