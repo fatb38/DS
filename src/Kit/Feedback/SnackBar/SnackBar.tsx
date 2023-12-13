@@ -1,34 +1,13 @@
 import React, {FunctionComponent} from 'react';
 import {styled} from 'styled-components';
-import toast from 'react-hot-toast';
-import {IKitOpenSnackBar, IKitSnackBar, IStyledKitSnackBar} from './types';
+import {IKitSnackBar, IStyledKitSnackBar} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
 import {kitSnackBarCssTokens} from '@theme/aristid/components/Feedback/SnackBar';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
-
-const DEFAULT_DURATION = 4000;
-
-export const openSnackBar = ({
-    message,
-    closable,
-    ctaText,
-    ctaOnClick,
-    duration = DEFAULT_DURATION
-}: IKitOpenSnackBar) => {
-    // Close all snackbar
-    closeSnackBar();
-
-    return toast(<KitSnackBar message={message} ctaText={ctaText} ctaOnClick={ctaOnClick} closable={closable} />, {
-        duration: duration
-    });
-};
-
-export const closeSnackBar = () => {
-    toast.remove();
-};
+import {closeSnackBar} from './snack-bar-function';
 
 const StyledSnackBar = styled.div<IStyledKitSnackBar>`
     display: grid;

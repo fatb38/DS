@@ -10,24 +10,25 @@ import {getCssPropertyValue} from '@theme/utils';
 import {kitModalCssTokens} from '@theme/aristid/components/Feedback/Modal';
 import {spacingCssTokens} from '@theme/aristid/general/spacing';
 
-const ConfirmDialog = ({
-    icon,
-    title,
-    firstLine,
-    secondLine,
-    image,
-    type = 'confirm',
-    width,
-    portalClassName,
-    okCancel,
-    onCancel,
-    cancelText,
-    onOk,
-    okText,
-    close,
-    isOpen = false,
-    ...props
-}: IKitConfirmDialog) => {
+const ConfirmDialog = (props: IKitConfirmDialog) => {
+    const {
+        icon,
+        title,
+        firstLine,
+        secondLine,
+        image,
+        type = 'confirm',
+        width,
+        portalClassName,
+        okCancel,
+        onCancel,
+        cancelText,
+        onOk,
+        okText,
+        close,
+        isOpen = false,
+        ...rest
+    } = props;
     const [locale] = useLocale('Modal');
 
     let mergedIcon: ReactNode = icon;
@@ -69,9 +70,9 @@ const ConfirmDialog = ({
     }
     const mergedOkCancel = okCancel || type === 'confirm';
 
-    const _onClick = actionFn => () => {
+    const _onClick = (actionFn: (() => void) | undefined) => () => {
         actionFn && actionFn();
-        close?.();
+        close && close();
     };
 
     const cancelButton = mergedOkCancel && (
@@ -105,7 +106,7 @@ const ConfirmDialog = ({
                     {OkButton}
                 </>
             }
-            {...props}
+            {...rest}
         >
             <KitSpace direction="vertical" size={itemsVerticalSpacing}>
                 {image && (

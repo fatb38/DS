@@ -1,5 +1,5 @@
-import {closeSnackBar, openSnackBar} from './SnackBar';
 import InternalSnackBarProvider from './SnackBarProvider';
+import {closeSnackBar, openSnackBar} from './snack-bar-function';
 
 export const openKitSnackBar = openSnackBar;
 export const closeKitSnackBar = closeSnackBar;

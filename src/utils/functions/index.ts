@@ -2,7 +2,6 @@ import convert from 'color-convert';
 import colorString from 'color-string';
 import {KitColorProp} from './types';
 import {colorsPalette} from '@theme/aristid/general/colors';
-import {HSL} from 'color-convert/conversions';
 
 export const toCssVariables = (tokens, prefix = '-', items = {}) => {
     if (!tokens) {
