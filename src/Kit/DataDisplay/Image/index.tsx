@@ -4,7 +4,7 @@ import {IKitImage, IStyledKitImage, KitImageCompoundedComponent} from './types';
 import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-solid-svg-icons';
-import {useKitLocale} from '@translation/locale-context';
+import {useKitLocale} from '@translation/useKitLocale';
 import {kitImageCssTokens} from '@theme/aristid/components/DataDisplay/Image';
 import {borderCssTokens} from '@theme/aristid/general/border';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';

@@ -5,7 +5,7 @@ import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTag} from '@kit/DataDisplay/';
 import {KitTypography} from '@kit/General/';
 import {useKitTheme} from '@theme/theme-context';
-import {useKitLocale} from '@translation/locale-context';
+import {useKitLocale} from '@translation/useKitLocale';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-regular-svg-icons';
 import {faAngleRight} from '@fortawesome/free-solid-svg-icons';

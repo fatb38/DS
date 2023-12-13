@@ -13,10 +13,11 @@ import {TypographyStyle} from '@kit/General/Typography/style';
 import {TabsDropDownStyle} from '@kit/DataDisplay/Tabs/style';
 import {mapKitThemeToAntdTheme} from '@theme/utils/tokens-mapper';
 import {IKitLocale} from '@translation/types';
-import {KitLocaleProvider, useKitLocale} from '@translation/locale-context';
+import {KitLocaleProvider} from '@translation/locale-context';
 import {mapKitLocaleToAntdLocale} from '@translation/utils';
 import {ColorPickerPanelStyle} from '@kit/DataEntry/ColorPicker/style';
 import {TourStyle} from '@kit/DataDisplay/Tour/style';
+import {useKitLocale} from '@translation/useKitLocale';
 
 export const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;

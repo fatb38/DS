@@ -1,25 +1,9 @@
-import React, {ReactNode, createContext, useContext, useState} from 'react';
+import React, {ReactNode, useState} from 'react';
 import {IKitLocale, LanguageSupported} from './types';
 import {frFR} from './fr-FR';
 import {merge} from 'lodash';
 import {enUS} from './en-US';
-
-type KitLocaleContext =
-    | {
-          locale: IKitLocale;
-          setKitLocale: (locale: IKitLocale) => void;
-      }
-    | undefined;
-
-const KitLocaleContext = createContext<KitLocaleContext>(undefined);
-
-export const useKitLocale = () => {
-    const context = useContext(KitLocaleContext);
-    if (context === undefined) {
-        throw new Error('You need to encapsulate component inside a KitApp, useKitLocale must be inside a context');
-    }
-    return context;
-};
+import {KitLocaleContext} from './useKitLocale';
 
 export const KitLocaleProvider = ({children}: {children: ReactNode}) => {
     const value = useKitLocaleProvider();

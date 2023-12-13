@@ -11,7 +11,7 @@ import {KitCheckbox} from '@kit/DataEntry';
 import {KitTag} from '@kit/DataDisplay';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {useKitTheme} from '@theme/theme-context';
-import {useKitLocale} from '@translation/locale-context';
+import {useKitLocale} from '@translation/useKitLocale';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-regular-svg-icons';
 import {faPencil} from '@fortawesome/free-solid-svg-icons';
