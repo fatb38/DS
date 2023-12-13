@@ -51,9 +51,11 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
         setCssTokens(tokens);
     }, []);
 
+    const el = document.getElementById(globalStyleId);
+
     return (
         <KitThemeContext.Provider value={value}>
-            {cssTokens !== null && (
+            {cssTokens !== null && el === null && (
                 <Style id={globalStyleId} hasSourceMap={false}>
                     {`
                     :root{
