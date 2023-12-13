@@ -1,4 +1,16 @@
-import React, {useEffect, useState, FocusEvent, MouseEvent, forwardRef, Ref, RefObject, useRef} from 'react';
+import React, {
+    useEffect,
+    useState,
+    FocusEvent,
+    MouseEvent,
+    forwardRef,
+    Ref,
+    RefObject,
+    useRef,
+    JSXElementConstructor,
+    ReactElement,
+    ReactNode
+} from 'react';
 import cn from 'classnames';
 import {KitIcon} from '../../General/';
 import {IKitOption, IKitSelect} from './types';
@@ -14,19 +26,28 @@ import type {RefSelectProps} from 'antd';
 import {useDebouncedCallback} from 'use-debounce';
 import ShortUniqueId from 'short-unique-id';
 
-const _getOptionLabel = props => (
-    <div className="kit-select-option">
-        {props.icon && <KitIcon className="kit-select-option-icon" icon={props.icon} on />}
-        {!props.icon && (
-            <StyledBadge className="kit-select-option-badge">
-                {props.color && <div className="kit-select-option-color" style={{backgroundColor: props.color}} />}
-            </StyledBadge>
-        )}
-        <StyledLabel className="kit-select-option-label">{props.label}</StyledLabel>
-    </div>
-);
+interface ISelectOption {
+    icon?: ReactNode;
+    color?: string;
+    label?: string;
+}
 
-const _parseOptions = (list: IKitOption[], labelOnly) => {
+const _getOptionLabel = (selectOption: ISelectOption) => {
+    const {icon, color, label} = selectOption;
+    return (
+        <div className="kit-select-option">
+            {icon && <KitIcon className="kit-select-option-icon" icon={icon} on />}
+            {!icon && (
+                <StyledBadge className="kit-select-option-badge">
+                    {color && <div className="kit-select-option-color" style={{backgroundColor: color}} />}
+                </StyledBadge>
+            )}
+            <StyledLabel className="kit-select-option-label">{label}</StyledLabel>
+        </div>
+    );
+};
+
+const _parseOptions = (list: IKitOption[], labelOnly: boolean) => {
     return list.map(option => {
         const {className, disabled, value, options, ...rest} = option;
         if (options) {
@@ -37,14 +58,14 @@ const _parseOptions = (list: IKitOption[], labelOnly) => {
         }
         return {
             label: labelOnly ? <StyledLabel>{rest.label}</StyledLabel> : _getOptionLabel(rest),
-            className: rest.highlight ? `${className} kit-select-highlight-option` : className,
-            disabled,
+            className: rest.highlight ? `${className} kit-select-highlight-option` : (className as string),
+            disabled: disabled as string,
             value
         };
     });
 };
 
-const _dropDownRenderer = (menu: React.ReactElement<any, string | React.JSXElementConstructor<any>>) => {
+const _dropDownRenderer = (menu: ReactElement<any, string | JSXElementConstructor<any>>) => {
     return <div className="kit-select-dropdown-content">{menu}</div>;
 };
 
@@ -67,7 +88,7 @@ const _tagRender = (props: CustomTagProps) => {
     );
 };
 
-const _maxTagRender = omittedValues => {
+const _maxTagRender = (omittedValues: {length: number}) => {
     return (
         <KitTag color="blue" secondaryColorInvert>
             +{omittedValues.length}
@@ -135,7 +156,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         const [isOpen, setIsOpen] = useState(false);
         const internalKitSelectRef = useRef(id ?? uid.rnd());
 
-        const _handleDocumentScroll = useDebouncedCallback(_ => {
+        const _handleDocumentScroll = useDebouncedCallback(() => {
             _fixSelectRender(internalKitSelectRef.current);
         }, 15);
 

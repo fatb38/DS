@@ -1,4 +1,9 @@
-import React, {useContext, useEffect, useRef} from 'react';
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, {forwardRef, useContext, useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import {Checkbox, CheckboxRef} from 'antd';
 import {IKitCheckbox} from './types';
@@ -240,7 +245,7 @@ const StyledKitCheckbox = styled(Checkbox)`
     }
 `;
 
-const KitCheckbox = React.forwardRef<CheckboxRef, IKitCheckbox>(({danger, className, ...props}, ref) => {
+const KitCheckbox = forwardRef<CheckboxRef, IKitCheckbox>(({danger, className, ...props}, ref) => {
     const checkboxGroup = useContext(GroupContext);
     const {appId} = useKitTheme();
     const mergedDisabled = checkboxGroup?.disabled || props.disabled;

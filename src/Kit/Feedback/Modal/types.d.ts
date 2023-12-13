@@ -9,7 +9,8 @@ type propsToOmit =
     | 'overlayRef'
     | 'contentRef'
     | 'overlayElement'
-    | 'contentElement';
+    | 'contentElement'
+    | 'isOpen';
 
 //todo delete Omit<title role className style>
 export interface IKitModal
@@ -20,6 +21,7 @@ export interface IKitModal
     close?: (args: any[]) => void;
     title?: ReactNode;
     footer?: ReactNode;
+    isOpen?: boolean;
 }
 
 export interface IKitConfirmDialog extends IKitModal {

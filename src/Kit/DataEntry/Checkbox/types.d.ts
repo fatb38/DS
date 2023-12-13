@@ -1,4 +1,4 @@
-import React, {ReactNode, CSSProperties} from 'react';
+import {ReactNode, CSSProperties} from 'react';
 import {CheckboxProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox/Checkbox';
@@ -39,6 +39,7 @@ export interface ICheckboxGroup extends AbstractCheckboxGroup {
 export interface ICheckboxGroupContext {
     name?: string;
     toggleOption?: (option: CheckboxOptionType) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value?: any;
     disabled?: boolean;
     registerValue: (val: string) => void;

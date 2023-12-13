@@ -5,17 +5,21 @@ import ConfirmDialog from './ConfirmDialog';
 import uuid from 'react-uuid';
 import {KitApp} from '@kit/App';
 
+interface IModalConfig extends IKitConfirmDialog {
+    showSecondaryCta?: boolean;
+}
+
 export default function confirm(config: IKitConfirmDialog) {
     const container = document.createDocumentFragment();
     const root = createRoot(container);
-    let portalClassName = 'reactPortal-' + uuid();
+    const portalClassName = 'reactPortal-' + uuid();
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    let currentConfig = {
+    let currentConfig: IModalConfig = {
         ...config,
         close,
         isOpen: true,
         portalClassName: portalClassName
-    } as any;
+    };
     let timeoutId: NodeJS.Timeout;
 
     function destroy(...args: any) {
@@ -26,7 +30,7 @@ export default function confirm(config: IKitConfirmDialog) {
         root.unmount();
     }
 
-    function render({okText, cancelText, ...props}: any) {
+    function render({okText, cancelText, ...props}: IModalConfig) {
         clearTimeout(timeoutId);
 
         timeoutId = setTimeout(() => {

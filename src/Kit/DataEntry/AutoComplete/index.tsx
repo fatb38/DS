@@ -6,6 +6,7 @@ import KitInputWrapper from '../Input/InputWrapper';
 import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {valueType} from 'antd/lib/statistic/utils';
 
 export const StyledKitAutoComplete = styled(AntdAutoComplete)`
     &.ant-select-auto-complete.ant-select-open {
@@ -29,7 +30,6 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
             status,
             value,
             onBlur,
-            onChange,
             popupClassName,
             wrapperClassName,
             ...props
@@ -54,10 +54,10 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
                         prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />}
                         allowClear={allowClear}
                         autoFocus={autoFocus}
-                        defaultValue={defaultValue}
+                        defaultValue={defaultValue as string | number | readonly string[] | undefined}
                         placeholder={placeholder}
                         status={status}
-                        value={value}
+                        value={value as valueType}
                         onBlur={onBlur}
                     />
                 </StyledKitAutoComplete>
