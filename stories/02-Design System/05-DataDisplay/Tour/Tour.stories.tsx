@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitTour} from '@kit/DataDisplay';
-import {argTypes, Template} from './data';
-import {IKitTour} from '@kit/DataDisplay/Tour/types';
+import {argTypes} from './data';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitTour> = {
     component: KitTour,
@@ -13,7 +13,7 @@ export default meta;
 type Story = StoryObj<typeof KitTour>;
 
 export const Api: Story = {
-    render: Template as IKitTour,
+    render: Template,
     parameters: {
         chromatic: {disableSnapshot: true}
     }
