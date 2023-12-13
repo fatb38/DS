@@ -6,8 +6,8 @@ import {sizeTofontSize, getWeightClassname} from './commons';
 import {useKitTheme} from '@theme/theme-context';
 
 const StyledKitParagraph = styled(Typography.Paragraph)<IStyledKitParagraph>`
-    font-size: ${({$typographyTheme, size}) => $typographyTheme['fontSize' + sizeTofontSize[size] ?? 6]}px;
-    line-height: ${({$typographyTheme, size}) => $typographyTheme['lineHeight' + sizeTofontSize[size] ?? 6]};
+    font-size: ${({$typographyTheme, size}) => $typographyTheme['fontSize' + sizeTofontSize[size] ?? 6] as number}px;
+    line-height: ${({$typographyTheme, size}) => $typographyTheme['lineHeight' + sizeTofontSize[size] ?? 6] as number};
 
     &.ant-typography-regular {
         font-weight: ${({$theme}) => $theme.Paragraph.fontWeight.regular};
