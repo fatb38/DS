@@ -1,10 +1,11 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitTree} from '@kit/DataDisplay';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFile, faFolder} from '@fortawesome/free-regular-svg-icons';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitTree> = {
     component: KitTree,

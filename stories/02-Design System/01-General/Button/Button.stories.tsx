@@ -1,10 +1,11 @@
 import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitButton} from '@kit/General/';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFilter, faMagnifyingGlass, faPowerOff, faRotateRight} from '@fortawesome/free-solid-svg-icons';
 import {KitSpace} from '@kit/Layout';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitButton> = {
     component: KitButton,

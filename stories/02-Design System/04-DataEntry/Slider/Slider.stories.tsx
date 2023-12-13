@@ -1,10 +1,11 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitSlider} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlassMinus, faMagnifyingGlassPlus} from '@fortawesome/free-solid-svg-icons';
 import {KitSliderMarks} from '@kit/DataEntry/Slider/types';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitSlider> = {
     component: KitSlider,

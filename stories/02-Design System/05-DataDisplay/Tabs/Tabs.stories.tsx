@@ -1,9 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitTabs} from '@kit/DataDisplay';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAppleAlt, faRobot} from '@fortawesome/free-solid-svg-icons';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitTabs> = {
     component: KitTabs,

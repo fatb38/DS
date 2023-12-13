@@ -4,7 +4,8 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {KitModal} from '@kit/Feedback';
 import ConfirmDialog from '@kit/Feedback/Modal/ConfirmDialog';
 import {KitButton} from '@kit/General';
-import {argTypes, Template} from './data';
+import {Template} from './Template';
+import {argTypes} from './data';
 
 const meta: Meta<typeof KitModal> = {
     component: KitModal,

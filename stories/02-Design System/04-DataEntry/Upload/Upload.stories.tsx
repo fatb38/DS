@@ -1,9 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitUpload} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {UploadProps} from 'antd';
 import KitDragger from '@kit/DataEntry/Upload/Dragger';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitUpload> = {
     component: KitUpload,

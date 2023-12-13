@@ -1,9 +1,5 @@
-/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
-import {KitTypography} from '@kit/General/';
-import {KitBreadcrumb} from '@kit/Navigation/';
-import {IEditorTemplate} from '../../../types';
-import {IKitBreadcrumb} from '@kit/Navigation/Breadcrumb/types';
+import {KitTypography} from '@kit/General';
 
 const menuItems = [
     {
@@ -32,7 +28,7 @@ const menuItems = [
     }
 ];
 
-export const items = [
+const items = [
     {
         title: 'Aristid Design'
     },
@@ -47,19 +43,6 @@ export const items = [
         title: 'Button'
     }
 ];
-
-export const handleButtonClick = e => {
-    console.log('click left button', e);
-};
-
-export const handleMenuClick = e => {
-    console.log('click', e);
-};
-
-export const menuProps = {
-    items,
-    onClick: handleMenuClick
-};
 
 export const argTypes = {
     items: {
@@ -87,19 +70,3 @@ export const argTypes = {
         }
     }
 };
-
-export const Template = (args: IKitBreadcrumb) => {
-    const {items, separator} = args;
-    return (
-        <KitBreadcrumb
-            items={items || argTypes.items.control.value}
-            separator={separator || argTypes.separator.control.value}
-        />
-    );
-};
-
-export const EditorTemplate: IEditorTemplate = () => {
-    return <KitBreadcrumb items={items} />;
-};
-EditorTemplate.path = 'components.Breadcrumb';
-EditorTemplate.title = 'Breadcrumb';

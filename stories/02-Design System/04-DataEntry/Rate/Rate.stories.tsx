@@ -1,12 +1,13 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitRate} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {colorsPalette} from '@theme/aristid/general/colors';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircle as faCircleDefault} from '@fortawesome/free-regular-svg-icons';
 import {faCircle as faCircleActive} from '@fortawesome/free-solid-svg-icons';
 import {faCircleHalfStroke as faCircleHalf} from '@fortawesome/free-solid-svg-icons';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitRate> = {
     component: KitRate,

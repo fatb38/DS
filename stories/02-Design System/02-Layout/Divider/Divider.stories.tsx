@@ -1,6 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitDivider} from '@kit/Layout';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitDivider> = {
     component: KitDivider,

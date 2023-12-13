@@ -1,9 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitDatePicker} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import dayjs from 'dayjs';
 import {within} from '@storybook/testing-library';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitDatePicker> = {
     component: KitDatePicker,

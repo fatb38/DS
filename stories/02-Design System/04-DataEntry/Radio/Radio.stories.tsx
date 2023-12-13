@@ -1,8 +1,9 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitRadio} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {within} from '@storybook/testing-library';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitRadio> = {
     component: KitRadio,

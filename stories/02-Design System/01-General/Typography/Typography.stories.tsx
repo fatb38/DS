@@ -1,7 +1,8 @@
 import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitTypography} from '@kit/General/';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitTypography.Text> = {
     component: KitTypography.Text,
@@ -39,7 +40,9 @@ export const Title: Story = {
 export const Ellipsis: Story = {
     render: () => (
         <div style={{width: '250px'}}>
-            <KitTypography.Paragraph size="large" weight="medium">Simple ellipsis</KitTypography.Paragraph>
+            <KitTypography.Paragraph size="large" weight="medium">
+                Simple ellipsis
+            </KitTypography.Paragraph>
             <KitTypography.Paragraph ellipsis={true}>
                 Aristid Design, a design language for background applications, is refined by Aristid UED Team. Aristid
                 Design, a design language for background applications, is refined by Aristid UED Team. Aristid Design, a
@@ -48,7 +51,9 @@ export const Ellipsis: Story = {
                 for background applications, is refined by Aristid UED Team. Aristid Design, a design language for
                 background applications, is refined by Aristid UED Team.
             </KitTypography.Paragraph>
-            <KitTypography.Paragraph size="large" weight="medium">Expandable ellipsis</KitTypography.Paragraph>
+            <KitTypography.Paragraph size="large" weight="medium">
+                Expandable ellipsis
+            </KitTypography.Paragraph>
             <KitTypography.Paragraph ellipsis={{rows: 4, expandable: true, symbol: 'more'}}>
                 Aristid Design, a design language for background applications, is refined by Aristid UED Team. Aristid
                 Design, a design language for background applications, is refined by Aristid UED Team. Aristid Design, a
@@ -63,4 +68,3 @@ export const Ellipsis: Story = {
         chromatic: {disableSnapshot: false}
     }
 };
-

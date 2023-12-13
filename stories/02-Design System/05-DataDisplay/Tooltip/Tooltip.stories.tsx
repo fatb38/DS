@@ -1,9 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitTooltip} from '@kit/DataDisplay';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {KitButton} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitTooltip> = {
     component: KitTooltip,

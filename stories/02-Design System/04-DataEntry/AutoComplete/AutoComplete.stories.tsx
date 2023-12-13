@@ -1,9 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitAutoComplete} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitAutoComplete> = {
     component: KitAutoComplete,

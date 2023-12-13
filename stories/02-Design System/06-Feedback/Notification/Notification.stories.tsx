@@ -1,5 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {argTypes, FakeNotification, Template} from './data';
+import {argTypes} from './data';
+import {FakeNotification, Template} from './Template';
 
 const meta: Meta<typeof FakeNotification> = {
     component: FakeNotification,
