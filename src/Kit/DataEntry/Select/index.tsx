@@ -1,7 +1,7 @@
 import React, {useEffect, useState, FocusEvent, MouseEvent, forwardRef, Ref, RefObject, useRef} from 'react';
 import cn from 'classnames';
 import {KitIcon} from '../../General/';
-import {IKitSelect} from './types';
+import {IKitOption, IKitSelect} from './types';
 import type {CustomTagProps} from 'rc-select/lib/BaseSelect';
 import {StyledBadge, StyledKitSelect, StyledLabel} from './style';
 import KitInputWrapper from '@kit/DataEntry/Input/InputWrapper';
@@ -26,8 +26,9 @@ const _getOptionLabel = props => (
     </div>
 );
 
-const _parseOptions = (list, labelOnly) => {
-    return list.map(({className, disabled, value, options, ...rest}) => {
+const _parseOptions = (list: IKitOption[], labelOnly) => {
+    return list.map(option => {
+        const {className, disabled, value, options, ...rest} = option;
         if (options) {
             return {
                 label: rest.label,
@@ -69,7 +70,7 @@ const _tagRender = (props: CustomTagProps) => {
 const _maxTagRender = omittedValues => {
     return (
         <KitTag color="blue" secondaryColorInvert>
-            +{omittedValues.length} ...
+            +{omittedValues.length}
         </KitTag>
     );
 };
@@ -130,9 +131,13 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         ref?: Ref<RefSelectProps> | undefined
     ) => {
         const {appId} = useKitTheme();
-        const [internalOptions, setOptions] = useState([]);
+        const [internalOptions, setOptions] = useState<IKitOption[]>([]);
         const [isOpen, setIsOpen] = useState(false);
         const internalKitSelectRef = useRef(id ?? uid.rnd());
+
+        const _handleDocumentScroll = useDebouncedCallback(_ => {
+            _fixSelectRender(internalKitSelectRef.current);
+        }, 15);
 
         useEffect(() => {
             if (isOpen) {
@@ -146,7 +151,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             return () => {
                 document.removeEventListener('scroll', _handleDocumentScroll);
             };
-        }, [isOpen]);
+        }, [_handleDocumentScroll, isOpen]);
 
         useEffect(() => {
             if (!options) {
@@ -155,10 +160,6 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                 setOptions(_parseOptions(options, labelOnly));
             }
         }, [options, labelOnly]);
-
-        const _handleDocumentScroll = useDebouncedCallback(_ => {
-            _fixSelectRender(internalKitSelectRef.current);
-        }, 15);
 
         const _handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
             (ref as RefObject<RefSelectProps>)?.current?.focus();

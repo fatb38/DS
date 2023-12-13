@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, {SyntheticEvent, useEffect, useMemo, useState} from 'react';
+import React, {ChangeEvent, useEffect, useMemo, useState} from 'react';
 import {Card, Empty} from 'antd';
 import * as FaSolidIcons from '@fortawesome/free-solid-svg-icons';
 import * as FaRegularIcons from '@fortawesome/free-regular-svg-icons';
@@ -78,7 +78,7 @@ export const argTypes = {
     }
 };
 
-export const getIcon = ({icon}) => {
+const getIcon = ({icon}) => {
     switch (icon) {
         case 'faUser':
             return <FontAwesomeIcon icon={FaSolidIcons.faUser} />;
@@ -109,8 +109,8 @@ const filterIcons = (key: string) => key !== 'fas' && key !== 'prefix';
 const sortIconByAlphabetically = (a: IconDefinition, b: IconDefinition) => a.iconName.localeCompare(b.iconName);
 
 const removeDuplicateIcons = (icons: IconDefinition[]) => {
-    return icons.reduce((accumulator: IconDefinition[], current: IconDefinition) => {
-        if (!accumulator.some((icon: IconDefinition) => icon.iconName === current.iconName)) {
+    return icons.reduce<IconDefinition[]>((accumulator, current) => {
+        if (!accumulator.some(icon => icon.iconName === current.iconName)) {
             accumulator.push(current);
         }
         return accumulator;
@@ -131,7 +131,7 @@ const getRegularIcons = () => {
     return faRegularIcons.sort(sortIconByAlphabetically);
 };
 
-const getSolidIcons = () => {
+const getSolidIcons = (): IconDefinition[] => {
     const filteredFaSolidIconsKeys = Object.keys(FaSolidIcons).filter(filterIcons);
     const filteredFaSolidIcons = filteredFaSolidIconsKeys.map(icon => FaSolidIcons[icon] as IconDefinition);
     return removeDuplicateIcons(filteredFaSolidIcons).sort(sortIconByAlphabetically);
@@ -189,8 +189,8 @@ const Gallery = () => {
         void navigator.clipboard.writeText(`<FontAwesomeIcon icon={fa${iconImportName}}} />`);
     };
 
-    const _handleSearchIconName = (event: SyntheticEvent<HTMLInputElement>) => {
-        const {value} = event?.target as HTMLInputElement;
+    const _handleSearchIconName = (event: ChangeEvent<HTMLInputElement>) => {
+        const {value} = event.target;
         setSearchIconName(value);
     };
 
