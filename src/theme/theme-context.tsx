@@ -1,4 +1,5 @@
-import React, {createContext, FC, PropsWithChildren, useRef} from 'react';
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+import React, {createContext, FC, PropsWithChildren, useLayoutEffect, useRef, useState} from 'react';
 
 // TODO: Later add option to have more arisitd themes
 import {getKitAristidTheme} from './aristid';
@@ -6,8 +7,8 @@ import {IKitCustomTheme, IKitTheme, IKitThemeGeneral} from './types';
 import {createGlobalStyle} from 'styled-components';
 import {toCssVariables} from '@utils/functions';
 import uuid from 'react-uuid';
-import AristidTheme from './default-theme';
 import {merge} from 'lodash';
+import {Style} from 'react-style-tag';
 
 type KitThemeContext =
     | {
@@ -34,16 +35,35 @@ export const useKitTheme = () => {
     return context;
 };
 
+const globalStyleId = 'aristid-ds-global';
+
 export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomTheme; id?: string}>> = ({
     children,
     customTheme,
     id
 }) => {
+    const [cssTokens, setCssTokens] = useState<Record<string, string> | null>(null);
     const value = useKitThemeProvider(kitAristidTheme, id, customTheme);
+
+    useLayoutEffect(() => {
+        const generalTheme = getKitAristidTheme()?.general;
+        const tokens = toCssVariables(generalTheme, '--general');
+        setCssTokens(tokens);
+    }, []);
 
     return (
         <KitThemeContext.Provider value={value}>
-            {AristidTheme.getGlobalStyles()}
+            {cssTokens !== null && (
+                <Style id={globalStyleId} hasSourceMap={false}>
+                    {`
+                    :root{
+                        ${Object.keys(cssTokens)
+                            .map(key => `${key}: ${cssTokens[key]}`)
+                            .join(';')}
+                    }
+                `}
+                </Style>
+            )}
             {customTheme && <CustomVariables id={value.appId} customTheme={customTheme} />}
             {children}
         </KitThemeContext.Provider>
