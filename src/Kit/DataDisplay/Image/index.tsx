@@ -8,7 +8,7 @@ import {useKitLocale} from '@translation/useKitLocale';
 import {kitImageCssTokens} from '@theme/aristid/components/DataDisplay/Image';
 import {borderCssTokens} from '@theme/aristid/general/border';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
-import {useKitTheme} from '@theme/theme-context.tsx';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const StyledImage = styled(AntdImage)<IStyledKitImage>`
     border-radius: ${({$rounded}) =>

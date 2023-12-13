@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 import {IKitMenu} from './types';
 import {styled} from 'styled-components';
 import {KitTypography, KitButton} from '@kit/General';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
 import {kitMenuCssTokens} from '@theme/aristid/components/Navigation/Menu';

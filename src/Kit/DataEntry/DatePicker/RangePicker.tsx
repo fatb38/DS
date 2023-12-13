@@ -3,7 +3,7 @@ import {DatePicker as AntdDatePicker} from 'antd';
 import {IKitRangePicker} from './types';
 import styled from 'styled-components';
 import KitInputWrapper from '../Input/InputWrapper';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark, faClock, faCalendar} from '@fortawesome/free-regular-svg-icons';
 import {kitDatePickerCssTokens} from '@theme/aristid/components/DataEntry/DatePicker';

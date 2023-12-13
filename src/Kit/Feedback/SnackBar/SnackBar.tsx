@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 import {styled} from 'styled-components';
 import toast from 'react-hot-toast';
 import {IKitOpenSnackBar, IKitSnackBar, IStyledKitSnackBar} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
 import {kitSnackBarCssTokens} from '@theme/aristid/components/Feedback/SnackBar';

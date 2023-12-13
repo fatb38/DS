@@ -4,7 +4,7 @@ import {KitIcon, KitTypography} from '@kit/General/';
 import {argTypes, Template} from './data';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload} from '@fortawesome/free-solid-svg-icons';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const meta: Meta<typeof KitIcon> = {
     component: KitIcon,

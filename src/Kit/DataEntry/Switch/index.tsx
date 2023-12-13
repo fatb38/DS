@@ -2,7 +2,7 @@ import React, {forwardRef} from 'react';
 import {Switch as AntdSwitch} from 'antd';
 import styled from 'styled-components';
 import {IKitSwitch} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {kitSwitchCssTokens} from '@theme/aristid/components/DataEntry/Switch';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 

@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import styled from 'styled-components';
 import {IKitModal} from './types';
 import {KitSpace} from '@kit/Layout/';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 import {kitModalCssTokens} from '@theme/aristid/components/Feedback/Modal';

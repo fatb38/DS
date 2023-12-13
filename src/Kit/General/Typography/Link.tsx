@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {Typography} from 'antd';
 import {IKitLink, IStyledKitLink} from './types';
 import {sizeTofontSize, getWeightClassname} from './commons';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {IKitTypography} from '@theme/types/general/typography';
 
 const StyledKitLink = styled(Typography.Link)<IStyledKitLink>`

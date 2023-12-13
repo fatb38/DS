@@ -6,7 +6,7 @@ import {KitTypography, KitIcon} from '@kit/General/';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitDropDown} from '../DropDown';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import useSecureClick from '@hooks/useSecureClick';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleRight, faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';

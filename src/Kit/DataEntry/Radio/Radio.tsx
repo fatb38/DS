@@ -3,7 +3,7 @@ import {Radio, RadioChangeEvent, RadioProps} from 'antd';
 import styled from 'styled-components';
 import {KitRadioProps} from './types';
 import RadioGroupContext from './context';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {RadioRef} from 'antd/es/radio';
 import {kitRadioCssTokens} from '@theme/aristid/components/DataEntry/Radio';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';

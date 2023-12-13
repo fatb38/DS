@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {KitBadge} from '@kit/DataDisplay/';
 import {KitSwitch} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout/';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faClock} from '@fortawesome/free-regular-svg-icons';
 

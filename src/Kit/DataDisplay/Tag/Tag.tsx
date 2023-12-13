@@ -2,7 +2,7 @@ import React, {CSSProperties, FunctionComponent, useMemo} from 'react';
 import {Tag} from 'antd';
 import styled from 'styled-components';
 import {IKitTag} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
 import {getColor, getLighterColor, isValidColor} from '@utils/functions';

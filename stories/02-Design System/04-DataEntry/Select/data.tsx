@@ -3,7 +3,7 @@ import React from 'react';
 import {KitSelect} from '@kit/DataEntry/';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {faFile} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 

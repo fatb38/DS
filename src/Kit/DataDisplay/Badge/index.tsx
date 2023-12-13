@@ -2,7 +2,7 @@ import React, {CSSProperties, FunctionComponent, useMemo} from 'react';
 import {Badge as AntdBadge} from 'antd';
 import {IKitBadge} from './types';
 import {styled} from 'styled-components';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {getColor, getLighterColor, isValidColor} from '@utils/functions';
 import {kitBadgeCssTokens} from '@theme/aristid/components/DataDisplay/Badge';
 

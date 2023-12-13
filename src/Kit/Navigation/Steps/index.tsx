@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 import {Steps as AntdSteps} from 'antd';
 import {IKitSteps} from './types';
 import {styled} from 'styled-components';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {kitStepsCssTokens} from '@theme/aristid/components/Navigation/Steps';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 

@@ -1,7 +1,7 @@
 import React, {RefAttributes, forwardRef} from 'react';
 import {KitColorPickerProps} from './types';
 import KitInputWrapper from '../Input/InputWrapper';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {StyledAntdColorPicker} from './style';
 
 // Note: ref is not supported by Antd for this component right now. Hopefuly it will change in a near futur

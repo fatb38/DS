@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import {Checkbox, CheckboxRef} from 'antd';
 import {IKitCheckbox} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {GroupContext} from './Group';
 import {kitCheckboxCssTokens} from '@theme/aristid/components/DataEntry/Checkbox';
 import {typographyCssTokens} from '@theme/aristid/general/typography';

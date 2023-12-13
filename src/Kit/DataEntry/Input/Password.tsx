@@ -3,7 +3,7 @@ import {Input as AntdInput, InputRef} from 'antd';
 import {IKitPassword} from './types';
 import {styled} from 'styled-components';
 import KitInputWrapper from './InputWrapper';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark, faEye, faEyeSlash} from '@fortawesome/free-regular-svg-icons';
 import {kitInputPasswordCssTokens} from '@theme/aristid/components/DataEntry/Input';
@@ -45,8 +45,10 @@ const StyledAntdPassword = styled(AntdInput.Password)`
                     var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
                 );
                 font-size: calc(
-                    var(${kitInputPasswordCssTokens.typography.showCount.fontSize}, var(${typographyCssTokens.fontSize7})) *
-                        1px
+                    var(
+                            ${kitInputPasswordCssTokens.typography.showCount.fontSize},
+                            var(${typographyCssTokens.fontSize7})
+                        ) * 1px
                 );
                 font-weight: var(
                     ${kitInputPasswordCssTokens.typography.showCount.fontWeight},

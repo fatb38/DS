@@ -3,7 +3,7 @@ import {styled} from 'styled-components';
 import {Typography} from 'antd';
 import {IKitText, IStyledKitText} from './types';
 import {sizeTofontSize, getWeightClassname} from './commons';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const StyledKitText = styled(Typography.Text)<IStyledKitText>`
     font-size: ${({$typographyTheme, size}) => $typographyTheme['fontSize' + sizeTofontSize[size] ?? 6] as number}px;

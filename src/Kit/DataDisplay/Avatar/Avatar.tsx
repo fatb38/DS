@@ -2,7 +2,7 @@ import React, {CSSProperties, FunctionComponent, useMemo} from 'react';
 import {Avatar as AntdAvatar} from 'antd';
 import {IKitAvatar} from './types';
 import {styled} from 'styled-components';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {getColor, getContrastColor, getLighterColor, isSecondaryColor, isValidColor} from '@utils/functions';
 import {kitAvatarCssTokens} from '@theme/aristid/components/DataDisplay/Avatar';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';

@@ -7,7 +7,7 @@ import {DropDownStyle} from '@kit/Navigation/DropDown/style';
 import {SelectDropDownStyle} from '@kit/DataEntry/Select/style';
 import {DatePickerDropDownStyle} from '@kit/DataEntry/DatePicker/style';
 import {NotificationStyle} from '@kit/Feedback/Notification/style';
-import {KitThemeProvider, useKitTheme} from '@theme/theme-context';
+import {KitThemeProvider} from '@theme/theme-context';
 import {IKitCustomTheme} from '@theme/types';
 import {TypographyStyle} from '@kit/General/Typography/style';
 import {TabsDropDownStyle} from '@kit/DataDisplay/Tabs/style';
@@ -18,6 +18,7 @@ import {mapKitLocaleToAntdLocale} from '@translation/utils';
 import {ColorPickerPanelStyle} from '@kit/DataEntry/ColorPicker/style';
 import {TourStyle} from '@kit/DataDisplay/Tour/style';
 import {useKitLocale} from '@translation/useKitLocale';
+import {useKitTheme} from '@theme/useKitTheme';
 
 export const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;

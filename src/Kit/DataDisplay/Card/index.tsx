@@ -4,7 +4,7 @@ import {styled} from 'styled-components';
 import IKitCard, {IStyledKitCard, IStyledKitCardContentTitleContainer} from './types';
 import {KitIcon, KitTypography} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faLink} from '@fortawesome/free-solid-svg-icons';
 import {kitCardCssTokens} from '@theme/aristid/components/DataDisplay/Card';

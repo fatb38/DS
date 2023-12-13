@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 import {Upload as AntdUpload} from 'antd';
 import styled from 'styled-components';
 import {IKitDragger} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faInbox} from '@fortawesome/free-solid-svg-icons';
 import {kitUploadDraggerCssTokens} from '@theme/aristid/components/DataEntry/Upload';

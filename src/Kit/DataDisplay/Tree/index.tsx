@@ -5,7 +5,7 @@ import {IKitTree} from './types';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitTreeCssTokens} from '@theme/aristid/components/DataDisplay/Tree';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const StyledTree = styled(AntdTree)`
     .ant-tree-treenode {

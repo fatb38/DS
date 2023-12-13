@@ -2,7 +2,7 @@ import React from 'react';
 import {KitRate} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout';
 import {KitTypography} from '@kit/General';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const App = () => {
     const {theme} = useKitTheme();

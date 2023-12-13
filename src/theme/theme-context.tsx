@@ -1,23 +1,15 @@
-import React, {createContext, FC, PropsWithChildren, useRef} from 'react';
+import React, {FC, PropsWithChildren, useRef} from 'react';
 
 // TODO: Later add option to have more arisitd themes
 import {getKitAristidTheme} from './aristid';
-import {IKitCustomTheme, IKitTheme, IKitThemeGeneral} from './types';
+import {IKitCustomTheme, IKitTheme} from './types';
 import {createGlobalStyle} from 'styled-components';
 import {toCssVariables} from '@utils/functions';
 import uuid from 'react-uuid';
 import AristidTheme from './default-theme';
 import {merge} from 'lodash';
+import {KitThemeContext} from './useKitTheme';
 
-type KitThemeContext =
-    | {
-          theme: IKitTheme;
-          appId: string;
-          spacing: IKitThemeGeneral['spacing'];
-      }
-    | undefined;
-
-const KitThemeContext = createContext<KitThemeContext>(undefined);
 const kitAristidTheme = getKitAristidTheme();
 
 const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: string}>`
@@ -25,14 +17,6 @@ const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: str
         ${props => toCssVariables(props.customTheme)};
     }
 `;
-
-export const useKitTheme = () => {
-    const context = React.useContext(KitThemeContext);
-    if (context === undefined) {
-        throw new Error('You need to encapsulate component inside a KitApp, useKitTheme must be inside a context');
-    }
-    return context;
-};
 
 export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomTheme; id?: string}>> = ({
     children,

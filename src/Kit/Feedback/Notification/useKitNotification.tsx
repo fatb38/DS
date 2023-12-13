@@ -8,7 +8,7 @@ import {faExclamation, faTriangleExclamation} from '@fortawesome/free-solid-svg-
 import {faCircleCheck, faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 import {kitNotificationCssTokens} from '@theme/aristid/components/Feedback/Notification';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const _getErrorStyle = () => {
     return {

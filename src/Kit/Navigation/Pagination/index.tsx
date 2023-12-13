@@ -2,7 +2,7 @@ import React from 'react';
 import {Pagination} from 'antd';
 import styled from 'styled-components';
 import {IKitPagination} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {kitPaginationCssTokens} from '@theme/aristid/components/Navigation/Pagination';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';

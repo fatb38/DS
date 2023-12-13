@@ -2,7 +2,7 @@ import React, {ReactNode, forwardRef, useMemo} from 'react';
 import {Rate as AntdRate} from 'antd';
 import {IKitRate} from './types';
 import styled from 'styled-components';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar as faStarActive} from '@fortawesome/free-solid-svg-icons';
 import {faStar as faStarDefault, faStarHalfStroke as faStarHalf} from '@fortawesome/free-regular-svg-icons';
