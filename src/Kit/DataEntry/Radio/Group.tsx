@@ -15,11 +15,12 @@ const RadioGroup = memo(
         const {getPrefixCls, direction} = useContext(ConfigContext);
         const size = useContext(SizeContext);
 
-        const [value, setValue] = useMergedState(props.defaultValue, {
+        const [value, setValue] = useMergedState<unknown>(props.defaultValue, {
             value: props.value
         });
 
         const _onRadioChange = (event: RadioChangeEvent) => {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             const val = event.target.value;
             if (!('value' in props)) {
                 setValue(val);
@@ -114,6 +115,7 @@ const RadioGroup = memo(
                 <RadioGroupContextProvider
                     value={{
                         onChange: _onRadioChange,
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                         value,
                         disabled: props.disabled,
                         name: props.name

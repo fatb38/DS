@@ -2,7 +2,6 @@ import React, {FunctionComponent, ReactNode, useEffect, PropsWithChildren} from 
 import {ConfigProvider} from 'antd';
 import GlobalStyles from './style';
 import KitSnackBarProvider from '@kit/Feedback/SnackBar/SnackBarProvider';
-import {KitNotificationProvider} from '@kit/Feedback/Notification/useKitNotification';
 import {DropDownStyle} from '@kit/Navigation/DropDown/style';
 import {SelectDropDownStyle} from '@kit/DataEntry/Select/style';
 import {DatePickerDropDownStyle} from '@kit/DataEntry/DatePicker/style';
@@ -19,6 +18,7 @@ import {ColorPickerPanelStyle} from '@kit/DataEntry/ColorPicker/style';
 import {TourStyle} from '@kit/DataDisplay/Tour/style';
 import {useKitLocale} from '@translation/useKitLocale';
 import {useKitTheme} from '@theme/useKitTheme';
+import {KitNotificationProvider} from '@kit/Feedback/Notification/notification-provider';
 
 export const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;
