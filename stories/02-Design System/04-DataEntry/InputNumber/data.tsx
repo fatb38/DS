@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitInputNumber} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
@@ -5,6 +6,7 @@ import {IEditorTemplate} from '../../../types';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleCheck} from '@fortawesome/free-regular-svg-icons';
+import {KitInputNumberProps} from '@kit/DataEntry/InputNumber/types';
 
 export const argTypes = {
     label: {
@@ -299,13 +301,12 @@ export const getIcon = icon => {
     }
 };
 
-export const Template = args => {
-    const {component, ...props} = args;
+export const Template = (args: KitInputNumberProps) => {
     const prefix = getIcon(args.prefix);
 
     return (
         <KitSpace direction="vertical">
-            <KitInputNumber {...props} prefix={prefix} />
+            <KitInputNumber {...args} prefix={prefix} />
         </KitSpace>
     );
 };

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import {faCircleXmark, faRectangleXmark} from '@fortawesome/free-regular-svg-icons';
 import {faEllipsis, faXmark} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -334,11 +335,7 @@ export const argTypes = {
     }
 };
 
-interface ITourTemplateArgs extends IKitTour {
-    closeIcon?: string;
-}
-
-export const Template = (args: ITourTemplateArgs) => {
+export const Template = (args: IKitTour) => {
     const {closeIcon, ...tourArgs} = args;
     const refUpload = useRef(null);
     const refSave = useRef(null);
@@ -385,7 +382,7 @@ export const Template = (args: ITourTemplateArgs) => {
                 open={_open}
                 onClose={() => setOpen(false)}
                 steps={customSteps}
-                closeIcon={getCloseIcon(closeIcon)}
+                closeIcon={getCloseIcon(closeIcon as string)}
             />
         </>
     );

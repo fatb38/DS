@@ -1,7 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
+import {IKitCheckbox} from '@kit/DataEntry/Checkbox/types';
 
 const CheckboxArgTypes = {
     label: {
@@ -184,8 +186,12 @@ export const argTypes = {
     ...CheckboxGroupArgTypes
 };
 
-export const Template = args => {
-    const {label, ...props} = args;
+interface ITemplate extends IKitCheckbox {
+    label: string;
+}
+
+export const Template = (args: IKitCheckbox) => {
+    const {label, ...props} = args as ITemplate;
     return <KitCheckbox {...props}>{label}</KitCheckbox>;
 };
 

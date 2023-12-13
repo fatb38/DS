@@ -1,7 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, {useState} from 'react';
 import {KitSteps} from '@kit/Navigation/';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
+import {IKitSteps} from '@kit/Navigation/Steps/types';
 
 const direction = ['horizontal', 'vertical'];
 
@@ -155,8 +157,8 @@ export const argTypes = {
     }
 };
 
-export const Template = args => {
-    const {component, ...props} = args;
+export const Template = (args: IKitSteps) => {
+    const {...props} = args;
     return (
         <KitSteps
             items={[
@@ -181,7 +183,7 @@ export const Template = args => {
 export const EditorTemplate: IEditorTemplate = () => {
     const [current, setCurrent] = useState(0);
 
-    const onChange = value => {
+    const onChange = (value: number) => {
         setCurrent(value);
     };
 

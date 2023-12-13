@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import React, {useState} from 'react';
 import {KitUpload} from '@kit/DataEntry';
 import {UploadFile, UploadProps} from 'antd';

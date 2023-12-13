@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitSelect} from '@kit/DataEntry/';
 import {IEditorTemplate} from '../../../types';

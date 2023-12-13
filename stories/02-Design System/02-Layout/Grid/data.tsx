@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitGrid} from '@kit/Layout/';
 import {IKitCol, IKitRow} from '@kit/Layout/Grid/types';

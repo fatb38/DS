@@ -1,5 +1,6 @@
 import React from 'react';
 import {KitAutoComplete} from '@kit/DataEntry';
+import {BaseOptionType} from 'antd/es/select';
 
 const App = () => {
     const options = [
@@ -24,7 +25,8 @@ const App = () => {
             }}
             options={options}
             placeholder="try to type `b`"
-            filterOption={(inputValue, option) =>
+            filterOption={(inputValue: string, option: BaseOptionType) =>
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
                 option?.value?.toString().toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
             }
         />

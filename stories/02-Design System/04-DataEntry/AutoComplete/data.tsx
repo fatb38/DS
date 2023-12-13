@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import {KitAutoComplete} from '@kit/DataEntry';
 import React from 'react';
 

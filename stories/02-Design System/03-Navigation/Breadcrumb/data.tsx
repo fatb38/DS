@@ -1,7 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitTypography} from '@kit/General/';
 import {KitBreadcrumb} from '@kit/Navigation/';
 import {IEditorTemplate} from '../../../types';
+import {IKitBreadcrumb} from '@kit/Navigation/Breadcrumb/types';
 
 const menuItems = [
     {
@@ -86,7 +88,7 @@ export const argTypes = {
     }
 };
 
-export const Template = args => {
+export const Template = (args: IKitBreadcrumb) => {
     const {items, separator} = args;
     return (
         <KitBreadcrumb

@@ -1,7 +1,9 @@
-import React from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import React, {ReactNode} from 'react';
 import {KitTypography} from '@kit/General/';
 import {KitGrid, KitSpace} from '@kit/Layout/';
 import {IEditorTemplate} from '../../../types';
+import {IKitTypography} from '@theme/types/general/typography';
 
 const components = ['Title', 'Text', 'Paragraph', 'Link'];
 
@@ -168,8 +170,13 @@ const getComponent = (component, content, args) => {
     }
 };
 
-export const Template = args => {
-    const {component, content, ...props} = args;
+interface ITemplate extends IKitTypography {
+    component: string;
+    content: ReactNode;
+}
+
+export const Template = (args: IKitTypography) => {
+    const {component, content, ...props} = args as ITemplate;
     return <KitSpace direction="vertical">{getComponent(component, content, props)}</KitSpace>;
 };
 

@@ -1,7 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitPagination} from '@kit/Navigation/';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
+import {IKitPagination} from '@kit/Navigation/Pagination/types';
 
 const sizeOptions = ['default', 'small', 'default'];
 
@@ -320,9 +322,13 @@ export const argTypes = {
     }
 };
 
-export const Template = args => {
-    const {pageSizeOptions, ...props} = args;
-    const sizeOptions = pageSizeOptions ? pageSizeOptions.split(',') : null;
+interface ITemplate extends Omit<IKitPagination, 'pageSizeOptions'> {
+    pageSizeOptions: string | undefined | null;
+}
+
+export const Template = (args: IKitPagination) => {
+    const {pageSizeOptions, ...props} = args as ITemplate;
+    const sizeOptions: string[] | undefined = pageSizeOptions ? pageSizeOptions.split(',') : undefined;
     return <KitPagination pageSizeOptions={sizeOptions} {...props} />;
 };
 

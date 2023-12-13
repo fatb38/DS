@@ -1,8 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitSlider} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout';
 import {IEditorTemplate} from '../../../types';
-import {KitSliderMarks} from '@kit/DataEntry/Slider/types';
+import {IKitSliderRange, IKitSliderSingle, KitSliderMarks} from '@kit/DataEntry/Slider/types';
+import {SliderTooltipProps} from 'antd/es/slider';
 
 const placement = [
     'top',
@@ -305,12 +307,12 @@ export const argTypes = {
     ...TooltipArgsType
 };
 
-export const Template = args => {
+export const Template = (args: IKitSliderSingle & IKitSliderRange & SliderTooltipProps) => {
     const {open, placement, range, ...props} = args;
     return (
         <KitSpace direction="vertical" style={{width: '300px'}}>
             <KitSlider tooltip={{open, placement}} {...props} />
-            <KitSlider range defaultValue={[0, 30]} tooltip={{open, placement}} {...props} />
+            <KitSlider range={range} defaultValue={[0, 30]} tooltip={{open, placement}} {...props} />
         </KitSpace>
     );
 };

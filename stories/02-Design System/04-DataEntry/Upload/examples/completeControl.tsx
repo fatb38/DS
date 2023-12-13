@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {KitUpload} from '@kit/DataEntry';
 import {UploadFile, UploadProps} from 'antd';
+import {UploadChangeParam} from 'antd/es/upload';
 
 const App = () => {
     const [fileList, setFileList] = useState<UploadFile[]>([
@@ -12,8 +13,8 @@ const App = () => {
         }
     ]);
 
-    const handleChange: UploadProps['onChange'] = info => {
-        let newFileList = [...info.fileList];
+    const handleChange: UploadProps['onChange'] = (info: UploadChangeParam) => {
+        let newFileList: UploadFile[] = [...info.fileList];
 
         // 1. Limit the number of uploaded files
         // Only to show two recent uploaded files, and old ones will be replaced by the new
@@ -23,7 +24,8 @@ const App = () => {
         newFileList = newFileList.map(file => {
             if (file.response) {
                 // Component will show file.url as link
-                file.url = file.response.url;
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                file.url = file.response.url as string;
             }
             return file;
         });

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitColorPicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';

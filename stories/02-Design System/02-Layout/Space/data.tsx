@@ -1,6 +1,8 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitSpace} from '@kit/Layout/';
 import {KitButton} from '@kit/General/';
+import {IKitSpace} from '@kit/Layout/Space/types';
 
 export const argTypes = {
     compact: {
@@ -86,9 +88,13 @@ export const argTypes = {
     }
 };
 
-export const Template = args => {
-    const {compact, ...props} = args;
-    const Component = compact ? KitSpace.Compact : KitSpace;
+interface ITemplate extends IKitSpace {
+    compact: boolean;
+}
+
+export const Template = (args: IKitSpace) => {
+    const {compact, ...props} = args as ITemplate;
+    const Component: typeof KitSpace | typeof KitSpace.Compact = compact ? KitSpace.Compact : KitSpace;
 
     return (
         <Component {...props}>

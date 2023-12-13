@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitButton, KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
@@ -209,26 +210,24 @@ const getCloseIcon = closeIcon => {
     }
 };
 
-interface ITemplateArgs extends IKitNotificationArgs {
-    closeIcon?: string;
-    icon?: string;
-    duration?: number;
-}
-
-export const Template = (args: ITemplateArgs) => {
+export const Template = (args: IKitNotificationArgs) => {
     const {kitNotification} = useKitNotification();
 
     const openNotification = (type: 'open' | 'info' | 'success' | 'warning' | 'error') => {
         if (checkRequiredField(args, ['message', 'description'])) {
-            kitNotification[type]({...args, icon: getIcon(args.icon), closeIcon: getCloseIcon(args.closeIcon)});
+            kitNotification[type]({
+                ...args,
+                icon: getIcon({icon: args.icon}),
+                closeIcon: getCloseIcon({closeIcon: args.closeIcon})
+            } as IKitNotificationArgs);
         } else {
             kitNotification[type]({
                 ...args,
-                icon: getIcon(args.icon),
-                closeIcon: getCloseIcon(args.closeIcon),
+                icon: getIcon({icon: args.icon}),
+                closeIcon: getCloseIcon({closeIcon: args.closeIcon}),
                 message: 'Some field are required',
                 description: 'Some required fields are not fulfill !'
-            });
+            } as IKitNotificationArgs);
         }
     };
 
@@ -243,7 +242,7 @@ export const Template = (args: ITemplateArgs) => {
     );
 };
 
-const checkRequiredField = (args: ITemplateArgs, requiredFields: string[]) => {
+export const checkRequiredField = (args: IKitNotificationArgs, requiredFields: string[]) => {
     return !requiredFields.some((field: string) => args[field] === undefined || args[field] === '');
 };
 

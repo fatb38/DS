@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitAvatar, KitImage, KitItemList} from '@kit/DataDisplay/';
 import {KitIcon} from '@kit/General/';
@@ -5,6 +6,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
+import {IKitItemList} from '@kit/DataDisplay/ItemList/types';
+import {CheckboxChangeEvent} from '@kit/DataEntry/Checkbox';
 
 export const mockData = {
     base: {
@@ -20,7 +23,7 @@ export const mockData = {
     image: <KitImage src="public/images/tondeuse.png" />,
     icon: <KitIcon icon={<FontAwesomeIcon icon={faUser} />} />,
     avatar: <KitAvatar>G</KitAvatar>,
-    onSelectChange: e => console.log('selected', e.target.checked),
+    onSelectChange: (e: CheckboxChangeEvent) => console.log('selected', e.target.checked),
     onRafterClick: () => console.log('click rafter'),
     onClick: () => console.log('on click itemlist')
 };
@@ -179,7 +182,13 @@ const getPicture = picture => {
     }
 };
 
-export const Template = args => {
+interface ITempate extends IKitItemList {
+    displayCheckbox: boolean;
+    displayRafter: boolean;
+    itemListClickable: boolean;
+}
+
+export const Template = (args: ITempate) => {
     const props = {
         ...args,
         picture: getPicture(args.picture)

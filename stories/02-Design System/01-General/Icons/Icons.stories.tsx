@@ -34,27 +34,31 @@ export const Basic: Story = {
     }
 };
 
+const IconWithHooks = () => {
+    const {theme} = useKitTheme();
+
+    const secondaryColors = Object.keys(theme.general.colors.secondary);
+
+    return (
+        <div>
+            <div>
+                <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
+            </div>
+            <div style={{display: 'inline-flex', gap: '8px'}}>
+                {secondaryColors.map((color: string) => (
+                    <div style={{display: 'inline-flex', gap: '8px', flexDirection: 'column'}} key={color}>
+                        <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color={color} />
+                        <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color={color} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
 export const Colors: Story = {
     render: () => {
-        const {theme} = useKitTheme();
-
-        const secondaryColors = Object.keys(theme.general.colors.secondary);
-
-        return (
-            <div>
-                <div>
-                    <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
-                </div>
-                <div style={{display: 'inline-flex', gap: '8px'}}>
-                    {secondaryColors.map((color: string) => (
-                        <div style={{display: 'inline-flex', gap: '8px', flexDirection: 'column'}} key={color}>
-                            <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color={color} />
-                            <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color={color} />
-                        </div>
-                    ))}
-                </div>
-            </div>
-        );
+        return <IconWithHooks />;
     },
     parameters: {
         chromatic: {disableSnapshot: false}

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitModal} from '@kit/Feedback';
 import ConfirmDialog from '@kit/Feedback/Modal/ConfirmDialog';
-import { KitButton } from '@kit/General';
+import {KitButton} from '@kit/General';
 import {argTypes, Template} from './data';
 
 const meta: Meta<typeof KitModal> = {
@@ -24,7 +24,8 @@ const StyleContainer = styled.div`
     }
 `;
 
-const getParentSelector= (selector) => () => document.querySelector(selector) || document.querySelector('body');
+const getParentSelector = (selector: string) => () =>
+    document.querySelector<HTMLElement>(selector) || document.querySelector<HTMLElement>('body');
 
 const modalProps = {
     type: 'confirm',
@@ -78,7 +79,7 @@ export const FullConfirm: Story = {
                 parentSelector={getParentSelector('#modal-test-info')}
                 {...modalProps}
                 image="public/images/portrait.png"
-                type='info'
+                type="info"
                 title=" info dialog"
                 okCancel={modalProps.showSecondaryCta}
             ></ConfirmDialog>
@@ -87,7 +88,7 @@ export const FullConfirm: Story = {
     parameters: {
         chromatic: {disableSnapshot: false}
     }
-}
+};
 
 export const ConfirmTypes: Story = {
     render: () => (
@@ -111,7 +112,7 @@ export const ConfirmTypes: Story = {
                 ariaHideApp={false}
                 parentSelector={getParentSelector('#modal-test-info')}
                 {...modalProps}
-                type='info'
+                type="info"
                 title="Info dialog"
                 okCancel={modalProps.showSecondaryCta}
             ></ConfirmDialog>
@@ -121,7 +122,7 @@ export const ConfirmTypes: Story = {
                 ariaHideApp={false}
                 parentSelector={getParentSelector('#modal-test-success')}
                 {...modalProps}
-                type='success'
+                type="success"
                 title="Success dialog"
                 okCancel={modalProps.showSecondaryCta}
             ></ConfirmDialog>
@@ -131,7 +132,7 @@ export const ConfirmTypes: Story = {
                 ariaHideApp={false}
                 parentSelector={getParentSelector('#modal-test-error')}
                 {...modalProps}
-                type='error'
+                type="error"
                 title="Error dialog"
                 okCancel={modalProps.showSecondaryCta}
             ></ConfirmDialog>
@@ -141,7 +142,7 @@ export const ConfirmTypes: Story = {
                 ariaHideApp={false}
                 parentSelector={getParentSelector('#modal-test-warning')}
                 {...modalProps}
-                type='warning'
+                type="warning"
                 title="Warning dialog"
                 okCancel={modalProps.showSecondaryCta}
             ></ConfirmDialog>
@@ -151,7 +152,7 @@ export const ConfirmTypes: Story = {
                 ariaHideApp={false}
                 parentSelector={getParentSelector('#modal-test-confirm')}
                 {...modalProps}
-                type='confirm'
+                type="confirm"
                 title=" Confirm dialog"
                 okCancel={modalProps.showSecondaryCta}
             ></ConfirmDialog>

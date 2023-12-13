@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitImage} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
@@ -176,14 +177,7 @@ export const Template = args => {
 };
 
 export const EditorTemplate: IEditorTemplate = () => {
-    return (
-        <KitImage
-            bordered
-            rounded
-            width={200}
-            src='public/images/portrait.png'
-        />
-    );
+    return <KitImage bordered rounded width={200} src="public/images/portrait.png" />;
 };
 EditorTemplate.path = 'components.Image';
 EditorTemplate.title = 'Image';

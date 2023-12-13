@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import {KitButton} from '@kit/General/';
+import {CheckboxChangeEvent} from 'antd/es/checkbox';
 
 const App = () => {
     const [checked, setChecked] = useState(true);
@@ -16,7 +17,7 @@ const App = () => {
         setDisabled(!disabled);
     };
 
-    const onChange = e => {
+    const onChange = (e: CheckboxChangeEvent) => {
         console.log('checked = ', e.target.checked);
         setChecked(e.target.checked);
     };

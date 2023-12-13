@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/require-await */
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitDatePicker} from '@kit/DataEntry';
 import {argTypes, Template} from './data';

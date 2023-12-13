@@ -1,7 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitAvatar, KitBadge} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {IEditorTemplate} from '../../../types';
+import {IKitBadge} from '@kit/DataDisplay/Badge/types';
 
 const status = ['error', 'default', 'success', 'processing', 'warning'];
 
@@ -112,14 +114,13 @@ export const argTypes = {
     }
 };
 
-export const Template = args => {
-    const {component, ...props} = args;
+export const Template = (args: IKitBadge) => {
     return (
         <KitSpace>
-            <KitBadge {...props} />
+            <KitBadge {...args} />
             <br />
             <br />
-            <KitBadge {...props}>
+            <KitBadge {...args}>
                 <KitAvatar shape="square" size="large" />
             </KitBadge>
         </KitSpace>

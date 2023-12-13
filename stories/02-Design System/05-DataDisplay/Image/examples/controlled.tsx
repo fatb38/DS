@@ -5,13 +5,19 @@ import {KitButton} from '@kit/General';
 
 const App = () => {
     const [visible, setVisible] = useState(false);
-    const [scaleStep, setScaleStep] = useState<any>(0.5);
+    const [scaleStep, setScaleStep] = useState<number | undefined>(0.5);
 
     return (
         <>
             <div>
                 scaleStep:{' '}
-                <KitInputNumber min={0.1} max={5} defaultValue={0.5} step={0.1} onChange={val => setScaleStep(val)} />
+                <KitInputNumber
+                    min={0.1}
+                    max={5}
+                    defaultValue={0.5}
+                    step={0.1}
+                    onChange={val => setScaleStep(val as number)}
+                />
             </div>
             <br />
             <KitButton type="primary" onClick={() => setVisible(true)}>
@@ -20,7 +26,7 @@ const App = () => {
             <KitImage
                 width={200}
                 style={{display: 'none'}}
-                src='public/images/portraitBlur.png'
+                src="public/images/portraitBlur.png"
                 preview={{
                     visible,
                     scaleStep,

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, {ReactNode} from 'react';
 import {KitButton, KitTypography} from '@kit/General/';
 import {KitBreadcrumb, KitHeader} from '@kit/Navigation/';
@@ -5,6 +6,7 @@ import {IEditorTemplate} from '../../../types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowUpZA, faFilter, faSliders} from '@fortawesome/free-solid-svg-icons';
 import {faObjectUngroup} from '@fortawesome/free-regular-svg-icons';
+import {IKitHeader} from '@kit/DataDisplay/Collapse/types';
 
 const menuItems = [
     {
@@ -160,8 +162,15 @@ export const argTypes = {
 
 const handleOnPlusClick = () => console.log('click "plus" button');
 
-export const Template = args => {
-    const {actions: showActions, breadcrumb: showBreadcrumb, onPlusClick, search, ...props} = args;
+interface ITemplate extends IKitHeader {
+    actions: boolean;
+    breadcrumb: boolean;
+    onPlusClick: boolean;
+    search: boolean;
+}
+
+export const Template = (args: IKitHeader) => {
+    const {actions: showActions, breadcrumb: showBreadcrumb, onPlusClick, search, ...props} = args as ITemplate;
     return (
         <KitHeader
             actions={showActions ? actions : undefined}

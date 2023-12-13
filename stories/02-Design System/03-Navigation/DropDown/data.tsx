@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitButton} from '@kit/General/';
 import {KitDropDown} from '@kit/Navigation/';
@@ -218,6 +219,8 @@ const DropDownArgTypes = {
     }
 };
 
+/*
+// Keep this block, in may beconme handy later
 const DropDownButtonArgTypes = {
     buttonsRender: {
         name: 'buttonsRender',
@@ -296,7 +299,7 @@ const DropDownButtonArgTypes = {
             category: 'DropDown.Button'
         }
     }
-};
+};*/
 
 export const argTypes = {
     ...DropDownArgTypes

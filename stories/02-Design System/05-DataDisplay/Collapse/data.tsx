@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import {KitCollapse} from '@kit/DataDisplay/';
 import React from 'react';
 import {IEditorTemplate} from 'stories/types';

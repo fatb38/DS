@@ -5,7 +5,6 @@ import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFile} from '@fortawesome/free-regular-svg-icons';
 import {colorsPalette} from '@theme/aristid/general/colors';
-import {within} from '@storybook/testing-library';
 
 const meta: Meta<typeof KitSelect> = {
     component: KitSelect,

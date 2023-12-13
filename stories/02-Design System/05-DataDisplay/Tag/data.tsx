@@ -1,7 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitTag} from '@kit/DataDisplay/';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
+import {IKitTag} from '@kit/DataDisplay/Tag/types';
 
 const TagArgTypes = {
     label: {
@@ -61,7 +63,7 @@ export const argTypes = {
     ...TagArgTypes
 };
 
-export const Template = args => {
+export const Template = (args: IKitTag & {label: string}) => {
     const {label, ...props} = args;
     return <KitTag {...props}>{label ? label : 'Default label'}</KitTag>;
 };

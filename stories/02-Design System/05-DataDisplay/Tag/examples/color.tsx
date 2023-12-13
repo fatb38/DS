@@ -3,7 +3,6 @@ import {KitTag} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {KitTypography} from '@kit/General';
 import {useKitTheme} from '@theme/theme-context';
-import {KitColorProp} from '@utils/functions/types';
 
 const App = () => {
     const {theme} = useKitTheme();

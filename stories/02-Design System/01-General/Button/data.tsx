@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitButton} from '@kit/General/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -5,6 +6,7 @@ import {faDownload, faMagnifyingGlass, faPowerOff, faRotateRight} from '@fortawe
 import {faCircleCheck} from '@fortawesome/free-regular-svg-icons';
 import {KitSpace} from '@kit/Layout';
 import {IEditorTemplate} from '../../../types';
+import {IKitButton} from '@kit/General/Button/types';
 
 export const argTypes = {
     block: {
@@ -240,8 +242,12 @@ export const getIcon = ({icon}) => {
     }
 };
 
-export const Template = args => {
-    const icon = getIcon(args);
+interface ITemplate extends Omit<IKitButton, 'icon'> {
+    icon: string;
+}
+
+export const Template = (args: IKitButton) => {
+    const icon = getIcon(args as ITemplate);
     return (
         <KitButton {...args} icon={icon}>
             Label

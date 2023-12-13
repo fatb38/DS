@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitAlert} from '@kit/Feedback/';
 import {IEditorTemplate} from '../../../types';

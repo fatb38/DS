@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '../../../../src';

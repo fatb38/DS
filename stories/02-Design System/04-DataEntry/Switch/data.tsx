@@ -1,9 +1,11 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitSwitch} from '@kit/DataEntry/';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCheck, faXmark} from '@fortawesome/free-solid-svg-icons';
+import {IKitSwitch} from '@kit/DataEntry/Switch/types';
 
 const SwitchArgTypes = {
     label: {
@@ -178,9 +180,8 @@ export const getIcon = value => {
     }
 };
 
-export const Template = args => {
-    const {checkedChildren, unCheckedChildren, ...props} = args;
-    return <KitSwitch {...props}>Switch label</KitSwitch>;
+export const Template = (args: IKitSwitch) => {
+    return <KitSwitch {...args}>Switch label</KitSwitch>;
 };
 
 export const EditorTemplate: IEditorTemplate = () => {

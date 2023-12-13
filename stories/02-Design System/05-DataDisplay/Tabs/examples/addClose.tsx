@@ -17,7 +17,7 @@ const App = () => {
     const [items, setItems] = useState(initialItems);
     const newTabIndex = useRef(0);
 
-    const onChange = newActiveKey => {
+    const onChange = (newActiveKey: string) => {
         setActiveKey(newActiveKey);
     };
 

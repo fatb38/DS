@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, {FunctionComponent} from 'react';
 import {KitSnackBarProvider, openKitSnackBar, closeKitSnackBar} from '@kit/Feedback/';
 import {KitButton} from '@kit/General/';
@@ -78,14 +79,7 @@ export const argTypes = {
     }
 };
 
-type TemplateArgs = {
-    message: string;
-    ctaText?: string;
-    closable?: boolean;
-    duration?: number;
-};
-
-export const Template = (args: TemplateArgs) => {
+export const Template = (args: IKitOpenSnackBar) => {
     return (
         <div>
             <KitSnackBarProvider />

@@ -1,8 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitTypography} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {IEditorTemplate} from 'stories/types';
+import {IKitTooltip} from '@kit/DataDisplay/Tooltip/types';
 
 const placement = [
     'top',
@@ -194,11 +196,10 @@ export const argTypes = {
     }
 };
 
-export const Template = args => {
-    const {component, ...props} = args;
+export const Template = (args: IKitTooltip) => {
     return (
         <KitSpace>
-            <KitTooltip title="Default value" {...props}>
+            <KitTooltip title="Default value" {...args}>
                 <KitTypography.Paragraph size="medium" weight="regular">
                     Tooltip will show on mouse enter.
                 </KitTypography.Paragraph>

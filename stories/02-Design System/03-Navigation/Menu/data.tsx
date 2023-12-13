@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitButton} from '@kit/General/';
 import {KitInput} from '@kit/DataEntry/';
@@ -16,6 +17,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import {faCopy, faFloppyDisk, faObjectUngroup, faTrashCan} from '@fortawesome/free-regular-svg-icons';
 import {IEditorTemplate} from '../../../types';
+import {IKitItemMenu} from '@kit/Navigation/Menu/types';
+import {CheckboxChangeEvent} from '@kit/DataEntry/Checkbox';
 
 export const mockData = {
     itemMenu: {
@@ -79,13 +82,20 @@ export const mockData = {
             }
         ],
         value: {default: 'Valeur', layout: 'List', filters: '0'},
-        onSelectChange: e => console.log('selected', e.target.checked),
+        onSelectChange: (e: CheckboxChangeEvent) => console.log('selected', e.target.checked),
         onRafterClick: () => console.log('click rafter'),
         onClick: () => console.log('on click itemMenu')
     },
     menu: {
         title: 'View options',
-        segmentedButton: <KitButton type="primary" icon={<FontAwesomeIcon icon={faHouse} />} segmentedColor="green" segmentedActived />,
+        segmentedButton: (
+            <KitButton
+                type="primary"
+                icon={<FontAwesomeIcon icon={faHouse} />}
+                segmentedColor="green"
+                segmentedActived
+            />
+        ),
         primaryInput: <KitInput placeholder="Opération #1" />,
         secondaryInput: <KitInput placeholder="Description" />,
         onCloseClick: () => console.log('on click close')
@@ -310,23 +320,39 @@ export const argTypes = {
     }
 };
 
-export const Template = args => {
+interface ITemplate extends IKitItemMenu {
+    showCloseButton: boolean;
+    showSegmentedButton: boolean;
+    ShowPrimaryInput: boolean;
+    showPrimaryInput: boolean;
+    showSecondaryInput: boolean;
+    itemMenuTitle: string;
+    showItemMenuIcon: boolean;
+    itemMenuValue: string;
+    showItemMenuActions: boolean;
+    showItemMenuCheckbox: boolean;
+    showItemMenuRafter: boolean;
+}
+
+export const Template = (args: IKitItemMenu) => {
+    const props = args as ITemplate;
+
     const menuProps = {
-        title: args.title,
-        onCloseClick: args.showCloseButton ? mockData.menu.onCloseClick : undefined,
-        segmentedButton: args.showSegmentedButton ? mockData.menu.segmentedButton : undefined,
-        primaryInput: args.showPrimaryInput ? mockData.menu.secondaryInput : undefined,
-        secondaryInput: args.showSecondaryInput ? mockData.menu.secondaryInput : undefined
+        title: props.title,
+        onCloseClick: props.showCloseButton ? mockData.menu.onCloseClick : undefined,
+        segmentedButton: props.showSegmentedButton ? mockData.menu.segmentedButton : undefined,
+        primaryInput: props.showPrimaryInput ? mockData.menu.secondaryInput : undefined,
+        secondaryInput: props.showSecondaryInput ? mockData.menu.secondaryInput : undefined
     };
 
-    const itemMenuProps = {
-        title: args.itemMenuTitle,
-        icon: args.showItemMenuIcon ? mockData.itemMenu.icon.home : undefined,
-        value: args.itemMenuValue,
-        actions: args.showItemMenuActions ? mockData.itemMenu.actionsMore : undefined,
-        isSelected: args.isSelected,
-        onSelectChange: args.showItemMenuCheckbox ? mockData.itemMenu.onSelectChange : undefined,
-        onRafterClick: args.showItemMenuRafter ? mockData.itemMenu.onRafterClick : undefined
+    const itemMenuProps: IKitItemMenu = {
+        title: props.itemMenuTitle,
+        icon: props.showItemMenuIcon ? mockData.itemMenu.icon.home : undefined,
+        value: props.itemMenuValue,
+        actions: props.showItemMenuActions ? mockData.itemMenu.actionsMore : undefined,
+        isSelected: props.isSelected,
+        onSelectChange: props.showItemMenuCheckbox ? mockData.itemMenu.onSelectChange : undefined,
+        onRafterClick: props.showItemMenuRafter ? mockData.itemMenu.onRafterClick : undefined
     };
 
     return (

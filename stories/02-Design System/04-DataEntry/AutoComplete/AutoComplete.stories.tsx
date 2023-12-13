@@ -52,7 +52,7 @@ export const Pattern: Story = {
                 </a>
             </span>
         );
-        const renderItem = (title, count) => ({
+        const renderItem = (title: string, count: number) => ({
             value: title,
             label: (
                 <div

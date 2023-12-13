@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitTabs} from '@kit/DataDisplay/';
 import {IEditorTemplate} from '../../../types';

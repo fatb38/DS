@@ -1,10 +1,12 @@
-import React from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import React, {ReactNode} from 'react';
 import {KitColorPicker, KitDatePicker, KitInput, KitInputNumber, KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleCheck, faUser} from '@fortawesome/free-regular-svg-icons';
 import {faMagnifyingGlass, faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons';
 import {IEditorTemplate} from '../../../types';
+import {IKitInput, IKitTextArea} from '@kit/DataEntry/Input/types';
 
 const components = ['Input', 'TextArea', 'Password'];
 
@@ -298,7 +300,7 @@ export const argTypes = {
     }
 };
 
-export const getIcon = icon => {
+export const getIcon = (icon: ReactNode): ReactNode | string | undefined => {
     switch (icon) {
         case 'SearchOutlined':
             return <FontAwesomeIcon icon={faMagnifyingGlass} />;
@@ -310,7 +312,7 @@ export const getIcon = icon => {
     }
 };
 
-const getComponent = (component, args) => {
+const getComponent = (component: string, args: IKitInput & IKitTextArea) => {
     const prefix = getIcon(args.prefix);
     const suffix = getIcon(args.suffix);
 
@@ -320,15 +322,17 @@ const getComponent = (component, args) => {
         case 'Password':
             return <Password {...args} prefix={prefix} suffix={suffix}></Password>;
         case 'TextArea':
-            return <TextArea {...args} prefix={prefix} suffix={suffix}></TextArea>;
+            return <TextArea {...args} prefix={prefix as string}></TextArea>;
         case 'Input':
         default:
             return <KitInput {...args} prefix={prefix} suffix={suffix}></KitInput>;
     }
 };
 
-export const Template = args => {
-    const {component, ...props} = args;
+type ITemplate = IKitInput & IKitTextArea & {component: string};
+
+export const Template = (args: IKitInput) => {
+    const {component, ...props} = args as ITemplate;
     return <KitSpace direction="vertical">{getComponent(component, props)}</KitSpace>;
 };
 

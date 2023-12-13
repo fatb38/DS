@@ -1,9 +1,11 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitUpload} from '@kit/DataEntry';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
 import {UploadProps} from 'antd';
 import KitDragger from '@kit/DataEntry/Upload/Dragger';
+import {IKitUpload} from '@kit/DataEntry/Upload/types';
 
 const UploadArgTypes = {
     accept: {
@@ -379,7 +381,7 @@ export const argTypes = {
     ...UploadArgTypes
 };
 
-export const Template = args => {
+export const Template = (args: IKitUpload) => {
     const {listType, ...props} = args;
     return <KitUpload listType={listType} {...props}></KitUpload>;
 };
@@ -397,14 +399,14 @@ export const EditorTemplate: IEditorTemplate = () => {
             uid: '2',
             name: 'yyy.png',
             status: 'done',
-            url: 'public/images/portrait.png',
+            url: 'public/images/portrait.png'
         },
         {
             uid: '3',
             name: 'zzz.png',
             status: 'error',
             response: 'Server Error 500',
-            url: 'public/images/portrait.png',
+            url: 'public/images/portrait.png'
         }
     ];
 

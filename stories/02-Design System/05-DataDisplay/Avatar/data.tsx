@@ -1,10 +1,12 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitAvatar} from '@kit/DataDisplay';
 import {KitDivider, KitSpace} from '@kit/Layout';
 import {IEditorTemplate} from '../../../types';
 import {faUser} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {IKitAvatar} from '@kit/DataDisplay/Avatar/types';
+import {IKitAvatar, IKitAvatarGroup} from '@kit/DataDisplay/Avatar/types';
+import {AvatarSize} from 'antd/es/avatar/AvatarContext';
 
 const shape = ['circle', 'square'];
 
@@ -237,21 +239,16 @@ export const argTypes = {
     }
 };
 
-interface IAvatarTemplateArgs extends Omit<IKitAvatar, 'color'> {
-    sizeGroup?: IKitAvatar['size'];
-}
-
-export const Template = (args: IAvatarTemplateArgs) => {
-    const {sizeGroup, ...props} = args;
+export const Template = (args: IKitAvatar & {sizeGroup: AvatarSize}) => {
     return (
         <>
             <KitSpace>
-                <KitAvatar {...props}>U</KitAvatar>
+                <KitAvatar {...args}>U</KitAvatar>
             </KitSpace>
             <br />
             <br />
             <KitSpace>
-                <KitAvatar.Group {...props} size={sizeGroup}>
+                <KitAvatar.Group {...(args as IKitAvatarGroup)} size={args.sizeGroup}>
                     <KitAvatar>G</KitAvatar>
                     <KitAvatar>R</KitAvatar>
                     <KitAvatar>E</KitAvatar>

@@ -27,7 +27,7 @@ const App = () => {
         setCount(newCount);
     };
 
-    const onChange = checked => {
+    const onChange = (checked: boolean) => {
         setShow(checked);
     };
 

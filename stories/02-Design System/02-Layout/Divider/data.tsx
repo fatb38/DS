@@ -1,7 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import {KitDivider, KitGrid, KitSpace} from '@kit/Layout/';
 import {IEditorTemplate} from '../../../types';
 import {KitTypography} from '@kit/General';
+import {IKitDivider} from '@kit/Layout/Divider/types';
 
 export const argTypes = {
     dashed: {
@@ -102,8 +104,12 @@ export const argTypes = {
     }
 };
 
-export const Template = args => {
-    const {label, ...props} = args;
+interface ITemplate extends IKitDivider {
+    label: string;
+}
+
+export const Template = (args: IKitDivider) => {
+    const {label, ...props} = args as ITemplate;
     return <KitDivider {...props}>{label}</KitDivider>;
 };
 

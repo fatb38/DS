@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import {faEllipsis, faGear, faPencil} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitCard} from '@kit/DataDisplay';

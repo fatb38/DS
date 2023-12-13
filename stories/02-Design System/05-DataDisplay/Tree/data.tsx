@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import {KitTree} from '@kit/DataDisplay';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -649,21 +650,6 @@ export const argTypes = {
 export const Template = args => {
     return <KitTree {...args} treeData={mockData.data.line} />;
 };
-
-const options = [
-    {
-        value: 'true',
-        label: 'True'
-    },
-    {
-        value: 'false',
-        label: 'False'
-    },
-    {
-        value: 'custom',
-        label: 'Custom icon'
-    }
-];
 
 const treeData = [
     {
