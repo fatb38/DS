@@ -215,7 +215,9 @@ const _getCover = (cover?: ReactNode) => {
 
     if (cover) {
         const customCover = cover as ReactElement;
-        cardCover = cloneElement(customCover, {className: `kit-card-cover ${customCover.props.className ?? ''}`});
+        cardCover = cloneElement(customCover, {
+            className: `kit-card-cover ${(customCover.props as HTMLElement).className ?? ''}`
+        });
     }
 
     return cardCover;
@@ -241,8 +243,8 @@ const _getExtra = (disabled: boolean, extra?: ReactNode) => {
     if (extra) {
         const customExtra = extra as ReactElement;
         cardExtra = cloneElement(customExtra, {
-            className: `kit-card-extra ${customExtra.props.className ?? ''}`,
-            href: disabled ? null : customExtra.props.href
+            className: `kit-card-extra ${(customExtra.props as HTMLElement).className ?? ''}`,
+            href: disabled ? null : (customExtra.props as HTMLAnchorElement).href
         });
     }
 
