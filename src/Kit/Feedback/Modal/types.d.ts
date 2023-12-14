@@ -1,6 +1,7 @@
 import {FunctionComponent, ReactNode} from 'react';
 import type ReactModal from 'react-modal';
 import {KitHTMLAttributes} from '../../../types';
+import {CSSProperties} from 'styled-components';
 
 type propsToOmit =
     | 'bodyOpenClassName'
@@ -10,6 +11,7 @@ type propsToOmit =
     | 'contentRef'
     | 'overlayElement'
     | 'contentElement'
+    | 'style'
     | 'isOpen';
 
 //todo delete Omit<title role className style>
@@ -22,6 +24,10 @@ export interface IKitModal
     title?: ReactNode;
     footer?: ReactNode;
     isOpen?: boolean;
+    style: {
+        overlay?: CSSProperties;
+        content?: CSSProperties;
+    };
 }
 
 export interface IKitConfirmDialog extends IKitModal {

@@ -1,4 +1,4 @@
-import React, {CSSProperties, FunctionComponent} from 'react';
+import React, {FunctionComponent} from 'react';
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
 import {IKitModal} from './types';
@@ -139,10 +139,14 @@ const Modal: FunctionComponent<IKitModal> = ({
 }: IKitModal) => {
     const {appId} = useKitTheme();
 
-    const styles = {
+    const styles: IKitModal['style'] = {
         ...style,
-        content: {...style?.content, width: width, height: height}
-    } as CSSProperties;
+        content: {
+            ...style?.content,
+            width: width,
+            height: height as string
+        }
+    };
 
     const _onOverlayClick = () => {
         props.showCloseIcon && props.close?.([true]);
