@@ -9,7 +9,7 @@ export const toCssVariables = (tokens, prefix = '-', items = {}) => {
     }
 
     Object.keys(tokens).forEach(name => {
-        let variableName = `${prefix}-${name}`;
+        const variableName = `${prefix}-${name}`;
         if (typeof tokens[name] === 'object') {
             items = toCssVariables(tokens[name], variableName, items);
         } else {

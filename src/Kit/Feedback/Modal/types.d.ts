@@ -18,7 +18,7 @@ export interface IKitModal
         Omit<KitHTMLAttributes<HTMLDivElement>, 'title' | 'role' | 'className' | 'style'> {
     width?: string;
     showCloseIcon?: boolean;
-    close?: (args: any[]) => void;
+    close?: (args: unknown[]) => void;
     title?: ReactNode;
     footer?: ReactNode;
     isOpen?: boolean;
@@ -33,7 +33,7 @@ export interface IKitConfirmDialog extends IKitModal {
     okCancel?: boolean;
     title?: string;
     cancelText?: string;
-    close?: (...args: any[]) => void;
+    close?: (...args: unknown[]) => void;
     okText?: string;
     onCancel?: () => void;
     onOk?: () => void;

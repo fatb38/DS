@@ -222,6 +222,7 @@ const StyledDatePicker = styled.div`
     }
 `;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const KitDatePicker = forwardRef<any, IKitDatePicker>(
     (
         {
