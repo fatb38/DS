@@ -22,6 +22,7 @@ export default function confirm(config: IKitConfirmDialog) {
     };
     let timeoutId: NodeJS.Timeout;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function destroy(...args: any) {
         const triggerCancel = args.some(param => param && param.triggerCancel);
         if (config.onCancel && triggerCancel) {
@@ -50,7 +51,7 @@ export default function confirm(config: IKitConfirmDialog) {
         }) as unknown as NodeJS.Timeout;
     }
 
-    function close(...args: any) {
+    function close(...args: unknown[]) {
         //TODO Handle on Cancel
 
         destroy(args);
