@@ -275,6 +275,7 @@ export const StyledRangePicker = styled.div`
     }
 `;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const KitDatePicker = forwardRef<any, IKitRangePicker>(
     ({label, className, helper, suffixIcon, picker, allowClear = true, ...rangePickerProps}, ref) => {
         const {appId} = useKitTheme();
