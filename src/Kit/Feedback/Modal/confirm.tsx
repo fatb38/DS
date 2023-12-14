@@ -24,6 +24,7 @@ export default function confirm(config: IKitConfirmDialog) {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function destroy(...args: any) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
         const triggerCancel = args.some(param => param && param.triggerCancel);
         if (config.onCancel && triggerCancel) {
             config.onCancel();
