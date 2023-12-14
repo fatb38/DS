@@ -13,7 +13,7 @@ export default function confirm(config: IKitConfirmDialog) {
     const container = document.createDocumentFragment();
     const root = createRoot(container);
     const portalClassName = 'reactPortal-' + uuid();
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+     
     let currentConfig: IModalConfig = {
         ...config,
         close,
