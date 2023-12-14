@@ -32,7 +32,7 @@ interface ISelectOption {
     label?: string;
 }
 
-const _getOptionLabel = (selectOption: ISelectOption) => {
+const _getOptionLabel = (selectOption: ISelectOption): ReactElement => {
     const {icon, color, label} = selectOption;
     return (
         <div className="kit-select-option">
@@ -47,25 +47,27 @@ const _getOptionLabel = (selectOption: ISelectOption) => {
     );
 };
 
-const _parseOptions = (list: IKitOption[], labelOnly: boolean) => {
+const _parseOptions = (list: IKitOption[], labelOnly?: boolean) => {
     return list.map(option => {
         const {className, disabled, value, options, ...rest} = option;
         if (options) {
             return {
                 label: rest.label,
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-argument
                 options: _parseOptions(options, labelOnly)
             };
         }
         return {
             label: labelOnly ? <StyledLabel>{rest.label}</StyledLabel> : _getOptionLabel(rest),
             className: rest.highlight ? `${className} kit-select-highlight-option` : (className as string),
-            disabled: disabled as string,
+            disabled: disabled as boolean,
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             value
         };
     });
 };
 
-const _dropDownRenderer = (menu: ReactElement<any, string | JSXElementConstructor<any>>) => {
+const _dropDownRenderer = (menu: ReactElement<unknown, string | JSXElementConstructor<unknown>>) => {
     return <div className="kit-select-dropdown-content">{menu}</div>;
 };
 
@@ -178,7 +180,8 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             if (!options) {
                 setOptions([]);
             } else {
-                setOptions(_parseOptions(options, labelOnly));
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+                setOptions(_parseOptions(options, !!labelOnly));
             }
         }, [options, labelOnly]);
 

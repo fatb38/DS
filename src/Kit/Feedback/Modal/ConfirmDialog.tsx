@@ -99,7 +99,7 @@ const ConfirmDialog = (props: IKitConfirmDialog) => {
             showCloseIcon={false}
             width={width ?? 'auto'}
             style={{content: {minWidth: '350px'}}}
-            portalClassName={portalClassName}
+            portalClassName={portalClassName as string}
             footer={
                 <>
                     {cancelButton}
