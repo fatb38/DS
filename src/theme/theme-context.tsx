@@ -42,7 +42,6 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
 }) => {
     const [cssTokens, setCssTokens] = useState<Record<string, string> | null>(null);
     const {theme, appId, spacing} = useKitThemeProvider(getKitAristidTheme(), id, customTheme);
-    const globalStyleHtmlElement = document.getElementById(globalStyleId);
 
     useLayoutEffect(() => {
         const generalTheme = getKitAristidTheme()?.general;
@@ -52,7 +51,7 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
 
     return (
         <KitThemeContext.Provider value={{theme, appId, spacing}}>
-            {cssTokens !== null && globalStyleHtmlElement === null && (
+            {cssTokens !== null && (
                 <>
                     <Style id={globalStyleId} hasSourceMap={false}>
                         {`
@@ -64,9 +63,9 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
                         `}
                     </Style>
                     {customTheme && <CustomVariables id={appId} customTheme={customTheme} />}
+                    {children}
                 </>
             )}
-            {cssTokens !== null && children}
         </KitThemeContext.Provider>
     );
 };
