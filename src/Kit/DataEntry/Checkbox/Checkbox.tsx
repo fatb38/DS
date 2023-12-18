@@ -12,9 +12,14 @@ import {GroupContext} from './Group';
 import {kitCheckboxCssTokens} from '@theme/aristid/components/DataEntry/Checkbox';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import classNames from 'classnames';
 
 const StyledKitCheckbox = styled(Checkbox)`
     font-weight: var(${kitCheckboxCssTokens.typography.fontWeight}, var(${typographyCssTokens.mediumfontWeight}));
+
+    .ant-checkbox-inner {
+        border-width: calc(var(${kitCheckboxCssTokens.typography.lineWidth}, 1) * 1px);
+    }
 
     &:not(.ant-checkbox-wrapper-danger) {
         .ant-checkbox-disabled + span {
@@ -65,9 +70,8 @@ const StyledKitCheckbox = styled(Checkbox)`
 
         .ant-checkbox-inner:after {
             width: 8px;
-            height: 0px;
+            height: 0;
             border: 1px solid white;
-            transform: translate('-4px', '-1px');
         }
 
         &.ant-checkbox-disabled .ant-checkbox-inner:after {
@@ -121,6 +125,7 @@ const StyledKitCheckbox = styled(Checkbox)`
     }
 
     // Hover
+
     &:not(.ant-checkbox-wrapper-disabled):hover,
     &:not(.ant-checkbox-wrapper-disabled) .ant-checkbox:hover {
         .ant-checkbox-inner {
@@ -163,6 +168,7 @@ const StyledKitCheckbox = styled(Checkbox)`
         border: 1px dashed
             var(${kitCheckboxCssTokens.colors.border.focus}, var(${kitColorsPaletteCssTokens.primary.primary400}));
     }
+
     &.ant-checkbox-wrapper-danger .ant-checkbox-input:focus + .ant-checkbox-inner {
         border: 1px dashed
             var(
@@ -172,6 +178,7 @@ const StyledKitCheckbox = styled(Checkbox)`
     }
 
     // Focus
+
     &.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):not(.ant-checkbox-wrapper-danger):hover
         .ant-checkbox:focus-within
         .ant-checkbox-inner {
@@ -181,6 +188,7 @@ const StyledKitCheckbox = styled(Checkbox)`
             ${kitCheckboxCssTokens.colors.background.focus},
             var(${kitColorsPaletteCssTokens.neutral.white})
         );
+
         &:after {
             border-color: var(
                 ${kitCheckboxCssTokens.colors.border.focus},
@@ -198,6 +206,7 @@ const StyledKitCheckbox = styled(Checkbox)`
             ${kitCheckboxCssTokens.colors.background.focus},
             var(${kitColorsPaletteCssTokens.primary.primary400})
         );
+
         &:after {
             border-color: var(
                 ${kitCheckboxCssTokens.colors.border.focus},
@@ -215,12 +224,12 @@ const StyledKitCheckbox = styled(Checkbox)`
             ${kitCheckboxCssTokens.colors.background.focus},
             var(${kitColorsPaletteCssTokens.neutral.white})
         );
+
         &:after {
             border-color: var(
                 ${kitCheckboxCssTokens.colors.border.focus},
                 var(${kitColorsPaletteCssTokens.primary.primary400})
             );
-            border-top: 0;
             border-inline-start: 0;
             border-width: 2px;
         }
@@ -232,12 +241,12 @@ const StyledKitCheckbox = styled(Checkbox)`
                 ${kitCheckboxCssTokens.colors.background.focus},
                 var(${kitColorsPaletteCssTokens.neutral.white})
             );
+
             &:after {
                 border-color: var(
                     ${kitCheckboxCssTokens.colors.border.danger.focus},
                     var(${kitColorsPaletteCssTokens.secondary.red.red400})
                 );
-                border-top: 0;
                 border-inline-start: 0;
                 border-width: 2px;
             }
@@ -281,14 +290,12 @@ const KitCheckbox = forwardRef<CheckboxRef, IKitCheckbox>(({danger, className, .
         checkboxProps.checked = checkboxGroup.value.includes(props.value);
     }
 
-    const customClassName = danger ? (className || '') + ' ant-checkbox-wrapper-danger' : className;
-
     return (
         <StyledKitCheckbox
             {...checkboxProps}
             ref={ref}
             disabled={mergedDisabled}
-            className={`${appId} ${customClassName ?? ''}`}
+            className={classNames(appId, className, danger ? 'ant-checkbox-wrapper-danger' : undefined)}
         />
     );
 });

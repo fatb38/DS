@@ -40,7 +40,7 @@ const StyledAntdSteps = styled(AntdSteps)`
         }
 
         .ant-steps-item-container .ant-steps-item-tail {
-            width: calc(100% - 17px);
+            width: 100%;
         }
     }
 `;

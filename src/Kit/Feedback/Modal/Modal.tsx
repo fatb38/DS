@@ -155,11 +155,11 @@ const Modal: FunctionComponent<IKitModal> = ({
     const mergedProps = {
         ...props,
         style: styles,
-        className: `${appId} kit-modal-wrapper ${props.className}`,
+        className: `${appId} kit-modal-wrapper ${props.className || ''}`,
         overlayElement: (overlayProps, contentElement) => (
             <StyledOverlay {...overlayProps}>{contentElement}</StyledOverlay>
         ),
-        overlayClassName: `${appId} kit-modal-overlay ${props.overlayClassName}`
+        overlayClassName: `${appId} kit-modal-overlay ${props.overlayClassName || ''}`
     };
 
     const kitSpaceSize = +(getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)

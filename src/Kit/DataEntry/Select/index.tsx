@@ -12,8 +12,8 @@ import React, {
     ReactNode
 } from 'react';
 import cn from 'classnames';
-import {KitIcon} from '../../General/';
 import {IKitOption, IKitSelect} from './types';
+import {KitIcon} from '@kit/General';
 import type {CustomTagProps} from 'rc-select/lib/BaseSelect';
 import {StyledBadge, StyledKitSelect, StyledLabel} from './style';
 import KitInputWrapper from '@kit/DataEntry/Input/InputWrapper';

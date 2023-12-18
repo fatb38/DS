@@ -10,7 +10,7 @@ import {kitDatePickerCssTokens} from '@theme/aristid/components/DataEntry/DatePi
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-export const StyledRangePicker = styled.div`
+const StyledRangePicker = styled.div`
     .ant-picker.ant-picker-range {
         display: grid;
         grid-template-areas: 'icon input1 separator input2 clear';

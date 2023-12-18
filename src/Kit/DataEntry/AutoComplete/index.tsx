@@ -8,7 +8,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import {valueType} from 'antd/lib/statistic/utils';
 
-export const StyledKitAutoComplete = styled(AntdAutoComplete)`
+const StyledKitAutoComplete = styled(AntdAutoComplete)`
     &.ant-select-auto-complete.ant-select-open {
         .ant-input-affix-wrapper {
             border-bottom-left-radius: 0px;

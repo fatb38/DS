@@ -46,7 +46,7 @@ export const Primary: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus'
@@ -77,7 +77,7 @@ export const DefaultButton: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus'
@@ -110,7 +110,7 @@ export const Danger: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus'
@@ -141,7 +141,7 @@ export const Text: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus'
@@ -175,7 +175,7 @@ export const Link: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus',
@@ -252,7 +252,7 @@ export const Segmented: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus',
@@ -285,7 +285,7 @@ export const Icon: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus'
@@ -304,7 +304,7 @@ export const IconSize: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false}
+        chromatic: {disableSnapshot: false, delay: 1500}
     }
 };
 
@@ -323,6 +323,6 @@ export const Colored: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false}
+        chromatic: {disableSnapshot: false, delay: 1500}
     }
 };

@@ -65,6 +65,6 @@ export const Ellipsis: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false}
+        chromatic: {disableSnapshot: false, delay: 1500}
     }
 };

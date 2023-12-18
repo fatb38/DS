@@ -1,15 +1,16 @@
 import {kitPaginationCssTokens} from '@theme/aristid/components/Navigation/Pagination';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {IKitPaginationTheme} from '@theme/types/components/Navigation/Pagination';
+import {KitAristidThemeGeneral} from '@theme/aristid/general';
 
-export const paginationKitTokenToAntdToken = {
+export const paginationKitTokenToAntdToken = (kitPaginationTheme: IKitPaginationTheme) => ({
     fontFamily: `var(${kitPaginationCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`,
-    fontSize:
-        `calc(var(${kitPaginationCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px)` as unknown as number,
+    fontSize: kitPaginationTheme.typography.fontSize,
     colorBgContainer: `var(${kitPaginationCssTokens.colors.background.container.default}, var(${kitColorsPaletteCssTokens.neutral.white}))`,
     colorBgContainerDisabled: `var(${kitPaginationCssTokens.colors.background.container.disabled}, var(${kitColorsPaletteCssTokens.neutral.background}))`,
-    fontSizeSM: `calc(var(${typographyCssTokens.fontSize5}) * 1px)` as unknown as number,
-    fontWeightStrong: `calc(var(${typographyCssTokens.mediumfontWeight}) * 1px)` as unknown as number,
+    fontSizeSM: KitAristidThemeGeneral.typography.fontSize5,
+    fontWeightStrong: KitAristidThemeGeneral.typography.mediumfontWeight as number,
     controlHeight: 32,
     controlHeightSM: 24,
     colorPrimary: `var(${kitColorsPaletteCssTokens.primary.primary400})`,
@@ -17,4 +18,4 @@ export const paginationKitTokenToAntdToken = {
     colorPrimaryHover: `var(${kitColorsPaletteCssTokens.primary.primary400})`,
     colorBgTextActive: `var(${kitColorsPaletteCssTokens.neutral.black60})`,
     colorTextDisabled: `var(${kitColorsPaletteCssTokens.neutral.black60})`
-};
+});

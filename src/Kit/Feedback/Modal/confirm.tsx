@@ -3,7 +3,6 @@ import {createRoot} from 'react-dom/client';
 import {ConfigUpdate, IKitConfirmDialog} from './types';
 import ConfirmDialog from './ConfirmDialog';
 import uuid from 'react-uuid';
-import {KitApp} from '@kit/App';
 
 interface IModalConfig extends IKitConfirmDialog {
     showSecondaryCta?: boolean;
@@ -38,16 +37,14 @@ export default function confirm(config: IKitConfirmDialog) {
         timeoutId = setTimeout(() => {
             const okCancel = props.showSecondaryCta;
             root.render(
-                <KitApp>
-                    <ConfirmDialog
-                        {...props}
-                        appElement={document.body}
-                        okCancel={okCancel}
-                        parentSelector={() => document.body}
-                        okText={okText}
-                        cancelText={cancelText}
-                    />
-                </KitApp>
+                <ConfirmDialog
+                    {...props}
+                    appElement={document.body}
+                    okCancel={okCancel}
+                    parentSelector={() => document.body}
+                    okText={okText}
+                    cancelText={cancelText}
+                />
             );
         }) as unknown as NodeJS.Timeout;
     }
