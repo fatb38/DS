@@ -64,9 +64,9 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
                         `}
                     </Style>
                     {customTheme && <CustomVariables id={appId} customTheme={customTheme} />}
+                    {children}
                 </>
             )}
-            {children}
         </KitThemeContext.Provider>
     );
 };
