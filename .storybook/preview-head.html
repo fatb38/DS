@@ -1,4 +1,36 @@
+<link
+    rel="preload"
+    href="public/font-files/Inter-roman.var.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+/>
+<link
+    rel="preload"
+    href="public/font-files/Inter-italic.var.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+/>
 <style>
+    @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: local('Inter'), url('public/font-files/Inter-roman.var.woff2') format('woff2');
+        font-named-instance: 'Regular';
+    }
+
+    @font-face {
+        font-family: 'Inter';
+        font-style: italic;
+        font-weight: 100 900;
+        font-display: swap;
+        src: local('Inter'), url('public/font-files/Inter-italic.var.woff2') format('woff2');
+        font-named-instance: 'Italic';
+    }
+
     #docs-root .sbdocs {
          padding-top: .5rem;
     }
@@ -77,5 +109,8 @@
         .sbdocs.sbdocs-toc{
             display: none;
         }
+    }
+    #storybook-root {
+        min-height: 80px;
     }
 </style>

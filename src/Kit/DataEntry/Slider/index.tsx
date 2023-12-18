@@ -25,6 +25,7 @@ const StyledKitSlider = styled(AntdSlider)<IStyledKitSlider>`
     flex-grow: 1;
     margin-left: ${({$isStartIcon}) => ($isStartIcon ? '20px' : '0px')};
     margin-right: ${({$isEndIcon}) => ($isEndIcon ? '20px' : '0px')};
+
     &.ant-slider:not(.ant-slider-disabled) {
         .ant-slider-handle {
             &:hover::after {
@@ -33,6 +34,7 @@ const StyledKitSlider = styled(AntdSlider)<IStyledKitSlider>`
                     var(${kitColorsPaletteCssTokens.primary.primary100})
                 );
             }
+
             &::after {
                 box-shadow: 0 0 0 2px
                     var(
@@ -40,6 +42,7 @@ const StyledKitSlider = styled(AntdSlider)<IStyledKitSlider>`
                         var(${kitColorsPaletteCssTokens.primary.primary400})
                     );
             }
+
             &:focus::after {
                 background-color: var(
                     ${kitSliderCssTokens.handle.colors.background.focus},

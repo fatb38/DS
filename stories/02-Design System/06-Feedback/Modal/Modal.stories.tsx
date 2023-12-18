@@ -5,6 +5,7 @@ import {KitModal} from '@kit/Feedback';
 import ConfirmDialog from '@kit/Feedback/Modal/ConfirmDialog';
 import { KitButton } from '@kit/General';
 import {argTypes, Template} from './data';
+import {KitApp} from '@kit/App';
 
 const meta: Meta<typeof KitModal> = {
     component: KitModal,
@@ -69,7 +70,7 @@ export const Basic: Story = {
 
 export const FullConfirm: Story = {
     render: () => (
-        <>
+        <KitApp>
             <StyleContainer id="modal-test-info"></StyleContainer>
             <ConfirmDialog
                 isOpen
@@ -82,7 +83,7 @@ export const FullConfirm: Story = {
                 title=" info dialog"
                 okCancel={modalProps.showSecondaryCta}
             ></ConfirmDialog>
-        </>
+        </KitApp>
     ),
     parameters: {
         chromatic: {disableSnapshot: false}
@@ -91,7 +92,7 @@ export const FullConfirm: Story = {
 
 export const ConfirmTypes: Story = {
     render: () => (
-        <>
+        <KitApp>
             <div style={{display: 'flex', flexDirection: 'column', gap: '16px'}}>
                 <div style={{display: 'flex', gap: '16px'}}>
                     <StyleContainer id="modal-test-info"></StyleContainer>
@@ -155,7 +156,7 @@ export const ConfirmTypes: Story = {
                 title=" Confirm dialog"
                 okCancel={modalProps.showSecondaryCta}
             ></ConfirmDialog>
-        </>
+        </KitApp>
     ),
     parameters: {
         chromatic: {disableSnapshot: false}

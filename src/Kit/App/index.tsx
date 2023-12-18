@@ -1,6 +1,5 @@
 import React, {FunctionComponent, ReactNode, useEffect, PropsWithChildren} from 'react';
 import {ConfigProvider} from 'antd';
-import GlobalStyles from './style';
 import KitSnackBarProvider from '@kit/Feedback/SnackBar/SnackBarProvider';
 import {KitNotificationProvider} from '@kit/Feedback/Notification/useKitNotification';
 import {DropDownStyle} from '@kit/Navigation/DropDown/style';
@@ -17,6 +16,7 @@ import {KitLocaleProvider, useKitLocale} from '@translation/locale-context';
 import {mapKitLocaleToAntdLocale} from '@translation/utils';
 import {ColorPickerPanelStyle} from '@kit/DataEntry/ColorPicker/style';
 import {TourStyle} from '@kit/DataDisplay/Tour/style';
+import './font.css';
 
 export const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;
@@ -54,7 +54,6 @@ const KitAppConfig: FunctionComponent<
         <ConfigProvider theme={mapKitThemeToAntdTheme(theme, customTheme)} locale={mapKitLocaleToAntdLocale(locale)}>
             <KitNotificationProvider>
                 <KitSnackBarProvider />
-                <GlobalStyles />
                 <ColorPickerPanelStyle />
                 <DropDownStyle />
                 <SelectDropDownStyle />

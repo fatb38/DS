@@ -3,13 +3,13 @@ import colorString from 'color-string';
 import {KitColorProp} from './types';
 import {colorsPalette} from '@theme/aristid/general/colors';
 
-export const toCssVariables = (tokens, prefix = '-', items = {}) => {
+export const toCssVariables = (tokens, prefix = '-', items = {}): Record<string, string> => {
     if (!tokens) {
         return items;
     }
 
     Object.keys(tokens).forEach(name => {
-        let variableName = `${prefix}-${name}`;
+        const variableName = `${prefix}-${name}`;
         if (typeof tokens[name] === 'object') {
             items = toCssVariables(tokens[name], variableName, items);
         } else {
