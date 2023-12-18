@@ -67,6 +67,7 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
                     {children}
                 </>
             )}
+            {cssTokens !== null && children}
         </KitThemeContext.Provider>
     );
 };
