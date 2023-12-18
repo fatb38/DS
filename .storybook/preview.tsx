@@ -4,7 +4,6 @@ import {KitApp} from '../src/Kit/App';
 import {DocsContainer} from '@storybook/blocks';
 import {BackToTop, TableOfContents} from 'storybook-docs-toc';
 import AccessibilityProvider from './components/Accessibility/AccessibilityProvider';
-import './styles.css'
 
 const tocConfig = {
     tocSelector: '.js-toc',
