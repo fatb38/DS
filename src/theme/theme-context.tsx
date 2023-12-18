@@ -20,9 +20,9 @@ type KitThemeContext =
 const KitThemeContext = createContext<KitThemeContext>(undefined);
 
 const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: string}>`
-    .${props => props.id} {
-        ${props => toCssVariables(props.customTheme)};
-    }
+  .${props => props.id} {
+    ${props => toCssVariables(props.customTheme)};
+  }
 `;
 
 export const useKitTheme = () => {
@@ -64,9 +64,9 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
                         `}
                     </Style>
                     {customTheme && <CustomVariables id={appId} customTheme={customTheme} />}
-                    {children}
                 </>
             )}
+            {children}
         </KitThemeContext.Provider>
     );
 };
