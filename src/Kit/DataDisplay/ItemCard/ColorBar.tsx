@@ -2,7 +2,7 @@ import React from 'react';
 import {IKitColorbar, CardColor, IStyledKitColorbar} from './types';
 import styled from 'styled-components';
 import {KitTooltip} from '../Tooltip';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {kitItemCardCssTokens} from '@theme/aristid/components/DataDisplay/ItemCard';
 import {borderCssTokens} from '@theme/aristid/general/border';
 

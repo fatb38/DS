@@ -8,11 +8,11 @@ const defaultPanes = new Array(2).fill(null).map((_, index) => {
 });
 
 const App = () => {
-    const [activeKey, setActiveKey] = useState(defaultPanes[0].key);
+    const [activeKey, setActiveKey] = useState<string>(defaultPanes[0].key);
     const [items, setItems] = useState(defaultPanes);
     const newTabIndex = useRef(0);
 
-    const onChange = key => {
+    const onChange = (key: string) => {
         setActiveKey(key);
     };
 

@@ -11,12 +11,12 @@ const App = () => {
         return `${value}%`;
     };
 
-    const parserDollar = value => {
-        return value!.replace(/\$\s?|(,*)/g, '');
+    const parserDollar = (value: string | undefined) => {
+        return value?.replace(/\$\s?|(,*)/g, '') ?? '';
     };
 
-    const parserPercent = value => {
-        return value!.replace('%', '');
+    const parserPercent = (value: string | undefined) => {
+        return value?.replace('%', '') ?? '';
     };
 
     return (

@@ -3,7 +3,7 @@ import {Input as AntdInput, InputRef} from 'antd';
 import {IKitTextArea} from './types';
 import {styled} from 'styled-components';
 import KitInputWrapper from './InputWrapper';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 import {kitTextAreaCssTokens} from '@theme/aristid/components/DataEntry/Input';

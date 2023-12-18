@@ -1,4 +1,3 @@
-import {KitAristidThemeGeneral} from '@theme/aristid/general';
 import {IKitThemeGeneral} from '@theme/types';
 import {IKitIconTheme} from '@theme/types/components/General/Icon';
 

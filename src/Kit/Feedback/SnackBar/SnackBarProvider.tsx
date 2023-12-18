@@ -1,4 +1,4 @@
-import React, {CSSProperties, FunctionComponent, useEffect, useState} from 'react';
+import React, {CSSProperties, useEffect, useState} from 'react';
 import {Toaster} from 'react-hot-toast';
 
 const resetReactHotToastStyle: CSSProperties = {
@@ -14,7 +14,7 @@ const resetReactHotToastStyle: CSSProperties = {
 
 const ARISTID_TOASTSER_PROVIDER_CLASSNAME = 'aristid-ds-toaster';
 
-const KitSnackBarProvider: FunctionComponent = () => {
+const KitSnackBarProvider = () => {
     const [hasProvider, setHasProvider] = useState(true);
 
     useEffect(() => {

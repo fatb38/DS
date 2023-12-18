@@ -34,24 +34,6 @@ export const StyledLabel = styled.div`
     padding-right: 10px;
 `;
 
-export const getPopupStyle = placement => {
-    switch (placement) {
-        case 'topLeft':
-        case 'topRight':
-            return {
-                borderBottomLeftRadius: 0,
-                borderBottomRightRadius: 0,
-                transform: 'translateY(15px)'
-            };
-        default:
-            return {
-                borderTopLeftRadius: 0,
-                borderTopRightRadius: 0,
-                transform: 'translateY(-1px)'
-            };
-    }
-};
-
 // "> div:not(.kit-select-dropdown-content) > .rc-virtual-list"     | This selector is used for AutoComplete DropDown content
 // ".kit-select-dropdown-content"                                   | This selector is used for Select DropDown content
 export const SelectDropDownStyle = createGlobalStyle`

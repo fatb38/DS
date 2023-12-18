@@ -1,7 +1,6 @@
 import {KitHTMLAttributes} from '../../../types';
 import {ReactNode} from 'react';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
-import {IKitItemListTheme} from '@theme/types/components/DataDisplay/ItemList';
 
 export interface IKitItemList extends KitHTMLAttributes<HTMLDivElement> {
     title?: string;
@@ -9,9 +8,9 @@ export interface IKitItemList extends KitHTMLAttributes<HTMLDivElement> {
     picture?: ReactNode;
     onSelectChange?: (e: CheckboxChangeEvent) => void;
     tagNumber?: number;
-    onRafterClick?: Function;
+    onRafterClick?: () => void;
     disabled?: boolean;
-    onClick?: Function;
+    onClick?: () => void;
     disableSecureClick?: boolean;
 }
 

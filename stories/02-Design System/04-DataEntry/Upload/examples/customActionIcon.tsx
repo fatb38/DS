@@ -3,6 +3,7 @@ import {KitUpload} from '@kit/DataEntry';
 import {UploadProps} from 'antd';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar} from '@fortawesome/free-regular-svg-icons';
+import {UploadChangeParam} from 'antd/es/upload';
 
 const defaultFileList: UploadProps['defaultFileList'] = [
     {
@@ -27,7 +28,7 @@ const defaultFileList: UploadProps['defaultFileList'] = [
     }
 ];
 
-const onChange = ({file, fileList}) => {
+const onChange = ({file, fileList}: UploadChangeParam) => {
     if (file.status !== 'uploading') {
         console.log(file, fileList);
     }

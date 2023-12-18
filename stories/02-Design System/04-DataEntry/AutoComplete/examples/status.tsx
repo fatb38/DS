@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {KitAutoComplete} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout';
 
-const mockVal = (str, repeat = 1) => ({
+const mockVal = (str: string, repeat: number = 1) => ({
     value: str.repeat(repeat),
     label: str.repeat(repeat)
 });
@@ -11,7 +11,7 @@ const App = () => {
     const [options, setOptions] = useState<{value: string; label: string}[]>([]);
     const [anotherOptions, setAnotherOptions] = useState<{value: string; label: string}[]>([]);
 
-    const getPanelValue = searchText =>
+    const getPanelValue = (searchText: string) =>
         !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];
 
     return (

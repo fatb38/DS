@@ -1,14 +1,15 @@
-import React, {FunctionComponent, cloneElement, useMemo} from 'react';
+import React, {FunctionComponent, ReactElement, ReactNode, cloneElement, useMemo} from 'react';
 import styled from 'styled-components';
 import {KitTypography, KitButton} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {KitInput} from '@kit/DataEntry/';
 import {IKitHeader} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {faMagnifyingGlass, faPlus} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {kitHeaderCssTokens} from '@theme/aristid/components/Navigation/Header';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {IKitButton} from '@kit/General/Button/types';
 
 const StyledHeaderWrapper = styled.div`
     padding: 16px 32px;
@@ -73,14 +74,17 @@ const _getActions = (actions?: IKitHeader['actions'], onPlusClick?: IKitHeader['
     }
 
     const cloneActions = actions
-        ? actions.map((action, index) => {
-              switch (action.type.displayName) {
+        ? actions.map<ReactNode>((action, index) => {
+              switch (((action as ReactElement).type as FunctionComponent).displayName) {
                   case 'KitButton':
-                      return React.cloneElement(action, {
-                          type: 'segmented',
-                          key: index,
-                          ...action.props
-                      });
+                      return React.cloneElement(
+                          action as ReactElement<IKitButton>,
+                          {
+                              type: 'segmented',
+                              key: index,
+                              ...(action as ReactElement).props
+                          } as IKitButton
+                      );
                   default:
                       return null;
               }

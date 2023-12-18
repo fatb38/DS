@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitSelect} from '@kit/DataEntry/';
 import {KitDivider, KitSpace} from '@kit/Layout/';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFile} from '@fortawesome/free-regular-svg-icons';
 

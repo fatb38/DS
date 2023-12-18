@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitSelect} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFile} from '@fortawesome/free-regular-svg-icons';
 import {colorsPalette} from '@theme/aristid/general/colors';
-import {within} from '@storybook/testing-library';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitSelect> = {
     component: KitSelect,

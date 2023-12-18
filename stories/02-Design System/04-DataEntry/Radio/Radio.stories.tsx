@@ -1,8 +1,9 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitRadio} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {within} from '@storybook/testing-library';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitRadio> = {
     component: KitRadio,
@@ -38,7 +39,7 @@ export const Basic: Story = {
             </div>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const radio = canvas.getByTestId('focus');
         radio.focus();
@@ -66,7 +67,7 @@ export const Danger: Story = {
             </KitRadio>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const radio = canvas.getByTestId('focus');
         radio.focus();
@@ -87,7 +88,7 @@ export const Group: Story = {
             <KitRadio value={4}>D</KitRadio>
         </KitRadio.Group>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const radio = canvas.getByTestId('focus');
         radio.focus();

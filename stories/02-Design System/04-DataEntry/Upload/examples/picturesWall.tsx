@@ -20,32 +20,32 @@ const App = () => {
             uid: '-1',
             name: 'image.png',
             status: 'done',
-            url: 'public/images/portrait.png',
+            url: 'public/images/portrait.png'
         },
         {
             uid: '-2',
             name: 'image.png',
             status: 'done',
-            url: 'public/images/portrait.png',
+            url: 'public/images/portrait.png'
         },
         {
             uid: '-3',
             name: 'image.png',
             status: 'done',
-            url: 'public/images/portrait.png',
+            url: 'public/images/portrait.png'
         },
         {
             uid: '-4',
             name: 'image.png',
             status: 'done',
-            url: 'public/images/portrait.png',
+            url: 'public/images/portrait.png'
         },
         {
             uid: '-xxx',
             percent: 50,
             name: 'image.png',
             status: 'uploading',
-            url: 'public/images/portrait.png',
+            url: 'public/images/portrait.png'
         },
         {
             uid: '-5',
@@ -73,6 +73,7 @@ const App = () => {
             <KitUpload
                 listType="picture-card"
                 fileList={fileList}
+                // eslint-disable-next-line @typescript-eslint/no-misused-promises
                 onPreview={handlePreview}
                 onChange={handleChange}
             ></KitUpload>

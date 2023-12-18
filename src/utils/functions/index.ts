@@ -2,8 +2,11 @@ import convert from 'color-convert';
 import colorString from 'color-string';
 import {KitColorProp} from './types';
 import {colorsPalette} from '@theme/aristid/general/colors';
+import {IJSONObject} from '.storybook/components/ThemeEditor/types';
 
-export const toCssVariables = (tokens, prefix = '-', items = {}): Record<string, string> => {
+type CssVariablesList = Record<string, string>;
+
+export const toCssVariables = (tokens: IJSONObject, prefix = '-', items = {}): CssVariablesList => {
     if (!tokens) {
         return items;
     }
@@ -11,7 +14,7 @@ export const toCssVariables = (tokens, prefix = '-', items = {}): Record<string,
     Object.keys(tokens).forEach(name => {
         const variableName = `${prefix}-${name}`;
         if (typeof tokens[name] === 'object') {
-            items = toCssVariables(tokens[name], variableName, items);
+            items = toCssVariables(tokens[name] as IJSONObject, variableName, items);
         } else {
             items[variableName] = tokens[name];
         }
@@ -79,7 +82,7 @@ export const getContrastColor = (color: KitColorProp) => {
     return yiq < 128 ? colorsPalette.neutral.white : colorsPalette.neutral.black;
 };
 
-const _colorToLightHSL = (color, lightness = 95): string | null => {
+const _colorToLightHSL = (color: KitColorProp, lightness = 95): string | null => {
     if (color?.startsWith('#')) {
         const rgbColor = convert.hex.rgb(color);
         const hslColor = convert.rgb.hsl(rgbColor);

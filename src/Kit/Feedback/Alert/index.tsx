@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 import {Alert as AntdAlert} from 'antd';
 import {IKitAlert} from './types';
 import {styled} from 'styled-components';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
     faXmark,

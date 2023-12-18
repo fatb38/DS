@@ -1,7 +1,8 @@
 import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitTypography} from '@kit/General/';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitTypography.Text> = {
     component: KitTypography.Text,

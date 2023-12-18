@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {ReactNode, useState} from 'react';
 import {KitTree} from '@kit/DataDisplay';
 import {KitSpace} from '@kit/Layout';
 import {KitTypography} from '@kit/General';
@@ -115,7 +115,7 @@ const treeData = [
 
 const App = () => {
     const [showLine, setShowLine] = useState(true);
-    const [showLeafIcon, setShowLeafIcon] = useState<any>(false);
+    const [showLeafIcon, setShowLeafIcon] = useState<ReactNode>(false);
 
     const handleLeafIconChange = value => {
         if (value === 'custom') {

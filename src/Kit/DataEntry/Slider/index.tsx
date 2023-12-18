@@ -2,7 +2,7 @@ import {Slider as AntdSlider} from 'antd';
 import styled from 'styled-components';
 import React, {forwardRef} from 'react';
 import {IStyledKitSlider, IKitSliderRange, IKitSliderSingle} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import type {SliderRef} from 'rc-slider/lib/Slider';
 import {kitSliderCssTokens} from '@theme/aristid/components/DataEntry/Slider';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';

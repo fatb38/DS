@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const App = () => {
     const {theme} = useKitTheme();

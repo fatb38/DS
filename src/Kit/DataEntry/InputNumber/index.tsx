@@ -3,7 +3,7 @@ import {InputNumber as AntdInputNumber} from 'antd';
 import {KitInputNumberProps} from './types';
 import {styled} from 'styled-components';
 import KitInputWrapper from '../Input/InputWrapper';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {kitInputNumberCssTokens} from '@theme/aristid/components/DataEntry/InputNumber';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';

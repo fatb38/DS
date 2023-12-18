@@ -1,10 +1,11 @@
 import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitBreadcrumb} from '@kit/Navigation';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHouse} from '@fortawesome/free-solid-svg-icons';
 import {KitTypography} from '@kit/General';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitBreadcrumb> = {
     component: KitBreadcrumb,

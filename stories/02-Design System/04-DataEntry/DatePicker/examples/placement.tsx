@@ -25,7 +25,7 @@ const App = () => {
         }
     ];
 
-    const handleChange = value => {
+    const handleChange = (value: IKitDatePicker['placement']) => {
         setPlacement(value);
     };
 

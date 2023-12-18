@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 import {Tabs as AntTabs} from 'antd';
 import styled from 'styled-components';
 import {IKitTabs} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {kitTabsCssTokens} from '@theme/aristid/components/DataDisplay/Tabs';
 import {borderCssTokens} from '@theme/aristid/general/border';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';

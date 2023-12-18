@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {KitComponent} from './data';
-import {argTypes, Template} from './data';
+import {KitComponent, Template} from './Template';
+import {argTypes} from './data';
 
 const meta: Meta<typeof KitComponent> = {
     component: KitComponent,

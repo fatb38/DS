@@ -1,10 +1,7 @@
 import React, {useRef, useState} from 'react';
 import {KitButton} from '@kit/General';
-import {KitDivider, KitSpace} from '@kit/Layout';
 import {KitTour} from '@kit/DataDisplay';
 import {TourProps} from 'antd';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faEllipsis} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     const ref = useRef(null);

@@ -1,11 +1,11 @@
-import React, {FunctionComponent, MouseEvent, MouseEventHandler, cloneElement, useState} from 'react';
+import React, {FunctionComponent, MouseEvent, ReactElement, cloneElement, useState} from 'react';
 import {styled} from 'styled-components';
 import {IKitItemList, IStyledKitItemList} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTag} from '@kit/DataDisplay/';
 import {KitTypography} from '@kit/General/';
-import {useKitTheme} from '@theme/theme-context';
-import {useKitLocale} from '@translation/locale-context';
+import {useKitTheme} from '@theme/useKitTheme';
+import {useKitLocale} from '@translation/useKitLocale';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-regular-svg-icons';
 import {faAngleRight} from '@fortawesome/free-solid-svg-icons';
@@ -14,6 +14,9 @@ import {kitItemListCssTokens} from '@theme/aristid/components/DataDisplay/ItemLi
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {borderCssTokens} from '@theme/aristid/general/border';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {IKitImage} from '../Image/types';
+import {IKitAvatar} from '../Avatar/types';
+import {IKitIcon} from '@kit/General/Icon/types';
 
 const StyledItemList = styled.div<IStyledKitItemList>`
     display: grid;
@@ -311,20 +314,22 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
 
         let noBorder = false;
         let cloneProps = {};
+        let itemProps: IKitImage | IKitAvatar | IKitIcon;
         let wrapperClassName = 'kit-item-list-picture-container';
 
-        switch (pictureJsx.type.displayName) {
+        switch ((pictureJsx.type as FunctionComponent).displayName) {
             case 'KitImage':
+                itemProps = (pictureJsx as ReactElement).props as IKitImage;
                 cloneProps = {
                     preview: {
-                        ...(pictureJsx.props?.preview ?? {}),
+                        ...((itemProps.preview as Record<string, unknown>) ?? {}),
                         mask: <FontAwesomeIcon icon={faEye} />
                     },
                     width: '100%',
                     height: '100%',
                     bordered: true,
                     rounded: true,
-                    rootClassName: (pictureJsx.props.rootClassName || '') + ' kit-item-list-image-container'
+                    rootClassName: (itemProps.rootClassName || '') + ' kit-item-list-image-container'
                 };
                 wrapperClassName += ' kit-item-list-image';
                 break;

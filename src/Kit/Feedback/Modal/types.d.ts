@@ -1,6 +1,7 @@
 import {FunctionComponent, ReactNode} from 'react';
 import type ReactModal from 'react-modal';
 import {KitHTMLAttributes} from '../../../types';
+import {CSSProperties} from 'styled-components';
 
 type propsToOmit =
     | 'bodyOpenClassName'
@@ -9,7 +10,9 @@ type propsToOmit =
     | 'overlayRef'
     | 'contentRef'
     | 'overlayElement'
-    | 'contentElement';
+    | 'contentElement'
+    | 'style'
+    | 'isOpen';
 
 //todo delete Omit<title role className style>
 export interface IKitModal
@@ -17,9 +20,14 @@ export interface IKitModal
         Omit<KitHTMLAttributes<HTMLDivElement>, 'title' | 'role' | 'className' | 'style'> {
     width?: string;
     showCloseIcon?: boolean;
-    close?: (args: any[]) => void;
+    close?: (args: unknown[]) => void;
     title?: ReactNode;
     footer?: ReactNode;
+    isOpen?: boolean;
+    style: {
+        overlay?: CSSProperties;
+        content?: CSSProperties;
+    };
 }
 
 export interface IKitConfirmDialog extends IKitModal {
@@ -31,10 +39,10 @@ export interface IKitConfirmDialog extends IKitModal {
     okCancel?: boolean;
     title?: string;
     cancelText?: string;
-    close?: (...args: any[]) => void;
+    close?: (...args: unknown[]) => void;
     okText?: string;
-    onCancel?: () => {};
-    onOk?: () => {};
+    onCancel?: () => void;
+    onOk?: () => void;
 }
 
 export type ConfigUpdate = IKitConfirmDialog | ((prevConfig: IKitConfirmDialog) => IKitConfirmDialog);

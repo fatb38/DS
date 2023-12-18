@@ -1,11 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitAvatar, KitBadge} from '@kit/DataDisplay';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faClock} from '@fortawesome/free-regular-svg-icons';
 import React from 'react';
 import {KitIcon} from '@kit/General';
 import {colorsPalette} from '@theme/aristid/general/colors';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitBadge> = {
     component: KitBadge,

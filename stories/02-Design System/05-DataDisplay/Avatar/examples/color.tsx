@@ -4,7 +4,7 @@ import {KitSpace} from '@kit/Layout/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 import {KitTypography} from '@kit/General';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const App = () => {
     const {theme} = useKitTheme();

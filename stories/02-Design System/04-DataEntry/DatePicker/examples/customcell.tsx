@@ -1,13 +1,14 @@
 import React, {CSSProperties} from 'react';
 import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
-import {Dayjs} from 'dayjs';
+import type {Dayjs} from 'dayjs';
+import type {CellRenderInfo} from 'rc-picker/lib/interface';
 
 const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitDatePicker
-                cellRender={(current, info) => {
+                cellRender={(current: number | Dayjs, info: CellRenderInfo<Dayjs>) => {
                     if (info.type !== 'date') return info.originNode;
 
                     const style: CSSProperties = {};

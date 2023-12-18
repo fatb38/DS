@@ -1,8 +1,9 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitTag} from '@kit/DataDisplay';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {colorsPalette} from '@theme/aristid/general/colors';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitTag> = {
     component: KitTag,

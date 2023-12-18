@@ -9,7 +9,7 @@ interface IInternalDatePicker {
     allowClear?: boolean;
     cellRender?: DatePickerProps['cellrender'];
     wrapperClassName?: string;
-    disabledTime?: any;
+    disabledTime?: unknow;
 }
 
 interface IDatePickerProps extends Omit<DatePickerProps, 'picker'> {

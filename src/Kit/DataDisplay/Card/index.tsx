@@ -4,7 +4,7 @@ import {styled} from 'styled-components';
 import IKitCard, {IStyledKitCard, IStyledKitCardContentTitleContainer} from './types';
 import {KitIcon, KitTypography} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faLink} from '@fortawesome/free-solid-svg-icons';
 import {kitCardCssTokens} from '@theme/aristid/components/DataDisplay/Card';
@@ -215,7 +215,9 @@ const _getCover = (cover?: ReactNode) => {
 
     if (cover) {
         const customCover = cover as ReactElement;
-        cardCover = cloneElement(customCover, {className: `kit-card-cover ${customCover.props.className ?? ''}`});
+        cardCover = cloneElement(customCover, {
+            className: `kit-card-cover ${(customCover.props as HTMLElement).className ?? ''}`
+        });
     }
 
     return cardCover;
@@ -241,8 +243,8 @@ const _getExtra = (disabled: boolean, extra?: ReactNode) => {
     if (extra) {
         const customExtra = extra as ReactElement;
         cardExtra = cloneElement(customExtra, {
-            className: `kit-card-extra ${customExtra.props.className ?? ''}`,
-            href: disabled ? null : customExtra.props.href
+            className: `kit-card-extra ${(customExtra.props as HTMLElement).className ?? ''}`,
+            href: disabled ? null : (customExtra.props as HTMLAnchorElement).href
         });
     }
 

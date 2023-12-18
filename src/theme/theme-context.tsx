@@ -1,37 +1,21 @@
-import React, {createContext, FC, PropsWithChildren, useLayoutEffect, useRef, useState} from 'react';
+import React, {FC, PropsWithChildren, useLayoutEffect, useRef, useState} from 'react';
 
 // TODO: Later add option to have more arisitd themes
 import {getKitAristidTheme} from './aristid';
-import {IKitCustomTheme, IKitTheme, IKitThemeGeneral} from './types';
+import {IKitCustomTheme, IKitTheme} from './types';
 import {createGlobalStyle} from 'styled-components';
 import {toCssVariables} from '@utils/functions';
 import uuid from 'react-uuid';
 import {merge} from 'lodash';
 import {Style} from 'react-style-tag';
-
-type KitThemeContext =
-    | {
-          theme: IKitTheme;
-          appId: string;
-          spacing: IKitThemeGeneral['spacing'];
-      }
-    | undefined;
-
-const KitThemeContext = createContext<KitThemeContext>(undefined);
+import {KitThemeContext} from './useKitTheme';
+import {IJSONObject} from '../../.storybook/components/ThemeEditor/types';
 
 const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: string}>`
   .${props => props.id} {
     ${props => toCssVariables(props.customTheme)};
   }
 `;
-
-export const useKitTheme = () => {
-    const context = React.useContext(KitThemeContext);
-    if (context === undefined) {
-        throw new Error('You need to encapsulate component inside a KitApp, useKitTheme must be inside a context');
-    }
-    return context;
-};
 
 const globalStyleId = 'aristid-ds-global';
 
@@ -45,7 +29,7 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
 
     useLayoutEffect(() => {
         const generalTheme = getKitAristidTheme()?.general;
-        const tokens = toCssVariables(generalTheme, '--general');
+        const tokens = toCssVariables(generalTheme as unknown as IJSONObject, '--general');
         setCssTokens(tokens);
     }, []);
 

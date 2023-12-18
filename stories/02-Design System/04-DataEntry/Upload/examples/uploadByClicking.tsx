@@ -1,7 +1,8 @@
 import React from 'react';
 import {KitUpload} from '@kit/DataEntry';
+import {UploadChangeParam} from 'antd/es/upload';
 
-const onChange = info => {
+const onChange = (info: UploadChangeParam) => {
     if (info.file.status !== 'uploading') {
         console.log(info.file, info.fileList);
     }

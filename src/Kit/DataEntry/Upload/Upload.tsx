@@ -3,7 +3,7 @@ import {KitButton} from '@kit/General';
 import {Upload as AntdUpload} from 'antd';
 import {IKitUpload, IStyledUpload} from './types';
 import styled from 'styled-components';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleNotch, faPlus, faUpload} from '@fortawesome/free-solid-svg-icons';
 import {UploadRef} from 'antd/lib/upload/Upload';

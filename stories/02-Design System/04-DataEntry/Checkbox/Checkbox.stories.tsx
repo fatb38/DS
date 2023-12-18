@@ -1,8 +1,9 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitCheckbox} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import {within} from '@storybook/testing-library';
 import React from 'react';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitCheckbox> = {
     component: KitCheckbox,
@@ -42,7 +43,7 @@ export const Basic: Story = {
             </div>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const checkbox = canvas.getByTestId('focus');
         checkbox.focus();
@@ -72,7 +73,7 @@ export const Danger: Story = {
             </KitCheckbox>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const checkbox = canvas.getByTestId('focus');
         checkbox.focus();

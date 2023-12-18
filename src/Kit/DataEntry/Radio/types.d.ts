@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {RadioProps, RadioGroupProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import {ReactNode, CSSProperties} from 'react';

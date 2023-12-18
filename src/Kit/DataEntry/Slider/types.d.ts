@@ -1,12 +1,12 @@
 import {SliderSingleProps} from 'antd';
 import {SliderMarks, SliderRangeProps} from 'antd/lib/slider';
-import {IKitSliderTheme} from '@theme/types/components/DataEntry/Slider';
+import {ReactNode} from 'react';
 
 type AntdSliderTypesToOmit = 'vertical' | 'trackStyle' | 'railStyle' | 'handleStyle' | 'marks' | 'value';
 
 interface SliderIcons {
-    startIcon?: any;
-    endIcon?: any;
+    startIcon?: ReactNode;
+    endIcon?: ReactNode;
 }
 
 export type KitSliderMarks = SliderMarks;

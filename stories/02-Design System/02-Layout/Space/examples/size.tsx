@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import {KitSpace, KitButton, KitRadio} from '@kit/index';
-import {IKitSpace} from '@kit/Layout/Space/types';
+import {IKitSpace, KitSpaceSize} from '@kit/Layout/Space/types';
+import {RadioChangeEvent} from 'antd';
 
 const App = () => {
     const [size, setSize] = useState<IKitSpace['size']>('m');
 
     return (
         <>
-            <KitRadio.Group value={size} onChange={e => setSize(e.target.value)}>
+            <KitRadio.Group value={size} onChange={(e: RadioChangeEvent) => setSize(e.target.value as KitSpaceSize)}>
                 <KitRadio value="none">None</KitRadio>
                 <KitRadio value="xxs">xxs</KitRadio>
                 <KitRadio value="xs">xs</KitRadio>

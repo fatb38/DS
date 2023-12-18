@@ -3,14 +3,14 @@ import {DatePicker as AntdDatePicker} from 'antd';
 import {IKitRangePicker} from './types';
 import styled from 'styled-components';
 import KitInputWrapper from '../Input/InputWrapper';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark, faClock, faCalendar} from '@fortawesome/free-regular-svg-icons';
 import {kitDatePickerCssTokens} from '@theme/aristid/components/DataEntry/DatePicker';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-export const StyledRangePicker = styled.div`
+const StyledRangePicker = styled.div`
     .ant-picker.ant-picker-range {
         display: grid;
         grid-template-areas: 'icon input1 separator input2 clear';
@@ -275,6 +275,7 @@ export const StyledRangePicker = styled.div`
     }
 `;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const KitDatePicker = forwardRef<any, IKitRangePicker>(
     ({label, className, helper, suffixIcon, picker, allowClear = true, ...rangePickerProps}, ref) => {
         const {appId} = useKitTheme();

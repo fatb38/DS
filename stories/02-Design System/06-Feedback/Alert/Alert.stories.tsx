@@ -1,7 +1,8 @@
 import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitAlert} from '@kit/Feedback';
-import {argTypes, Template} from './data';
+import {Template} from './Template';
+import {argTypes} from './data';
 
 const meta: Meta<typeof KitAlert> = {
     component: KitAlert,
@@ -26,10 +27,10 @@ export const Types: Story = {
             <KitAlert type="info" message="Info Text" />
             <KitAlert type="warning" message="Warning Text" />
             <KitAlert type="error" message="Error Text" />
-            <KitAlert type="success" message="Success Text" showIcon/>
-            <KitAlert type="info" message="Info Text" showIcon/>
-            <KitAlert type="warning" message="Warning Text" showIcon/>
-            <KitAlert type="error" message="Error Text" showIcon/>
+            <KitAlert type="success" message="Success Text" showIcon />
+            <KitAlert type="info" message="Info Text" showIcon />
+            <KitAlert type="warning" message="Warning Text" showIcon />
+            <KitAlert type="error" message="Error Text" showIcon />
         </div>
     ),
     parameters: {
@@ -40,7 +41,7 @@ export const Types: Story = {
 export const Description: Story = {
     render: () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
-             <KitAlert
+            <KitAlert
                 type="success"
                 message="Success Text"
                 description="Success Description Success Description Success Description"
@@ -94,10 +95,10 @@ export const Description: Story = {
 export const Banner: Story = {
     render: () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
-            <KitAlert type="success" message="Success Text" banner/>
-            <KitAlert type="info" message="Info Text" banner/>
-            <KitAlert type="warning" message="Warning Text" banner/>
-            <KitAlert type="error" message="Error Text" banner/>
+            <KitAlert type="success" message="Success Text" banner />
+            <KitAlert type="info" message="Info Text" banner />
+            <KitAlert type="warning" message="Warning Text" banner />
+            <KitAlert type="error" message="Error Text" banner />
         </div>
     ),
     parameters: {

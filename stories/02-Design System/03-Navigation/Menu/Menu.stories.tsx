@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitMenu} from '@kit/Navigation';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {KitButton} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -17,6 +17,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import {KitInput} from '@kit/DataEntry';
 import {KitDivider} from '@kit/Layout';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitMenu> = {
     component: KitMenu,

@@ -5,6 +5,7 @@ import {
     IKitButtonCssTokens,
     IKitButtonPropetiesCssTokens,
     IKitButtonTheme,
+    IKitButtonThemePropeties,
     KitColoredSegmentedButtonCssTokens,
     KitColoredSegmentedButtonThemes
 } from '@theme/types/components/General/Button';
@@ -469,24 +470,24 @@ const _generateColoredSegmentedKitButtonThemes = (generalTokens: IKitThemeGenera
     const colorKeys: KitColorKeys[] = Object.keys(colors.secondary) as KitColorKeys[];
 
     const colorThemes = colorKeys.reduce<KitColoredSegmentedButtonThemes>((acc, color) => {
-        const theme = {
+        const theme: IKitButtonThemePropeties = {
             colors: {
                 typography: {
-                    default: colors.secondary[color][color + '500'],
-                    hover: colors.secondary[color][color + '500'],
-                    active: colors.secondary[color][color + '500'],
-                    focus: colors.secondary[color][color + '500'],
+                    default: colors.secondary[color][color + '500'] as string,
+                    hover: colors.secondary[color][color + '500'] as string,
+                    active: colors.secondary[color][color + '500'] as string,
+                    focus: colors.secondary[color][color + '500'] as string,
                     disabled: colors.secondary.mediumGrey.mediumGrey400,
                     danger: {
                         default: colors.secondary.red.red500,
                         disabled: colors.secondary.mediumGrey.mediumGrey400
                     },
-                    iconCheck: colors.secondary[color][color + '400']
+                    iconCheck: colors.secondary[color][color + '400'] as string
                 },
                 background: {
                     default: colors.neutral.white,
                     hover: colors.neutral.white,
-                    active: colors.secondary[color][color + '100'],
+                    active: colors.secondary[color][color + '100'] as string,
                     focus: colors.neutral.white,
                     disabled: colors.secondary.mediumGrey.mediumGrey100,
                     danger: {
@@ -498,10 +499,10 @@ const _generateColoredSegmentedKitButtonThemes = (generalTokens: IKitThemeGenera
                     }
                 },
                 border: {
-                    default: colors.secondary[color][color + '100'],
-                    hover: colors.secondary[color][color + '400'],
-                    active: colors.secondary[color][color + '400'],
-                    focus: colors.secondary[color][color + '400'],
+                    default: colors.secondary[color][color + '100'] as string,
+                    hover: colors.secondary[color][color + '400'] as string,
+                    active: colors.secondary[color][color + '400'] as string,
+                    focus: colors.secondary[color][color + '400'] as string,
                     disabled: colors.secondary.mediumGrey.mediumGrey200,
                     danger: {
                         default: colors.secondary.red.red100,
@@ -652,21 +653,21 @@ const segmentedColorsCssTokens = colorKeys.reduce<KitColoredSegmentedButtonCssTo
     const theme = {
         colors: {
             typography: {
-                default: kitColorsPaletteCssTokens.secondary[color][color + '500'],
-                hover: kitColorsPaletteCssTokens.secondary[color][color + '500'],
-                active: kitColorsPaletteCssTokens.secondary[color][color + '500'],
-                focus: kitColorsPaletteCssTokens.secondary[color][color + '500'],
+                default: kitColorsPaletteCssTokens.secondary[color][color + '500'] as string,
+                hover: kitColorsPaletteCssTokens.secondary[color][color + '500'] as string,
+                active: kitColorsPaletteCssTokens.secondary[color][color + '500'] as string,
+                focus: kitColorsPaletteCssTokens.secondary[color][color + '500'] as string,
                 disabled: kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400,
                 danger: {
                     default: kitColorsPaletteCssTokens.secondary.red.red500,
                     disabled: kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400
                 },
-                iconCheck: kitColorsPaletteCssTokens.secondary[color][color + '400']
+                iconCheck: kitColorsPaletteCssTokens.secondary[color][color + '400'] as string
             },
             background: {
                 default: kitColorsPaletteCssTokens.neutral.white,
                 hover: kitColorsPaletteCssTokens.neutral.white,
-                active: kitColorsPaletteCssTokens.secondary[color][color + '100'],
+                active: kitColorsPaletteCssTokens.secondary[color][color + '100'] as string,
                 focus: kitColorsPaletteCssTokens.neutral.white,
                 disabled: kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100,
                 danger: {
@@ -678,10 +679,10 @@ const segmentedColorsCssTokens = colorKeys.reduce<KitColoredSegmentedButtonCssTo
                 }
             },
             border: {
-                default: kitColorsPaletteCssTokens.secondary[color][color + '100'],
-                hover: kitColorsPaletteCssTokens.secondary[color][color + '400'],
-                active: kitColorsPaletteCssTokens.secondary[color][color + '400'],
-                focus: kitColorsPaletteCssTokens.secondary[color][color + '400'],
+                default: kitColorsPaletteCssTokens.secondary[color][color + '100'] as string,
+                hover: kitColorsPaletteCssTokens.secondary[color][color + '400'] as string,
+                active: kitColorsPaletteCssTokens.secondary[color][color + '400'] as string,
+                focus: kitColorsPaletteCssTokens.secondary[color][color + '400'] as string,
                 disabled: kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200,
                 danger: {
                     default: kitColorsPaletteCssTokens.secondary.red.red100,

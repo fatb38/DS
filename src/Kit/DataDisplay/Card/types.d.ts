@@ -1,4 +1,3 @@
-import {IKitCardTheme} from '@theme/types/components/DataDisplay/Card';
 import {CardProps} from 'antd';
 
 type AntdCardTypesToOmit =

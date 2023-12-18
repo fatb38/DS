@@ -5,7 +5,7 @@ import {IStyledAntdDivider, IKitDivider} from './types';
 import {kitDividerCssTokens} from '@theme/aristid/components/Layout/Divider';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const StyledAntdDivider = styled(AntdDivider)<IStyledAntdDivider>`
     &.ant-divider {

@@ -31,7 +31,7 @@ const App = () => {
                 setUploading(false);
             });
     };
-    const onRemove = file => {
+    const onRemove = (file: UploadFile) => {
         const index = fileList.indexOf(file);
         const newFileList = fileList.slice();
         newFileList.splice(index, 1);

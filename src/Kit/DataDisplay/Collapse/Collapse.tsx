@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import {kitCollapseCssTokens} from '@theme/aristid/components/DataDisplay/Collapse';
 import {borderCssTokens} from '@theme/aristid/general/border';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const StyledCollapse = styled(AntdCollapse)`
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);

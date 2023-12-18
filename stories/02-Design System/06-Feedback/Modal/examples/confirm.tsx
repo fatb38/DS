@@ -46,14 +46,12 @@ const App = () => {
         showSecondaryCta: false
     });
 
-    const handleTypeChange = type => setModalProps({...modalProps, type});
+    const handleTypeChange = (type: IKitConfirmDialog['type']) => setModalProps({...modalProps, type});
 
     const handleShowImage = () =>
         setModalProps({
             ...modalProps,
-            image: !modalProps.image
-                ? 'public/images/portrait.png'
-                : undefined
+            image: !modalProps.image ? 'public/images/portrait.png' : undefined
         });
 
     const handleShowIcon = () =>
@@ -99,7 +97,7 @@ const App = () => {
                     isOpen
                     parentSelector={getContainer}
                     {...modalProps}
-                    okCancel={modalProps.showSecondaryCta}
+                    okCancel={modalProps.showSecondaryCta as boolean}
                     appElement={document.getElementById('storybook-docs')}
                 />
             </StyleContainer>

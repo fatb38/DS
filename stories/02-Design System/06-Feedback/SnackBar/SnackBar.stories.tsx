@@ -1,5 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {argTypes, FakeSnackbar, Template} from './data';
+import {Template} from './Template';
+import {FakeSnackbar, argTypes} from './data';
 
 const meta: Meta<typeof FakeSnackbar> = {
     component: FakeSnackbar,

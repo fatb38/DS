@@ -3,7 +3,7 @@ import {Button as AntdButton} from 'antd';
 import {styled} from 'styled-components';
 import type {IKitButton, IStyledKitButton, KitButtonCompoundedComponent} from './types';
 import {ButtonType} from 'antd/lib/button';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleCheck} from '@fortawesome/free-solid-svg-icons';
 import useSecureClick from '@hooks/useSecureClick';

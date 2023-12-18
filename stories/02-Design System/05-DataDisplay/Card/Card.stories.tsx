@@ -1,11 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import {KitCard} from '@kit/DataDisplay';
 import {KitIcon} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEllipsis, faGear, faPencil} from '@fortawesome/free-solid-svg-icons';
 import KitLink from '@kit/General/Typography/Link';
 import React from 'react';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitCard> = {
     component: KitCard,

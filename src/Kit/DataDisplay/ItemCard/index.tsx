@@ -1,4 +1,4 @@
-import React, {FunctionComponent, cloneElement, useState} from 'react';
+import React, {FunctionComponent, ReactElement, ReactNode, cloneElement, useState} from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
 import IKitItemCard, {IStyledKitItemCard} from './types';
@@ -10,8 +10,8 @@ import {IKitAvatar} from '../Avatar/types';
 import {KitCheckbox} from '@kit/DataEntry';
 import {KitTag} from '@kit/DataDisplay';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
-import {useKitTheme} from '@theme/theme-context';
-import {useKitLocale} from '@translation/locale-context';
+import {useKitTheme} from '@theme/useKitTheme';
+import {useKitLocale} from '@translation/useKitLocale';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-regular-svg-icons';
 import {faPencil} from '@fortawesome/free-solid-svg-icons';
@@ -19,6 +19,7 @@ import {kitItemCardCssTokens} from '@theme/aristid/components/DataDisplay/ItemCa
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {borderCssTokens} from '@theme/aristid/general/border';
+import {IKitButton} from '@kit/General/Button/types';
 
 const ItemCardWrapper = styled.div<IStyledKitItemCard>`
     display: grid;
@@ -360,20 +361,24 @@ const _getPicture = (picture, fullWidthAvatar) => {
         return null;
     }
 
+    const pictureJsx = picture as JSX.Element;
+
     let noBorder = false;
     let cloneProps = {};
+    let itemProps: IKitImage | IKitAvatar | IKitIcon;
     let wrapperClassName = 'kit-card-icon';
 
-    switch (picture.type.displayName) {
+    switch ((pictureJsx.type as FunctionComponent).displayName) {
         case 'KitImage':
+            itemProps = (picture as ReactElement).props as IKitImage;
             cloneProps = {
                 preview: {
-                    ...(picture.props?.preview ?? {}),
+                    ...((itemProps.preview as Record<string, unknown>) ?? {}),
                     mask: <FontAwesomeIcon icon={faEye} />
                 },
                 width: '100%',
                 height: '100%',
-                rootClassName: (picture.props.rootClassName ?? '') + ' kit-card-image-image'
+                rootClassName: (itemProps.rootClassName ?? '') + ' kit-card-image-image'
             };
             wrapperClassName = 'kit-card-image';
             break;
@@ -385,35 +390,37 @@ const _getPicture = (picture, fullWidthAvatar) => {
             break;
         case 'KitAvatar':
             if (fullWidthAvatar) {
+                itemProps = (picture as ReactElement).props as IKitAvatar;
                 cloneProps = {
-                    className: (picture.props?.className || '') + ' avatar-full'
+                    className: (itemProps.className || '') + ' avatar-full'
                 };
             }
             break;
         default:
             return null;
     }
-    const Component = cloneElement(picture, cloneProps as IKitImage & IKitIcon & IKitAvatar);
+    const Component = cloneElement(pictureJsx, cloneProps as IKitImage & IKitIcon & IKitAvatar);
     return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
 };
 
-const _getActions = (actions, disabled) => {
+const _getActions = (actions: ReactNode[] | undefined, disabled: boolean): ReactNode[] | null => {
     if (!actions) {
         return null;
     }
 
-    return actions.map((button, index) =>
-        cloneElement(button, {
+    return actions.map((button, index) => {
+        const ReactNode: IKitButton = (button as ReactElement).props as IKitButton;
+        return cloneElement(button as ReactElement, {
             key: index,
             type: 'default',
             disabled: disabled,
-            className: `${button.props.className ?? ''} kit-card-select-button`,
-            wrapperClassName: `${button.props.wrapperClassName ?? ''} kit-card-select-button-wrapper`
-        })
-    );
+            className: `${ReactNode.className ?? ''} kit-card-select-button`,
+            wrapperClassName: `${ReactNode.wrapperClassName ?? ''} kit-card-select-button-wrapper`
+        });
+    });
 };
 
-const _getSWrapperClassName = (vertical, disabled, className) =>
+const _getSWrapperClassName = (vertical: boolean | undefined, disabled: boolean, className: string) =>
     cn(className, 'kit-card-wrapper', {
         'kit-card-vertical': vertical,
         'kit-card-horizontal': !vertical,

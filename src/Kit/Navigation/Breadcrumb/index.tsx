@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 import {Breadcrumb} from 'antd';
 import styled from 'styled-components';
 import {IKitBreadcrumb} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {kitBreadcrumbCssTokens} from '@theme/aristid/components/Navigation/Breadcrumb';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 

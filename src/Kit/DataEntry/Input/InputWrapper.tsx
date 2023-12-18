@@ -1,7 +1,7 @@
 import React, {FunctionComponent} from 'react';
 import {IKitInputWrapper} from './types';
 import {KitTypography} from '@kit/General/';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {kitInputWrapperCssTokens} from '@theme/aristid/components/DataEntry/Input';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {spacingCssTokens} from '@theme/aristid/general/spacing';

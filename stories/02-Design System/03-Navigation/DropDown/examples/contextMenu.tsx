@@ -3,7 +3,7 @@ import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
 import {KitTypography} from '@kit/General';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const items: IKitDropdownMenu['items'] = [
     {

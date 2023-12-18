@@ -1,7 +1,7 @@
 import React, {FunctionComponent, useMemo} from 'react';
 import {css, styled} from 'styled-components';
 import {IKitIcon, IStyledKitIcon} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import useSecureClick from '@hooks/useSecureClick';
 import {getColor, getLighterColor, isValidColor} from '@utils/functions';
 

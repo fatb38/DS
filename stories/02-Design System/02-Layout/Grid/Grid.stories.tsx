@@ -1,6 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitGrid} from '@kit/Layout';
-import {argTypes, FakeGrid, Template} from './data';
+import {argTypes} from './data';
+import {Template, FakeGrid} from './Template';
 
 const meta: Meta<typeof FakeGrid> = {
     component: FakeGrid,

@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 import {Progress} from 'antd';
 import styled from 'styled-components';
 import {IKitProgress} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {kitProgressCssTokens} from '@theme/aristid/components/Feedback/Progress';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 
