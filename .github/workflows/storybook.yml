@@ -11,7 +11,7 @@ env:
   name: ${{ github.ref_name == 'develop' && 'storybook-dev' || 'storybook-main' }}
 
 jobs:
-  storybook-develop:
+  build-storybook:
     runs-on: ubuntu-latest
     if: github.ref_name == 'develop' || github.ref_name == 'main'
     steps:
