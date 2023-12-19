@@ -4,7 +4,11 @@
 name: Publish Package to npmjs
 
 on:
-  workflow_call:
+  workflow_call:  
+    secrets:
+      NPM_TOKEN:
+        description: 'Npm Token'
+        required: false
 
 jobs:
   prepublish:
