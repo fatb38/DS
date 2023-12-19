@@ -16,7 +16,7 @@ on:
 
 jobs:
   eslint:
-    uses: ./.github/workflows/eslint.yml
+    uses: ./.github/workflows/Eslint.yml
   chromatic:
     if: github.event_name == 'pull_request' && github.base_ref == 'develop'
     needs: eslint
