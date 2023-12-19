@@ -18,19 +18,17 @@ jobs:
   eslint:
     uses: ./.github/workflows/Eslint.yml
   chromatic:
+    secrets:
+      CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
     if: github.event_name == 'pull_request' && github.base_ref == 'develop'
     needs: eslint
     uses: ./.github/workflows/chromatic.yml
-    with:
-    secrets:
-      CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
   npm:
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
     needs: eslint
     uses: ./.github/workflows/npm.yml
-    with:
-    secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   storybook-main:
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
     needs: npm
