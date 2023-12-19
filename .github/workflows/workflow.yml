@@ -1,0 +1,35 @@
+# .github/workflows/chromatic.yml
+
+# Workflow name
+name: "Design system workflow"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '*'
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - 'develop'
+
+jobs:
+  eslint:
+    uses: ./.github/workflows/eslint.yml
+  chromatic:
+    if: github.event_name == 'pull_request' && github.base_ref == 'develop'
+    needs: eslint
+    uses: ./.github/workflows/chromatic.yml
+  npm:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+    needs: eslint
+    uses: ./.github/workflows/npm.yml
+  storybook-main:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+    needs: npm
+    uses: ./.github/workflows/storybook.yml
+  storybook-dev:
+    if: github.event_name == 'push' && github.ref_name == 'develop'
+    needs: eslint
+    uses: ./.github/workflows/storybook.yml
