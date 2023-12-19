@@ -1,21 +1,22 @@
+# .github/workflows/npm.yml
+
 # Workflow name
 name: Publish Package to npmjs
 
 on:
-  push:
-    tags:
-      - '*'
+  workflow_call:
 
 jobs:
   prepublish:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v3
       - uses: nowsprinting/check-version-format-action@v3
         id: version
       - uses: geritol/match-tag-to-package-version@0.2.0
         id: match-version
-  publish-npm:
+  publish:
     runs-on: ubuntu-latest
     needs: prepublish
     steps:
@@ -29,15 +30,3 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  publish-storybook:
-    runs-on: ubuntu-latest
-    needs: prepublish
-    steps:
-      - uses: actions/checkout@v4
-      - name: build-storybook
-        run: yarn && yarn build-storybook
-      - name: upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: storybook-main
-          path: ./storybook-static

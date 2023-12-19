@@ -1,0 +1,16 @@
+# .github/workflows/Eslint.yml
+
+# Workflow name
+name: "Eslint"
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: run eslint
+        run: yarn && yarn eslint
