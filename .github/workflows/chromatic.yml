@@ -7,10 +7,6 @@ name: "Chromatic"
 on:
   workflow_dispatch:
   workflow_call:
-    secrets:
-      CHROMATIC_PROJECT_TOKEN:
-        description: 'Chromatic project token'
-        required: false
 
 # List of jobs
 jobs:
