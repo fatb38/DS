@@ -1,0 +1,25 @@
+# .github/workflows/storybook.yml
+
+# Workflow name
+name: "Storybook"
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+env:
+  name: ${{ github.ref_name == 'develop' && 'storybook-dev' || 'storybook-main' }}
+
+jobs:
+  storybook-develop:
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'develop' || github.ref_name == 'main'
+    steps:
+      - uses: actions/checkout@v4
+      - name: build-storybook
+        run: yarn && yarn build-storybook
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.name }}
+          path: ./storybook-static
