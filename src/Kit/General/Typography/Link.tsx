@@ -4,50 +4,46 @@ import {Typography} from 'antd';
 import {IKitLink, IStyledKitLink} from './types';
 import {sizeTofontSize, getWeightClassname} from './commons';
 import {useKitTheme} from '@theme/useKitTheme';
-import {IKitTypography} from '@theme/types/general/typography';
+import {kitTypographyCssTokens} from '@theme/aristid/components/General/Typography';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 
 const StyledKitLink = styled(Typography.Link)<IStyledKitLink>`
-    font-size: ${({$typographyTheme, size}) => {
-        const typographyKey = 'fontSize' + sizeTofontSize[size];
-        if (typographyKey in $typographyTheme) {
-            return $typographyTheme[typographyKey as keyof IKitTypography];
+    font-size: ${({size}) => {
+        if (size === undefined) {
+            return `calc(var(${typographyCssTokens.fontSize6}) * 1px)`;
         }
-        return $typographyTheme.fontSize6;
-    }}px;
-    line-height: ${({$typographyTheme, size}) => {
-        const typographyKey = 'lineHeight' + sizeTofontSize[size];
-        if (typographyKey in $typographyTheme) {
-            return $typographyTheme[typographyKey as keyof IKitTypography];
+        return `calc(var(${typographyCssTokens['fontSize' + sizeTofontSize[size]]}) * 1px)`;
+    }};
+    line-height: ${({size}) => {
+        if (size === undefined) {
+            return `var(${typographyCssTokens.lineHeight6})`;
         }
-        return $typographyTheme.lineHeight6;
+        return `var(${typographyCssTokens['lineHeight' + sizeTofontSize[size]]})`;
     }};
 
     &.ant-typography-regular {
-        font-weight: ${({$theme}) => $theme.Link.fontWeight.regular};
+        font-weight: var(
+            ${kitTypographyCssTokens.Link.fontWeight.regular},
+            var(${typographyCssTokens.regularFontWeight})
+        );
     }
 
     &.ant-typography-medium {
-        font-weight: ${({$theme}) => $theme.Link.fontWeight.medium};
+        font-weight: var(
+            ${kitTypographyCssTokens.Link.fontWeight.medium},
+            var(${typographyCssTokens.mediumfontWeight})
+        );
     }
 
     &.ant-typography-bold {
-        font-weight: ${({$theme}) => $theme.Link.fontWeight.bold};
+        font-weight: var(${kitTypographyCssTokens.Link.fontWeight.bold}, var(${typographyCssTokens.boldFontWeight}));
     }
 `;
 
 const KitLink = forwardRef<HTMLElement, IKitLink>(({size = 'medium', ...props}, ref) => {
-    const {theme} = useKitTheme();
+    const {appId} = useKitTheme();
 
-    return (
-        <StyledKitLink
-            ref={ref}
-            $theme={theme.components.Typography}
-            $typographyTheme={theme.general.typography}
-            size={size}
-            {...props}
-            className={getWeightClassname(props)}
-        />
-    );
+    return <StyledKitLink {...props} ref={ref} size={size} className={`${appId} ${getWeightClassname(props)}`} />;
 });
 KitLink.displayName = 'KitLink';
 

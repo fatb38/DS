@@ -59,7 +59,6 @@ const useKitThemeProvider = (theme: IKitTheme, id?: string, customTheme?: IKitCu
 
     // We can't use css variables for the Spacing component, so we need to pass this object
     const mergeSpacing = merge(theme.general.spacing, customTheme?.general?.spacing);
-
     // TODO Remove theme
     return {theme, appId: internalId.current, spacing: mergeSpacing};
 };

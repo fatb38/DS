@@ -4,37 +4,48 @@ import {Typography} from 'antd';
 import {IKitText, IStyledKitParagraph} from './types';
 import {sizeTofontSize, getWeightClassname} from './commons';
 import {useKitTheme} from '@theme/useKitTheme';
+import {kitTypographyCssTokens} from '@theme/aristid/components/General/Typography';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 
 const StyledKitParagraph = styled(Typography.Paragraph)<IStyledKitParagraph>`
-    font-size: ${({$typographyTheme, size}) => $typographyTheme['fontSize' + sizeTofontSize[size] ?? 6] as number}px;
-    line-height: ${({$typographyTheme, size}) => $typographyTheme['lineHeight' + sizeTofontSize[size] ?? 6] as number};
-
+    font-size: ${({size}) => {
+        if (size === undefined) {
+            return `calc(var(${typographyCssTokens.fontSize6}) * 1px)`;
+        }
+        return `calc(var(${typographyCssTokens['fontSize' + sizeTofontSize[size]]}) * 1px)`;
+    }};
+    line-height: ${({size}) => {
+        if (size === undefined) {
+            return `var(${typographyCssTokens.lineHeight6})`;
+        }
+        return `var(${typographyCssTokens['lineHeight' + sizeTofontSize[size]]})`;
+    }};
     &.ant-typography-regular {
-        font-weight: ${({$theme}) => $theme.Paragraph.fontWeight.regular};
+        font-weight: var(
+            ${kitTypographyCssTokens.Paragraph.fontWeight.regular},
+            var(${typographyCssTokens.regularFontWeight})
+        );
     }
 
     &.ant-typography-medium {
-        font-weight: ${({$theme}) => $theme.Paragraph.fontWeight.medium};
+        font-weight: var(
+            ${kitTypographyCssTokens.Paragraph.fontWeight.medium},
+            var(${typographyCssTokens.mediumfontWeight})
+        );
     }
 
     &.ant-typography-bold {
-        font-weight: ${({$theme}) => $theme.Paragraph.fontWeight.bold};
+        font-weight: var(
+            ${kitTypographyCssTokens.Paragraph.fontWeight.bold},
+            var(${typographyCssTokens.boldFontWeight})
+        );
     }
 `;
 
 const KitParagraph = forwardRef<HTMLElement, IKitText>(({size = 'medium', ...props}, ref) => {
-    const {theme} = useKitTheme();
+    const {appId} = useKitTheme();
 
-    return (
-        <StyledKitParagraph
-            ref={ref}
-            $theme={theme.components.Typography}
-            $typographyTheme={theme.general.typography}
-            size={size}
-            {...props}
-            className={getWeightClassname(props)}
-        />
-    );
+    return <StyledKitParagraph {...props} ref={ref} size={size} className={`${appId} ${getWeightClassname(props)}`} />;
 });
 KitParagraph.displayName = 'KitParagraph';
 

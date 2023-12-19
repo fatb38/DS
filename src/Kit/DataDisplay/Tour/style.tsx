@@ -1,8 +1,10 @@
 import {createGlobalStyle} from 'styled-components';
-import {IStyledAntdTour} from './types';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {kitButtonCssTokens} from '@theme/aristid/components/General/Button';
+import {borderCssTokens} from '@theme/aristid/general/border';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 
-export const TourStyle = createGlobalStyle<IStyledAntdTour>`
+export const TourStyle = createGlobalStyle`
     .ant-tour-primary {
         .ant-tour-arrow::after, .ant-tour-arrow::before {
             background-color: var(${kitColorsPaletteCssTokens.primary.primary400});
@@ -22,55 +24,55 @@ export const TourStyle = createGlobalStyle<IStyledAntdTour>`
                 min-width: 40px;
                 box-shadow: none;
                 padding: 6.6px 15px;
-                border-radius: ${({$buttonTheme}) => $buttonTheme.border.radius}px;
+                border-radius: calc(var(${kitButtonCssTokens.border.radius}, var(${borderCssTokens.radius.pills})) * 1px);
 
                 &.ant-btn-primary {
-                    color: ${({$buttonTheme}) => $buttonTheme.primary.colors.typography.default};
-                    background-color: ${({$buttonTheme}) => $buttonTheme.primary.colors.background.default};
-                    font-weight: ${({$buttonTheme}) => $buttonTheme.primary.typography.fontWeight};
+                    color: var(${kitButtonCssTokens.primary.colors.typography.default}, var(${kitColorsPaletteCssTokens.neutral.typography.white}));
+                    background-color: var(${kitButtonCssTokens.primary.colors.background.default}, var(${kitColorsPaletteCssTokens.primary.primary400}));
+                    font-weight: var(${kitButtonCssTokens.primary.typography.fontWeight}, var(${typographyCssTokens.regularFontWeight}));
 
                     &:hover {
-                        color: ${({$buttonTheme}) => $buttonTheme.primary.colors.typography.hover};
-                        background-color: ${({$buttonTheme}) => $buttonTheme.primary.colors.background.hover};
-                        border-color: ${({$buttonTheme}) => $buttonTheme.primary.colors.border.hover};
+                        color: var(${kitButtonCssTokens.primary.colors.typography.hover}, var(${kitColorsPaletteCssTokens.neutral.typography.white}));
+                        background-color: var(${kitButtonCssTokens.primary.colors.background.hover}, var(${kitColorsPaletteCssTokens.primary.primary500}));
+                        border-color: var(${kitButtonCssTokens.primary.colors.border.hover}, var(${kitColorsPaletteCssTokens.primary.primary500}));
                         border-style: solid;
                     }
 
                     &:focus {
-                        color: ${({$buttonTheme}) => $buttonTheme.primary.colors.typography.focus};
-                        background-color: ${({$buttonTheme}) => $buttonTheme.primary.colors.background.focus};
-                        border-color: ${({$buttonTheme}) => $buttonTheme.primary.colors.border.focus};
+                        color: var(${kitButtonCssTokens.primary.colors.typography.focus}, var(${kitColorsPaletteCssTokens.neutral.typography.white}));
+                        background-color: var(${kitButtonCssTokens.primary.colors.background.focus}, var(${kitColorsPaletteCssTokens.primary.primary400}));
+                        border-color: var(${kitButtonCssTokens.primary.colors.border.focus}, var(${kitColorsPaletteCssTokens.primary.primary400}));
                         border-style: dashed;
                     }
 
                     &:active {
-                        color: ${({$buttonTheme}) => $buttonTheme.primary.colors.typography.active};
-                        background-color: ${({$buttonTheme}) => $buttonTheme.primary.colors.background.active};
-                        border-color: ${({$buttonTheme}) => $buttonTheme.primary.colors.border.active};
+                        color: var(${kitButtonCssTokens.primary.colors.typography.active}, var(${kitColorsPaletteCssTokens.neutral.typography.white}));
+                        background-color: var(${kitButtonCssTokens.primary.colors.background.active}, var(${kitColorsPaletteCssTokens.primary.primary600}));
+                        border-color: var(${kitButtonCssTokens.primary.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary600}));
                         border-style: solid;
                     }
                 }
 
                 &.ant-btn-default {
-                    color: ${({$buttonTheme}) => $buttonTheme.default.colors.typography.default};
-                    background-color: ${({$buttonTheme}) => $buttonTheme.default.colors.background.default};
-                    font-weight: ${({$buttonTheme}) => $buttonTheme.default.typography.fontWeight};
+                    color: var(${kitButtonCssTokens.default.colors.typography.default}, var(${kitColorsPaletteCssTokens.primary.primary400}));
+                    background-color: var(${kitButtonCssTokens.default.colors.background.default}, var(${kitColorsPaletteCssTokens.neutral.white}));;
+                    font-weight: calc(var(${kitButtonCssTokens.default.typography.fontWeight}, var(${typographyCssTokens.regularFontWeight})) * 1px);
                     &:hover {
-                        color: ${({$buttonTheme}) => $buttonTheme.default.colors.typography.hover};
-                        background-color: ${({$buttonTheme}) => $buttonTheme.default.colors.background.hover};
-                        border-color: ${({$buttonTheme}) => $buttonTheme.default.colors.border.hover};
+                        color: var(${kitButtonCssTokens.default.colors.typography.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}));
+                        background-color: var(${kitButtonCssTokens.default.colors.background.hover}, var(${kitColorsPaletteCssTokens.neutral.white}));
+                        border-color: var(${kitButtonCssTokens.default.colors.border.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}));;
                         border-style: solid;
                     }
                     &:focus {
-                        color: ${({$buttonTheme}) => $buttonTheme.default.colors.typography.focus};
-                        background-color: ${({$buttonTheme}) => $buttonTheme.default.colors.background.focus};
-                        border-color: ${({$buttonTheme}) => $buttonTheme.default.colors.border.focus};
+                        color: var(${kitButtonCssTokens.default.colors.typography.focus}, var(${kitColorsPaletteCssTokens.primary.primary400}));
+                        background-color: var(${kitButtonCssTokens.default.colors.background.focus}, var(${kitColorsPaletteCssTokens.neutral.white}));
+                        border-color: var(${kitButtonCssTokens.default.colors.border.focus}, var(${kitColorsPaletteCssTokens.primary.primary400}));;
                         border-style: dashed;
                     }
                     &:active {
-                        color: ${({$buttonTheme}) => $buttonTheme.default.colors.typography.active};
-                        background-color: ${({$buttonTheme}) => $buttonTheme.default.colors.background.active};
-                        border-color: ${({$buttonTheme}) => $buttonTheme.default.colors.border.active};
+                        color: var(${kitButtonCssTokens.default.colors.typography.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
+                        background-color: var(${kitButtonCssTokens.default.colors.background.active}, var(${kitColorsPaletteCssTokens.primary.primary100}));
+                        border-color: var(${kitButtonCssTokens.default.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
                         border-style: solid;
                     }
                 }

@@ -1,5 +1,6 @@
 import {IKitThemeGeneral} from '@theme/types';
-import {IKitIconTheme} from '@theme/types/components/General/Icon';
+import {IKitIconCssTokens, IKitIconTheme} from '@theme/types/components/General/Icon';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
 export const getKitIconTokens = (generalTokens: IKitThemeGeneral): IKitIconTheme => {
     const {colors, border} = generalTokens;
@@ -23,3 +24,22 @@ export const getKitIconTokens = (generalTokens: IKitThemeGeneral): IKitIconTheme
         }
     };
 };
+
+export const kitIconCssTokens = generateCssTokens<IKitIconCssTokens>('--components-Typography', {
+    colors: {
+        icon: {
+            default: '',
+            on: ''
+        },
+        background: {
+            default: '',
+            on: ''
+        }
+    },
+    border: {
+        radius: {
+            default: '',
+            on: ''
+        }
+    }
+});
