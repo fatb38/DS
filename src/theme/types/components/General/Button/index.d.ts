@@ -1,4 +1,4 @@
-import {KitColorKeys} from '../../../general/colors/index';
+import {KitColorKeys} from '@theme/types/general/colors';
 
 interface IKitButtonThemeStateColor {
     /**

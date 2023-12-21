@@ -8,6 +8,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleCheck} from '@fortawesome/free-solid-svg-icons';
 import useSecureClick from '@hooks/useSecureClick';
 import {kitButtonCssTokens, kitButtonDefaultCssTokens} from '@theme/aristid/components/General/Button';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {borderCssTokens} from '@theme/aristid/general/border';
 
 const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
     height: 40px;
@@ -21,6 +23,10 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
         `var(${$buttonCssTokens.custom.colors.background.default}, var(${$buttonCssTokens.default.colors.background.default}))`};
     font-weight: ${({$buttonCssTokens}) =>
         `var(${$buttonCssTokens.custom.typography.fontWeight}, var(${$buttonCssTokens.default.typography.fontWeight}))`};
+    font-size: calc(var(${kitButtonCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
+    line-height: var(${kitButtonCssTokens.typography.lineHeight}, var(${typographyCssTokens.lineHeight5}));
+    border-radius: calc(var(${kitButtonCssTokens.border.radius}, var(${borderCssTokens.radius.pills})) * 1px);
+    font-family: var(${kitButtonCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
 
     &[href].ant-btn {
         display: flex;

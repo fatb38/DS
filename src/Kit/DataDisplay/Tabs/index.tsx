@@ -39,6 +39,12 @@ const StyledKitTabs = styled(AntTabs)`
         }
     }
 
+    &.ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab {
+        border-radius: calc(var(${kitTabsCssTokens.card.border.radius}, var(${borderCssTokens.radius.s})) * 1px)
+            calc(var(${kitTabsCssTokens.card.border.radius}, var(${borderCssTokens.radius.s})) * 1px) 0 0;
+        margin-top: 10px;
+    }
+
     &.ant-tabs-top,
     &.ant-tabs-bottom {
         .ant-tabs-nav .ant-tabs-extra-content:first-child {

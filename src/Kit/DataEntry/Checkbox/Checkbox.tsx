@@ -13,9 +13,13 @@ import {kitCheckboxCssTokens} from '@theme/aristid/components/DataEntry/Checkbox
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import classNames from 'classnames';
+import {borderCssTokens} from '@theme/aristid/general/border';
 
 const StyledKitCheckbox = styled(Checkbox)`
     font-weight: var(${kitCheckboxCssTokens.typography.fontWeight}, var(${typographyCssTokens.mediumfontWeight}));
+    font-size: calc(var(${kitCheckboxCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
+    line-height: var(${kitCheckboxCssTokens.typography.lineHeight}, var(${typographyCssTokens.lineHeight5}));
+    border-radius: calc(var(${kitCheckboxCssTokens.border.radius}, var(${borderCssTokens.radius.xs})) * 1px);
 
     .ant-checkbox-inner {
         border-width: calc(var(${kitCheckboxCssTokens.typography.lineWidth}, 1) * 1px);

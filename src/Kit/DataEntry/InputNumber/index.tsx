@@ -14,6 +14,8 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
         ${kitInputNumberCssTokens.typography.placeholder.fontWeight},
         var(${typographyCssTokens.regularFontWeight})
     );
+    font-size: calc(var(${kitInputNumberCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
+    border-radius: calc(var(${kitInputNumberCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
     height: 40px;
     line-height: 40px;
 

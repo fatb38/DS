@@ -1,9 +1,9 @@
 import {createContext, useContext} from 'react';
-import {IKitTheme, IKitThemeGeneral} from './types';
+import {IKitThemeGeneral} from './types';
 
 type KitThemeContext =
     | {
-          theme: IKitTheme;
+          theme: IKitThemeGeneral;
           appId: string;
           spacing: IKitThemeGeneral['spacing'];
       }

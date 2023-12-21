@@ -11,7 +11,8 @@ import {typographyCssTokens} from '@theme/aristid/general/typography';
 
 const StyledKitRadio = styled(Radio)`
     font-weight: var(${kitRadioCssTokens.typography.fontWeight}, var(${typographyCssTokens.mediumfontWeight}));
-
+    font-size: calc(var(${kitRadioCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
+    line-height: var(${kitRadioCssTokens.typography.lineHeight}, var(${typographyCssTokens.lineHeight5}));
     // Unchecked
     .ant-radio {
         .ant-radio-inner {

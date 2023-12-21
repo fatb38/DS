@@ -22,15 +22,13 @@ const KitSnackBarProvider = () => {
         setHasProvider(!!providerElem);
     }, []);
 
-    return (
-        !hasProvider && (
-            <Toaster
-                containerClassName={ARISTID_TOASTSER_PROVIDER_CLASSNAME}
-                position="bottom-center"
-                toastOptions={{style: resetReactHotToastStyle}}
-            />
-        )
-    );
+    return !hasProvider ? (
+        <Toaster
+            containerClassName={ARISTID_TOASTSER_PROVIDER_CLASSNAME}
+            position="bottom-center"
+            toastOptions={{style: resetReactHotToastStyle}}
+        />
+    ) : null;
 };
 
 export default KitSnackBarProvider;

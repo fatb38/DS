@@ -24,7 +24,7 @@ const App = () => {
                         show ? (
                             <FontAwesomeIcon
                                 icon={faClock}
-                                style={{color: theme.general.colors.secondary.red.red400}}
+                                style={{color: theme.colors.secondary.red.red400}}
                             />
                         ) : (
                             0

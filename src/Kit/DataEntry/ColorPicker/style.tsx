@@ -7,6 +7,7 @@ import {borderCssTokens} from '@theme/aristid/general/border';
 
 export const ColorPickerPanelStyle = createGlobalStyle`
     .ant-color-picker.kit-color-picker {
+        font-size: calc(var(${kitColorPickerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
         .ant-color-picker-input-container {
             .ant-select {
                 .ant-select-selection-item {
@@ -67,7 +68,7 @@ export const StyledAntdColorPicker = styled(AntdColorPicker)`
     min-width: 40px;
     line-height: 40px;
     box-shadow: none;
-
+    font-size: calc(var(${kitColorPickerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
     &.ant-color-picker-trigger-active {
         border-style: dashed;
     }

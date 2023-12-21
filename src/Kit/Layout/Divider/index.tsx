@@ -8,9 +8,10 @@ import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {useKitTheme} from '@theme/useKitTheme';
 
 const StyledAntdDivider = styled(AntdDivider)<IStyledAntdDivider>`
+    font-size: calc(var(${kitDividerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize6})) * 1px);
+    line-height: var(${kitDividerCssTokens.typography.lineHeight}, var(${typographyCssTokens.lineHeight6}));
+    font-weight: var(${kitDividerCssTokens.typography.fontWeight}, var(${typographyCssTokens.mediumfontWeight}));
     &.ant-divider {
-        font-weight: var(${kitDividerCssTokens.typography.fontWeight}, var(${typographyCssTokens.mediumfontWeight}));
-
         ${({$noMargin}) =>
             $noMargin &&
             css`

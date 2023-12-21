@@ -9,7 +9,7 @@ import {useKitTheme} from '@theme/useKitTheme';
 const App = () => {
     const {theme} = useKitTheme();
 
-    const secondaryColors = Object.keys(theme.general.colors.secondary);
+    const secondaryColors = Object.keys(theme.colors.secondary);
 
     return (
         <KitSpace direction="vertical">

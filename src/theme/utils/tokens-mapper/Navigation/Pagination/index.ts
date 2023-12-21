@@ -1,12 +1,11 @@
 import {kitPaginationCssTokens} from '@theme/aristid/components/Navigation/Pagination';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
-import {IKitPaginationTheme} from '@theme/types/components/Navigation/Pagination';
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
 
-export const paginationKitTokenToAntdToken = (kitPaginationTheme: IKitPaginationTheme) => ({
+export const paginationKitTokenToAntdToken = {
+    fontSize: 14,
     fontFamily: `var(${kitPaginationCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`,
-    fontSize: kitPaginationTheme.typography.fontSize,
     colorBgContainer: `var(${kitPaginationCssTokens.colors.background.container.default}, var(${kitColorsPaletteCssTokens.neutral.white}))`,
     colorBgContainerDisabled: `var(${kitPaginationCssTokens.colors.background.container.disabled}, var(${kitColorsPaletteCssTokens.neutral.background}))`,
     fontSizeSM: KitAristidThemeGeneral.typography.fontSize5,
@@ -18,4 +17,4 @@ export const paginationKitTokenToAntdToken = (kitPaginationTheme: IKitPagination
     colorPrimaryHover: `var(${kitColorsPaletteCssTokens.primary.primary400})`,
     colorBgTextActive: `var(${kitColorsPaletteCssTokens.neutral.black60})`,
     colorTextDisabled: `var(${kitColorsPaletteCssTokens.neutral.black60})`
-});
+};

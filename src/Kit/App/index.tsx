@@ -9,14 +9,13 @@ import {KitThemeProvider} from '@theme/theme-context';
 import {IKitCustomTheme} from '@theme/types';
 import {TypographyStyle} from '@kit/General/Typography/style';
 import {TabsDropDownStyle} from '@kit/DataDisplay/Tabs/style';
-import {mapKitThemeToAntdTheme} from '@theme/utils/tokens-mapper';
+import {antdThemeConfig} from '@theme/utils/tokens-mapper';
 import {IKitLocale} from '@translation/types';
 import {KitLocaleProvider} from '@translation/locale-context';
 import {mapKitLocaleToAntdLocale} from '@translation/utils';
 import {ColorPickerPanelStyle} from '@kit/DataEntry/ColorPicker/style';
 import {TourStyle} from '@kit/DataDisplay/Tour/style';
 import {useKitLocale} from '@translation/useKitLocale';
-import {useKitTheme} from '@theme/useKitTheme';
 import {KitNotificationProvider} from '@kit/Feedback/Notification/notification-provider';
 import './font.css';
 
@@ -29,21 +28,13 @@ export const KitApp: FunctionComponent<{
     return (
         <KitThemeProvider customTheme={customTheme} id={id}>
             <KitLocaleProvider>
-                <KitAppConfig customTheme={customTheme} locale={locale}>
-                    {children}
-                </KitAppConfig>
+                <KitAppConfig locale={locale}>{children}</KitAppConfig>
             </KitLocaleProvider>
         </KitThemeProvider>
     );
 };
 
-const KitAppConfig: FunctionComponent<
-    PropsWithChildren<{
-        customTheme?: IKitCustomTheme;
-        locale?: IKitLocale;
-    }>
-> = ({children, locale, customTheme}) => {
-    const {theme} = useKitTheme();
+const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale}>> = ({children, locale}) => {
     const {setKitLocale} = useKitLocale();
 
     useEffect(() => {
@@ -53,7 +44,7 @@ const KitAppConfig: FunctionComponent<
     }, [locale, setKitLocale]);
 
     return (
-        <ConfigProvider theme={mapKitThemeToAntdTheme(theme, customTheme)} locale={mapKitLocaleToAntdLocale(locale)}>
+        <ConfigProvider theme={antdThemeConfig} locale={mapKitLocaleToAntdLocale(locale)}>
             <KitNotificationProvider>
                 <KitSnackBarProvider />
                 <ColorPickerPanelStyle />

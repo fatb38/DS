@@ -145,16 +145,13 @@ export const SelectDropDownStyle = createGlobalStyle`
                         margin-left: 5px;
                     }
 
-                    &[title] {
-                        padding-left: 10px;
-                    }
-
                     .ant-select-item-option-content {
                         display: flex;
                         align-items: center;
                         min-height: 32px;
                         height: 32px;
-                        border-radius: 7px;
+                        border-radius: 8px;
+                        padding-left: 8px;
                     }
 
                     .kit-select-option {
@@ -190,7 +187,7 @@ export const SelectDropDownStyle = createGlobalStyle`
                             ${kitSelectDropDownCssTokens.colors.typography.selected},
                             var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
                         );
-                        border-radius: 7px 0 0 7px;
+                        border-radius: 8px 0 0 8px;
                     }
 
                     .ant-select-item-option-state {
@@ -198,7 +195,8 @@ export const SelectDropDownStyle = createGlobalStyle`
                             ${kitSelectDropDownCssTokens.colors.background.selected},
                             var(${kitColorsPaletteCssTokens.primary.primary100})
                         );
-                        border-radius: 0 7px 7px 0;
+                        border-radius: 0 8px 8px 0;
+                        min-width: 8px;
                         height: 32px;
                     }
                 }
@@ -431,7 +429,6 @@ export const StyledKitSelect = styled(AntdSelect)`
         .ant-select-clear {
             grid-area: clear;
             position: relative;
-            display: flex;
             display: flex;
             inset-inline-end: 0;
             font-size: 12px;

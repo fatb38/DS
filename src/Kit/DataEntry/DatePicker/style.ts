@@ -1,9 +1,15 @@
 import {kitDatePickerCssTokens} from '@theme/aristid/components/DataEntry/DatePicker';
+import {borderCssTokens} from '@theme/aristid/general/border';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {createGlobalStyle} from 'styled-components';
 
 export const DatePickerDropDownStyle = createGlobalStyle`
     .ant-picker-dropdown {
+        border-radius: calc(var(${kitDatePickerCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+        font-size: calc(
+            var(${kitDatePickerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px
+        );
         ul.ant-picker-ranges {
             margin-block-start: 0px;
         }

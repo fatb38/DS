@@ -1,10 +1,10 @@
 import {kitStepsCssTokens} from '@theme/aristid/components/Navigation/Steps';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
-import {IKitStepsTheme} from '@theme/types/components/Navigation/Steps';
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-export const stepsKitTokenToAntdToken = (kitStepsTheme: IKitStepsTheme) => ({
-    fontSize: kitStepsTheme.typography.fontSize,
+export const stepsKitTokenToAntdToken = {
+    fontSize:
+        `calc(var(${kitStepsCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize6})) * 1px)` as unknown as number,
     fontFamily: `var(${kitStepsCssTokens.typography.fontfamily}, var(${typographyCssTokens.fontFamily}))`,
     colorTextDescription: `var(${kitStepsCssTokens.colors.typography.description.default}, var(${kitColorsPaletteCssTokens.neutral.typography.black60}))`,
     colorText: `var(${kitStepsCssTokens.colors.typography.text.default}, var(${kitColorsPaletteCssTokens.neutral.typography.black}))`,
@@ -13,4 +13,4 @@ export const stepsKitTokenToAntdToken = (kitStepsTheme: IKitStepsTheme) => ({
     colorError: `var(${kitColorsPaletteCssTokens.secondary.red.red400})`,
     fontSizeLG: KitAristidThemeGeneral.typography.fontSize5,
     marginSM: KitAristidThemeGeneral.spacing.xs
-});
+};

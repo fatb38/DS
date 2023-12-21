@@ -9,6 +9,7 @@ import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 import {kitInputCssTokens} from '@theme/aristid/components/DataEntry/Input';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {borderCssTokens} from '@theme/aristid/general/border';
 
 const StyledAntdInput = styled(AntdInput)`
     &.ant-input,
@@ -29,6 +30,8 @@ const StyledAntdInput = styled(AntdInput)`
     }
 
     &.ant-input-affix-wrapper {
+        font-size: calc(var(${kitInputCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
+        border-radius: calc(var(${kitInputCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
         padding: 0 12px;
 
         &:focus-within {

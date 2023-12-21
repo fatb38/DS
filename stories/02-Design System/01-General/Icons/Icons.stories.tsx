@@ -38,7 +38,7 @@ export const Basic: Story = {
 const IconWithHooks = () => {
     const {theme} = useKitTheme();
 
-    const secondaryColors = Object.keys(theme.general.colors.secondary);
+    const secondaryColors = Object.keys(theme.colors.secondary);
 
     return (
         <div>

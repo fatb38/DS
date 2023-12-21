@@ -9,9 +9,14 @@ import {faCircleXmark, faClock, faCalendar} from '@fortawesome/free-regular-svg-
 import {kitDatePickerCssTokens} from '@theme/aristid/components/DataEntry/DatePicker';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {borderCssTokens} from '@theme/aristid/general/border';
 
 const StyledRangePicker = styled.div`
     .ant-picker.ant-picker-range {
+        font-size: calc(
+            var(${kitDatePickerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px
+        );
+        border-radius: calc(var(${kitDatePickerCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
         display: grid;
         grid-template-areas: 'icon input1 separator input2 clear';
         grid-template-columns: 28px 1fr 28px 1fr 12px;

@@ -1,8 +1,7 @@
 import React, {FC, PropsWithChildren, useLayoutEffect, useRef, useState} from 'react';
 
 // TODO: Later add option to have more arisitd themes
-import {getKitAristidTheme} from './aristid';
-import {IKitCustomTheme, IKitTheme} from './types';
+import {IKitCustomTheme} from './types';
 import {createGlobalStyle} from 'styled-components';
 import {toCssVariables} from '@utils/functions';
 import uuid from 'react-uuid';
@@ -10,6 +9,7 @@ import {merge} from 'lodash';
 import {Style} from 'react-style-tag';
 import {KitThemeContext} from './useKitTheme';
 import {IJSONObject} from '../../.storybook/components/ThemeEditor/types';
+import {KitAristidThemeGeneral} from '@theme/aristid/general';
 
 const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: string}>`
   .${props => props.id} {
@@ -25,11 +25,10 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
     id
 }) => {
     const [cssTokens, setCssTokens] = useState<Record<string, string> | null>(null);
-    const {theme, appId, spacing} = useKitThemeProvider(getKitAristidTheme(), id, customTheme);
+    const {theme, appId, spacing} = useKitThemeProvider(id, customTheme);
 
     useLayoutEffect(() => {
-        const generalTheme = getKitAristidTheme()?.general;
-        const tokens = toCssVariables(generalTheme as unknown as IJSONObject, '--general');
+        const tokens = toCssVariables(KitAristidThemeGeneral as unknown as IJSONObject, '--general');
         setCssTokens(tokens);
     }, []);
 
@@ -54,11 +53,11 @@ export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomThe
     );
 };
 
-const useKitThemeProvider = (theme: IKitTheme, id?: string, customTheme?: IKitCustomTheme) => {
+const useKitThemeProvider = (id?: string, customTheme?: IKitCustomTheme) => {
     const internalId = useRef(id || 'ds-' + uuid().substring(0, 8));
 
     // We can't use css variables for the Spacing component, so we need to pass this object
-    const mergeSpacing = merge(theme.general.spacing, customTheme?.general?.spacing);
-    // TODO Remove theme
-    return {theme, appId: internalId.current, spacing: mergeSpacing};
+    const mergeSpacing = merge(KitAristidThemeGeneral.spacing, customTheme?.general?.spacing);
+
+    return {theme: KitAristidThemeGeneral, appId: internalId.current, spacing: mergeSpacing};
 };
