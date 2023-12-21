@@ -13,12 +13,13 @@ on:
   pull_request:
     branches:
       - 'develop'
+    types: [synchronize, labeled]
 
 jobs:
   eslint:
     uses: ./.github/workflows/Eslint.yml
   chromatic:
-    if: github.event_name == 'pull_request' && github.base_ref == 'develop'
+    if: github.event_name == 'pull_request' && github.base_ref == 'develop' && contains(github.event.pull_request.labels.*.name, 'run chromatic')
     needs: eslint
     uses: ./.github/workflows/chromatic.yml
     secrets: inherit
