@@ -2,12 +2,12 @@ import React from 'react';
 import {KitIcon, KitSpace, KitTypography} from '@kit/index';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload} from '@fortawesome/free-solid-svg-icons';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const App = () => {
     const {theme} = useKitTheme();
 
-    const secondaryColors = Object.keys(theme.general.colors.secondary);
+    const secondaryColors = Object.keys(theme.colors.secondary);
 
     return (
         <KitSpace direction="vertical">

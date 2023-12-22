@@ -15,3 +15,20 @@ export interface IKitDividerTheme {
         lineHeight: number;
     };
 }
+export interface IKitDividerCssTokens {
+    colors: {
+        typography: {
+            default: string;
+        };
+        split: {
+            default: string;
+            lightGrey: string;
+        };
+    };
+    typography: {
+        fontFamily: string;
+        fontWeight: string;
+        fontSize: string;
+        lineHeight: string;
+    };
+}

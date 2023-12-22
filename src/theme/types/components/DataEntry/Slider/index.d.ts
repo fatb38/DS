@@ -114,3 +114,56 @@ export interface IKitSliderTheme {
         };
     };
 }
+
+export interface IKitSliderCssTokens {
+    handle: {
+        colors: {
+            background: {
+                hover: string;
+                focus: string;
+            };
+            border: {
+                default: string;
+                disabled: string;
+            };
+        };
+        size: string;
+        border: string;
+    };
+    rail: {
+        colors: {
+            background: {
+                default: string;
+                hover: string;
+            };
+        };
+        size: string;
+    };
+    dot: {
+        colors: {
+            border: {
+                default: string;
+                active: string;
+            };
+        };
+        size: string;
+    };
+    track: {
+        colors: {
+            background: {
+                default: string;
+                hover: string;
+            };
+        };
+    };
+    startIcon: {
+        colors: {
+            default: string;
+        };
+    };
+    endIcon: {
+        colors: {
+            default: string;
+        };
+    };
+}

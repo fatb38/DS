@@ -1,10 +1,12 @@
 import {useCallback, useRef} from 'react';
 
-const useSecureClick = (onClick, timeout = 500) => {
+type GenericOnCkick = (...args: never[]) => void;
+
+const useSecureClick = (onClick?: GenericOnCkick, timeout = 500) => {
     const isClickable = useRef(true);
 
     const secureClick = useCallback(
-        (...args) => {
+        (...args: never[]) => {
             if (isClickable.current && onClick) {
                 onClick(...args);
                 isClickable.current = false;
@@ -14,7 +16,7 @@ const useSecureClick = (onClick, timeout = 500) => {
                 }, timeout);
             }
         },
-        [onClick]
+        [onClick, timeout]
     );
 
     return secureClick;

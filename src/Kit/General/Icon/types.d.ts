@@ -1,7 +1,6 @@
 import {ReactNode, MouseEvent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {IconComponentProps} from '@ant-design/icons/lib/components/Icon';
-import {IKitIconTheme} from '@theme/types/components/General/Icon';
 import {KitColorProp} from '@utils/functions/types';
 
 export interface IKitIcon extends IconComponentProps, KitHTMLAttributes<HTMLSpanElement> {
@@ -14,11 +13,8 @@ export interface IKitIcon extends IconComponentProps, KitHTMLAttributes<HTMLSpan
     onClick?: (e: MouseEvent<HTMLSpanElement>) => void;
 }
 
-export interface IStyledKitIcon extends Omit<IKitIcon, 'icon'> {
-    $theme: IKitIconTheme;
+export interface IStyledKitIcon extends Omit<IKitIcon, 'icon', 'onClick'> {
     $on?: boolean;
     $isClickable?: boolean;
     className?: string;
-    $backgroundColor?: string;
-    $iconColor?: string;
 }

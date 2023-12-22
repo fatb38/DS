@@ -2,36 +2,43 @@ import React, {FunctionComponent} from 'react';
 import {Divider as AntdDivider} from 'antd';
 import {css, styled} from 'styled-components';
 import {IStyledAntdDivider, IKitDivider} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {kitDividerCssTokens} from '@theme/aristid/components/Layout/Divider';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const StyledAntdDivider = styled(AntdDivider)<IStyledAntdDivider>`
+    font-size: calc(var(${kitDividerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize6})) * 1px);
+    line-height: var(${kitDividerCssTokens.typography.lineHeight}, var(${typographyCssTokens.lineHeight6}));
+    font-weight: var(${kitDividerCssTokens.typography.fontWeight}, var(${typographyCssTokens.mediumfontWeight}));
     &.ant-divider {
-        font-weight: ${({$theme}) => $theme.typography.fontWeight};
-
         ${({$noMargin}) =>
             $noMargin &&
             css`
                 margin: 0px;
             `}
 
-        ${({$color, $theme}) =>
+        ${({$color}) =>
             $color === 'lightGrey' &&
             css`
-                border-color: ${$theme.colors.split.lightGrey};
+                border-color: var(
+                    ${kitDividerCssTokens.colors.split.lightGrey},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
+                );
             `}
     }
 `;
 
-export const KitDivider: FunctionComponent<IKitDivider> = ({noMargin = false, color = 'default', ...dividerProps}) => {
-    const {theme} = useKitTheme();
+export const KitDivider: FunctionComponent<IKitDivider> = ({
+    noMargin = false,
+    color = 'default',
+    className,
+    ...props
+}) => {
+    const {appId} = useKitTheme();
 
     return (
-        <StyledAntdDivider
-            $theme={theme.components.Divider}
-            {...dividerProps}
-            $noMargin={noMargin}
-            $color={color}
-        ></StyledAntdDivider>
+        <StyledAntdDivider {...props} className={`${appId} ${className ?? ''}`} $noMargin={noMargin} $color={color} />
     );
 };
 

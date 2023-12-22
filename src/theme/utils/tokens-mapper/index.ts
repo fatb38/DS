@@ -1,54 +1,46 @@
-import {IKitTheme} from '@theme/types';
 import {ThemeConfig} from 'antd';
 import {
-    mapBadgeKitTokenToAntdToken,
-    mapCollapseKitTokenToAntdToken,
-    mapTabsKitTokenToAntdToken,
-    mapTooltipKitTokenToAntdToken,
-    mapTreeKitTokenToAntdToken
+    badgeKitTokenToAntdToken,
+    collapseKitTokenToAntdToken,
+    tabsKitTokenToAntdToken,
+    tooltipKitTokenToAntdToken,
+    treeKitTokenToAntdToken
 } from './DataDisplay';
-import {
-    mapCheckboxKitTokenToAntdToken,
-    mapDatePickerKitTokenToAntdToken,
-    mapInputKitTokenToAntdToken,
-    mapInputNumberKitTokenToAntdToken,
-    mapRadioKitTokenToAntdToken,
-    mapRateKitTokenToAntdToken,
-    mapSelectKitTokenToAntdToken,
-    mapSliderKitTokenToAntdToken,
-    mapTagKitTokenToAntdToken,
-    mapColorPickerKitTokenToAntdToken
-} from './DataEntry';
-import {mapAlertKitTokenToAntdToken, mapProgressKitTokenToAntdToken} from './Feedback';
-import {mapDividerKitTokenToAntdToken} from './Layout';
-import {mapStepsKitTokenToAntdToken, mapPaginationKitTokenToAntdToken} from './Navigation';
-import {mapButtonKitTokenToAntdToken} from './General';
+import {stepsKitTokenToAntdToken, paginationKitTokenToAntdToken} from './Navigation';
+import {dividerKitTokenToAntdToken} from './Layout';
+import {alertKitTokenToAntdToken, progressKitTokenToAntdToken} from './Feedback';
+import {datePickerKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/DatePicker';
+import {inputKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Input';
+import {colorPickerKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/ColorPicker';
+import {inputNumberKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/InputNumber';
+import {radioKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Radio';
+import {rateKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Rate';
+import {selectKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Select';
+import {tagKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Tag';
+import {sliderKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Slider';
+import {checkboxKitTokenToAntdToken} from './DataEntry/Checkbox';
 
-export const mapKitThemeToAntdTheme = (theme: IKitTheme): ThemeConfig => {
-    const {components} = theme;
-    return {
-        components: {
-            Alert: mapAlertKitTokenToAntdToken(components.Alert),
-            Badge: mapBadgeKitTokenToAntdToken(components.Badge),
-            Button: mapButtonKitTokenToAntdToken(components.Button),
-            Checkbox: mapCheckboxKitTokenToAntdToken(components.Checkbox),
-            Collapse: mapCollapseKitTokenToAntdToken(components.Collapse),
-            DatePicker: mapDatePickerKitTokenToAntdToken(components.DatePicker),
-            Divider: mapDividerKitTokenToAntdToken(components.Divider),
-            Tabs: mapTabsKitTokenToAntdToken(components.Tabs),
-            Tooltip: mapTooltipKitTokenToAntdToken(components.Tooltip),
-            Tree: mapTreeKitTokenToAntdToken(components.Tree),
-            Input: mapInputKitTokenToAntdToken(components.Input),
-            InputNumber: mapInputNumberKitTokenToAntdToken(components.InputNumber),
-            Progress: mapProgressKitTokenToAntdToken(components.Progress),
-            Radio: mapRadioKitTokenToAntdToken(components.Radio),
-            Rate: mapRateKitTokenToAntdToken(components.Rate),
-            Select: mapSelectKitTokenToAntdToken(components.Select),
-            Slider: mapSliderKitTokenToAntdToken(components.Slider),
-            Steps: mapStepsKitTokenToAntdToken(components.Steps),
-            Tag: mapTagKitTokenToAntdToken(components.Tag),
-            Pagination: mapPaginationKitTokenToAntdToken(components.Pagination),
-            ColorPicker: mapColorPickerKitTokenToAntdToken(components.ColorPicker)
-        }
-    };
+export const antdThemeConfig: ThemeConfig = {
+    components: {
+        Alert: alertKitTokenToAntdToken,
+        Badge: badgeKitTokenToAntdToken,
+        Checkbox: checkboxKitTokenToAntdToken,
+        Collapse: collapseKitTokenToAntdToken,
+        ColorPicker: colorPickerKitTokenToAntdToken,
+        DatePicker: datePickerKitTokenToAntdToken,
+        Divider: dividerKitTokenToAntdToken,
+        Input: inputKitTokenToAntdToken,
+        InputNumber: inputNumberKitTokenToAntdToken,
+        Pagination: paginationKitTokenToAntdToken,
+        Progress: progressKitTokenToAntdToken,
+        Radio: radioKitTokenToAntdToken,
+        Rate: rateKitTokenToAntdToken,
+        Select: selectKitTokenToAntdToken,
+        Slider: sliderKitTokenToAntdToken,
+        Steps: stepsKitTokenToAntdToken,
+        Tabs: tabsKitTokenToAntdToken,
+        Tag: tagKitTokenToAntdToken,
+        Tree: treeKitTokenToAntdToken,
+        Tooltip: tooltipKitTokenToAntdToken
+    }
 };

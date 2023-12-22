@@ -151,3 +151,221 @@ export interface IKitInputWrapperTheme {
         helper: number;
     };
 }
+
+export interface IKitInputPasswordCssTokens {
+    colors: {
+        background: {
+            warning: string;
+            error: string;
+        };
+        prefix: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        suffix: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        clearIcon: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        passwordIcon: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        showCount: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        border: {
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        typography: {
+            content: {
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+            placeholder: {
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+        };
+    };
+    typography: {
+        content: {
+            fontWeight: string;
+        };
+        placeholder: {
+            fontWeight: string;
+        };
+        showCount: {
+            fontSize: string;
+            fontWeight: string;
+        };
+    };
+}
+
+export interface IKitTextAreaThemeCssTokens {
+    colors: {
+        background: {
+            warning: string;
+            error: string;
+        };
+        prefix: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        suffix: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        clearIcon: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        showCount: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        border: {
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        typography: {
+            content: {
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+            placeholder: {
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+        };
+    };
+    typography: {
+        content: {
+            fontWeight: string;
+        };
+        placeholder: {
+            fontWeight: string;
+        };
+        showCount: {
+            fontSize: string;
+            fontWeight: string;
+        };
+    };
+}
+
+export interface IKitInputCssTokens {
+    colors: {
+        background: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        prefix: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        suffix: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        clearIcon: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        showCount: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+        border: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+            hover: string;
+        };
+        typography: {
+            content: {
+                default: string;
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+            placeholder: {
+                default: string;
+                disabled: string;
+                warning: string;
+                error: string;
+            };
+        };
+    };
+    border: {
+        radius: string;
+    };
+    typography: {
+        content: {
+            fontWeight: string;
+        };
+        placeholder: {
+            fontWeight: string;
+        };
+        showCount: {
+            fontSize: string;
+            fontWeight: string;
+        };
+        fontFamily: string;
+        fontSize: string;
+    };
+}
+
+export interface IKitInputWrapperCssTokens {
+    colors: {
+        typography: {
+            default: string;
+            disabled: string;
+            warning: string;
+            error: string;
+        };
+    };
+    gap: {
+        label: string;
+        helper: string;
+    };
+}

@@ -1,7 +1,6 @@
 import type {ImageProps} from 'antd';
 import {FunctionComponent, ReactElement} from 'react';
 import {KitHTMLAttributes} from '../../../types';
-import {IKitImageTheme} from '@theme/types/components/DataDisplay/Image';
 import {Image as AntdImage} from 'antd';
 
 export interface IKitImage extends ImageProps, KitHTMLAttributes<HTMLDivElement> {
@@ -11,7 +10,6 @@ export interface IKitImage extends ImageProps, KitHTMLAttributes<HTMLDivElement>
 }
 
 export interface IStyledKitImage {
-    $theme: IKitImageTheme;
     $rounded?: boolean;
     $bordered?: boolean;
 }

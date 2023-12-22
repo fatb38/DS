@@ -130,3 +130,56 @@ export interface IKitItemListTheme {
         };
     };
 }
+
+export interface IKitItemListCssTokens {
+    itemList: {
+        colors: {
+            background: {
+                default: string;
+                disabled: string;
+            };
+            border: {
+                default: string;
+                disabled: string;
+                hover: string;
+            };
+        };
+        border: {
+            radius: number;
+        };
+    };
+    title: {
+        typography: {
+            fontWeight: string;
+            fontSize: string;
+        };
+        colors: {
+            default: string;
+            disabled: string;
+        };
+    };
+    description: {
+        typography: {
+            fontWeight: string;
+            fontSize: string;
+        };
+        colors: {
+            default: string;
+            disabled: string;
+        };
+    };
+    collexp: {
+        colors: {
+            default: string;
+            disabled: string;
+            hover: string;
+        };
+    };
+    rafter: {
+        colors: {
+            default: string;
+            disabled: string;
+            hover: string;
+        };
+    };
+}

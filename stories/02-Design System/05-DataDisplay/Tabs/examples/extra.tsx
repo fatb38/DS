@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {ReactNode, useMemo, useState} from 'react';
 import {KitTabs} from '@kit/DataDisplay';
 import {KitCheckbox} from '@kit/DataEntry';
 import {KitButton} from '@kit/General';
@@ -8,7 +8,11 @@ const CheckboxGroup = KitCheckbox.Group;
 
 const operations = <KitButton>Extra Action</KitButton>;
 
-const OperationsSlot = {
+type OperationSlotType = {
+    [id: string]: ReactNode;
+};
+
+const OperationsSlot: OperationSlotType = {
     left: (
         <KitButton type="segmented" className="tabs-extra-demo-button">
             Left Extra Action
@@ -34,7 +38,10 @@ const App = () => {
     const slot = useMemo(() => {
         if (position.length === 0) return null;
 
-        return position.reduce((acc, direction) => ({...acc, [direction]: OperationsSlot[direction]}), {});
+        return position.reduce(
+            (acc: OperationSlotType, direction: string) => ({...acc, [direction]: OperationsSlot[direction]}),
+            {}
+        );
     }, [position]);
 
     return (

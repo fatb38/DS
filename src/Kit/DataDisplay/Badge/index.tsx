@@ -1,19 +1,20 @@
-import React, {FunctionComponent, useMemo} from 'react';
+import React, {CSSProperties, FunctionComponent, useMemo} from 'react';
 import {Badge as AntdBadge} from 'antd';
-import {IKitBadge, IStyledKitBadge} from './types';
+import {IKitBadge} from './types';
 import {styled} from 'styled-components';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {getColor, getLighterColor, isValidColor} from '@utils/functions';
+import {kitBadgeCssTokens} from '@theme/aristid/components/DataDisplay/Badge';
 
-const StyledAntdBadge = styled(AntdBadge)<IStyledKitBadge>`
+const StyledAntdBadge = styled(AntdBadge)`
     height: 16px;
     min-width: 16px;
     line-height: 16px;
-    font-size: ${({$typographyTheme}) => $typographyTheme.fontSize7}px;
+    font-size: calc(var(--general-typography-fontSize7) * 1px);
 
     .ant-badge-count {
-        background: ${({$backgroundColor}) => $backgroundColor};
-        color: ${({$fontColor}) => $fontColor};
+        background: var(--components-Badge-colors-background-default, var(--general-colors-secondary-red-red400));
+        color: var(--components-Badge-colors-typography-default, var(--general-colors-neutral-typography-white));
     }
 
     &.ant-badge {
@@ -37,34 +38,29 @@ const StyledAntdBadge = styled(AntdBadge)<IStyledKitBadge>`
     }
 `;
 
-export const KitBadge: FunctionComponent<IKitBadge> = ({color, secondaryColorInvert = false, ...badgeProps}) => {
-    const {theme} = useKitTheme();
+const getCustomColors = (
+    color: IKitBadge['color'],
+    secondaryColorInvert: IKitBadge['secondaryColorInvert']
+): CSSProperties | null => {
+    if (!color || !isValidColor(color)) {
+        return null;
+    }
 
-    const calculatedBackgroundColor = useMemo(() => {
-        if (!color || !isValidColor(theme.general.colors, color)) {
-            return theme.components.Badge.colors.background.default;
-        }
+    return {
+        [kitBadgeCssTokens.colors.background.default]: getColor(color, secondaryColorInvert),
+        [kitBadgeCssTokens.colors.typography.default]: getLighterColor(color, secondaryColorInvert)
+    } as CSSProperties;
+};
 
-        return getColor(theme.general.colors, color, secondaryColorInvert);
-    }, [color, secondaryColorInvert, theme]);
+export const KitBadge: FunctionComponent<IKitBadge> = ({color, style, secondaryColorInvert = false, ...badgeProps}) => {
+    const {appId} = useKitTheme();
 
-    const calculatedFontColor = useMemo(() => {
-        if (!color || !isValidColor(theme.general.colors, color)) {
-            return theme.components.Badge.colors.typography.default;
-        }
-
-        return getLighterColor(theme.general.colors, color, secondaryColorInvert);
-    }, [color, secondaryColorInvert, theme]);
-
-    return (
-        <StyledAntdBadge
-            $theme={theme.components.Badge}
-            $typographyTheme={theme.general.typography}
-            $backgroundColor={calculatedBackgroundColor}
-            $fontColor={calculatedFontColor}
-            {...badgeProps}
-        />
+    const customStyle = useMemo(
+        () => ({...style, ...getCustomColors(color, secondaryColorInvert)}),
+        [color, secondaryColorInvert, style]
     );
+
+    return <StyledAntdBadge style={customStyle} className={`${badgeProps.className} ${appId}`} {...badgeProps} />;
 };
 
 KitBadge.displayName = 'KitBadge';

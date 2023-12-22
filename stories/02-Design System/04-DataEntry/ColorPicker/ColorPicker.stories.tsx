@@ -1,7 +1,8 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitColorPicker} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitColorPicker> = {
     component: KitColorPicker,

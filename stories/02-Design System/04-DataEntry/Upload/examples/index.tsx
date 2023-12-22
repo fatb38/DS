@@ -1,4 +1,3 @@
-import Basic from './basic';
 import PicturesWall from './picturesWall';
 import DefaultFiles from './defaultFiles';
 import ListStyle from './listStyle';
@@ -16,7 +15,6 @@ import CustomProgress from './customProgress';
 import Avatar from './avatar';
 import Crop from './crop';
 
-import BasicSource from './basic?raw';
 import PicturesWallSource from './picturesWall?raw';
 import DefaultFilesSource from './defaultFiles?raw';
 import ListStyleSource from './listStyle?raw';
@@ -35,7 +33,6 @@ import AvatarSource from './avatar?raw';
 import CropSource from './crop?raw';
 
 export const Sources = {
-    Basic: BasicSource,
     PicturesWall: PicturesWallSource,
     DefaultFiles: DefaultFilesSource,
     ListStyle: ListStyleSource,
@@ -54,7 +51,6 @@ export const Sources = {
     Crop: CropSource
 };
 export default {
-    Basic,
     PicturesWall,
     DefaultFiles,
     ListStyle,

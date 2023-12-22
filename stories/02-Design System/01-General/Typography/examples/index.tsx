@@ -8,9 +8,7 @@ import BasicSource from './basic?raw';
 import EllispisSource from './ellispis?raw';
 import SuffixSource from './suffix?raw';
 import TextLinkSource from './textLink?raw';
-import EllispsisBisSource from './ellipsisBis?raw';
 import SuffixEllipsisSource from './suffixEllipsis?raw';
-
 
 export const Sources = {
     Basic: BasicSource,

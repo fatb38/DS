@@ -1,33 +1,60 @@
 import React, {FunctionComponent} from 'react';
 import {Upload as AntdUpload} from 'antd';
 import styled from 'styled-components';
-import {IKitDragger, IStyledDragger} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {IKitDragger} from './types';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faInbox} from '@fortawesome/free-solid-svg-icons';
+import {kitUploadDraggerCssTokens} from '@theme/aristid/components/DataEntry/Upload';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 
-const StyledDragger = styled(AntdUpload.Dragger)<IStyledDragger>`
+const StyledDragger = styled(AntdUpload.Dragger)`
     .ant-upload {
         border-radius: 2px;
 
         &.ant-upload-drag {
-            border: 1px dashed ${({$theme}) => $theme.colors.border.default};
+            border: 1px dashed
+                var(
+                    ${kitUploadDraggerCssTokens.colors.border.default},
+                    var(${kitColorsPaletteCssTokens.neutral.grey.grey400})
+                );
 
             &:hover {
-                border-color: ${({$theme}) => $theme.colors.border.hover};
+                border-color: var(
+                    ${kitUploadDraggerCssTokens.colors.border.hover},
+                    var(${kitColorsPaletteCssTokens.primary.primary400})
+                );
             }
 
             .ant-upload-btn {
-                background-color: ${({$theme}) => $theme.colors.background.default};
+                background-color: var(
+                    ${kitUploadDraggerCssTokens.colors.background.default},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
+                );
             }
             .ant-upload-text {
-                color: ${({$theme}) => $theme.colors.typography.text};
-                font-size: ${({$theme}) => $theme.typography.fontSize}px;
-                font-weight: ${({$theme}) => $theme.typography.fontWeight};
-                line-height: ${({$theme}) => $theme.typography.lineHeight};
+                color: var(
+                    ${kitUploadDraggerCssTokens.colors.typography.text},
+                    var(${kitColorsPaletteCssTokens.neutral.typography.black})
+                );
+                font-size: calc(
+                    var(${kitUploadDraggerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize4})) * 1px
+                );
+                font-weight: var(
+                    ${kitUploadDraggerCssTokens.typography.fontWeight},
+                    var(${typographyCssTokens.regularFontWeight})
+                );
+                line-height: var(
+                    ${kitUploadDraggerCssTokens.typography.lineHeight},
+                    var(${typographyCssTokens.lineHeight4})
+                );
             }
             .ant-upload-hint {
-                color: ${({$theme}) => $theme.colors.typography.hint};
+                color: var(
+                    ${kitUploadDraggerCssTokens.colors.typography.hint},
+                    var(${kitColorsPaletteCssTokens.neutral.grey.grey400})
+                );
                 margin-top: 8px;
                 margin-bottom: 0;
             }
@@ -37,19 +64,25 @@ const StyledDragger = styled(AntdUpload.Dragger)<IStyledDragger>`
 
                 svg {
                     font-size: 32px;
-                    color: ${({$theme}) => $theme.colors.dragIcon.default};
+                    color: var(
+                        ${kitUploadDraggerCssTokens.colors.dragIcon.default},
+                        var(${kitColorsPaletteCssTokens.primary.primary400})
+                    );
                 }
             }
         }
     }
 
     .ant-upload-list-item-name {
-        color: ${({$theme}) => $theme.colors.typography.item};
+        color: var(
+            ${kitUploadDraggerCssTokens.colors.typography.item},
+            var(${kitColorsPaletteCssTokens.primary.primary400})
+        );
     }
 `;
 
-const KitDragger: FunctionComponent<IKitDragger> = ({title, description, ...draggerProps}) => {
-    const {theme} = useKitTheme();
+const KitDragger: FunctionComponent<IKitDragger> = ({title, description, className, ...draggerProps}) => {
+    const {appId} = useKitTheme();
 
     const draggerTitle = title ?? 'Click or drag file to this area to upload';
     const draggerDescription =
@@ -57,7 +90,7 @@ const KitDragger: FunctionComponent<IKitDragger> = ({title, description, ...drag
         'Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.';
 
     return (
-        <StyledDragger $theme={theme.components.Upload.Dragger} {...draggerProps}>
+        <StyledDragger {...draggerProps} className={`${appId} ${className ?? ''}`}>
             <p className="ant-upload-drag-icon">
                 <FontAwesomeIcon icon={faInbox} />
             </p>

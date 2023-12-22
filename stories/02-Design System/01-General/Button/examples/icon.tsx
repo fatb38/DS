@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitButton, KitSpace} from '@kit/index';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faAngleDown, faFilter, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {faFilter, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     return (

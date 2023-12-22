@@ -1,11 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitDropDown} from '@kit/Navigation';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
 import React from 'react';
 import {KitButton} from '@kit/General';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitDropDown> = {
     component: KitDropDown,

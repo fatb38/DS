@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {KitUpload} from '@kit/DataEntry';
 import {UploadFile, UploadProps} from 'antd';
+import {RcFile} from 'antd/es/upload';
 
 interface OSSDataType {
     dir: string;
@@ -30,9 +31,9 @@ const AliyunOSSUpload = ({value, onChange}: AliyunOSSUploadProps) => {
         signature: 'ZGFob25nc2hhbw=='
     });
 
-    const init = async () => {
+    const init = () => {
         try {
-            const result = await mockGetOSSData();
+            const result = mockGetOSSData();
             setOSSData(result);
         } catch (error) {
             console.error(error);
@@ -41,6 +42,7 @@ const AliyunOSSUpload = ({value, onChange}: AliyunOSSUploadProps) => {
 
     useEffect(() => {
         init();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleChange: UploadProps['onChange'] = ({fileList}) => {
@@ -63,21 +65,19 @@ const AliyunOSSUpload = ({value, onChange}: AliyunOSSUploadProps) => {
         Signature: OSSData?.signature
     });
 
-    const beforeUpload: UploadProps['beforeUpload'] = async file => {
+    const beforeUpload: UploadProps['beforeUpload'] = (file: RcFile) => {
         if (!OSSData) return false;
 
         const expire = Number(OSSData.expire) * 1000;
 
         if (expire < Date.now()) {
-            await init();
+            init();
         }
 
         const suffix = file.name.slice(file.name.lastIndexOf('.'));
         const filename = Date.now() + suffix;
-        // @ts-ignore
-        file.url = OSSData.dir + filename;
 
-        return file;
+        return {...file, url: OSSData.dir + filename};
     };
 
     return (

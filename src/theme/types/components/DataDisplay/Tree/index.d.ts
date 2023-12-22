@@ -118,3 +118,60 @@ export interface IKitTreeTheme {
         };
     };
 }
+
+export interface IKitTreeCssTokens {
+    colors: {
+        background: {
+            hover: string;
+        };
+    };
+    typography: {
+        fontFamily: string;
+        fontSize: string;
+    };
+    icon: {
+        fontSize: string;
+    };
+    checkbox: {
+        colors: {
+            background: {
+                default: string;
+                disabled: string;
+                checked: {
+                    default: string;
+                    hover: string;
+                };
+            };
+            border: {
+                default: string;
+                disabled: string;
+                hover: string;
+                checked: {
+                    default: string;
+                    hover: string;
+                };
+            };
+            icon: {
+                default: string;
+                disabled: string;
+                checked: string;
+            };
+        };
+    };
+    treenode: {
+        typography: {
+            fontWeight: string;
+        };
+        colors: {
+            typography: {
+                hover: string;
+                disabled: string;
+            };
+            background: {
+                hover: string;
+                selected: string;
+                indent: string;
+            };
+        };
+    };
+}

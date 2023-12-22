@@ -1,2 +1,2 @@
-export {mapAlertKitTokenToAntdToken} from './Alert';
-export {mapProgressKitTokenToAntdToken} from './Progress';
+export {alertKitTokenToAntdToken} from './Alert';
+export {progressKitTokenToAntdToken} from './Progress';

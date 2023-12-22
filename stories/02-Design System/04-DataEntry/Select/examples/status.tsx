@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const App = () => {
     const {theme} = useKitTheme();
@@ -9,22 +9,22 @@ const App = () => {
     const colorOptions = [
         {
             value: 'not-allowed',
-            color: theme.general.colors.secondary.red.red400,
+            color: theme.colors.secondary.red.red400,
             label: 'Not allowed'
         },
         {
             value: 'denied',
-            color: theme.general.colors.secondary.yellow.yellow400,
+            color: theme.colors.secondary.yellow.yellow400,
             label: 'Denied'
         },
         {
             value: 'todo',
-            color: theme.general.colors.primary.primary400,
+            color: theme.colors.primary.primary400,
             label: 'Todo by agency'
         },
         {
             value: 'ok',
-            color: theme.general.colors.secondary.green.green400,
+            color: theme.colors.secondary.green.green400,
             label: 'Ok done by agency'
         }
     ];

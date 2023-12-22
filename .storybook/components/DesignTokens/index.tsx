@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import styled from 'styled-components';
-import {useKitTheme} from '../../../src/theme/theme-context';
+import {useKitTheme} from '../../../src/theme/useKitTheme';
 import {IItem, getItemsType} from '../ThemeEditor/types';
 import Row from './Row';
 import SectionRow from './SectionRow';

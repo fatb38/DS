@@ -1,9 +1,10 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitDatePicker} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import dayjs from 'dayjs';
 import {within} from '@storybook/testing-library';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitDatePicker> = {
     component: KitDatePicker,
@@ -24,11 +25,11 @@ export const Api: Story = {
 export const BasicDate: Story = {
     render: () => (
         <div style={{width: '400px', display: 'flex', gap: '200px'}}>
-            <KitDatePicker open />
-            <KitDatePicker data-testid="focus" />
+            <KitDatePicker open value={dayjs('2023-06-06', 'YYYY-MM-DD')} />
+            <KitDatePicker data-testid="focus" value={dayjs('2023-06-06', 'YYYY-MM-DD')} />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const datePicker = canvas.getByTestId('focus');
         datePicker.focus();
@@ -44,7 +45,7 @@ export const BasicDateTime: Story = {
             <KitDatePicker picker="time" data-testid="focus" />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const datePicker = canvas.getByTestId('focus');
         datePicker.focus();
@@ -57,11 +58,11 @@ export const BasicDateTime: Story = {
 export const BasicDateWeek: Story = {
     render: () => (
         <div style={{display: 'flex', gap: '200px'}}>
-            <KitDatePicker open picker="week" />
-            <KitDatePicker picker="week" data-testid="focus" />
+            <KitDatePicker open picker="week" value={dayjs('2023-06-06', 'YYYY-MM-DD')} />
+            <KitDatePicker picker="week" data-testid="focus" value={dayjs('2023-06-06', 'YYYY-MM-DD')} />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const datePicker = canvas.getByTestId('focus');
         datePicker.focus();
@@ -78,7 +79,7 @@ export const BasicDateMounth: Story = {
             <KitDatePicker picker="month" data-testid="focus" />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const datePicker = canvas.getByTestId('focus');
         datePicker.focus();
@@ -95,7 +96,7 @@ export const BasicDateQuarter: Story = {
             <KitDatePicker picker="quarter" data-testid="focus" />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const datePicker = canvas.getByTestId('focus');
         datePicker.focus();
@@ -112,7 +113,7 @@ export const BasicDateYear: Story = {
             <KitDatePicker picker="year" data-testid="focus" />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const datePicker = canvas.getByTestId('focus');
         datePicker.focus();
@@ -125,7 +126,10 @@ export const BasicDateYear: Story = {
 export const BasicRange: Story = {
     render: () => (
         <div style={{display: 'flex', gap: '200px'}}>
-            <KitDatePicker.RangePicker open />
+            <KitDatePicker.RangePicker
+                open
+                value={[dayjs('2023-06-06', 'YYYY-MM-DD'), dayjs('2023-06-07', 'YYYY-MM-DD')]}
+            />
         </div>
     ),
     parameters: {
@@ -147,7 +151,11 @@ export const BasicRangeTime: Story = {
 export const BasicRangeWeek: Story = {
     render: () => (
         <div style={{width: '400px', display: 'flex', gap: '400px'}}>
-            <KitDatePicker.RangePicker picker="week" open />
+            <KitDatePicker.RangePicker
+                value={[dayjs('2023-06-06', 'YYYY-MM-DD'), dayjs('2023-06-07', 'YYYY-MM-DD')]}
+                picker="week"
+                open
+            />
         </div>
     ),
     parameters: {

@@ -28,3 +28,18 @@ export interface IKitImageTheme {
         };
     };
 }
+
+export interface IKitImageCssTokens {
+    colors: {
+        border: {
+            none: string;
+            default: string;
+        };
+    };
+    border: {
+        radius: {
+            default: string;
+            rounded: string;
+        };
+    };
+}

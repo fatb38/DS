@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import React, {useState} from 'react';
 import {KitUpload} from '@kit/DataEntry';
 import {UploadFile, UploadProps} from 'antd';
@@ -10,7 +11,7 @@ const App = () => {
             uid: '-1',
             name: 'image.png',
             status: 'done',
-            url: 'public/images/portrait.png',
+            url: 'public/images/portrait.png'
         }
     ]);
 

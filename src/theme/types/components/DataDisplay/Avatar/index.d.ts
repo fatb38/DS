@@ -17,6 +17,17 @@ export interface IKitAvatarTheme {
     };
 }
 
+export interface IKitAvatarCssTokens {
+    colors: {
+        background: {
+            default: string;
+        };
+        typography: {
+            default: string;
+        };
+    };
+}
+
 export interface IKitAvatarGroupTheme {
     colors: {
         background: {
@@ -31,6 +42,17 @@ export interface IKitAvatarGroupTheme {
              * default color
              * @TJS-type color
              */
+            default: string;
+        };
+    };
+}
+
+export interface IKitAvatarGroupCssTokens {
+    colors: {
+        background: {
+            default: string;
+        };
+        typography: {
             default: string;
         };
     };

@@ -31,3 +31,21 @@ export interface IKitTooltipTheme {
         fontSize: number;
     };
 }
+
+export interface IKitTooltipCssTokens {
+    colors: {
+        background: {
+            default: string;
+        };
+        typography: {
+            default: string;
+        };
+    };
+    border: {
+        radius: string;
+    };
+    typography: {
+        fontFamily: string;
+        fontSize: string;
+    };
+}

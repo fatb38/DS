@@ -2,13 +2,12 @@ import React from 'react';
 import {KitTag} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {KitTypography} from '@kit/General';
-import {useKitTheme} from '@theme/theme-context';
-import {KitColorProp} from '@utils/functions/types';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const App = () => {
     const {theme} = useKitTheme();
 
-    const secondaryColors = Object.keys(theme.general.colors.secondary);
+    const secondaryColors = Object.keys(theme.colors.secondary);
 
     return (
         <KitSpace direction="vertical">

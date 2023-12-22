@@ -1,6 +1,5 @@
 import {DividerProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
-import {IKitDividerTheme} from '@theme/types/components/Layout/Divider';
 
 type AntdDividerTypesToOmit = 'style' | 'plain';
 
@@ -12,7 +11,6 @@ export interface IKitDivider extends Omit<DividerProps, AntdDividerTypesToOmit>,
 }
 
 export interface IStyledAntdDivider {
-    $theme: IKitDividerTheme;
     $noMargin: boolean;
     $color: KitDividerColor;
 }

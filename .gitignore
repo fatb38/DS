@@ -6,7 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-yarn.lock
 .yarn
 .yarnrc.yml
 
@@ -14,6 +13,7 @@ node_modules
 dist
 dist-ssr
 *.local
+storybook-static
 
 # Editor directories and files
 .vscode/*

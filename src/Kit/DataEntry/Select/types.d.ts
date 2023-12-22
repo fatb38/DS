@@ -1,9 +1,7 @@
 import {SelectProps} from 'antd';
-import {BaseOptionType, DefaultOptionType} from 'antd/lib/select';
 import type {OptionProps} from 'rc-select/lib/Option';
 import {KitHTMLAttributes} from '../../../types';
 import {ReactNode} from 'react';
-import {IKitSelectTheme} from '@theme/types/components/DataEntry/Select';
 
 type AntdSelectTypesToOmit =
     | 'dropdownMatchSelectWidth'
@@ -31,9 +29,7 @@ type AntdSelectTypesToOmit =
     | 'dropdownStyle'
     | 'menuItemSelectedIcon';
 
-export interface IKitSelect
-    extends Omit<SelectProps<any, DefaultOptionType | BaseOptionType>, AntdSelectTypesToOmit>,
-        KitHTMLAttributes<HTMLDivElement> {
+export interface IKitSelect extends Omit<SelectProps, AntdSelectTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     label?: string;
     helper?: string;
     allowClear?: boolean;
@@ -43,21 +39,8 @@ export interface IKitSelect
     wrapperClassName?: string;
 }
 
-interface IKitOption extends Omit<OptionProps, 'children'> {
+interface IKitOption extends Omit<OptionProps, ''> {
     icon?: ReactNode;
     color?: string;
-    label?: string;
-    children?: ReactNode;
-}
-
-export interface IStyledKitSelectColorBadge {
-    $theme: IKitSelectTheme['ColorBadge'];
-}
-
-export interface IStyledKitSelectDropDown {
-    $theme: IKitSelectTheme['DropDown'];
-}
-
-export interface IStyledKitSelect {
-    $theme: IKitSelectTheme;
+    label: string;
 }

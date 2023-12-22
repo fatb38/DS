@@ -1,6 +1,5 @@
 import {StepsProps, StepProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
-import {IKitStepsTheme} from '@theme/types/components/Navigation/Steps';
 
 type AntdStepTypesToOmit = 'subTitle' | 'icon';
 
@@ -10,8 +9,4 @@ type AntdStepsTypesToOmit = 'type' | 'progressDot' | 'size' | 'percent' | 'label
 
 export interface IKitSteps extends Omit<StepsProps, AntdStepsTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     items?: IKitStep[];
-}
-
-export interface IStyledAntdSteps {
-    $theme: IKitStepsTheme;
 }

@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import {KitInput, KitRadio} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
+import {RadioChangeEvent} from 'antd';
 
 const App = () => {
     const [value, setValue] = useState(1);
 
-    const onChange = e => {
+    const onChange = (e: RadioChangeEvent) => {
         console.log('radio checked', e.target.value);
-        setValue(e.target.value);
+        setValue(e.target.value as number);
     };
 
     return (

@@ -6,7 +6,7 @@ import {faPowerOff} from '@fortawesome/free-solid-svg-icons';
 const App = () => {
     const [loadings, setLoadings] = useState<boolean[]>([]);
 
-    const enterLoading = index => {
+    const enterLoading = (index: number) => {
         setLoadings(prevLoadings => {
             const newLoadings = [...prevLoadings];
             newLoadings[index] = true;

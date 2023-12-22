@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitProgress, KitSpace} from '@kit/index';
+import {KitProgress} from '@kit/index';
 
 const App = () => {
     return (

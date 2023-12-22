@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {KitPagination} from '@kit/Navigation';
 
-const itemRender = (_, type, originalElement) => {
+const itemRender = (
+    _: number,
+    type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next',
+    originalElement: ReactNode
+) => {
     if (type === 'prev') {
         return <a>Previous</a>;
     }

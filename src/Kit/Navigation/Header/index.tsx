@@ -1,16 +1,19 @@
-import React, {FunctionComponent, cloneElement, useMemo} from 'react';
+import React, {FunctionComponent, ReactElement, ReactNode, cloneElement, useMemo} from 'react';
 import styled from 'styled-components';
 import {KitTypography, KitButton} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {KitInput} from '@kit/DataEntry/';
-import {IHeader, IStyledHeaderWrapper} from './types';
-import {useKitTheme} from '@theme/theme-context';
+import {IKitHeader} from './types';
+import {useKitTheme} from '@theme/useKitTheme';
 import {faMagnifyingGlass, faPlus} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {kitHeaderCssTokens} from '@theme/aristid/components/Navigation/Header';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {IKitButton} from '@kit/General/Button/types';
 
-const StyledHeaderWrapper = styled.div<IStyledHeaderWrapper>`
+const StyledHeaderWrapper = styled.div`
     padding: 16px 32px;
-    background: ${({$theme}) => $theme.colors.background.default};
+    background: var(${kitHeaderCssTokens.colors.background.default}, var(${kitColorsPaletteCssTokens.neutral.white}));
     display: grid;
     grid-template-areas:
         'breadcrumb breadcrumb breadcrumb'
@@ -35,7 +38,10 @@ const StyledHeaderWrapper = styled.div<IStyledHeaderWrapper>`
         max-width: 422px;
 
         input::placeholder {
-            color: ${({$theme}) => $theme.colors.typography.input.default};
+            color: var(
+                ${kitHeaderCssTokens.colors.typography.input.default},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
+            );
         }
     }
 
@@ -62,20 +68,23 @@ const StyledHeaderWrapper = styled.div<IStyledHeaderWrapper>`
     }
 `;
 
-const _getActions = (actions, onPlusClick) => {
+const _getActions = (actions?: IKitHeader['actions'], onPlusClick?: IKitHeader['onPlusClick']) => {
     if (!actions && !onPlusClick) {
         return null;
     }
 
     const cloneActions = actions
-        ? actions.map((action, index) => {
-              switch (action.type.displayName) {
+        ? actions.map<ReactNode>((action, index) => {
+              switch (((action as ReactElement).type as FunctionComponent).displayName) {
                   case 'KitButton':
-                      return React.cloneElement(action, {
-                          type: 'segmented',
-                          key: index,
-                          ...action.props
-                      });
+                      return React.cloneElement(
+                          action as ReactElement<IKitButton>,
+                          {
+                              type: 'segmented',
+                              key: index,
+                              ...(action as ReactElement).props
+                          } as IKitButton
+                      );
                   default:
                       return null;
               }
@@ -99,8 +108,16 @@ const _getActions = (actions, onPlusClick) => {
     );
 };
 
-export const KitHeader: FunctionComponent<IHeader> = ({title, search, breadcrumb, actions, onPlusClick, ...props}) => {
-    const {theme} = useKitTheme();
+export const KitHeader: FunctionComponent<IKitHeader> = ({
+    title,
+    search,
+    breadcrumb,
+    actions,
+    onPlusClick,
+    className,
+    ...props
+}) => {
+    const {appId} = useKitTheme();
 
     const breadcrumbToDisplay = breadcrumb
         ? cloneElement(breadcrumb, {
@@ -113,7 +130,7 @@ export const KitHeader: FunctionComponent<IHeader> = ({title, search, breadcrumb
     }, [actions, onPlusClick]);
 
     return (
-        <StyledHeaderWrapper $theme={theme.components.Header} {...props}>
+        <StyledHeaderWrapper {...props} className={`${appId} ${className ?? ''} `}>
             {title && (
                 <KitTypography.Title level="h2" className="kit-header-title">
                     {title}

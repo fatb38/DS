@@ -10,3 +10,12 @@ export interface IKitBreadcrumbTheme {
         };
     };
 }
+
+export interface IKitBreadcrumbCssTokens {
+    link: {
+        typography: {
+            fontFamily: string;
+            fontWeight: string;
+        };
+    };
+}

@@ -42,3 +42,23 @@ export interface IKitProgressTheme {
         };
     };
 }
+export interface IKitProgressCssTokens {
+    colors: {
+        background: string;
+        progress: {
+            info: string;
+            success: string;
+            error: string;
+        };
+    };
+    typography: {
+        fontFamily: string;
+        fontSize: string;
+    };
+    circle: {
+        typography: {
+            fontWeight: string;
+            fontSize: string;
+        };
+    };
+}

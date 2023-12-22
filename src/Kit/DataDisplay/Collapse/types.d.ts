@@ -2,7 +2,6 @@ import {CollapseProps} from 'antd';
 import {ReactNode, MouseEvent, ReactInstance, KeyboardEvent, FunctionComponent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
-import {IKitCollapseTheme} from '@theme/types/components/DataDisplay/Collapse';
 
 type AntdCollapseTypesToOmit = 'bordered' | 'expandIconPosition' | 'ghost';
 
@@ -35,10 +34,6 @@ export interface IKitHeaderExtraActions extends Array<IKitHeaderExtraAction> {}
 export interface IKitHeaderExtra {
     onSelectChange?: (e: CheckboxChangeEvent) => void;
     actions?: IKitHeaderExtraActions;
-}
-
-export interface IStyledKitCollapse {
-    $theme: IKitCollapseTheme;
 }
 
 export type KitCollapseCompoundedComponent = FunctionComponent<IKitCollapse> & {

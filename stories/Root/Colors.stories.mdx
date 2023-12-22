@@ -2,7 +2,7 @@
 
 import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs";
 import {KitAristidThemeGeneral} from "@theme/aristid/general/index";
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 <Meta title="Design System/General/Colors" />
 
@@ -15,9 +15,9 @@ import {useKitTheme} from 'aristid-ds';
 
 const {theme} = useKitTheme();
 
-const primaryColor = theme.general.colors.primary.primary100;
-const backgroundColor = theme.general.colors.neutral.background;
-const secondaryRedColor = theme.general.colors.secondary.red.red100;
+const primaryColor = theme.colors.primary.primary100;
+const backgroundColor = theme.colors.neutral.background;
+const secondaryRedColor = theme.colors.secondary.red.red100;
 ```
 
 # Available Colors

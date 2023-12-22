@@ -1,11 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitAvatar, KitImage, KitItemCard} from '@kit/DataDisplay';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {KitButton, KitIcon} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload} from '@fortawesome/free-solid-svg-icons';
 import {faFaceSmile, faFolderOpen} from '@fortawesome/free-regular-svg-icons';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitItemCard> = {
     component: KitItemCard,

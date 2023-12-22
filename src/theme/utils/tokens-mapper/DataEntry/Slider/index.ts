@@ -1,19 +1,13 @@
-import {IKitSliderTheme} from '@theme/types/components/DataEntry/Slider';
+import {kitSliderCssTokens} from '@theme/aristid/components/DataEntry/Slider';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-export const mapSliderKitTokenToAntdToken = (kitSliderTheme: IKitSliderTheme) => {
-    return {
-        railBg: kitSliderTheme.rail.colors.background.default,
-        railHoverBg: kitSliderTheme.rail.colors.background.hover,
-        railSize: kitSliderTheme.rail.size,
-        handleColor: kitSliderTheme.handle.colors.border.default,
-        handleSize: kitSliderTheme.handle.size,
-        handleSizeHover: kitSliderTheme.handle.size,
-        handleLineWidth: kitSliderTheme.handle.border,
-        handleLineWidthHover: kitSliderTheme.handle.border,
-        trackBg: kitSliderTheme.track.colors.background.default,
-        trackHoverBg: kitSliderTheme.track.colors.background.hover,
-        dotActiveBorderColor: kitSliderTheme.dot.colors.border.active,
-        dotSize: kitSliderTheme.dot.size,
-        dotBorderColor: kitSliderTheme.dot.colors.border.default
-    };
+export const sliderKitTokenToAntdToken = {
+    railBg: `var(${kitSliderCssTokens.rail.colors.background.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`,
+    railHoverBg: `var(${kitSliderCssTokens.rail.colors.background.hover}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`,
+    handleSize: 14,
+    handleSizeHover: 14,
+    trackBg: `var(${kitSliderCssTokens.track.colors.background.default}, var(${kitColorsPaletteCssTokens.primary.primary400}))`,
+    trackHoverBg: `var(${kitSliderCssTokens.track.colors.background.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}))`,
+    dotActiveBorderColor: `var(${kitSliderCssTokens.dot.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}))`,
+    dotBorderColor: `var(${kitSliderCssTokens.dot.colors.border.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`
 };

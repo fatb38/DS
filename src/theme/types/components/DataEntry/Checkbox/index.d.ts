@@ -124,3 +124,46 @@ export interface IKitCheckboxTheme {
         radius: number;
     };
 }
+
+export interface IKitCheckboxCssTokens {
+    colors: {
+        background: {
+            check: string;
+            hover: string;
+            focus: string;
+            disabled: string;
+            danger: {
+                default: string;
+                hover: string;
+            };
+        };
+        border: {
+            default: string;
+            check: string;
+            hover: string;
+            focus: string;
+            disabled: string;
+            danger: {
+                default: string;
+                hover: string;
+                focus: string;
+            };
+        };
+        typography: {
+            disabled: string;
+            danger: {
+                disabled: string;
+            };
+        };
+    };
+    typography: {
+        fontWeight: string;
+        fontFamily: string;
+        fontSize: string;
+        lineHeight: string;
+        lineWidth: string;
+    };
+    border: {
+        radius: string;
+    };
+}

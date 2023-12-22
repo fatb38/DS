@@ -5,7 +5,7 @@ import {KitSpace} from '@kit/Layout';
 import {Segmented} from 'antd';
 
 const App = () => {
-    const [arrow, setArrow] = useState<any>('Show');
+    const [arrow, setArrow] = useState<string>('Show');
     const mergedArrow = useMemo(() => {
         if (arrow === 'Hide') {
             return false;
@@ -23,7 +23,7 @@ const App = () => {
                 value={arrow}
                 options={['Show', 'Hide', 'Center']}
                 onChange={val => {
-                    setArrow(val);
+                    setArrow(val as string);
                 }}
             />
             <br />

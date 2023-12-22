@@ -1,8 +1,8 @@
 import React, {FunctionComponent} from 'react';
 import {Alert as AntdAlert} from 'antd';
-import {IKitAlert, IStyledKitAlert} from './types';
+import {IKitAlert} from './types';
 import {styled} from 'styled-components';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
     faXmark,
@@ -11,8 +11,12 @@ import {
     faCircleXmark,
     faCircleExclamation
 } from '@fortawesome/free-solid-svg-icons';
+import {kitAlertCssTokens} from '@theme/aristid/components/Feedback/Alert';
+import {borderCssTokens} from '@theme/aristid/general/border';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-const StyledAntdAlert = styled(AntdAlert)<IStyledKitAlert>`
+const StyledAntdAlert = styled(AntdAlert)`
     &.ant-alert-with-description {
         padding-inline: 0px;
         padding-block: 0px;
@@ -24,21 +28,25 @@ const StyledAntdAlert = styled(AntdAlert)<IStyledKitAlert>`
     }
 
     &:not(.ant-alert-banner) {
-        border-radius: ${({$theme}) => $theme.border.radius};
+        border-radius: calc(var(${kitAlertCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
     }
 
     padding: 8px 16px;
 
     .ant-alert-message {
-        font-size: ${({$theme}) => $theme.typography.fontSize.message}px;
+        font-size: calc(
+            var(${kitAlertCssTokens.typography.fontSize.message}, var(${typographyCssTokens.fontSize5})) * 1px
+        );
     }
 
     .ant-alert-description {
-        font-size: ${({$theme}) => $theme.typography.fontSize.description}px;
+        font-size: calc(
+            var(${kitAlertCssTokens.typography.fontSize.description}, var(${typographyCssTokens.fontSize7})) * 1px
+        );
     }
 
     .fa-icon {
-        font-size: ${({$theme}) => $theme.icon.alert.size}px;
+        font-size: calc(var(${kitAlertCssTokens.icon.alert.size}, var(${typographyCssTokens.fontSize4})) * 1px);
         margin-inline-end: 8px;
     }
 
@@ -46,37 +54,45 @@ const StyledAntdAlert = styled(AntdAlert)<IStyledKitAlert>`
         margin-top: 3px;
     }
 
-    .anticon.anticon-close {
-        font-size: ${({$theme}) => $theme.icon.close.size}px;
-    }
-
     &.ant-alert-success {
         svg {
-            color: ${({$theme}) => $theme.colors.icon.alert.success};
+            color: var(
+                ${kitAlertCssTokens.colors.icon.alert.success},
+                var(${kitColorsPaletteCssTokens.secondary.green.green400})
+            );
         }
     }
 
     &.ant-alert-info {
         svg {
-            color: ${({$theme}) => $theme.colors.icon.alert.info};
+            color: var(
+                ${kitAlertCssTokens.colors.icon.alert.info},
+                var(${kitColorsPaletteCssTokens.secondary.blue.blue400})
+            );
         }
     }
 
     &.ant-alert-warning {
         svg {
-            color: ${({$theme}) => $theme.colors.icon.alert.warning};
+            color: var(
+                ${kitAlertCssTokens.colors.icon.alert.warning},
+                var(${kitColorsPaletteCssTokens.secondary.yellow.yellow400})
+            );
         }
     }
 
     &.ant-alert-error {
         svg {
-            color: ${({$theme}) => $theme.colors.icon.alert.error};
+            color: var(
+                ${kitAlertCssTokens.colors.icon.alert.error},
+                var(${kitColorsPaletteCssTokens.secondary.red.red400})
+            );
         }
     }
 `;
 
-export const KitAlert: FunctionComponent<IKitAlert> = ({type, ...alertProps}) => {
-    const {theme} = useKitTheme();
+export const KitAlert: FunctionComponent<IKitAlert> = ({type, className, ...alertProps}) => {
+    const {appId} = useKitTheme();
 
     const _getIcon = () => {
         switch (type) {
@@ -93,11 +109,11 @@ export const KitAlert: FunctionComponent<IKitAlert> = ({type, ...alertProps}) =>
 
     return (
         <StyledAntdAlert
-            $theme={theme.components.Alert}
+            {...alertProps}
             closeIcon={<FontAwesomeIcon icon={faXmark} />}
             icon={_getIcon()}
             type={type}
-            {...alertProps}
+            className={`${appId} ${className ?? ''}`}
         />
     );
 };

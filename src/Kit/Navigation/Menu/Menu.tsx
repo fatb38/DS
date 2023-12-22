@@ -2,14 +2,18 @@ import React, {FunctionComponent} from 'react';
 import {IKitMenu} from './types';
 import {styled} from 'styled-components';
 import {KitTypography, KitButton} from '@kit/General';
-import {useKitTheme} from '@theme/theme-context';
-import {IKitMenuTheme} from '@theme/types/components/Navigation/Menu';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
+import {kitMenuCssTokens} from '@theme/aristid/components/Navigation/Menu';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-const StyledMenu = styled.div<{$theme: IKitMenuTheme}>`
+const StyledMenu = styled.div`
     padding: 16px 19px;
-    background-color: ${({$theme}) => $theme.colors.background.default};
+    background-color: var(
+        ${kitMenuCssTokens.colors.background.default},
+        var(${kitColorsPaletteCssTokens.neutral.white})
+    );
 
     display: grid;
     grid-template-areas: 'header' 'content';
@@ -74,9 +78,10 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
     primaryInput,
     secondaryInput,
     children,
+    className,
     ...props
 }) => {
-    const {theme} = useKitTheme();
+    const {appId} = useKitTheme();
     const isClosable = onCloseClick !== undefined;
     const shouldDisplayHeaderTopbar = title !== undefined || isClosable;
     const shouldDisplayHeaderPrimary = segmentedButton !== undefined || primaryInput !== undefined;
@@ -102,7 +107,7 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
                     type="text"
                     textColor="black"
                     icon={<FontAwesomeIcon icon={faXmark} />}
-                    onClick={() => onCloseClick()}
+                    onClick={e => onCloseClick(e)}
                 />
             )
         );
@@ -133,7 +138,7 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
     };
 
     return (
-        <StyledMenu $theme={theme.components.Menu} {...props}>
+        <StyledMenu {...props} className={`${appId} ${className ?? ''}`}>
             <div className="kit-menu-header">
                 {shouldDisplayHeaderTopbar && (
                     <div className="kit-menu-header-topbar">

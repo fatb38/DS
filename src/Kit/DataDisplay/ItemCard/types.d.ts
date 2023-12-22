@@ -2,7 +2,6 @@ import {KitHTMLAttributes} from '../../../types';
 import {IKitTag} from '../Tag/types';
 import {ReactNode, MouseEvent} from 'react';
 import {CheckboxChangeEvent} from 'antd/lib/checkbox';
-import {IKitItemCardTheme} from '@theme/types/components/DataDisplay/ItemCard';
 
 export type CardColor = {
     label: string;
@@ -16,7 +15,6 @@ export interface IKitColorbar {
 }
 
 export interface IStyledKitColorbar {
-    $theme: IKitItemCardTheme;
     $column: boolean;
 }
 
@@ -37,7 +35,6 @@ export default interface IKitItemCard extends Omit<KitHTMLAttributes<HTMLDivElem
 }
 
 export interface IStyledKitItemCard {
-    $theme: IKitItemCardTheme;
     $disabled: boolean;
     $vertical?: boolean;
 }

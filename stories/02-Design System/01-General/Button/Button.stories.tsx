@@ -1,10 +1,11 @@
 import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitButton} from '@kit/General/';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFilter, faMagnifyingGlass, faPowerOff, faRotateRight} from '@fortawesome/free-solid-svg-icons';
 import {KitSpace} from '@kit/Layout';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitButton> = {
     component: KitButton,
@@ -45,7 +46,7 @@ export const Primary: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus'
@@ -76,7 +77,7 @@ export const DefaultButton: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus'
@@ -109,7 +110,7 @@ export const Danger: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus'
@@ -140,7 +141,7 @@ export const Text: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus'
@@ -174,7 +175,7 @@ export const Link: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus',
@@ -251,7 +252,7 @@ export const Segmented: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus',
@@ -284,7 +285,7 @@ export const Icon: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false},
+        chromatic: {disableSnapshot: false, delay: 1500},
         pseudo: {
             hover: '#hover',
             focus: '#focus'
@@ -303,7 +304,7 @@ export const IconSize: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false}
+        chromatic: {disableSnapshot: false, delay: 1500}
     }
 };
 
@@ -322,6 +323,6 @@ export const Colored: Story = {
         </div>
     ),
     parameters: {
-        chromatic: {disableSnapshot: false}
+        chromatic: {disableSnapshot: false, delay: 1500}
     }
 };

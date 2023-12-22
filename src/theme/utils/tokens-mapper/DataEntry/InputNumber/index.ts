@@ -1,18 +1,14 @@
-import {IKitInputNumberTheme} from '@theme/types/components/DataEntry/InputNumber';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {kitInputNumberCssTokens} from '@theme/aristid/components/DataEntry/InputNumber';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 
-export const mapInputNumberKitTokenToAntdToken = (kitInputNumberThemeAntd: IKitInputNumberTheme) => {
-    const {colors, typography, border} = kitInputNumberThemeAntd;
-
-    return {
-        colorBgContainer: colors.background.default,
-        colorBgContainerDisabled: colors.background.disabled,
-        colorBorder: colors.border.default,
-        colorPrimary: colors.border.hover,
-        colorPrimaryHover: colors.border.hover,
-        colorTextPlaceholder: colors.typography.placeholder.default,
-        colorText: colors.typography.content.default,
-        borderRadius: border.radius,
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize
-    };
+export const inputNumberKitTokenToAntdToken = {
+    colorBgContainer: `var(${kitInputNumberCssTokens.colors.background.default}, var(${kitColorsPaletteCssTokens.neutral.white}))`,
+    colorBgContainerDisabled: `var(${kitInputNumberCssTokens.colors.background.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100}))`,
+    colorBorder: `var(${kitInputNumberCssTokens.colors.border.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`,
+    colorPrimary: `var(${kitInputNumberCssTokens.colors.border.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}))`,
+    colorPrimaryHover: `var(${kitInputNumberCssTokens.colors.border.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}))`,
+    colorTextPlaceholder: `var(${kitInputNumberCssTokens.colors.typography.placeholder.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500}))`,
+    colorText: `var(${kitInputNumberCssTokens.colors.typography.content.default}, var(${kitColorsPaletteCssTokens.primary.primary300}))`,
+    fontFamily: `var(${kitInputNumberCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`
 };

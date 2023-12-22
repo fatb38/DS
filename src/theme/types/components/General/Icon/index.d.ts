@@ -16,3 +16,21 @@ export interface IKitIconTheme {
         };
     };
 }
+export interface IKitIconCssTokens {
+    colors: {
+        icon: {
+            default: string;
+            on: string;
+        };
+        background: {
+            default: string;
+            on: string;
+        };
+    };
+    border: {
+        radius: {
+            default: string;
+            on: string;
+        };
+    };
+}

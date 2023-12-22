@@ -7,15 +7,15 @@ import {faFile} from '@fortawesome/free-regular-svg-icons';
 import {faDownload} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
-    const [selectedOption, setSelectedOption] = useState();
-    const [selectedOption2, setSelectedOption2] = useState();
+    const [selectedOption, setSelectedOption] = useState<string | undefined>();
+    const [selectedOption2, setSelectedOption2] = useState<string | undefined>();
 
     const handleChange = value => {
-        setSelectedOption(value);
+        setSelectedOption(value as string);
     };
 
     const handleChange2 = value => {
-        setSelectedOption2(value);
+        setSelectedOption2(value as string);
     };
 
     const handleClick = () => {

@@ -92,3 +92,38 @@ export interface IKitNotificationTheme {
         };
     };
 }
+
+export interface IKitNotificationCssTokens {
+    colors: {
+        typography: {
+            message: {
+                info: string;
+                success: string;
+                warning: string;
+                error: string;
+            };
+        };
+        icon: {
+            info: string;
+            success: string;
+            warning: string;
+            error: string;
+            background: {
+                info: string;
+                success: string;
+                warning: string;
+                error: string;
+            };
+        };
+    };
+    typography: {
+        fontFamily: string;
+        fontSize: {
+            message: string;
+            content: string;
+        };
+        fontWeight: {
+            message: string;
+        };
+    };
+}

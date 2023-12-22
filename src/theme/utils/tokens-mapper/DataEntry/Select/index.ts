@@ -1,13 +1,11 @@
-import {IKitSelectTheme} from '@theme/types/components/DataEntry/Select';
+import {kitSelectCssTokens} from '@theme/aristid/components/DataEntry/Select';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 
-export const mapSelectKitTokenToAntdToken = (kitSelectTheme: IKitSelectTheme) => {
-    const {colors, border, height, typography} = kitSelectTheme;
-
-    return {
-        borderRadius: border.radius,
-        controlHeight: height,
-        colorBgContainer: colors.background.default,
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize
-    };
+export const selectKitTokenToAntdToken = {
+    borderRadius: 8,
+    controlHeight: 40,
+    colorBgContainer: `var(${kitSelectCssTokens.colors.background.default}, var(${kitColorsPaletteCssTokens.neutral.white}))`,
+    fontFamily: `var(${kitSelectCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`,
+    fontSize: 13
 };

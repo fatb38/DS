@@ -1,79 +1,75 @@
-import {IKitThemeGeneral} from '@theme/types';
-import {IKitColorPickerTheme} from '@theme/types/components/DataEntry/ColorPicker';
+import {IKitColorPickerCssTokens} from '@theme/types/components/DataEntry/ColorPicker';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
-export const getKitColorPickerTokens = (generalTokens: IKitThemeGeneral): IKitColorPickerTheme => {
-    const {colors, typography, border} = generalTokens;
-
-    return {
-        colors: {
-            background: {
-                default: colors.neutral.white,
-                disabled: colors.secondary.mediumGrey.mediumGrey100
-            },
-            border: {
-                default: colors.secondary.mediumGrey.mediumGrey200,
-                hover: colors.primary.primary400,
-                focused: colors.primary.primary400,
-                disabled: colors.secondary.mediumGrey.mediumGrey200
-            },
-            typography: {
-                default: colors.primary.primary300,
-                disabled: colors.secondary.mediumGrey.mediumGrey400
-            }
+export const kitColorPickerCssTokens = generateCssTokens<IKitColorPickerCssTokens>('--components-ColorPicker', {
+    colors: {
+        background: {
+            default: '',
+            disabled: ''
         },
         typography: {
-            fontFamily: typography.fontFamily,
-            fontSize: typography.fontSize5,
-            fontWeight: typography.mediumfontWeight
+            default: '',
+            disabled: ''
         },
         border: {
-            radius: border.radius.s
-        },
-        colorBlock: {
-            border: {
-                radius: border.radius.xs
+            default: '',
+            hover: '',
+            focused: '',
+            disabled: ''
+        }
+    },
+    typography: {
+        fontFamily: '',
+        fontSize: '',
+        fontWeight: ''
+    },
+    border: {
+        radius: ''
+    },
+    colorBlock: {
+        border: {
+            radius: ''
+        }
+    },
+    panel: {
+        input: {
+            typography: {
+                fontWeight: ''
+            },
+            colors: {
+                prefix: {
+                    default: ''
+                }
             }
         },
-        panel: {
-            input: {
-                typography: {
-                    fontWeight: typography.mediumfontWeight
-                },
-                colors: {
-                    prefix: {
-                        default: colors.secondary.mediumGrey.mediumGrey500
-                    }
-                }
+        select: {
+            typography: {
+                fontWeight: ''
             },
-            select: {
+            colors: {
                 typography: {
-                    fontWeight: typography.mediumfontWeight
+                    default: ''
                 },
-                colors: {
-                    typography: {
-                        default: colors.primary.primary300
-                    },
-                    rafter: {
-                        default: colors.secondary.mediumGrey.mediumGrey500
-                    }
+                rafter: {
+                    default: ''
                 }
+            }
+        },
+        preset: {
+            typography: {
+                fontWeight: ''
             },
-            preset: {
+            colors: {
                 typography: {
-                    fontWeight: typography.boldFontWeight
+                    default: ''
                 },
-                colors: {
-                    typography: {
-                        default: colors.neutral.black
-                    },
-                    rafter: {
-                        default: colors.neutral.black
-                    },
-                    empty: {
-                        default: colors.secondary.mediumGrey.mediumGrey300
-                    }
+                rafter: {
+                    default: ''
+                },
+                empty: {
+                    default: ''
                 }
             }
         }
-    };
-};
+    }
+});

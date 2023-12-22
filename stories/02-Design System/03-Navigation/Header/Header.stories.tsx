@@ -1,10 +1,11 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitBreadcrumb, KitHeader} from '@kit/Navigation';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React, {ReactNode} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitButton, KitTypography} from '@kit/General';
 import {faArrowUpZA, faFilter, faObjectUngroup, faSliders} from '@fortawesome/free-solid-svg-icons';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitHeader> = {
     component: KitHeader,

@@ -1,10 +1,11 @@
 import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitIcon, KitTypography} from '@kit/General/';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload} from '@fortawesome/free-solid-svg-icons';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitIcon> = {
     component: KitIcon,
@@ -34,27 +35,31 @@ export const Basic: Story = {
     }
 };
 
+const IconWithHooks = () => {
+    const {theme} = useKitTheme();
+
+    const secondaryColors = Object.keys(theme.colors.secondary);
+
+    return (
+        <div>
+            <div>
+                <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
+            </div>
+            <div style={{display: 'inline-flex', gap: '8px'}}>
+                {secondaryColors.map((color: string) => (
+                    <div style={{display: 'inline-flex', gap: '8px', flexDirection: 'column'}} key={color}>
+                        <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color={color} />
+                        <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color={color} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
 export const Colors: Story = {
     render: () => {
-        const {theme} = useKitTheme();
-
-        const secondaryColors = Object.keys(theme.general.colors.secondary);
-
-        return (
-            <div>
-                <div>
-                    <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
-                </div>
-                <div style={{display: 'inline-flex', gap: '8px'}}>
-                    {secondaryColors.map((color: string) => (
-                        <div style={{display: 'inline-flex', gap: '8px', flexDirection: 'column'}} key={color}>
-                            <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color={color} />
-                            <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color={color} />
-                        </div>
-                    ))}
-                </div>
-            </div>
-        );
+        return <IconWithHooks />;
     },
     parameters: {
         chromatic: {disableSnapshot: false}

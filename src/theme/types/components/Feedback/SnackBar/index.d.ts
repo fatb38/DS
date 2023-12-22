@@ -79,3 +79,36 @@ export interface IKitSnackBarTheme {
         };
     };
 }
+export interface IKitSnackBarCssTokens {
+    colors: {
+        background: string;
+        border: string;
+        typography: {
+            title: string;
+        };
+        cta: {
+            border: {
+                default: string;
+                hover: string;
+            };
+            typography: {
+                default: string;
+                hover: string;
+            };
+        };
+        closeIcon: {
+            default: string;
+            hover: string;
+        };
+    };
+    typography: {
+        fontFamily: string;
+        title: {
+            fontSize: string;
+            fontWeight: string;
+        };
+        cta: {
+            fontWeight: string;
+        };
+    };
+}

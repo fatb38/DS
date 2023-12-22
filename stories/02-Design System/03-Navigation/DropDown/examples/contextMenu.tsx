@@ -3,7 +3,7 @@ import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
 import {KitTypography} from '@kit/General';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 
 const items: IKitDropdownMenu['items'] = [
     {
@@ -31,7 +31,7 @@ const App = () => {
             <KitDropDown menu={{items}} trigger={['contextMenu']}>
                 <div
                     style={{
-                        background: theme.general.colors.neutral.background,
+                        background: theme.colors.neutral.background,
                         height: 200,
                         width: 600,
                         textAlign: 'center',

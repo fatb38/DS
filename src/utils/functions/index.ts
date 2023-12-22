@@ -1,10 +1,33 @@
 import convert from 'color-convert';
 import colorString from 'color-string';
 import {KitColorProp} from './types';
-import {IKitColorsPalette} from '@theme/types/general/colors';
+import {colorsPalette} from '@theme/aristid/general/colors';
+import {IJSONObject} from '.storybook/components/ThemeEditor/types';
+import {HSL, RGB} from 'color-convert/conversions';
 
-export const isValidColor = (themeColors: IKitColorsPalette, color: string): boolean => {
-    const isKeyOfSecondaryColors = Object.keys(themeColors.secondary).includes(color);
+type CssVariablesList = Record<string, string>;
+
+export const toCssVariables = (tokens: IJSONObject, prefix = '-', items = {}): CssVariablesList => {
+    if (!tokens) {
+        return items;
+    }
+
+    Object.keys(tokens).forEach(name => {
+        const variableName = `${prefix}-${name}`;
+        if (typeof tokens[name] === 'object') {
+            items = toCssVariables(tokens[name] as IJSONObject, variableName, items);
+        } else {
+            items[variableName] = tokens[name];
+        }
+    });
+    return items;
+};
+
+export const isSecondaryColor = (color: string): boolean => {
+    return Object.keys(colorsPalette.secondary).includes(color);
+};
+
+export const isValidColor = (color: string): boolean => {
     const rgbRegex = /^rgb\(\s*(\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3})\s*\)$/i;
     const rgbaRegex = /^rgba\(\s*(\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*(0?(\.\d+)?|1(\.0+)?)\s*)\)$/i;
     const hexRegex = /^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})$/i;
@@ -12,7 +35,7 @@ export const isValidColor = (themeColors: IKitColorsPalette, color: string): boo
     const hslaRegex = /^hsla\(\s*(\d{1,3}\s*,\s*\d{1,3}%\s*,\s*\d{1,3}%\s*,\s*(0?(\.\d+)?|1(\.0+)?)\s*)\)$/i;
 
     return (
-        isKeyOfSecondaryColors ||
+        isSecondaryColor(color) ||
         rgbRegex.test(color) ||
         rgbaRegex.test(color) ||
         hexRegex.test(color) ||
@@ -21,57 +44,63 @@ export const isValidColor = (themeColors: IKitColorsPalette, color: string): boo
     );
 };
 
-export const getColor = (themeColors: IKitColorsPalette, color: KitColorProp, isInvert: boolean = false) => {
+export const getColor = (color: KitColorProp, isInvert: boolean = false): string => {
     const colorAccent = isInvert ? 100 : 400;
 
-    if (color && Object.keys(themeColors.secondary).includes(color)) {
-        return themeColors.secondary[color][`${color}${colorAccent}`];
+    if (color && isSecondaryColor(color)) {
+        return 'var(--general-colors-secondary-' + color + '-' + color + colorAccent + ')';
     }
 
-    return color;
+    return color as string;
 };
 
-export const getLighterColor = (themeColors: IKitColorsPalette, color: KitColorProp, isInvert: boolean = false) => {
+export const getLighterColor = (color: KitColorProp, isInvert: boolean = false) => {
     const colorAccent = isInvert ? 400 : 100;
 
-    if (color && Object.keys(themeColors.secondary).includes(color)) {
-        return themeColors.secondary[color][`${color}${colorAccent}`];
+    if (color && isSecondaryColor(color)) {
+        return 'var(--general-colors-secondary-' + color + '-' + color + colorAccent + ')';
     }
 
     return _colorToLightHSL(color);
 };
 
-export const getContrastColor = (themeColors: IKitColorsPalette, color: KitColorProp) => {
+export const getContrastColor = (color: KitColorProp) => {
     if (color === undefined) {
-        return themeColors.neutral.black;
+        return colorsPalette.neutral.black;
     }
 
-    let convertedColor = getColor(themeColors, color);
+    const colorTest = getColor(color);
 
-    if (convertedColor?.startsWith('#') || convertedColor?.startsWith('rgb')) {
-        convertedColor = colorString.get.rgb(convertedColor);
-    } else if (convertedColor?.startsWith('hsl')) {
-        const hsl = colorString.get.hsl(convertedColor);
-        convertedColor = convert.hsl.rgb(hsl);
+    if (colorTest?.startsWith('#') || colorTest?.startsWith('rgb')) {
+        const convertedColor = colorString.get.rgb(colorTest);
+        const yiq = (convertedColor[0] * 299 + convertedColor[1] * 587 + convertedColor[2] * 114) / 1000;
+
+        return yiq < 128 ? colorsPalette.neutral.white : colorsPalette.neutral.black;
+    } else if (colorTest?.startsWith('hsl')) {
+        const hsl = colorString.get.hsl(colorTest);
+        const convertedColor = convert.hsl.rgb(hsl as unknown as HSL);
+        const yiq = (convertedColor[0] * 299 + convertedColor[1] * 587 + convertedColor[2] * 114) / 1000;
+
+        return yiq < 128 ? colorsPalette.neutral.white : colorsPalette.neutral.black;
     }
-
-    const yiq = (convertedColor[0] * 299 + convertedColor[1] * 587 + convertedColor[2] * 114) / 1000;
-
-    return yiq < 128 ? themeColors.neutral.white : themeColors.neutral.black;
 };
 
-const _colorToLightHSL = (color, lightness = 95): string | null => {
+const _colorToLightHSL = (color: KitColorProp, lightness = 95): string | null => {
     if (color?.startsWith('#')) {
         const rgbColor = convert.hex.rgb(color);
         const hslColor = convert.rgb.hsl(rgbColor);
         return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
     } else if (color?.startsWith('rgb')) {
-        const rgbColor = color.match(/\d+/g).map(Number);
-        const hslColor = convert.rgb.hsl(rgbColor);
-        return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
-    } else if (color?.startsWith('hsl')) {
-        const hslColor = color.match(/\d+/g).map(Number);
-        return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
+        const rgbColor = color.match(/\d+/g)?.map(Number);
+        if (rgbColor) {
+            const hslColor = convert.rgb.hsl(rgbColor as RGB);
+            return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
+        }
+    } else if (color?.startsWith('hsl') && color.match(/\d+/g)) {
+        const hslColor = color.match(/\d+/g)?.map(Number);
+        if (hslColor) {
+            return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
+        }
     }
 
     return null;

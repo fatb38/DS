@@ -1,6 +1,5 @@
 import {UploadProps} from 'antd';
 import {DraggerProps} from 'antd/lib/upload';
-import {IKitUploadTheme} from '@theme/types/components/DataEntry/Upload';
 
 type AntdUploadTypesToOmit = 'listType' | 'itemRender' | 'openFileDialogOnClick';
 
@@ -20,11 +19,6 @@ export interface IKitDragger extends Omit<DraggerProps, AntdDraggerTypesToOmit> 
     description?: string;
 }
 
-export interface IStyledDragger {
-    $theme: IKitUploadTheme['Dragger'];
-}
-
 export interface IStyledUpload {
-    $listType: String;
-    $theme: IKitUploadTheme;
+    $listType: string;
 }

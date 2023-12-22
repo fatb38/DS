@@ -3,38 +3,46 @@ import {styled} from 'styled-components';
 import {Typography} from 'antd';
 import {IKitText, IStyledKitText} from './types';
 import {sizeTofontSize, getWeightClassname} from './commons';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
+import {kitTypographyCssTokens} from '@theme/aristid/components/General/Typography';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
 
 const StyledKitText = styled(Typography.Text)<IStyledKitText>`
-    font-size: ${({$typographyTheme, size}) => $typographyTheme['fontSize' + sizeTofontSize[size] ?? 6]}px;
-    line-height: ${({$typographyTheme, size}) => $typographyTheme['lineHeight' + sizeTofontSize[size] ?? 6]};
-
+    font-size: ${({size}) => {
+        if (size === undefined) {
+            return `calc(var(${typographyCssTokens.fontSize6}) * 1px)`;
+        }
+        return `calc(var(${typographyCssTokens['fontSize' + sizeTofontSize[size]]}) * 1px)`;
+    }};
+    line-height: ${({size}) => {
+        if (size === undefined) {
+            return `var(${typographyCssTokens.lineHeight6})`;
+        }
+        return `var(${typographyCssTokens['lineHeight' + sizeTofontSize[size]]})`;
+    }};
     &.ant-typography-regular {
-        font-weight: ${({$theme}) => $theme.Text.fontWeight.regular};
+        font-weight: var(
+            ${kitTypographyCssTokens.Text.fontWeight.regular},
+            var(${typographyCssTokens.regularFontWeight})
+        );
     }
 
     &.ant-typography-medium {
-        font-weight: ${({$theme}) => $theme.Text.fontWeight.medium};
+        font-weight: var(
+            ${kitTypographyCssTokens.Text.fontWeight.medium},
+            var(${typographyCssTokens.mediumfontWeight})
+        );
     }
 
     &.ant-typography-bold {
-        font-weight: ${({$theme}) => $theme.Text.fontWeight.bold};
+        font-weight: var(${kitTypographyCssTokens.Text.fontWeight.bold}, var(${typographyCssTokens.boldFontWeight}));
     }
 `;
 
 const KitText = forwardRef<HTMLElement, IKitText>(({size = 'medium', ...props}, ref) => {
-    const {theme} = useKitTheme();
+    const {appId} = useKitTheme();
 
-    return (
-        <StyledKitText
-            ref={ref}
-            $theme={theme.components.Typography}
-            $typographyTheme={theme.general.typography}
-            size={size}
-            {...props}
-            className={getWeightClassname(props)}
-        />
-    );
+    return <StyledKitText {...props} ref={ref} size={size} className={`${appId} ${getWeightClassname(props)}`} />;
 });
 
 KitText.displayName = 'KitText';

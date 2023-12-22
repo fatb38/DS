@@ -1,11 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitInput} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import {within} from '@storybook/testing-library';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitInput> = {
     component: KitInput,
@@ -31,7 +32,7 @@ export const Basic: Story = {
             <KitInput placeholder="Disabled" disabled />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const input = canvas.getByTestId('focus');
         input.focus();
@@ -55,7 +56,7 @@ export const Password: Story = {
             </div>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const input = canvas.getByTestId('focus');
         input.focus();
@@ -80,7 +81,7 @@ export const TextArea: Story = {
             </div>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const input = canvas.getByTestId('focus');
         input.focus();
@@ -116,7 +117,7 @@ export const Couting: Story = {
             </div>
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const input = canvas.getByTestId('focus');
         input.focus();

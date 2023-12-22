@@ -1,10 +1,11 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitCollapse} from '@kit/DataDisplay';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faClock} from '@fortawesome/free-regular-svg-icons';
 import {faMinus, faPlus} from '@fortawesome/free-solid-svg-icons';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitCollapse> = {
     component: KitCollapse,

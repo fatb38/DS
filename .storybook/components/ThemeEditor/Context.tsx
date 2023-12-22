@@ -1,7 +1,8 @@
 import React, {FunctionComponent, createContext, useCallback, useRef, useState} from 'react';
 import u from 'updeep';
 import {IEditorContext, IEditorProvider, IJSONObject} from './types';
-import {getKitAristidTheme} from '../../../src/theme/aristid';
+import {KitAristidThemeGeneral} from '../../../src/theme/aristid/general';
+import {IKitThemeComponents} from '../../../src/theme/types';
 
 export const EditorContext = createContext<IEditorContext>({
     theme: {},
@@ -23,7 +24,7 @@ export const EditorProvider: FunctionComponent<IEditorProvider> = ({children, sc
 
 const useThemeEditorContext = (schema: IJSONObject): IEditorContext => {
     const [theme, setTheme] = useState({});
-    const defaultTheme = getKitAristidTheme();
+    const defaultTheme = { general: KitAristidThemeGeneral, components: {} as IKitThemeComponents};
 
     const fields = useRef<IJSONObject>(schema);
 

@@ -1,8 +1,9 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitInputNumber} from '@kit/DataEntry';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
 import React from 'react';
 import {within} from '@storybook/testing-library';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitInputNumber> = {
     component: KitInputNumber,
@@ -28,7 +29,7 @@ export const Basic: Story = {
             <KitInputNumber min={1} max={10} placeholder="1" disabled />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const inputNumber = canvas.getByTestId('focus');
         inputNumber.focus();
@@ -56,7 +57,7 @@ export const LabelHelperStatus: Story = {
             <KitInputNumber prefix="￥" placeholder="2" helper="Helper" label="Label" status="error" />
         </div>
     ),
-    play: async ({canvasElement}) => {
+    play: ({canvasElement}) => {
         const canvas = within(canvasElement);
         const inputNumber = canvas.getByTestId('focus');
         inputNumber.focus();

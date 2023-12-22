@@ -126,6 +126,6 @@ export const InternalCheckboxGroup: ForwardRefRenderFunction<HTMLDivElement, ICh
     );
 };
 
-const CheckboxGroup = forwardRef<HTMLDivElement, ICheckboxGroup>(InternalCheckboxGroup);
+const CheckboxGroup = memo(forwardRef<HTMLDivElement, ICheckboxGroup>(InternalCheckboxGroup));
 
-export default memo(CheckboxGroup);
+export default CheckboxGroup;

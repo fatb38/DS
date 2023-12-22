@@ -1,46 +1,63 @@
-import React, {Dispatch, ReactNode, SetStateAction, createContext, useEffect, useState} from 'react';
+import React, {FC, PropsWithChildren, useLayoutEffect, useRef, useState} from 'react';
 
 // TODO: Later add option to have more arisitd themes
-import {getKitAristidTheme} from './aristid';
-import {IKitCustomTheme, IKitTheme} from './types';
+import {IKitCustomTheme} from './types';
+import {createGlobalStyle} from 'styled-components';
+import {toCssVariables} from '@utils/functions';
+import uuid from 'react-uuid';
 import {merge} from 'lodash';
+import {Style} from 'react-style-tag';
+import {KitThemeContext} from './useKitTheme';
+import {IJSONObject} from '../../.storybook/components/ThemeEditor/types';
+import {KitAristidThemeGeneral} from '@theme/aristid/general';
 
-type KitThemeContext =
-    | {
-          theme: IKitTheme;
-          setCustomTheme: Dispatch<SetStateAction<IKitCustomTheme | undefined>>;
-      }
-    | undefined;
+const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: string}>`
+  .${props => props.id} {
+    ${props => toCssVariables(props.customTheme)};
+  }
+`;
 
-const KitThemeContext = createContext<KitThemeContext>(undefined);
+const globalStyleId = 'aristid-ds-global';
 
-export const useKitTheme = () => {
-    const context = React.useContext(KitThemeContext);
-    if (context === undefined) {
-        throw new Error('You need to encapsulate component inside a KitApp, useKitTheme must be inside a context');
-    }
-    return context;
+export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomTheme; id?: string}>> = ({
+    children,
+    customTheme,
+    id
+}) => {
+    const [cssTokens, setCssTokens] = useState<Record<string, string> | null>(null);
+    const {theme, appId, spacing} = useKitThemeProvider(id, customTheme);
+
+    useLayoutEffect(() => {
+        const tokens = toCssVariables(KitAristidThemeGeneral as unknown as IJSONObject, '--general');
+        setCssTokens(tokens);
+    }, []);
+
+    return (
+        <KitThemeContext.Provider value={{theme, appId, spacing}}>
+            {cssTokens !== null && (
+                <>
+                    <Style id={globalStyleId} hasSourceMap={false}>
+                        {`
+                            :root{
+                                ${Object.keys(cssTokens)
+                                    .map(key => `${key}: ${cssTokens[key]}`)
+                                    .join(';')}
+                            }
+                        `}
+                    </Style>
+                    {customTheme && <CustomVariables id={appId} customTheme={customTheme} />}
+                    {children}
+                </>
+            )}
+        </KitThemeContext.Provider>
+    );
 };
 
-export const KitThemeProvider = ({children}: {children: ReactNode}) => {
-    const value = useKitThemeProvider();
-    return <KitThemeContext.Provider value={value}>{children}</KitThemeContext.Provider>;
-};
+const useKitThemeProvider = (id?: string, customTheme?: IKitCustomTheme) => {
+    const internalId = useRef(id || 'ds-' + uuid().substring(0, 8));
 
-const defaultKitAristidTheme = getKitAristidTheme();
+    // We can't use css variables for the Spacing component, so we need to pass this object
+    const mergeSpacing = merge(KitAristidThemeGeneral.spacing, customTheme?.general?.spacing);
 
-const useKitThemeProvider = () => {
-    const [theme, setTheme] = useState<IKitTheme>(defaultKitAristidTheme);
-    const [customTheme, setCustomTheme] = useState<IKitCustomTheme>();
-
-    useEffect(() => {
-        if (customTheme !== undefined) {
-            const kitTheme = getKitAristidTheme(customTheme['general']);
-            const kitComponentsTheme = merge(kitTheme['components'], customTheme['components']);
-
-            setTheme({...kitTheme, components: kitComponentsTheme});
-        }
-    }, [customTheme]);
-
-    return {theme, setCustomTheme};
+    return {theme: KitAristidThemeGeneral, appId: internalId.current, spacing: mergeSpacing};
 };

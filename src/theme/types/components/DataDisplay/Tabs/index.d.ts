@@ -28,7 +28,18 @@ export interface IKitTabsTheme {
              */
             radius: number;
         };
-        padding: string;
+        padding: {
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
+            vertical: number;
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
+            horizontal: number;
+        };
     };
     typography: {
         fontFamily: string;
@@ -96,7 +107,18 @@ export interface IKitTabsTheme {
              */
             radius: number;
         };
-        padding: string;
+        padding: {
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
+            vertical: number;
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
+            horizontal: number;
+        };
         margin: {
             /**
              * @minimum 0
@@ -193,6 +215,100 @@ export interface IKitTabsTheme {
                  * @TJS-type number
                  */
                 fontWeight: number | string;
+            };
+        };
+    };
+}
+
+export interface IKitTabsCssTokens {
+    card: {
+        colors: {
+            background: {
+                default: string;
+            };
+            border: {
+                default: string;
+                active: string;
+            };
+        };
+        border: {
+            radius: string;
+        };
+        padding: {
+            vertical: string;
+            horizontal: string;
+        };
+    };
+    typography: {
+        fontFamily: string;
+        fontSize: {
+            s: string;
+            m: string;
+            l: string;
+        };
+        colors: {
+            disabled: string;
+            active: string;
+            hover: string;
+            selected: string;
+        };
+    };
+    extraContent: {
+        colors: {
+            border: {
+                default: string;
+            };
+            typography: {
+                default: string;
+            };
+        };
+        border: {
+            radius: string;
+        };
+        padding: {
+            vertical: string;
+            horizontal: string;
+        };
+        margin: {
+            vertical: string;
+            horizontal: string;
+        };
+    };
+    DropDown: {
+        colors: {
+            background: {
+                default: string;
+            };
+            typography: {
+                default: string;
+            };
+        };
+        typography: {
+            fontFamily: string;
+            fontWeight: string;
+        };
+        menu: {
+            colors: {
+                background: {
+                    default: string;
+                };
+            };
+        };
+        menuItem: {
+            colors: {
+                background: {
+                    active: string;
+                    selected: string;
+                    disabled: string;
+                };
+                typography: {
+                    default: string;
+                    active: string;
+                    disabled: string;
+                };
+            };
+            typography: {
+                fontWeight: string;
             };
         };
     };

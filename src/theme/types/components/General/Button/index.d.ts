@@ -1,4 +1,4 @@
-import {KitColorKeys} from '../../../general/colors/index';
+import {KitColorKeys} from '@theme/types/general/colors';
 
 interface IKitButtonThemeStateColor {
     /**
@@ -133,4 +133,71 @@ export interface IKitButtonTheme {
     segmented: {
         default: IKitButtonThemePropeties;
     } & KitColoredSegmentedButtonThemes;
+}
+
+interface IKitButtonStateColorCssTokens {
+    default: string;
+    hover: string;
+    active: string;
+    focus: string;
+    disabled: string;
+    danger: {
+        default: string;
+        hover: string;
+        active: string;
+        focus: string;
+        disabled: string;
+    };
+}
+
+export interface IKitButtonPropetiesCssTokens {
+    colors: {
+        typography: Omit<IKitButtonStateColorCssTokens, 'danger'> & {
+            danger: Omit<IKitButtonStateColorCssTokens['danger'], 'hover' | 'active' | 'focus'>;
+        } & {
+            iconCheck?: string;
+            ghost?: string;
+        };
+        background: IKitButtonStateColorCssTokens & {ghost?: string};
+        border: IKitButtonStateColorCssTokens;
+    };
+    typography: {
+        fontWeight: string;
+        iconSize: {
+            xs: string;
+            s: string;
+            m: string;
+            l: string;
+            xl: string;
+        };
+    };
+    compact: {
+        border: {
+            radius: string;
+        };
+    };
+}
+
+type KitColoredSegmentedButtonCssTokens = {[key in KitColorKeys]: IKitButtonPropetiesCssTokens};
+
+export interface IKitButtonCssTokens {
+    typography: {
+        fontFamily: string;
+        fontSize: string;
+        lineHeight: string;
+    };
+    border: {
+        radius: string;
+    };
+    primary: IKitButtonPropetiesCssTokens;
+    default: IKitButtonPropetiesCssTokens;
+    text: {
+        default: IKitButtonPropetiesCssTokens;
+        grey: IKitButtonPropetiesCssTokens;
+        black: IKitButtonPropetiesCssTokens;
+    };
+    link: IKitButtonPropetiesCssTokens;
+    segmented: {
+        default: IKitButtonPropetiesCssTokens;
+    } & KitColoredSegmentedButtonCssTokens;
 }

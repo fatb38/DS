@@ -5,22 +5,29 @@ name: "Chromatic"
 
 # Event for the workflow
 on:
-  workflow_dispatch:
-  workflow_call:
+  push:
+    branches: [ '*' ]
+    tags: ['*']
+  pull_request:
+    branches: [ '*' ]
+    types: [labeled]
 
 # List of jobs
 jobs:
   chromatic-deployment:
     # Operating System
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.base_ref == 'develop'
+    if: github.event_name == 'pull_request' && (github.base_ref == 'develop' || github.base_ref == 'main') && contains(github.event.pull_request.labels.*.name, 'run chromatic')
     # Job steps
     steps:
       - uses: actions/checkout@v1
-      - name: Install dependencies
-        # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
-        run: yarn
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
         # 👇 Adds Chromatic as a step in the workflow
+      - name: install dependencies
+        run: yarn
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         # Chromatic GitHub Action options

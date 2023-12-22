@@ -6,7 +6,7 @@ const description = 'This is a description.';
 const App = () => {
     const [current, setCurrent] = useState(0);
 
-    const onChange = value => {
+    const onChange = (value: number) => {
         setCurrent(value);
     };
 

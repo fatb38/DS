@@ -115,3 +115,48 @@ export interface IKitAlertTheme {
         };
     };
 }
+export interface IKitAlertCssTokens {
+    colors: {
+        background: {
+            success: string;
+            info: string;
+            warning: string;
+            error: string;
+        };
+        typography: {
+            default: string;
+        };
+        border: {
+            success: string;
+            info: string;
+            warning: string;
+            error: string;
+        };
+        icon: {
+            alert: {
+                success: string;
+                info: string;
+                warning: string;
+                error: string;
+            };
+        };
+    };
+    border: {
+        radius: string;
+    };
+    typography: {
+        fontFamily: string;
+        fontSize: {
+            message: string;
+            description: string;
+        };
+    };
+    icon: {
+        alert: {
+            size: string;
+        };
+        close: {
+            size: string;
+        };
+    };
+}

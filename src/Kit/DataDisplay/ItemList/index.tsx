@@ -1,15 +1,22 @@
-import React, {FunctionComponent, cloneElement, useState} from 'react';
+import React, {FunctionComponent, MouseEvent, ReactElement, cloneElement, useState} from 'react';
 import {styled} from 'styled-components';
 import {IKitItemList, IStyledKitItemList} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTag} from '@kit/DataDisplay/';
 import {KitTypography} from '@kit/General/';
-import {useKitTheme} from '@theme/theme-context';
-import {useKitLocale} from '@translation/locale-context';
+import {useKitTheme} from '@theme/useKitTheme';
+import {useKitLocale} from '@translation/useKitLocale';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-regular-svg-icons';
 import {faAngleRight} from '@fortawesome/free-solid-svg-icons';
 import useSecureClick from '@hooks/useSecureClick';
+import {kitItemListCssTokens} from '@theme/aristid/components/DataDisplay/ItemList';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {borderCssTokens} from '@theme/aristid/general/border';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {IKitImage} from '../Image/types';
+import {IKitAvatar} from '../Avatar/types';
+import {IKitIcon} from '@kit/General/Icon/types';
 
 const StyledItemList = styled.div<IStyledKitItemList>`
     display: grid;
@@ -17,13 +24,24 @@ const StyledItemList = styled.div<IStyledKitItemList>`
     align-items: center;
     min-height: 75px;
     padding: 0px 8px;
-    background-color: ${({$theme}) => $theme.itemList.colors.background.default};
+    background-color: var(
+        ${kitItemListCssTokens.itemList.colors.background.default},
+        var(${kitColorsPaletteCssTokens.neutral.white})
+    );
     box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
-    border: 1px solid ${({$theme}) => $theme.itemList.colors.border.default};
-    border-radius: ${({$theme}) => $theme.itemList.border.radius}px;
+    border: 1px solid
+        var(
+            ${kitItemListCssTokens.itemList.colors.border.default},
+            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
+        );
+    border-radius: calc(var(${kitItemListCssTokens.itemList.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
 
     &:hover {
-        border: 1px solid ${({$theme}) => $theme.itemList.colors.border.hover};
+        border: 1px solid
+            var(
+                ${kitItemListCssTokens.itemList.colors.border.hover},
+                var(${kitColorsPaletteCssTokens.primary.primary400})
+            );
     }
 
     &:focus {
@@ -87,15 +105,32 @@ const StyledItemList = styled.div<IStyledKitItemList>`
             margin-bottom: 0px;
 
             &.kit-item-list-title {
-                font-weight: ${({$theme}) => $theme.title.typography.fontWeight};
-                font-size: ${({$theme}) => $theme.title.typography.fontSize}px;
-                color: ${({$theme}) => $theme.title.colors.default};
+                font-weight: var(
+                    ${kitItemListCssTokens.title.typography.fontWeight},
+                    var(${typographyCssTokens.boldFontWeight})
+                );
+                font-size: calc(
+                    var(${kitItemListCssTokens.title.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px
+                );
+                color: var(
+                    ${kitItemListCssTokens.title.colors.default},
+                    var(${kitColorsPaletteCssTokens.primary.primary600})
+                );
             }
 
             &.kit-item-list-description {
-                font-weight: ${({$theme}) => $theme.description.typography.fontWeight};
-                font-size: ${({$theme}) => $theme.description.typography.fontSize}px;
-                color: ${({$theme}) => $theme.description.colors.default};
+                font-weight: var(
+                    ${kitItemListCssTokens.description.typography.fontWeight},
+                    var(${typographyCssTokens.regularFontWeight})
+                );
+                font-size: calc(
+                    var(${kitItemListCssTokens.description.typography.fontSize}, var(${typographyCssTokens.fontSize5})) *
+                        1px
+                );
+                color: var(
+                    ${kitItemListCssTokens.description.colors.default},
+                    var(${kitColorsPaletteCssTokens.primary.primary600})
+                );
 
                 .ant-typography-expand {
                     visibility: hidden;
@@ -108,10 +143,16 @@ const StyledItemList = styled.div<IStyledKitItemList>`
         }
 
         .kit-item-list-description-collexp {
-            color: ${({$theme}) => $theme.collexp.colors.default};
+            color: var(
+                ${kitItemListCssTokens.collexp.colors.default},
+                var(${kitColorsPaletteCssTokens.primary.primary600})
+            );
 
             &:hover {
-                color: ${({$theme}) => $theme.collexp.colors.hover};
+                color: var(
+                    ${kitItemListCssTokens.collexp.colors.hover},
+                    var(${kitColorsPaletteCssTokens.primary.primary400})
+                );
             }
 
             &.kit-item-list-description-collapse {
@@ -137,18 +178,31 @@ const StyledItemList = styled.div<IStyledKitItemList>`
     }
 
     .kit-item-list-rafter {
-        color: ${({$theme}) => $theme.rafter.colors.default};
+        color: var(
+            ${kitItemListCssTokens.rafter.colors.default},
+            var(${kitColorsPaletteCssTokens.neutral.grey.grey400})
+        );
         font-size: 14px;
 
         &:hover {
-            color: ${({$theme}) => $theme.rafter.colors.hover};
+            color: var(
+                ${kitItemListCssTokens.rafter.colors.hover},
+                var(${kitColorsPaletteCssTokens.primary.primary400})
+            );
             cursor: pointer;
         }
     }
 
     &.kit-item-list-disabled {
-        background-color: ${({$theme}) => $theme.itemList.colors.background.disabled};
-        border: 1px solid ${({$theme}) => $theme.itemList.colors.border.disabled};
+        background-color: var(
+            ${kitItemListCssTokens.itemList.colors.background.disabled},
+            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
+        );
+        border: 1px solid
+            var(
+                ${kitItemListCssTokens.itemList.colors.border.disabled},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
+            );
         pointer-events: none;
 
         .kit-item-list-image-container img {
@@ -158,16 +212,25 @@ const StyledItemList = styled.div<IStyledKitItemList>`
         .kit-item-list-text-container {
             .kit-item-list-text {
                 &.kit-item-list-title {
-                    color: ${({$theme}) => $theme.title.colors.disabled};
+                    color: var(
+                        ${kitItemListCssTokens.title.colors.disabled},
+                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                    );
                 }
 
                 &.kit-item-list-description {
-                    color: ${({$theme}) => $theme.description.colors.disabled};
+                    color: var(
+                        ${kitItemListCssTokens.description.colors.disabled},
+                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                    );
                 }
             }
 
             .kit-item-list-description-collexp {
-                color: ${({$theme}) => $theme.collexp.colors.disabled};
+                color: var(
+                    ${kitItemListCssTokens.collexp.colors.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
             }
         }
 
@@ -191,7 +254,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
     disableSecureClick,
     ...props
 }) => {
-    const {theme} = useKitTheme();
+    const {appId} = useKitTheme();
     const {locale} = useKitLocale();
 
     const [descriptionVisible, setDescriptionVisible] = useState(false);
@@ -251,20 +314,22 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
 
         let noBorder = false;
         let cloneProps = {};
+        let itemProps: IKitImage | IKitAvatar | IKitIcon;
         let wrapperClassName = 'kit-item-list-picture-container';
 
-        switch (pictureJsx.type.displayName) {
+        switch ((pictureJsx.type as FunctionComponent).displayName) {
             case 'KitImage':
+                itemProps = (pictureJsx as ReactElement).props as IKitImage;
                 cloneProps = {
                     preview: {
-                        ...(pictureJsx.props?.preview ?? {}),
+                        ...((itemProps.preview as Record<string, unknown>) ?? {}),
                         mask: <FontAwesomeIcon icon={faEye} />
                     },
                     width: '100%',
                     height: '100%',
                     bordered: true,
                     rounded: true,
-                    rootClassName: (pictureJsx.props.rootClassName || '') + ' kit-item-list-image-container'
+                    rootClassName: (itemProps.rootClassName || '') + ' kit-item-list-image-container'
                 };
                 wrapperClassName += ' kit-item-list-image';
                 break;
@@ -279,7 +344,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
                 break;
         }
 
-        let Component = cloneElement(pictureJsx, cloneProps);
+        const Component = cloneElement(pictureJsx, cloneProps);
 
         return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
     };
@@ -353,7 +418,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
         );
     };
 
-    const _handleClickRafter = e => {
+    const _handleClickRafter = (e: MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
         onRafterClick && onRafterClick();
     };
@@ -382,7 +447,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
         return classes;
     };
 
-    const _handleClickItemList = e => {
+    const _handleClickItemList = (e: MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
         onClick && onClick();
     };
@@ -391,8 +456,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
 
     return (
         <StyledItemList
-            className={_getClasses()}
-            $theme={theme.components.ItemList}
+            className={`${appId} ${_getClasses()}`}
             $gridTemplateColumns={_generateGridTemplateColumns()}
             onClick={disableSecureClick ? _handleClickItemList : _handleClickItemListSecured}
             {...props}

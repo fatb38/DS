@@ -3,19 +3,30 @@ import {Button as AntdButton} from 'antd';
 import {styled} from 'styled-components';
 import type {IKitButton, IStyledKitButton, KitButtonCompoundedComponent} from './types';
 import {ButtonType} from 'antd/lib/button';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleCheck} from '@fortawesome/free-solid-svg-icons';
 import useSecureClick from '@hooks/useSecureClick';
+import {kitButtonCssTokens, kitButtonDefaultCssTokens} from '@theme/aristid/components/General/Button';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {borderCssTokens} from '@theme/aristid/general/border';
 
 const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
     height: 40px;
     width: 100%;
     min-width: 40px;
+    padding: 6.6px 15px;
     box-shadow: none;
-    color: ${({$theme}) => $theme.colors.typography.default};
-    background-color: ${({$theme}) => $theme.colors.background.default};
-    font-weight: ${({$theme}) => $theme.typography.fontWeight};
+    color: ${({$buttonCssTokens}) =>
+        `var(${$buttonCssTokens.custom.colors.typography.default}, var(${$buttonCssTokens.default.colors.typography.default}))`};
+    background-color: ${({$buttonCssTokens}) =>
+        `var(${$buttonCssTokens.custom.colors.background.default}, var(${$buttonCssTokens.default.colors.background.default}))`};
+    font-weight: ${({$buttonCssTokens}) =>
+        `var(${$buttonCssTokens.custom.typography.fontWeight}, var(${$buttonCssTokens.default.typography.fontWeight}))`};
+    font-size: calc(var(${kitButtonCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
+    line-height: var(${kitButtonCssTokens.typography.lineHeight}, var(${typographyCssTokens.lineHeight5}));
+    border-radius: calc(var(${kitButtonCssTokens.border.radius}, var(${borderCssTokens.radius.pills})) * 1px);
+    font-family: var(${kitButtonCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
 
     &[href].ant-btn {
         display: flex;
@@ -24,17 +35,24 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
     }
 
     &:not(.ant-btn-text) {
-        border-color: ${({$theme}) => $theme.colors.border.default};
+        border-color: ${({$buttonCssTokens}) =>
+            `var(${$buttonCssTokens.custom.colors.border.default}, var(${$buttonCssTokens.default.colors.border.default}))`};
     }
 
     &.ant-btn .ant-btn-icon svg {
-        font-size: ${({$theme, $iconSize}) =>
-            $iconSize === undefined ? $theme.typography.iconSize.m : $theme.typography.iconSize[$iconSize]}px;
+        font-size: ${({$buttonCssTokens, $iconSize}) => {
+            if ($iconSize === undefined) {
+                return `calc(var(${$buttonCssTokens.custom.typography.iconSize.m}, var(${$buttonCssTokens.default.typography.iconSize.m})) * 1px)`;
+            }
+            return `calc(var(${$buttonCssTokens.custom.typography.iconSize[$iconSize]}, var(${$buttonCssTokens.default.typography.iconSize[$iconSize]})) * 1px)`;
+        }};
     }
 
     &.ant-btn-primary.ant-btn-background-ghost {
-        color: ${({$theme}) => $theme.colors.typography.ghost};
-        background-color: ${({$theme}) => $theme.colors.background.ghost};
+        color: ${({$buttonCssTokens}) =>
+            `var(${$buttonCssTokens.custom.colors.typography.ghost}, var(${$buttonCssTokens.default.colors.typography.ghost}))`};
+        background-color: ${({$buttonCssTokens}) =>
+            `var(${$buttonCssTokens.custom.colors.background.ghost}, var(${$buttonCssTokens.default.colors.background.ghost}))`};
     }
 
     + .kit-btn-segmented-actived-icon {
@@ -43,34 +61,44 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
         bottom: 6px;
         right: 5px;
         font-size: 12px;
-        color: ${({$theme}) => $theme.colors.typography.iconCheck};
+        color: ${({$buttonCssTokens}) =>
+            `var(${$buttonCssTokens.custom.colors.typography.iconCheck}, var(${$buttonCssTokens.default.colors.typography.iconCheck}))`};
     }
 
     &.kit-btn-segmented {
         border-radius: 10px;
 
         &.kit-btn-segmented-actived:not(.ant-btn-dangerous) {
-            color: ${({$theme}) => $theme.colors.typography.active};
-            background-color: ${({$theme}) => $theme.colors.background.active};
-            border-color: ${({$theme}) => $theme.colors.border.active};
+            color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.typography.active}, var(${$buttonCssTokens.default.colors.typography.active}))`};
+            background-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.background.active}, var(${$buttonCssTokens.default.colors.background.active}))`};
+            border-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.border.active}, var(${$buttonCssTokens.default.colors.border.active}))`};
             z-index: 2;
 
             &:not(.ant-btn-link):not(.ant-btn-loading):not(.ant-btn-dangerous):not(:disabled) {
                 &:hover {
-                    color: ${({$theme}) => $theme.colors.typography.active};
-                    background-color: ${({$theme}) => $theme.colors.background.active};
+                    color: ${({$buttonCssTokens}) =>
+                        `var(${$buttonCssTokens.custom.colors.typography.active}, var(${$buttonCssTokens.default.colors.typography.active}))`};
+                    background-color: ${({$buttonCssTokens}) =>
+                        `var(${$buttonCssTokens.custom.colors.background.active}, var(${$buttonCssTokens.default.colors.background.active}))`};
                 }
             }
         }
 
         &.kit-btn-segmented-actived.ant-btn-dangerous {
-            color: ${({$theme}) => $theme.colors.typography.danger.default};
-            background-color: ${({$theme}) => $theme.colors.background.danger.active};
-            border-color: ${({$theme}) => $theme.colors.border.danger.active};
+            color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.typography.danger.default}, var(${$buttonCssTokens.default.colors.typography.danger.default}))`};
+            background-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.background.danger.active}, var(${$buttonCssTokens.default.colors.background.danger.active}))`};
+            border-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.border.danger.active}, var(${$buttonCssTokens.default.colors.border.danger.active}))`};
 
             &:not(.ant-btn-loading):not(:disabled) {
                 &:hover {
-                    background-color: ${({$theme}) => $theme.colors.background.danger.active};
+                    background-color: ${({$buttonCssTokens}) =>
+                        `var(${$buttonCssTokens.custom.colors.background.danger.active}, var(${$buttonCssTokens.default.colors.background.danger.active}))`};
                 }
             }
         }
@@ -84,17 +112,18 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
         border-radius: 0;
 
         &.ant-btn-compact-first-item {
-            border-radius: ${({$theme}) => $theme.compact.border.radius}px 0 0
-                ${({$theme}) => $theme.compact.border.radius}px;
+            border-radius: ${({$buttonCssTokens}) =>
+                `calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px) 0 0 calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px)`};
         }
 
         &.ant-btn-compact-last-item {
-            border-radius: 0 ${({$theme}) => $theme.compact.border.radius}px
-                ${({$theme}) => $theme.compact.border.radius}px 0;
+            border-radius: ${({$buttonCssTokens}) =>
+                `0 calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px) calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px) 0`};
         }
 
         &.ant-btn-compact-first-item.ant-btn-compact-last-item {
-            border-radius: ${({$theme}) => $theme.compact.border.radius}px;
+            border-radius: ${({$buttonCssTokens}) =>
+                `calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px)`};
         }
     }
 
@@ -102,59 +131,75 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
         border-radius: 0;
 
         &.ant-btn-compact-vertical-first-item {
-            border-radius: ${({$theme}) => $theme.compact.border.radius}px
-                ${({$theme}) => $theme.compact.border.radius}px 0 0;
+            border-radius: ${({$buttonCssTokens}) =>
+                `calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px) calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px) 0 0`};
         }
 
         &.ant-btn-compact-vertical-last-item {
-            border-radius: 0 0 ${({$theme}) => $theme.compact.border.radius}px
-                ${({$theme}) => $theme.compact.border.radius}px;
+            border-radius: ${({$buttonCssTokens}) =>
+                `0 0 calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px) calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px)`};
         }
 
         &.ant-btn-compact-first-item.ant-btn-compact-last-item {
-            border-radius: ${({$theme}) => $theme.compact.border.radius}px;
+            border-radius: ${({$buttonCssTokens}) =>
+                `calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px)`};
         }
     }
 
     &:disabled,
     &.ant-btn-loading:not(:disabled) {
-        color: ${({$theme}) => $theme.colors.typography.disabled};
-        background-color: ${({$theme}) => $theme.colors.background.disabled};
+        color: ${({$buttonCssTokens}) =>
+            `var(${$buttonCssTokens.custom.colors.typography.disabled}, var(${$buttonCssTokens.default.colors.typography.disabled}))`};
+        background-color: ${({$buttonCssTokens}) =>
+            `var(${$buttonCssTokens.custom.colors.background.disabled}, var(${$buttonCssTokens.default.colors.background.disabled}))`};
         opacity: initial;
 
         &:not(.ant-btn-text) {
-            border-color: ${({$theme}) => $theme.colors.border.disabled};
+            border-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.border.disabled}, var(${$buttonCssTokens.default.colors.border.disabled}))`};
         }
 
         &:hover {
-            color: ${({$theme}) => $theme.colors.typography.disabled};
-            background-color: ${({$theme}) => $theme.colors.background.disabled};
+            color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.typography.disabled}, var(${$buttonCssTokens.default.colors.typography.disabled}))`};
+            background-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.background.disabled}, var(${$buttonCssTokens.default.colors.background.disabled}))`};
 
             &:not(.ant-btn-text) {
-                border-color: ${({$theme}) => $theme.colors.border.disabled};
+                border-color: ${({$buttonCssTokens}) =>
+                    `var(${$buttonCssTokens.custom.colors.border.disabled}, var(${$buttonCssTokens.default.colors.border.disabled}))`};
             }
         }
     }
 
     &:not(.ant-btn-link):not(.ant-btn-loading):not(.ant-btn-dangerous):not(:disabled) {
         &:hover {
-            color: ${({$theme}) => $theme.colors.typography.hover};
-            background-color: ${({$theme}) => $theme.colors.background.hover};
-            border-color: ${({$theme}) => $theme.colors.border.hover};
+            color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.typography.hover}, var(${$buttonCssTokens.default.colors.typography.hover}))`};
+            background-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.background.hover}, var(${$buttonCssTokens.default.colors.background.hover}))`};
+            border-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.border.hover}, var(${$buttonCssTokens.default.colors.border.hover}))`};
             border-style: solid;
         }
 
         &:focus {
-            color: ${({$theme}) => $theme.colors.typography.focus};
-            background-color: ${({$theme}) => $theme.colors.background.focus};
-            border-color: ${({$theme}) => $theme.colors.border.focus};
+            color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.typography.focus}, var(${$buttonCssTokens.default.colors.typography.focus}))`};
+            background-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.background.focus}, var(${$buttonCssTokens.default.colors.background.focus}))`};
+            border-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.border.focus}, var(${$buttonCssTokens.default.colors.border.focus}))`};
             border-style: dashed;
         }
 
         &:active {
-            color: ${({$theme}) => $theme.colors.typography.active};
-            background-color: ${({$theme}) => $theme.colors.background.active};
-            border-color: ${({$theme}) => $theme.colors.border.active};
+            color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.typography.active}, var(${$buttonCssTokens.default.colors.typography.active}))`};
+            background-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.background.active}, var(${$buttonCssTokens.default.colors.background.active}))`};
+            border-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.border.active}, var(${$buttonCssTokens.default.colors.border.active}))`};
             border-style: solid;
         }
     }
@@ -164,7 +209,9 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
         padding: 0px;
         border: none;
         border-radius: 0px;
-        border-bottom: 1px solid ${({$theme}) => $theme.colors.background.default};
+        border-bottom: 1px solid
+            ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.background.default}, var(${$buttonCssTokens.default.colors.background.default}))`};
 
         &:disabled {
             border-bottom: none;
@@ -172,46 +219,62 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
 
         &:not(.ant-btn-loading):not(:disabled) {
             &:hover {
-                color: ${({$theme}) => $theme.colors.typography.default};
-                border-bottom: 1px solid ${({$theme}) => $theme.colors.border.hover};
+                color: ${({$buttonCssTokens}) =>
+                    `var(${$buttonCssTokens.custom.colors.typography.default}, var(${$buttonCssTokens.default.colors.typography.default}))`};
+                border-bottom: 1px solid
+                    ${({$buttonCssTokens}) =>
+                        `var(${$buttonCssTokens.custom.colors.border.hover}, var(${$buttonCssTokens.default.colors.border.hover}))`};
             }
 
             &:focus {
-                border-bottom: 1px dashed ${({$theme}) => $theme.colors.border.focus};
+                border-bottom: 1px dashed
+                    ${({$buttonCssTokens}) =>
+                        `var(${$buttonCssTokens.custom.colors.border.focus}, var(${$buttonCssTokens.default.colors.border.focus}))`};
             }
 
             &:active {
-                border-bottom: 1px dashed ${({$theme}) => $theme.colors.border.active};
+                border-bottom: 1px dashed
+                    ${({$buttonCssTokens}) =>
+                        `var(${$buttonCssTokens.custom.colors.border.active}, var(${$buttonCssTokens.default.colors.border.active}))`};
             }
         }
     }
 
     &.ant-btn-dangerous {
         box-shadow: none;
-        color: ${({$theme}) => $theme.colors.typography.danger.default};
-        background-color: ${({$theme}) => $theme.colors.background.danger.default};
+        color: ${({$buttonCssTokens}) =>
+            `var(${$buttonCssTokens.custom.colors.typography.danger.default}, var(${$buttonCssTokens.default.colors.typography.danger.default}))`};
+        background-color: ${({$buttonCssTokens}) =>
+            `var(${$buttonCssTokens.custom.colors.background.danger.default}, var(${$buttonCssTokens.default.colors.background.danger.default}))`};
 
         &:not(.ant-btn-text):not(.ant-btn-link) {
-            border-color: ${({$theme}) => $theme.colors.border.danger.default};
+            border-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.border.danger.default}, var(${$buttonCssTokens.default.colors.border.danger.default}))`};
         }
 
         &:disabled {
-            color: ${({$theme}) => $theme.colors.typography.danger.disabled};
-            background-color: ${({$theme}) => $theme.colors.background.danger.disabled};
+            color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.typography.danger.disabled}, var(${$buttonCssTokens.default.colors.typography.danger.disabled}))`};
+            background-color: ${({$buttonCssTokens}) =>
+                `var(${$buttonCssTokens.custom.colors.background.danger.disabled}, var(${$buttonCssTokens.default.colors.background.danger.disabled}))`};
             opacity: initial;
 
             &:not(.ant-btn-text) {
-                border-color: ${({$theme}) => $theme.colors.border.danger.disabled};
+                border-color: ${({$buttonCssTokens}) =>
+                    `var(${$buttonCssTokens.custom.colors.border.danger.disabled}, var(${$buttonCssTokens.default.colors.border.danger.disabled}))`};
             }
         }
 
         &:not(.ant-btn-loading):not(:disabled) {
             &:hover {
-                color: ${({$theme}) => $theme.colors.typography.danger.default};
-                background-color: ${({$theme}) => $theme.colors.background.danger.hover};
+                color: ${({$buttonCssTokens}) =>
+                    `var(${$buttonCssTokens.custom.colors.typography.danger.default}, var(${$buttonCssTokens.default.colors.typography.danger.default}))`};
+                background-color: ${({$buttonCssTokens}) =>
+                    `var(${$buttonCssTokens.custom.colors.background.danger.hover}, var(${$buttonCssTokens.default.colors.background.danger.hover}))`};
 
                 &:not(.ant-btn-text) {
-                    border-color: ${({$theme}) => $theme.colors.border.danger.hover};
+                    border-color: ${({$buttonCssTokens}) =>
+                        `var(${$buttonCssTokens.custom.colors.border.danger.hover}, var(${$buttonCssTokens.default.colors.border.danger.hover}))`};
                 }
 
                 &.ant-btn-link {
@@ -220,9 +283,12 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
             }
 
             &:focus {
-                color: ${({$theme}) => $theme.colors.typography.danger.default};
-                background-color: ${({$theme}) => $theme.colors.background.danger.focus};
-                border-color: ${({$theme}) => $theme.colors.border.danger.focus};
+                color: ${({$buttonCssTokens}) =>
+                    `var(${$buttonCssTokens.custom.colors.typography.danger.default}, var(${$buttonCssTokens.default.colors.typography.danger.default}))`};
+                background-color: ${({$buttonCssTokens}) =>
+                    `var(${$buttonCssTokens.custom.colors.background.danger.focus}, var(${$buttonCssTokens.default.colors.background.danger.focus}))`};
+                border-color: ${({$buttonCssTokens}) =>
+                    `var(${$buttonCssTokens.custom.colors.border.danger.focus}, var(${$buttonCssTokens.default.colors.border.danger.focus}))`};
                 border-style: dashed;
 
                 &.ant-btn-link {
@@ -231,9 +297,12 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
             }
 
             &:active {
-                color: ${({$theme}) => $theme.colors.typography.danger.default};
-                background-color: ${({$theme}) => $theme.colors.background.danger.active};
-                border-color: ${({$theme}) => $theme.colors.border.danger.active};
+                color: ${({$buttonCssTokens}) =>
+                    `var(${$buttonCssTokens.custom.colors.typography.danger.default}, var(${$buttonCssTokens.default.colors.typography.danger.default}))`};
+                background-color: ${({$buttonCssTokens}) =>
+                    `var(${$buttonCssTokens.custom.colors.background.danger.active}, var(${$buttonCssTokens.default.colors.background.danger.active}))`};
+                border-color: ${({$buttonCssTokens}) =>
+                    `var(${$buttonCssTokens.custom.colors.border.danger.active}, var(${$buttonCssTokens.default.colors.border.danger.active}))`};
 
                 &.ant-btn-link {
                     border-width: 0 0 1px 0;
@@ -257,32 +326,59 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
         wrapperStyle,
         onClick,
         disableSecureClick,
-        ...buttonProps
+        ...props
     },
     ref
 ) => {
-    const {theme: kitTheme} = useKitTheme();
-    const theme = kitTheme.components.Button;
+    const {appId} = useKitTheme();
 
     const secureClick = useSecureClick(onClick);
 
-    const _getTheme = () => {
+    const _getButtonCssTokens = () => {
         if (primaryModal) {
-            return theme.primary;
+            return {
+                custom: kitButtonCssTokens.primary,
+                default: kitButtonDefaultCssTokens.primary
+            };
         }
 
         switch (type) {
             case 'primary':
-                return theme.primary;
+                return {
+                    custom: kitButtonCssTokens.primary,
+                    default: kitButtonDefaultCssTokens.primary
+                };
             case 'link':
-                return theme.link;
+                return {
+                    custom: kitButtonCssTokens.link,
+                    default: kitButtonDefaultCssTokens.link
+                };
             case 'text':
-                return !textColor ? theme.text.default : theme.text[textColor];
+                return !textColor
+                    ? {
+                          custom: kitButtonCssTokens.text.default,
+                          default: kitButtonDefaultCssTokens.text.default
+                      }
+                    : {
+                          custom: kitButtonCssTokens.text[textColor],
+                          default: kitButtonDefaultCssTokens.text[textColor]
+                      };
             case 'segmented':
-                return !segmentedColor ? theme.segmented.default : theme.segmented[segmentedColor];
+                return !segmentedColor
+                    ? {
+                          custom: kitButtonCssTokens.segmented.default,
+                          default: kitButtonDefaultCssTokens.segmented.default
+                      }
+                    : {
+                          custom: kitButtonCssTokens.segmented[segmentedColor],
+                          default: kitButtonDefaultCssTokens.segmented[segmentedColor]
+                      };
             case 'default':
             default:
-                return theme.default;
+                return {
+                    custom: kitButtonCssTokens.default,
+                    default: kitButtonDefaultCssTokens.default
+                };
         }
     };
 
@@ -306,6 +402,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
     const _getClasses = () => {
         let classes = className || '';
 
+        classes += ' ' + appId;
         classes += type === 'segmented' ? ' kit-btn-segmented' : '';
         classes += segmentedActived ? ' kit-btn-segmented-actived' : '';
 
@@ -322,9 +419,9 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
             }}
         >
             <StyledAntdButton
-                $theme={_getTheme()}
+                {...props}
+                $buttonCssTokens={_getButtonCssTokens()}
                 $iconSize={iconSize}
-                {...buttonProps}
                 className={_getClasses()}
                 ghost={primaryModal}
                 type={_getAntdType()}

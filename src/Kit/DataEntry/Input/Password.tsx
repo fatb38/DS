@@ -1,157 +1,270 @@
 import React, {forwardRef} from 'react';
 import {Input as AntdInput, InputRef} from 'antd';
-import {IKitPassword, IStyledAntdPassword} from './types';
+import {IKitPassword} from './types';
 import {styled} from 'styled-components';
 import KitInputWrapper from './InputWrapper';
-import {useKitTheme} from '@theme/theme-context';
+import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark, faEye, faEyeSlash} from '@fortawesome/free-regular-svg-icons';
+import {kitInputPasswordCssTokens} from '@theme/aristid/components/DataEntry/Input';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 
-const StyledAntdPassword = styled(AntdInput.Password)<IStyledAntdPassword>`
+const StyledAntdPassword = styled(AntdInput.Password)`
     &.ant-input-affix-wrapper {
-        padding: 0px 12px;
+        padding: 0 12px;
 
         .ant-input {
             height: 38px;
-            padding: 0px 10px 0px 0px;
+            padding: 0 10px 0 0;
             border-radius: 7px;
-            font-weight: ${({$theme}) => $theme.typography.content.fontWeight};
+            font-weight: var(
+                ${kitInputPasswordCssTokens.typography.content.fontWeight},
+                var(${typographyCssTokens.mediumfontWeight})
+            );
 
             &::placeholder {
-                font-weight: ${({$theme}) => $theme.typography.placeholder.fontWeight};
+                font-weight: var(
+                    ${kitInputPasswordCssTokens.typography.placeholder.fontWeight},
+                    var(${typographyCssTokens.regularFontWeight})
+                );
             }
         }
 
         .ant-input-suffix {
             .ant-input-password-icon {
-                color: ${({$theme}) => $theme.colors.passwordIcon.default};
+                color: var(
+                    ${kitInputPasswordCssTokens.colors.passwordIcon.default},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
+                );
             }
 
             .ant-input-show-count-suffix {
-                color: ${({$theme}) => $theme.colors.showCount.default};
-                font-size: ${({$theme}) => $theme.typography.showCount.fontSize}px;
-                font-weight: ${({$theme}) => $theme.typography.showCount.fontWeight};
+                color: var(
+                    ${kitInputPasswordCssTokens.colors.showCount.default},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
+                );
+                font-size: calc(
+                    var(
+                            ${kitInputPasswordCssTokens.typography.showCount.fontSize},
+                            var(${typographyCssTokens.fontSize7})
+                        ) * 1px
+                );
+                font-weight: var(
+                    ${kitInputPasswordCssTokens.typography.showCount.fontWeight},
+                    var(${typographyCssTokens.regularFontWeight})
+                );
             }
 
             .ant-input-clear-icon {
-                color: ${({$theme}) => $theme.colors.clearIcon.default};
+                color: var(
+                    ${kitInputPasswordCssTokens.colors.clearIcon.default},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
+                );
                 display: flex;
             }
         }
 
         .ant-input-prefix {
             margin-inline-end: 10px;
-            color: ${({$theme}) => $theme.colors.prefix.default};
+            color: var(
+                ${kitInputPasswordCssTokens.colors.prefix.default},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
+            );
         }
 
         &.ant-input-affix-wrapper-disabled {
-            border-color: ${({$theme}) => $theme.colors.border.disabled};
+            border-color: var(
+                ${kitInputPasswordCssTokens.colors.border.disabled},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
+            );
 
             .ant-input {
-                color: ${({$theme}) => $theme.colors.typography.content.disabled};
+                color: var(
+                    ${kitInputPasswordCssTokens.colors.typography.content.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
 
                 &::placeholder {
-                    color: ${({$theme}) => $theme.colors.typography.placeholder.disabled};
+                    color: var(
+                        ${kitInputPasswordCssTokens.colors.typography.placeholder.disabled},
+                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                    );
                 }
             }
 
-            .ant-input-prefix .anticon {
-                color: ${({$theme}) => $theme.colors.prefix.disabled};
+            .ant-input-prefix svg {
+                color: var(
+                    ${kitInputPasswordCssTokens.colors.prefix.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
             }
 
             .ant-input-suffix {
-                color: ${({$theme}) => $theme.colors.suffix.disabled};
+                color: var(
+                    ${kitInputPasswordCssTokens.colors.suffix.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
 
                 .ant-input-clear-icon {
-                    color: ${({$theme}) => $theme.colors.clearIcon.disabled};
+                    color: var(
+                        ${kitInputPasswordCssTokens.colors.clearIcon.disabled},
+                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                    );
                 }
 
                 .ant-input-show-count-suffix {
-                    color: ${({$theme}) => $theme.colors.showCount.disabled};
+                    color: var(
+                        ${kitInputPasswordCssTokens.colors.showCount.disabled},
+                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                    );
                 }
 
                 .ant-input-password-icon {
-                    color: ${({$theme}) => $theme.colors.passwordIcon.disabled};
+                    color: var(
+                        ${kitInputPasswordCssTokens.colors.passwordIcon.disabled},
+                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                    );
                 }
             }
         }
 
         &.ant-input-affix-wrapper-status-error,
         &.ant-input-affix-wrapper-status-error .ant-input {
-            background-color: ${({$theme}) => $theme.colors.background.error};
-            color: ${({$theme}) => $theme.colors.typography.content.error};
+            background-color: var(
+                ${kitInputPasswordCssTokens.colors.background.error},
+                var(${kitColorsPaletteCssTokens.secondary.red.red100})
+            );
+            color: var(
+                ${kitInputPasswordCssTokens.colors.typography.content.error},
+                var(${kitColorsPaletteCssTokens.secondary.red.red400})
+            );
 
             &:not(.ant-input-borderless):not(.ant-input-disabled) {
-                border-color: ${({$theme}) => $theme.colors.border.error};
+                border-color: var(
+                    ${kitInputPasswordCssTokens.colors.border.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                );
                 box-shadow: none;
 
                 &:hover,
                 &:focus {
-                    border-color: ${({$theme}) => $theme.colors.border.error};
+                    border-color: var(
+                        ${kitInputPasswordCssTokens.colors.border.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                    );
                 }
             }
 
             &::placeholder {
-                color: ${({$theme}) => $theme.colors.typography.placeholder.error};
+                color: var(
+                    ${kitInputPasswordCssTokens.colors.typography.placeholder.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                );
             }
 
-            .ant-input-prefix .anticon {
-                color: ${({$theme}) => $theme.colors.prefix.error};
+            .ant-input-prefix svg {
+                color: var(
+                    ${kitInputPasswordCssTokens.colors.prefix.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                );
             }
 
             .ant-input-suffix {
-                color: ${({$theme}) => $theme.colors.suffix.error};
+                color: var(
+                    ${kitInputPasswordCssTokens.colors.suffix.error},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                );
 
                 .ant-input-clear-icon {
-                    color: ${({$theme}) => $theme.colors.clearIcon.error};
+                    color: var(
+                        ${kitInputPasswordCssTokens.colors.clearIcon.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                    );
                 }
 
                 .ant-input-show-count-suffix {
-                    color: ${({$theme}) => $theme.colors.showCount.error};
+                    color: var(
+                        ${kitInputPasswordCssTokens.colors.showCount.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red300})
+                    );
                 }
 
                 .ant-input-password-icon {
-                    color: ${({$theme}) => $theme.colors.passwordIcon.error};
+                    color: var(
+                        ${kitInputPasswordCssTokens.colors.passwordIcon.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                    );
                 }
             }
         }
 
         &.ant-input-affix-wrapper-status-warning,
         &.ant-input-affix-wrapper-status-warning .ant-input {
-            background-color: ${({$theme}) => $theme.colors.background.warning};
-            color: ${({$theme}) => $theme.colors.typography.content.warning};
+            background-color: var(
+                ${kitInputPasswordCssTokens.colors.background.warning},
+                var(${kitColorsPaletteCssTokens.secondary.orange.orange100})
+            );
+            color: var(
+                ${kitInputPasswordCssTokens.colors.typography.content.warning},
+                var(${kitColorsPaletteCssTokens.secondary.orange.orange500})
+            );
 
             &:not(.ant-input-borderless):not(.ant-input-disabled) {
-                border-color: ${({$theme}) => $theme.colors.border.warning};
+                border-color: var(
+                    ${kitInputPasswordCssTokens.colors.border.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                );
                 box-shadow: none;
 
                 &:hover,
                 &:focus {
-                    border-color: ${({$theme}) => $theme.colors.border.warning};
+                    border-color: var(
+                        ${kitInputPasswordCssTokens.colors.border.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                    );
                 }
             }
 
             &::placeholder {
-                color: ${({$theme}) => $theme.colors.typography.placeholder.warning};
+                color: var(
+                    ${kitInputPasswordCssTokens.colors.typography.placeholder.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange500})
+                );
             }
 
-            .ant-input-prefix .anticon {
-                color: ${({$theme}) => $theme.colors.prefix.warning};
+            .ant-input-prefix svg {
+                color: var(
+                    ${kitInputPasswordCssTokens.colors.prefix.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                );
             }
 
             .ant-input-suffix {
-                color: ${({$theme}) => $theme.colors.suffix.warning};
+                color: var(
+                    ${kitInputPasswordCssTokens.colors.prefix.warning},
+                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
+                );
 
                 .ant-input-clear-icon {
-                    color: ${({$theme}) => $theme.colors.clearIcon.warning};
+                    color: var(
+                        ${kitInputPasswordCssTokens.colors.clearIcon.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange500})
+                    );
                 }
 
                 .ant-input-show-count-suffix {
-                    color: ${({$theme}) => $theme.colors.showCount.warning};
+                    color: var(
+                        ${kitInputPasswordCssTokens.colors.showCount.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange300})
+                    );
                 }
 
                 .ant-input-password-icon {
-                    color: ${({$theme}) => $theme.colors.passwordIcon.warning};
+                    color: var(
+                        ${kitInputPasswordCssTokens.colors.passwordIcon.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange500})
+                    );
                 }
             }
         }
@@ -168,8 +281,8 @@ const StyledAntdPassword = styled(AntdInput.Password)<IStyledAntdPassword>`
 `;
 
 const KitPassword = forwardRef<InputRef, IKitPassword>(
-    ({label, helper, iconRender, wrapperClassName, allowClear = true, ...passwordProps}, ref) => {
-        const {theme} = useKitTheme();
+    ({label, className, helper, iconRender, wrapperClassName, allowClear = true, ...passwordProps}, ref) => {
+        const {appId} = useKitTheme();
 
         const _getIconRender = (passwordVisible: boolean) => {
             if (passwordVisible) {
@@ -187,8 +300,8 @@ const KitPassword = forwardRef<InputRef, IKitPassword>(
                 className={wrapperClassName}
             >
                 <StyledAntdPassword
-                    $theme={theme.components.Input.Password}
                     {...passwordProps}
+                    className={`${appId} ${className || ''}`}
                     ref={ref}
                     allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
                     iconRender={iconRender ?? _getIconRender}

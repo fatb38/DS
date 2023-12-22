@@ -1,6 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitTour} from '@kit/DataDisplay';
-import {argTypes, Template} from './data';
+import {argTypes} from './data';
+import {Template} from './Template';
 
 const meta: Meta<typeof KitTour> = {
     component: KitTour,

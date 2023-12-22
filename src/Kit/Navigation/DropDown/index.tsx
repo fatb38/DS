@@ -1,12 +1,12 @@
 import React, {FunctionComponent} from 'react';
-import styled from 'styled-components';
 import {Dropdown as AntdDropdown} from 'antd';
 import {IKitDropdown} from './types';
+import {useKitTheme} from '@theme/useKitTheme';
 
-const StyledDropDown = styled(AntdDropdown)``;
+export const KitDropDown: FunctionComponent<IKitDropdown> = ({overlayClassName, ...props}) => {
+    const {appId} = useKitTheme();
 
-export const KitDropDown: FunctionComponent<IKitDropdown> = props => {
-    return <StyledDropDown {...props} />;
+    return <AntdDropdown overlayClassName={`${appId} ${overlayClassName ?? ''}`} {...props} />;
 };
 
 KitDropDown.displayName = 'KitDropDown';
