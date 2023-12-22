@@ -3,6 +3,7 @@ import colorString from 'color-string';
 import {KitColorProp} from './types';
 import {colorsPalette} from '@theme/aristid/general/colors';
 import {IJSONObject} from '.storybook/components/ThemeEditor/types';
+import {HSL, RGB} from 'color-convert/conversions';
 
 type CssVariablesList = Record<string, string>;
 
@@ -68,18 +69,20 @@ export const getContrastColor = (color: KitColorProp) => {
         return colorsPalette.neutral.black;
     }
 
-    let convertedColor = getColor(color);
+    const colorTest = getColor(color);
 
-    if (convertedColor?.startsWith('#') || convertedColor?.startsWith('rgb')) {
-        convertedColor = colorString.get.rgb(convertedColor);
-    } else if (convertedColor?.startsWith('hsl')) {
-        const hsl = colorString.get.hsl(convertedColor);
-        convertedColor = convert.hsl.rgb(hsl);
+    if (colorTest?.startsWith('#') || colorTest?.startsWith('rgb')) {
+        const convertedColor = colorString.get.rgb(colorTest);
+        const yiq = (convertedColor[0] * 299 + convertedColor[1] * 587 + convertedColor[2] * 114) / 1000;
+
+        return yiq < 128 ? colorsPalette.neutral.white : colorsPalette.neutral.black;
+    } else if (colorTest?.startsWith('hsl')) {
+        const hsl = colorString.get.hsl(colorTest);
+        const convertedColor = convert.hsl.rgb(hsl as unknown as HSL);
+        const yiq = (convertedColor[0] * 299 + convertedColor[1] * 587 + convertedColor[2] * 114) / 1000;
+
+        return yiq < 128 ? colorsPalette.neutral.white : colorsPalette.neutral.black;
     }
-
-    const yiq = (convertedColor[0] * 299 + convertedColor[1] * 587 + convertedColor[2] * 114) / 1000;
-
-    return yiq < 128 ? colorsPalette.neutral.white : colorsPalette.neutral.black;
 };
 
 const _colorToLightHSL = (color: KitColorProp, lightness = 95): string | null => {
@@ -88,12 +91,16 @@ const _colorToLightHSL = (color: KitColorProp, lightness = 95): string | null =>
         const hslColor = convert.rgb.hsl(rgbColor);
         return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
     } else if (color?.startsWith('rgb')) {
-        const rgbColor = color.match(/\d+/g).map(Number);
-        const hslColor = convert.rgb.hsl(rgbColor);
-        return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
-    } else if (color?.startsWith('hsl')) {
-        const hslColor = color.match(/\d+/g).map(Number);
-        return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
+        const rgbColor = color.match(/\d+/g)?.map(Number);
+        if (rgbColor) {
+            const hslColor = convert.rgb.hsl(rgbColor as RGB);
+            return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
+        }
+    } else if (color?.startsWith('hsl') && color.match(/\d+/g)) {
+        const hslColor = color.match(/\d+/g)?.map(Number);
+        if (hslColor) {
+            return `hsl(${hslColor[0]}, ${hslColor[1]}%, ${lightness}%)`;
+        }
     }
 
     return null;

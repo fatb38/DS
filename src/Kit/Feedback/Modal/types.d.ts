@@ -24,7 +24,7 @@ export interface IKitModal
     title?: ReactNode;
     footer?: ReactNode;
     isOpen?: boolean;
-    style: {
+    style?: {
         overlay?: CSSProperties;
         content?: CSSProperties;
     };

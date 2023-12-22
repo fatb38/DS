@@ -13,7 +13,7 @@ export interface IKitIcon extends IconComponentProps, KitHTMLAttributes<HTMLSpan
     onClick?: (e: MouseEvent<HTMLSpanElement>) => void;
 }
 
-export interface IStyledKitIcon extends Omit<IKitIcon, 'icon'> {
+export interface IStyledKitIcon extends Omit<IKitIcon, 'icon', 'onClick'> {
     $on?: boolean;
     $isClickable?: boolean;
     className?: string;

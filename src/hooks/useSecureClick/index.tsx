@@ -2,7 +2,7 @@ import {useCallback, useRef} from 'react';
 
 type GenericOnCkick = (...args: never[]) => void;
 
-const useSecureClick = (onClick: GenericOnCkick, timeout = 500) => {
+const useSecureClick = (onClick?: GenericOnCkick, timeout = 500) => {
     const isClickable = useRef(true);
 
     const secureClick = useCallback(

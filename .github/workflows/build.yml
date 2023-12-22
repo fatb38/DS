@@ -1,0 +1,22 @@
+# .github/workflows/lint.yml
+
+# Workflow name
+name: "build design system"
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  build-design-system:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+      - name: install dependencies
+        run: yarn
+      - name: build design system
+        run: yarn build

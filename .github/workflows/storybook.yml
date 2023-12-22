@@ -16,8 +16,14 @@ jobs:
     if: github.ref_name == 'develop' || github.ref_name == 'main'
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+      - name: install dependencies
+        run: yarn
       - name: build-storybook
-        run: yarn && yarn build-storybook
+        run: yarn build-storybook
       - name: upload artifact
         uses: actions/upload-artifact@v3
         with:

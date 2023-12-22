@@ -12,27 +12,21 @@ on:
       - '*'
   pull_request:
     branches:
-      - 'develop'
-    types: [synchronize, labeled]
+      - '*'
+    types: [synchronize]
 
 jobs:
-  eslint:
-    uses: ./.github/workflows/Eslint.yml
-  chromatic:
-    if: github.event_name == 'pull_request' && github.base_ref == 'develop' && contains(github.event.pull_request.labels.*.name, 'run chromatic')
-    needs: eslint
-    uses: ./.github/workflows/chromatic.yml
-    secrets: inherit
+  lint:
+    uses: ./.github/workflows/lint.yml
+  build:
+    uses: ./.github/workflows/build.yml
+    needs: lint
   npm:
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
-    needs: eslint
+    needs: build
     uses: ./.github/workflows/npm.yml
     secrets: inherit
-  storybook-main:
+  storybook:
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
     needs: npm
-    uses: ./.github/workflows/storybook.yml
-  storybook-dev:
-    if: github.event_name == 'push' && github.ref_name == 'develop'
-    needs: eslint
     uses: ./.github/workflows/storybook.yml

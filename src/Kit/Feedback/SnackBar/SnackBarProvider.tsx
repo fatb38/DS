@@ -28,7 +28,9 @@ const KitSnackBarProvider = () => {
             position="bottom-center"
             toastOptions={{style: resetReactHotToastStyle}}
         />
-    ) : null;
+    ) : (
+        <div></div>
+    );
 };
 
 export default KitSnackBarProvider;

@@ -1,6 +1,11 @@
 import type {BlockProps, EllipsisConfig} from 'antd/lib/typography/Base';
-import {AllHTMLAttributes, FunctionComponent} from 'react';
+import {AllHTMLAttributes, ForwardedRef, FunctionComponent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
+
+export interface IInternalKitTitle extends Base {
+    component?: string;
+    ref: ForwardedRef;
+}
 
 type antdTitleTypesToOmit = 'type' | 'editable' | 'code' | 'italic' | 'keyboard' | 'mark' | 'underline';
 

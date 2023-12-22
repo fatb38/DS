@@ -76,9 +76,8 @@ const AliyunOSSUpload = ({value, onChange}: AliyunOSSUploadProps) => {
 
         const suffix = file.name.slice(file.name.lastIndexOf('.'));
         const filename = Date.now() + suffix;
-        file.url = OSSData.dir + filename;
 
-        return file;
+        return {...file, url: OSSData.dir + filename};
     };
 
     return (

@@ -6,7 +6,6 @@ import ConfirmDialog from '@kit/Feedback/Modal/ConfirmDialog';
 import {KitButton} from '@kit/General';
 import {Template} from './Template';
 import {argTypes} from './data';
-import {IKitModal} from '@kit/Feedback/Modal/types';
 import {KitApp} from '@kit/App';
 
 const meta: Meta<typeof KitModal> = {
@@ -40,7 +39,7 @@ const modalProps = {
 };
 
 export const Api: Story = {
-    render: Template as IKitModal,
+    render: Template,
     parameters: {
         chromatic: {disableSnapshot: true}
     }

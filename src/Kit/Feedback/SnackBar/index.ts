@@ -5,4 +5,3 @@ export const openKitSnackBar = openSnackBar;
 export const closeKitSnackBar = closeSnackBar;
 
 export const KitSnackBarProvider = InternalSnackBarProvider;
-KitSnackBarProvider.displayName = 'KitSnackBarProvider';

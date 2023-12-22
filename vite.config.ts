@@ -53,7 +53,7 @@ export default defineConfig({
     },
     build: {
         lib: {
-            entry: path.resolve(__dirname, 'src/index.tsx'),
+            entry: path.resolve(__dirname, 'src/index.ts'),
             name: 'design-system',
             formats: ['es', 'umd'],
             fileName: format => {

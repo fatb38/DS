@@ -19,7 +19,11 @@ const beforeUpload: UploadProps['beforeUpload'] = file => {
                 ctx.textBaseline = 'middle';
                 ctx.font = '33px Arial';
                 ctx.fillText('Ant Design', 20, 20);
-                canvas.toBlob(result => resolve(result));
+                canvas.toBlob(result => {
+                    if (result !== null) {
+                        return resolve(result);
+                    }
+                });
             };
         };
     });

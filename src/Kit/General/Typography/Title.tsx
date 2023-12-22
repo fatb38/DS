@@ -3,7 +3,7 @@ import Base from 'antd/lib/typography/Base';
 import {IInternalKitTitle, IKitTitle} from './types';
 import {TITLE_LEVEL} from './commons';
 
-const KitTitle = forwardRef<HTMLElement, IKitTitle>(({level = TITLE_LEVEL.h1, ...props}, ref) => {
+const KitTitle = forwardRef<unknown, IKitTitle>(({level = TITLE_LEVEL.h1, ...props}, ref) => {
     const component: string = TITLE_LEVEL[level] as string;
 
     const InternalBase: ForwardRefExoticComponent<IInternalKitTitle> =

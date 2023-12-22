@@ -23,7 +23,7 @@ interface ITemplate extends IKitTypography {
     content: ReactNode;
 }
 
-export const Template = (args: IKitTypography) => {
+export const Template = args => {
     const {component, content, ...props} = args as ITemplate;
     return <KitSpace direction="vertical">{getComponent(component, content, props)}</KitSpace>;
 };

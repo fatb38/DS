@@ -39,9 +39,8 @@ export interface IKitSelect extends Omit<SelectProps, AntdSelectTypesToOmit>, Ki
     wrapperClassName?: string;
 }
 
-interface IKitOption extends Omit<OptionProps, 'children'> {
+interface IKitOption extends Omit<OptionProps, ''> {
     icon?: ReactNode;
     color?: string;
-    label?: string;
-    children?: ReactNode;
+    label: string;
 }
