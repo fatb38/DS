@@ -1,4 +1,4 @@
 export interface IKitItemListLocale {
-    more: string;
-    less: string;
+    more?: string;
+    less?: string;
 }

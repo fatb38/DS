@@ -44,7 +44,7 @@ const Image: FunctionComponent<IKitImage> = ({rounded, bordered, preview, classN
     const Mask = (
         <MaskContainer>
             <FontAwesomeIcon icon={faEye} />
-            {locale.Image.preview}
+            {locale.Image?.preview}
         </MaskContainer>
     );
 
