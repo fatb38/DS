@@ -10,18 +10,20 @@
   "license": "MIT",
   "homepage": "https://www.aristid.com",
   "scripts": {
-    "dev": "vite",
-    "copy-typescript-definitions": "copyfiles -u 1 \"src/**/*.d.ts\" dist",
     "build": "tsc && vite build && yarn copy-typescript-definitions",
     "build-stats": "STATS=true tsc && vite build",
-    "generate-tokens": "node tokens-generator.js",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
     "build-storybook": "env=production storybook build --docs",
     "build-all": "yarn build && yarn build-storybook",
+    "chromatic": "chromatic --exit-zero-on-changes",
+    "clean": "rm -rf dist",
+    "copy-typescript-definitions": "copyfiles -u 1 \"src/**/*.d.ts\" dist",
+    "dev": "vite",
+    "generate-tokens": "node tokens-generator.js",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
-    "chromatic": "chromatic --exit-zero-on-changes"
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "test-build": "yarn lint && yarn build && yarn clean"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
