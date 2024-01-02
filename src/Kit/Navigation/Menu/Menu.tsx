@@ -108,6 +108,9 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
                     textColor="black"
                     icon={<FontAwesomeIcon icon={faXmark} />}
                     onClick={e => onCloseClick(e)}
+                    aria-label="close"
+                    data-name="close"
+                    role="img"
                 />
             )
         );

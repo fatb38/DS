@@ -277,6 +277,9 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                                         <KitIcon
                                             className="kit-action-more"
                                             icon={<FontAwesomeIcon icon={faEllipsisVertical} />}
+                                            aria-label="more"
+                                            data-name="more"
+                                            role="img"
                                         />
                                     </KitTooltip>
                                 </KitDropDown>
@@ -333,6 +336,9 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                 <div
                     className="kit-item-menu-rafter"
                     onClick={disabledSecureClick ? _handleClickRafter : _handleClickRafterSecured}
+                    aria-label="rafter"
+                    data-name="rafter"
+                    role="img"
                 >
                     <FontAwesomeIcon icon={faAngleRight} />
                 </div>
