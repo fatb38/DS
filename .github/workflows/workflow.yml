@@ -1,19 +1,17 @@
-# .github/workflows/chromatic.yml
-
-# Workflow name
 name: "Design system workflow"
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - '*'
+      - 'develop'
+      - 'main'
     tags:
       - '*'
   pull_request:
     branches:
       - '*'
-    types: [synchronize]
+    types: [opened, synchronize]
 
 jobs:
   lint:
