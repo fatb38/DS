@@ -1,184 +1,291 @@
 import { Meta } from "@storybook/addon-docs";
+import {Source, Unstyled} from '@storybook/blocks';
 import ImagePreview from '../../.storybook/components/ImagePreview.jsx';
-import SystemIcons from "../assets/icons/systemIcons.png";
-import ContourLines from "../assets/icons/contourLines.png";
-import SquareContour from "../assets/icons/squareContour.png";
-import HorizontalRectangleContour from "../assets/icons/horizontalRectangleContour.png";
-import VerticalRectangleContour from "../assets/icons/verticalRectangleContour.png";
-import CircleContour from "../assets/icons/circleContour.png";
-import ThicknessOk from "../assets/icons/thicknessOk.png";
-import ThicknessNok from "../assets/icons/thicknessNok.png";
-import CornerOk from "../assets/icons/cornerOk.png";
-import CornerNok from "../assets/icons/cornerNok.png";
-import CorrectionOk from "../assets/icons/correctionOk.png";
-import CorrectionNok from "../assets/icons/correctionNok.png";
-import PerspectiveOk from "../assets/icons/perspectiveOk.png";
-import PerspectiveNok from "../assets/icons/perspectiveNok.png";
-import Naming from "../assets/icons/naming.png";
-import Sizing from "../assets/icons/sizing.png";
-import Color from "../assets/icons/color.png";
-import Business from "../assets/icons/business.png";
-import BusinessColor from "../assets/icons/businessColor.png";
-import BusinessSizing from "../assets/icons/businessSizing.png";
-
-
-<Meta title="Design/Icons" />
+import InfoBox from '../../.storybook/components/InfoBox.jsx';
+import FaGrid from "../assets/icons/faGrid.png";
+import FaShapesOnGrid from "../assets/icons/faShapesOnGrid.png";
+import FaGridSystem from "../assets/icons/faGridSystem.png";
+import FaRaster from "../assets/icons/faRaster.jpg";
+import FaViewboxes from "../assets/icons/faViewboxes.jpg";
+import FaOverflow from "../assets/icons/faOverflow.jpg";
+import FaCombineIllustrator from "../assets/icons/faCombineIllustrator.jpg";
+import FaCombineFigma from "../assets/icons/faCombineFigma.jpg";
+import FaCombineDuoIllustrator from "../assets/icons/faCombineDuoIllustrator.jpg";
+import FaCombineDuoFigma from "../assets/icons/faCombineDuoFigma.jpg";
+import FaOverlap from "../assets/icons/faOverlap.jpg";
 
 <style>
     {`
-        .clearfix + h3 {
-            clear: both;
+        table {
+            font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased;
+            margin: 16px 0;
+            border-collapse: collapse;
+            max-width: 744px;
+            min-width: 100%;
+            margin-bottom: 32px;
         }
 
-        h3 {
-            clear:both;
+        table.small {
+            min-width: auto;
         }
 
+        table th {
+            border: none;
+            font-weight: bold;
+            border-bottom: 2px solid #ccc;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        table td {
+            borer: none;
+            border-bottom: 1px solid #ccc;
+            padding: 8px 12px;
+        }
     `}
 </style>
 
-# Designing new Icons
+<Meta title="Design/Icons Guidelines" />
 
-An icon is a graphical representation of meaning. Icons can be used to express actions, state, and even to categorize data. Ant Design's icons adhere to the following two principles and are designed for cross-platform consistency:
+# Icons Guidelines
+
+An icon is a graphical representation of meaning. Icons can be used to express actions, state, and even to categorize data. With a few key concepts in mind, you can create great looking custom icons that will fit right in and be able to use all the awesome of Font Awesome.
 
 - Graphics that are clear, intuitive, and simple enjoy a higher degree of recognition and are more easily understood
 - All icons in the user interface should be consistent in style (detail design, perspective, stroke weight, etc.)
 
+## Designing new Icons
 
-## System Icons
+Font Awesome’s icons have been designed for easy use in digital interfaces so they’ve been optimized for legibility alongside the default web browser font size of 16 pixels. In order to create pixel-perfect and visually consistent icons, we design all of our icons using a 16 pixel-based icon grid and default shape guidelines.
 
-<ImagePreview right>
-<img className="preview-img no-padding" src={SystemIcons} alt="System Icons" />
+That icon grid sets a base width and height of **16 pixels by 16 pixels**. The grid has an additional 4 pixel horizontal overflow to accommodate icons with a wider footprint.
+
+<ImagePreview big center>
+<img className="preview-img no-padding" src={FaGrid} alt="The Font Awesome 16 pixel grid has built in horizontal overflow (taking its max width to 20 pixels)" />
 </ImagePreview>
 
-System icons are often used to represent commonly used operations, such as: save, edit, delete. Ant Design also includes icons to represent file types and state.
+### Shapes on the Grid
+We’ve defined the size of shapes (such as circles, squares, and rectangles) using our icon grid.
 
-- [View the icons](/components/icon/)
-
-### Key Contour Lines
-
-<ImagePreview small right>
-<img className="preview-img no-padding" src={ContourLines} alt="Ant Design's grid and key contour lines" alt="Key Contour Lines"/>
+<ImagePreview big center>
+<img className="preview-img no-padding" src={FaShapesOnGrid} alt="Our square, circle, vertical rectangle, and horizontal rectangle paired with icons that are based on each shape" />
 </ImagePreview>
 
-Contour lines play an important role in making various icons with the same visual effect.
+When making your own icons using our icon grid, you’ll want to keep these shapes in mind and even recreate their sizes directly.
 
-Please make all icons in the 1024×1024 resolution (16×16 64 times).
+<Unstyled>
+    <center>
+        <table className="small">
+            <thead>
+                <tr>
+                    <th>Shape</th>
+                    <th>Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Square</td>
+                    <td>14 pixels by 14 pixels</td>
+                </tr>
+                <tr>
+                    <td>Circle</td>
+                    <td>15px diameter</td>
+                </tr>
+                <tr>
+                    <td>Rectangle (Vertical)</td>
+                    <td>12 pixels by 16 pixels</td>
+                </tr>
+                <tr>
+                    <td>Rectangle (Horizontal)</td>
+                    <td>16 pixels by 12 pixels</td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+</Unstyled>
 
-- [Illustrator tips](https://zos.alipayobjects.com/rmsportal/hmNuLjCkBssupcZgYAde.png)
 
-<ImagePreview small right>
-<img className="preview-img no-padding inline" src={SquareContour} alt="Square contour"/>
+### Font Awesome Grid
+
+When you upload your own icons to a kit, we’ll translate that icon onto our icon grid. We do this to ensure uploaded icons’ size and appearance will look right at home when side-by-side with official Font Awesome icons. Using our grid and guidelines when designing your own icon goes a long way to making that translation accurate and easy.
+
+<ImagePreview big center>
+<img className="preview-img no-padding" src={FaGridSystem} alt="Using our grid system, you can make design choices that are consistent with official Font Awesome icons (and even extend official icons like the one above)" />
 </ImagePreview>
 
-<ImagePreview small right>
-<img className="preview-img no-padding inline" src={HorizontalRectangleContour} alt="Horizontal rectangle contour"/>
+<InfoBox center title="Need a jump start or template to get going?">
+    Download the Font Awesome Icon Design Templates for [Adobe Illustrator](https://fontawesome.com/files/font-awesome-icon-template.ait) or [Figma](https://www.figma.com/community/file/1068599043365999834) to get started with a proper viewbox (a.k.a. artboard), icon grid guides, and examples.
+</InfoBox>
+
+## Prep Icons
+
+So you’ve designed your own perfect icons, and now it’s time to get them camera ready for their Font Awesome debut. There are many different paths to vector greatness — but to help your icons display nicely alongside our official ones, follow these requirements and recommendations when preparing them for upload.
+
+### General Guidelines
+
+#### Valid SVGs
+SVGs (or scalable vector graphics) are the only type of file we accept for custom icon uploads. In order for our system to parse those files correctly, there are a few required parameters to double-check:
+
+<Unstyled>
+    <table>
+        <thead>
+            <tr>
+                <th>Requirements</th>
+                <th>Why</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>A viewBox attribute with `height` and `width` values</td>
+                <td>The viewBox attribute acts like an artboard or frame in your design software. It defines how much space an icon uses when rendered digitally.</td>
+            </tr>
+            <tr>
+                <td>An `xmlns="http://www.w3.org/2000/svg"` attribute</td>
+                <td>This official XML namespace value is needed to help validate your SVG against the general schema, or rulebook, for the file type.</td>
+            </tr>
+            <tr>
+                <td>One (1) `path` element <b>OR</b></td>
+                <td>For monotone icons</td>
+            </tr>
+            <tr>
+                <td>Two (2) `path` elements (one of which has &lt;100% opacity)</td>
+                <td>To delineate the primary and secondary layers for duotone icons </td>
+            </tr>
+        </tbody>
+    </table>
+</Unstyled>
+
+As a quick example, here’s the solid circle icon’s valid SVG code:
+
+<Source language="html" dark code={`
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/>
+</svg>
+`} />
+
+### Avoiding Rasters
+
+SVGs are a great medium for icons because they scale very well in almost any context. It’s right there in the name! Conversely, raster (i.e. pixel-based) images like PNGs, JPGs, and GIFs do not. Because of this, raster images that are referenced in an SVG can bloat file sizes, and scale and render incorrectly.
+
+<ImagePreview big center>
+<img className="preview-img no-padding" src={FaRaster} />
 </ImagePreview>
 
-<ImagePreview small right>
-<img className="preview-img no-padding inline" src={CircleContour} alt="Circular contour"/>
+### Ins and Outs of Viewboxes
+
+A viewBox attribute in SVG code is essentially an icon’s canvas, informing both its size and alignment when it’s rendered. The path data representing the icon itself needs to be be placed completely inside the `viewBox` with no points lying outside its boundaries.
+
+If you’re using design software to create icons, the viewBox attribute can be handily taken from the dimensions of your file’s artboards or frames when exporting SVGs.
+
+<ImagePreview big center>
+<img className="preview-img no-padding" src={FaViewboxes} alt="The width and height of an artboard or frame is directly translated into an SVG’s boundary values" />
 </ImagePreview>
 
-<ImagePreview small right>
-<img className="preview-img no-padding inline" src={VerticalRectangleContour} alt="Vertical rectangle contour"/>
+One of the reasons we design our icons on a pixel grid is to ensure that things will render cleanly and crisply at a lot of standard sizes — and part of that is ensuring that no stray points or path data veer outside of the viewBox. Anything found outside or passing through the SVG’s boundaries will be ignored or shunned during upload, so double-check your X and Y coordinates and keep everything nice and snug inside.
+
+<ImagePreview big center>
+<img className="preview-img no-padding" src={FaOverflow} alt="Any paths or points outside the viewBox will get left behind!" />
 </ImagePreview>
 
-### Stroke Weight
+### What About Colors?
 
-<ImagePreview right>
-<img className="preview-img no-padding good" src={ThicknessOk} alt="Correct example" description="Line thickness is consistently 72px"/>
-<img className="preview-img no-padding bad" src={ThicknessNok} alt="Incorrect example" description="Line thickness is not uniform"/>
+While we can all agree that colors are rad, our system actually ignores those attributes to speed things along during the upload process. So don’t worry about making sure all your SVGs are using the same hex code, or stripping out superfluous chromatic properties. You can use [fontAwesome support styling](https://fontawesome.com/docs/web/style/basics)  to color your icon to any hue you’d like once it’s in your web project.
+
+### Setting Up Monotone Icons
+
+Most official Font Awesome icons are created from just a single SVG path. If your icon visually consists of multiple objects (e.g. stacked horizontal bars for a menu), you’ll need to join them into a compound path (in [Illustrator](https://fontawesome.com/files/font-awesome-icon-template.ait)) or a boolean group (in [Figma](https://www.figma.com/community/file/1068599043365999834)).
+
+Here’s an example of how all those shapes get combined…
+
+<ImagePreview big center>
+<img className="preview-img no-padding" src={FaCombineIllustrator} alt="Combining your shapes into a compound path in Illustrator" />
 </ImagePreview>
 
-Consistent stroke weight is the key to maintaining the visual unity of the entire icon system. Ant Design's icons have a consistent line width of 72px.
+&nbsp;
 
-### Corners
-
-<ImagePreview right>
-<img className="preview-img no-padding good" src={CornerOk} alt="Correct example" description="The icon's corners are properly rounded"/>
-<img className="preview-img no-padding bad" src={CornerNok} alt="Incorrect example" description="The icon's corners are not rounded"/>
+<ImagePreview big center>
+<img className="preview-img no-padding" src={FaCombineFigma} alt="Combining your shapes into a boolean group in Figma" />
 </ImagePreview>
 
-Consistent rounding of corners and sizing of angles is also an important element in maintaining visual unity.
+…and here’s how that looks in code:
 
-Icons that follow Ant Design should have rounded corners and edges using a 72px radius.
+<Source language="html" dark code={`
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <path d="m1,3c0-.553.447-1,1-1h12c.553,0,1,.447,1,1s-.447,1-1,1H2c-.553,0-1-.447-1-1Zm0,5c0-.553.447-1,1-1h12c.553,0,1,.447,1,1s-.447,1-1,1H2c-.553,0-1-.447-1-1Zm14,5c0,.553-.447,1-1,1H2c-.553,0-1-.447-1-1s.447-1,1-1h12c.553,0,1,.447,1,1Z"/>
+</svg>
+`} />
 
-### Visual Correction
+### Setting up Duotone Icons
 
-<ImagePreview right>
-<img className="preview-img no-padding good" src={CorrectionOk} alt="Correct example" description="For the intricate “JPG” lettering, an outline is added for readability"/>
-<img className="preview-img no-padding bad" src={CorrectionNok} alt="Incorrect example" description="The text in the icon is crowded and hard to read"/>
+
+But it’s a great, big, beautiful icon world out there! (Figuratively, of course — these icons are actually quite small.) Some Font Awesome styles aren’t limited to just one path, and yours shouldn’t be either.
+
+<InfoBox center warning title="Heads Up">
+    <Unstyled>If you want the ability to swap your primary and secondary layers after upload with no funky side effects, you’ll want to make sure that the two paths of your duotone icon don’t overlap.</Unstyled>
+</InfoBox>
+
+To create a Font Awesome-friendly duotone icon, you can follow the same steps as above, but just make sure you have **two** separate compound paths (Illustrator) or nodes (Figma).
+
+<ImagePreview big center>
+<img className="preview-img no-padding" src={FaOverlap} alt="Two separate, non-overlapping paths for a duotone icon" />
 </ImagePreview>
 
-In certain special cases (for example, when the icon is too compact), adjustments to line width, outlines, or other subtle changes may be made to increase readability.
+Those paths will form the two separate pieces of your icon, but our system needs one extra step to know to handle them differently: **opacity**.
 
-### Perspective
+Font Awesome Duotone icons use two levels of opacity (one for each part of the icon) to tell which is the primary path and which is the secondary. Your primary path should have an **opacity of 100%**, but you can set the secondary path’s opacity to **anything less than 100%**.
 
-<ImagePreview right>
-<img className="preview-img no-padding good" src={PerspectiveOk} alt="Correct example" description="Maintains a flat, simple style"/>
-<img className="preview-img no-padding bad" src={PerspectiveNok} alt="Incorrect example" description="Icons should not have depth nor varying perspectives"/>
+Regardless of how you decide to set up your opacity, the icon’s secondary layer will be set to 40% once the icon is uploaded to match our Font Awesome icons. But after that, you can style it [however your heart desires](https://fontawesome.com/docs/web/style/duotone).
+
+<ImagePreview big center>
+<img className="preview-img no-padding" src={FaCombineDuoIllustrator} alt="Combining your shapes into separate compound paths in Illustrator" />
 </ImagePreview>
 
-Always keep a simple, flat style. Icons should not have a sense of depth nor a large amount of detail.
+&nbsp;
 
-### Naming Conventions
-
-<ImagePreview right>
-<img className="preview-img no-padding" src={Naming} alt="Naming Conventions"/>
+<ImagePreview big center>
+<img className="preview-img no-padding" src={FaCombineDuoFigma} alt="Combining your shapes into separate nodes in Figma" />
 </ImagePreview>
 
-Uniform naming conventions make finding icons faster and easier. For example, icons with a surrounding outline have a uniform "-o" suffix.
+Here’s an example of the above Sharp Duotone as an SVG. Notice the two separate path elements and that the second one has `opacity=".4"`
 
-### Icon Sizing
+<Source language="html" dark code={`
+<svg viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+  <path d="m19,9.213l-1.29,1.29-2.217-2.217,1.29-1.29,2.217,2.217Zm-8.628,4.194l-.372,2.593,2.589-.376,4.414-4.414-2.217-2.217-4.414,4.414Z"/>
+  <path d="m15,2v3H1v-3h3V0h2v2h4V0h2v2h3ZM1,6h14v1.388l-5.655,5.656-.425,2.956H1V6Zm3,4h6v-1.5h-6v1.5Zm0,3h4v-1.5h-4v1.5Z" opacity=".4"/>
+</svg>
+`} />
 
-<ImagePreview right>
-<img className="preview-img no-padding" src={Sizing} alt="Icon Sizing"/>
-</ImagePreview>
+### Exporting Icons from Adobe Illustrator
 
-Icons should be scaled according to the text size, according to the Ant Design specification.
+<InfoBox center>
+    Check out the [Font Awesome Icon Template for Illustrator](https://fontawesome.com/files/font-awesome-icon-template.ait) to get a jumpstart!
+</InfoBox>
 
-For example, icons inline with 12pt font should be 12px in size with 8px of spacing.
+1. Start with each of your icon designs in their own artboards.
+1. Outline any strokes with **“Object → Path → Outline Stroke,”** and any text with **“Type → Create Outlines”**
+1. When you’re done designing, use **“Object → Compound Path → Make”** to combine your icon into either:
+    * One compound path (for monotone)
+    * Two compound paths (one at 100% opacity, and one at &lt;100% opacity for duotone).
+1. Use **“File → Export → Export for Screens”**, select the artboards you want to export, and choose **“Format → SVG”*. Also, click the little gear icon and use these SVG settings:
+    * Styling: Presentation Attributes
+    * Font: Convert to Outlines
+    * Object IDs: Minimal
+    * Decimal: 3
+    * Check “Minify”
+    * Uncheck “Responsive”
+1. Export the artboards to the location of your choice.
 
-### Color
+### Exporting Icons from Figma
 
-<ImagePreview right>
-<img className="preview-img no-padding" src={Color} description="Colors demonstrated - @Black = #000000, @White = #FFFFFF, @Blue-6 = #1890FF" alt="Color"/>
-</ImagePreview>
+<InfoBox center>
+    <Unstyled>Check out the [Font Awesome Icon Template for Figma](https://www.figma.com/community/file/1068599043365999834) to get a jumpstart!</Unstyled>
+</InfoBox>
 
-The color of the icon should be consistent the color of the surrounding copy, unless the icon is being used to express state (in which case it should be colored accordingly).
+1. Start with each of your icon designs in their own frames.
+1. Outline any text or strokes, unless you’re including them as part of a boolean group.
+1. When you’re done designing, use one of Figma’s boolean operations to combine your icon into either:
+    * One vector node (for monotone)
+    * Two vector nodes (one at 100% opacity, and one at &lt;100% opacity for duotone).
+1. Select your icon frame(s) and click the “Export” section in the right sidebar. Choose “SVG” from the dropdown, and export the frames to the location of your choice.
 
-### Tow Tone Icons
-
-Ant replaces colors in your svg with either PrimayColor or secondary color. To ensure color substitution is done corectly, there are some rules to follow in your svg file :
-
-- Paths to be in primary color must use one of these colors : `#333` or `#333333`
-- Paths to be in secondary color must use one of theses colors: `#E6E6E6`, `#D9D9D9`, `#D8D8D8`
-
-
----
-
-## Business Icons
-
-<ImagePreview right>
-<img className="preview-img no-padding" src={Business} alt="Business Icons"/>
-</ImagePreview>
-
-Business icons, unlike system icons, do not themselves have functional operations, but rather an abstraction that assists with copywriting. Compared to the system icon, the business icon is more rich in the details of the design, the size of the use of relatively large.
-
-> Note: Business icons design principles and system icons are basically the same, the details of the processing (such as stroke weight, fillet size, etc.) depending on the specific scene may be.
-
-### Icon Sizing
-
-<ImagePreview right>
-<img className="preview-img no-padding" src={BusinessSizing} alt="Icon Sizing"/>
-</ImagePreview>
-
-In normal use, there are 32px (minimum size), 48px and 64px (maximum size) three options.
-
-### Color
-
-<ImagePreview right>
-<img className="preview-img no-padding" src={BusinessColor} alt="Color"/>
-</ImagePreview>
-
-There are two kinds of business icon, single-color (neutral color) and double-color (neutral color + primary color), the area of primary color does not exceed 40% of the entire icon.

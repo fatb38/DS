@@ -26,7 +26,8 @@ function isCompareImg(imgMeta) {
 
 export const StyledImagePreview = styled.div`
     display: flex;
-    width: 496px;
+    width: 100%;
+    max-width: 496px;
     margin: 0 0 70px 64px;
     clear: both;
 
@@ -38,12 +39,22 @@ export const StyledImagePreview = styled.div`
         float: left;
     }
 
+    &.center {
+       margin: 0 auto;
+    }
+
     & + & {
         margin-top: -35px;
     }
 
     &.small {
-        width: 248px;
+        width: 100%;
+        max-width: 248px;
+    }
+
+    &.big {
+        width: 100%;
+        max-width: 744px;
     }
 
     &.inline {
@@ -195,11 +206,13 @@ const ImagePreview = props => {
     const previewClassName = classNames({
         'preview-image-boxes': true,
         small: props.small,
+        big: props.big,
         clearfix: true,
         'preview-image-boxes-compare': comparable,
         'preview-image-boxes-with-carousel': hasCarousel,
         right: props.right,
         left: props.left,
+        center: props.center,
         inline: props.inline
     });
 
