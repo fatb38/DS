@@ -9,7 +9,9 @@ on:
     branches: [ 'develop', 'main' ]
   pull_request:
     branches: [ '*' ]
-    types: [ labeled ]
+    types: [labeled]
+    # use following line when draft PRS will be available
+    # types: [ready_for_review]
 
 # List of jobs
 jobs:
@@ -17,6 +19,8 @@ jobs:
     # Operating System
     runs-on: ubuntu-latest
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && (github.base_ref == 'develop' || github.base_ref == 'main') && contains(github.event.pull_request.labels.*.name, 'run chromatic'))
+    # use following line when draft PRS will be available
+    # if: github.event_name == 'pull_request' && (github.base_ref == 'develop' || github.base_ref == 'main') && !github.event.pull_request.draft
     # Job steps
     steps:
       - uses: actions/checkout@v1
