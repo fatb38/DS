@@ -26,23 +26,16 @@ const StyledCollapse = styled(AntdCollapse)`
             transform: rotate(0deg);
         }
 
-        &.ant-collapse-item-active {
+        &.ant-collapse-item-active .ant-collapse-expand-icon svg {
+            transition: transform 0.3s ease-in-out;
+            transform: rotate(180deg);
+        }
+
+        &.ant-collapse-item-active, &:hover {
             // TODO: add css variable outline-width: cards-border-stroke
             border: 3px solid
                 var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
             padding: 0;
-
-            .ant-collapse-expand-icon svg {
-                transition: transform 0.3s ease-in-out;
-                transform: rotate(180deg);
-            }
-
-            > .ant-collapse-content {
-                border-color: var(
-                    ${kitCollapseCssTokens.colors.border.active},
-                    var(${kitColorsPaletteCssTokens.primary.primary400})
-                );
-            }
 
             & + .ant-collapse-item-active {
                 border-top: none;
@@ -51,10 +44,14 @@ const StyledCollapse = styled(AntdCollapse)`
 
             & + .ant-collapse-item:not(.ant-collapse-item-active) {
                 border-top: none;
+                
+                &:hover {
+                    padding-top: 2px;
+                }
             }
         }
 
-        &:not(.ant-collapse-item-active):not(:last-of-type) {
+        &:not(.ant-collapse-item-active):not(:last-of-type):not(:hover) {
             border-bottom: none;
         }
 
@@ -95,9 +92,7 @@ const StyledCollapse = styled(AntdCollapse)`
     }
 `;
 
-const _getDefaultExpandIcon = () => {
-    return <FontAwesomeIcon icon={faChevronDown} />;
-};
+const _getDefaultExpandIcon: FunctionComponent = () => <FontAwesomeIcon icon={faChevronDown} />;
 
 export const KitCollapse: FunctionComponent<IKitCollapse> = ({className, expandIcon, ...collapseProps}) => {
     const {appId} = useKitTheme();
