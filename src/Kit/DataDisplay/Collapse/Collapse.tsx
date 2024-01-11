@@ -6,26 +6,41 @@ import {kitCollapseCssTokens} from '@theme/aristid/components/DataDisplay/Collap
 import {borderCssTokens} from '@theme/aristid/general/border';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {useKitTheme} from '@theme/useKitTheme';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faChevronDown} from '@fortawesome/free-solid-svg-icons';
 
 const StyledCollapse = styled(AntdCollapse)`
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
     border: none;
 
     .ant-collapse-item {
-        border: 1px solid var(${kitCollapseCssTokens.colors.border.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}));
+        border: 1px solid
+            var(
+                ${kitCollapseCssTokens.colors.border.default},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
+            );
         padding: 2px;
+
+        .ant-collapse-expand-icon svg {
+            transition: transform 0.3s ease-in-out;
+            transform: rotate(0deg);
+        }
 
         &.ant-collapse-item-active {
             // TODO: add css variable outline-width: cards-border-stroke
-            border: 3px solid var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
+            border: 3px solid
+                var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
             padding: 0;
+
+            .ant-collapse-expand-icon svg {
+                transition: transform 0.3s ease-in-out;
+                transform: rotate(180deg);
+            }
 
             > .ant-collapse-content {
                 border-color: var(
-                        ${kitCollapseCssTokens.colors.border.active},
-                        var(${kitColorsPaletteCssTokens.primary.primary400})
+                    ${kitCollapseCssTokens.colors.border.active},
+                    var(${kitColorsPaletteCssTokens.primary.primary400})
                 );
             }
 
@@ -54,10 +69,10 @@ const StyledCollapse = styled(AntdCollapse)`
         &:first-of-type,
         &:first-of-type .ant-collapse-header {
             border-top-left-radius: calc(
-                    var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
+                var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
             );
             border-top-right-radius: calc(
-                    var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
+                var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
             );
         }
 
@@ -65,10 +80,10 @@ const StyledCollapse = styled(AntdCollapse)`
             &,
             & .ant-collapse-header {
                 border-bottom-left-radius: calc(
-                        var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
+                    var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
                 );
                 border-bottom-right-radius: calc(
-                        var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
+                    var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
                 );
             }
 
@@ -80,12 +95,21 @@ const StyledCollapse = styled(AntdCollapse)`
     }
 `;
 
-export const KitCollapse: FunctionComponent<IKitCollapse> = ({className, ...collapseProps}) => {
+const _getDefaultExpandIcon = () => {
+    return <FontAwesomeIcon icon={faChevronDown} />;
+};
+
+export const KitCollapse: FunctionComponent<IKitCollapse> = ({className, expandIcon, ...collapseProps}) => {
     const {appId} = useKitTheme();
 
-    return <StyledCollapse {...collapseProps} className={`${appId} ${className ?? ''}`} expandIcon={({isActive}) => {
-        return <FontAwesomeIcon icon={isActive ? faChevronUp : faChevronDown} />
-    }} expandIconPosition="end" />;
+    return (
+        <StyledCollapse
+            {...collapseProps}
+            className={`${appId} ${className ?? ''}`}
+            expandIcon={expandIcon ?? _getDefaultExpandIcon}
+            expandIconPosition="end"
+        />
+    );
 };
 
 KitCollapse.displayName = 'KitCollapse';
