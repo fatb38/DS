@@ -6,6 +6,8 @@ import {kitCollapseCssTokens} from '@theme/aristid/components/DataDisplay/Collap
 import {borderCssTokens} from '@theme/aristid/general/border';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {useKitTheme} from '@theme/useKitTheme';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 const StyledCollapse = styled(AntdCollapse)`
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
@@ -81,7 +83,9 @@ const StyledCollapse = styled(AntdCollapse)`
 export const KitCollapse: FunctionComponent<IKitCollapse> = ({className, ...collapseProps}) => {
     const {appId} = useKitTheme();
 
-    return <StyledCollapse {...collapseProps} className={`${appId} ${className ?? ''}`} expandIconPosition="end" />;
+    return <StyledCollapse {...collapseProps} className={`${appId} ${className ?? ''}`} expandIcon={({isActive}) => {
+        return <FontAwesomeIcon icon={isActive ? faChevronUp : faChevronDown} />
+    }} expandIconPosition="end" />;
 };
 
 KitCollapse.displayName = 'KitCollapse';
