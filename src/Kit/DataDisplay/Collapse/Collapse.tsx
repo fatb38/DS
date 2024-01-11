@@ -60,8 +60,8 @@ const StyledCollapse = styled(AntdCollapse)`
         }
 
         &:last-of-type {
-            &:not(.ant-collapse-item-active),
-            &:not(.ant-collapse-item-active) .ant-collapse-header {
+            &,
+            & .ant-collapse-header {
                 border-bottom-left-radius: calc(
                         var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
                 );
