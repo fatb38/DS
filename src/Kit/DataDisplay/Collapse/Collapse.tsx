@@ -16,7 +16,23 @@ const StyledCollapse = styled(AntdCollapse)`
         padding: 2px;
 
         &.ant-collapse-item-active {
+            // TODO: add css variable outline-width: cards-border-stroke
+            border: 3px solid var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
             padding: 0;
+
+            > .ant-collapse-header {
+                background-color: var(
+                        ${kitCollapseCssTokens.colors.background.active},
+                        var(${kitColorsPaletteCssTokens.primary.primary100})
+                );
+            }
+
+            > .ant-collapse-content {
+                border-color: var(
+                        ${kitCollapseCssTokens.colors.border.active},
+                        var(${kitColorsPaletteCssTokens.primary.primary400})
+                );
+            }
 
             & + .ant-collapse-item-active {
                 border-top: none;
@@ -31,61 +47,41 @@ const StyledCollapse = styled(AntdCollapse)`
         &:not(.ant-collapse-item-active):not(:last-of-type) {
             border-bottom: none;
         }
-    }
 
-    .ant-collapse-item .ant-collapse-header {
-        align-items: center;
-    }
+        .ant-collapse-header {
+            align-items: center;
+        }
+        
+        .ant-collapse-content {
+            border-top: none;
+        }
 
-    .ant-collapse-item:first-of-type,
-    .ant-collapse-item:first-of-type .ant-collapse-header {
-        border-top-left-radius: calc(
-            var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
-        );
-        border-top-right-radius: calc(
-            var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
-        );
-    }
-
-    .ant-collapse-item:last-of-type {
-        &:not(.ant-collapse-item-active),
-        &:not(.ant-collapse-item-active) .ant-collapse-header {
-            border-bottom-left-radius: calc(
-                var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
+        &:first-of-type,
+        &:first-of-type .ant-collapse-header {
+            border-top-left-radius: calc(
+                    var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
             );
-            border-bottom-right-radius: calc(
-                var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
+            border-top-right-radius: calc(
+                    var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
             );
         }
 
-        &.ant-collapse-item-active .ant-collapse-header {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-    }
+        &:last-of-type {
+            &:not(.ant-collapse-item-active),
+            &:not(.ant-collapse-item-active) .ant-collapse-header {
+                border-bottom-left-radius: calc(
+                        var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
+                );
+                border-bottom-right-radius: calc(
+                        var(${kitCollapseCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px
+                );
+            }
 
-    .ant-collapse-item-active {
-        // TODO: add css variable outline-width: cards-border-stroke
-        border: 3px solid
-            var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
-
-        > .ant-collapse-header {
-            background-color: var(
-                ${kitCollapseCssTokens.colors.background.active},
-                var(${kitColorsPaletteCssTokens.primary.primary100})
-            );
+            &.ant-collapse-item-active .ant-collapse-header {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
         }
-
-        > .ant-collapse-content {
-            border-color: var(
-                ${kitCollapseCssTokens.colors.border.active},
-                var(${kitColorsPaletteCssTokens.primary.primary400})
-            );
-        }
-    }
-    
-    .ant-collapse-content {
-        border-top: none;   
     }
 `;
 
