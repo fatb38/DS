@@ -67,8 +67,18 @@ const StyledCollapse = styled(AntdCollapse)`
             }
         }
 
-        &:not(.ant-collapse-item-active):not(:last-of-type):not(:hover) {
-            border-bottom: none;
+        &:not(.ant-collapse-item-active):not(:last-of-type) {
+            &:not(.pseudo-hover):hover {
+                border-bottom: 3px solid
+                    var(
+                        ${kitCollapseCssTokens.colors.border.active},
+                        var(${kitColorsPaletteCssTokens.primary.primary400})
+                    );
+            }
+
+            &:not(:hover) {
+                border-bottom: none;
+            }
         }
 
         .ant-collapse-header {
