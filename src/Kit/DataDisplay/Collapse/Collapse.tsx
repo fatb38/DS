@@ -20,13 +20,6 @@ const StyledCollapse = styled(AntdCollapse)`
             border: 3px solid var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
             padding: 0;
 
-            > .ant-collapse-header {
-                background-color: var(
-                        ${kitCollapseCssTokens.colors.background.active},
-                        var(${kitColorsPaletteCssTokens.primary.primary100})
-                );
-            }
-
             > .ant-collapse-content {
                 border-color: var(
                         ${kitCollapseCssTokens.colors.border.active},
