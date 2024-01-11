@@ -13,6 +13,21 @@ const StyledCollapse = styled(AntdCollapse)`
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
     border: none;
 
+    .ant-collapse-item-disabled {
+        background-color: var(
+            ${kitCollapseCssTokens.colors.background.disabled},
+            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
+        );
+
+        .ant-collapse-expand-icon,
+        .ant-collapse-header-text {
+            color: var(
+                ${kitCollapseCssTokens.colors.icon.disabled},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+            );
+        }
+    }
+
     .ant-collapse-item {
         border: 1px solid
             var(
@@ -31,7 +46,8 @@ const StyledCollapse = styled(AntdCollapse)`
             transform: rotate(180deg);
         }
 
-        &.ant-collapse-item-active, &:hover {
+        &.ant-collapse-item-active,
+        &:hover:not(.ant-collapse-item-disabled) {
             // TODO: add css variable outline-width: cards-border-stroke
             border: 3px solid
                 var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
@@ -44,7 +60,7 @@ const StyledCollapse = styled(AntdCollapse)`
 
             & + .ant-collapse-item:not(.ant-collapse-item-active) {
                 border-top: none;
-                
+
                 &:hover {
                     padding-top: 2px;
                 }
