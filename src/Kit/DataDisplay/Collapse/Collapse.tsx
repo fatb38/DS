@@ -81,7 +81,7 @@ const StyledCollapse = styled(AntdCollapse)`
 export const KitCollapse: FunctionComponent<IKitCollapse> = ({className, ...collapseProps}) => {
     const {appId} = useKitTheme();
 
-    return <StyledCollapse {...collapseProps} className={`${appId} ${className ?? ''}`} />;
+    return <StyledCollapse {...collapseProps} className={`${appId} ${className ?? ''}`} expandIconPosition="end" />;
 };
 
 KitCollapse.displayName = 'KitCollapse';
