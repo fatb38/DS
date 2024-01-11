@@ -42,7 +42,8 @@ const StyledCollapse = styled(AntdCollapse)`
     }
 
     .ant-collapse-item-active {
-        outline: solid 1px
+        // TODO: add css variable outline-width: cards-border-stroke
+        outline: solid 3px 
             var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
         border-bottom: none;
 
@@ -59,6 +60,10 @@ const StyledCollapse = styled(AntdCollapse)`
                 var(${kitColorsPaletteCssTokens.primary.primary400})
             );
         }
+    }
+    
+    .ant-collapse-content {
+        border-top: none;   
     }
 `;
 
