@@ -12,7 +12,7 @@ const StyledCollapse = styled(AntdCollapse)`
     border: none;
 
     .ant-collapse-item {
-        border: 1px solid var(--components-Collapse-colors-border-default, var(--general-colors-secondary-mediumGrey-mediumGrey300));
+        border: 1px solid var(${kitCollapseCssTokens.colors.border.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}));
         padding: 2px;
 
         &.ant-collapse-item-active {
@@ -51,7 +51,7 @@ const StyledCollapse = styled(AntdCollapse)`
         .ant-collapse-header {
             align-items: center;
         }
-        
+
         .ant-collapse-content {
             border-top: none;
         }
