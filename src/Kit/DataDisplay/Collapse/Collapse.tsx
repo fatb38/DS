@@ -9,6 +9,29 @@ import {useKitTheme} from '@theme/useKitTheme';
 
 const StyledCollapse = styled(AntdCollapse)`
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
+    border: none;
+
+    .ant-collapse-item {
+        border: 1px solid var(--components-Collapse-colors-border-default, var(--general-colors-secondary-mediumGrey-mediumGrey300));
+        padding: 2px;
+
+        &.ant-collapse-item-active {
+            padding: 0;
+
+            & + .ant-collapse-item-active {
+                border-top: none;
+                padding-top: 2px;
+            }
+
+            & + .ant-collapse-item:not(.ant-collapse-item-active) {
+                border-top: none;
+            }
+        }
+
+        &:not(.ant-collapse-item-active):not(:last-of-type) {
+            border-bottom: none;
+        }
+    }
 
     .ant-collapse-item .ant-collapse-header {
         align-items: center;
@@ -43,9 +66,8 @@ const StyledCollapse = styled(AntdCollapse)`
 
     .ant-collapse-item-active {
         // TODO: add css variable outline-width: cards-border-stroke
-        outline: solid 3px 
+        border: 3px solid
             var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
-        border-bottom: none;
 
         > .ant-collapse-header {
             background-color: var(
