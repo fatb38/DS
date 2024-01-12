@@ -50,13 +50,13 @@ const StyledCollapse = styled(AntdCollapse)`
 
         &.ant-collapse-item-active,
         &:hover:not(.ant-collapse-item-disabled),
-        &:has(.ant-collapse-header:focus) {
+        &:not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
             // TODO: add css variable outline-width: cards-border-stroke
             border: 3px solid
                 var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
             padding: 0;
 
-            &:not(.ant-collapse-item-active):has(.ant-collapse-header:focus) {
+            &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
                 border-color: var(
                     ${kitCollapseCssTokens.colors.border.active},
                     var(${kitColorsPaletteCssTokens.primary.primary200})
@@ -72,7 +72,7 @@ const StyledCollapse = styled(AntdCollapse)`
                 border-top: none;
 
                 &:hover,
-                &:not(.ant-collapse-item-active):has(.ant-collapse-header:focus) {
+                &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
                     padding-top: 2px;
                 }
             }
@@ -87,7 +87,7 @@ const StyledCollapse = styled(AntdCollapse)`
                     );
             }
 
-            &:not(.ant-collapse-item-active):has(.ant-collapse-header:focus) {
+            &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
                 border-bottom: 3px solid
                     var(
                         ${kitCollapseCssTokens.colors.border.active},
