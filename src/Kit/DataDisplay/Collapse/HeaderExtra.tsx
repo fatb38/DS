@@ -1,7 +1,6 @@
 import React, {FunctionComponent, useState} from 'react';
 import styled from 'styled-components';
 import {IKitMenuInfo, IKitHeaderExtra} from './types';
-import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
 import {KitDropDown} from '@kit/Navigation/';
@@ -31,23 +30,8 @@ const StyledHeaderExtra = styled.div`
     }
 `;
 
-export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({onSelectChange, actions}) => {
+export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions}) => {
     const [showMoreTooltip, setShowMoreTooltip] = useState(false);
-
-    const _getCheckbox = () => {
-        return (
-            onSelectChange !== undefined && (
-                <div className="kit-collapse-header-extra-checkbox">
-                    <KitCheckbox
-                        onClick={e => e.stopPropagation()}
-                        onChange={e => {
-                            onSelectChange && onSelectChange(e);
-                        }}
-                    />
-                </div>
-            )
-        );
-    };
 
     const _getMoreActionsDropDownItems = (): MenuItemType[] | undefined => {
         if (actions === undefined || actions.length === 0) {
@@ -129,12 +113,7 @@ export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({onSelectChan
         }
     };
 
-    return (
-        <StyledHeaderExtra>
-            {_getCheckbox()}
-            {_getActions()}
-        </StyledHeaderExtra>
-    );
+    return <StyledHeaderExtra>{_getActions()}</StyledHeaderExtra>;
 };
 
 KitHeaderExtra.displayName = 'KitHeaderExtra';
