@@ -7,9 +7,10 @@ import {KitDropDown} from '@kit/Navigation/';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';
+import {convertToPixel} from '@theme/utils/convert';
+import {spacingCssTokens} from '@theme/aristid/general/spacing';
 
 const StyledHeaderExtra = styled.div`
-    margin-left: 4px;
     display: grid;
     grid-template: 'checkbox actions';
 
@@ -19,13 +20,13 @@ const StyledHeaderExtra = styled.div`
     }
 
     .kit-collapse-header-extra-actions {
-        margin-left: 8px;
+        padding-left: ${convertToPixel(spacingCssTokens.s)};
         grid-area: actions;
         display: grid;
         grid-template-columns: auto auto;
 
         > div:nth-child(2) {
-            margin-left: 8px;
+            margin-left: ${convertToPixel(spacingCssTokens.s)};
         }
     }
 `;

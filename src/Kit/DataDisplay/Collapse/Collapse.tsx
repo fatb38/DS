@@ -30,6 +30,12 @@ const StyledCollapse = styled(AntdCollapse)`
         }
     }
 
+    // Use complete selector to overide Antd one
+    &&& > .ant-collapse-item > .ant-collapse-header .ant-collapse-expand-icon {
+        padding-inline-start: ${convertToPixel(spacingCssTokens.s)};
+        padding-inline-end: ${convertToPixel(spacingCssTokens.s)};
+    }
+
     .ant-collapse-item {
         border: 1px solid
             var(
@@ -38,12 +44,7 @@ const StyledCollapse = styled(AntdCollapse)`
             );
         padding: 2px;
 
-        .ant-collapse-expand-icon svg {
-            transition: transform 0.3s ease-in-out;
-            transform: rotate(0deg);
-        }
-
-        &.ant-collapse-item-active .ant-collapse-expand-icon svg {
+        &.ant-collapse-item-active .ant-collapse-header .ant-collapse-expand-icon svg {
             transition: transform 0.3s ease-in-out;
             transform: rotate(180deg);
         }
@@ -103,6 +104,11 @@ const StyledCollapse = styled(AntdCollapse)`
         .ant-collapse-header {
             align-items: center;
             padding: ${convertToPixel(spacingCssTokens.s)};
+
+            .ant-collapse-expand-icon svg {
+                transition: transform 0.3s ease-in-out;
+                transform: rotate(0deg);
+            }
         }
 
         .ant-collapse-content {
