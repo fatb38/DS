@@ -53,7 +53,7 @@ const StyledCollapse = styled(AntdCollapse)`
                 );
             }
 
-            & + .ant-collapse-item-active {
+            & + .ant-collapse-item.ant-collapse-item-active {
                 border-top: none;
                 padding-top: 2px;
             }
