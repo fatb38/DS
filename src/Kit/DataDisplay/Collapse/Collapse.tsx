@@ -17,24 +17,25 @@ const StyledCollapse = styled(AntdCollapse)`
 
     .ant-collapse-item-disabled {
         background-color: var(
-                ${kitCollapseCssTokens.colors.background.disabled},
-                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
+            ${kitCollapseCssTokens.colors.background.disabled},
+            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
         );
 
         .ant-collapse-expand-icon,
         .ant-collapse-header-text {
             color: var(
-                    ${kitCollapseCssTokens.colors.icon.disabled},
-                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                ${kitCollapseCssTokens.colors.icon.disabled},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
             );
         }
     }
 
     .ant-collapse-item {
-        border: 1px solid var(
+        border: 1px solid
+            var(
                 ${kitCollapseCssTokens.colors.border.default},
                 var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
-        );
+            );
         padding: 2px;
 
         .ant-collapse-expand-icon svg {
@@ -48,10 +49,19 @@ const StyledCollapse = styled(AntdCollapse)`
         }
 
         &.ant-collapse-item-active,
-        &:hover:not(.ant-collapse-item-disabled) {
+        &:hover:not(.ant-collapse-item-disabled),
+        &:has(.ant-collapse-header:focus) {
             // TODO: add css variable outline-width: cards-border-stroke
-            border: 3px solid var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
+            border: 3px solid
+                var(${kitCollapseCssTokens.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}));
             padding: 0;
+
+            &:not(.ant-collapse-item-active):has(.ant-collapse-header:focus) {
+                border-color: var(
+                    ${kitCollapseCssTokens.colors.border.active},
+                    var(${kitColorsPaletteCssTokens.primary.primary200})
+                );
+            }
 
             & + .ant-collapse-item-active {
                 border-top: none;
@@ -61,7 +71,8 @@ const StyledCollapse = styled(AntdCollapse)`
             & + .ant-collapse-item:not(.ant-collapse-item-active) {
                 border-top: none;
 
-                &:hover {
+                &:hover,
+                &:not(.ant-collapse-item-active):has(.ant-collapse-header:focus) {
                     padding-top: 2px;
                 }
             }
@@ -73,6 +84,14 @@ const StyledCollapse = styled(AntdCollapse)`
                     var(
                         ${kitCollapseCssTokens.colors.border.active},
                         var(${kitColorsPaletteCssTokens.primary.primary400})
+                    );
+            }
+
+            &:not(.ant-collapse-item-active):has(.ant-collapse-header:focus) {
+                border-bottom: 3px solid
+                    var(
+                        ${kitCollapseCssTokens.colors.border.active},
+                        var(${kitColorsPaletteCssTokens.primary.primary200})
                     );
             }
 
@@ -90,7 +109,8 @@ const StyledCollapse = styled(AntdCollapse)`
             border-top: none;
 
             .ant-collapse-content-box {
-                padding: 0 ${convertToPixel(spacingCssTokens.s)} ${convertToPixel(spacingCssTokens.s)} ${convertToPixel(spacingCssTokens.s)};
+                padding: 0 ${convertToPixel(spacingCssTokens.s)} ${convertToPixel(spacingCssTokens.s)}
+                    ${convertToPixel(spacingCssTokens.s)};
                 margin-top: ${convertToPixel(spacingCssTokens.xxs)};
             }
         }
@@ -104,8 +124,14 @@ const StyledCollapse = styled(AntdCollapse)`
         &:last-of-type {
             &,
             & .ant-collapse-header {
-                border-bottom-left-radius: ${convertToPixel(kitCollapseCssTokens.border.radius, borderCssTokens.radius.s)};
-                border-bottom-right-radius: ${convertToPixel(kitCollapseCssTokens.border.radius, borderCssTokens.radius.s)};
+                border-bottom-left-radius: ${convertToPixel(
+                    kitCollapseCssTokens.border.radius,
+                    borderCssTokens.radius.s
+                )};
+                border-bottom-right-radius: ${convertToPixel(
+                    kitCollapseCssTokens.border.radius,
+                    borderCssTokens.radius.s
+                )};
             }
 
             &.ant-collapse-item-active .ant-collapse-header {
