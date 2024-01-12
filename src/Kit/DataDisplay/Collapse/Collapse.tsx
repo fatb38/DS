@@ -68,7 +68,7 @@ const StyledCollapse = styled(AntdCollapse)`
             }
         }
 
-        &:not(.ant-collapse-item-active):not(:last-of-type) {
+        &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):not(:last-of-type) {
             &:not(.pseudo-hover):hover {
                 border-bottom: 3px solid
                     var(
