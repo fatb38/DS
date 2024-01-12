@@ -64,7 +64,6 @@ export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions}) =>
                         {firstAction && (
                             <KitTooltip title={firstAction.label}>
                                 <KitButton
-                                    type="segmented"
                                     icon={firstAction.icon}
                                     onClick={e => {
                                         e.stopPropagation();
@@ -76,7 +75,6 @@ export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions}) =>
                         {secondAction && (
                             <KitTooltip title={secondAction.label}>
                                 <KitButton
-                                    type="segmented"
                                     icon={secondAction.icon}
                                     onClick={e => {
                                         e.stopPropagation();
@@ -99,10 +97,7 @@ export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions}) =>
                                     onOpenChange={() => setShowMoreTooltip(false)}
                                 >
                                     <KitTooltip title="More" open={showMoreTooltip} onOpenChange={setShowMoreTooltip}>
-                                        <KitButton
-                                            type="segmented"
-                                            icon={<FontAwesomeIcon icon={faEllipsisVertical} />}
-                                        />
+                                        <KitButton icon={<FontAwesomeIcon icon={faEllipsisVertical} />} />
                                     </KitTooltip>
                                 </KitDropDown>
                             </div>
