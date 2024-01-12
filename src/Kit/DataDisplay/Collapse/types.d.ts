@@ -1,17 +1,18 @@
 import {CollapseProps} from 'antd';
 import {ReactNode, MouseEvent, ReactInstance, KeyboardEvent, FunctionComponent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
+import {SwitchChangeEventHandler} from 'antd/lib/switch';
 
 type AntdCollapseTypesToOmit = 'bordered' | 'expandIconPosition' | 'ghost';
 
 export interface IKitCollapse extends Omit<CollapseProps, AntdCollapseTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {}
 
 export interface IKitHeader {
-    icon?: ReactNode;
     imageSrc?: string;
     title?: string;
     description?: string;
     tagContent?: ReactNode;
+    onSwitchChange?: SwitchChangeEventHandler;
 }
 
 export interface IKitMenuInfo {
