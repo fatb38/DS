@@ -15,28 +15,7 @@ const StyledCollapse = styled(AntdCollapse)`
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
     border: none;
 
-    .ant-collapse-item-disabled {
-        background-color: var(
-            ${kitCollapseCssTokens.colors.background.disabled},
-            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
-        );
-
-        .ant-collapse-expand-icon,
-        .ant-collapse-header-text {
-            color: var(
-                ${kitCollapseCssTokens.colors.icon.disabled},
-                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
-            );
-        }
-    }
-
-    // Use complete selector to overide Antd one
-    &&& > .ant-collapse-item > .ant-collapse-header .ant-collapse-expand-icon {
-        padding-inline-start: ${convertToPixel(spacingCssTokens.s)};
-        padding-inline-end: ${convertToPixel(spacingCssTokens.s)};
-    }
-
-    .ant-collapse-item {
+    &&& > .ant-collapse-item {
         border: 1px solid
             var(
                 ${kitCollapseCssTokens.colors.border.default},
@@ -44,9 +23,19 @@ const StyledCollapse = styled(AntdCollapse)`
             );
         padding: 2px;
 
-        &.ant-collapse-item-active .ant-collapse-header .ant-collapse-expand-icon svg {
-            transition: transform 0.3s ease-in-out;
-            transform: rotate(180deg);
+        &.ant-collapse-item-disabled {
+            background-color: var(
+                ${kitCollapseCssTokens.colors.background.disabled},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
+            );
+
+            .ant-collapse-expand-icon,
+            .ant-collapse-header-text {
+                color: var(
+                    ${kitCollapseCssTokens.colors.icon.disabled},
+                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+                );
+            }
         }
 
         &.ant-collapse-item-active,
@@ -105,10 +94,20 @@ const StyledCollapse = styled(AntdCollapse)`
             align-items: center;
             padding: ${convertToPixel(spacingCssTokens.s)};
 
-            .ant-collapse-expand-icon svg {
-                transition: transform 0.3s ease-in-out;
-                transform: rotate(0deg);
+            .ant-collapse-expand-icon {
+                padding-inline-start: ${convertToPixel(spacingCssTokens.s)};
+                padding-inline-end: ${convertToPixel(spacingCssTokens.s)};
+
+                svg {
+                    transition: transform 0.3s ease-in-out;
+                    transform: rotate(0deg);
+                }
             }
+        }
+
+        &.ant-collapse-item-active .ant-collapse-header .ant-collapse-expand-icon svg {
+            transition: transform 0.3s ease-in-out;
+            transform: rotate(180deg);
         }
 
         .ant-collapse-content {
