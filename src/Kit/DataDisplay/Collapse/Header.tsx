@@ -89,7 +89,7 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({
                     {
                         <KitImage
                             src={imageSrc}
-                            style={{maxHeight: '90px', width: 'auto'}}
+                            style={{height: 'auto', width: 'auto', maxHeight: '90px', maxWidth: '50px'}}
                             preview={{
                                 mask: <FontAwesomeIcon icon={faEye} />
                             }}
