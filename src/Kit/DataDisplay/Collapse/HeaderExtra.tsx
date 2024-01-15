@@ -9,6 +9,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';
 import {convertToPixel} from '@theme/utils/convert';
 import {spacingCssTokens} from '@theme/aristid/general/spacing';
+import {useKitLocale} from '@translation/useKitLocale';
 
 const StyledHeaderExtra = styled.div`
     display: grid;
@@ -33,6 +34,7 @@ const StyledHeaderExtra = styled.div`
 
 export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions, disabled}) => {
     const [showMoreTooltip, setShowMoreTooltip] = useState(false);
+    const {locale} = useKitLocale();
 
     const _getMoreActionsDropDownItems = (): MenuItemType[] | undefined => {
         if (actions === undefined || actions.length === 0) {
@@ -100,7 +102,7 @@ export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions, dis
                                     onOpenChange={() => setShowMoreTooltip(false)}
                                 >
                                     <KitTooltip
-                                        title="More"
+                                        title={locale.Collapse?.more}
                                         open={disabled ? false : showMoreTooltip}
                                         onOpenChange={setShowMoreTooltip}
                                     >
