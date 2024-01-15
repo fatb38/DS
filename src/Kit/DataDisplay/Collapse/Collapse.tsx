@@ -12,7 +12,6 @@ import {faChevronDown} from '@fortawesome/free-solid-svg-icons';
 import {convertToPixel} from '@theme/utils/convert';
 
 const StyledCollapse = styled(AntdCollapse)`
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
     border: none;
 
     &&& > .ant-collapse-item {
