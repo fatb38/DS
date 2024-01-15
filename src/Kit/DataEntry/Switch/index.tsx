@@ -95,7 +95,7 @@ const StyledSwitch = styled(AntdSwitch)`
         .ant-switch-handle::before {
             background: var(
                 ${kitSwitchCssTokens.colors.background.disabled},
-                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
             );
             border-color: var(
                 ${kitSwitchCssTokens.colors.handle.border.disabled},
