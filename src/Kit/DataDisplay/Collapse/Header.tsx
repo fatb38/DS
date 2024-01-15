@@ -60,54 +60,48 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({
     tagContent,
     disabled
 }) => {
-    const _getSwitch = () => {
-        return (
-            onSwitchChange !== undefined && (
-                <div
-                    className="kit-collapse-header-switch"
-                    onClick={
-                        // We don't want to collapse/extand item when clicking
-                        e => e.stopPropagation()
-                    }
-                >
-                    <KitSwitch
-                        onChange={(check, event) => {
-                            const switchElement = event.target as HTMLElement;
-                            const collapseItem = switchElement.closest('.ant-collapse-item');
-                            collapseItem?.setAttribute('data-item-selected', check.toString());
+    const _getSwitch = () =>
+        onSwitchChange !== undefined && (
+            <div
+                className="kit-collapse-header-switch"
+                onClick={
+                    // We don't want to collapse/extand item when clicking
+                    e => e.stopPropagation()
+                }
+            >
+                <KitSwitch
+                    onChange={(check, event) => {
+                        const switchElement = event.target as HTMLElement;
+                        const collapseItem = switchElement.closest('.ant-collapse-item');
+                        collapseItem?.setAttribute('data-item-selected', check.toString());
 
-                            onSwitchChange(check, event);
+                        onSwitchChange(check, event);
+                    }}
+                    disabled={disabled}
+                />
+            </div>
+        );
+
+    const _getImage = () =>
+        imageSrc !== undefined && (
+            <div
+                className="kit-collapse-header-image"
+                onClick={
+                    // We don't want to collapse/extand item when clicking
+                    e => e.stopPropagation()
+                }
+            >
+                {
+                    <KitImage
+                        src={imageSrc}
+                        style={{height: 'auto', width: 'auto', maxHeight: '90px', maxWidth: '50px'}}
+                        preview={{
+                            mask: <FontAwesomeIcon icon={faEye} />
                         }}
-                        disabled={disabled}
                     />
-                </div>
-            )
+                }
+            </div>
         );
-    };
-
-    const _getImage = () => {
-        return (
-            imageSrc !== undefined && (
-                <div
-                    className="kit-collapse-header-image"
-                    onClick={
-                        // We don't want to collapse/extand item when clicking
-                        e => e.stopPropagation()
-                    }
-                >
-                    {
-                        <KitImage
-                            src={imageSrc}
-                            style={{height: 'auto', width: 'auto', maxHeight: '90px', maxWidth: '50px'}}
-                            preview={{
-                                mask: <FontAwesomeIcon icon={faEye} />
-                            }}
-                        />
-                    }
-                </div>
-            )
-        );
-    };
 
     const _getContent = () => {
         let classes = 'kit-collapse-header-content';
