@@ -32,7 +32,8 @@ export const argTypes = {
     },
     collapsible: {
         name: 'collapsible',
-        description: 'Specify whether the panels of children be collapsible or the trigger area of collapsible',
+        description:
+            'Specify whether the panels of children be collapsible or the trigger area of collapsible. If value is set to `disabled` then `Header` and `HeaderExtra` will automatically recieve the property `disabled` set to `true`',
         options: collapsible,
         control: {
             type: 'select',
@@ -117,16 +118,6 @@ export const argTypes = {
             category: 'Collapse'
         }
     },
-    headerIcon: {
-        name: 'icon',
-        description: 'Icon to display',
-        table: {
-            type: {
-                summary: 'ReactNode'
-            },
-            category: 'Collapse.Header'
-        }
-    },
     headerImageSrc: {
         name: 'imageSrc',
         description: 'Src of an image to display',
@@ -167,14 +158,27 @@ export const argTypes = {
             category: 'Collapse.Header'
         }
     },
-    headerExtraOnSelectChange: {
-        name: 'onSelectChange',
-        description: '',
+    headerOnSwitchChange: {
+        name: 'onSwitchChange',
+        description: 'If set, this property will add a `Switch`',
         table: {
             type: {
-                summary: '(e: CheckboxChangeEvent) => void'
+                summary: 'SwitchChangeEventHandler'
             },
-            category: 'Collapse.HeaderExtra'
+            category: 'Collapse.Header'
+        }
+    },
+    headerDisabled: {
+        name: 'disabled',
+        description: 'Disable `Switch` add with `onSwitchChange` property, `title` and `description`',
+        table: {
+            type: {
+                summary: 'Boolean'
+            },
+            category: 'Collapse.Header',
+            defaultValue: {
+                summary: false
+            }
         }
     },
     headerExtraActions: {
@@ -185,6 +189,19 @@ export const argTypes = {
                 summary: 'IKitHeaderExtraActions'
             },
             category: 'Collapse.HeaderExtra'
+        }
+    },
+    headerExtraDisabled: {
+        name: 'disabled',
+        description: 'Disable `Buttons` add with `actions` property',
+        table: {
+            type: {
+                summary: 'Boolean'
+            },
+            category: 'Collapse.HeaderExtra',
+            defaultValue: {
+                summary: false
+            }
         }
     }
 };

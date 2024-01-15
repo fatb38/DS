@@ -97,6 +97,8 @@ const App = () => {
             <KitDivider orientation="left">Disabled</KitDivider>
             <KitCollapse collapsible="disabled" items={items} />
             <br />
+            <KitCollapse collapsible="disabled" items={itemsWithHeaderAndExtra} />
+            <br />
         </div>
     );
 };
