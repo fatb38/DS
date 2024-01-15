@@ -233,14 +233,18 @@ const StyledAntdInput = styled(AntdInput)`
                 ${kitInputCssTokens.colors.border.error},
                 var(${kitColorsPaletteCssTokens.secondary.red.red400})
             );
-            box-shadow: none;
+            &.ant-input-affix-wrapper-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        ${kitInputCssTokens.colors.border.focus.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red200})
+                    );
 
-            &:hover,
-            &:focus {
-                border-color: var(
-                    ${kitInputCssTokens.colors.border.error},
-                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
-                );
+                &:hover {
+                    border-color: transparent;
+                }
             }
         }
 
@@ -269,14 +273,18 @@ const StyledAntdInput = styled(AntdInput)`
                 ${kitInputCssTokens.colors.border.warning},
                 var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
             );
-            box-shadow: none;
+            &.ant-input-affix-wrapper-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        ${kitInputCssTokens.colors.border.focus.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange200})
+                    );
 
-            &:hover,
-            &:focus {
-                border-color: var(
-                    ${kitInputCssTokens.colors.border.warning},
-                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
-                );
+                &:hover {
+                    border-color: transparent;
+                }
             }
         }
 
@@ -290,8 +298,10 @@ const StyledAntdInput = styled(AntdInput)`
 
     &:focus-within,
     &.ant-input-affix-wrapper.ant-input-affix-wrapper-focused {
-        border-style: dashed;
-        box-shadow: none;
+        border-color: transparent;
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 3px
+            var(${kitInputCssTokens.colors.border.focus.default}, var(${kitColorsPaletteCssTokens.primary.primary200}));
 
         &.ant-input::placeholder,
         .ant-input::placeholder {

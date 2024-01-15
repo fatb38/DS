@@ -24,6 +24,11 @@ export const kitDatePickerCssTokens = generateCssTokens<IKitDatePickerCssTokens>
         border: {
             default: '',
             hover: '',
+            focus: {
+                default: '',
+                warning: '',
+                error: ''
+            },
             active: '',
             disabled: '',
             warning: '',

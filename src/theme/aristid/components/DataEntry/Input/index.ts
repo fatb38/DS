@@ -9,7 +9,16 @@ import {generateCssTokens} from '@theme/utils/css-tokens-generator.ts';
 export const kitInputPasswordCssTokens = generateCssTokens<IKitInputPasswordCssTokens>('--components-Input-Password', {
     colors: {
         background: {error: '', warning: ''},
-        border: {disabled: '', error: '', warning: ''},
+        border: {
+            disabled: '',
+            error: '',
+            warning: '',
+            focus: {
+                default: '',
+                warning: '',
+                error: ''
+            }
+        },
         clearIcon: {default: '', disabled: '', error: '', warning: ''},
         passwordIcon: {default: '', disabled: '', error: '', warning: ''},
         prefix: {default: '', disabled: '', error: '', warning: ''},
@@ -75,7 +84,12 @@ export const kitTextAreaCssTokens = generateCssTokens<IKitTextAreaThemeCssTokens
         border: {
             disabled: '',
             warning: '',
-            error: ''
+            error: '',
+            focus: {
+                default: '',
+                warning: '',
+                error: ''
+            }
         },
         typography: {
             content: {
@@ -108,7 +122,18 @@ export const kitInputCssTokens = generateCssTokens<IKitInputCssTokens>('--compon
     border: {radius: ''},
     colors: {
         background: {default: '', disabled: '', error: '', warning: ''},
-        border: {default: '', disabled: '', error: '', hover: '', warning: ''},
+        border: {
+            default: '',
+            disabled: '',
+            error: '',
+            hover: '',
+            warning: '',
+            focus: {
+                default: '',
+                warning: '',
+                error: ''
+            }
+        },
         clearIcon: {default: '', disabled: '', error: '', warning: ''},
         prefix: {default: '', disabled: '', error: '', warning: ''},
         showCount: {default: '', disabled: '', error: '', warning: ''},

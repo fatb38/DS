@@ -152,14 +152,13 @@ const StyledKitRadio = styled(Radio)`
 
     // Focus
     &:not(.ant-radio-wrapper-disabled) .ant-radio-input:focus + .ant-radio-inner {
-        border-style: dashed;
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 2px
+            var(${kitRadioCssTokens.colors.border.focus}, var(${kitColorsPaletteCssTokens.primary.primary200}));
     }
 
     &:not(.ant-radio-wrapper-disabled):not(.ant-radio-wrapper-danger) .ant-radio-input:focus + .ant-radio-inner {
-        border-color: var(
-            ${kitRadioCssTokens.colors.border.checked},
-            var(${kitColorsPaletteCssTokens.primary.primary400})
-        );
+        border-color: transparent;
     }
 
     &:not(.ant-radio-wrapper-disabled) .ant-radio-input:focus-within + .ant-radio-inner::after {
@@ -191,6 +190,29 @@ const StyledKitRadio = styled(Radio)`
                     var(${kitColorsPaletteCssTokens.secondary.red.red200})
                 );
             }
+        }
+
+        .ant-radio-input:hover:focus + .ant-radio-inner {
+            background-color: var(
+                ${kitRadioCssTokens.colors.background.hover},
+                var(${kitColorsPaletteCssTokens.neutral.white})
+            );
+            border-color: transparent;
+        }
+
+        .ant-radio-input:focus + .ant-radio-inner {
+            // TODO change to cards-border-stroke when available
+            box-shadow: 0 0 0 2px
+                var(
+                    ${kitRadioCssTokens.colors.border.danger.focus},
+                    var(${kitColorsPaletteCssTokens.secondary.red.red200})
+                );
+
+            background-color: var(
+                ${kitRadioCssTokens.colors.background.default},
+                var(${kitColorsPaletteCssTokens.neutral.white})
+            );
+            border-color: transparent;
         }
     }
 

@@ -12,10 +12,14 @@ export const kitInputNumberCssTokens = generateCssTokens<IKitInputNumberCssToken
         border: {
             default: '',
             hover: '',
-            focused: '',
             disabled: '',
             error: '',
-            warning: ''
+            warning: '',
+            focus: {
+                default: '',
+                warning: '',
+                error: ''
+            }
         },
         prefix: {
             default: '',

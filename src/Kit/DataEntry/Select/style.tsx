@@ -317,7 +317,7 @@ export const StyledKitSelect = styled(AntdSelect)`
 
         &.ant-select-focused {
             border-color: var(
-                ${kitSelectCssTokens.colors.border.focused},
+                ${kitSelectCssTokens.colors.border.focus.default},
                 var(${kitColorsPaletteCssTokens.primary.primary400})
             );
         }
@@ -534,6 +534,20 @@ export const StyledKitSelect = styled(AntdSelect)`
                     var(${kitColorsPaletteCssTokens.secondary.orange.orange100})
                 );
             }
+
+            &.ant-select-focused:not(.ant-select-customize-input) {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        ${kitSelectCssTokens.colors.border.focus.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange200})
+                    );
+
+                &:hover {
+                    border-color: transparent;
+                }
+            }
         }
 
         &.ant-select-status-error {
@@ -585,10 +599,30 @@ export const StyledKitSelect = styled(AntdSelect)`
                     var(${kitColorsPaletteCssTokens.secondary.red.red100})
                 );
             }
+
+            &.ant-select-focused:not(.ant-select-customize-input) {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        ${kitSelectCssTokens.colors.border.focus.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red200})
+                    );
+
+                &:hover {
+                    border-color: transparent;
+                }
+            }
         }
 
         &.ant-select-focused:not(.ant-select-customize-input) {
-            border-style: dashed;
+            border-color: transparent;
+            // TODO change to cards-border-stroke when available
+            box-shadow: 0 0 0 3px
+                var(
+                    ${kitSelectCssTokens.colors.border.focus.default},
+                    var(${kitColorsPaletteCssTokens.primary.primary200})
+                );
 
             .ant-select-selector span.ant-select-selection-placeholder {
                 color: transparent;

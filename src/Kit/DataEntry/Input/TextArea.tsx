@@ -177,14 +177,18 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
                 ${kitTextAreaCssTokens.colors.border.error},
                 var(${kitColorsPaletteCssTokens.secondary.red.red400})
             );
-            box-shadow: none;
+            &.ant-input-affix-wrapper-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        ${kitTextAreaCssTokens.colors.border.focus.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red200})
+                    );
 
-            &:hover,
-            &:focus {
-                border-color: var(
-                    ${kitTextAreaCssTokens.colors.border.error},
-                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
-                );
+                &:hover {
+                    border-color: transparent;
+                }
             }
         }
 
@@ -213,14 +217,18 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
                 ${kitTextAreaCssTokens.colors.border.warning},
                 var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
             );
-            box-shadow: none;
+            &.ant-input-affix-wrapper-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        ${kitTextAreaCssTokens.colors.border.focus.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange200})
+                    );
 
-            &:hover,
-            &:focus {
-                border-color: var(
-                    ${kitTextAreaCssTokens.colors.border.warning},
-                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
-                );
+                &:hover {
+                    border-color: transparent;
+                }
             }
         }
 
@@ -234,8 +242,13 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
 
     &:focus,
     &.ant-input-affix-wrapper-focused {
-        border-style: dashed;
-        box-shadow: none;
+        border-color: transparent;
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 3px
+            var(
+                ${kitTextAreaCssTokens.colors.border.focus.default},
+                var(${kitColorsPaletteCssTokens.primary.primary200})
+            );
 
         .ant-input::placeholder {
             color: transparent;

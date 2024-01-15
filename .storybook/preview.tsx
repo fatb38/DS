@@ -1,6 +1,6 @@
 import React from 'react';
 import type {Preview} from '@storybook/react';
-import {KitApp} from '../src/Kit/App';
+import {KitApp} from '../src';
 import {DocsContainer} from '@storybook/blocks';
 import {BackToTop, TableOfContents} from 'storybook-docs-toc';
 import AccessibilityProvider from './components/Accessibility/AccessibilityProvider';
@@ -21,7 +21,6 @@ const Container = ({children, ...props}) => {
 };
 
 export const parameters = {
-    chromatic: {disableSnapshot: true},
     controls: {
         matchers: { 
             color: /(background|color)$/i,

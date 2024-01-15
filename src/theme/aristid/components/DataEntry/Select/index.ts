@@ -13,7 +13,11 @@ export const kitSelectCssTokens = generateCssTokens<IKitSelectCssTokens>('--comp
     colors: {
         border: {
             hover: '',
-            focused: '',
+            focus: {
+                default: '',
+                warning: '',
+                error: ''
+            },
             disabled: '',
             warning: '',
             error: ''

@@ -2,8 +2,8 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {KitRadio} from '@kit/DataEntry';
 import {argTypes} from './data';
 import React from 'react';
-import {within} from '@storybook/testing-library';
 import {Template} from './Template';
+import {KitTypography} from '@kit/General';
 
 const meta: Meta<typeof KitRadio> = {
     component: KitRadio,
@@ -21,79 +21,55 @@ export const Api: Story = {
     }
 };
 
-export const Basic: Story = {
+export const ChromaticTest: Story = {
     render: () => (
-        <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
-            <div style={{display: 'flex', gap: '10px'}}>
-                <KitRadio>Unchecked</KitRadio>
-                <KitRadio defaultChecked data-testid="focus">
+        <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+            <div>
+                <KitTypography.Title level="h3">Basic radio</KitTypography.Title>
+                <div style={{display: 'flex', gap: '20px'}}>
+                    <KitRadio defaultChecked>Checked</KitRadio>
+                    <KitRadio defaultChecked autoFocus>
+                        Checked with focus
+                    </KitRadio>
+                    <KitRadio>Unchecked</KitRadio>
+                    <KitRadio defaultChecked disabled>
+                        Disabled checked
+                    </KitRadio>
+                    <KitRadio disabled>Disabled unchecked</KitRadio>
+                </div>
+            </div>
+            <div>
+                <KitTypography.Title level="h3">Group radio</KitTypography.Title>
+                <KitRadio.Group value={2}>
+                    <KitRadio value={1}>A</KitRadio>
+                    <KitRadio value={2}>B</KitRadio>
+                    <KitRadio value={3}>C</KitRadio>
+                    <KitRadio value={4}>D</KitRadio>
+                </KitRadio.Group>
+            </div>
+        </div>
+    )
+};
+
+export const ChromaticTestDanger: Story = {
+    render: () => (
+        <>
+            <KitTypography.Title level="h3">Danger radio</KitTypography.Title>
+            <div style={{display: 'flex', gap: '20px'}}>
+                <KitRadio danger defaultChecked>
                     Checked
                 </KitRadio>
-                <KitRadio defaultChecked>Checked</KitRadio>
-            </div>
-            <div style={{display: 'flex', gap: '10px'}}>
-                <KitRadio disabled>Disabled Unchecked</KitRadio>
-                <KitRadio defaultChecked disabled>
-                    Disabled Checked
+                <KitRadio danger defaultChecked autoFocus>
+                    Checked with focus
+                </KitRadio>
+                <KitRadio danger>Unchecked</KitRadio>
+                <KitRadio danger defaultChecked disabled>
+                    Disabled checked
+                </KitRadio>
+                <KitRadio danger disabled>
+                    Disabled unchecked
                 </KitRadio>
             </div>
-        </div>
-    ),
-    play: ({canvasElement}) => {
-        const canvas = within(canvasElement);
-        const radio = canvas.getByTestId('focus');
-        radio.focus();
-    },
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
-};
-
-export const Danger: Story = {
-    render: () => (
-        <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
-            <KitRadio danger>Unchecked</KitRadio>
-            <KitRadio danger defaultChecked>
-                Checked
-            </KitRadio>
-            <KitRadio danger defaultChecked data-testid="focus">
-                Checked
-            </KitRadio>
-            <KitRadio danger disabled>
-                Disabled Unchecked
-            </KitRadio>
-            <KitRadio danger defaultChecked disabled>
-                Disabled Checked
-            </KitRadio>
-        </div>
-    ),
-    play: ({canvasElement}) => {
-        const canvas = within(canvasElement);
-        const radio = canvas.getByTestId('focus');
-        radio.focus();
-    },
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
-};
-
-export const Group: Story = {
-    render: () => (
-        <KitRadio.Group>
-            <KitRadio value={1}>A</KitRadio>
-            <KitRadio value={2}>B</KitRadio>
-            <KitRadio value={3} data-testid="focus">
-                C
-            </KitRadio>
-            <KitRadio value={4}>D</KitRadio>
-        </KitRadio.Group>
-    ),
-    play: ({canvasElement}) => {
-        const canvas = within(canvasElement);
-        const radio = canvas.getByTestId('focus');
-        radio.focus();
-    },
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
+        </>
+    )
 };

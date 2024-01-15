@@ -1,7 +1,7 @@
 import {InputNumberProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 
-type AntdInputNumberTypesToOmit = 'size' | 'addonBefore' | 'addonAfter' | 'borderless';
+type AntdInputNumberTypesToOmit = 'size' | 'addonBefore' | 'addonAfter' | 'borderless' | 'suffix';
 
 export interface KitInputNumberProps
     extends Omit<InputNumberProps, AntdInputNumberTypesToOmit>,

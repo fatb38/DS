@@ -3,6 +3,9 @@ import {KitSteps} from '@kit/Navigation';
 import {argTypes} from './data';
 import React from 'react';
 import {Template} from './Template';
+import {BasicStepsTest} from './test-components/BasicStepsTest.tsx';
+import {KitDivider} from '@kit/Layout';
+import {ClickableStepsTest} from './test-components/ClickableStepsTest.tsx';
 
 const meta: Meta<typeof KitSteps> = {
     component: KitSteps,
@@ -20,91 +23,12 @@ export const Api: Story = {
     }
 };
 
-export const Basic: Story = {
+export const ChromaticTest: Story = {
     render: () => (
-        <div style={{display: 'flex', flexDirection: 'column', gap: '40px'}}>
-            <KitSteps
-                current={1}
-                items={[
-                    {
-                        title: 'Finished',
-                        description: 'This is a description'
-                    },
-                    {
-                        title: 'In Progress',
-                        description: 'This is a description'
-                    },
-                    {
-                        title: 'Waiting',
-                        description: 'This is a description'
-                    }
-                ]}
-            />
-            <KitSteps
-                current={1}
-                status="error"
-                items={[
-                    {
-                        title: 'Finished',
-                        description: 'This is a description'
-                    },
-                    {
-                        title: 'In Progress',
-                        description: 'This is a description'
-                    },
-                    {
-                        title: 'Waiting',
-                        description: 'This is a description'
-                    }
-                ]}
-            />
-            <KitSteps
-                direction="vertical"
-                current={1}
-                items={[
-                    {
-                        title: 'Finished',
-                        description: 'This is a description'
-                    },
-                    {
-                        title: 'In Progress',
-                        description: 'This is a description'
-                    },
-                    {
-                        title: 'Waiting',
-                        description: 'This is a description'
-                    }
-                ]}
-            />
-        </div>
-    ),
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
-};
-
-export const Clickable: Story = {
-    render: () => (
-        <KitSteps
-            current={0}
-            onChange={() => console.log('onChange')}
-            items={[
-                {
-                    title: 'Step 1',
-                    description: 'This is a description'
-                },
-                {
-                    title: 'Step 2',
-                    description: 'This is a description'
-                },
-                {
-                    title: 'Step 3',
-                    description: 'This is a description'
-                }
-            ]}
-        />
-    ),
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
+        <>
+            <BasicStepsTest />
+            <KitDivider />
+            <ClickableStepsTest />
+        </>
+    )
 };

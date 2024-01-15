@@ -35,7 +35,7 @@ export const Api: Story = {
     }
 };
 
-export const FullMenu: Story = {
+export const ChromaticTest: Story = {
     render: () => (
         <div style={{width: '100%', padding: '5px', background: 'lightgrey'}}>
             <div style={{width: '400px'}}>
@@ -117,8 +117,5 @@ export const FullMenu: Story = {
                 </KitMenu>
             </div>
         </div>
-    ),
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
+    )
 };
