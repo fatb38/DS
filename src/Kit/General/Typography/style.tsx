@@ -11,6 +11,13 @@ export const TypographyStyle = createGlobalStyle`
             ${kitTypographyCssTokens.colors.typography.default},
             var(${kitColorsPaletteCssTokens.neutral.typography.black})
         );
+
+        &.ant-typography-disabled {
+            color: var(
+                ${kitTypographyCssTokens.colors.typography.disabled},
+                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
+            );
+        }
     }
 
     a.ant-typography {
