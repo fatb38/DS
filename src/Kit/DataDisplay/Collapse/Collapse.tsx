@@ -37,6 +37,7 @@ const StyledCollapse = styled(AntdCollapse)`
             }
         }
 
+        &[data-item-selected='true'],
         &.ant-collapse-item-active,
         &:hover:not(.ant-collapse-item-disabled),
         &:not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
@@ -52,21 +53,25 @@ const StyledCollapse = styled(AntdCollapse)`
                 );
             }
 
+            & + .ant-collapse-item[data-item-selected='true'],
             & + .ant-collapse-item.ant-collapse-item-active {
                 border-top: none;
                 padding-top: 2px;
             }
 
+            & + .ant-collapse-item:not([data-item-selected='true']),
             & + .ant-collapse-item:not(.ant-collapse-item-active) {
                 border-top: none;
 
                 &:hover,
+                &:not([data-item-selected='true']):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus),
                 &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
                     padding-top: 2px;
                 }
             }
         }
 
+        &:not([data-item-selected='true']):not(.ant-collapse-item-disabled):not(:last-of-type),
         &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):not(:last-of-type) {
             &:not(.pseudo-hover):hover {
                 border-bottom: 3px solid
@@ -86,7 +91,7 @@ const StyledCollapse = styled(AntdCollapse)`
         }
 
         &.ant-collapse-item-disabled:not(.ant-collapse-item-active):not(:last-of-type),
-        &:not(.ant-collapse-item-active):not(:last-of-type):not(:hover) {
+        &:not(.ant-collapse-item-active):not([data-item-selected='true']):not(:last-of-type):not(:hover) {
             border-bottom: none;
         }
 

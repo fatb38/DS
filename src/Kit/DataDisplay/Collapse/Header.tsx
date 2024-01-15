@@ -70,7 +70,16 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({
                         e => e.stopPropagation()
                     }
                 >
-                    <KitSwitch onChange={onSwitchChange} disabled={disabled} />
+                    <KitSwitch
+                        onChange={(check, event) => {
+                            const switchElement = event.target as HTMLElement;
+                            const collapseItem = switchElement.closest('.ant-collapse-item');
+                            collapseItem?.setAttribute('data-item-selected', check.toString());
+
+                            onSwitchChange(check, event);
+                        }}
+                        disabled={disabled}
+                    />
                 </div>
             )
         );
