@@ -9,6 +9,7 @@ export interface IKitTypographyTheme {
     colors: {
         typography: {
             default: string;
+            disabled: string;
         };
     };
     typography: {
@@ -54,6 +55,7 @@ export interface IKitTypographyCssTokens {
     colors: {
         typography: {
             default: string;
+            disabled: string;
         };
     };
     typography: {
