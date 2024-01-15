@@ -13,6 +13,7 @@ export interface IKitHeader {
     description?: string;
     tagContent?: ReactNode;
     onSwitchChange?: SwitchChangeEventHandler;
+    disabled?: boolean;
 }
 
 export interface IKitMenuInfo {
@@ -33,6 +34,7 @@ export interface IKitHeaderExtraActions extends Array<IKitHeaderExtraAction> {}
 
 export interface IKitHeaderExtra {
     actions?: IKitHeaderExtraActions;
+    disabled?: boolean;
 }
 
 export type KitCollapseCompoundedComponent = FunctionComponent<IKitCollapse> & {

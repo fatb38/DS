@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, ReactElement, cloneElement} from 'react';
 import {Collapse as AntdCollapse} from 'antd';
 import {IKitCollapse} from './types';
 import styled from 'styled-components';
@@ -84,10 +84,11 @@ const StyledCollapse = styled(AntdCollapse)`
                         var(${kitColorsPaletteCssTokens.primary.primary200})
                     );
             }
+        }
 
-            &:not(:hover) {
-                border-bottom: none;
-            }
+        &.ant-collapse-item-disabled:not(.ant-collapse-item-active):not(:last-of-type),
+        &:not(.ant-collapse-item-active):not(:last-of-type):not(:hover) {
+            border-bottom: none;
         }
 
         .ant-collapse-header {
@@ -149,8 +150,41 @@ const StyledCollapse = styled(AntdCollapse)`
 
 const _getDefaultExpandIcon: FunctionComponent = () => <FontAwesomeIcon icon={faChevronDown} />;
 
-export const KitCollapse: FunctionComponent<IKitCollapse> = ({className, expandIcon, ...collapseProps}) => {
+export const KitCollapse: FunctionComponent<IKitCollapse> = ({
+    className,
+    expandIcon,
+    items,
+    collapsible,
+    ...collapseProps
+}) => {
     const {appId} = useKitTheme();
+
+    if (collapsible === 'disabled') {
+        items?.forEach(item => {
+            if (item.label !== undefined) {
+                const headerElement = item.label as ReactElement;
+                const extraHeaderElement = item.extra as ReactElement;
+
+                if (
+                    headerElement !== undefined &&
+                    (headerElement.type as FunctionComponent)?.displayName === 'KitHeader'
+                ) {
+                    item.label = cloneElement(headerElement, {
+                        disabled: true
+                    });
+                }
+
+                if (
+                    extraHeaderElement !== undefined &&
+                    (extraHeaderElement.type as FunctionComponent)?.displayName === 'KitHeaderExtra'
+                ) {
+                    item.extra = cloneElement(extraHeaderElement, {
+                        disabled: true
+                    });
+                }
+            }
+        });
+    }
 
     return (
         <StyledCollapse
@@ -158,6 +192,8 @@ export const KitCollapse: FunctionComponent<IKitCollapse> = ({className, expandI
             className={`${appId} ${className ?? ''}`}
             expandIcon={expandIcon ?? _getDefaultExpandIcon}
             expandIconPosition="end"
+            collapsible={collapsible}
+            items={items}
         />
     );
 };

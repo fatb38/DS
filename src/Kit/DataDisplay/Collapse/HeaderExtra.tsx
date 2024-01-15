@@ -31,7 +31,7 @@ const StyledHeaderExtra = styled.div`
     }
 `;
 
-export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions}) => {
+export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions, disabled}) => {
     const [showMoreTooltip, setShowMoreTooltip] = useState(false);
 
     const _getMoreActionsDropDownItems = (): MenuItemType[] | undefined => {
@@ -63,9 +63,10 @@ export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions}) =>
                 actions?.length && (
                     <div className="kit-collapse-header-extra-actions">
                         {firstAction && (
-                            <KitTooltip title={firstAction.label}>
+                            <KitTooltip title={firstAction.label} open={disabled ? false : undefined}>
                                 <KitButton
                                     icon={firstAction.icon}
+                                    disabled={disabled}
                                     onClick={e => {
                                         e.stopPropagation();
                                         firstAction.onClick && firstAction.onClick(e);
@@ -74,9 +75,10 @@ export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions}) =>
                             </KitTooltip>
                         )}
                         {secondAction && (
-                            <KitTooltip title={secondAction.label}>
+                            <KitTooltip title={secondAction.label} open={disabled ? false : undefined}>
                                 <KitButton
                                     icon={secondAction.icon}
+                                    disabled={disabled}
                                     onClick={e => {
                                         e.stopPropagation();
                                         secondAction.onClick !== undefined && secondAction.onClick(e);
@@ -97,8 +99,15 @@ export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions}) =>
                                     trigger={['click']}
                                     onOpenChange={() => setShowMoreTooltip(false)}
                                 >
-                                    <KitTooltip title="More" open={showMoreTooltip} onOpenChange={setShowMoreTooltip}>
-                                        <KitButton icon={<FontAwesomeIcon icon={faEllipsisVertical} />} />
+                                    <KitTooltip
+                                        title="More"
+                                        open={disabled ? false : showMoreTooltip}
+                                        onOpenChange={setShowMoreTooltip}
+                                    >
+                                        <KitButton
+                                            icon={<FontAwesomeIcon icon={faEllipsisVertical} />}
+                                            disabled={disabled}
+                                        />
                                     </KitTooltip>
                                 </KitDropDown>
                             </div>

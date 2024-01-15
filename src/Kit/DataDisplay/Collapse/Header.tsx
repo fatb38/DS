@@ -57,7 +57,8 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({
     imageSrc,
     title,
     description,
-    tagContent
+    tagContent,
+    disabled
 }) => {
     const _getSwitch = () => {
         return (
@@ -69,7 +70,7 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({
                         e => e.stopPropagation()
                     }
                 >
-                    <KitSwitch onChange={onSwitchChange} />
+                    <KitSwitch onChange={onSwitchChange} disabled={disabled} />
                 </div>
             )
         );
@@ -116,6 +117,7 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({
                         size="large"
                         weight="bold"
                         ellipsis={{tooltip: true}}
+                        disabled={disabled}
                     >
                         {title}
                     </KitTypography.Text>
@@ -126,6 +128,7 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({
                         size="large"
                         weight="regular"
                         ellipsis={{tooltip: true}}
+                        disabled={disabled}
                     >
                         {description}
                     </KitTypography.Text>
