@@ -1,6 +1,8 @@
 import React from 'react';
 import {KitCollapse} from '@kit/DataDisplay/';
 import {KitDivider} from '@kit/Layout';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faMinus, faPercent, faPlus} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     const text = `
@@ -14,6 +16,73 @@ const App = () => {
             key: '1',
             label: 'This is panel header 1',
             children: <p>{text}</p>
+        }
+    ];
+
+    const itemsWithHeaderAndExtra = [
+        {
+            key: '1',
+            label: (
+                <KitCollapse.Header
+                    imageSrc="/public/images/catalog.jpg"
+                    title="Title 1"
+                    description="This is a description 1"
+                    tagContent={'sprint #6'}
+                    onSwitchChange={checked => console.log(checked)}
+                />
+            ),
+            children: <p>{text}</p>,
+            isActive: true,
+            extra: (
+                <KitCollapse.HeaderExtra
+                    actions={[
+                        {
+                            icon: <FontAwesomeIcon icon={faPlus} />,
+                            label: 'Add',
+                            onClick: () => console.log('onClick: Add')
+                        },
+                        {
+                            icon: <FontAwesomeIcon icon={faMinus} />,
+                            label: 'Subtract',
+                            onClick: () => console.log('onClick: Subtract')
+                        }
+                    ]}
+                />
+            )
+        },
+        {
+            key: '2',
+            label: (
+                <KitCollapse.Header
+                    imageSrc="/public/images/catalog.jpg"
+                    title="Title 2"
+                    description="This is a description 2"
+                    tagContent={'sprint #7'}
+                    onSwitchChange={checked => console.log(checked)}
+                />
+            ),
+            children: <p>{text}</p>,
+            extra: (
+                <KitCollapse.HeaderExtra
+                    actions={[
+                        {
+                            icon: <FontAwesomeIcon icon={faPlus} />,
+                            label: 'Add',
+                            onClick: () => console.log('onClick: Add')
+                        },
+                        {
+                            icon: <FontAwesomeIcon icon={faMinus} />,
+                            label: 'Subtract',
+                            onClick: () => console.log('onClick: Subtract')
+                        },
+                        {
+                            icon: <FontAwesomeIcon icon={faPercent} />,
+                            label: 'Percent',
+                            onClick: () => console.log('onClick: Percent')
+                        }
+                    ]}
+                />
+            )
         }
     ];
 
