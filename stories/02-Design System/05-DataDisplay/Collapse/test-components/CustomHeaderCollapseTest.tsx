@@ -2,7 +2,6 @@ import React, {FC} from 'react';
 import {KitCollapse} from '@kit/DataDisplay';
 import {KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faClock} from '@fortawesome/free-regular-svg-icons';
 import {faMinus, faPlus} from '@fortawesome/free-solid-svg-icons';
 
 export const CustomHeaderCollapseTest: FC = () => {
@@ -14,18 +13,17 @@ export const CustomHeaderCollapseTest: FC = () => {
             key: '1',
             label: (
                 <KitCollapse.Header
-                    icon={<FontAwesomeIcon icon={faClock} />}
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 2"
                     description="This is a description 2"
                     tagContent={'sprint #6'}
+                    onSwitchChange={checked => console.log(checked)}
                 />
             ),
             children: <p>{text}</p>,
             isActive: true,
             extra: (
                 <KitCollapse.HeaderExtra
-                    onSelectChange={e => console.log('onSelectChange :', e)}
                     actions={[
                         {
                             icon: <FontAwesomeIcon icon={faPlus} />,
@@ -49,6 +47,7 @@ export const CustomHeaderCollapseTest: FC = () => {
             <div style={{width: '100%', display: 'flex', flexDirection: 'column', gap: '20px'}}>
                 <KitCollapse items={items} />
                 <KitCollapse items={items} activeKey="1" />
+                <KitCollapse items={items} collapsible="disabled" />
             </div>
         </div>
     );
