@@ -4,7 +4,8 @@ import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 export const kitTypographyCssTokens = generateCssTokens<IKitTypographyCssTokens>('--components-Typography', {
     colors: {
         typography: {
-            default: ''
+            default: '',
+            disabled: ''
         }
     },
     typography: {

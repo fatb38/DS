@@ -37,15 +37,14 @@ export const SizeCollapseTest: FC = () => {
                 <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
                     <KitCollapse size="small" items={items.small} />
                     <KitCollapse collapsible="disabled" size="small" items={items.small} />
-                    <KitCollapse defaultActiveKey="1" collapsible="disabled" size="small" items={items.small} />
                 </div>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
                     <KitCollapse items={items.regular} />
-                    <KitCollapse defaultActiveKey="1" collapsible="disabled" items={items.regular} />
+                    <KitCollapse collapsible="disabled" items={items.regular} />
                 </div>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
                     <KitCollapse size="large" items={items.large} />
-                    <KitCollapse defaultActiveKey="1" collapsible="disabled" size="large" items={items.large} />
+                    <KitCollapse collapsible="disabled" size="large" items={items.large} />
                 </div>
             </div>
         </div>
