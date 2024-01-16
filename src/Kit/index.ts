@@ -38,3 +38,5 @@ export {
 export {KitButton, KitTypography, KitIcon} from './General';
 export {KitDivider, KitGrid, KitSpace} from './Layout';
 export {KitBreadcrumb, KitDropDown, KitHeader, KitMenu, KitSteps, KitPagination} from './Navigation';
+
+export * from './Ant';
