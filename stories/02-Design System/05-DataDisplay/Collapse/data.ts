@@ -186,7 +186,7 @@ export const argTypes = {
         description: '',
         table: {
             type: {
-                summary: 'IKitHeaderExtraActions'
+                summary: 'IActions'
             },
             category: 'Collapse.HeaderExtra'
         }

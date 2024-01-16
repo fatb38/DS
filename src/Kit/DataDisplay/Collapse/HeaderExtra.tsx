@@ -1,6 +1,6 @@
 import React, {FunctionComponent, useState} from 'react';
 import styled from 'styled-components';
-import {IKitMenuInfo, IKitHeaderExtra} from './types';
+import {IKitMenuInfo, IKitHeaderExtra, IKitHeaderExtraActions, IKitHeaderExtraMoreActions} from './types';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
 import {KitDropDown} from '@kit/Navigation/';
@@ -32,95 +32,88 @@ const StyledHeaderExtra = styled.div`
     }
 `;
 
-export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions, disabled}) => {
+const HeaderExtraActions: FunctionComponent<IKitHeaderExtraActions> = ({actions, disabled}) => {
     const [showMoreTooltip, setShowMoreTooltip] = useState(false);
     const {locale} = useKitLocale();
 
-    const _getMoreActionsDropDownItems = (): MenuItemType[] | undefined => {
-        if (actions === undefined || actions.length === 0) {
-            return undefined;
-        }
+    const firstAction = actions[0] ? actions[0] : null;
+    const secondAction = actions.length <= 2 && actions[1] ? actions[1] : null;
 
-        const newActions = [...actions];
+    return (
+        <div className="kit-collapse-header-extra-actions">
+            {firstAction && (
+                <KitTooltip title={firstAction.label} open={disabled ? false : undefined}>
+                    <KitButton
+                        icon={firstAction.icon}
+                        disabled={disabled}
+                        onClick={e => {
+                            e.stopPropagation();
+                            firstAction.onClick && firstAction.onClick(e);
+                        }}
+                    />
+                </KitTooltip>
+            )}
+            {secondAction && (
+                <KitTooltip title={secondAction.label} open={disabled ? false : undefined}>
+                    <KitButton
+                        icon={secondAction.icon}
+                        disabled={disabled}
+                        onClick={e => {
+                            e.stopPropagation();
+                            secondAction.onClick !== undefined && secondAction.onClick(e);
+                        }}
+                    />
+                </KitTooltip>
+            )}
+            {actions.length > 2 && (
+                <div
+                    onClick={e => {
+                        e.stopPropagation();
+                    }}
+                >
+                    <KitDropDown
+                        menu={{
+                            items: _getMoreActionsDropDownItems({actions})
+                        }}
+                        trigger={['click']}
+                        onOpenChange={() => setShowMoreTooltip(false)}
+                    >
+                        <KitTooltip
+                            title={locale.Collapse?.more}
+                            open={disabled ? false : showMoreTooltip}
+                            onOpenChange={setShowMoreTooltip}
+                        >
+                            <KitButton icon={<FontAwesomeIcon icon={faEllipsisVertical} />} disabled={disabled} />
+                        </KitTooltip>
+                    </KitDropDown>
+                </div>
+            )}
+        </div>
+    );
+};
 
-        // Remove first action because we don't want it to be duplicated
-        newActions.splice(0, 1);
+const _getMoreActionsDropDownItems = ({actions}: IKitHeaderExtraMoreActions): MenuItemType[] | undefined => {
+    const newActions = [...actions];
 
-        const dropDownActions = newActions.map((item, index) => ({
-            key: index,
-            icon: item.icon,
-            label: item.label,
-            onClick: (e: IKitMenuInfo) => item.onClick && item.onClick(e)
-        }));
+    // Remove first action because we don't want it to be duplicated
+    newActions.splice(0, 1);
 
-        return dropDownActions;
-    };
+    const dropDownActions = newActions.map((item, index) => ({
+        key: index,
+        icon: item.icon,
+        label: item.label,
+        onClick: (e: IKitMenuInfo) => item.onClick && item.onClick(e)
+    }));
 
-    const _getActions = () => {
-        if (actions !== undefined) {
-            const firstAction = actions[0] ? actions[0] : null;
-            const secondAction = actions.length <= 2 && actions[1] ? actions[1] : null;
+    return dropDownActions;
+};
 
-            return (
-                actions?.length && (
-                    <div className="kit-collapse-header-extra-actions">
-                        {firstAction && (
-                            <KitTooltip title={firstAction.label} open={disabled ? false : undefined}>
-                                <KitButton
-                                    icon={firstAction.icon}
-                                    disabled={disabled}
-                                    onClick={e => {
-                                        e.stopPropagation();
-                                        firstAction.onClick && firstAction.onClick(e);
-                                    }}
-                                />
-                            </KitTooltip>
-                        )}
-                        {secondAction && (
-                            <KitTooltip title={secondAction.label} open={disabled ? false : undefined}>
-                                <KitButton
-                                    icon={secondAction.icon}
-                                    disabled={disabled}
-                                    onClick={e => {
-                                        e.stopPropagation();
-                                        secondAction.onClick !== undefined && secondAction.onClick(e);
-                                    }}
-                                />
-                            </KitTooltip>
-                        )}
-                        {actions.length > 2 && (
-                            <div
-                                onClick={e => {
-                                    e.stopPropagation();
-                                }}
-                            >
-                                <KitDropDown
-                                    menu={{
-                                        items: _getMoreActionsDropDownItems()
-                                    }}
-                                    trigger={['click']}
-                                    onOpenChange={() => setShowMoreTooltip(false)}
-                                >
-                                    <KitTooltip
-                                        title={locale.Collapse?.more}
-                                        open={disabled ? false : showMoreTooltip}
-                                        onOpenChange={setShowMoreTooltip}
-                                    >
-                                        <KitButton
-                                            icon={<FontAwesomeIcon icon={faEllipsisVertical} />}
-                                            disabled={disabled}
-                                        />
-                                    </KitTooltip>
-                                </KitDropDown>
-                            </div>
-                        )}
-                    </div>
-                )
-            );
-        }
-    };
-
-    return <StyledHeaderExtra>{_getActions()}</StyledHeaderExtra>;
+export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions, disabled = false}) => {
+    return (
+        <StyledHeaderExtra>
+            {actions !== undefined && <HeaderExtraActions actions={actions} disabled={disabled} />}
+        </StyledHeaderExtra>
+    );
 };
 
 KitHeaderExtra.displayName = 'KitHeaderExtra';
