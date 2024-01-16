@@ -1,7 +1,7 @@
 import React, {ReactNode, useState} from 'react';
 import {IKitLocale, LanguageSupported} from './types';
 import {frFR} from './fr-FR';
-import {merge} from 'lodash';
+import merge from 'lodash/merge';
 import {enUS} from './en-US';
 import {KitLocaleContext} from './useKitLocale';
 

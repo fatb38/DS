@@ -7,10 +7,11 @@
     "p.chevieux@aristid.com",
     "v.delmotte@aristid.com"
   ],
+  "sideEffects": false,
   "license": "MIT",
   "homepage": "https://www.aristid.com",
   "scripts": {
-    "build": "tsc && vite build && yarn copy-typescript-definitions",
+    "build": "tsc && vite build",
     "build-stats": "STATS=true tsc && vite build",
     "build-storybook": "env=production storybook build --docs",
     "build-all": "yarn build && yarn build-storybook",
@@ -36,7 +37,6 @@
     "classnames": "^2.3.2",
     "color-convert": "^2.0.1",
     "color-string": "^1.9.1",
-    "copyfiles": "^2.4.1",
     "dayjs": "^1.11.9",
     "lodash": "^4.17.21",
     "rc-util": "^5.37.0",
@@ -58,15 +58,18 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
-    "@storybook/addon-docs": "^7.4.3",
-    "@storybook/addon-essentials": "^7.4.3",
-    "@storybook/addon-interactions": "^7.4.3",
-    "@storybook/addon-links": "^7.4.3",
-    "@storybook/blocks": "^7.4.3",
-    "@storybook/manager-api": "^7.4.3",
-    "@storybook/react": "^7.4.3",
-    "@storybook/react-vite": "^7.4.3",
-    "@storybook/testing-library": "^0.2.1",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@storybook/addon-docs": "^7.6.8",
+    "@storybook/addon-essentials": "^7.6.8",
+    "@storybook/addon-interactions": "^7.6.8",
+    "@storybook/addon-links": "^7.6.8",
+    "@storybook/blocks": "^7.6.8",
+    "@storybook/manager-api": "^7.6.8",
+    "@storybook/react": "^7.6.8",
+    "@storybook/react-vite": "^7.6.8",
+    "@storybook/testing-library": "^0.2.2",
     "@types/color-convert": "^2.0.3",
     "@types/color-string": "^1.5.5",
     "@types/react": "^18.2.15",
@@ -83,11 +86,12 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.15",
     "prettier": "^3.0.1",
+    "rollup-plugin-multi-input": "^1.4.1",
     "rollup-plugin-uglify": "^6.0.4",
     "rollup-plugin-visualizer": "^5.9.2",
     "rollup-plugin-webpack-stats": "^0.2.0",
-    "storybook": "^7.4.3",
-    "storybook-docs-toc": "^1.7.0",
+    "storybook": "^7.6.8",
+    "tocbot": "^4.12.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.5.3",
@@ -111,14 +115,14 @@
     "public/images/gitflow-feature.png",
     "CHANGELOG.md"
   ],
-  "main": "./dist/index.js",
+  "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.js",
-      "default": "./dist/index.js"
+      "require": "./dist/index.umd.js",
+      "default": "./dist/index.es.js"
     }
   }
 }

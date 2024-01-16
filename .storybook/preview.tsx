@@ -2,7 +2,8 @@ import React from 'react';
 import type {Preview} from '@storybook/react';
 import {KitApp} from '../src';
 import {DocsContainer} from '@storybook/blocks';
-import {BackToTop, TableOfContents} from 'storybook-docs-toc';
+import TableOfContents from './components/TableOfContents';
+import BackToTop from './components/BackToTop';
 import AccessibilityProvider from './components/Accessibility/AccessibilityProvider';
 
 const tocConfig = {

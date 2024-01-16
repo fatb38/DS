@@ -491,7 +491,7 @@ We use Gitflow as Git branching model for this project. We have two branches to 
 
 #### Feature
 
-<img src="public/images/gitflow-feature.png" alt="Logo" height="250px">
+<img src="http://storybook.aristid.com/public/images/gitflow-feature.png" alt="Logo" height="250px">
 
 Creating a feature branch
 
@@ -509,7 +509,7 @@ git flow feature finish addTooltipComponent
 
 #### Release
 
-<img src="public/images/gitflow-release.png" alt="Logo" height="250px">
+<img src="http://storybook.aristid.com/public/images/gitflow-release.png" alt="Logo" height="250px">
 
 Creating a release
 
@@ -527,7 +527,7 @@ git flow release finish '0.1.0'
 
 #### Hotfix
 
-<img src="public/images/gitflow-hotfix.png" alt="Logo" height="250px">
+<img src="http://storybook.aristid.com/public/images/gitflow-hotfix.png" alt="Logo" height="250px">
 
 Creating a release
 

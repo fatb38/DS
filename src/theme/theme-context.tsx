@@ -5,7 +5,7 @@ import {IKitCustomTheme} from './types';
 import {createGlobalStyle} from 'styled-components';
 import {toCssVariables} from '@utils/functions';
 import uuid from 'react-uuid';
-import {merge} from 'lodash';
+import merge from 'lodash/merge';
 import {Style} from 'react-style-tag';
 import {KitThemeContext} from './useKitTheme';
 import {IJSONObject} from '../../.storybook/components/ThemeEditor/types';
