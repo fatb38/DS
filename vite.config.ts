@@ -10,6 +10,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import multiInput from "rollup-plugin-multi-input";
+import url from 'rollup-plugin-url'
 
 import packageJson from './package.json';
 
@@ -90,7 +91,8 @@ export default defineConfig({
             '@theme': path.resolve(__dirname, './src/theme'),
             '@hooks': path.resolve(__dirname, './src/hooks'),
             '@utils': path.resolve(__dirname, './src/utils'),
-            '@translation': path.resolve(__dirname, './src/translation')
+            '@translation': path.resolve(__dirname, './src/translation'),
+            '@fonts': path.resolve(__dirname, './src/fonts'),
         }
     },
     build: {
@@ -118,7 +120,15 @@ export default defineConfig({
                     format: "esm",
                     dir: outputDir,
                     preserveModules: true,
-                    plugins: [commonjs(), typescript({outDir: outputDir}), resolve(), multiInput()],
+                    plugins: [commonjs(), typescript({outDir: outputDir}), resolve(), multiInput(), 
+                        url({
+                            // by default, rollup-plugin-url will not handle font files
+                            include: ['**/*.woff', '**/*.woff2'],
+                            // setting infinite limit will ensure that the files 
+                            // are always bundled with the code, not copied to /dist
+                            limit: Infinity,
+                          })
+                    ],
                     globals,
                     inlineDynamicImports: false,
                     entryFileNames: (file) => {

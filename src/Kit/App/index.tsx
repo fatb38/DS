@@ -17,7 +17,7 @@ import {ColorPickerPanelStyle} from '@kit/DataEntry/ColorPicker/style';
 import {TourStyle} from '@kit/DataDisplay/Tour/style';
 import {useKitLocale} from '@translation/useKitLocale';
 import {KitNotificationProvider} from '@kit/Feedback/Notification/notification-provider';
-import './font.css';
+import { KitFontStyle } from '@kit/Font';
 
 export const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;
@@ -34,7 +34,7 @@ export const KitApp: FunctionComponent<{
     );
 };
 
-const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale}>> = ({children, locale}) => {
+const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale, includeFont?: boolean}>> = ({children, locale, includeFont = true}) => {
     const {setKitLocale} = useKitLocale();
 
     useEffect(() => {
@@ -46,6 +46,7 @@ const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale}>> 
     return (
         <ConfigProvider theme={antdThemeConfig} locale={mapKitLocaleToAntdLocale(locale)}>
             <KitNotificationProvider>
+                {includeFont && <KitFontStyle/>}
                 <KitSnackBarProvider />
                 <ColorPickerPanelStyle />
                 <DropDownStyle />
