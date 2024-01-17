@@ -6,8 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-.yarn
-.yarnrc.yml
+.yarn/*
+!.yarn/releases
 
 node_modules
 dist
