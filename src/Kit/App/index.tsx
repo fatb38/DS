@@ -24,17 +24,18 @@ export const KitApp: FunctionComponent<{
     locale?: IKitLocale;
     children?: ReactNode;
     id?: string;
-}> = ({children, locale, customTheme, id}) => {
+    includeFont?: boolean
+}> = ({children, locale, customTheme, id, includeFont = true}) => {
     return (
         <KitThemeProvider customTheme={customTheme} id={id}>
             <KitLocaleProvider>
-                <KitAppConfig locale={locale}>{children}</KitAppConfig>
+                <KitAppConfig locale={locale} includeFont={includeFont}>{children}</KitAppConfig>
             </KitLocaleProvider>
         </KitThemeProvider>
     );
 };
 
-const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale, includeFont?: boolean}>> = ({children, locale, includeFont = true}) => {
+const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale, includeFont?: boolean}>> = ({children, locale, includeFont}) => {
     const {setKitLocale} = useKitLocale();
 
     useEffect(() => {
