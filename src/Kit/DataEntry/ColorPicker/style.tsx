@@ -32,7 +32,10 @@ export const ColorPickerPanelStyle = createGlobalStyle`
 
                 &.ant-input-affix-wrapper-focused,
                 &.ant-input-number-focused {
-                    border-style: dashed;
+                    border-color: transparent;
+                    // TODO change to cards-border-stroke when available
+                    box-shadow: 0 0 0 3px
+                        var(${kitColorPickerCssTokens.colors.border.focused}, var(${kitColorsPaletteCssTokens.primary.primary200}));
                 }
 
                 input {
@@ -70,7 +73,10 @@ export const StyledAntdColorPicker = styled(AntdColorPicker)`
     box-shadow: none;
     font-size: calc(var(${kitColorPickerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
     &.ant-color-picker-trigger-active {
-        border-style: dashed;
+        border-color: transparent;
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 3px
+            var(${kitColorPickerCssTokens.colors.border.focused}, var(${kitColorsPaletteCssTokens.primary.primary200}));
     }
 
     &.ant-color-picker-trigger-disabled {

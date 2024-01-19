@@ -3,5 +3,9 @@ import {generateCssTokens} from '@theme/utils/css-tokens-generator.ts';
 
 export const kitCollapseCssTokens = generateCssTokens<IKitCollapseCssTokens>('--components-Collapse', {
     border: {radius: ''},
-    colors: {background: {active: '', default: ''}, border: {active: '', default: ''}}
+    colors: {
+        background: {active: '', default: '', disabled: ''},
+        border: {active: '', default: ''},
+        icon: {disabled: ''}
+    }
 });

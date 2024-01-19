@@ -2,9 +2,12 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {KitUpload} from '@kit/DataEntry';
 import {argTypes} from './data';
 import React from 'react';
-import {UploadProps} from 'antd';
 import KitDragger from '@kit/DataEntry/Upload/Dragger';
 import {Template} from './Template';
+import {KitTypography} from '@kit/General';
+import {TypeTextUploadTest} from './test-components/TypeTextUploadTest.tsx';
+import {PictureUploadTest} from './test-components/PictureUploadTest.tsx';
+import {PictureWallUploadTest} from './test-components/PictureWallUploadTest.tsx';
 
 const meta: Meta<typeof KitUpload> = {
     component: KitUpload,
@@ -22,106 +25,16 @@ export const Api: Story = {
     }
 };
 
-export const TypeText: Story = {
-    render: () => {
-        const defaultFileList: UploadProps['defaultFileList'] = [
-            {
-                uid: '1',
-                name: 'xxx.png',
-                status: 'uploading',
-                url: 'http://www.baidu.com/xxx.png',
-                percent: 33
-            },
-            {
-                uid: '2',
-                name: 'yyy.png',
-                status: 'done',
-                url: 'http://www.baidu.com/yyy.png'
-            },
-            {
-                uid: '3',
-                name: 'zzz.png',
-                status: 'error',
-                response: 'Server Error 500',
-                url: 'http://www.baidu.com/zzz.png'
-            }
-        ];
-        return (
-            <div style={{width: '400px'}}>
-                <KitUpload defaultFileList={defaultFileList} listType="text" />{' '}
+export const ChromaticTest: Story = {
+    render: () => (
+        <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+            <TypeTextUploadTest />
+            <PictureUploadTest />
+            <PictureWallUploadTest />
+            <div>
+                <KitTypography.Title level="h3">Drag upload</KitTypography.Title>
+                <KitDragger style={{width: '500px'}} multiple />
             </div>
-        );
-    },
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
-};
-
-export const Picture: Story = {
-    render: () => {
-        const defaultFileList: UploadProps['defaultFileList'] = [
-            {
-                uid: '0',
-                name: 'xxx.png',
-                status: 'uploading',
-                percent: 33
-            },
-            {
-                uid: '-1',
-                name: 'yyy.png',
-                status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-                thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
-            },
-            {
-                uid: '-2',
-                name: 'zzz.png',
-                status: 'error'
-            }
-        ];
-        return (
-            <div style={{width: '400px'}}>
-                <KitUpload defaultFileList={defaultFileList} listType="picture" />
-            </div>
-        );
-    },
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
-};
-
-export const PictureWall: Story = {
-    render: () => {
-        const defaultFileList: UploadProps['defaultFileList'] = [
-            {
-                uid: '-1',
-                name: 'image.png',
-                status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
-            },
-            {
-                uid: '-xxx',
-                percent: 50,
-                name: 'image.png',
-                status: 'uploading',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
-            },
-            {
-                uid: '-3',
-                name: 'image.png',
-                status: 'error'
-            }
-        ];
-        return <KitUpload listType="picture-card" fileList={defaultFileList}></KitUpload>;
-    },
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
-};
-
-export const Dragger: Story = {
-    render: () => <KitDragger style={{width: '500px'}} multiple />,
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
+        </div>
+    )
 };

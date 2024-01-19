@@ -2,8 +2,8 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {KitSwitch} from '@kit/DataEntry';
 import {argTypes} from './data';
 import React from 'react';
-import {within} from '@storybook/testing-library';
 import {Template} from './Template';
+import {KitTypography} from '@kit/General';
 
 const meta: Meta<typeof KitSwitch> = {
     component: KitSwitch,
@@ -21,30 +21,25 @@ export const Api: Story = {
     }
 };
 
-export const Basic: Story = {
+export const ChromaticTest: Story = {
     render: () => (
-        <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
-            <div style={{display: 'flex', gap: '20px'}}>
-                <KitSwitch data-testid="focus" />
-                <KitSwitch />
-                <KitSwitch defaultChecked />
+        <>
+            <KitTypography.Title level="h3">Switch</KitTypography.Title>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+                <div style={{display: 'flex', gap: '20px'}}>
+                    <KitSwitch autoFocus />
+                    <KitSwitch />
+                    <KitSwitch defaultChecked />
+                </div>
+                <div style={{display: 'flex', gap: '20px'}}>
+                    <KitSwitch loading />
+                    <KitSwitch defaultChecked loading />
+                </div>
+                <div style={{display: 'flex', gap: '20px'}}>
+                    <KitSwitch disabled />
+                    <KitSwitch defaultChecked disabled />
+                </div>
             </div>
-            <div style={{display: 'flex', gap: '20px'}}>
-                <KitSwitch loading />
-                <KitSwitch defaultChecked loading />
-            </div>
-            <div style={{display: 'flex', gap: '20px'}}>
-                <KitSwitch disabled />
-                <KitSwitch defaultChecked disabled />
-            </div>
-        </div>
-    ),
-    play: ({canvasElement}) => {
-        const canvas = within(canvasElement);
-        const inputNumber = canvas.getByTestId('focus');
-        inputNumber.focus();
-    },
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
+        </>
+    )
 };

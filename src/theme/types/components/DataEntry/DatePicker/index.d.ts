@@ -449,6 +449,11 @@ export interface IKitDatePickerCssTokens {
         border: {
             default: string;
             hover: string;
+            focus: {
+                default: string;
+                warning: string;
+                error: string;
+            };
             active: string;
             disabled: string;
             warning: string;

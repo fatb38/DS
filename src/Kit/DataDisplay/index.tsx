@@ -1,5 +1,6 @@
 export {KitAvatar} from './Avatar';
 export {KitBadge} from './Badge';
+export {KitLegacyCard} from './LegacyCard';
 export {KitCard} from './Card';
 export {KitItemCard} from './ItemCard';
 export {KitCollapse} from './Collapse';

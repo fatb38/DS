@@ -165,10 +165,14 @@ export interface IKitInputNumberCssTokens {
         border: {
             default: string;
             hover: string;
-            focused: string;
             disabled: string;
             error: string;
             warning: string;
+            focus: {
+                default: string;
+                warning: string;
+                error: string;
+            };
         };
         prefix: {
             default: string;

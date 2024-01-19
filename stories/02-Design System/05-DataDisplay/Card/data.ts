@@ -1,52 +1,43 @@
-const CardArgTypes = {
+export const argTypes = {
     actions: {
         name: 'actions',
-        description: 'The action list, shows at the bottom of the Card',
+        description: 'The action list, show on the dropdown in hover of the button more.',
         table: {
             type: {
-                summary: 'Array<ReactNode>'
+                summary: "IKitDropdownMenu['items']"
             },
             category: 'Card'
         }
     },
-    bodyStyle: {
-        name: 'bodyStyle',
-        description: 'Inline style to apply to the card content',
+    activated: {
+        name: 'activated',
+        control: {type: 'boolean'},
+        description: 'to determine with ux',
         table: {
             type: {
-                summary: 'CSSProperties'
+                summary: 'boolean'
             },
             category: 'Card'
         }
     },
-    cover: {
-        name: 'cover',
-        description: 'Card cover',
+    brandingBar: {
+        name: 'brandingBar',
+        control: {type: 'boolean'},
+        description: 'Display the branding bar that split image and content.',
         table: {
             type: {
-                summary: 'ReactNode'
+                summary: 'boolean'
             },
             category: 'Card'
         }
     },
-    contentTitle: {
-        name: 'contentTitle',
+    description: {
+        name: 'description',
         control: {type: 'text'},
-        description: 'Title of the Card content',
+        description: 'Description of the card.',
         table: {
             type: {
-                summary: 'string'
-            },
-            category: 'Card'
-        }
-    },
-    contentDescription: {
-        name: 'contentDescription',
-        control: {type: 'text'},
-        description: 'Description of the Card',
-        table: {
-            type: {
-                summary: 'string'
+                summary: 'text'
             },
             category: 'Card'
         }
@@ -54,38 +45,17 @@ const CardArgTypes = {
     disabled: {
         name: 'disabled',
         control: {type: 'boolean'},
-        description: 'Disabled card and actions',
+        description: "Disabled the card if `true`. When disabled, card cannot be focus and actions don't work",
         table: {
             type: {
                 summary: 'boolean'
             },
-            defaultValue: {summary: false},
             category: 'Card'
         }
     },
-    extra: {
-        name: 'extra',
-        description: 'Content to render in the top-right corner of the card',
-        table: {
-            type: {
-                summary: 'ReactNode'
-            },
-            category: 'Card'
-        }
-    },
-    headStyle: {
-        name: 'headStyle',
-        description: 'Inline style to apply to the card head',
-        table: {
-            type: {
-                summary: 'CSSProperties'
-            },
-            category: 'Card'
-        }
-    },
-    onContentTitleClick: {
-        name: 'onContentTitleClick',
-        description: 'Action on content title click (link icon is display when this props is fullfill)',
+    onSelect: {
+        name: 'onSelect',
+        description: 'Checkbox onChange function.',
         table: {
             type: {
                 summary: '() => void'
@@ -93,31 +63,68 @@ const CardArgTypes = {
             category: 'Card'
         }
     },
-    title: {
-        name: 'title',
-        description: 'Card title',
-        control: {type: 'text'},
+    onActivate: {
+        name: 'onActivate',
+        description: 'Switch onChange function.',
         table: {
             type: {
-                summary: 'ReactNode'
+                summary: '() => void'
             },
             category: 'Card'
         }
     },
-    separator: {
-        name: 'separator',
-        description: 'Display separator between title and content',
-        control: {type: 'boolean'},
+    extra: {
+        name: 'extra',
+        control: {type: 'text'},
+        description: 'Extra description of the card.',
         table: {
             type: {
-                summary: 'Boolean'
+                summary: 'text'
             },
-            defaultValue: {summary: false},
+            category: 'Card'
+        }
+    },
+    selected: {
+        name: 'selected',
+        control: {type: 'boolean'},
+        description: 'If `true`the card is outlined.',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            category: 'Card'
+        }
+    },
+    title: {
+        name: 'title',
+        required: true,
+        control: {type: 'text'},
+        description: 'Title of the card.',
+        table: {
+            type: {
+                summary: 'text'
+            },
+            category: 'Card'
+        }
+    },
+    tags: {
+        name: 'tags',
+        description: 'Tags config to display list of tags.',
+        table: {
+            type: {
+                summary: 'IKitTagConfig[]'
+            },
+            category: 'Card'
+        }
+    },
+    previewSrc: {
+        name: 'previewSrc',
+        description: 'Src for the preview content.',
+        table: {
+            type: {
+                summary: 'text'
+            },
             category: 'Card'
         }
     }
-};
-
-export const argTypes = {
-    ...CardArgTypes
 };

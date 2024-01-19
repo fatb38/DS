@@ -192,6 +192,11 @@ export interface IKitInputPasswordCssTokens {
             disabled: string;
             warning: string;
             error: string;
+            focus: {
+                default: string;
+                warning: string;
+                error: string;
+            };
         };
         typography: {
             content: {
@@ -254,6 +259,11 @@ export interface IKitTextAreaThemeCssTokens {
             disabled: string;
             warning: string;
             error: string;
+            focus: {
+                default: string;
+                warning: string;
+                error: string;
+            };
         };
         typography: {
             content: {
@@ -320,6 +330,11 @@ export interface IKitInputCssTokens {
             warning: string;
             error: string;
             hover: string;
+            focus: {
+                default: string;
+                warning: string;
+                error: string;
+            };
         };
         typography: {
             content: {

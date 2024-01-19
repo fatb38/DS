@@ -11,6 +11,11 @@ export interface IKitCollapseTheme {
              * @TJS-type color
              */
             active: string;
+            /**
+             * disabled color
+             * @TJS-type color
+             */
+            disabled: string;
         };
         border: {
             /**
@@ -23,6 +28,13 @@ export interface IKitCollapseTheme {
              * @TJS-type color
              */
             active: string;
+        };
+        icon: {
+            /**
+             * disabled color
+             * @TJS-type color
+             */
+            disabled: string;
         };
     };
     border: {
@@ -39,10 +51,14 @@ export interface IKitCollapseCssTokens {
         background: {
             default: string;
             active: string;
+            disabled: string;
         };
         border: {
             default: string;
             active: string;
+        };
+        icon: {
+            disabled: string;
         };
     };
     border: {

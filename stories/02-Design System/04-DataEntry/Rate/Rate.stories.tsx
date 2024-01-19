@@ -8,6 +8,7 @@ import {faCircle as faCircleDefault} from '@fortawesome/free-regular-svg-icons';
 import {faCircle as faCircleActive} from '@fortawesome/free-solid-svg-icons';
 import {faCircleHalfStroke as faCircleHalf} from '@fortawesome/free-solid-svg-icons';
 import {Template} from './Template';
+import {KitTypography} from '@kit/General';
 
 const meta: Meta<typeof KitRate> = {
     component: KitRate,
@@ -27,81 +28,66 @@ export const Api: Story = {
 
 const secondaryColors = Object.keys(colorsPalette.secondary);
 
-export const Basic: Story = {
+export const ChromaticTest: Story = {
     render: () => (
-        <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
-            <KitRate defaultValue={2} />
-            <KitRate allowHalf defaultValue={2.5} />
-        </div>
-    ),
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
-};
-
-export const OtherCharacters: Story = {
-    render: () => (
-        <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
-            <KitRate
-                allowHalf
-                value={2.5}
-                defaultIcon={<FontAwesomeIcon icon={faCircleDefault} />}
-                halfIcon={<FontAwesomeIcon icon={faCircleHalf} />}
-                activeIcon={<FontAwesomeIcon icon={faCircleActive} />}
-            />
-        </div>
-    ),
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
-};
-
-export const ReadOnly: Story = {
-    render: () => (
-        <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
-            <KitRate disabled defaultValue={2} />
-        </div>
-    ),
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
-};
-
-export const Color: Story = {
-    render: () => {
-        return (
-            <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
-                <p style={{fontWeight: 'bold', margin: 0}}>Default color</p>
-                <KitRate defaultValue={3} />
-                <p style={{fontWeight: 'bold', margin: 0}}>Secondary Colors</p>
-                <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                    {secondaryColors.map((color: string) => (
-                        <KitRate key={color} defaultValue={3} color={color} />
-                    ))}
+        <div style={{ display: 'flex', gap: '100px'}}>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                <div>
+                    <KitTypography.Title level="h4">Basic rate</KitTypography.Title>
+                    <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                        <KitRate defaultValue={2} />
+                        <KitRate allowHalf defaultValue={2.5} />
+                    </div>
                 </div>
-                <p style={{fontWeight: 'bold', margin: 0}}>RGB format</p>
-                <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                    <KitRate defaultValue={3} color="rgba(252, 186, 3)" />
-                    <KitRate defaultValue={3} color="rgba(0, 29, 117)" />
-                    <KitRate defaultValue={3} color="rgba(133, 0, 101)" />
+                <div>
+                    <KitTypography.Title level="h4">Readonly</KitTypography.Title>
+                    <KitRate disabled defaultValue={2} />
                 </div>
-                <p style={{fontWeight: 'bold', margin: 0}}>HEX format</p>
-                <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                    <KitRate defaultValue={3} color="#fcba03" />
-                    <KitRate defaultValue={3} color="#001d75" />
-                    <KitRate defaultValue={3} color="#850065" />
+                <div>
+                    <KitTypography.Title level="h4">Other icon</KitTypography.Title>
+                    <KitRate
+                        allowHalf
+                        value={2.5}
+                        defaultIcon={<FontAwesomeIcon icon={faCircleDefault} />}
+                        halfIcon={<FontAwesomeIcon icon={faCircleHalf} />}
+                        activeIcon={<FontAwesomeIcon icon={faCircleActive} />}
+                    />
                 </div>
-
-                <p style={{fontWeight: 'bold', margin: 0}}>HSL format</p>
-                <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                    <KitRate defaultValue={3} color="hsla(44, 97%, 50%, 1)" />
-                    <KitRate defaultValue={3} color="hsla(225, 100%, 23%, 1)" />
-                    <KitRate defaultValue={3} color="hsla(314, 100%, 26%, 1)" />
+                <div>
+                    <KitTypography.Title level="h4">Secondary colors</KitTypography.Title>
+                    <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                        {secondaryColors.map((color: string) => (
+                            <KitRate key={color} defaultValue={3} color={color} />
+                        ))}
+                    </div>
                 </div>
             </div>
-        );
-    },
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
+            <div>
+                <div>
+                    <KitTypography.Title level="h4">RGB format</KitTypography.Title>
+                    <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                        <KitRate defaultValue={3} color="rgb(252, 186, 3)" />
+                        <KitRate defaultValue={3} color="rgb(0, 29, 117)" />
+                        <KitRate defaultValue={3} color="rgb(133, 0, 101)" />
+                    </div>
+                </div>
+                <div>
+                    <KitTypography.Title level="h4">HEX format</KitTypography.Title>
+                    <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                        <KitRate defaultValue={3} color="#fcba03" />
+                        <KitRate defaultValue={3} color="#001d75" />
+                        <KitRate defaultValue={3} color="#850065" />
+                    </div>
+                </div>
+                <div>
+                    <KitTypography.Title level="h4">HSM format</KitTypography.Title>
+                    <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                        <KitRate defaultValue={3} color="hsla(44, 97%, 50%, 1)" />
+                        <KitRate defaultValue={3} color="hsla(225, 100%, 23%, 1)" />
+                        <KitRate defaultValue={3} color="hsla(314, 100%, 26%, 1)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 };

@@ -1,79 +1,60 @@
-import {faEllipsis, faGear, faPencil} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {KitCard} from '@kit/DataDisplay';
-import {KitSwitch} from '@kit/DataEntry';
-import {KitIcon, KitTypography} from '@kit/General';
-import KitLink from '@kit/General/Typography/Link';
-import {KitSpace} from '@kit/Layout';
 import React, {useState} from 'react';
 import {IEditorTemplate} from '../../../types';
-import IKitCard from '@kit/DataDisplay/Card/types';
+import {KitCard} from '@kit/DataDisplay';
+import {IKitCardAction} from '@kit/DataDisplay/Card/types';
+import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowsUpDownLeftRight, faPencil, faTrashCan} from '@fortawesome/free-solid-svg-icons';
 
-export const Template = (args: IKitCard) => {
-    const [isCover, setCover] = useState(true);
-    const [isActions, setActions] = useState(true);
-    const [isExtra, setExtra] = useState(true);
-
-    return (
-        <KitSpace direction="vertical">
-            <KitSpace>
-                <KitTypography.Text>
-                    Cover: <KitSwitch defaultChecked onChange={setCover} />
-                </KitTypography.Text>
-                <KitTypography.Text>
-                    Actions: <KitSwitch defaultChecked onChange={setActions} />
-                </KitTypography.Text>
-                <KitTypography.Text>
-                    Extra: <KitSwitch defaultChecked onChange={setExtra} />
-                </KitTypography.Text>
-            </KitSpace>
-            <KitCard
-                {...args}
-                cover={isCover && <img alt="example" src="public/images/free-copyright.jpeg" />}
-                extra={isExtra && <KitLink href="#">More</KitLink>}
-                actions={
-                    isActions
-                        ? [
-                              <KitIcon
-                                  icon={<FontAwesomeIcon icon={faGear} />}
-                                  key="setting"
-                                  onClick={() => console.log('click button settings')}
-                              />,
-                              <KitIcon
-                                  icon={<FontAwesomeIcon icon={faPencil} />}
-                                  key="edit"
-                                  onClick={() => console.log('click button edit')}
-                              />,
-                              <KitIcon
-                                  icon={<FontAwesomeIcon icon={faEllipsis} />}
-                                  key="ellipsis"
-                                  onClick={() => console.log('click button ellipsis')}
-                              />
-                          ]
-                        : undefined
-                }
-            />
-        </KitSpace>
-    );
+export const Template = ({title = 'This is a title', ...args}) => {
+    return <KitCard title={title} {...args} />;
 };
 
 export const EditorTemplate: IEditorTemplate = () => {
+    const [selected, setSelected] = useState(false);
+    const [activated, setActivated] = useState(false);
+
+    const tags: IKitTagConfig[] = [
+        {wording: 'Multimédia'},
+        {wording: 'Promo 2021'},
+        {wording: 'Alimentation'},
+        {wording: 'Fromage'}
+    ];
+
+    const actions: IKitCardAction[] = [
+        {
+            key: '1',
+            label: 'Drag the content',
+            icon: <FontAwesomeIcon icon={faArrowsUpDownLeftRight} />,
+            onClick: () => console.log('Click on drag action')
+        },
+        {
+            key: '2',
+            label: 'Edit the content',
+            icon: <FontAwesomeIcon icon={faPencil} />,
+            onClick: () => console.log('Click on edit action')
+        },
+        {
+            key: '3',
+            label: 'Delete this item',
+            icon: <FontAwesomeIcon icon={faTrashCan} />,
+            onClick: () => console.log('Click on delete action')
+        }
+    ];
     return (
-        <KitSpace direction="vertical">
-            <KitCard
-                title="Card Title"
-                contentTitle="Promos mai"
-                contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
-                cover={<img alt="example" src="public/images/free-copyright.jpeg" />}
-            />
-            <KitCard
-                title="Card Title"
-                contentTitle="Promos mai"
-                contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
-                cover={<img alt="example" src="public/images/free-copyright.jpeg" />}
-                disabled
-            />
-        </KitSpace>
+        <KitCard
+            actions={actions}
+            activated={activated}
+            brandingBar={true}
+            description="Retrouvez le goût de Boursin® dans une texture délicieusement onctueuse et légère."
+            onActivate={() => setActivated(prev => !prev)}
+            onSelect={() => setSelected(prev => !prev)}
+            previewSrc="public/images/boursin.jpeg"
+            extra="4,99€"
+            selected={selected}
+            tags={tags}
+            title="Fromage Boursin ail et fines herbes - Format 150g"
+        />
     );
 };
 EditorTemplate.path = 'components.Card';

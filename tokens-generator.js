@@ -41,7 +41,7 @@ function _parseItem(item, defaultLabel, path) {
         if (item.description) {
             data['_description'] = item.description;
         }
-        Object.entries(item.properties).map(entry => {
+        Object.entries(item.properties ?? {}).map(entry => {
             data[entry[0]] = _parseItem(entry[1], entry[0], `${path}.${entry[0]}`);
         });
     } else {

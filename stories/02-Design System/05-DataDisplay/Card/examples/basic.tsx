@@ -1,15 +1,8 @@
-import React from 'react';
 import {KitCard} from '@kit/DataDisplay';
+import React from 'react';
 
 const App = () => {
-    return (
-        <KitCard
-            title="Card Title"
-            contentTitle="Promos mai"
-            contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
-            cover={<img alt="example" src="public/images/free-copyright.jpeg" />}
-        />
-    );
+    return <KitCard title="Nom du produit qui peut être long" previewSrc="public/images/boursin.jpeg" />;
 };
 
 export default App;

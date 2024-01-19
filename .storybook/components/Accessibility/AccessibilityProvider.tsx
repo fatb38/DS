@@ -1,6 +1,6 @@
 import React, {FunctionComponent, ReactNode, createContext, useCallback, useEffect, useRef, useState} from 'react';
 import axe from 'axe-core';
-import {merge} from 'lodash';
+import merge from 'lodash/merge';
 import {convert, themes} from '@storybook/theming';
 import {addons} from '@storybook/preview-api';
 import {HIGHLIGHT} from '@storybook/addon-highlight';

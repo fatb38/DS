@@ -282,7 +282,11 @@ export interface IKitSelectCssTokens {
     colors: {
         border: {
             hover: string;
-            focused: string;
+            focus: {
+                default: string;
+                warning: string;
+                error: string;
+            };
             disabled: string;
             warning: string;
             error: string;

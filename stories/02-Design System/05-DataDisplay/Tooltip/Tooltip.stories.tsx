@@ -22,7 +22,7 @@ export const Api: Story = {
     }
 };
 
-export const Basic: Story = {
+export const ChromaticTest: Story = {
     render: () => (
         <div style={{paddingLeft: '140px', paddingTop: '100px'}}>
             <div>
@@ -76,8 +76,5 @@ export const Basic: Story = {
                 </div>
             </div>
         </div>
-    ),
-    parameters: {
-        chromatic: {disableSnapshot: false}
-    }
+    )
 };

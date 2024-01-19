@@ -157,10 +157,6 @@ const StyledKitCheckbox = styled(Checkbox)`
     &.ant-checkbox-wrapper-danger:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked,
     &.ant-checkbox-wrapper-danger:not(.ant-checkbox-wrapper-disabled) .ant-checkbox:hover {
         .ant-checkbox-inner {
-            border-color: var(
-                ${kitCheckboxCssTokens.colors.border.danger.hover},
-                var(${kitColorsPaletteCssTokens.secondary.red.red500})
-            );
             background-color: var(
                 ${kitCheckboxCssTokens.colors.background.danger.hover},
                 var(${kitColorsPaletteCssTokens.secondary.red.red500})
@@ -169,15 +165,18 @@ const StyledKitCheckbox = styled(Checkbox)`
     }
 
     &.ant-checkbox-wrapper .ant-checkbox-input:focus + .ant-checkbox-inner {
-        border: 1px dashed
-            var(${kitCheckboxCssTokens.colors.border.focus}, var(${kitColorsPaletteCssTokens.primary.primary400}));
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 3px
+            var(${kitCheckboxCssTokens.colors.border.focus}, var(${kitColorsPaletteCssTokens.primary.primary200}));
+        border-color: transparent;
     }
 
     &.ant-checkbox-wrapper-danger .ant-checkbox-input:focus + .ant-checkbox-inner {
-        border: 1px dashed
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 3px
             var(
                 ${kitCheckboxCssTokens.colors.border.danger.focus},
-                var(${kitColorsPaletteCssTokens.secondary.red.red400})
+                var(${kitColorsPaletteCssTokens.secondary.red.red200})
             );
     }
 
@@ -186,8 +185,10 @@ const StyledKitCheckbox = styled(Checkbox)`
     &.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):not(.ant-checkbox-wrapper-danger):hover
         .ant-checkbox:focus-within
         .ant-checkbox-inner {
-        border: 1px dashed
-            var(${kitCheckboxCssTokens.colors.border.focus}, var(${kitColorsPaletteCssTokens.primary.primary400}));
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 3px
+            var(${kitCheckboxCssTokens.colors.border.focus}, var(${kitColorsPaletteCssTokens.primary.primary200}));
+        border-color: transparent;
         background-color: var(
             ${kitCheckboxCssTokens.colors.background.focus},
             var(${kitColorsPaletteCssTokens.neutral.white})

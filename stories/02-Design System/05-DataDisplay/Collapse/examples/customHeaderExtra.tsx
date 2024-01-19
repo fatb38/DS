@@ -2,7 +2,6 @@ import React from 'react';
 import {KitCollapse} from '@kit/DataDisplay/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMinus, faPercent, faPlus} from '@fortawesome/free-solid-svg-icons';
-import {faClock} from '@fortawesome/free-regular-svg-icons';
 
 const App = () => {
     const text = `
@@ -16,32 +15,17 @@ const App = () => {
             key: '1',
             label: (
                 <KitCollapse.Header
-                    icon={<FontAwesomeIcon icon={faClock} />}
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 1"
                     description="This is a description 1"
-                    tagContent={'sprint #5'}
-                />
-            ),
-            children: <p>{text}</p>,
-            extra: <KitCollapse.HeaderExtra onSelectChange={e => console.log('onSelectChange :', e)} />
-        },
-        {
-            key: '2',
-            label: (
-                <KitCollapse.Header
-                    icon={<FontAwesomeIcon icon={faClock} />}
-                    imageSrc="/public/images/catalog.jpg"
-                    title="Title 2"
-                    description="This is a description 2"
                     tagContent={'sprint #6'}
+                    onSwitchChange={checked => console.log(checked)}
                 />
             ),
             children: <p>{text}</p>,
             isActive: true,
             extra: (
                 <KitCollapse.HeaderExtra
-                    onSelectChange={e => console.log('onSelectChange :', e)}
                     actions={[
                         {
                             icon: <FontAwesomeIcon icon={faPlus} />,
@@ -58,20 +42,19 @@ const App = () => {
             )
         },
         {
-            key: '3',
+            key: '2',
             label: (
                 <KitCollapse.Header
-                    icon={<FontAwesomeIcon icon={faClock} />}
                     imageSrc="/public/images/catalog.jpg"
-                    title="Title 3"
-                    description="This is a description 3"
+                    title="Title 2"
+                    description="This is a description 2"
                     tagContent={'sprint #7'}
+                    onSwitchChange={checked => console.log(checked)}
                 />
             ),
             children: <p>{text}</p>,
             extra: (
                 <KitCollapse.HeaderExtra
-                    onSelectChange={e => console.log('onSelectChange :', e)}
                     actions={[
                         {
                             icon: <FontAwesomeIcon icon={faPlus} />,

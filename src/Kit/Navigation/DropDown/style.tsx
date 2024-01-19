@@ -80,6 +80,10 @@ export const DropDownStyle = createGlobalStyle`
                 );
                 padding: 0;
 
+               & > svg {
+                 padding-left: 10px;
+               }
+
                 &:not(:last-child) {
                     margin-bottom: 5px;
                 }

@@ -121,6 +121,20 @@ const StyledDatePicker = styled.div`
             );
             box-shadow: none;
 
+            &.ant-picker-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        ${kitDatePickerCssTokens.colors.border.focus.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange200})
+                    );
+
+                &:hover {
+                    border-color: transparent;
+                }
+            }
+
             &:hover {
                 background-color: var(
                     ${kitDatePickerCssTokens.colors.background.warning},
@@ -174,6 +188,20 @@ const StyledDatePicker = styled.div`
             );
             box-shadow: none;
 
+            &.ant-picker-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        ${kitDatePickerCssTokens.colors.border.focus.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red200})
+                    );
+
+                &:hover {
+                    border-color: transparent;
+                }
+            }
+
             &:hover {
                 background-color: var(
                     ${kitDatePickerCssTokens.colors.background.error},
@@ -217,8 +245,13 @@ const StyledDatePicker = styled.div`
         }
 
         &.ant-picker-focused {
-            border-style: dashed;
-            box-shadow: none;
+            border-color: transparent;
+            // TODO change to cards-border-stroke when available
+            box-shadow: 0 0 0 3px
+                var(
+                    ${kitDatePickerCssTokens.colors.border.focus.default},
+                    var(${kitColorsPaletteCssTokens.primary.primary200})
+                );
 
             &:not(.ant-picker-disabled) .ant-picker-input input::placeholder {
                 color: transparent;

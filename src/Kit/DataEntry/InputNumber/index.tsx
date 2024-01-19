@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react';
+import React, {forwardRef, useState} from 'react';
 import {InputNumber as AntdInputNumber} from 'antd';
 import {KitInputNumberProps} from './types';
 import {styled} from 'styled-components';
@@ -8,6 +8,7 @@ import {kitInputNumberCssTokens} from '@theme/aristid/components/DataEntry/Input
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {borderCssTokens} from '@theme/aristid/general/border';
+import classNames from 'classnames';
 
 const StyledAntdInputNumber = styled(AntdInputNumber)`
     font-weight: var(
@@ -41,17 +42,19 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
         }
     }
 
-    // Use :focus-within because antd doesn't add a "ant-input-number-affix-wrapper-focused" class
-    &.ant-input-number-focused,
-    &.ant-input-number-affix-wrapper:focus-within {
-        border-style: dashed;
-        border-color: var(
-            ${kitInputNumberCssTokens.colors.border.focused},
-            var(${kitColorsPaletteCssTokens.primary.primary400})
-        );
+    &.ant-input-number-affix-wrapper.kit-input-number-affix-wrapper-focused,
+    &.ant-input-number.kit-input-number-affix-wrapper-focused {
+        border-color: transparent;
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 3px
+            var(
+                ${kitInputNumberCssTokens.colors.border.focus.default},
+                var(${kitColorsPaletteCssTokens.primary.primary200})
+            );
 
-        &:not(.ant-input-borderless):not(.ant-input-disabled) {
-            box-shadow: none;
+        &.ant-input::placeholder,
+        .ant-input::placeholder {
+            color: transparent;
         }
     }
 
@@ -83,13 +86,6 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
                 );
             }
         }
-
-        &.ant-input-number-affix-wrapper .ant-input-number-prefix {
-            color: var(
-                ${kitInputNumberCssTokens.colors.prefix.disabled},
-                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
-            );
-        }
     }
 
     &.ant-input-number-affix-wrapper {
@@ -97,14 +93,6 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
             .ant-input-number-input {
                 padding: 0px 10px 0px 0px;
             }
-        }
-
-        .ant-input-number-prefix {
-            margin-inline-end: 10px;
-            color: var(
-                ${kitInputNumberCssTokens.colors.prefix.default},
-                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
-            );
         }
 
         .ant-input-number {
@@ -128,7 +116,6 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
             ${kitInputNumberCssTokens.colors.background.warning},
             var(${kitColorsPaletteCssTokens.secondary.orange.orange100})
         );
-        box-shadow: none;
 
         .ant-input-number-input-wrap {
             background-color: var(
@@ -157,19 +144,19 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
                 var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
             );
 
-            &:hover,
-            &:focus {
-                border-color: var(
-                    ${kitInputNumberCssTokens.colors.border.warning},
-                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
-                );
-            }
+            &.ant-input-number-affix-wrapper.kit-input-number-affix-wrapper-focused,
+            &.ant-input-number.kit-input-number-affix-wrapper-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        ${kitInputNumberCssTokens.colors.border.focus.warning},
+                        var(${kitColorsPaletteCssTokens.secondary.orange.orange200})
+                    );
 
-            &.ant-input-number-affix-wrapper .ant-input-number-prefix {
-                color: var(
-                    ${kitInputNumberCssTokens.colors.prefix.warning},
-                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
-                );
+                &:hover {
+                    border-color: transparent;
+                }
             }
         }
     }
@@ -210,19 +197,19 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
                 var(${kitColorsPaletteCssTokens.secondary.red.red400})
             );
 
-            &:hover,
-            &:focus {
-                border-color: var(
-                    ${kitInputNumberCssTokens.colors.border.error},
-                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
-                );
-            }
+            &.ant-input-number-affix-wrapper.kit-input-number-affix-wrapper-focused,
+            &.ant-input-number.kit-input-number-affix-wrapper-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        ${kitInputNumberCssTokens.colors.border.focus.error},
+                        var(${kitColorsPaletteCssTokens.secondary.red.red200})
+                    );
 
-            &.ant-input-number-affix-wrapper .ant-input-number-prefix {
-                color: var(
-                    ${kitInputNumberCssTokens.colors.prefix.error},
-                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
-                );
+                &:hover {
+                    border-color: transparent;
+                }
             }
         }
     }
@@ -231,6 +218,11 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
 export const KitInputNumber = forwardRef<HTMLInputElement, KitInputNumberProps>(
     ({label, helper, wrapperClassName, className, ...inputNumberProps}, ref) => {
         const {appId} = useKitTheme();
+        const [hasFocus, setHasFocus] = useState(false);
+
+        const inputNumberClassNames = classNames(appId, className, {
+            'kit-input-number-affix-wrapper-focused': hasFocus
+        });
 
         return (
             <KitInputWrapper
@@ -240,7 +232,13 @@ export const KitInputNumber = forwardRef<HTMLInputElement, KitInputNumberProps>(
                 status={inputNumberProps.status}
                 className={wrapperClassName}
             >
-                <StyledAntdInputNumber ref={ref} className={`${appId} ${className ?? ''}`} {...inputNumberProps} />
+                <StyledAntdInputNumber
+                    ref={ref}
+                    onFocus={() => setHasFocus(true)}
+                    onBlur={() => setHasFocus(false)}
+                    className={inputNumberClassNames}
+                    {...inputNumberProps}
+                />
             </KitInputWrapper>
         );
     }

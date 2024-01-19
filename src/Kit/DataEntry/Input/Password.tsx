@@ -145,14 +145,18 @@ const StyledAntdPassword = styled(AntdInput.Password)`
                     ${kitInputPasswordCssTokens.colors.border.error},
                     var(${kitColorsPaletteCssTokens.secondary.red.red400})
                 );
-                box-shadow: none;
+                &.ant-input-affix-wrapper-focused {
+                    border-color: transparent;
+                    // TODO change to cards-border-stroke when available
+                    box-shadow: 0 0 0 3px
+                        var(
+                            ${kitInputPasswordCssTokens.colors.border.focus.error},
+                            var(${kitColorsPaletteCssTokens.secondary.red.red200})
+                        );
 
-                &:hover,
-                &:focus {
-                    border-color: var(
-                        ${kitInputPasswordCssTokens.colors.border.error},
-                        var(${kitColorsPaletteCssTokens.secondary.red.red400})
-                    );
+                    &:hover {
+                        border-color: transparent;
+                    }
                 }
             }
 
@@ -215,14 +219,18 @@ const StyledAntdPassword = styled(AntdInput.Password)`
                     ${kitInputPasswordCssTokens.colors.border.warning},
                     var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
                 );
-                box-shadow: none;
+                &.ant-input-affix-wrapper-focused {
+                    border-color: transparent;
+                    // TODO change to cards-border-stroke when available
+                    box-shadow: 0 0 0 3px
+                        var(
+                            ${kitInputPasswordCssTokens.colors.border.focus.warning},
+                            var(${kitColorsPaletteCssTokens.secondary.orange.orange200})
+                        );
 
-                &:hover,
-                &:focus {
-                    border-color: var(
-                        ${kitInputPasswordCssTokens.colors.border.warning},
-                        var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
-                    );
+                    &:hover {
+                        border-color: transparent;
+                    }
                 }
             }
 
@@ -270,8 +278,13 @@ const StyledAntdPassword = styled(AntdInput.Password)`
         }
 
         &.ant-input-affix-wrapper-focused {
-            border-style: dashed;
-            box-shadow: none;
+            // TODO change to cards-border-stroke when available
+            border-color: transparent;
+            box-shadow: 0 0 0 3px
+                var(
+                    ${kitInputPasswordCssTokens.colors.border.focus.default},
+                    var(${kitColorsPaletteCssTokens.primary.primary200})
+                );
 
             .ant-input::placeholder {
                 color: transparent;

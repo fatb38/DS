@@ -138,10 +138,12 @@ export type IKitRadioCssTokens = {
             default: string;
             checked: string;
             hover: string;
+            focus: string;
             disabled: string;
             danger: {
                 default: string;
                 hover: string;
+                focus: string;
             };
         };
         background: {

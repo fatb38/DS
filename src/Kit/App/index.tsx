@@ -17,24 +17,25 @@ import {ColorPickerPanelStyle} from '@kit/DataEntry/ColorPicker/style';
 import {TourStyle} from '@kit/DataDisplay/Tour/style';
 import {useKitLocale} from '@translation/useKitLocale';
 import {KitNotificationProvider} from '@kit/Feedback/Notification/notification-provider';
-import './font.css';
+import { KitFontStyle } from '@kit/Font';
 
 export const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;
     locale?: IKitLocale;
     children?: ReactNode;
     id?: string;
-}> = ({children, locale, customTheme, id}) => {
+    includeFont?: boolean
+}> = ({children, locale, customTheme, id, includeFont = true}) => {
     return (
         <KitThemeProvider customTheme={customTheme} id={id}>
             <KitLocaleProvider>
-                <KitAppConfig locale={locale}>{children}</KitAppConfig>
+                <KitAppConfig locale={locale} includeFont={includeFont}>{children}</KitAppConfig>
             </KitLocaleProvider>
         </KitThemeProvider>
     );
 };
 
-const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale}>> = ({children, locale}) => {
+const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale, includeFont?: boolean}>> = ({children, locale, includeFont}) => {
     const {setKitLocale} = useKitLocale();
 
     useEffect(() => {
@@ -46,6 +47,7 @@ const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale}>> 
     return (
         <ConfigProvider theme={antdThemeConfig} locale={mapKitLocaleToAntdLocale(locale)}>
             <KitNotificationProvider>
+                {includeFont && <KitFontStyle/>}
                 <KitSnackBarProvider />
                 <ColorPickerPanelStyle />
                 <DropDownStyle />
