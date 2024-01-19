@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.10.0](https://www.npmjs.com/package/aristid-ds/v/0.10.0) (2024-01-19)
+
+### ✨ Features
+  * **⚠️ Breaking change - Card:**
+    * Update visual render and properties (@Delmotte-Vincent)
+    * This `Card` aim to replace actual `Card` and `ItemCard`
+  * **⚠️ Breaking change - Collapse:**
+    * Update visual render (@philippechevieux)
+    * Update properties of `KitHeader` and `KitExtraHeader`
+  * **Notification:**
+    * Update visual render (@evoiron, @renaudAmsellem)
+  * **DataEntry components:**
+    * Update visual render of `hover` and `focus` state for all those components (@evoiron, @renaudAmsellem)
+  * **Antd components:**
+    * Export all components of `Ant Design`. Those components are now available in `aristid-ds`, all prefixed by `Ant` (eg `AntLayout`) (@evoiron)
+  * **Tree shaking:**
+    * All components are now tree shakable (@evoiron)
+
+### 🚨 Tests
+
+* **Chromatic:**
+  * Reduce number of snapshots (Group set of visual tests) (@fatb38)
+
 ## [0.9.1](https://www.npmjs.com/package/aristid-ds/v/0.9.1) (2023-12-22)
 
 ### 🐛 Bug Fixes
