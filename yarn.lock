@@ -4263,6 +4263,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/estree@npm:0.0.39":
+  version: 0.0.39
+  resolution: "@types/estree@npm:0.0.39"
+  checksum: f0af6c95ac1988c4827964bd9d3b51d24da442e2188943f6dfcb1e1559103d5d024d564b2e9d3f84c53714a02a0a7435c7441138eb63d9af5de4dfc66cdc0d92
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:^0.0.51":
   version: 0.0.51
   resolution: "@types/estree@npm:0.0.51"
@@ -4518,6 +4525,16 @@ __metadata:
   version: 1.20.6
   resolution: "@types/resolve@npm:1.20.6"
   checksum: a9b0549d816ff2c353077365d865a33655a141d066d0f5a3ba6fd4b28bc2f4188a510079f7c1f715b3e7af505a27374adce2a5140a3ece2a059aab3d6e1a4244
+  languageName: node
+  linkType: hard
+
+"@types/rollup-plugin-url@npm:^3":
+  version: 3.0.4
+  resolution: "@types/rollup-plugin-url@npm:3.0.4"
+  dependencies:
+    "@types/node": "npm:*"
+    rollup: "npm:^0.63.4"
+  checksum: 123ec64a898e941fd33bae6ab54f9d840add0d7e906f81a0502748d5be42c1d6fe2c555ac6b43609b5b61adb8e9ed6d466bd773449a4ef60b37b145413211ad1
   languageName: node
   linkType: hard
 
@@ -5249,6 +5266,7 @@ __metadata:
     "@types/color-string": "npm:^1.5.5"
     "@types/react": "npm:^18.2.15"
     "@types/react-dom": "npm:^18.2.7"
+    "@types/rollup-plugin-url": "npm:^3"
     "@typescript-eslint/eslint-plugin": "npm:^6.0.0"
     "@typescript-eslint/parser": "npm:^6.0.0"
     "@vitejs/plugin-react": "npm:^4.0.3"
@@ -5281,6 +5299,7 @@ __metadata:
     remark-gfm: "npm:^3.0.1"
     rollup-plugin-multi-input: "npm:^1.4.1"
     rollup-plugin-uglify: "npm:^6.0.4"
+    rollup-plugin-url: "npm:^3.0.1"
     rollup-plugin-visualizer: "npm:^5.9.2"
     rollup-plugin-webpack-stats: "npm:^0.2.0"
     short-unique-id: "npm:^5.0.2"
@@ -7018,6 +7037,13 @@ __metadata:
   version: 5.3.0
   resolution: "estraverse@npm:5.3.0"
   checksum: 1ff9447b96263dec95d6d67431c5e0771eb9776427421260a3e2f0fdd5d6bd4f8e37a7338f5ad2880c9f143450c9b1e4fc2069060724570a49cf9cf0312bd107
+  languageName: node
+  linkType: hard
+
+"estree-walker@npm:^0.6.1":
+  version: 0.6.1
+  resolution: "estree-walker@npm:0.6.1"
+  checksum: 6dabc855faa04a1ffb17b6a9121b6008ba75ab5a163ad9dc3d7fca05cfda374c5f5e91418d783496620ca75e99a73c40874d8b75f23b4117508cc8bde78e7b41
   languageName: node
   linkType: hard
 
@@ -9599,7 +9625,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime@npm:^2.0.3":
+"mime@npm:^2.0.3, mime@npm:^2.4.4":
   version: 2.6.0
   resolution: "mime@npm:2.6.0"
   bin:
@@ -11750,6 +11776,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rollup-plugin-url@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "rollup-plugin-url@npm:3.0.1"
+  dependencies:
+    mime: "npm:^2.4.4"
+    rollup-pluginutils: "npm:^2.8.2"
+  peerDependencies:
+    rollup: ">=0.60.0"
+  checksum: 446e976cae282c26ceb9e4369e091f213435b1aef5e158b2fb020d769263d04fda2428a75af7342e8d7ba38ed43db36def6a7281972a78a0858baf0caf079e72
+  languageName: node
+  linkType: hard
+
 "rollup-plugin-visualizer@npm:^5.9.2":
   version: 5.9.3
   resolution: "rollup-plugin-visualizer@npm:5.9.3"
@@ -11775,6 +11813,27 @@ __metadata:
   peerDependencies:
     rollup: ^3.0.0
   checksum: c68a039b37452763019b454ca48fe6cd8c002cd7a08e580ffa7df99d35cf4cf4f692b8815be740663e6cbd0671fa3785b32d23d191d7c15f4e02171b09fcf68e
+  languageName: node
+  linkType: hard
+
+"rollup-pluginutils@npm:^2.8.2":
+  version: 2.8.2
+  resolution: "rollup-pluginutils@npm:2.8.2"
+  dependencies:
+    estree-walker: "npm:^0.6.1"
+  checksum: 20947bec5a5dd68b5c5c8423911e6e7c0ad834c451f1a929b1f4e2bc08836ad3f1a722ef2bfcbeca921870a0a283f13f064a317dc7a6768496e98c9a641ba290
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^0.63.4":
+  version: 0.63.5
+  resolution: "rollup@npm:0.63.5"
+  dependencies:
+    "@types/estree": "npm:0.0.39"
+    "@types/node": "npm:*"
+  bin:
+    rollup: ./bin/rollup
+  checksum: e8a7c31155fb3d8a9a2c65933a2c3a1125244a4e1e2ba3f2703322532d54fc6304b15fafd5821e5ba7bd8a70bac5119dd85ecd5957ddc131f99905b7c3d4e69d
   languageName: node
   linkType: hard
 
