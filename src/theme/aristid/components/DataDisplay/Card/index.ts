@@ -1,27 +1,51 @@
 import {IKitCardCssTokens} from '@theme/types/components/DataDisplay/Card';
-import {generateCssTokens} from '@theme/utils/css-tokens-generator.ts';
+import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
-export const kitCardCssTokens = generateCssTokens<IKitCardCssTokens>(
-  '--components-Card',
-  {
+export const kitCardCssTokens = generateCssTokens<IKitCardCssTokens>('--components-Card', {
     colors: {
-        actions: {default: '', disabled: '', hover: ''},
-        background: {default: '', disabled: ''},
-        border: {default: '', disabled: '', focus: '', hover: ''},
-        separator: {default: ''},
-        shadow: {default: '', disabled: '', focus: '', hover: ''},
+        background: {
+            default: '',
+            disabled: ''
+        },
         typography: {
-            contentTitle: {default: '', disabled: ''},
-            description: {default: '', disabled: ''},
-            extra: {default: '', disabled: '', hover: ''},
-            headerTitle: {default: '', disabled: ''}
+            title: {
+                default: '',
+                disabled: ''
+            },
+            description: {
+                default: '',
+                disabled: ''
+            },
+            extra: {
+                default: '',
+                disabled: ''
+            }
+        },
+        border: {
+            default: '',
+            focus: '',
+            hover: '',
+            disabled: '',
+            selected: ''
+        },
+        separator: {
+            default: '',
+            disabled: ''
         }
     },
     typography: {
-        contentTitle: {fontSize: '', fontWeight: ''},
-        description: {fontSize: '', fontWeight: ''},
         fontFamily: '',
-        headerTitle: {fontSize: '', fontWeight: ''},
-        linkIcon: {fontSize: ''}
+        title: {
+            fontSize: '',
+            fontWeight: ''
+        },
+        description: {
+            fontSize: '',
+            fontWeight: ''
+        },
+        extra: {
+            fontSize: '',
+            fontWeight: ''
+        }
     }
 });

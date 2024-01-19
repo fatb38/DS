@@ -1,12 +1,14 @@
-import React, {FC} from 'react';
-import {KitTypography} from '@kit/General';
+import {faArrowsUpDownLeftRight, faPencil, faTrashCan} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {KitCard} from '@kit/DataDisplay';
 import {IKitCardAction} from '@kit/DataDisplay/Card/types';
 import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArrowsUpDownLeftRight, faPencil, faTrashCan} from '@fortawesome/free-solid-svg-icons';
-import {KitCard} from '@kit/DataDisplay';
+import React, {useState} from 'react';
 
-export const CompleteCardTest: FC = () => {
+const App = () => {
+    const [selected, setSelected] = useState(false);
+    const [activated, setActivated] = useState(false);
+
     const tags: IKitTagConfig[] = [
         {wording: 'Multimédia'},
         {wording: 'Promo 2021'},
@@ -34,21 +36,22 @@ export const CompleteCardTest: FC = () => {
             onClick: () => console.log('Click on delete action')
         }
     ];
-    return (
-        <div>
-            <KitTypography.Title level="h3">Complete card</KitTypography.Title>
 
-            <KitCard
-                actions={actions}
-                brandingBar={true}
-                description="Retrouvez le goût de Boursin® dans une texture délicieusement onctueuse et légère."
-                onActivate={() => {}}
-                onSelect={() => {}}
-                previewSrc="public/images/boursin.jpeg"
-                extra="4,99€"
-                tags={tags}
-                title="Fromage Boursin ail et fines herbes - Format 150g"
-            />
-        </div>
+    return (
+        <KitCard
+            actions={actions}
+            activated={activated}
+            brandingBar={true}
+            description="Retrouvez le goût de Boursin® dans une texture délicieusement onctueuse et légère."
+            onActivate={() => setActivated(prev => !prev)}
+            onSelect={() => setSelected(prev => !prev)}
+            previewSrc="public/images/boursin.jpeg"
+            extra="4,99€"
+            selected={selected}
+            tags={tags}
+            title="Fromage Boursin ail et fines herbes - Format 150g"
+        />
     );
 };
+
+export default App;

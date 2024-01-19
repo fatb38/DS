@@ -1,4 +1,4 @@
-export interface IKitCardTheme {
+export interface IKitLegacyCardTheme {
     colors: {
         background: {
             /**
@@ -7,20 +7,32 @@ export interface IKitCardTheme {
              */
             default: string;
             /**
-             * default color
+             * disabled color
              * @TJS-type color
              */
             disabled: string;
         };
         typography: {
-            title: {
+            headerTitle: {
                 /**
                  * default color
                  * @TJS-type color
                  */
                 default: string;
                 /**
+                 * disabled color
+                 * @TJS-type color
+                 */
+                disabled: string;
+            };
+            contentTitle: {
+                /**
                  * default color
+                 * @TJS-type color
+                 */
+                default: string;
+                /**
+                 * disabled color
                  * @TJS-type color
                  */
                 disabled: string;
@@ -32,7 +44,7 @@ export interface IKitCardTheme {
                  */
                 default: string;
                 /**
-                 * default color
+                 * disabled color
                  * @TJS-type color
                  */
                 disabled: string;
@@ -44,7 +56,12 @@ export interface IKitCardTheme {
                  */
                 default: string;
                 /**
-                 * default color
+                 * hover color
+                 * @TJS-type color
+                 */
+                hover: string;
+                /**
+                 * disabled color
                  * @TJS-type color
                  */
                 disabled: string;
@@ -57,25 +74,20 @@ export interface IKitCardTheme {
              */
             default: string;
             /**
-             * default color
+             * focus color
              * @TJS-type color
              */
             focus: string;
             /**
-             * default color
+             * hover color
              * @TJS-type color
              */
             hover: string;
             /**
-             * default color
+             * disabled color
              * @TJS-type color
              */
             disabled: string;
-            /**
-             * default color
-             * @TJS-type color
-             */
-            selected: string;
         };
         separator: {
             /**
@@ -83,16 +95,50 @@ export interface IKitCardTheme {
              * @TJS-type color
              */
             default: string;
+        };
+        actions: {
             /**
              * default color
              * @TJS-type color
              */
+            default: string;
+            /**
+             * disabled color
+             * @TJS-type color
+             */
             disabled: string;
+            /**
+             * hover color
+             * @TJS-type color
+             */
+            hover: string;
+        };
+        shadow: {
+            /**
+             * default color
+             * @TJS-type color
+             */
+            default: string;
+            /**
+             * disabled color
+             * @TJS-type color
+             */
+            disabled: string;
+            /**
+             * hover color
+             * @TJS-type color
+             */
+            hover: string;
+            /**
+             * focus color
+             * @TJS-type color
+             */
+            focus: string;
         };
     };
     typography: {
         fontFamily: string;
-        title: {
+        headerTitle: {
             /**
              * @minimum 0
              * @TJS-type number
@@ -104,7 +150,7 @@ export interface IKitCardTheme {
              */
             fontWeight: string | number;
         };
-        description: {
+        contentTitle: {
             /**
              * @minimum 0
              * @TJS-type number
@@ -116,7 +162,7 @@ export interface IKitCardTheme {
              */
             fontWeight: string | number;
         };
-        extra: {
+        desciption: {
             /**
              * @minimum 0
              * @TJS-type number
@@ -127,18 +173,29 @@ export interface IKitCardTheme {
              * @TJS-type number
              */
             fontWeight: string | number;
+        };
+        linkIcon: {
+            /**
+             * @minimum 0
+             * @TJS-type number
+             */
+            fontSize: number;
         };
     };
 }
 
-export interface IKitCardCssTokens {
+export interface IKitLegacyCardCssTokens {
     colors: {
         background: {
             default: string;
             disabled: string;
         };
         typography: {
-            title: {
+            headerTitle: {
+                default: string;
+                disabled: string;
+            };
+            contentTitle: {
                 default: string;
                 disabled: string;
             };
@@ -148,6 +205,7 @@ export interface IKitCardCssTokens {
             };
             extra: {
                 default: string;
+                hover: string;
                 disabled: string;
             };
         };
@@ -156,16 +214,29 @@ export interface IKitCardCssTokens {
             focus: string;
             hover: string;
             disabled: string;
-            selected: string;
         };
         separator: {
             default: string;
+        };
+        actions: {
+            default: string;
             disabled: string;
+            hover: string;
+        };
+        shadow: {
+            default: string;
+            disabled: string;
+            hover: string;
+            focus: string;
         };
     };
     typography: {
         fontFamily: string;
-        title: {
+        headerTitle: {
+            fontSize: string;
+            fontWeight: string;
+        };
+        contentTitle: {
             fontSize: string;
             fontWeight: string;
         };
@@ -173,9 +244,8 @@ export interface IKitCardCssTokens {
             fontSize: string;
             fontWeight: string;
         };
-        extra: {
+        linkIcon: {
             fontSize: string;
-            fontWeight: string;
         };
     };
 }

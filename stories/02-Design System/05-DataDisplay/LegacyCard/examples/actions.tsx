@@ -1,6 +1,6 @@
 import {faEllipsisVertical, faGear, faPencil} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {KitCard} from '@kit/DataDisplay';
+import {KitLegacyCard} from '@kit/DataDisplay';
 import {KitSpace} from '@kit/Layout';
 import React from 'react';
 import {KitIcon} from '@kit/General';
@@ -8,7 +8,7 @@ import {KitIcon} from '@kit/General';
 const App = () => {
     return (
         <KitSpace direction="vertical">
-            <KitCard
+            <KitLegacyCard
                 contentTitle="Promos mai"
                 contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
                 actions={[
@@ -19,7 +19,7 @@ const App = () => {
                     />
                 ]}
             />
-            <KitCard
+            <KitLegacyCard
                 contentTitle="Promos mai"
                 contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
                 actions={[
@@ -35,7 +35,7 @@ const App = () => {
                     />
                 ]}
             />
-            <KitCard
+            <KitLegacyCard
                 contentTitle="Promos mai"
                 contentDescription="Les promotions de mai démarrent bientôt. Pensez à télécharger vos PLV."
                 actions={[

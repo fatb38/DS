@@ -1,11 +1,9 @@
 import type {Meta, StoryObj} from '@storybook/react';
+import {Template} from './Template';
 import {argTypes} from './data';
 import {KitCard} from '@kit/DataDisplay';
 import React from 'react';
-import {Template} from './Template';
-import {CompleteCardTest} from './test-components/CompleteCardTest.tsx';
-import {DisabledCardTest} from './test-components/DisabledCardTest.tsx';
-import {NoImageCardTest} from './test-components/NoImageCardTest.tsx';
+import {CompleteCardTest} from './test-components/CompleteCardTest';
 
 const meta: Meta<typeof KitCard> = {
     component: KitCard,
@@ -24,13 +22,5 @@ export const Api: Story = {
 };
 
 export const ChromaticTest: Story = {
-    render: () => (
-        <div>
-            <div style={{display: 'flex', gap: '50px'}}>
-                <CompleteCardTest />
-                <DisabledCardTest />
-            </div>
-            <NoImageCardTest />
-        </div>
-    )
+    render: () => <CompleteCardTest />
 };

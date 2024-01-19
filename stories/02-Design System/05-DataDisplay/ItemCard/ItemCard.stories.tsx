@@ -8,7 +8,7 @@ import {DisabledItemCardTest} from './test-components/DisabledItemCardTest.tsx';
 
 const meta: Meta<typeof KitItemCard> = {
     component: KitItemCard,
-    title: 'Design System/DataDisplay/ItemCard',
+    //title: 'Design System/DataDisplay/ItemCard',
     argTypes: argTypes
 };
 

@@ -1,0 +1,70 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Examples, { Sources } from './examples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
+import * as KitCardStories from './LegacyCard.stories';
+
+<Meta of={KitCardStories} />
+
+# Card
+
+Simple rectangular container.
+
+## Usage
+
+A card can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.
+
+## Examples
+
+##### Basic
+This is a basic Card example.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="template-basic"/>
+
+##### Image
+Card with an image.
+
+<CustomCanvas content={Examples.WithImage} source={Sources.WithImage} id="template-with-image"/>
+
+##### Content
+Card with a content.
+
+<CustomCanvas content={Examples.WithContent} source={Sources.WithContent} id="template-with-content"/>
+
+##### Extra
+You can pass an extra action on the Header with props `extra`.
+
+<CustomCanvas content={Examples.Extra} source={Sources.Extra} id="template-extra"/>
+
+##### Actions
+You can pass some actions to the card with props `actions`.
+
+<CustomCanvas content={Examples.Actions} source={Sources.Actions} id="template-actions"/>
+
+##### Disabled
+Card, extra and actions can be disabled with props `disabled`.
+
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="template-disabled"/>
+
+##### Separator
+Separator between title and content with the props `separator`.
+
+<CustomCanvas content={Examples.Separator} source={Sources.Separator} id="template-separator"/>
+
+##### Redirection link
+Link icon is display when an action is pass to props `onContentTitleClick`.
+
+<CustomCanvas content={Examples.Link} source={Sources.Link} id="template-link"/>
+
+## Api
+
+<Canvas of={KitCardStories.Api} />
+
+<Controls of={KitCardStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Card" tokens={fields?.components?.Card} />

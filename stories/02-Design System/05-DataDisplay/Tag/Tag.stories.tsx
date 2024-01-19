@@ -1,10 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {KitTag} from '@kit/DataDisplay';
+
 import {argTypes} from './data';
 import React from 'react';
 import {colorsPalette} from '@theme/aristid/general/colors';
 import {Template} from './Template';
 import {KitTypography} from '@kit/General';
+import {KitTag} from '@kit/DataDisplay';
+import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
 
 const meta: Meta<typeof KitTag> = {
     component: KitTag,
@@ -23,6 +25,14 @@ export const Api: Story = {
 };
 
 const secondaryColors = Object.keys(colorsPalette.secondary);
+
+const tags: IKitTagConfig[] = [
+    {wording: 'Multimédia'},
+    {wording: 'Promo 2021'},
+    {wording: 'Alimentation'},
+    {wording: 'Fromage'}
+];
+
 export const ChromaticTest: Story = {
     render: () => (
         <>
@@ -69,6 +79,11 @@ export const ChromaticTest: Story = {
                     <KitTag color="hsla(44, 97%, 50%, 1)">Yellow</KitTag>
                     <KitTag color="hsla(225, 100%, 23%, 1)">Dark blue</KitTag>
                     <KitTag color="hsla(314, 100%, 26%, 1)">Purple</KitTag>
+                </div>
+                <KitTypography.Title level="h3">Group Tag</KitTypography.Title>
+                <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                    <KitTag.Group tags={tags} style={{width: '500px'}} />
+                    <KitTag.Group tags={tags} style={{width: '200px'}} />
                 </div>
             </div>
         </>

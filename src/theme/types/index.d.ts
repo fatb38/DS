@@ -20,7 +20,7 @@ import {IKitTreeTheme} from './components/DataDisplay/Tree';
 import {IKitInputNumberTheme} from './components/DataEntry/InputNumber';
 import {IKitSwitchTheme} from './components/DataEntry/Switch';
 import {IKitSelectTheme} from './components/DataEntry/Select';
-import {IKitCardTheme} from './components/DataDisplay/Card';
+import {IKitLegacyCardTheme} from './components/DataDisplay/LegacyCard';
 import {IKitCheckboxTheme} from './components/DataEntry/Checkbox';
 import {IKitDatePickerTheme} from './components/DataEntry/DatePicker';
 import {IKitUploadTheme} from './components/DataEntry/Upload';
@@ -41,6 +41,7 @@ import {IKitIconTheme} from './components/General/Icon';
 import {IKitTypographyTheme} from './components/General/Typography';
 import {IKitColorPickerTheme} from './components/DataEntry/ColorPicker';
 import {ThemeConfig} from 'antd';
+import {IKitCardTheme} from './components/DataDisplay/Card';
 
 export type DeepPartial<T> = T extends object
     ? {
@@ -57,6 +58,7 @@ export interface IKitThemeGeneral {
 
 export interface IKitThemeComponents {
     Button: IKitButtonTheme;
+    LegacyCard: IKitLegacyCardTheme;
     Card: IKitCardTheme;
     Rate: IKitRateTheme;
     Tooltip: IKitTooltipTheme;

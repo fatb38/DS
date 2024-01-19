@@ -1,9 +1,9 @@
 import React from 'react';
-import {KitCard} from '@kit/DataDisplay';
+import {KitLegacyCard} from '@kit/DataDisplay';
 
 const App = () => {
     return (
-        <KitCard
+        <KitLegacyCard
             title="Card title"
             cover={<img alt="example" src={'public/images/free-copyright.jpeg'} />}
             contentTitle="Content Title"

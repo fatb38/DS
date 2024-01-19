@@ -1,31 +1,32 @@
-import {CardProps} from 'antd';
+import {CSSProperties, ReactNode} from 'react';
+import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
+import {CheckboxChangeEvent} from 'antd/lib/checkbox';
+import {SwitchChangeEventHandler} from 'antd/lib/switch';
 
-type AntdCardTypesToOmit =
-    | 'size'
-    | 'type'
-    | 'bordered'
-    | 'bodyStyle'
-    | 'hoverable'
-    | 'tabProps'
-    | 'tabList'
-    | 'defaultActiveTabKey'
-    | 'tabBarExtraContent'
-    | 'onTabChange';
-
-export default interface IKitCard extends Omit<CardProps, AntdCardTypesToOmit> {
+export interface IKitCard {
+    title: string;
+    actions?: IKitCardAction[];
+    activated?: boolean;
+    brandingBar?: boolean;
+    className?: string;
+    description?: string;
+    extra?: string;
+    style?: CSSProperties;
     disabled?: boolean;
-    contentTitle?: string;
-    contentDescription?: string;
-    separator?: boolean;
-    onContentTitleClick?: () => void;
+    previewSrc?: string;
+    onActivate?: SwitchChangeEventHandler;
+    onSelect?: (e: CheckboxChangeEvent) => void;
+    selected?: boolean;
+    tags?: IKitTagConfig[];
+}
+
+export interface IKitCardAction {
+    key: string;
+    label: string;
+    icon: ReactNode;
+    onClick: (e: unknown) => void;
 }
 
 export interface IStyledKitCard {
-    $disabled: boolean;
-    $separator: boolean;
-}
-
-export interface IStyledKitCardContentTitleContainer {
-    $isContentTitleClick: boolean;
-    $disabled: boolean;
+    $brandingBar: boolean;
 }

@@ -1,4 +1,4 @@
-import React, {CSSProperties, FunctionComponent, useMemo} from 'react';
+import React, {CSSProperties, forwardRef, useMemo} from 'react';
 import {Tag} from 'antd';
 import styled from 'styled-components';
 import {IKitTag} from './types';
@@ -71,30 +71,26 @@ const getCustomColors = (
     return null;
 };
 
-const KitTag: FunctionComponent<IKitTag> = ({
-    className,
-    closeIcon,
-    color,
-    style,
-    secondaryColorInvert = false,
-    ...tagProps
-}) => {
-    const {appId} = useKitTheme();
+const KitTag = forwardRef<HTMLElement, IKitTag>(
+    ({className, closeIcon, color, style, secondaryColorInvert = false, ...tagProps}, ref) => {
+        const {appId} = useKitTheme();
 
-    const customStyle = useMemo(
-        () => ({...style, ...getCustomColors(color, secondaryColorInvert)}),
-        [color, secondaryColorInvert, style]
-    );
+        const customStyle = useMemo(
+            () => ({...style, ...getCustomColors(color, secondaryColorInvert)}),
+            [color, secondaryColorInvert, style]
+        );
 
-    return (
-        <StyledAntdTag
-            {...tagProps}
-            style={customStyle}
-            className={`${appId} ${className ?? ''}`}
-            closeIcon={closeIcon ?? <FontAwesomeIcon icon={faXmark} />}
-            closable={!!tagProps.onClose}
-        />
-    );
-};
+        return (
+            <StyledAntdTag
+                ref={ref}
+                {...tagProps}
+                style={customStyle}
+                className={`${appId} ${className ?? ''}`}
+                closeIcon={closeIcon ?? <FontAwesomeIcon icon={faXmark} />}
+                closable={!!tagProps.onClose}
+            />
+        );
+    }
+);
 
 export default KitTag;
