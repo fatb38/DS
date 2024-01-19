@@ -1,7 +1,22 @@
 # Changelog
 
-## [X.X.X](X) (202X-XX-XX)
+## [0.9.1](https://www.npmjs.com/package/aristid-ds/v/0.9.1) (2023-12-22)
 
+### 🐛 Bug Fixes
+
+* Fix types issues in `IKitLocale` that was causing build to crash (@fatb38)
+
+## [0.9.0](https://www.npmjs.com/package/aristid-ds/v/0.9.0) (2023-12-22)
+
+### 🎨 Theming
+
+* Improve performance when using multiple `KitApp` component (@Delmotte-Vincent, @evoiron, @fatb38, @philippechevieux)
+* Replace `css-in-js` theming variables by `css variables` (@Delmotte-Vincent, @evoiron, @fatb38, @philippechevieux)
+
+### 🤖 CI
+
+* Add `eslint` to CI pipeline (@evoiron)
+* Add a build to CI pipeline (@evoiron)
 
 ## [0.8.0](https://www.npmjs.com/package/aristid-ds/v/0.8.0) (2023-11-16)
 
