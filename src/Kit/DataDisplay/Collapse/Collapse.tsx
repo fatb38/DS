@@ -110,7 +110,7 @@ const StyledCollapse = styled(AntdCollapse)`
             }
         }
 
-        &.ant-collapse-item-active .ant-collapse-header .ant-collapse-expand-icon svg {
+        &.ant-collapse-item-active > .ant-collapse-header > .ant-collapse-expand-icon svg {
             transition: transform 0.3s ease-in-out;
             transform: rotate(180deg);
         }
