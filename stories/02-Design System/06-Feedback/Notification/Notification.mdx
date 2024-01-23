@@ -25,6 +25,11 @@ The simplest usage that close the notification box after 4.5s.
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="notification-basic" />
 
+##### With Message Extra
+When using KitNotification, you can specify the `messageExtra` prop. This prop has no effect when displaying a notification via `useKitNotification`.
+
+<CustomCanvas content={Examples.Subtitle} source={Sources.Subtitle} id="notification-message-extra" />
+
 ##### Duration after which the notification box is closed
 **Duration** can be used to specify how long the notification stays open. After the duration time elapses, the notification closes automatically. If not specified, default value is 4.5 seconds. If you set the value to 0, the notification box will never close automatically.
 
@@ -44,7 +49,6 @@ The icon can be customized to any react node.
 To customize the style or font of the close button.
 
 <CustomCanvas content={Examples.CustomClose} source={Sources.CustomClose} id="notification-custom-close" />
-
 
 ##### Placement
 A notification box can appear from the **topLeft**, **topRight**, **bottomLeft** or **bottomRight** of the viewport.

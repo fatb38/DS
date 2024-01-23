@@ -1,4 +1,5 @@
 import Basic from './basic';
+import Subtitle from './withSubtitle';
 import Icon from './icon';
 import CustomIcon from './customIcon';
 import Duration from './duration';
@@ -7,6 +8,7 @@ import Placement from './placement';
 import UpdateMessage from './updateMessage';
 
 import BasicSource from './basic?raw';
+import SubtitleSource from './withSubtitle?raw';
 import IconSource from './icon?raw';
 import CustomIconSource from './customIcon?raw';
 import DurationSource from './duration?raw';
@@ -16,6 +18,7 @@ import UpdateMessageSource from './updateMessage?raw';
 
 export const Sources = {
     Basic: BasicSource,
+    Subtitle: SubtitleSource,
     Icon: IconSource,
     CustomIcon: CustomIconSource,
     Duration: DurationSource,
@@ -27,6 +30,7 @@ export const Sources = {
 export default {
     Basic,
     Icon,
+    Subtitle,
     CustomIcon,
     Duration,
     CustomClose,

@@ -1,6 +1,10 @@
 # Changelog
 
 ## [0.11.0](https://www.npmjs.com/package/aristid-ds/v/0.11.0) (2024-XX-XX)
+### ✨ Features
+  * **Notification:**
+      * Add `KitNotification` component usable without using `useKitNotification` hook (@evoiron)
+
 ### 🐛 Bug Fixes
 
 * Fix warning at build time about potential cycling dependencies (@evoiron)

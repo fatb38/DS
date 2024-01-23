@@ -10,7 +10,7 @@ import {Template} from './Template';
 
 const meta: Meta<typeof KitLegacyCard> = {
     component: KitLegacyCard,
-    //title: 'Design System/DataDisplay/LegacyCard',
+    title: 'Deprecated/DataDisplay/LegacyCard',
     argTypes: argTypes
 };
 

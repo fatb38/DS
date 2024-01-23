@@ -6,6 +6,7 @@ type AntdArgsPropsTypesToOmit = 'message' | 'description' | 'placement';
 
 export interface IKitNotificationArgs extends Omit<ArgsProps, AntdArgsPropsTypesToOmit> {
     message: string;
+    messageExtra?: string;
     description: string;
     placement?: NotificationPlacement;
 }
