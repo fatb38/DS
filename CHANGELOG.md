@@ -1,10 +1,10 @@
 # Changelog
 
-## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
-
+## [0.11.0](https://www.npmjs.com/package/aristid-ds/v/0.11.0) (2024-XX-XX)
 ### 🐛 Bug Fixes
 
-* Fix `Collapse` expand icon that was always open if nested (@philippechevieux)
+* Fix warning at build time about potential cycling dependencies (@evoiron)
+* Remove deprecated package `react-uuid`
 
 ## [0.10.0](https://www.npmjs.com/package/aristid-ds/v/0.10.0) (2024-01-19)
 

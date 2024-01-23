@@ -71,7 +71,7 @@ const getCustomColors = (
     return null;
 };
 
-const KitTag = forwardRef<HTMLElement, IKitTag>(
+export const InternalTag = forwardRef<HTMLElement, IKitTag>(
     ({className, closeIcon, color, style, secondaryColorInvert = false, ...tagProps}, ref) => {
         const {appId} = useKitTheme();
 
@@ -92,5 +92,3 @@ const KitTag = forwardRef<HTMLElement, IKitTag>(
         );
     }
 );
-
-export default KitTag;

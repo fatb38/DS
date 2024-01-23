@@ -12,7 +12,7 @@ import {faEllipsis} from '@fortawesome/free-solid-svg-icons';
 import {KitDropDown} from '@kit/Navigation';
 import {kitCardCssTokens} from '@theme/aristid/components/DataDisplay/Card';
 import {useKitTheme} from '@theme/useKitTheme';
-import {KitTag} from '@kit/DataDisplay';
+import {KitTag} from '@kit/DataDisplay/Tag';
 import {convertToPixel} from '@theme/utils/convert';
 
 const StyledCard = styled.div<IStyledKitCard>`

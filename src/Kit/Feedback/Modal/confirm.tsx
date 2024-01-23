@@ -2,7 +2,7 @@ import React from 'react';
 import {createRoot} from 'react-dom/client';
 import {ConfigUpdate, IKitConfirmDialog} from './types';
 import ConfirmDialog from './ConfirmDialog';
-import uuid from 'react-uuid';
+import {uuid} from '@utils/functions';
 
 interface IModalConfig extends IKitConfirmDialog {
     showSecondaryCta?: boolean;
@@ -12,7 +12,7 @@ export default function confirm(config: IKitConfirmDialog) {
     const container = document.createDocumentFragment();
     const root = createRoot(container);
     const portalClassName = 'reactPortal-' + uuid();
-     
+
     let currentConfig: IModalConfig = {
         ...config,
         close,

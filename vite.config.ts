@@ -6,15 +6,15 @@ import {webpackStats} from 'rollup-plugin-webpack-stats';
 import {uglify} from 'rollup-plugin-uglify';
 import {visualizer} from 'rollup-plugin-visualizer';
 
-import commonjs from "@rollup/plugin-commonjs";
-import resolve from "@rollup/plugin-node-resolve";
-import typescript from "@rollup/plugin-typescript";
-import multiInput from "rollup-plugin-multi-input";
-import url from 'rollup-plugin-url'
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
+import multiInput from 'rollup-plugin-multi-input';
+import url from 'rollup-plugin-url';
 
 import packageJson from './package.json';
 
-const outputDir = "./dist/";
+const outputDir = './dist/';
 const input = 'src/index.ts';
 
 const globals = {
@@ -92,21 +92,34 @@ export default defineConfig({
             '@hooks': path.resolve(__dirname, './src/hooks'),
             '@utils': path.resolve(__dirname, './src/utils'),
             '@translation': path.resolve(__dirname, './src/translation'),
-            '@fonts': path.resolve(__dirname, './src/fonts'),
+            '@fonts': path.resolve(__dirname, './src/fonts')
         }
     },
     build: {
         lib: {
             entry: path.resolve(__dirname, 'src/index.ts'),
-            name: 'design-system',
+            name: 'design-system'
         },
         //minify: 'terser',
         rollupOptions: {
             external: getExclusions(),
             input: 'src/index.ts',
+            plugins: [
+                commonjs(),
+                typescript({outDir: outputDir, exclude: ['stories/**']}),
+                resolve(),
+                multiInput(),
+                url({
+                    // by default, rollup-plugin-url will not handle font files
+                    include: ['**/*.woff', '**/*.woff2'],
+                    // setting infinite limit will ensure that the files
+                    // are always bundled with the code, not copied to /dist
+                    limit: Infinity
+                })
+            ],
             output: [
                 {
-                    format: "umd",
+                    format: 'umd',
                     name: 'design-system',
                     inlineDynamicImports: true,
                     preserveModules: false,
@@ -114,33 +127,21 @@ export default defineConfig({
                     globals,
                     entryFileNames: () => {
                         return `index.umd.js`;
-                    },
+                    }
                 },
                 {
-                    format: "esm",
+                    format: 'esm',
                     dir: outputDir,
                     preserveModules: true,
-                    plugins: [commonjs(), typescript({outDir: outputDir}), resolve(), multiInput(), 
-                        url({
-                            // by default, rollup-plugin-url will not handle font files
-                            include: ['**/*.woff', '**/*.woff2'],
-                            // setting infinite limit will ensure that the files 
-                            // are always bundled with the code, not copied to /dist
-                            limit: Infinity,
-                          })
-                    ],
                     globals,
                     inlineDynamicImports: false,
-                    entryFileNames: (file) => {
-                        const relative = path.relative(
-                            'src',
-                            file.facadeModuleId
-                        );
+                    entryFileNames: file => {
+                        const relative = path.relative('src', file.facadeModuleId);
                         if (`src/${relative}` === input) {
-                           return 'index.es.js';
+                            return 'index.es.js';
                         }
                         return `${file.name}.js`;
-                    },
+                    }
                 }
             ]
         }

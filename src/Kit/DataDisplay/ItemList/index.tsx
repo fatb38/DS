@@ -2,7 +2,7 @@ import React, {FunctionComponent, MouseEvent, ReactElement, cloneElement, useSta
 import {styled} from 'styled-components';
 import {IKitItemList, IStyledKitItemList} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';
-import {KitTag} from '@kit/DataDisplay/';
+import {KitTag} from '@kit/DataDisplay/Tag';
 import {KitTypography} from '@kit/General/';
 import {useKitTheme} from '@theme/useKitTheme';
 import {useKitLocale} from '@translation/useKitLocale';

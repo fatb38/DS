@@ -8,7 +8,7 @@ import {IKitImage} from '@kit/DataDisplay/Image/types';
 import {IKitIcon} from '@kit/General/Icon/types';
 import {IKitAvatar} from '../Avatar/types';
 import {KitCheckbox} from '@kit/DataEntry';
-import {KitTag} from '@kit/DataDisplay';
+import {KitTag} from '@kit/DataDisplay/Tag';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {useKitTheme} from '@theme/useKitTheme';
 import {useKitLocale} from '@translation/useKitLocale';
