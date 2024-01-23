@@ -121,7 +121,7 @@ const Gallery = () => {
     const _handleCopyIcon = (icon: IconDefinition) => {
         setTooltipTitle('Copied successfully ✅');
         const iconImportName = convertToFontAwesomeIconName(icon.iconName);
-        void navigator.clipboard.writeText(`<FontAwesomeIcon icon={fa${iconImportName}}} />`);
+        void navigator.clipboard.writeText(`<FontAwesomeIcon icon={fa${iconImportName}} />`);
     };
 
     const _handleSearchIconName = (event: ChangeEvent<HTMLInputElement>) => {
