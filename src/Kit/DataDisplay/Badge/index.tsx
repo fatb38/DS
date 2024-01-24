@@ -5,16 +5,25 @@ import {styled} from 'styled-components';
 import {useKitTheme} from '@theme/useKitTheme';
 import {getColor, getLighterColor, isValidColor} from '@utils/functions';
 import {kitBadgeCssTokens} from '@theme/aristid/components/DataDisplay/Badge';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledAntdBadge = styled(AntdBadge)`
     height: 16px;
     min-width: 16px;
     line-height: 16px;
-    font-size: calc(var(--general-typography-fontSize7) * 1px);
+    font-size: ${convertToPixel(typographyCssTokens.fontSize7)};
 
     .ant-badge-count {
-        background: var(--components-Badge-colors-background-default, var(--general-colors-secondary-red-red400));
-        color: var(--components-Badge-colors-typography-default, var(--general-colors-neutral-typography-white));
+        background: var(
+            ${kitBadgeCssTokens.colors.background.default},
+            var(${kitColorsPaletteCssTokens.secondary.red.red400})
+        );
+        color: var(
+            ${kitBadgeCssTokens.colors.typography.default},
+            var(${kitColorsPaletteCssTokens.neutral.typography.white})
+        );
     }
 
     &.ant-badge {

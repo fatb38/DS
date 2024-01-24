@@ -9,6 +9,7 @@ import {getColor, getLighterColor, isValidColor} from '@utils/functions';
 import {kitTagCssTokens} from '@theme/aristid/components/DataDisplay/Tag';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledAntdTag = styled(Tag)`
     padding: 4px 8px;
@@ -21,7 +22,7 @@ const StyledAntdTag = styled(Tag)`
 
     &,
     a {
-        font-size: calc(var(${kitTagCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize7})) * 1px);
+        font-size: ${convertToPixel(kitTagCssTokens.typography.fontSize, typographyCssTokens.fontSize7)};
         font-family: var(${kitTagCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
         font-weight: var(${kitTagCssTokens.typography.fontWeight}, var(${typographyCssTokens.regularFontWeight}));
         line-height: 16px;
@@ -71,7 +72,7 @@ const getCustomColors = (
     return null;
 };
 
-const KitTag = forwardRef<HTMLElement, IKitTag>(
+export const InternalTag = forwardRef<HTMLElement, IKitTag>(
     ({className, closeIcon, color, style, secondaryColorInvert = false, ...tagProps}, ref) => {
         const {appId} = useKitTheme();
 
@@ -92,5 +93,3 @@ const KitTag = forwardRef<HTMLElement, IKitTag>(
         );
     }
 );
-
-export default KitTag;

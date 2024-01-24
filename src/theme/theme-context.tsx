@@ -3,8 +3,7 @@ import React, {FC, PropsWithChildren, useLayoutEffect, useRef, useState} from 'r
 // TODO: Later add option to have more arisitd themes
 import {IKitCustomTheme} from './types';
 import {createGlobalStyle} from 'styled-components';
-import {toCssVariables} from '@utils/functions';
-import uuid from 'react-uuid';
+import {toCssVariables, uuid} from '@utils/functions';
 import merge from 'lodash/merge';
 import {Style} from 'react-style-tag';
 import {KitThemeContext} from './useKitTheme';

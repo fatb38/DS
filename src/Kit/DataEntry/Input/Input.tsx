@@ -10,6 +10,7 @@ import {kitInputCssTokens} from '@theme/aristid/components/DataEntry/Input';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {borderCssTokens} from '@theme/aristid/general/border';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledAntdInput = styled(AntdInput)`
     &.ant-input,
@@ -30,8 +31,8 @@ const StyledAntdInput = styled(AntdInput)`
     }
 
     &.ant-input-affix-wrapper {
-        font-size: calc(var(${kitInputCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
-        border-radius: calc(var(${kitInputCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+        font-size: ${convertToPixel(kitInputCssTokens.typography.fontSize, typographyCssTokens.fontSize5)};
+        border-radius: ${convertToPixel(kitInputCssTokens.border.radius, borderCssTokens.radius.s)};
         padding: 0 12px;
 
         &:focus-within {
@@ -70,9 +71,10 @@ const StyledAntdInput = styled(AntdInput)`
                 ${kitInputCssTokens.colors.showCount.default},
                 var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
             );
-            font-size: calc(
-                var(${kitInputCssTokens.typography.showCount.fontSize}, var(${typographyCssTokens.fontSize7})) * 1px
-            );
+            font-size: ${convertToPixel(
+                kitInputCssTokens.typography.showCount.fontSize,
+                typographyCssTokens.fontSize7
+            )};
             font-weight: var(
                 ${kitInputCssTokens.typography.showCount.fontWeight},
                 var(${typographyCssTokens.regularFontWeight})

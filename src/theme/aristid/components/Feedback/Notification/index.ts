@@ -9,7 +9,8 @@ export const kitNotificationCssTokens = generateCssTokens<IKitNotificationCssTok
                 success: '',
                 warning: '',
                 error: ''
-            }
+            },
+            subtitle: ''
         },
         icon: {
             info: '',

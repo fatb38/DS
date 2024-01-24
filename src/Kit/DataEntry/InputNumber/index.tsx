@@ -9,14 +9,15 @@ import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {borderCssTokens} from '@theme/aristid/general/border';
 import classNames from 'classnames';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledAntdInputNumber = styled(AntdInputNumber)`
     font-weight: var(
         ${kitInputNumberCssTokens.typography.placeholder.fontWeight},
         var(${typographyCssTokens.regularFontWeight})
     );
-    font-size: calc(var(${kitInputNumberCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
-    border-radius: calc(var(${kitInputNumberCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+    font-size: ${convertToPixel(kitInputNumberCssTokens.typography.fontSize, typographyCssTokens.fontSize5)};
+    border-radius: ${convertToPixel(kitInputNumberCssTokens.border.radius, borderCssTokens.radius.s)};
     height: 40px;
     line-height: 40px;
 
@@ -38,7 +39,7 @@ const StyledAntdInputNumber = styled(AntdInputNumber)`
         line-height: 38px;
 
         .ant-input-number-input-wrap {
-            border-radius: calc(var(${kitInputNumberCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+            border-radius: ${convertToPixel(kitInputNumberCssTokens.border.radius, borderCssTokens.radius.s)};
         }
     }
 

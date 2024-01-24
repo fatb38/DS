@@ -102,6 +102,7 @@ export interface IKitNotificationCssTokens {
                 warning: string;
                 error: string;
             };
+            subtitle: string;
         };
         icon: {
             info: string;

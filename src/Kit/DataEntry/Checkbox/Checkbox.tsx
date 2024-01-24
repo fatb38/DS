@@ -14,15 +14,16 @@ import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import classNames from 'classnames';
 import {borderCssTokens} from '@theme/aristid/general/border';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledKitCheckbox = styled(Checkbox)`
     font-weight: var(${kitCheckboxCssTokens.typography.fontWeight}, var(${typographyCssTokens.mediumfontWeight}));
-    font-size: calc(var(${kitCheckboxCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
+    font-size: ${convertToPixel(kitCheckboxCssTokens.typography.fontSize, typographyCssTokens.fontSize5)};
     line-height: var(${kitCheckboxCssTokens.typography.lineHeight}, var(${typographyCssTokens.lineHeight5}));
-    border-radius: calc(var(${kitCheckboxCssTokens.border.radius}, var(${borderCssTokens.radius.xs})) * 1px);
+    border-radius: ${convertToPixel(kitCheckboxCssTokens.border.radius, borderCssTokens.radius.xs)};
 
     .ant-checkbox-inner {
-        border-width: calc(var(${kitCheckboxCssTokens.typography.lineWidth}, 1) * 1px);
+        border-width: ${convertToPixel(kitCheckboxCssTokens.typography.lineWidth, 1)};
     }
 
     &:not(.ant-checkbox-wrapper-danger) {

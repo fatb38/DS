@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.11.0](https://www.npmjs.com/package/aristid-ds/v/0.11.0) (2024-01-24)
+### ✨ Features
+  * **Notification:**
+      * Add `KitNotification` component usable without using `useKitNotification` hook (@evoiron)
+
+### 🐛 Bug Fixes
+
+* Fix warning at build time about potential cycling dependencies (@evoiron)
+* Remove deprecated package `react-uuid` (@evoiron)
+* Enable 3 Select options, to allow dynamic filtering of options (@evoiron)
+
 ## [0.10.0](https://www.npmjs.com/package/aristid-ds/v/0.10.0) (2024-01-19)
 
 ### ✨ Features

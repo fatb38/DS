@@ -8,7 +8,7 @@ import {IKitImage} from '@kit/DataDisplay/Image/types';
 import {IKitIcon} from '@kit/General/Icon/types';
 import {IKitAvatar} from '../Avatar/types';
 import {KitCheckbox} from '@kit/DataEntry';
-import {KitTag} from '@kit/DataDisplay';
+import {KitTag} from '@kit/DataDisplay/Tag';
 import type {CheckboxChangeEvent} from 'antd/lib/checkbox';
 import {useKitTheme} from '@theme/useKitTheme';
 import {useKitLocale} from '@translation/useKitLocale';
@@ -20,6 +20,7 @@ import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {borderCssTokens} from '@theme/aristid/general/border';
 import {IKitButton} from '@kit/General/Button/types';
+import {convertToPixel} from '@theme/utils/convert';
 
 const ItemCardWrapper = styled.div<IStyledKitItemCard>`
     display: grid;
@@ -29,7 +30,7 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
         ${kitItemCardCssTokens.card.colors.background.default},
         var(${kitColorsPaletteCssTokens.neutral.white})
     );
-    border-radius: calc(var(${kitItemCardCssTokens.card.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+    border-radius: ${convertToPixel(kitItemCardCssTokens.card.border.radius, borderCssTokens.radius.s)};
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
     min-width: 248px;
     width: 248px;
@@ -195,7 +196,7 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
     .kit-card-image {
         grid-area: picto;
         height: 64px;
-        border-radius: calc(var(${kitItemCardCssTokens.image.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+        border-radius: ${convertToPixel(kitItemCardCssTokens.image.border.radius, borderCssTokens.radius.s)};
         opacity: ${({$disabled}) => ($disabled ? 0.5 : 1)};
         display: flex;
         align-items: center;
@@ -221,7 +222,7 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
         grid-area: picto;
         height: 64px;
         width: 64px;
-        border-radius: calc(var(${kitItemCardCssTokens.icon.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+        border-radius: ${convertToPixel(kitItemCardCssTokens.icon.border.radius, borderCssTokens.radius.s)};
         display: flex;
         align-items: center;
         justify-content: center;
@@ -279,9 +280,10 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
         }
 
         .kit-card-title {
-            font-size: calc(
-                var(${kitItemCardCssTokens.title.typography.fontSize}, var(${typographyCssTokens.fontSize6})) * 1px
-            );
+            font-size: ${convertToPixel(
+                kitItemCardCssTokens.title.typography.fontSize.toString(),
+                typographyCssTokens.fontSize6
+            )};
             font-weight: var(
                 ${kitItemCardCssTokens.title.typography.fontWeight},
                 var(${typographyCssTokens.boldFontWeight})
@@ -292,10 +294,10 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
             );
         }
         .kit-card-desc {
-            font-size: calc(
-                var(${kitItemCardCssTokens.description.typography.fontSize}, var(${typographyCssTokens.fontSize5})) *
-                    1px
-            );
+            font-size: ${convertToPixel(
+                kitItemCardCssTokens.description.typography.fontSize,
+                typographyCssTokens.fontSize5
+            )};
             font-weight: var(
                 ${kitItemCardCssTokens.description.typography.fontWeight},
                 var(${typographyCssTokens.regularFontWeight})
@@ -310,9 +312,10 @@ const ItemCardWrapper = styled.div<IStyledKitItemCard>`
             }
         }
         .kit-card-footer {
-            font-size: calc(
-                var(${kitItemCardCssTokens.footer.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px
-            );
+            font-size: ${convertToPixel(
+                kitItemCardCssTokens.footer.typography.fontSize,
+                typographyCssTokens.fontSize5
+            )};
             font-weight: var(
                 ${kitItemCardCssTokens.footer.typography.fontWeight},
                 var(${typographyCssTokens.boldFontWeight})

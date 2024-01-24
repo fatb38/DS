@@ -1,7 +1,7 @@
 import React, {FunctionComponent, useRef} from 'react';
 import {styled} from 'styled-components';
 import {IKitTagGroup} from './types';
-import KitTag from './Tag';
+import {InternalTag} from './Tag';
 import useTagGroup from './useTagGroup';
 import {KitTooltip} from '@kit/DataDisplay';
 
@@ -24,19 +24,19 @@ const KitTagGroup: FunctionComponent<IKitTagGroup> = ({tags, style, className}) 
     return (
         <StyledTagGroup ref={containerRef} style={style} className={className}>
             {tags.map((tag, index) => (
-                <KitTag
+                <InternalTag
                     key={index}
                     id={`tag-${index}`}
                     color={tag?.color}
                     style={index < visibleTags ? {} : {position: 'absolute', opacity: 0}}
                 >
                     {tag.wording}
-                </KitTag>
+                </InternalTag>
             ))}
             <KitTooltip overlay={_getTooltipOverlay()}>
-                <KitTag ref={otherRef} style={isOtherTagVisible ? {} : {position: 'absolute', opacity: 0}}>
+                <InternalTag ref={otherRef} style={isOtherTagVisible ? {} : {position: 'absolute', opacity: 0}}>
                     + {remainingTags} autres
-                </KitTag>
+                </InternalTag>
             </KitTooltip>
         </StyledTagGroup>
     );

@@ -2,7 +2,7 @@ import React, {FunctionComponent, MouseEvent, ReactElement, cloneElement, useSta
 import {styled} from 'styled-components';
 import {IKitItemList, IStyledKitItemList} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';
-import {KitTag} from '@kit/DataDisplay/';
+import {KitTag} from '@kit/DataDisplay/Tag';
 import {KitTypography} from '@kit/General/';
 import {useKitTheme} from '@theme/useKitTheme';
 import {useKitLocale} from '@translation/useKitLocale';
@@ -17,6 +17,7 @@ import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {IKitImage} from '../Image/types';
 import {IKitAvatar} from '../Avatar/types';
 import {IKitIcon} from '@kit/General/Icon/types';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledItemList = styled.div<IStyledKitItemList>`
     display: grid;
@@ -34,7 +35,7 @@ const StyledItemList = styled.div<IStyledKitItemList>`
             ${kitItemListCssTokens.itemList.colors.border.default},
             var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
         );
-    border-radius: calc(var(${kitItemListCssTokens.itemList.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+    border-radius: ${convertToPixel(kitItemListCssTokens.itemList.border.radius.toString(), borderCssTokens.radius.s)};
 
     &:hover {
         border: 1px solid
@@ -109,9 +110,10 @@ const StyledItemList = styled.div<IStyledKitItemList>`
                     ${kitItemListCssTokens.title.typography.fontWeight},
                     var(${typographyCssTokens.boldFontWeight})
                 );
-                font-size: calc(
-                    var(${kitItemListCssTokens.title.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px
-                );
+                font-size: ${convertToPixel(
+                    kitItemListCssTokens.title.typography.fontSize,
+                    typographyCssTokens.fontSize5
+                )};
                 color: var(
                     ${kitItemListCssTokens.title.colors.default},
                     var(${kitColorsPaletteCssTokens.primary.primary600})
@@ -123,10 +125,10 @@ const StyledItemList = styled.div<IStyledKitItemList>`
                     ${kitItemListCssTokens.description.typography.fontWeight},
                     var(${typographyCssTokens.regularFontWeight})
                 );
-                font-size: calc(
-                    var(${kitItemListCssTokens.description.typography.fontSize}, var(${typographyCssTokens.fontSize5})) *
-                        1px
-                );
+                font-size: ${convertToPixel(
+                    kitItemListCssTokens.description.typography.fontSize,
+                    typographyCssTokens.fontSize5
+                )};
                 color: var(
                     ${kitItemListCssTokens.description.colors.default},
                     var(${kitColorsPaletteCssTokens.primary.primary600})

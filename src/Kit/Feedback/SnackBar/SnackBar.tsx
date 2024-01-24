@@ -8,6 +8,7 @@ import {kitSnackBarCssTokens} from '@theme/aristid/components/Feedback/SnackBar'
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {closeSnackBar} from './snack-bar-function';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledSnackBar = styled.div<IStyledKitSnackBar>`
     display: grid;
@@ -46,9 +47,7 @@ const StyledSnackBar = styled.div<IStyledKitSnackBar>`
                 ${kitSnackBarCssTokens.colors.typography.title},
                 var(${kitColorsPaletteCssTokens.neutral.grey.grey400})
             );
-            font-size: calc(
-                var(${kitSnackBarCssTokens.typography.title.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px
-            );
+            font-size: ${convertToPixel(kitSnackBarCssTokens.typography.title.fontSize, typographyCssTokens.fontSize5)};
             font-weight: var(
                 ${kitSnackBarCssTokens.typography.title.fontWeight},
                 var(${typographyCssTokens.regularFontWeight})

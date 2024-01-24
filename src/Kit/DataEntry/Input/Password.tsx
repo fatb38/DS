@@ -9,6 +9,7 @@ import {faCircleXmark, faEye, faEyeSlash} from '@fortawesome/free-regular-svg-ic
 import {kitInputPasswordCssTokens} from '@theme/aristid/components/DataEntry/Input';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledAntdPassword = styled(AntdInput.Password)`
     &.ant-input-affix-wrapper {
@@ -44,12 +45,10 @@ const StyledAntdPassword = styled(AntdInput.Password)`
                     ${kitInputPasswordCssTokens.colors.showCount.default},
                     var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
                 );
-                font-size: calc(
-                    var(
-                            ${kitInputPasswordCssTokens.typography.showCount.fontSize},
-                            var(${typographyCssTokens.fontSize7})
-                        ) * 1px
-                );
+                font-size: ${convertToPixel(
+                    kitInputPasswordCssTokens.typography.showCount.fontSize,
+                    typographyCssTokens.fontSize7
+                )};
                 font-weight: var(
                     ${kitInputPasswordCssTokens.typography.showCount.fontWeight},
                     var(${typographyCssTokens.regularFontWeight})

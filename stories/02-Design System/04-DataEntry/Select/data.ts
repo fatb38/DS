@@ -86,6 +86,45 @@ const SelectArgTypes = {
         },
         defaultValue: false
     },
+    filterOption: {
+        name: 'filterOption',
+        control: {type: 'boolean'},
+        description: 'If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and option, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded',
+        table: {
+            type: {
+                summary: 'boolean | function(inputValue, option)'
+            },
+            defaultValue: {summary: true},
+            category: 'Select'
+        },
+        defaultValue: true
+    },
+    optionFilterProp: {
+        name: 'optionFilterProp',
+        control: {type: 'text'},
+        description: 'Which prop value of option will be used for filter if filterOption is true. If `options` is set, it should be set to `label`',
+        table: {
+            type: {
+                summary: 'boolean | function(inputValue, option)'
+            },
+            defaultValue: {summary: 'value'},
+            category: 'Select'
+        },
+        defaultValue: 'value'
+    },
+    notFoundContent: {
+        name: 'notFoundContent',
+        description: 'Specify content to show when no result matches',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            defaultValue: {summary: `Not Found`},
+            category: 'Select'
+        },
+        defaultValue: 'Not Found'
+    },
     defaultActiveFirstOption: {
         name: 'defaultActiveFirstOption',
         control: {type: 'boolean'},

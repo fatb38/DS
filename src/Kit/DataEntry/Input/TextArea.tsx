@@ -9,6 +9,7 @@ import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 import {kitTextAreaCssTokens} from '@theme/aristid/components/DataEntry/Input';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledAntdTextArea = styled(AntdInput.TextArea)`
     &.ant-input,
@@ -50,12 +51,10 @@ const StyledAntdTextArea = styled(AntdInput.TextArea)`
                     ${kitTextAreaCssTokens.colors.showCount.default},
                     var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
                 );
-                font-size: calc(
-                    var(
-                        ${kitTextAreaCssTokens.typography.showCount.fontSize},
-                        var(${typographyCssTokens.fontSize7}) * 1px
-                    )
-                );
+                font-size: ${convertToPixel(
+                    kitTextAreaCssTokens.typography.showCount.fontSize,
+                    typographyCssTokens.fontSize7
+                )};
                 font-weight: var(
                     ${kitTextAreaCssTokens.typography.showCount.fontWeight},
                     var(${typographyCssTokens.regularFontWeight})

@@ -34,7 +34,8 @@ export {
     KitSnackBarProvider,
     openKitSnackBar,
     closeKitSnackBar,
-    useKitNotification
+    useKitNotification,
+    KitNotification
 } from './Feedback';
 export {KitButton, KitTypography, KitIcon} from './General';
 export {KitDivider, KitGrid, KitSpace} from './Layout';

@@ -5,23 +5,12 @@ import {KitTooltip} from '../Tooltip';
 import {useKitTheme} from '@theme/useKitTheme';
 import {kitItemCardCssTokens} from '@theme/aristid/components/DataDisplay/ItemCard';
 import {borderCssTokens} from '@theme/aristid/general/border';
+import {convertToPixel} from '@theme/utils/convert';
 
 const Container = styled.div<IStyledKitColorbar>`
-    width: ${({$column}) =>
-        $column
-            ? `calc(var(
-                ${kitItemCardCssTokens.colorBar.thickness},
-                8
-            )* 1px)`
-            : 'auto'};
-    height: ${({$column}) =>
-        $column
-            ? 'auto'
-            : `calc(var(
-                ${kitItemCardCssTokens.colorBar.thickness},
-                8
-            )* 1px)`};
-    border-radius: calc(var(${kitItemCardCssTokens.colorBar.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+    width: ${({$column}) => ($column ? convertToPixel(kitItemCardCssTokens.colorBar.thickness, 8) : 'auto')};
+    height: ${({$column}) => ($column ? 'auto' : convertToPixel(kitItemCardCssTokens.colorBar.thickness, 8))};
+    border-radius: ${convertToPixel(kitItemCardCssTokens.colorBar.border.radius, borderCssTokens.radius.s)};
     display: flex;
     flex-direction: ${({$column}) => ($column ? 'column' : 'row')};
     overflow: hidden;

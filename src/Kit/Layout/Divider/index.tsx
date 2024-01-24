@@ -6,9 +6,10 @@ import {kitDividerCssTokens} from '@theme/aristid/components/Layout/Divider';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {useKitTheme} from '@theme/useKitTheme';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledAntdDivider = styled(AntdDivider)<IStyledAntdDivider>`
-    font-size: calc(var(${kitDividerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize6})) * 1px);
+    font-size: ${convertToPixel(kitDividerCssTokens.typography.fontSize, typographyCssTokens.fontSize6)};
     line-height: var(${kitDividerCssTokens.typography.lineHeight}, var(${typographyCssTokens.lineHeight6}));
     font-weight: var(${kitDividerCssTokens.typography.fontWeight}, var(${typographyCssTokens.mediumfontWeight}));
     &.ant-divider {

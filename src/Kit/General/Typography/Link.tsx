@@ -6,13 +6,14 @@ import {sizeTofontSize, getWeightClassname} from './commons';
 import {useKitTheme} from '@theme/useKitTheme';
 import {kitTypographyCssTokens} from '@theme/aristid/components/General/Typography';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledKitLink = styled(Typography.Link)<IStyledKitLink>`
     font-size: ${({size}) => {
         if (size === undefined) {
-            return `calc(var(${typographyCssTokens.fontSize6}) * 1px)`;
+            return convertToPixel(typographyCssTokens.fontSize6);
         }
-        return `calc(var(${typographyCssTokens['fontSize' + sizeTofontSize[size]]}) * 1px)`;
+        return convertToPixel(typographyCssTokens['fontSize' + sizeTofontSize[size]] as string);
     }};
     line-height: ${({size}) => {
         if (size === undefined) {

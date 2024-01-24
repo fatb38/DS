@@ -1,4 +1,19 @@
 export const argTypes = {
+    type: {
+        name: 'type',
+        options: ['-', 'info', 'success', 'warning', 'error'],
+        control: {
+            type: 'select'
+        },
+        description:
+            'Type of notification. Use only by KitNotification Component, unused when using useKitNotification',
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            category: 'Notification'
+        }
+    },
     btn: {
         name: 'btn',
         description: 'Customized close button',
@@ -89,6 +104,17 @@ export const argTypes = {
     message: {
         name: 'message',
         description: 'The title of notification box **(required)**',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Notification'
+        }
+    },
+    messageExtra: {
+        name: 'messageExtra',
+        description: 'Extra line content to show between title and content, such as a date',
         control: {type: 'text'},
         table: {
             type: {

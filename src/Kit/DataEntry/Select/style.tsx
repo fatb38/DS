@@ -8,6 +8,7 @@ import {
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {borderCssTokens} from '@theme/aristid/general/border';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {convertToPixel} from '@theme/utils/convert';
 
 export const StyledBadge = styled.div`
     display: inline-block;
@@ -15,11 +16,9 @@ export const StyledBadge = styled.div`
 
     div {
         margin-left: 4px;
-        width: calc(var(${kitSelectColorBadgeCssTokens.width}, 16) * 1px);
-        height: calc(var(${kitSelectColorBadgeCssTokens.height}, 16) * 1px);
-        border-radius: calc(
-            var(${kitSelectColorBadgeCssTokens.border.radius}, var(${borderCssTokens.radius.xxs})) * 1px
-        );
+        width: ${convertToPixel(kitSelectColorBadgeCssTokens.width, 16)};
+        height: ${convertToPixel(kitSelectColorBadgeCssTokens.height, 16)};
+        border-radius: ${convertToPixel(kitSelectColorBadgeCssTokens.border.radius, borderCssTokens.radius.xxs)};
     }
 `;
 
@@ -58,48 +57,72 @@ export const SelectDropDownStyle = createGlobalStyle`
 
         &.kit-select-dropdown-bottom {
             .kit-select-dropdown-content {
-                border-radius: 0 0 calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) ;
+                border-radius: 0 0 ${convertToPixel(
+                    kitSelectDropDownCssTokens.border.radius,
+                    borderCssTokens.radius.s
+                )} ${convertToPixel(kitSelectDropDownCssTokens.border.radius, borderCssTokens.radius.s)};
                 transform: translate(-1px, -3px);
             }
 
             > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
-                border-radius: 0 0 calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) ;
+                border-radius: 0 0 ${convertToPixel(
+                    kitSelectDropDownCssTokens.border.radius,
+                    borderCssTokens.radius.s
+                )} ${convertToPixel(kitSelectDropDownCssTokens.border.radius, borderCssTokens.radius.s)};
                 transform: translate(0px, -4px);
             }
 
             &.ant-select-dropdown-placement-topLeft, &.ant-select-dropdown-placement-topRight {
                 .kit-select-dropdown-content {
                     transform: translate(-1px, 3px);
-                    border-radius: calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) 0 0 ;
+                    border-radius: ${convertToPixel(
+                        kitSelectDropDownCssTokens.border.radius,
+                        borderCssTokens.radius.s
+                    )} ${convertToPixel(kitSelectDropDownCssTokens.border.radius, borderCssTokens.radius.s)} 0 0;
                 }
 
                 > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
                     transform: translate(0px, 4px);
-                    border-radius:calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) 0 0 ;
+                    border-radius: ${convertToPixel(
+                        kitSelectDropDownCssTokens.border.radius,
+                        borderCssTokens.radius.s
+                    )} ${convertToPixel(kitSelectDropDownCssTokens.border.radius, borderCssTokens.radius.s)} 0 0;
                 }
             }
         }
 
         &.kit-select-dropdown-top {
             .kit-select-dropdown-content {
-                border-radius: calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) 0 0 ;
+                border-radius: ${convertToPixel(
+                    kitSelectDropDownCssTokens.border.radius,
+                    borderCssTokens.radius.s
+                )} ${convertToPixel(kitSelectDropDownCssTokens.border.radius, borderCssTokens.radius.s)} 0 0;
                 transform: translate(-1px, 3px);
             }
 
             > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
-                border-radius: calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) 0 0 ;
+                border-radius: ${convertToPixel(
+                    kitSelectDropDownCssTokens.border.radius,
+                    borderCssTokens.radius.s
+                )} ${convertToPixel(kitSelectDropDownCssTokens.border.radius, borderCssTokens.radius.s)} 0 0;
                 transform: translate(0px, 4px);
             }
 
             &.ant-select-dropdown-placement-bottomLeft, &.ant-select-dropdown-placement-bottomRight {
                 .kit-select-dropdown-content {
                     transform: translate(-1px, -3px);
-                    border-radius: 0 0 calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+                    border-radius: 0 0 ${convertToPixel(
+                        kitSelectDropDownCssTokens.border.radius,
+                        borderCssTokens.radius.s
+                    )} ${convertToPixel(kitSelectDropDownCssTokens.border.radius, borderCssTokens.radius.s)};
                 }
 
                 > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
                     transform: translate(0px, -4px);
-                    border-radius: 0 0 calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) calc(var(${kitSelectDropDownCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) ;
+                    border-radius: 0 0 ${convertToPixel(
+                        kitSelectDropDownCssTokens.border.radius,
+                        borderCssTokens.radius.s
+                    )} ${convertToPixel(kitSelectDropDownCssTokens.border.radius, borderCssTokens.radius.s)};
                 }
             }
         }
@@ -243,8 +266,8 @@ export const StyledKitSelect = styled(AntdSelect)`
         }
 
         &.ant-select-compact-first-item:not(.ant-select-compact-last-item):not(.ant-select-open) {
-            border-radius: calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) 0 0
-                calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+            border-radius: ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)} 0 0
+                ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)};
         }
     }
 
@@ -257,39 +280,35 @@ export const StyledKitSelect = styled(AntdSelect)`
     &.ant-select-open {
         &:not(.ant-select-compact-item) {
             &.ant-select-bottom {
-                border-radius: calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px)
-                    calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) 0 0;
+                border-radius: ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)}
+                    ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)} 0 0;
             }
 
             &.ant-select-top {
-                border-radius: 0 0
-                    calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px)
-                    calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+                border-radius: 0 0 ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)}
+                    ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)};
             }
         }
 
         &.ant-select-compact-item {
             &.ant-select-bottom {
-                border-radius: calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px)
-                    calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) 0 0;
+                border-radius: ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)}
+                    ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)} 0 0;
             }
 
             &.ant-select-top {
-                border-radius: 0 0
-                    calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px)
-                    calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+                border-radius: 0 0 ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)}
+                    ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)};
             }
         }
 
         &.ant-select-compact-item.ant-select-compact-first-item:not(.ant-select-compact-last-item) {
             &.ant-select-bottom {
-                border-radius: calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px) 0
-                    0 0;
+                border-radius: ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)} 0 0 0;
             }
 
             &.ant-select-top {
-                border-radius: 0 0 0
-                    calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+                border-radius: 0 0 0 ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)};
             }
         }
     }
@@ -305,7 +324,7 @@ export const StyledKitSelect = styled(AntdSelect)`
             var(${kitColorsPaletteCssTokens.neutral.white})
         );
         border: 1px solid #d1dfe9;
-        border-radius: calc(var(${kitSelectCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+        border-radius: ${convertToPixel(kitSelectCssTokens.border.radius, borderCssTokens.radius.s)};
         transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
         &:hover {
