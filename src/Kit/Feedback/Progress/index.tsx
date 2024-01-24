@@ -5,13 +5,12 @@ import {IKitProgress} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
 import {kitProgressCssTokens} from '@theme/aristid/components/Feedback/Progress';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledProgress = styled(Progress)`
-    font-size: calc(var(${kitProgressCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize7})) * 1px);
+    font-size: ${convertToPixel(kitProgressCssTokens.typography.fontSize, typographyCssTokens.fontSize7)};
     &.ant-progress-circle .ant-progress-text {
-        font-size: calc(
-            var(${kitProgressCssTokens.circle.typography.fontSize}, var(${typographyCssTokens.fontSize2})) * 1px
-        );
+        font-size: ${convertToPixel(kitProgressCssTokens.circle.typography.fontSize, typographyCssTokens.fontSize2)};
         font-weight: var(
             ${kitProgressCssTokens.circle.typography.fontWeight},
             var(${typographyCssTokens.regularFontWeight})

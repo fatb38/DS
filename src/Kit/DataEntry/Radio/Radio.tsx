@@ -8,10 +8,11 @@ import {RadioRef} from 'antd/es/radio';
 import {kitRadioCssTokens} from '@theme/aristid/components/DataEntry/Radio';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledKitRadio = styled(Radio)`
     font-weight: var(${kitRadioCssTokens.typography.fontWeight}, var(${typographyCssTokens.mediumfontWeight}));
-    font-size: calc(var(${kitRadioCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
+    font-size: ${convertToPixel(kitRadioCssTokens.typography.fontSize, typographyCssTokens.fontSize5)};
     line-height: var(${kitRadioCssTokens.typography.lineHeight}, var(${typographyCssTokens.lineHeight5}));
     // Unchecked
     .ant-radio {

@@ -2,6 +2,7 @@ import {createGlobalStyle} from 'styled-components';
 import {kitDropDownCssTokens} from '@theme/aristid/components/Navigation/DropDown';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {convertToPixel} from '@theme/utils/convert';
 
 export const DropDownStyle = createGlobalStyle`
     .ant-dropdown,
@@ -49,12 +50,10 @@ export const DropDownStyle = createGlobalStyle`
                     ${kitDropDownCssTokens.menuItemGroup.title.colors.typography.default},
                     var(${kitColorsPaletteCssTokens.neutral.typography.black})
                 );
-                font-size: calc(
-                    var(
-                        ${kitDropDownCssTokens.menuItemGroup.title.typography.fontSize},
-                        var(${typographyCssTokens.fontSize7})
-                    ) * 1px
-                );
+                font-size: ${convertToPixel(
+                    kitDropDownCssTokens.menuItemGroup.title.typography.fontSize,
+                    typographyCssTokens.fontSize7
+                )};
                 font-weight: var(
                     ${kitDropDownCssTokens.menuItemGroup.title.typography.fontWeight},
                     var(${typographyCssTokens.boldFontWeight})

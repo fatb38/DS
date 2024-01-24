@@ -15,6 +15,7 @@ import {kitAlertCssTokens} from '@theme/aristid/components/Feedback/Alert';
 import {borderCssTokens} from '@theme/aristid/general/border';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledAntdAlert = styled(AntdAlert)`
     &.ant-alert-with-description {
@@ -28,25 +29,21 @@ const StyledAntdAlert = styled(AntdAlert)`
     }
 
     &:not(.ant-alert-banner) {
-        border-radius: calc(var(${kitAlertCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+        border-radius: ${convertToPixel(kitAlertCssTokens.border.radius, borderCssTokens.radius.s)};
     }
 
     padding: 8px 16px;
 
     .ant-alert-message {
-        font-size: calc(
-            var(${kitAlertCssTokens.typography.fontSize.message}, var(${typographyCssTokens.fontSize5})) * 1px
-        );
+        font-size: ${convertToPixel(kitAlertCssTokens.typography.fontSize.message, typographyCssTokens.fontSize5)};
     }
 
     .ant-alert-description {
-        font-size: calc(
-            var(${kitAlertCssTokens.typography.fontSize.description}, var(${typographyCssTokens.fontSize7})) * 1px
-        );
+        font-size: ${convertToPixel(kitAlertCssTokens.typography.fontSize.description, typographyCssTokens.fontSize7)};
     }
 
     .fa-icon {
-        font-size: calc(var(${kitAlertCssTokens.icon.alert.size}, var(${typographyCssTokens.fontSize4})) * 1px);
+        font-size: ${convertToPixel(kitAlertCssTokens.icon.alert.size, typographyCssTokens.fontSize4)};
         margin-inline-end: 8px;
     }
 

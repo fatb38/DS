@@ -10,6 +10,7 @@ import useSecureClick from '@hooks/useSecureClick';
 import {kitButtonCssTokens, kitButtonDefaultCssTokens} from '@theme/aristid/components/General/Button';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {borderCssTokens} from '@theme/aristid/general/border';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
     height: 40px;
@@ -23,9 +24,9 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
         `var(${$buttonCssTokens.custom.colors.background.default}, var(${$buttonCssTokens.default.colors.background.default}))`};
     font-weight: ${({$buttonCssTokens}) =>
         `var(${$buttonCssTokens.custom.typography.fontWeight}, var(${$buttonCssTokens.default.typography.fontWeight}))`};
-    font-size: calc(var(${kitButtonCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
+    font-size: ${convertToPixel(kitButtonCssTokens.typography.fontSize, typographyCssTokens.fontSize5)};
     line-height: var(${kitButtonCssTokens.typography.lineHeight}, var(${typographyCssTokens.lineHeight5}));
-    border-radius: calc(var(${kitButtonCssTokens.border.radius}, var(${borderCssTokens.radius.pills})) * 1px);
+    border-radius: ${convertToPixel(kitButtonCssTokens.border.radius, borderCssTokens.radius.pills)};
     font-family: var(${kitButtonCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
 
     &[href].ant-btn {
@@ -42,9 +43,15 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
     &.ant-btn .ant-btn-icon svg {
         font-size: ${({$buttonCssTokens, $iconSize}) => {
             if ($iconSize === undefined) {
-                return `calc(var(${$buttonCssTokens.custom.typography.iconSize.m}, var(${$buttonCssTokens.default.typography.iconSize.m})) * 1px)`;
+                return convertToPixel(
+                    $buttonCssTokens.custom.typography.iconSize.m,
+                    $buttonCssTokens.default.typography.iconSize.m
+                );
             }
-            return `calc(var(${$buttonCssTokens.custom.typography.iconSize[$iconSize]}, var(${$buttonCssTokens.default.typography.iconSize[$iconSize]})) * 1px)`;
+            return convertToPixel(
+                $buttonCssTokens.custom.typography.iconSize[$iconSize],
+                $buttonCssTokens.default.typography.iconSize[$iconSize]
+            );
         }};
     }
 
@@ -113,17 +120,37 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
 
         &.ant-btn-compact-first-item {
             border-radius: ${({$buttonCssTokens}) =>
-                `calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px) 0 0 calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px)`};
+                convertToPixel(
+                    $buttonCssTokens.custom.compact.border.radius,
+                    $buttonCssTokens.default.compact.border.radius
+                ) +
+                ' 0 0 ' +
+                convertToPixel(
+                    $buttonCssTokens.custom.compact.border.radius,
+                    $buttonCssTokens.default.compact.border.radius
+                )};
         }
 
         &.ant-btn-compact-last-item {
             border-radius: ${({$buttonCssTokens}) =>
-                `0 calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px) calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px) 0`};
+                '0 ' +
+                convertToPixel(
+                    $buttonCssTokens.custom.compact.border.radius,
+                    $buttonCssTokens.default.compact.border.radius
+                ) +
+                convertToPixel(
+                    $buttonCssTokens.custom.compact.border.radius,
+                    $buttonCssTokens.default.compact.border.radius
+                ) +
+                ' 0'};
         }
 
         &.ant-btn-compact-first-item.ant-btn-compact-last-item {
             border-radius: ${({$buttonCssTokens}) =>
-                `calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px)`};
+                convertToPixel(
+                    $buttonCssTokens.custom.compact.border.radius,
+                    $buttonCssTokens.default.compact.border.radius
+                )};
         }
     }
 
@@ -132,17 +159,36 @@ const StyledAntdButton = styled(AntdButton)<IStyledKitButton>`
 
         &.ant-btn-compact-vertical-first-item {
             border-radius: ${({$buttonCssTokens}) =>
-                `calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px) calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px) 0 0`};
+                convertToPixel(
+                    $buttonCssTokens.custom.compact.border.radius,
+                    $buttonCssTokens.default.compact.border.radius
+                ) +
+                convertToPixel(
+                    $buttonCssTokens.custom.compact.border.radius,
+                    $buttonCssTokens.default.compact.border.radius
+                ) +
+                ' 0 0'};
         }
 
         &.ant-btn-compact-vertical-last-item {
             border-radius: ${({$buttonCssTokens}) =>
-                `0 0 calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px) calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px)`};
+                '0 0 ' +
+                convertToPixel(
+                    $buttonCssTokens.custom.compact.border.radius,
+                    $buttonCssTokens.default.compact.border.radius
+                ) +
+                convertToPixel(
+                    $buttonCssTokens.custom.compact.border.radius,
+                    $buttonCssTokens.default.compact.border.radius
+                )};
         }
 
         &.ant-btn-compact-first-item.ant-btn-compact-last-item {
             border-radius: ${({$buttonCssTokens}) =>
-                `calc(var(${$buttonCssTokens.custom.compact.border.radius}, var(${$buttonCssTokens.default.compact.border.radius})) * 1px)`};
+                convertToPixel(
+                    $buttonCssTokens.custom.compact.border.radius,
+                    $buttonCssTokens.default.compact.border.radius
+                )};
         }
     }
 

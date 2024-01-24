@@ -9,12 +9,13 @@ import {kitImageCssTokens} from '@theme/aristid/components/DataDisplay/Image';
 import {borderCssTokens} from '@theme/aristid/general/border';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {useKitTheme} from '@theme/useKitTheme';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledImage = styled(AntdImage)<IStyledKitImage>`
     border-radius: ${({$rounded}) =>
         $rounded
-            ? `calc(var(${kitImageCssTokens.border.radius.rounded}, var(${borderCssTokens.radius.s})) * 1px)`
-            : `calc(var(${kitImageCssTokens.border.radius.default}, var(${borderCssTokens.radius.square})) * 1px)`};
+            ? convertToPixel(kitImageCssTokens.border.radius.rounded, borderCssTokens.radius.s)
+            : convertToPixel(kitImageCssTokens.border.radius.default, borderCssTokens.radius.square)};
     border: ${({$bordered}) =>
         $bordered
             ? `1px solid var(${kitImageCssTokens.colors.border.default}, var(${kitColorsPaletteCssTokens.neutral.black60}))`
@@ -23,8 +24,8 @@ const StyledImage = styled(AntdImage)<IStyledKitImage>`
     + .ant-image-mask {
         border-radius: ${({$rounded}) =>
             $rounded
-                ? `calc(var(${kitImageCssTokens.border.radius.rounded}, var(${borderCssTokens.radius.s})) * 1px)`
-                : `calc(var(${kitImageCssTokens.border.radius.default}, var(${borderCssTokens.radius.square})) * 1px)`};
+                ? convertToPixel(kitImageCssTokens.border.radius.rounded, borderCssTokens.radius.s)
+                : convertToPixel(kitImageCssTokens.border.radius.default, borderCssTokens.radius.square)};
         border: ${({$bordered}) =>
             $bordered
                 ? `1px solid var(${kitImageCssTokens.colors.border.default}, var(${kitColorsPaletteCssTokens.neutral.black60}))`

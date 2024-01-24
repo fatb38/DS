@@ -6,6 +6,7 @@ import {useKitTheme} from '@theme/useKitTheme';
 import {kitPaginationCssTokens} from '@theme/aristid/components/Navigation/Pagination';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledAntdPagination = styled(Pagination)`
     &.kit-pagination-bordered:not(.ant-pagination-mini) {
@@ -111,9 +112,10 @@ const StyledAntdPagination = styled(Pagination)`
 
     & .kit-pagination-prev,
     & .kit-pagination-next {
-        font-size: calc(
-            var(${kitPaginationCssTokens.prevNext.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 0.75px
-        );
+        font-size: ${convertToPixel(
+            kitPaginationCssTokens.prevNext.typography.fontSize,
+            typographyCssTokens.fontSize5
+        )};
     }
 
     & .ant-pagination-options-quick-jumper {

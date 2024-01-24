@@ -4,25 +4,34 @@ import {kitColorPickerCssTokens} from '@theme/aristid/components/DataEntry/Color
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {borderCssTokens} from '@theme/aristid/general/border';
+import {convertToPixel} from '@theme/utils/convert';
 
 export const ColorPickerPanelStyle = createGlobalStyle`
     .ant-color-picker.kit-color-picker {
-        font-size: calc(var(${kitColorPickerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
+        font-size: ${convertToPixel(kitColorPickerCssTokens.typography.fontSize, typographyCssTokens.fontSize5)};
         .ant-color-picker-input-container {
             .ant-select {
                 .ant-select-selection-item {
-                    color: var(${kitColorPickerCssTokens.panel.select.colors.typography.default}, var(${kitColorsPaletteCssTokens.primary.primary300}));
-                    font-weight: var(${kitColorPickerCssTokens.panel.select.typography.fontWeight}, var(${typographyCssTokens.mediumfontWeight}));
+                    color: var(${kitColorPickerCssTokens.panel.select.colors.typography.default}, var(${
+                        kitColorsPaletteCssTokens.primary.primary300
+                    }));
+                    font-weight: var(${kitColorPickerCssTokens.panel.select.typography.fontWeight}, var(${
+                        typographyCssTokens.mediumfontWeight
+                    }));
                 }
 
                 .ant-select-arrow {
-                    color: var(${kitColorPickerCssTokens.panel.select.colors.rafter.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500}));
+                    color: var(${kitColorPickerCssTokens.panel.select.colors.rafter.default}, var(${
+                        kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500
+                    }));
                 }
             }
 
             .ant-color-picker-input .ant-input-affix-wrapper{
                 &.ant-input-affix-wrapper span.ant-input-prefix {
-                    color: var(${kitColorPickerCssTokens.panel.input.colors.prefix.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500}));
+                    color: var(${kitColorPickerCssTokens.panel.input.colors.prefix.default}, var(${
+                        kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500
+                    }));
                 }
             }
 
@@ -35,27 +44,39 @@ export const ColorPickerPanelStyle = createGlobalStyle`
                     border-color: transparent;
                     // TODO change to cards-border-stroke when available
                     box-shadow: 0 0 0 3px
-                        var(${kitColorPickerCssTokens.colors.border.focused}, var(${kitColorsPaletteCssTokens.primary.primary200}));
+                        var(${kitColorPickerCssTokens.colors.border.focused}, var(${
+                            kitColorsPaletteCssTokens.primary.primary200
+                        }));
                 }
 
                 input {
-                    font-weight: var(${kitColorPickerCssTokens.panel.input.typography.fontWeight}, var(${typographyCssTokens.mediumfontWeight}));
+                    font-weight: var(${kitColorPickerCssTokens.panel.input.typography.fontWeight}, var(${
+                        typographyCssTokens.mediumfontWeight
+                    }));
                 }
             }
         }
 
         .ant-color-picker-presets {
             .ant-collapse-arrow {
-                color: var(${kitColorPickerCssTokens.panel.preset.colors.rafter.default}, var(${kitColorsPaletteCssTokens.neutral.black}));
+                color: var(${kitColorPickerCssTokens.panel.preset.colors.rafter.default}, var(${
+                    kitColorsPaletteCssTokens.neutral.black
+                }));
             }
 
             .ant-color-picker-presets-label {
-                font-weight: var(${kitColorPickerCssTokens.panel.preset.typography.fontWeight}, var(${typographyCssTokens.boldFontWeight}));
-                color: var(${kitColorPickerCssTokens.panel.preset.colors.rafter.default}, var(${kitColorsPaletteCssTokens.neutral.black}));
+                font-weight: var(${kitColorPickerCssTokens.panel.preset.typography.fontWeight}, var(${
+                    typographyCssTokens.boldFontWeight
+                }));
+                color: var(${kitColorPickerCssTokens.panel.preset.colors.rafter.default}, var(${
+                    kitColorsPaletteCssTokens.neutral.black
+                }));
             }
 
             .ant-color-picker-presets-empty {
-                color: var(${kitColorPickerCssTokens.panel.preset.colors.empty.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}));
+                color: var(${kitColorPickerCssTokens.panel.preset.colors.empty.default}, var(${
+                    kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300
+                }));
             }
 
             .ant-color-picker-presets-color::before {
@@ -71,7 +92,7 @@ export const StyledAntdColorPicker = styled(AntdColorPicker)`
     min-width: 40px;
     line-height: 40px;
     box-shadow: none;
-    font-size: calc(var(${kitColorPickerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px);
+    font-size: ${convertToPixel(kitColorPickerCssTokens.typography.fontSize, typographyCssTokens.fontSize5)};
     &.ant-color-picker-trigger-active {
         border-color: transparent;
         // TODO change to cards-border-stroke when available
@@ -98,8 +119,6 @@ export const StyledAntdColorPicker = styled(AntdColorPicker)`
     .ant-color-picker-color-block {
         width: 32px;
         height: 32px;
-        border-radius: calc(
-            var(${kitColorPickerCssTokens.colorBlock.border.radius}, var(${borderCssTokens.radius.xs})) * 1px
-        );
+        border-radius: ${convertToPixel(kitColorPickerCssTokens.colorBlock.border.radius, borderCssTokens.radius.xs)};
     }
 `;

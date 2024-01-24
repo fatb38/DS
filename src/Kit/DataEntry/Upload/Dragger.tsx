@@ -8,6 +8,7 @@ import {faInbox} from '@fortawesome/free-solid-svg-icons';
 import {kitUploadDraggerCssTokens} from '@theme/aristid/components/DataEntry/Upload';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledDragger = styled(AntdUpload.Dragger)`
     .ant-upload {
@@ -38,9 +39,10 @@ const StyledDragger = styled(AntdUpload.Dragger)`
                     ${kitUploadDraggerCssTokens.colors.typography.text},
                     var(${kitColorsPaletteCssTokens.neutral.typography.black})
                 );
-                font-size: calc(
-                    var(${kitUploadDraggerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize4})) * 1px
-                );
+                font-size: ${convertToPixel(
+                    kitUploadDraggerCssTokens.typography.fontSize,
+                    typographyCssTokens.fontSize4
+                )};
                 font-weight: var(
                     ${kitUploadDraggerCssTokens.typography.fontWeight},
                     var(${typographyCssTokens.regularFontWeight})

@@ -10,6 +10,7 @@ import {faLink} from '@fortawesome/free-solid-svg-icons';
 import {kitLegacyCardCssTokens} from '@theme/aristid/components/DataDisplay/LegacyCard';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledCard = styled(AntdCard)<IStyledKitLegacyCard>`
     font-family: var(${kitLegacyCardCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
@@ -69,12 +70,10 @@ const StyledCard = styled(AntdCard)<IStyledKitLegacyCard>`
                         $disabled
                             ? `var(${kitLegacyCardCssTokens.colors.typography.headerTitle.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
                             : `var(${kitLegacyCardCssTokens.colors.typography.headerTitle.default}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
-                    font-size: calc(
-                        var(
-                                ${kitLegacyCardCssTokens.typography.headerTitle.fontSize},
-                                var(${typographyCssTokens.fontSize3})
-                            ) * 1px
-                    );
+                    font-size: ${convertToPixel(
+                        kitLegacyCardCssTokens.typography.headerTitle.fontSize,
+                        typographyCssTokens.fontSize3
+                    )};
                     font-weight: var(
                         ${kitLegacyCardCssTokens.typography.headerTitle.fontWeight},
                         var(${typographyCssTokens.boldFontWeight})
@@ -109,10 +108,10 @@ const StyledCard = styled(AntdCard)<IStyledKitLegacyCard>`
                 $disabled
                     ? `var(${kitLegacyCardCssTokens.colors.typography.contentTitle.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
                     : `var(${kitLegacyCardCssTokens.colors.typography.contentTitle.default}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
-            font-size: calc(
-                var(${kitLegacyCardCssTokens.typography.contentTitle.fontSize}, var(${typographyCssTokens.fontSize2})) *
-                    1px
-            );
+            font-size: ${convertToPixel(
+                kitLegacyCardCssTokens.typography.contentTitle.fontSize,
+                typographyCssTokens.fontSize2
+            )};
             font-weight: var(
                 ${kitLegacyCardCssTokens.typography.contentTitle.fontWeight},
                 var(${typographyCssTokens.boldFontWeight})
@@ -125,10 +124,10 @@ const StyledCard = styled(AntdCard)<IStyledKitLegacyCard>`
                 $disabled
                     ? `var(${kitLegacyCardCssTokens.colors.typography.description.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}))`
                     : `var(${kitLegacyCardCssTokens.colors.typography.description.default}, var(${kitColorsPaletteCssTokens.neutral.typography.black}))`};
-            font-size: calc(
-                var(${kitLegacyCardCssTokens.typography.description.fontSize}, var(${typographyCssTokens.fontSize5})) *
-                    1px
-            );
+            font-size: ${convertToPixel(
+                kitLegacyCardCssTokens.typography.description.fontSize,
+                typographyCssTokens.fontSize5
+            )};
             line-height: normal;
             font-weight: var(
                 ${kitLegacyCardCssTokens.typography.description.fontWeight},
@@ -183,9 +182,10 @@ const StyledCard = styled(AntdCard)<IStyledKitLegacyCard>`
                 $disabled
                     ? `var(${kitLegacyCardCssTokens.colors.typography.contentTitle.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
                     : `var(${kitLegacyCardCssTokens.colors.typography.contentTitle.default}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
-            font-size: calc(
-                var(${kitLegacyCardCssTokens.typography.linkIcon.fontSize}, var(${typographyCssTokens.fontSize3})) * 1px
-            );
+            font-size: ${convertToPixel(
+                kitLegacyCardCssTokens.typography.linkIcon.fontSize,
+                typographyCssTokens.fontSize3
+            )};
             padding: 0;
         }
 

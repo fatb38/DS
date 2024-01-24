@@ -12,6 +12,7 @@ import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {borderCssTokens} from '@theme/aristid/general/border';
 import {spacingCssTokens} from '@theme/aristid/general/spacing';
 import {getCssPropertyValue} from '@theme/utils';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledOverlay = styled.div`
     &.kit-modal-overlay {
@@ -27,10 +28,10 @@ const StyledOverlay = styled.div`
 
 const StyledKitModal = styled.div`
     font-family: var(${kitModalCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
-    font-size: calc(var(${kitModalCssTokens.typography.fontSize.content}, var(${typographyCssTokens.fontSize5})) * 1px);
+    font-size: ${convertToPixel(kitModalCssTokens.typography.fontSize.content, typographyCssTokens.fontSize5)};
     font-weight: var(${kitModalCssTokens.typography.fontWeight.content}, var(${typographyCssTokens.regularFontWeight}));
     background: var(${kitModalCssTokens.colors.background.default}, var(${kitColorsPaletteCssTokens.neutral.white}));
-    border-radius: calc(var(${kitModalCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+    border-radius: ${convertToPixel(kitModalCssTokens.border.radius, borderCssTokens.radius.s)};
     box-shadow:
         0 6px 16px 0 rgba(0, 0, 0, 0.08),
         0 3px 6px -4px rgba(0, 0, 0, 0.12),
@@ -61,16 +62,14 @@ const StyledKitModal = styled.div`
     }
 
     .kit-modal-title {
-        font-size: calc(
-            var(${kitModalCssTokens.typography.fontSize.title}, var(${typographyCssTokens.fontSize4})) * 1px
-        );
+        font-size: ${convertToPixel(kitModalCssTokens.typography.fontSize.title, typographyCssTokens.fontSize4)};
         font-weight: var(${kitModalCssTokens.typography.fontWeight.title}, var(${typographyCssTokens.boldFontWeight}));
     }
 
     .kit-confirm-image-wrapper {
         min-width: 350px;
         height: 150px;
-        border-radius: calc(var(${kitModalCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+        border-radius: ${convertToPixel(kitModalCssTokens.border.radius, borderCssTokens.radius.s)};
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -126,7 +125,7 @@ const StyledKitModal = styled.div`
     }
 
     .kit-modal-footer {
-        margin-top: calc(var(${kitModalCssTokens.spacing.vertical.items}, var(${spacingCssTokens.m})) * 1px);
+        margin-top: ${convertToPixel(kitModalCssTokens.spacing.vertical.items, spacingCssTokens.m)};
     }
 `;
 

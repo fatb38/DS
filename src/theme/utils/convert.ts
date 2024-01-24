@@ -1,2 +1,5 @@
-export const convertToPixel = (cssToken: string, cssTokenFallback?: string): string =>
-    `calc(var(${cssToken}${cssTokenFallback != null ? `, var(${cssTokenFallback})` : ''}) * 1px)`;
+export const convertToPixel = (cssToken: string, cssTokenFallback?: string | number): string => {
+    const formattedFallback = typeof cssTokenFallback === 'string' ? `var(${cssTokenFallback})` : cssTokenFallback;
+
+    return `calc(var(${cssToken}${cssTokenFallback != null ? `, ${formattedFallback}` : ''}) * 1px)`;
+};

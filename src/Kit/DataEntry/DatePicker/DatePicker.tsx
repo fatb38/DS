@@ -10,12 +10,11 @@ import {kitDatePickerCssTokens} from '@theme/aristid/components/DataEntry/DatePi
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {borderCssTokens} from '@theme/aristid/general/border';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledDatePicker = styled.div`
     .ant-picker {
-        font-size: calc(
-            var(${kitDatePickerCssTokens.typography.fontSize}, var(${typographyCssTokens.fontSize5})) * 1px
-        );
+        font-size: ${convertToPixel(kitDatePickerCssTokens.typography.fontSize, typographyCssTokens.fontSize5)};
         height: 40px;
         padding: 0px 12px 0px 8px;
         min-width: 165px;
@@ -23,7 +22,7 @@ const StyledDatePicker = styled.div`
             ${kitDatePickerCssTokens.typography.fontWeight.placeholder},
             var(${typographyCssTokens.regularFontWeight})
         );
-        border-radius: calc(var(${kitDatePickerCssTokens.border.radius}, var(${borderCssTokens.radius.s})) * 1px);
+        border-radius: ${convertToPixel(kitDatePickerCssTokens.border.radius, borderCssTokens.radius.s)};
 
         .ant-picker-input {
             display: grid;

@@ -5,6 +5,7 @@ import {useKitTheme} from '@theme/useKitTheme';
 import {kitInputWrapperCssTokens} from '@theme/aristid/components/DataEntry/Input';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {spacingCssTokens} from '@theme/aristid/general/spacing';
+import {convertToPixel} from '@theme/utils/convert';
 
 const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
     label,
@@ -44,11 +45,11 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
     };
 
     const _getLabelGap = () => {
-        return `calc(var(${kitInputWrapperCssTokens.gap.label}, var(${spacingCssTokens.xs})) * 1px)`;
+        return convertToPixel(kitInputWrapperCssTokens.gap.label, spacingCssTokens.xs);
     };
 
     const _getHelperGap = () => {
-        return `calc(var(${kitInputWrapperCssTokens.gap.helper}, var(${spacingCssTokens.xs})) * 1px)`;
+        return convertToPixel(kitInputWrapperCssTokens.gap.helper, spacingCssTokens.xs);
     };
 
     return (

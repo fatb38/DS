@@ -7,6 +7,7 @@ import {getColor, getLighterColor, isValidColor} from '@utils/functions';
 import {kitIconCssTokens} from '@theme/aristid/components/General/Icon';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {borderCssTokens} from '@theme/aristid/general/border';
+import {convertToPixel} from '@theme/utils/convert';
 
 const StyledKitIcon = styled.span<IStyledKitIcon>`
     color: ${({$on}) => {
@@ -23,9 +24,9 @@ const StyledKitIcon = styled.span<IStyledKitIcon>`
     }};
     border-radius: ${({$on}) => {
         if ($on) {
-            return `calc(var(${kitIconCssTokens.border.radius.on}, var(${borderCssTokens.radius.s})) * 1px)`;
+            return convertToPixel(kitIconCssTokens.border.radius.on, borderCssTokens.radius.s);
         }
-        return `calc(var(${kitIconCssTokens.border.radius.default}, var(${borderCssTokens.radius.square})) * 1px)`;
+        return convertToPixel(kitIconCssTokens.border.radius.default, borderCssTokens.radius.square);
     }};
     padding: 8px;
     min-width: 16px;
