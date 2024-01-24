@@ -78,7 +78,12 @@ const Row: FunctionComponent<IRow> = ({level, _value, _type, _label, _descriptio
                 <div>
                     <b>{_label}</b>
                 </div>
-                <div className="subtitle">{_path}</div>
+                <div className="subtitle">
+                    <b>Theme Token key:</b> {_path}
+                </div>
+                <div className="subtitle">
+                    <b>Css variable :</b> {`--${_path?.replace('.', '-')}`}
+                </div>
             </td>
             <td>{_description ?? '-'}</td>
             <td>
