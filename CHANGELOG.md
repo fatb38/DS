@@ -1,7 +1,7 @@
 # Changelog
 
 ## [x.x.x](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-xx-xx)
-### ✨ Docs
+### 📚 Documentation
 * New documentation page to list available design tokens (@evoiron)
 * Display each design token corresponding css variable (@evoiron)
 
