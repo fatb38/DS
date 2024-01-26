@@ -12,6 +12,19 @@ export const argTypes = {
             category: 'Modal'
         }
     },
+    fullscreen: {
+        name: 'fullscreen',
+        description: 'Should the modal open fullscreen',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {
+                summary: false
+            },
+            category: 'Modal'
+        }
+    },
     style: {
         name: 'style',
         description:

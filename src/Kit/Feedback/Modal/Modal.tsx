@@ -40,6 +40,13 @@ const StyledKitModal = styled.div`
     display: flex;
     position: relative;
 
+    .kit-modal-wrapper-fullscreen & {
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
     .kit-modal-content-wrapper {
         flex: 0 1 100%;
         position: relative;
@@ -134,6 +141,7 @@ const Modal: FunctionComponent<IKitModal> = ({
     style,
     width = '520px',
     height = 'initial',
+    fullscreen,
     ...props
 }: IKitModal) => {
     const {appId} = useKitTheme();
@@ -141,9 +149,15 @@ const Modal: FunctionComponent<IKitModal> = ({
     const styles: IKitModal['style'] = {
         ...style,
         content: {
-            ...style?.content,
             width: width,
-            height: height as string
+            height: height as string,
+            ...style?.content,
+            ...(fullscreen
+                ? {
+                      width: '100%',
+                      height: '100%'
+                  }
+                : {})
         }
     };
 
@@ -154,7 +168,9 @@ const Modal: FunctionComponent<IKitModal> = ({
     const mergedProps = {
         ...props,
         style: styles,
-        className: `${appId} kit-modal-wrapper ${props.className || ''}`,
+        className: `${appId} kit-modal-wrapper ${fullscreen ? 'kit-modal-wrapper-fullscreen ' : ''}${
+            props.className || ''
+        }`,
         overlayElement: (overlayProps, contentElement) => (
             <StyledOverlay {...overlayProps}>{contentElement}</StyledOverlay>
         ),

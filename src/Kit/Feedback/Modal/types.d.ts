@@ -20,6 +20,7 @@ export interface IKitModal
         Omit<KitHTMLAttributes<HTMLDivElement>, 'title' | 'role' | 'className' | 'style'> {
     width?: string;
     showCloseIcon?: boolean;
+    fullscreen?: boolean;
     close?: (args: unknown[]) => void;
     title?: ReactNode;
     footer?: ReactNode;
