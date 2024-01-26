@@ -1,0 +1,29 @@
+import { Meta } from "@storybook/addon-docs";
+import DesignTokens from '../../.storybook/components/DesignTokens';
+import fields from '../tokens';
+
+<Meta title="Design/Design tokens" />
+
+# Design tokens
+
+This page aims to provide you all the available design tokens from Aristid Design System. There are 2 kinds of design tokens in Aristid Design System : `general` tokens and `components`tokens.
+
+## Usage
+
+For each token, there are two ways to use it :
+    - `Theme token key` : Use it to define your custom theme. You can consume it in your component by using `useKitTheme` hook
+    - `Css variable`, use it in your css when you create your own component and want it to use the design system tokens
+
+## General tokens
+
+General tokens are default values used by components. It includes, colors, borders, spacings, etc...
+Overriding them in a custom theme will impact all components.
+
+<DesignTokens path="general" tokens={fields?.general} />
+
+## Components tokens
+
+Components tokens are exposed tokens for each component. You can override any of them in you custom theme.
+Each components Tokens are also available on their own documntation page
+
+<DesignTokens path={`components`} tokens={fields?.components} />
