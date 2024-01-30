@@ -6,6 +6,10 @@
 * **Modal:**
     * Add `fullscreen`option (@evoiron)
 
+### 🐛 Bug Fixes
+* **Select**
+    * Remove unused props `suffixIcon` and adapt the documentation (@Delmotte-Vincent)
+
 ### 📚 Documentation
 * New documentation page to list available design tokens (@evoiron)
 * Display each design token corresponding css variable (@evoiron)

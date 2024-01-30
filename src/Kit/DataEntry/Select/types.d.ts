@@ -24,7 +24,8 @@ type AntdSelectTypesToOmit =
     | 'onDeselect'
     | 'onInputKeyDown'
     | 'dropdownStyle'
-    | 'menuItemSelectedIcon';
+    | 'menuItemSelectedIcon'
+    | 'suffixIcon';
 
 export interface IKitSelect extends Omit<SelectProps, AntdSelectTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     label?: string;

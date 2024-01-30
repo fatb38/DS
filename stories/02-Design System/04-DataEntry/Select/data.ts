@@ -89,7 +89,8 @@ const SelectArgTypes = {
     filterOption: {
         name: 'filterOption',
         control: {type: 'boolean'},
-        description: 'If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and option, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded',
+        description:
+            'If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and option, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded',
         table: {
             type: {
                 summary: 'boolean | function(inputValue, option)'
@@ -102,7 +103,8 @@ const SelectArgTypes = {
     optionFilterProp: {
         name: 'optionFilterProp',
         control: {type: 'text'},
-        description: 'Which prop value of option will be used for filter if filterOption is true. If `options` is set, it should be set to `label`',
+        description:
+            'Which prop value of option will be used for filter if filterOption is true. If `options` is set, it should be set to `label`',
         table: {
             type: {
                 summary: 'boolean | function(inputValue, option)'
@@ -265,17 +267,6 @@ const SelectArgTypes = {
                 summary: '`bottomLeft` `bottomRight` `topLeft` `topRight`'
             },
             defaultValue: {summary: 'bottomLeft'},
-            category: 'Select'
-        }
-    },
-    suffixIcon: {
-        name: 'suffixIcon',
-        description: 'The custom suffix icon',
-        table: {
-            type: {
-                summary: 'ReactNode'
-            },
-            defaultValue: {summary: '-'},
             category: 'Select'
         }
     },
