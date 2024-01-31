@@ -10,6 +10,8 @@
 * **Select**
     * Remove unused props `suffixIcon` and adapt the documentation (@Delmotte-Vincent)
     * Add focus state on select dropdown (@Delmotte-Vincent)
+* **Storybook**
+  * fix a visual bug on storybook caused by an addon (@evoiron)
 
 ### 📚 Documentation
 * New documentation page to list available design tokens (@evoiron)
