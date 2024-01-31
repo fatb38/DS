@@ -55,6 +55,23 @@ export const SelectDropDownStyle = createGlobalStyle`
             var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
         );
 
+        &.ant-select-dropdown-placement-bottomLeft.kit-select-dropdown-focus .kit-select-dropdown-content {
+            transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            box-shadow:
+                0px 1.5px 0px 1.5px var(${kitColorsPaletteCssTokens.primary.primary200}),-1.5px 1.5px 0px 1px var(${
+                    kitColorsPaletteCssTokens.primary.primary200
+                }), 1.5px 1.5px 0px 1px var(${kitColorsPaletteCssTokens.primary.primary200})
+        }
+
+        &.ant-select-dropdown-placement-topLeft.kit-select-dropdown-focus .kit-select-dropdown-content {
+            transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            z-index: 1000;
+            box-shadow:
+                0px -1.5px 0px 1.5px var(${kitColorsPaletteCssTokens.primary.primary200}),-1.5px -1.5px 0px 1px var(${
+                    kitColorsPaletteCssTokens.primary.primary200
+                }), 1.5px -1.5px 0px 1px var(${kitColorsPaletteCssTokens.primary.primary200})
+        }
+
         &.kit-select-dropdown-bottom {
             .kit-select-dropdown-content {
                 border-radius: 0 0 ${convertToPixel(

@@ -102,10 +102,11 @@ const _getPlacementClasses = (placement: IKitSelect['placement']) => {
     return ' ant-select-' + (placement && placement.indexOf('top') >= 0 ? 'top' : 'bottom');
 };
 
-const _getPopupPlacementClasses = (placement: IKitSelect['placement']) => {
+const _getPopupPlacementClasses = (placement: IKitSelect['placement'], isFocus: boolean) => {
     return cn({
         'kit-select-dropdown-top': placement && placement.indexOf('top') >= 0,
-        'kit-select-dropdown-bottom': !placement || placement.indexOf('top') < 0
+        'kit-select-dropdown-bottom': !placement || placement.indexOf('top') < 0,
+        'kit-select-dropdown-focus': isFocus
     });
 };
 
@@ -144,6 +145,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             onClick,
             onClear,
             onBlur,
+            onFocus,
             wrapperClassName,
             className,
             popupClassName,
@@ -157,6 +159,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         const [internalOptions, setOptions] = useState<IKitOption[]>([]);
         const [isOpen, setIsOpen] = useState(false);
         const internalKitSelectRef = useRef(id ?? uid.rnd());
+        const [isFocus, setIsFocus] = useState(false);
 
         const _handleDocumentScroll = useDebouncedCallback(() => {
             _fixSelectRender(internalKitSelectRef.current);
@@ -207,7 +210,13 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
 
         const _handleOnBlur = (event: FocusEvent<HTMLElement, Element>) => {
             setIsOpen(false);
+            setIsFocus(false);
             onBlur && onBlur(event);
+        };
+
+        const _handleFocus = (event: FocusEvent<HTMLElement, Element>) => {
+            setIsFocus(true);
+            onFocus && onFocus(event);
         };
 
         return (
@@ -222,7 +231,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                     {...props}
                     id={internalKitSelectRef.current}
                     className={`${appId} ${className ?? ''} ${_getPlacementClasses(placement)}`}
-                    popupClassName={`${appId} ${popupClassName ?? ''} ${_getPopupPlacementClasses(placement)}`}
+                    popupClassName={`${appId} ${popupClassName ?? ''} ${_getPopupPlacementClasses(placement, isFocus)}`}
                     options={internalOptions}
                     placement={placement}
                     menuItemSelectedIcon={<KitIcon icon={<FontAwesomeIcon icon={faCheck} />} on />}
@@ -241,8 +250,9 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                     ref={ref}
                     open={props.open !== undefined ? props.open : isOpen}
                     onClick={event => _handleOnClick(event)}
-                    onClear={() => _handleOnClear()}
+                    onClear={_handleOnClear}
                     onBlur={event => _handleOnBlur(event)}
+                    onFocus={event => _handleFocus(event)}
                 />
             </KitInputWrapper>
         );

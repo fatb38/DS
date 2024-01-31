@@ -52,7 +52,7 @@ const App = () => {
     const style = {width: 320};
 
     return (
-        <KitSpace direction="vertical">
+        <KitSpace direction="vertical" size={2}>
             <KitDivider orientation="left">Download compact</KitDivider>
             <KitSpace.Compact>
                 <KitSelect
