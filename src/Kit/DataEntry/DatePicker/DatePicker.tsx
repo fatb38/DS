@@ -2,7 +2,7 @@ import React, {forwardRef} from 'react';
 import styled from 'styled-components';
 import {DatePicker as AntdDatePicker} from 'antd';
 import {IKitDatePicker} from './types';
-import KitInputWrapper from '../Input/InputWrapper';
+import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark, faCalendar, faClock} from '@fortawesome/free-regular-svg-icons';

@@ -5,13 +5,15 @@ import {ConfigContext} from 'antd/lib/config-provider/';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 import {RadioGroupContextProvider} from './context';
-import type {RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps} from 'antd/lib/radio/interface';
+import type {RadioChangeEvent, RadioGroupButtonStyle} from 'antd/lib/radio/interface';
 import Radio from './Radio';
 
 import useStyle from 'antd/lib/radio/style';
+import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
+import {KitRadioGroup} from './types';
 
 const RadioGroup = memo(
-    forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
+    forwardRef<HTMLDivElement, KitRadioGroup>((props, ref) => {
         const {getPrefixCls, direction} = useContext(ConfigContext);
         const size = useContext(SizeContext);
 
@@ -35,6 +37,11 @@ const RadioGroup = memo(
             prefixCls: customizePrefixCls,
             className,
             rootClassName,
+            label,
+            helper,
+            status,
+            wrapperClassName,
+            bordered,
             options,
             buttonStyle = 'outline' as RadioGroupButtonStyle,
             disabled,
@@ -115,13 +122,22 @@ const RadioGroup = memo(
                 <RadioGroupContextProvider
                     value={{
                         onChange: _onRadioChange,
-                         
+
                         value,
                         disabled: props.disabled,
                         name: props.name
                     }}
                 >
-                    {childrenToRender}
+                    <KitInputWrapper
+                        label={label}
+                        helper={helper}
+                        disabled={disabled}
+                        bordered={bordered}
+                        status={status}
+                        className={wrapperClassName}
+                    >
+                        {childrenToRender}
+                    </KitInputWrapper>
                 </RadioGroupContextProvider>
             </div>
         );

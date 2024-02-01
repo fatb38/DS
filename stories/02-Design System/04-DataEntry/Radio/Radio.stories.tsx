@@ -47,6 +47,64 @@ export const ChromaticTest: Story = {
                     <KitRadio value={4}>D</KitRadio>
                 </KitRadio.Group>
             </div>
+            <div>
+                <KitTypography.Title level="h3">Group radio with label and helper</KitTypography.Title>
+                <div style={{display: 'flex', gap: '10px'}}>
+                    <KitRadio.Group value={2} label="Label" helper="helper">
+                        <KitRadio value={1}>A</KitRadio>
+                        <KitRadio value={2}>B</KitRadio>
+                        <KitRadio value={3}>C</KitRadio>
+                        <KitRadio value={4}>D</KitRadio>
+                    </KitRadio.Group>
+                    <KitRadio.Group value={2} status="error" label="Label" helper="helper">
+                        <KitRadio value={1}>A</KitRadio>
+                        <KitRadio value={2}>B</KitRadio>
+                        <KitRadio value={3}>C</KitRadio>
+                        <KitRadio value={4}>D</KitRadio>
+                    </KitRadio.Group>
+                    <KitRadio.Group value={2} status="warning" label="Label" helper="helper">
+                        <KitRadio value={1}>A</KitRadio>
+                        <KitRadio value={2}>B</KitRadio>
+                        <KitRadio value={3}>C</KitRadio>
+                        <KitRadio value={4}>D</KitRadio>
+                    </KitRadio.Group>
+                    <KitRadio.Group value={2} disabled status="error" label="Label" helper="helper">
+                        <KitRadio value={1}>A</KitRadio>
+                        <KitRadio value={2}>B</KitRadio>
+                        <KitRadio value={3}>C</KitRadio>
+                        <KitRadio value={4}>D</KitRadio>
+                    </KitRadio.Group>
+                </div>
+            </div>
+            <div>
+                <KitTypography.Title level="h3">Group radio bordered with label and helper</KitTypography.Title>
+                <div style={{display: 'flex', gap: '10px'}}>
+                    <KitRadio.Group value={2} bordered label="Label" helper="helper">
+                        <KitRadio value={1}>A</KitRadio>
+                        <KitRadio value={2}>B</KitRadio>
+                        <KitRadio value={3}>C</KitRadio>
+                        <KitRadio value={4}>D</KitRadio>
+                    </KitRadio.Group>
+                    <KitRadio.Group value={2} bordered status="error" label="Label" helper="helper">
+                        <KitRadio value={1}>A</KitRadio>
+                        <KitRadio value={2}>B</KitRadio>
+                        <KitRadio value={3}>C</KitRadio>
+                        <KitRadio value={4}>D</KitRadio>
+                    </KitRadio.Group>
+                    <KitRadio.Group value={2} bordered status="warning" label="Label" helper="helper">
+                        <KitRadio value={1}>A</KitRadio>
+                        <KitRadio value={2}>B</KitRadio>
+                        <KitRadio value={3}>C</KitRadio>
+                        <KitRadio value={4}>D</KitRadio>
+                    </KitRadio.Group>
+                    <KitRadio.Group value={2} bordered disabled status="error" label="Label" helper="helper">
+                        <KitRadio value={1}>A</KitRadio>
+                        <KitRadio value={2}>B</KitRadio>
+                        <KitRadio value={3}>C</KitRadio>
+                        <KitRadio value={4}>D</KitRadio>
+                    </KitRadio.Group>
+                </div>
+            </div>
         </div>
     )
 };

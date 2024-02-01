@@ -1,8 +1,8 @@
 import React, {Ref, forwardRef} from 'react';
 import {AutoComplete as AntdAutoComplete, RefSelectProps} from 'antd';
-import {KitInput} from '@kit/DataEntry/';
+import {KitInput} from '@kit/DataEntry/Input';
+import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import type {IKitAutoComplete} from './types';
-import KitInputWrapper from '../Input/InputWrapper';
 import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';

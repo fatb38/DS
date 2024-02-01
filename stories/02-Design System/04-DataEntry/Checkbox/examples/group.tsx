@@ -1,6 +1,7 @@
 import React from 'react';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
+import {KitTypography} from '@kit/General';
 
 const App = () => {
     const onChange = checkedValues => {
@@ -42,11 +43,28 @@ const App = () => {
 
     return (
         <KitSpace direction="vertical">
-            <KitCheckbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
-            <br />
-            <KitCheckbox.Group options={options} defaultValue={['Pear']} onChange={onChange} />
-            <br />
-            <KitCheckbox.Group options={optionsWithDisabled} disabled defaultValue={['Apple']} onChange={onChange} />
+            <KitSpace wrap size={24}>
+                <KitCheckbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
+                <KitCheckbox.Group options={options} defaultValue={['Pear']} onChange={onChange} />
+                <KitCheckbox.Group
+                    options={optionsWithDisabled}
+                    disabled
+                    defaultValue={['Apple']}
+                    onChange={onChange}
+                />
+            </KitSpace>
+            <KitTypography.Title level="h4">Bordered groups</KitTypography.Title>
+            <KitSpace wrap size={24}>
+                <KitCheckbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} bordered />
+                <KitCheckbox.Group options={options} defaultValue={['Pear']} onChange={onChange} bordered />
+                <KitCheckbox.Group
+                    options={optionsWithDisabled}
+                    disabled
+                    defaultValue={['Apple']}
+                    onChange={onChange}
+                    bordered
+                />
+            </KitSpace>
         </KitSpace>
     );
 };

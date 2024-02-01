@@ -30,11 +30,3 @@ export interface IKitPassword
     allowClear?: boolean;
     wrapperClassName?: string;
 }
-
-export interface IKitInputWrapper extends KitHTMLAttributes<HTMLDivElement> {
-    label?: string;
-    helper?: string;
-    disabled?: boolean;
-    status?: '' | 'warning' | 'error';
-    className?: string;
-}

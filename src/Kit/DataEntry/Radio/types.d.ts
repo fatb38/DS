@@ -15,7 +15,12 @@ export interface KitRadioProps extends RadioProps, KitHTMLAttributes<HTMLLabelEl
     style?: CSSProperties;
 }
 
-export interface KitRadioGroupProps extends RadioGroupProps, KitHTMLAttributes<HTMLDivElement> {
+export interface KitRadioGroup extends RadioGroupProps, KitHTMLAttributes<HTMLDivElement> {
     defaultValue?: any;
     value?: any;
+    label?: string;
+    helper?: string;
+    status?: '' | 'warning' | 'error';
+    bordered?: boolean;
+    wrapperClassName?: string;
 }

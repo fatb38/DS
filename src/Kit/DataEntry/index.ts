@@ -1,6 +1,7 @@
 export {KitCheckbox} from './Checkbox';
 export {KitInput} from './Input';
 export {KitInputNumber} from './InputNumber';
+export {KitInputWrapper} from './InputWrapper';
 export {KitRadio} from './Radio';
 export {KitRate} from './Rate';
 export {KitSelect} from './Select';

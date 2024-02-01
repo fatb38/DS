@@ -5,7 +5,7 @@ import {IKitTypography} from './general/typography';
 import {IKitButtonTheme} from './components/General/Button';
 import {IKitRateTheme} from './components/DataEntry/Rate';
 import {IKitTagTheme} from './components/DataDisplay/Tag';
-import {IKitInputWrapperTheme} from './components/DataEntry/Input';
+import {IKitInputWrapperTheme} from './components/DataEntry/InputWrapper';
 import {IKitInputTheme} from './components/DataEntry/Input';
 import {IKitSliderTheme} from './components/DataEntry/Slider';
 import {IKitTooltipTheme} from './components/DataDisplay/Tooltip';

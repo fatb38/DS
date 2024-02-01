@@ -7,6 +7,7 @@ import {BasicCheckboxTest} from './test-components/BasicCheckboxTest.tsx';
 import {DangerCheckboxTest} from './test-components/DangerCheckboxTest.tsx';
 import {GroupCheckboxTest} from './test-components/GroupCheckboxTest.tsx';
 import {KitDivider} from '@kit/Layout';
+import {LabelHelperCheckboxTest} from './test-components/LabelHelperCheckboxTest.tsx';
 
 const meta: Meta<typeof KitCheckbox> = {
     component: KitCheckbox,
@@ -30,12 +31,12 @@ export const ChromaticTest: Story = {
             <BasicCheckboxTest />
             <KitDivider />
             <GroupCheckboxTest />
+            <KitDivider />
+            <LabelHelperCheckboxTest />
         </>
     )
 };
 
 export const ChromaticDangerTest: Story = {
-    render: () => (
-        <DangerCheckboxTest />
-    )
-}
+    render: () => <DangerCheckboxTest />
+};
