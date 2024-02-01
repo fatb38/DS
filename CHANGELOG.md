@@ -10,6 +10,8 @@
 * **Select**
     * Remove unused props `suffixIcon` and adapt the documentation (@Delmotte-Vincent)
     * Add focus state on select dropdown (@Delmotte-Vincent)
+    * Fix Ellipsed tag on select (@Delmotte-Vincent)
+
 * **Storybook**
   * fix a visual bug on storybook caused by an addon (@evoiron)
 

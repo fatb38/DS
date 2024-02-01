@@ -33,7 +33,7 @@ export interface IKitSelect extends Omit<SelectProps, AntdSelectTypesToOmit>, Ki
     allowClear?: boolean;
     oneLineTags?: boolean;
     options?: IKitOption[];
-    labelOnly?: boolean | null;
+    labelOnly?: boolean;
     wrapperClassName?: string;
 }
 

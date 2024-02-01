@@ -9,7 +9,8 @@ import React, {
     useRef,
     JSXElementConstructor,
     ReactElement,
-    ReactNode
+    ReactNode,
+    useMemo
 } from 'react';
 import cn from 'classnames';
 import {IKitOption, IKitSelect} from './types';
@@ -39,7 +40,7 @@ const _getOptionLabel = (selectOption: ISelectOption): ReactElement => {
             {icon && <KitIcon className="kit-select-option-icon" icon={icon} on />}
             {!icon && (
                 <StyledBadge className="kit-select-option-badge">
-                    {color && <div className="kit-select-option-color" style={{backgroundColor: color}} />}
+                    {color && <div style={{backgroundColor: color}} />}
                 </StyledBadge>
             )}
             <StyledLabel className="kit-select-option-label">{label}</StyledLabel>
@@ -67,8 +68,13 @@ const _parseOptions = (list: IKitOption[], labelOnly?: boolean) => {
     });
 };
 
-const _dropDownRenderer = (menu: ReactElement<unknown, string | JSXElementConstructor<unknown>>) => {
-    return <div className="kit-select-dropdown-content">{menu}</div>;
+const _dropDownRenderer = (menu: ReactElement<unknown, string | JSXElementConstructor<unknown>>, status) => {
+    const classNames = cn('kit-select-dropdown-content', {
+        'kit-select-dropdown-content-default': status !== 'warning' && status !== 'error',
+        'kit-select-dropdown-content-warning': status === 'warning',
+        'kit-select-dropdown-content-error': status === 'error'
+    });
+    return <div className={classNames}>{menu}</div>;
 };
 
 const _tagRender = (props: CustomTagProps) => {
@@ -138,7 +144,6 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         {
             id,
             options,
-            labelOnly,
             label,
             helper,
             placement,
@@ -149,6 +154,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             wrapperClassName,
             className,
             popupClassName,
+            labelOnly = false,
             oneLineTags = false,
             allowClear = true,
             ...props
@@ -156,7 +162,6 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         ref?: Ref<RefSelectProps> | undefined
     ) => {
         const {appId} = useKitTheme();
-        const [internalOptions, setOptions] = useState<IKitOption[]>([]);
         const [isOpen, setIsOpen] = useState(false);
         const internalKitSelectRef = useRef(id ?? uid.rnd());
         const [isFocus, setIsFocus] = useState(false);
@@ -179,13 +184,8 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             };
         }, [_handleDocumentScroll, isOpen]);
 
-        useEffect(() => {
-            if (!options) {
-                setOptions([]);
-            } else {
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-                setOptions(_parseOptions(options, !!labelOnly));
-            }
+        const internalOptions = useMemo((): IKitOption[] => {
+            return options ? (_parseOptions(options, labelOnly) as IKitOption[]) : [];
         }, [options, labelOnly]);
 
         const _handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
@@ -243,7 +243,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                         )
                     }
                     allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
-                    dropdownRender={_dropDownRenderer}
+                    dropdownRender={menu => _dropDownRenderer(menu, props.status)}
                     tagRender={props.mode ? _tagRender : undefined}
                     maxTagCount={oneLineTags ? 'responsive' : undefined}
                     maxTagPlaceholder={oneLineTags ? _maxTagRender : undefined}
