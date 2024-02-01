@@ -123,6 +123,7 @@ export default defineConfig({
                     name: 'design-system',
                     inlineDynamicImports: true,
                     preserveModules: false,
+                    interop: 'compat',
                     plugins: [],
                     globals,
                     entryFileNames: () => {
@@ -133,6 +134,7 @@ export default defineConfig({
                     format: 'esm',
                     dir: outputDir,
                     preserveModules: true,
+                    interop: 'compat',
                     globals,
                     inlineDynamicImports: false,
                     entryFileNames: file => {
