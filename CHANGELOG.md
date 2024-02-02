@@ -1,6 +1,6 @@
 # Changelog
 
-## [x.x.x](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-xx-xx)
+## [0.12.0](https://www.npmjs.com/package/aristid-ds/v/0.12.0) (2024-02-02)
 
 ### ✨ Features
 * **Modal:**
