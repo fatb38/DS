@@ -2,7 +2,7 @@ const RadioArgTypes = {
     label: {
         name: 'label',
         control: {type: 'text'},
-        description: 'label of the checkbox',
+        description: 'label of the Radio',
         table: {
             type: {
                 summary: 'string'
@@ -102,7 +102,7 @@ const RadioGroupArgTypes = {
                 summary: 'string | number'
             },
             defaultValue: {summary: '[]'},
-            category: 'Checkbox Group'
+            category: 'Radio.Group'
         }
     },
     disabled: {
@@ -113,9 +113,44 @@ const RadioGroupArgTypes = {
                 summary: 'boolean'
             },
             defaultValue: {summary: false},
-            category: 'Checkbox Group'
+            category: 'Radio.Group'
         },
         defaultValue: false
+    },
+    bordered: {
+        name: 'bordered',
+        description: 'Add a border around group items',
+        control: {type: 'boolean'},
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: false},
+            category: 'Radio.Group'
+        },
+        defaultValue: false
+    },
+    label: {
+        name: 'label',
+        description: 'Label displayed above the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Radio.Group'
+        }
+    },
+    helper: {
+        name: 'helper',
+        description: 'Helper displayed below the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Radio.Group'
+        }
     },
     name: {
         name: 'name',
@@ -125,7 +160,7 @@ const RadioGroupArgTypes = {
                 summary: 'string'
             },
             defaultValue: {summary: '-'},
-            category: 'Checkbox Group'
+            category: 'Radio.Group'
         }
     },
     options: {
@@ -136,7 +171,7 @@ const RadioGroupArgTypes = {
                 summary: 'string[] | number[] | Array<{ label: ReactNode; value: string; disabled?: boolean; }>'
             },
             defaultValue: {summary: '[]'},
-            category: 'Checkbox Group'
+            category: 'Radio.Group'
         }
     },
     value: {
@@ -147,7 +182,17 @@ const RadioGroupArgTypes = {
                 summary: '(string | number)[]'
             },
             defaultValue: {summary: '[]'},
-            category: 'Checkbox Group'
+            category: 'Radio.Group'
+        }
+    },
+    wrapperClassName: {
+        name: 'wrapperClassName',
+        description: 'Component wrapper class name',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Radio.Group'
         }
     },
     onChange: {

@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {KitColorPickerProps} from './types';
-import KitInputWrapper from '../Input/InputWrapper';
+import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
 import {StyledAntdColorPicker} from './style';
 

@@ -5,6 +5,7 @@ import Disabled from './disabled';
 import Danger from './danger';
 import Group from './group';
 import Grid from './grid';
+import LabelHelper from './labelHelper';
 
 import BasicSource from './basic?raw';
 import ControlledSource from './controlled?raw';
@@ -13,6 +14,7 @@ import DisabledSource from './disabled?raw';
 import DangerSource from './danger?raw';
 import GroupSource from './group?raw';
 import GridSource from './grid?raw';
+import LabelHelperSource from './labelHelper?raw';
 
 export const Sources = {
     Basic: BasicSource,
@@ -21,7 +23,8 @@ export const Sources = {
     Disabled: DisabledSource,
     Danger: DangerSource,
     Group: GroupSource,
-    Grid: GridSource
+    Grid: GridSource,
+    LabelHelper: LabelHelperSource
 };
 export default {
     Basic,
@@ -30,5 +33,6 @@ export default {
     Disabled,
     Danger,
     Group,
-    Grid
+    Grid,
+    LabelHelper
 };

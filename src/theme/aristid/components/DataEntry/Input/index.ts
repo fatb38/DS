@@ -1,7 +1,6 @@
 import {
     IKitInputPasswordCssTokens,
     IKitTextAreaThemeCssTokens,
-    IKitInputWrapperCssTokens,
     IKitInputCssTokens
 } from '@theme/types/components/DataEntry/Input';
 import {generateCssTokens} from '@theme/utils/css-tokens-generator.ts';
@@ -33,21 +32,6 @@ export const kitInputPasswordCssTokens = generateCssTokens<IKitInputPasswordCssT
         content: {fontWeight: ''},
         placeholder: {fontWeight: ''},
         showCount: {fontSize: '', fontWeight: ''}
-    }
-});
-
-export const kitInputWrapperCssTokens = generateCssTokens<IKitInputWrapperCssTokens>('--components-InputWrapper', {
-    colors: {
-        typography: {
-            default: '',
-            disabled: '',
-            warning: '',
-            error: ''
-        }
-    },
-    gap: {
-        label: '',
-        helper: ''
     }
 });
 

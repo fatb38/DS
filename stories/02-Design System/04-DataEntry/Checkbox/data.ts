@@ -113,7 +113,7 @@ const CheckboxGroupArgTypes = {
                 summary: 'string | number'
             },
             defaultValue: {summary: '[]'},
-            category: 'Checkbox Group'
+            category: 'Checkbox.Group'
         }
     },
     disabled: {
@@ -124,9 +124,44 @@ const CheckboxGroupArgTypes = {
                 summary: 'boolean'
             },
             defaultValue: {summary: false},
-            category: 'Checkbox Group'
+            category: 'Checkbox.Group'
         },
         defaultValue: false
+    },
+    bordered: {
+        name: 'bordered',
+        control: {type: 'boolean'},
+        description: 'Add a border around group items',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: false},
+            category: 'Checkbox.Group'
+        },
+        defaultValue: false
+    },
+    label: {
+        name: 'label',
+        description: 'Label displayed above the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Checkbox.Group'
+        }
+    },
+    helper: {
+        name: 'helper',
+        description: 'Helper displayed below the field',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Checkbox.Group'
+        }
     },
     name: {
         name: 'name',
@@ -136,7 +171,7 @@ const CheckboxGroupArgTypes = {
                 summary: 'string'
             },
             defaultValue: {summary: '-'},
-            category: 'Checkbox Group'
+            category: 'Checkbox.Group'
         }
     },
     options: {
@@ -147,7 +182,7 @@ const CheckboxGroupArgTypes = {
                 summary: 'string[] | number[] | Option[]'
             },
             defaultValue: {summary: '[]'},
-            category: 'Checkbox Group'
+            category: 'Checkbox.Group'
         }
     },
     value: {
@@ -158,7 +193,17 @@ const CheckboxGroupArgTypes = {
                 summary: '(string | number)[]'
             },
             defaultValue: {summary: '[]'},
-            category: 'Checkbox Group'
+            category: 'Checkbox.Group'
+        }
+    },
+    wrapperClassName: {
+        name: 'wrapperClassName',
+        description: 'Component wrapper class name',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Checkbox.Group'
         }
     },
     onChange: {

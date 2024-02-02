@@ -1,0 +1,55 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Examples, { Sources } from './examples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
+import * as KitInputWrapperStories from './InputWrapper.stories';
+
+<Meta of={KitInputWrapperStories} />
+
+# InputWrapper
+
+A basic Component to wrap another component with a `label`and/or a `helper`text. Can also add a border aroud the wrapped component.
+
+## Usage
+
+Use the `InputWrapper` when you need to add a label and/or a helper to a component.
+
+## Examples
+
+##### Label and Helper
+
+Add `label` and/or `helper` properties to give field context.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="input-basic" />
+
+
+##### Bordered
+
+Add `bordered` property to add a border around the wrapped component
+
+<CustomCanvas content={Examples.Border} source={Sources.Border} id="input-wrapper-border" />
+
+##### Status
+
+Set `status` property to set status. available values are `''`, `error` and `warning`
+
+<CustomCanvas content={Examples.Status} source={Sources.Status} id="input-wrapper-status" />
+
+##### Disabled
+
+Set `disabled`property to show the wrapper in disabled state.
+
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="input-wrapper-disabled" />
+
+## Api
+
+<Canvas of={KitInputWrapperStories.Api} />
+
+<Controls of={KitInputWrapperStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.InputWrapper" tokens={fields?.components?.InputWrapper} />

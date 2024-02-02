@@ -11,7 +11,7 @@ import {EditorTemplate as Steps} from './02-Design System/03-Navigation/Steps/Te
 import {EditorTemplate as Checkbox} from './02-Design System/04-DataEntry/Checkbox/Template';
 import {EditorTemplate as DatePicker} from './02-Design System/04-DataEntry/DatePicker/Template';
 import {EditorTemplate as Input} from './02-Design System/04-DataEntry/Input/Template';
-import {EditorTemplateWrapper as InputWrapper} from './02-Design System/04-DataEntry/Input/Template';
+import {EditorTemplate as InputWrapper} from './02-Design System/04-DataEntry/InputWrapper/Template';
 import {EditorTemplate as InputNumber} from './02-Design System/04-DataEntry/InputNumber/Template';
 import {EditorTemplate as Radio} from './02-Design System/04-DataEntry/Radio/Template';
 import {EditorTemplate as Rate} from './02-Design System/04-DataEntry/Rate/Template';

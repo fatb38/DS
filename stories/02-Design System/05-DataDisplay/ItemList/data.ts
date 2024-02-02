@@ -81,8 +81,8 @@ export const argTypes = {
             category: 'ItemList'
         }
     },
-    onSelectChange: {
-        name: 'onSelectChange',
+    onSelect: {
+        name: 'onSelect',
         description: 'The callback function that is triggered when the state changes',
         table: {
             type: {
@@ -125,6 +125,17 @@ export const argTypes = {
                 summary: 'boolean'
             },
             category: 'ItemList'
+        }
+    },
+    selected: {
+        name: 'selected',
+        control: {type: 'boolean'},
+        description: 'If `true` the ItemList is outlined.',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            category: 'Card'
         }
     },
     onClick: {

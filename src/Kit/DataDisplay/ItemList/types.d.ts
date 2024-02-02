@@ -6,11 +6,12 @@ export interface IKitItemList extends KitHTMLAttributes<HTMLDivElement> {
     title?: string;
     description?: string;
     picture?: ReactNode;
-    onSelectChange?: (e: CheckboxChangeEvent) => void;
+    onSelect?: (e: CheckboxChangeEvent) => void;
     tagNumber?: number;
     onRafterClick?: () => void;
     disabled?: boolean;
     onClick?: () => void;
+    selected?: boolean;
     disableSecureClick?: boolean;
 }
 

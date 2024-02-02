@@ -2,7 +2,7 @@ import React, {forwardRef, useState} from 'react';
 import {InputNumber as AntdInputNumber} from 'antd';
 import {KitInputNumberProps} from './types';
 import {styled} from 'styled-components';
-import KitInputWrapper from '../Input/InputWrapper';
+import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
 import {kitInputNumberCssTokens} from '@theme/aristid/components/DataEntry/InputNumber';
 import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';

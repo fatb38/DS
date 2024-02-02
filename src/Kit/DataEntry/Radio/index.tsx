@@ -1,6 +1,6 @@
 import type * as React from 'react';
 import Group from './Group';
-import type {KitRadioProps as RadioProps} from './types';
+import type {KitRadioGroup, KitRadioProps as RadioProps} from './types';
 import InternalRadio from './Radio';
 
 import type {
@@ -22,7 +22,7 @@ export {
 };
 
 type CompoundedComponent = React.ForwardRefExoticComponent<RadioProps> & {
-    Group: React.ForwardRefRenderFunction<HTMLDivElement, RadioGroupProps>;
+    Group: React.ForwardRefRenderFunction<HTMLDivElement, KitRadioGroup>;
 };
 
 export const KitRadio = InternalRadio as unknown as CompoundedComponent;

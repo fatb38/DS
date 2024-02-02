@@ -2,7 +2,7 @@ import React, {forwardRef} from 'react';
 import {Input as AntdInput, InputRef} from 'antd';
 import {IKitPassword} from './types';
 import {styled} from 'styled-components';
-import KitInputWrapper from './InputWrapper';
+import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleXmark, faEye, faEyeSlash} from '@fortawesome/free-regular-svg-icons';

@@ -2617,6 +2617,259 @@ const forms = {
                 }
             }
         },
+        "LegacyCard": {
+            "_label": "LegacyCard",
+            "_path": "components.LegacyCard",
+            "colors": {
+                "_label": "colors",
+                "_path": "components.LegacyCard.colors",
+                "background": {
+                    "_label": "background",
+                    "_path": "components.LegacyCard.colors.background",
+                    "default": {
+                        "_label": "default",
+                        "_path": "components.LegacyCard.colors.background.default",
+                        "_type": "color",
+                        "_description": "default color"
+                    },
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.LegacyCard.colors.background.disabled",
+                        "_type": "color",
+                        "_description": "disabled color"
+                    }
+                },
+                "typography": {
+                    "_label": "typography",
+                    "_path": "components.LegacyCard.colors.typography",
+                    "headerTitle": {
+                        "_label": "headerTitle",
+                        "_path": "components.LegacyCard.colors.typography.headerTitle",
+                        "default": {
+                            "_label": "default",
+                            "_path": "components.LegacyCard.colors.typography.headerTitle.default",
+                            "_type": "color",
+                            "_description": "default color"
+                        },
+                        "disabled": {
+                            "_label": "disabled",
+                            "_path": "components.LegacyCard.colors.typography.headerTitle.disabled",
+                            "_type": "color",
+                            "_description": "disabled color"
+                        }
+                    },
+                    "contentTitle": {
+                        "_label": "contentTitle",
+                        "_path": "components.LegacyCard.colors.typography.contentTitle",
+                        "default": {
+                            "_label": "default",
+                            "_path": "components.LegacyCard.colors.typography.contentTitle.default",
+                            "_type": "color",
+                            "_description": "default color"
+                        },
+                        "disabled": {
+                            "_label": "disabled",
+                            "_path": "components.LegacyCard.colors.typography.contentTitle.disabled",
+                            "_type": "color",
+                            "_description": "disabled color"
+                        }
+                    },
+                    "description": {
+                        "_label": "description",
+                        "_path": "components.LegacyCard.colors.typography.description",
+                        "default": {
+                            "_label": "default",
+                            "_path": "components.LegacyCard.colors.typography.description.default",
+                            "_type": "color",
+                            "_description": "default color"
+                        },
+                        "disabled": {
+                            "_label": "disabled",
+                            "_path": "components.LegacyCard.colors.typography.description.disabled",
+                            "_type": "color",
+                            "_description": "disabled color"
+                        }
+                    },
+                    "extra": {
+                        "_label": "extra",
+                        "_path": "components.LegacyCard.colors.typography.extra",
+                        "default": {
+                            "_label": "default",
+                            "_path": "components.LegacyCard.colors.typography.extra.default",
+                            "_type": "color",
+                            "_description": "default color"
+                        },
+                        "hover": {
+                            "_label": "hover",
+                            "_path": "components.LegacyCard.colors.typography.extra.hover",
+                            "_type": "color",
+                            "_description": "hover color"
+                        },
+                        "disabled": {
+                            "_label": "disabled",
+                            "_path": "components.LegacyCard.colors.typography.extra.disabled",
+                            "_type": "color",
+                            "_description": "disabled color"
+                        }
+                    }
+                },
+                "border": {
+                    "_label": "border",
+                    "_path": "components.LegacyCard.colors.border",
+                    "default": {
+                        "_label": "default",
+                        "_path": "components.LegacyCard.colors.border.default",
+                        "_type": "color",
+                        "_description": "default color"
+                    },
+                    "focus": {
+                        "_label": "focus",
+                        "_path": "components.LegacyCard.colors.border.focus",
+                        "_type": "color",
+                        "_description": "focus color"
+                    },
+                    "hover": {
+                        "_label": "hover",
+                        "_path": "components.LegacyCard.colors.border.hover",
+                        "_type": "color",
+                        "_description": "hover color"
+                    },
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.LegacyCard.colors.border.disabled",
+                        "_type": "color",
+                        "_description": "disabled color"
+                    }
+                },
+                "separator": {
+                    "_label": "separator",
+                    "_path": "components.LegacyCard.colors.separator",
+                    "default": {
+                        "_label": "default",
+                        "_path": "components.LegacyCard.colors.separator.default",
+                        "_type": "color",
+                        "_description": "default color"
+                    }
+                },
+                "actions": {
+                    "_label": "actions",
+                    "_path": "components.LegacyCard.colors.actions",
+                    "default": {
+                        "_label": "default",
+                        "_path": "components.LegacyCard.colors.actions.default",
+                        "_type": "color",
+                        "_description": "default color"
+                    },
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.LegacyCard.colors.actions.disabled",
+                        "_type": "color",
+                        "_description": "disabled color"
+                    },
+                    "hover": {
+                        "_label": "hover",
+                        "_path": "components.LegacyCard.colors.actions.hover",
+                        "_type": "color",
+                        "_description": "hover color"
+                    }
+                },
+                "shadow": {
+                    "_label": "shadow",
+                    "_path": "components.LegacyCard.colors.shadow",
+                    "default": {
+                        "_label": "default",
+                        "_path": "components.LegacyCard.colors.shadow.default",
+                        "_type": "color",
+                        "_description": "default color"
+                    },
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.LegacyCard.colors.shadow.disabled",
+                        "_type": "color",
+                        "_description": "disabled color"
+                    },
+                    "hover": {
+                        "_label": "hover",
+                        "_path": "components.LegacyCard.colors.shadow.hover",
+                        "_type": "color",
+                        "_description": "hover color"
+                    },
+                    "focus": {
+                        "_label": "focus",
+                        "_path": "components.LegacyCard.colors.shadow.focus",
+                        "_type": "color",
+                        "_description": "focus color"
+                    }
+                }
+            },
+            "typography": {
+                "_label": "typography",
+                "_path": "components.LegacyCard.typography",
+                "fontFamily": {
+                    "_label": "fontFamily",
+                    "_path": "components.LegacyCard.typography.fontFamily",
+                    "_type": "string"
+                },
+                "headerTitle": {
+                    "_label": "headerTitle",
+                    "_path": "components.LegacyCard.typography.headerTitle",
+                    "fontSize": {
+                        "_label": "fontSize",
+                        "_path": "components.LegacyCard.typography.headerTitle.fontSize",
+                        "_type": "number",
+                        "_min": 0
+                    },
+                    "fontWeight": {
+                        "_label": "fontWeight",
+                        "_path": "components.LegacyCard.typography.headerTitle.fontWeight",
+                        "_type": "number",
+                        "_min": 0
+                    }
+                },
+                "contentTitle": {
+                    "_label": "contentTitle",
+                    "_path": "components.LegacyCard.typography.contentTitle",
+                    "fontSize": {
+                        "_label": "fontSize",
+                        "_path": "components.LegacyCard.typography.contentTitle.fontSize",
+                        "_type": "number",
+                        "_min": 0
+                    },
+                    "fontWeight": {
+                        "_label": "fontWeight",
+                        "_path": "components.LegacyCard.typography.contentTitle.fontWeight",
+                        "_type": "number",
+                        "_min": 0
+                    }
+                },
+                "desciption": {
+                    "_label": "desciption",
+                    "_path": "components.LegacyCard.typography.desciption",
+                    "fontSize": {
+                        "_label": "fontSize",
+                        "_path": "components.LegacyCard.typography.desciption.fontSize",
+                        "_type": "number",
+                        "_min": 0
+                    },
+                    "fontWeight": {
+                        "_label": "fontWeight",
+                        "_path": "components.LegacyCard.typography.desciption.fontWeight",
+                        "_type": "number",
+                        "_min": 0
+                    }
+                },
+                "linkIcon": {
+                    "_label": "linkIcon",
+                    "_path": "components.LegacyCard.typography.linkIcon",
+                    "fontSize": {
+                        "_label": "fontSize",
+                        "_path": "components.LegacyCard.typography.linkIcon.fontSize",
+                        "_type": "number",
+                        "_min": 0
+                    }
+                }
+            }
+        },
         "Card": {
             "_label": "Card",
             "_path": "components.Card",
@@ -2636,42 +2889,26 @@ const forms = {
                         "_label": "disabled",
                         "_path": "components.Card.colors.background.disabled",
                         "_type": "color",
-                        "_description": "disabled color"
+                        "_description": "default color"
                     }
                 },
                 "typography": {
                     "_label": "typography",
                     "_path": "components.Card.colors.typography",
-                    "headerTitle": {
-                        "_label": "headerTitle",
-                        "_path": "components.Card.colors.typography.headerTitle",
+                    "title": {
+                        "_label": "title",
+                        "_path": "components.Card.colors.typography.title",
                         "default": {
                             "_label": "default",
-                            "_path": "components.Card.colors.typography.headerTitle.default",
+                            "_path": "components.Card.colors.typography.title.default",
                             "_type": "color",
                             "_description": "default color"
                         },
                         "disabled": {
                             "_label": "disabled",
-                            "_path": "components.Card.colors.typography.headerTitle.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        }
-                    },
-                    "contentTitle": {
-                        "_label": "contentTitle",
-                        "_path": "components.Card.colors.typography.contentTitle",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Card.colors.typography.contentTitle.default",
+                            "_path": "components.Card.colors.typography.title.disabled",
                             "_type": "color",
                             "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.Card.colors.typography.contentTitle.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
                         }
                     },
                     "description": {
@@ -2687,7 +2924,7 @@ const forms = {
                             "_label": "disabled",
                             "_path": "components.Card.colors.typography.description.disabled",
                             "_type": "color",
-                            "_description": "disabled color"
+                            "_description": "default color"
                         }
                     },
                     "extra": {
@@ -2699,17 +2936,11 @@ const forms = {
                             "_type": "color",
                             "_description": "default color"
                         },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.Card.colors.typography.extra.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
                         "disabled": {
                             "_label": "disabled",
                             "_path": "components.Card.colors.typography.extra.disabled",
                             "_type": "color",
-                            "_description": "disabled color"
+                            "_description": "default color"
                         }
                     }
                 },
@@ -2726,19 +2957,25 @@ const forms = {
                         "_label": "focus",
                         "_path": "components.Card.colors.border.focus",
                         "_type": "color",
-                        "_description": "focus color"
+                        "_description": "default color"
                     },
                     "hover": {
                         "_label": "hover",
                         "_path": "components.Card.colors.border.hover",
                         "_type": "color",
-                        "_description": "hover color"
+                        "_description": "default color"
                     },
                     "disabled": {
                         "_label": "disabled",
                         "_path": "components.Card.colors.border.disabled",
                         "_type": "color",
-                        "_description": "disabled color"
+                        "_description": "default color"
+                    },
+                    "selected": {
+                        "_label": "selected",
+                        "_path": "components.Card.colors.border.selected",
+                        "_type": "color",
+                        "_description": "default color"
                     }
                 },
                 "separator": {
@@ -2749,56 +2986,12 @@ const forms = {
                         "_path": "components.Card.colors.separator.default",
                         "_type": "color",
                         "_description": "default color"
-                    }
-                },
-                "actions": {
-                    "_label": "actions",
-                    "_path": "components.Card.colors.actions",
-                    "default": {
-                        "_label": "default",
-                        "_path": "components.Card.colors.actions.default",
-                        "_type": "color",
-                        "_description": "default color"
                     },
                     "disabled": {
                         "_label": "disabled",
-                        "_path": "components.Card.colors.actions.disabled",
-                        "_type": "color",
-                        "_description": "disabled color"
-                    },
-                    "hover": {
-                        "_label": "hover",
-                        "_path": "components.Card.colors.actions.hover",
-                        "_type": "color",
-                        "_description": "hover color"
-                    }
-                },
-                "shadow": {
-                    "_label": "shadow",
-                    "_path": "components.Card.colors.shadow",
-                    "default": {
-                        "_label": "default",
-                        "_path": "components.Card.colors.shadow.default",
+                        "_path": "components.Card.colors.separator.disabled",
                         "_type": "color",
                         "_description": "default color"
-                    },
-                    "disabled": {
-                        "_label": "disabled",
-                        "_path": "components.Card.colors.shadow.disabled",
-                        "_type": "color",
-                        "_description": "disabled color"
-                    },
-                    "hover": {
-                        "_label": "hover",
-                        "_path": "components.Card.colors.shadow.hover",
-                        "_type": "color",
-                        "_description": "hover color"
-                    },
-                    "focus": {
-                        "_label": "focus",
-                        "_path": "components.Card.colors.shadow.focus",
-                        "_type": "color",
-                        "_description": "focus color"
                     }
                 }
             },
@@ -2810,60 +3003,50 @@ const forms = {
                     "_path": "components.Card.typography.fontFamily",
                     "_type": "string"
                 },
-                "headerTitle": {
-                    "_label": "headerTitle",
-                    "_path": "components.Card.typography.headerTitle",
+                "title": {
+                    "_label": "title",
+                    "_path": "components.Card.typography.title",
                     "fontSize": {
                         "_label": "fontSize",
-                        "_path": "components.Card.typography.headerTitle.fontSize",
+                        "_path": "components.Card.typography.title.fontSize",
                         "_type": "number",
                         "_min": 0
                     },
                     "fontWeight": {
                         "_label": "fontWeight",
-                        "_path": "components.Card.typography.headerTitle.fontWeight",
+                        "_path": "components.Card.typography.title.fontWeight",
                         "_type": "number",
                         "_min": 0
                     }
                 },
-                "contentTitle": {
-                    "_label": "contentTitle",
-                    "_path": "components.Card.typography.contentTitle",
+                "description": {
+                    "_label": "description",
+                    "_path": "components.Card.typography.description",
                     "fontSize": {
                         "_label": "fontSize",
-                        "_path": "components.Card.typography.contentTitle.fontSize",
+                        "_path": "components.Card.typography.description.fontSize",
                         "_type": "number",
                         "_min": 0
                     },
                     "fontWeight": {
                         "_label": "fontWeight",
-                        "_path": "components.Card.typography.contentTitle.fontWeight",
+                        "_path": "components.Card.typography.description.fontWeight",
                         "_type": "number",
                         "_min": 0
                     }
                 },
-                "desciption": {
-                    "_label": "desciption",
-                    "_path": "components.Card.typography.desciption",
+                "extra": {
+                    "_label": "extra",
+                    "_path": "components.Card.typography.extra",
                     "fontSize": {
                         "_label": "fontSize",
-                        "_path": "components.Card.typography.desciption.fontSize",
+                        "_path": "components.Card.typography.extra.fontSize",
                         "_type": "number",
                         "_min": 0
                     },
                     "fontWeight": {
                         "_label": "fontWeight",
-                        "_path": "components.Card.typography.desciption.fontWeight",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                },
-                "linkIcon": {
-                    "_label": "linkIcon",
-                    "_path": "components.Card.typography.linkIcon",
-                    "fontSize": {
-                        "_label": "fontSize",
-                        "_path": "components.Card.typography.linkIcon.fontSize",
+                        "_path": "components.Card.typography.extra.fontWeight",
                         "_type": "number",
                         "_min": 0
                     }
@@ -3043,6 +3226,22 @@ const forms = {
                         "_type": "color",
                         "_description": "default color"
                     }
+                },
+                "border": {
+                    "_label": "border",
+                    "_path": "components.InputWrapper.colors.border",
+                    "_type": "color",
+                    "_description": "default color"
+                }
+            },
+            "border": {
+                "_label": "border",
+                "_path": "components.InputWrapper.border",
+                "radius": {
+                    "_label": "radius",
+                    "_path": "components.InputWrapper.border.radius",
+                    "_type": "number",
+                    "_min": 0
                 }
             },
             "gap": {
@@ -4719,6 +4918,12 @@ const forms = {
                         "_path": "components.Collapse.colors.background.active",
                         "_type": "color",
                         "_description": "active color"
+                    },
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.Collapse.colors.background.disabled",
+                        "_type": "color",
+                        "_description": "disabled color"
                     }
                 },
                 "border": {
@@ -4735,6 +4940,16 @@ const forms = {
                         "_path": "components.Collapse.colors.border.active",
                         "_type": "color",
                         "_description": "active color"
+                    }
+                },
+                "icon": {
+                    "_label": "icon",
+                    "_path": "components.Collapse.colors.icon",
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.Collapse.colors.icon.disabled",
+                        "_type": "color",
+                        "_description": "disabled color"
                     }
                 }
             },
@@ -8573,6 +8788,11 @@ const forms = {
                     "default": {
                         "_label": "default",
                         "_path": "components.Typography.colors.typography.default",
+                        "_type": "string"
+                    },
+                    "disabled": {
+                        "_label": "disabled",
+                        "_path": "components.Typography.colors.typography.disabled",
                         "_type": "string"
                     }
                 }

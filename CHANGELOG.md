@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.12.0](https://www.npmjs.com/package/aristid-ds/v/0.12.0) (2024-02-02)
+
+### ✨ Features
+* **Modal:**
+    * Add `fullscreen`option (@evoiron)
+
+* **⚠️ Breaking change - ItemList**
+    * Add `selected` props to display a colored border (@Delmotte-Vincent)
+    * Rename `onSelectChange` by `onSelect` (@Delmotte-Vincent)
+
+### 🐛 Bug Fixes
+* A build option was removed by error
+* **Select**
+    * Remove unused props `suffixIcon` and adapt the documentation (@Delmotte-Vincent)
+    * Add focus state on select dropdown (@Delmotte-Vincent)
+    * Fix Ellipsed tag on select (@Delmotte-Vincent)
+* **Storybook**
+  * fix a visual bug on storybook caused by an addon (@evoiron)
+
+### 📚 Documentation
+* New documentation page to list available design tokens (@evoiron)
+* Display each design token corresponding css variable (@evoiron)
+* Display package version number on the top right corner of Storybook (@philippechevieux)
+
 ## [0.11.0](https://www.npmjs.com/package/aristid-ds/v/0.11.0) (2024-01-24)
 ### ✨ Features
   * **Notification:**

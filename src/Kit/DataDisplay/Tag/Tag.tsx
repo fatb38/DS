@@ -33,6 +33,9 @@ const StyledAntdTag = styled(Tag)`
 
     .ant-tag-close-icon {
         margin-left: 8px;
+        .svg-inline--fa {
+            vertical-align: -0.075em;
+        }
     }
 
     background: var(

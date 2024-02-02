@@ -25,12 +25,10 @@ export const StyledBadge = styled.div`
 export const StyledLabel = styled.div`
     width: 100%;
     box-sizing: border-box;
-    display: inline-block;
-    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-left: 10px;
-    padding-right: 10px;
 `;
 
 // "> div:not(.kit-select-dropdown-content) > .rc-virtual-list"     | This selector is used for AutoComplete DropDown content
@@ -54,6 +52,65 @@ export const SelectDropDownStyle = createGlobalStyle`
             ${kitSelectDropDownCssTokens.colors.typography.default},
             var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
         );
+
+        &.ant-select-dropdown-placement-bottomLeft.kit-select-dropdown-focus {
+            .kit-select-dropdown-content-default {
+                transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                box-shadow:
+                    0px 1.5px 0px 1.5px var(${kitColorsPaletteCssTokens.primary.primary200}),-2px 1.5px 0px 1px var(${
+                        kitColorsPaletteCssTokens.primary.primary200
+                    }), 2px 1.5px 0px 1px var(${kitColorsPaletteCssTokens.primary.primary200})
+            }
+
+            .kit-select-dropdown-content-warning {
+                transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                box-shadow:
+                    0px 1.5px 0px 1.5px var(${
+                        kitColorsPaletteCssTokens.secondary.orange.orange200
+                    }),-2px 1.5px 0px 1px var(${
+                        kitColorsPaletteCssTokens.secondary.orange.orange200
+                    }), 2px 1.5px 0px 1px var(${kitColorsPaletteCssTokens.secondary.orange.orange200})
+            }
+
+            .kit-select-dropdown-content-error {
+                transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                box-shadow:
+                    0px 1.5px 0px 1.5px var(${kitColorsPaletteCssTokens.secondary.red.red200}),-2px 1.5px 0px 1px var(${
+                        kitColorsPaletteCssTokens.secondary.red.red200
+                    }), 2px 1.5px 0px 1px var(${kitColorsPaletteCssTokens.secondary.red.red200})
+            }
+        }
+
+        &.ant-select-dropdown-placement-topLeft.kit-select-dropdown-focus {
+            transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            .kit-select-dropdown-content-default {
+                z-index: 1000;
+                box-shadow:
+                    0px -1.5px 0px 1.5px var(${kitColorsPaletteCssTokens.primary.primary200}),-2px -1.5px 0px 1px var(${
+                        kitColorsPaletteCssTokens.primary.primary200
+                    }), 2px -1.5px 0px 1px var(${kitColorsPaletteCssTokens.primary.primary200})
+            }
+
+            .kit-select-dropdown-content-warning {
+                z-index: 1000;
+                box-shadow:
+                    0px -1.5px 0px 1.5px var(${
+                        kitColorsPaletteCssTokens.secondary.orange.orange200
+                    }),-2px -1.5px 0px 1px var(${
+                        kitColorsPaletteCssTokens.secondary.orange.orange200
+                    }), 2 -1.5px 0px 1px var(${kitColorsPaletteCssTokens.secondary.orange.orange200})
+            }
+
+            .kit-select-dropdown-content-error {
+                z-index: 1000;
+                box-shadow:
+                    0px -1.5px 0px 1.5px var(${
+                        kitColorsPaletteCssTokens.secondary.red.red200
+                    }),-2px -1.5px 0px 1px var(${
+                        kitColorsPaletteCssTokens.secondary.red.red200
+                    }), 2px -1.5px 0px 1px var(${kitColorsPaletteCssTokens.secondary.red.red200})
+            }
+        }
 
         &.kit-select-dropdown-bottom {
             .kit-select-dropdown-content {
@@ -178,16 +235,13 @@ export const SelectDropDownStyle = createGlobalStyle`
                     }
 
                     .kit-select-option {
-                        align-self: center;
+                        display: inline-flex;
+                        gap: 8px;
+                        align-items: center;
                         width: 100%;
 
                         .kit-select-option-icon {
                             vertical-align: middle;
-                        }
-
-                        .kit-select-option-icon + .kit-select-option-label,
-                        .kit-select-option-badge + .kit-select-option-label {
-                            width: calc(100% - 20px);
                         }
                     }
 
@@ -360,14 +414,6 @@ export const StyledKitSelect = styled(AntdSelect)`
                         max-width: 100%;
                     }
 
-                    .ant-tag .kit-select-option {
-                        width: calc(100% - 20px);
-
-                        .kit-select-option-label {
-                            padding-right: 0;
-                        }
-                    }
-
                     &.ant-select-selection-overflow-item-rest .ant-select-selection-item {
                         background: none;
                         margin: 0;
@@ -412,24 +458,13 @@ export const StyledKitSelect = styled(AntdSelect)`
             }
 
             .kit-select-option {
-                display: inline-block;
-                align-self: center;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
                 width: 100%;
 
                 .kit-select-option-icon {
-                    vertical-align: middle;
-                }
-            }
-
-            .ant-tag {
-                .kit-select-option {
-                    .kit-select-option-icon {
-                        padding: 0;
-                    }
-
-                    .kit-select-option-color {
-                        margin-left: 0;
-                    }
+                    padding: 4px;
                 }
             }
         }

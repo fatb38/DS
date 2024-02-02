@@ -23,7 +23,7 @@ jobs:
       - name: install dependencies
         run: yarn
       - name: build-storybook
-        run: yarn build-storybook
+        run: STORYBOOK_DEPLOY=true yarn build-storybook
       - name: upload artifact
         uses: actions/upload-artifact@v3
         with:

@@ -31,6 +31,11 @@ interface AbstractCheckboxGroup {
 export interface ICheckboxGroup extends AbstractCheckboxGroup {
     name?: string;
     defaultValue?: Array<CheckboxValueType>;
+    label?: string;
+    helper?: string;
+    status?: '' | 'warning' | 'error';
+    bordered?: boolean;
+    wrapperClassName?: string;
     value?: Array<CheckboxValueType>;
     onChange?: (checkedValue: Array<CheckboxValueType>) => void;
     children?: ReactNode;

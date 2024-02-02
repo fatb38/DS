@@ -6,6 +6,7 @@ import {ConfigContext} from 'antd/lib/config-provider/';
 import Checkbox from './Checkbox';
 import useStyle from 'antd/lib/checkbox/style';
 import {ICheckboxGroupContext, ICheckboxGroup, CheckboxOptionType, CheckboxValueType} from './types';
+import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 
 export const GroupContext = createContext<ICheckboxGroupContext | null>(null);
 
@@ -17,8 +18,12 @@ export const InternalCheckboxGroup: ForwardRefRenderFunction<HTMLDivElement, ICh
         prefixCls: customizePrefixCls,
         className,
         rootClassName,
+        wrapperClassName,
+        status,
         style,
         onChange,
+        label,
+        helper,
         ...restProps
     },
     ref
@@ -121,7 +126,18 @@ export const InternalCheckboxGroup: ForwardRefRenderFunction<HTMLDivElement, ICh
     );
     return wrapSSR(
         <div className={classString} style={style} {...domProps} ref={ref}>
-            <GroupContext.Provider value={context}>{children}</GroupContext.Provider>
+            <GroupContext.Provider value={context}>
+                <KitInputWrapper
+                    label={label}
+                    helper={helper}
+                    disabled={restProps.disabled}
+                    bordered={restProps.bordered}
+                    status={status}
+                    className={wrapperClassName}
+                >
+                    {children}
+                </KitInputWrapper>
+            </GroupContext.Provider>
         </div>
     );
 };

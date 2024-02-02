@@ -113,45 +113,6 @@ export interface IKitInputTheme {
     };
 }
 
-export interface IKitInputWrapperTheme {
-    colors: {
-        typography: {
-            /**
-             * default color
-             * @TJS-type color
-             */
-            default: string;
-            /**
-             * default color
-             * @TJS-type color
-             */
-            disabled: string;
-            /**
-             * default color
-             * @TJS-type color
-             */
-            warning: string;
-            /**
-             * default color
-             * @TJS-type color
-             */
-            error: string;
-        };
-    };
-    gap: {
-        /**
-         * @minimum 0
-         * @TJS-type number
-         */
-        label: number;
-        /**
-         * @minimum 0
-         * @TJS-type number
-         */
-        helper: number;
-    };
-}
-
 export interface IKitInputPasswordCssTokens {
     colors: {
         background: {
@@ -367,20 +328,5 @@ export interface IKitInputCssTokens {
         };
         fontFamily: string;
         fontSize: string;
-    };
-}
-
-export interface IKitInputWrapperCssTokens {
-    colors: {
-        typography: {
-            default: string;
-            disabled: string;
-            warning: string;
-            error: string;
-        };
-    };
-    gap: {
-        label: string;
-        helper: string;
     };
 }

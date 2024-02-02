@@ -12,17 +12,31 @@ const App = () => {
     };
 
     return (
-        <KitRadio.Group onChange={onChange} value={value}>
-            <KitSpace direction="vertical">
-                <KitRadio value={1}>Option A</KitRadio>
-                <KitRadio value={2}>Option B</KitRadio>
-                <KitRadio value={3}>Option C</KitRadio>
-                <KitRadio value={4}>
-                    {value !== 4 && 'More...'}
-                    {value === 4 && <KitInput style={{width: 100, marginLeft: 10}} />}
-                </KitRadio>
-            </KitSpace>
-        </KitRadio.Group>
+        <KitSpace size={24}>
+            <KitRadio.Group onChange={onChange} value={value}>
+                <KitSpace direction="vertical">
+                    <KitRadio value={1}>Option A</KitRadio>
+                    <KitRadio value={2}>Option B</KitRadio>
+                    <KitRadio value={3}>Option C</KitRadio>
+                    <KitRadio value={4}>
+                        {value !== 4 && 'More...'}
+                        {value === 4 && <KitInput style={{width: 100, marginLeft: 10}} />}
+                    </KitRadio>
+                </KitSpace>
+            </KitRadio.Group>
+
+            <KitRadio.Group onChange={onChange} value={value} bordered>
+                <KitSpace direction="vertical">
+                    <KitRadio value={1}>Option A</KitRadio>
+                    <KitRadio value={2}>Option B</KitRadio>
+                    <KitRadio value={3}>Option C</KitRadio>
+                    <KitRadio value={4}>
+                        {value !== 4 && 'More...'}
+                        {value === 4 && <KitInput style={{width: 100, marginLeft: 10}} />}
+                    </KitRadio>
+                </KitSpace>
+            </KitRadio.Group>
+        </KitSpace>
     );
 };
 

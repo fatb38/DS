@@ -8,7 +8,7 @@ const App = () => {
             <div style={{width: '350px'}}>
                 <KitItemList
                     disabled
-                    onSelectChange={e => console.log('selected', e.target.checked)}
+                    onSelect={e => console.log('selected', e.target.checked)}
                     picture={<KitImage src="public/images/tondeuse.png" />}
                     title="Tondeuse à gazon"
                     description="Tondeuse thermique Auto tractée 70 VL 55 TH"

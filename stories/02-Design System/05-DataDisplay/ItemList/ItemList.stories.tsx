@@ -27,7 +27,7 @@ export const ChromaticTest: Story = {
     render: () => (
         <div style={{width: '350px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
             <KitItemList
-                onSelectChange={e => console.log('selected', e.target.checked)}
+                onSelect={e => console.log('selected', e.target.checked)}
                 picture={<KitIcon icon={<FontAwesomeIcon icon={faUser} />} />}
                 title="Tondeuse à gazon"
                 description="Tondeuse thermique Auto tractée 70 VL 55 TH"
@@ -36,7 +36,7 @@ export const ChromaticTest: Story = {
                 onClick={() => console.log('on click itemlist')}
             />
             <KitItemList
-                onSelectChange={e => console.log('selected', e.target.checked)}
+                onSelect={e => console.log('selected', e.target.checked)}
                 picture={<KitImage src="public/images/tondeuse.png" />}
                 title="Tondeuse à gazon"
                 description="Tondeuse thermique Auto tractée 70 VL 55 TH"
@@ -45,7 +45,7 @@ export const ChromaticTest: Story = {
                 onClick={() => console.log('on click itemlist')}
             />
             <KitItemList
-                onSelectChange={e => console.log('selected', e.target.checked)}
+                onSelect={e => console.log('selected', e.target.checked)}
                 picture={<KitIcon icon={<FontAwesomeIcon icon={faUser} />} />}
                 title="Tondeuse à gazon"
                 description="Tondeuse thermique Auto tractée 70 VL 55 TH"
@@ -55,7 +55,7 @@ export const ChromaticTest: Story = {
                 disabled
             />
             <KitItemList
-                onSelectChange={e => console.log('selected', e.target.checked)}
+                onSelect={e => console.log('selected', e.target.checked)}
                 picture={<KitImage src="public/images/tondeuse.png" />}
                 title="Tondeuse à gazon"
                 description="Tondeuse thermique Auto tractée 70 VL 55 TH"
@@ -63,6 +63,16 @@ export const ChromaticTest: Story = {
                 onRafterClick={() => console.log('click rafter')}
                 onClick={() => console.log('on click itemlist')}
                 disabled
+            />
+            <KitItemList
+                onSelect={e => console.log('selected', e.target.checked)}
+                selected={true}
+                picture={<KitImage src="public/images/tondeuse.png" />}
+                title="Tondeuse à gazon"
+                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
+                tagNumber={4}
+                onRafterClick={() => console.log('click rafter')}
+                onClick={() => console.log('on click itemlist')}
             />
         </div>
     )

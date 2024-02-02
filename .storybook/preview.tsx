@@ -5,6 +5,7 @@ import {DocsContainer} from '@storybook/blocks';
 import TableOfContents from './components/TableOfContents';
 import BackToTop from './components/BackToTop';
 import AccessibilityProvider from './components/Accessibility/AccessibilityProvider';
+import {PackageVersionNumber} from './components/PackageVersionNumber';
 
 const tocConfig = {
     tocSelector: '.js-toc',
@@ -23,7 +24,7 @@ const Container = ({children, ...props}) => {
 
 export const parameters = {
     controls: {
-        matchers: { 
+        matchers: {
             color: /(background|color)$/i,
             date: /Date$/
         }
@@ -38,6 +39,7 @@ export const parameters = {
         container: ({children, context}) => {
             return (
                 <KitApp locale={{locale: 'enUS'}}>
+                    <PackageVersionNumber />
                     <Container context={context}>{children}</Container>
                     <TableOfContents config={tocConfig} />
                     <BackToTop />
