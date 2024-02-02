@@ -6,6 +6,10 @@
 * **Modal:**
     * Add `fullscreen`option (@evoiron)
 
+* **⚠️ Breaking change - ItemList**
+    * Add `selected` props to display a colored border (@Delmotte-Vincent)
+    * Rename `onSelectChange` by `onSelect` (@Delmotte-Vincent)
+
 ### 🐛 Bug Fixes
 * A build option was removed by error
 * **Select**

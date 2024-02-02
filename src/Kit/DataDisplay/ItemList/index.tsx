@@ -1,6 +1,5 @@
 import React, {FunctionComponent, MouseEvent, ReactElement, cloneElement, useState} from 'react';
-import {styled} from 'styled-components';
-import {IKitItemList, IStyledKitItemList} from './types';
+import {IKitItemList} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTag} from '@kit/DataDisplay/Tag';
 import {KitTypography} from '@kit/General/';
@@ -10,250 +9,24 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-regular-svg-icons';
 import {faAngleRight} from '@fortawesome/free-solid-svg-icons';
 import useSecureClick from '@hooks/useSecureClick';
-import {kitItemListCssTokens} from '@theme/aristid/components/DataDisplay/ItemList';
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
-import {borderCssTokens} from '@theme/aristid/general/border';
-import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {IKitImage} from '../Image/types';
 import {IKitAvatar} from '../Avatar/types';
 import {IKitIcon} from '@kit/General/Icon/types';
-import {convertToPixel} from '@theme/utils/convert';
-
-const StyledItemList = styled.div<IStyledKitItemList>`
-    display: grid;
-    grid-template-columns: ${({$gridTemplateColumns}) => $gridTemplateColumns};
-    align-items: center;
-    min-height: 75px;
-    padding: 0px 8px;
-    background-color: var(
-        ${kitItemListCssTokens.itemList.colors.background.default},
-        var(${kitColorsPaletteCssTokens.neutral.white})
-    );
-    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
-    border: 1px solid
-        var(
-            ${kitItemListCssTokens.itemList.colors.border.default},
-            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
-        );
-    border-radius: ${convertToPixel(kitItemListCssTokens.itemList.border.radius.toString(), borderCssTokens.radius.s)};
-
-    &:hover {
-        border: 1px solid
-            var(
-                ${kitItemListCssTokens.itemList.colors.border.hover},
-                var(${kitColorsPaletteCssTokens.primary.primary400})
-            );
-    }
-
-    &:focus {
-        border-style: dashed;
-    }
-
-    &.kit-item-list-clickable {
-        cursor: pointer;
-    }
-
-    .kit-item-list-picture-container {
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-
-        &:not(:first-child) {
-            margin: 0px 0px 0px 10px;
-        }
-
-        &.noBorder {
-            border-color: transparent;
-        }
-
-        &.kit-item-list-icon {
-            .kit-icon {
-                font-size: 1.5rem;
-                width: 34px;
-                height: 34px;
-            }
-        }
-
-        .kit-item-list-image-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            img,
-            svg {
-                width: auto;
-                max-width: 100%;
-                max-height: 100%;
-            }
-        }
-    }
-
-    .kit-item-list-text-container {
-        display: flex;
-        padding: 10px 20px;
-        flex-direction: column;
-        align-items: flex-start;
-        flex: 1 0 0;
-
-        &.kit-item-list-text-container-with-gap {
-            gap: 5px;
-        }
-
-        .kit-item-list-text {
-            margin-bottom: 0px;
-
-            &.kit-item-list-title {
-                font-weight: var(
-                    ${kitItemListCssTokens.title.typography.fontWeight},
-                    var(${typographyCssTokens.boldFontWeight})
-                );
-                font-size: ${convertToPixel(
-                    kitItemListCssTokens.title.typography.fontSize,
-                    typographyCssTokens.fontSize5
-                )};
-                color: var(
-                    ${kitItemListCssTokens.title.colors.default},
-                    var(${kitColorsPaletteCssTokens.primary.primary600})
-                );
-            }
-
-            &.kit-item-list-description {
-                font-weight: var(
-                    ${kitItemListCssTokens.description.typography.fontWeight},
-                    var(${typographyCssTokens.regularFontWeight})
-                );
-                font-size: ${convertToPixel(
-                    kitItemListCssTokens.description.typography.fontSize,
-                    typographyCssTokens.fontSize5
-                )};
-                color: var(
-                    ${kitItemListCssTokens.description.colors.default},
-                    var(${kitColorsPaletteCssTokens.primary.primary600})
-                );
-
-                .ant-typography-expand {
-                    visibility: hidden;
-                }
-            }
-        }
-
-        .kit-item-list-description-container {
-            position: relative;
-        }
-
-        .kit-item-list-description-collexp {
-            color: var(
-                ${kitItemListCssTokens.collexp.colors.default},
-                var(${kitColorsPaletteCssTokens.primary.primary600})
-            );
-
-            &:hover {
-                color: var(
-                    ${kitItemListCssTokens.collexp.colors.hover},
-                    var(${kitColorsPaletteCssTokens.primary.primary400})
-                );
-            }
-
-            &.kit-item-list-description-collapse {
-                float: right;
-            }
-
-            &.kit-item-list-description-expand {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-            }
-        }
-    }
-
-    .kit-item-list-tag {
-        &:last-child .ant-tag {
-            margin-inline-end: 0px;
-        }
-
-        &:not(:last-child) .ant-tag {
-            margin-inline-end: 10px;
-        }
-    }
-
-    .kit-item-list-rafter {
-        color: var(
-            ${kitItemListCssTokens.rafter.colors.default},
-            var(${kitColorsPaletteCssTokens.neutral.grey.grey400})
-        );
-        font-size: 14px;
-
-        &:hover {
-            color: var(
-                ${kitItemListCssTokens.rafter.colors.hover},
-                var(${kitColorsPaletteCssTokens.primary.primary400})
-            );
-            cursor: pointer;
-        }
-    }
-
-    &.kit-item-list-disabled {
-        background-color: var(
-            ${kitItemListCssTokens.itemList.colors.background.disabled},
-            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100})
-        );
-        border: 1px solid
-            var(
-                ${kitItemListCssTokens.itemList.colors.border.disabled},
-                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
-            );
-        pointer-events: none;
-
-        .kit-item-list-image-container img {
-            opacity: 0.5;
-        }
-
-        .kit-item-list-text-container {
-            .kit-item-list-text {
-                &.kit-item-list-title {
-                    color: var(
-                        ${kitItemListCssTokens.title.colors.disabled},
-                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
-                    );
-                }
-
-                &.kit-item-list-description {
-                    color: var(
-                        ${kitItemListCssTokens.description.colors.disabled},
-                        var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
-                    );
-                }
-            }
-
-            .kit-item-list-description-collexp {
-                color: var(
-                    ${kitItemListCssTokens.collexp.colors.disabled},
-                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
-                );
-            }
-        }
-
-        .kit-item-list-tag,
-        .kit-item-list-icon {
-            opacity: 0.4;
-        }
-    }
-`;
+import {StyledItemList} from './style';
+import cn from 'classnames';
 
 export const KitItemList: FunctionComponent<IKitItemList> = ({
     title,
     description,
     picture,
-    onSelectChange,
+    onSelect,
     tagNumber,
     onRafterClick,
-    disabled = false,
     onClick,
     className,
     disableSecureClick,
+    selected = false,
+    disabled = false,
     ...props
 }) => {
     const {appId} = useKitTheme();
@@ -267,7 +40,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
     const hasPicture = picture !== undefined;
     const hasTag = tagNumber !== undefined;
     const isClickable = onClick !== undefined;
-    const isSelectable = onSelectChange !== undefined;
+    const isSelectable = onSelect !== undefined;
     const hasRafter = onRafterClick !== undefined;
 
     const _generateGridTemplateColumns = () => {
@@ -299,7 +72,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
                         disabled={disabled}
                         onClick={e => e.stopPropagation()}
                         onChange={e => {
-                            onSelectChange && onSelectChange(e);
+                            onSelect && onSelect(e);
                         }}
                     />
                 </div>
@@ -348,15 +121,16 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
 
         const Component = cloneElement(pictureJsx, cloneProps);
 
-        return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
+        return <div className={cn(wrapperClassName, {noBorder: noBorder})}>{Component}</div>;
     };
 
     const _getContent = () => {
-        let classes = 'kit-item-list-text-container';
-        classes += hasTitle && hasDescription ? ' kit-item-list-text-container-with-gap' : '';
+        const contentClassName = cn('kit-item-list-text-container', {
+            'kit-item-list-text-container-with-gap': hasTitle && hasDescription
+        });
 
         return (
-            <div className={classes}>
+            <div className={contentClassName}>
                 <KitTypography.Text
                     className="kit-item-list-text kit-item-list-title"
                     size="large"
@@ -440,13 +214,12 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
         );
     };
 
-    const _getClasses = () => {
-        let classes = className;
-
-        classes += disabled ? ' kit-item-list-disabled' : '';
-        classes += isClickable ? ' kit-item-list-clickable' : '';
-
-        return classes;
+    const _getClassName = () => {
+        return cn(className, appId, {
+            'kit-item-list-disabled': disabled,
+            'kit-item-list-clickable': isClickable,
+            'kit-item-list-selected': selected
+        });
     };
 
     const _handleClickItemList = (e: MouseEvent<HTMLDivElement>) => {
@@ -458,7 +231,8 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
 
     return (
         <StyledItemList
-            className={`${appId} ${_getClasses()}`}
+            tabIndex={disabled ? -1 : 0}
+            className={_getClassName()}
             $gridTemplateColumns={_generateGridTemplateColumns()}
             onClick={disableSecureClick ? _handleClickItemList : _handleClickItemListSecured}
             {...props}

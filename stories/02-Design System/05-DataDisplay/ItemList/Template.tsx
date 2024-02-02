@@ -22,7 +22,7 @@ const mockData = {
     image: <KitImage src="public/images/tondeuse.png" />,
     icon: <KitIcon icon={<FontAwesomeIcon icon={faUser} />} />,
     avatar: <KitAvatar>G</KitAvatar>,
-    onSelectChange: (e: CheckboxChangeEvent) => console.log('selected', e.target.checked),
+    onChange: (e: CheckboxChangeEvent) => console.log('selected', e.target.checked),
     onRafterClick: () => console.log('click rafter'),
     onClick: () => console.log('on click itemlist')
 };
@@ -54,7 +54,7 @@ export const Template = (args: IKitItemList) => {
     return (
         <KitItemList
             {...props}
-            onSelectChange={props.displayCheckbox ? () => console.log('select changer') : undefined}
+            onSelect={props.displayCheckbox ? () => console.log('select changer') : undefined}
             onRafterClick={props.displayRafter ? () => console.log('click rafter') : undefined}
             onClick={props.itemListClickable ? () => console.log('click itemList') : undefined}
         />
@@ -65,7 +65,7 @@ export const EditorTemplate: IEditorTemplate = () => {
     return (
         <KitSpace direction="vertical">
             <KitItemList
-                onSelectChange={e => console.log('selected', e.target.checked)}
+                onSelect={e => console.log('selected', e.target.checked)}
                 picture={<KitIcon icon={<FontAwesomeIcon icon={faUser} />} />}
                 title="Tondeuse à gazon"
                 description="Tondeuse thermique Auto tractée 70 VL 55 TH"
@@ -75,7 +75,7 @@ export const EditorTemplate: IEditorTemplate = () => {
             />
             <KitItemList
                 disabled
-                onSelectChange={e => console.log('selected', e.target.checked)}
+                onSelect={e => console.log('selected', e.target.checked)}
                 picture={<KitImage src="public/images/tondeuse.png" />}
                 title="Tondeuse à gazon"
                 description="Tondeuse thermique Auto tractée 70 VL 55 TH"
