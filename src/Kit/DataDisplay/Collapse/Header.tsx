@@ -1,5 +1,4 @@
 import React, {FunctionComponent} from 'react';
-import styled from 'styled-components';
 import {IKitHeader, IKitHeaderContent, IKitHeaderImage, IKitHeaderSwitch} from './types';
 import {KitTypography} from '@kit/General/';
 import {KitTag} from '@kit/DataDisplay/Tag';
@@ -7,51 +6,8 @@ import {KitImage} from '@kit/DataDisplay/Image';
 import {KitSwitch} from '@kit/DataEntry';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-regular-svg-icons';
-import {convertToPixel} from '@theme/utils/convert';
-import {spacingCssTokens} from '@theme/aristid/general/spacing';
-import {typographyCssTokens} from '@theme/aristid/general/typography';
 
-const StyledHeader = styled.div`
-    display: grid;
-    grid-template: 'switch image content';
-    grid-template-columns: min-content min-content min-content;
-    align-items: center;
-    max-height: 90px;
-
-    .kit-collapse-header-switch {
-        grid-area: switch;
-        margin-right: ${convertToPixel(spacingCssTokens.s)};
-    }
-
-    .kit-collapse-header-image {
-        grid-area: image;
-        margin-right: ${convertToPixel(spacingCssTokens.s)};
-    }
-
-    .kit-collapse-header-content {
-        grid-area: content;
-        width: max-content;
-        display: grid;
-        grid-template: 'tag' 'title' 'description';
-
-        &.kit-collapse-header-content-rows {
-            grid-row-gap: ${convertToPixel(spacingCssTokens.xxs)};
-        }
-
-        .kit-collapse-header-content-tag {
-            grid-area: title;
-        }
-
-        .kit-collapse-header-content-title {
-            grid-area: title;
-            font-size: ${convertToPixel(typographyCssTokens.fontSize3)};
-        }
-
-        .kit-collapse-header-content-description {
-            grid-area: description;
-        }
-    }
-`;
+import styles from './styles.module.scss';
 
 const HeaderSwitch: FunctionComponent<IKitHeaderSwitch> = ({onSwitchChange, disabled}) => (
     <div
@@ -140,11 +96,11 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({
     disabled = false
 }) => {
     return (
-        <StyledHeader>
+        <div className={`${styles['kit-collapse-header']}`}>
             {onSwitchChange !== undefined && <HeaderSwitch onSwitchChange={onSwitchChange} disabled={disabled} />}
             {imageSrc !== undefined && <HeaderImage imageSrc={imageSrc} />}
             {<HeaderContent title={title} description={description} tagContent={tagContent} disabled={disabled} />}
-        </StyledHeader>
+        </div>
     );
 };
 

@@ -1,0 +1,216 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-tree) {
+    .ant-tree-treenode {
+        padding: 0;
+        font-weight: var(
+            --components-Tree-treenode-typography-fontWeight,
+            var(--general-typography-regularFontWeight)
+        );
+
+        &:hover {
+            background-color: var(
+                --components-Tree-treenode-colors-background-hover,
+                var(--general-colors-primary-primary100)
+            );
+            color: var(
+                --components-Tree-treenode-colors-typography-hover,
+                var(--general-colors-primary-primary400)
+            );
+        }
+
+        &.ant-tree-treenode-selected {
+            background-color: var(
+                --components-Tree-treenode-colors-background-selected,
+                var(--general-colors-primary-primary100)
+            );
+        }
+
+        &.ant-tree-treenode-disabled {
+            color: var(
+                --components-Tree-treenode-colors-typography-disabled,
+                var(--general-colors-neutral-typography-black60)
+            );
+
+            &:hover:not(.ant-tree-treenode-selected) {
+                background-color: inherit;
+            }
+
+            .ant-tree-node-content-wrapper {
+                color: var(
+                    --components-Tree-treenode-colors-typography-disabled,
+                    var(--general-colors-neutral-typography-black60)
+                );
+            }
+        }
+
+        .ant-tree-indent {
+            background-color: var(
+                --components-Tree-treenode-colors-background-indent,
+                var(--general-colors-neutral-white)
+            );
+        }
+
+        .ant-tree-switcher {
+            min-height: 32px;
+            line-height: 32px;
+        }
+
+        .ant-tree-checkbox {
+            align-self: center;
+            margin-top: 0px;
+            margin-inline-end: 0px;
+
+            .ant-tree-checkbox-inner {
+                background-color: var(
+                    --components-Tree-checkbox-colors-background-default,
+                    var(--general-colors-neutral-white)
+                );
+                border: 1px solid
+                    var(
+                        --components-Tree-checkbox-colors-border-default,
+                        var(--general-colors-neutral-black60)
+                    );
+            }
+
+            .ant-tree-checkbox-inner:after {
+                border-color: var(
+                    --components-Tree-checkbox-colors-icon-default,
+                    var(--general-colors-neutral-black60)
+                );
+            }
+
+            &:hover .ant-tree-checkbox-inner {
+                border: 1px solid
+                    var(
+                        --components-Tree-checkbox-colors-border-hover,
+                        var(--general-colors-primary-primary400)
+                    );
+            }
+
+            &.ant-tree-checkbox-checked {
+                .ant-tree-checkbox-inner:after {
+                    border-color: var(
+                        --components-Tree-checkbox-colors-icon-checked,
+                        var(--general-colors-neutral-white)
+                    );
+                }
+
+                .ant-tree-checkbox-inner {
+                    background-color: var(
+                        --components-Tree-checkbox-colors-background-checked-default,
+                        var(--general-colors-primary-primary400)
+                    );
+                    border: 1px solid
+                        var(
+                            --components-Tree-checkbox-colors-border-checked-default,
+                            var(--general-colors-primary-primary400)
+                        );
+                }
+
+                &:hover .ant-tree-checkbox-inner {
+                    background-color: var(
+                        --components-Tree-checkbox-colors-background-checked-hover,
+                        var(--general-colors-primary-primary500)
+                    );
+                    border-color: var(
+                        --components-Tree-checkbox-colors-border-checked-hover,
+                        var(--general-colors-primary-primary500)
+                    );
+                }
+            }
+
+            &.ant-tree-checkbox-indeterminate {
+                &:not(.ant-tree-checkbox-disabled) {
+                    .ant-tree-checkbox-inner {
+                        background-color: var(
+                            --components-Tree-checkbox-colors-background-checked-default,
+                            var(--general-colors-primary-primary400)
+                        );
+                        border-color: var(
+                            --components-Tree-checkbox-colors-border-checked-default,
+                            var(--general-colors-primary-primary400)
+                        );
+                    }
+
+                    &:hover .ant-tree-checkbox-inner {
+                        background-color: var(
+                            --components-Tree-checkbox-colors-background-checked-hover,
+                            var(--general-colors-primary-primary500)
+                        );
+                        border-color: var(
+                            --components-Tree-checkbox-colors-border-checked-hover,
+                            var(--general-colors-primary-primary500)
+                        );
+                    }
+
+                    .ant-tree-checkbox-inner:after {
+                        width: 8px;
+                        height: 0px;
+                        border: 1px solid white;
+                        transform: translate('-4px', '-1px');
+                    }
+                }
+            }
+
+            &.ant-tree-checkbox-disabled {
+                color: var(
+                    --components-Tree-checkbox-colors-icon-disabled,
+                    var(--general-colors-neutral-black60)
+                );
+
+                .ant-tree-checkbox-inner {
+                    background-color: var(
+                        --components-Tree-checkbox-colors-background-disabled,
+                        var(--general-colors-neutral-white)
+                    );
+                    border: 1px solid
+                        var(
+                            --components-Tree-checkbox-colors-border-disabled,
+                            var(--general-colors-neutral-black60)
+                        );
+                }
+
+                .ant-tree-checkbox-inner:after {
+                    border-color: var(
+                        --components-Tree-checkbox-colors-icon-disabled,
+                        var(--general-colors-neutral-black60)
+                    );
+                }
+            }
+        }
+
+        .ant-tree-node-content-wrapper {
+            transition: none;
+            background-color: inherit;
+            min-height: 32px;
+            line-height: 32px;
+            padding: 0 8px;
+
+            .ant-tree-iconEle {
+                min-height: 32px;
+                line-height: 32px;
+                margin-inline-end: 10px;
+                font-size: 16px;
+            }
+
+            &:hover,
+            &.ant-tree-node-selected {
+                background-color: inherit;
+                transition: none;
+            }
+        }
+
+        &.ant-tree-treenode-leaf-last {
+            .ant-tree-switcher-leaf-line:before {
+                height: 18px !important;
+            }
+        }
+
+        .ant-tree-switcher-leaf-line {
+            &:after {
+                height: 18px;
+            }
+        }
+    }
+}

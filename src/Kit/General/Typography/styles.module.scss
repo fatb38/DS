@@ -1,0 +1,88 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-typography-link) {
+    font-size: convertToPixel(--general-typography-fontSize6);
+    line-height: var(--general-typography-lineHeight6);
+
+    &.ant-typography-regular {
+        font-weight: var(
+            --components-Typography-Link-fontWeight-regular,
+            var(--general-typography-regularFontWeight)
+        );
+    }
+
+    &.ant-typography-medium {
+        font-weight: var(
+            --components-Typography-Link-fontWeight-medium,
+            var(--general-typography-mediumfontWeight)
+        );
+    }
+
+    &.ant-typography-bold {
+        font-weight: var(--components-Typography-Link-fontWeight-bold, var(--general-typography-boldFontWeight));
+    }
+}
+
+:local(.kit-typography-paragraph) {
+    font-size: convertToPixel(--general-typography-fontSize6);
+    line-height: var(--general-typography-lineHeight6);
+
+    &.ant-typography-regular {
+        font-weight: var(
+            --components-Typography-Paragraph-fontWeight-regular,
+            var(--general-typography-regularFontWeight)
+        );
+    }
+
+    &.ant-typography-medium {
+        font-weight: var(
+            --components-Typography-Paragraph-fontWeight-medium,
+            var(--general-typography-mediumfontWeight)
+        );
+    }
+
+    &.ant-typography-bold {
+        font-weight: var(
+            --components-Typography-Paragraph-fontWeight-bold,
+            var(--general-typography-boldFontWeight)
+        );
+    }
+}
+
+:local(.kit-typography-text) {
+    font-size: convertToPixel(--general-typography-fontSize6);
+    line-height: var(--general-typography-lineHeight6);
+
+    &.kit-typography-text-small {
+        font-size: convertToPixel(var(--general-typography-fontSize7));
+        line-height: var(--general-typography-lineHeight7);
+    }
+
+    &.kit-typography-text-medium {
+        font-size: convertToPixel(var(--general-typography-fontSize6));
+        line-height: var(--general-typography-lineHeight6);
+    }
+
+    &.kit-typography-text-large {
+        font-size: convertToPixel(var(--general-typography-fontSize5));
+        line-height: var(--general-typography-lineHeight5);
+    }
+
+    &.ant-typography-regular {
+        font-weight: var(
+            --components-Typography-Text-fontWeight-regular,
+            var(--general-typography-regularFontWeight)
+        );
+    }
+
+    &.ant-typography-medium {
+        font-weight: var(
+            --components-Typography-Text-fontWeight-medium,
+            var(--general-typography-mediumfontWeight)
+        );
+    }
+
+    &.ant-typography-bold {
+        font-weight: var(--components-Typography-Text-fontWeight-bold, var(--general-typography-boldFontWeight));
+    }
+}

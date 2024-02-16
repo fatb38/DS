@@ -1,5 +1,4 @@
 import React, {FunctionComponent, useState} from 'react';
-import styled from 'styled-components';
 import {IKitMenuInfo, IKitHeaderExtra, IKitHeaderExtraActions, IKitHeaderExtraMoreActions} from './types';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
@@ -7,30 +6,9 @@ import {KitDropDown} from '@kit/Navigation/';
 import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';
-import {convertToPixel} from '@theme/utils/convert';
-import {spacingCssTokens} from '@theme/aristid/general/spacing';
 import {useKitLocale} from '@translation/useKitLocale';
 
-const StyledHeaderExtra = styled.div`
-    display: grid;
-    grid-template: 'checkbox actions';
-
-    .kit-collapse-header-extra-checkbox {
-        grid-area: checkbox;
-        align-self: center;
-    }
-
-    .kit-collapse-header-extra-actions {
-        padding-left: ${convertToPixel(spacingCssTokens.s)};
-        grid-area: actions;
-        display: grid;
-        grid-template-columns: auto auto;
-
-        > div:nth-child(2) {
-            margin-left: ${convertToPixel(spacingCssTokens.s)};
-        }
-    }
-`;
+import styles from './styles.module.scss';
 
 const HeaderExtraActions: FunctionComponent<IKitHeaderExtraActions> = ({actions, disabled}) => {
     const [showMoreTooltip, setShowMoreTooltip] = useState(false);
@@ -110,9 +88,9 @@ const _getMoreActionsDropDownItems = ({actions}: IKitHeaderExtraMoreActions): Me
 
 export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions, disabled = false}) => {
     return (
-        <StyledHeaderExtra>
+        <div className={`${styles['kit-collapse-header-extra']}`}>
             {actions !== undefined && <HeaderExtraActions actions={actions} disabled={disabled} />}
-        </StyledHeaderExtra>
+        </div>
     );
 };
 

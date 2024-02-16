@@ -2,100 +2,9 @@ import React, {FunctionComponent} from 'react';
 import {IKitInputWrapper} from './types';
 import {KitTypography} from '@kit/General/';
 import {useKitTheme} from '@theme/useKitTheme';
-import {kitInputWrapperCssTokens} from '@theme/aristid/components/DataEntry/InputWrapper';
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
-import {spacingCssTokens} from '@theme/aristid/general/spacing';
-import {convertToPixel} from '@theme/utils/convert';
-import styled from 'styled-components';
-import {borderCssTokens} from '@theme/aristid/general/border';
-import classNames from 'classnames';
+import cn from 'classnames';
 
-const StyledInputWrapper = styled.div`
-    .kit-input-wrapper-label {
-        margin-bottom: ${convertToPixel(kitInputWrapperCssTokens.gap.label, spacingCssTokens.xs)};
-    }
-
-    .kit-input-wrapper-helper {
-        margin-top: ${convertToPixel(kitInputWrapperCssTokens.gap.helper, spacingCssTokens.xs)};
-    }
-
-    .kit-input-wrapper-label,
-    .kit-input-wrapper-helper {
-        &,
-        .ant-typography {
-            color: var(
-                ${kitInputWrapperCssTokens.colors.typography.default},
-                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
-            );
-        }
-    }
-
-    &.bordered .kit-input-wrapper-content {
-        border: 1px solid
-            var(
-                ${kitInputWrapperCssTokens.colors.border.default},
-                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500})
-            );
-        border-radius: ${convertToPixel(kitInputWrapperCssTokens.border.radius, borderCssTokens.radius.s)};
-        padding: 10px;
-    }
-
-    &.error {
-        .kit-input-wrapper-label,
-        .kit-input-wrapper-helper {
-            &,
-            .ant-typography {
-                color: var(
-                    ${kitInputWrapperCssTokens.colors.typography.error},
-                    var(${kitColorsPaletteCssTokens.secondary.red.red400})
-                );
-            }
-        }
-        .kit-input-wrapper-content {
-            border-color: var(
-                ${kitInputWrapperCssTokens.colors.border.error},
-                var(${kitColorsPaletteCssTokens.secondary.red.red400})
-            );
-        }
-    }
-    &.warning {
-        .kit-input-wrapper-label,
-        .kit-input-wrapper-helper {
-            &,
-            .ant-typography {
-                color: var(
-                    ${kitInputWrapperCssTokens.colors.typography.warning},
-                    var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
-                );
-            }
-        }
-        .kit-input-wrapper-content {
-            border-color: var(
-                ${kitInputWrapperCssTokens.colors.border.warning},
-                var(${kitColorsPaletteCssTokens.secondary.orange.orange400})
-            );
-        }
-    }
-
-    &.disabled {
-        .kit-input-wrapper-label,
-        .kit-input-wrapper-helper {
-            &,
-            .ant-typography {
-                color: var(
-                    ${kitInputWrapperCssTokens.colors.typography.disabled},
-                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400})
-                );
-            }
-        }
-        .kit-input-wrapper-content {
-            border-color: var(
-                ${kitInputWrapperCssTokens.colors.border.disabled},
-                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200})
-            );
-        }
-    }
-`;
+import styles from './styles.module.scss';
 
 const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
     label,
@@ -108,7 +17,7 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
 }) => {
     const {appId} = useKitTheme();
 
-    const _wrapperClassName = classNames('kit-input-wrapper', appId, className ?? '', {
+    const _wrapperClassName = cn(styles['kit-input-wrapper'], appId, className ?? '', {
         disabled: disabled,
         bordered: bordered,
         error: status === 'error',
@@ -116,7 +25,7 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
     });
 
     return (
-        <StyledInputWrapper className={_wrapperClassName}>
+        <div className={_wrapperClassName}>
             {label && (
                 <div className="kit-input-wrapper-label">
                     <KitTypography.Text size="large" weight="medium">
@@ -132,7 +41,7 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
                     </KitTypography.Text>
                 </div>
             )}
-        </StyledInputWrapper>
+        </div>
     );
 };
 

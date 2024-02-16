@@ -1,12 +1,6 @@
 import cn from 'classnames';
 import {TitleLevel, TypographyWeight, TypographyWeightKeys} from './types';
 
-export const sizeTofontSize = {
-    large: 5,
-    medium: 6,
-    small: 7
-};
-
 export const getWeightClassname = ({
     className = '',
     weight = 'regular'

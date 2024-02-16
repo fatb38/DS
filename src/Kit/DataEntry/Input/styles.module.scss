@@ -1,0 +1,826 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-input) {
+     &.ant-input,
+    .ant-input {
+        height: 40px;
+        padding: 0 10px;
+        font-weight: var(
+            --components-input-typography-content-fontWeight,
+            var(--general-typography-mediumfontWeight)
+        );
+
+        &::placeholder {
+            font-weight: var(
+                --components-input-typography-placeholder-fontWeight,
+                var(--general-typography-regularFontWeight)
+            );
+        }
+    }
+
+    &.ant-input-affix-wrapper {
+        font-size: convertToPixel(--components-input-typography-fontSize, --general-typography-fontSize5);
+        border-radius: convertToPixel(--components-input-border-radius, --general-border-radius-s);
+        padding: 0 12px;
+
+        &:focus-within {
+            border-color: var(
+                --components-input-colors-border-hover,
+                var(--general-colors-primary-primary400)
+            );
+        }
+
+        .ant-input-prefix {
+            margin-inline-end: 10px;
+            color: var(
+                --components-input-colors-prefix-default,
+                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+            );
+        }
+
+        .ant-input-suffix {
+            margin-inline-start: 10px;
+            color: var(
+                --components-input-colors-suffix-default,
+                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+            );
+
+            .ant-input-clear-icon {
+                display: flex;
+                color: var(
+                    --components-input-colors-clearIcon-default,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                );
+            }
+        }
+
+        .ant-input-suffix .ant-input-show-count-suffix {
+            color: var(
+                --components-input-colors-showCount-default,
+                var(--general-colors-secondary-mediumGrey-mediumGrey300)
+            );
+            font-size: convertToPixel(
+                --components-input-typography-showCount-fontSize,
+                --general-typography-fontSize7
+            );
+            font-weight: var(
+                --components-input-typography-showCount-fontWeight,
+                var(--general-typography-regularFontWeight)
+            );
+        }
+
+        .ant-input {
+            font-weight: var(
+                --components-input-typography-content-fontWeight,
+                var(--general-typography-mediumfontWeight)
+            );
+            height: 38px;
+
+            &::placeholder {
+                font-weight: var(
+                    --components-input-typography-placeholder-fontWeight,
+                    var(--general-typography-regularFontWeight)
+                );
+            }
+        }
+
+        &.ant-input-affix-wrapper-disabled {
+            border-color: var(
+                --components-input-colors-border-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey200)
+            );
+
+            .ant-input-prefix svg {
+                color: var(
+                    --components-input-colors-prefix-disabled,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                );
+            }
+
+            .ant-input-suffix {
+                color: var(
+                    --components-input-colors-suffix-disabled,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                );
+
+                .ant-input-show-count-suffix {
+                    color: var(
+                        --components-input-colors-showCount-disabled,
+                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    );
+                }
+
+                .ant-input-clear-icon {
+                    color: var(
+                        --components-input-colors-clearIcon-disabled,
+                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    );
+                }
+            }
+        }
+
+        &.ant-input-affix-wrapper-status-error:not(.ant-input-disabled) {
+            .ant-input-prefix svg {
+                color: var(
+                    --components-input-colors-prefix-error,
+                    var(--general-colors-secondary-red-red400)
+                );
+            }
+
+            .ant-input-suffix {
+                color: var(
+                    --components-input-colors-suffix-error,
+                    var(--general-colors-secondary-red-red400)
+                );
+
+                .ant-input-show-count-suffix {
+                    color: var(
+                        --components-input-colors-showCount-error,
+                        var(--general-colors-secondary-red-red300)
+                    );
+                }
+
+                .ant-input-clear-icon {
+                    color: var(
+                        --components-input-colors-clearIcon-error,
+                        var(--general-colors-secondary-red-red400)
+                    );
+                }
+            }
+        }
+
+        &.ant-input-affix-wrapper-status-warning:not(.ant-input-disabled) {
+            .ant-input-prefix svg {
+                color: var(
+                    --components-input-colors-prefix-warning,
+                    var(--general-colors-secondary-orange-orange400)
+                );
+            }
+
+            .ant-input-suffix {
+                color: var(
+                    --components-input-colors-suffix-warning,
+                    var(--general-colors-secondary-orange-orange400)
+                );
+
+                .ant-input-show-count-suffix {
+                    color: var(
+                        --components-input-colors-showCount-warning,
+                        var(--general-colors-secondary-orange-orange300)
+                    );
+                }
+
+                .ant-input-clear-icon {
+                    color: var(
+                        --components-input-colors-clearIcon-warning,
+                        var(--general-colors-secondary-orange-orange500)
+                    );
+                }
+            }
+        }
+    }
+
+    &.ant-input-disabled,
+    .ant-input-disabled {
+        border-color: var(
+            --components-input-colors-border-disabled,
+            var(--general-colors-secondary-mediumGrey-mediumGrey200)
+        );
+        color: var(
+            --components-input-colors-typography-content-disabled,
+            var(--general-colors-secondary-mediumGrey-mediumGrey400)
+        );
+
+        &:hover {
+            border-color: var(
+                --components-input-colors-border-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey200)
+            );
+        }
+
+        &::placeholder {
+            color: var(
+                --components-input-colors-typography-placeholder-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey400)
+            );
+        }
+    }
+
+    &.ant-input-status-error,
+    &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-error,
+    &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-error .ant-input {
+        background-color: var(
+            --components-input-colors-background-error,
+            var(--general-colors-secondary-red-red100)
+        );
+        color: var(
+            --components-input-colors-typography-content-error,
+            var(--general-colors-secondary-red-red400)
+        );
+
+        &:not(.ant-input-borderless):not(.ant-input-disabled) {
+            border-color: var(
+                --components-input-colors-border-error,
+                var(--general-colors-secondary-red-red400)
+            );
+            &.ant-input-affix-wrapper-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        --components-input-colors-border-focus-error,
+                        var(--general-colors-secondary-red-red200)
+                    );
+
+                &:hover {
+                    border-color: transparent;
+                }
+            }
+        }
+
+        &::placeholder {
+            color: var(
+                --components-input-colors-typography-placeholder-error,
+                var(--general-colors-secondary-red-red400)
+            );
+        }
+    }
+
+    &.ant-input-status-warning,
+    &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-warning,
+    &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-warning .ant-input {
+        background-color: var(
+            --components-input-colors-background-warning,
+            var(--general-colors-secondary-orange-orange100)
+        );
+        color: var(
+            --components-input-colors-typography-content-warning,
+            var(--general-colors-secondary-orange-orange500)
+        );
+
+        &:not(.ant-input-borderless):not(.ant-input-disabled) {
+            border-color: var(
+                --components-input-colors-border-warning,
+                var(--general-colors-secondary-orange-orange400)
+            );
+            &.ant-input-affix-wrapper-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        --components-input-colors-border-focus-warning,
+                        var(--general-colors-secondary-orange-orange200)
+                    );
+
+                &:hover {
+                    border-color: transparent;
+                }
+            }
+        }
+
+        &::placeholder {
+            color: var(
+                --components-input-colors-typography-placeholder-warning,
+                var(--general-colors-secondary-orange-orange500)
+            );
+        }
+    }
+
+    &:focus-within,
+    &.ant-input-affix-wrapper.ant-input-affix-wrapper-focused {
+        border-color: transparent;
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 3px
+            var(--components-input-colors-border-focus-default, var(--general-colors-primary-primary200));
+
+        &.ant-input::placeholder,
+        .ant-input::placeholder {
+            color: transparent;
+        }
+    }
+}
+
+:local(.kit-password) {
+    &.ant-input-affix-wrapper {
+        padding: 0 12px;
+
+        .ant-input {
+            height: 38px;
+            padding: 0 10px 0 0;
+            border-radius: 7px;
+            font-weight: var(
+                --components-Input-Passwordtypography-content-fontWeight,
+                var(--general-typography-mediumfontWeight)
+            );
+
+            &::placeholder {
+                font-weight: var(
+                    --components-Input-Passwordtypography-placeholder-fontWeight,
+                    var(--general-typography-regularFontWeight)
+                );
+            }
+        }
+
+        .ant-input-suffix {
+            .ant-input-password-icon {
+                color: var(
+                    --components-Input-Passwordcolors-passwordIcon-default,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                );
+            }
+
+            .ant-input-show-count-suffix {
+                color: var(
+                    --components-Input-Passwordcolors-showCount-default,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey300)
+                );
+                font-size: convertToPixel(
+                    --components-Input-Passwordtypography-showCount-fontSize,
+                    --general-typography-fontSize7
+                );
+                font-weight: var(
+                    --components-Input-Passwordtypography-showCount-fontWeight,
+                    var(--general-typography-regularFontWeight)
+                );
+            }
+
+            .ant-input-clear-icon {
+                color: var(
+                    --components-Input-Passwordcolors-clearIcon-default,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                );
+                display: flex;
+            }
+        }
+
+        .ant-input-prefix {
+            margin-inline-end: 10px;
+            color: var(
+                --components-Input-Passwordcolors-prefix-default,
+                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+            );
+        }
+
+        &.ant-input-affix-wrapper-disabled {
+            border-color: var(
+                --components-Input-Passwordcolors-border-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey200)
+            );
+
+            .ant-input {
+                color: var(
+                    --components-Input-Passwordcolors-typography-content-disabled,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                );
+
+                &::placeholder {
+                    color: var(
+                        --components-Input-Passwordcolors-typography-placeholder-disabled,
+                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    );
+                }
+            }
+
+            .ant-input-prefix svg {
+                color: var(
+                    --components-Input-Passwordcolors-prefix-disabled,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                );
+            }
+
+            .ant-input-suffix {
+                color: var(
+                    --components-Input-Passwordcolors-suffix-disabled,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                );
+
+                .ant-input-clear-icon {
+                    color: var(
+                        --components-Input-Passwordcolors-clearIcon-disabled,
+                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    );
+                }
+
+                .ant-input-show-count-suffix {
+                    color: var(
+                        --components-Input-Passwordcolors-showCount-disabled,
+                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    );
+                }
+
+                .ant-input-password-icon {
+                    color: var(
+                        --components-Input-Passwordcolors-passwordIcon-disabled,
+                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    );
+                }
+            }
+        }
+
+        &.ant-input-affix-wrapper-status-error,
+        &.ant-input-affix-wrapper-status-error .ant-input {
+            background-color: var(
+                --components-Input-Passwordcolors-background-error,
+                var(--general-colors-secondary-red-red100)
+            );
+            color: var(
+                --components-Input-Passwordcolors-typography-content-error,
+                var(--general-colors-secondary-red-red400)
+            );
+
+            &:not(.ant-input-borderless):not(.ant-input-disabled) {
+                border-color: var(
+                    --components-Input-Passwordcolors-border-error,
+                    var(--general-colors-secondary-red-red400)
+                );
+                &.ant-input-affix-wrapper-focused {
+                    border-color: transparent;
+                    // TODO change to cards-border-stroke when available
+                    box-shadow: 0 0 0 3px
+                        var(
+                            --components-Input-Passwordcolors-border-focus-error,
+                            var(--general-colors-secondary-red-red200)
+                        );
+
+                    &:hover {
+                        border-color: transparent;
+                    }
+                }
+            }
+
+            &::placeholder {
+                color: var(
+                    --components-Input-Passwordcolors-typography-placeholder-error,
+                    var(--general-colors-secondary-red-red400)
+                );
+            }
+
+            .ant-input-prefix svg {
+                color: var(
+                    --components-Input-Passwordcolors-prefix-error,
+                    var(--general-colors-secondary-red-red400)
+                );
+            }
+
+            .ant-input-suffix {
+                color: var(
+                    --components-Input-Passwordcolors-suffix-error,
+                    var(--general-colors-secondary-red-red400)
+                );
+
+                .ant-input-clear-icon {
+                    color: var(
+                        --components-Input-Passwordcolors-clearIcon-error,
+                        var(--general-colors-secondary-red-red400)
+                    );
+                }
+
+                .ant-input-show-count-suffix {
+                    color: var(
+                        --components-Input-Passwordcolors-showCount-error,
+                        var(--general-colors-secondary-red-red300)
+                    );
+                }
+
+                .ant-input-password-icon {
+                    color: var(
+                        --components-Input-Passwordcolors-passwordIcon-error,
+                        var(--general-colors-secondary-red-red400)
+                    );
+                }
+            }
+        }
+
+        &.ant-input-affix-wrapper-status-warning,
+        &.ant-input-affix-wrapper-status-warning .ant-input {
+            background-color: var(
+                --components-Input-Passwordcolors-background-warning,
+                var(--general-colors-secondary-orange-orange100)
+            );
+            color: var(
+                --components-Input-Passwordcolors-typography-content-warning,
+                var(--general-colors-secondary-orange-orange500)
+            );
+
+            &:not(.ant-input-borderless):not(.ant-input-disabled) {
+                border-color: var(
+                    --components-Input-Passwordcolors-border-warning,
+                    var(--general-colors-secondary-orange-orange400)
+                );
+                &.ant-input-affix-wrapper-focused {
+                    border-color: transparent;
+                    // TODO change to cards-border-stroke when available
+                    box-shadow: 0 0 0 3px
+                        var(
+                            --components-Input-Passwordcolors-border-focus-warning,
+                            var(--general-colors-secondary-orange-orange200)
+                        );
+
+                    &:hover {
+                        border-color: transparent;
+                    }
+                }
+            }
+
+            &::placeholder {
+                color: var(
+                    --components-Input-Passwordcolors-typography-placeholder-warning,
+                    var(--general-colors-secondary-orange-orange500)
+                );
+            }
+
+            .ant-input-prefix svg {
+                color: var(
+                    --components-Input-Passwordcolors-prefix-warning,
+                    var(--general-colors-secondary-orange-orange400)
+                );
+            }
+
+            .ant-input-suffix {
+                color: var(
+                    --components-Input-Passwordcolors-prefix-warning,
+                    var(--general-colors-secondary-orange-orange400)
+                );
+
+                .ant-input-clear-icon {
+                    color: var(
+                        --components-Input-Passwordcolors-clearIcon-warning,
+                        var(--general-colors-secondary-orange-orange500)
+                    );
+                }
+
+                .ant-input-show-count-suffix {
+                    color: var(
+                        --components-Input-Passwordcolors-showCount-warning,
+                        var(--general-colors-secondary-orange-orange300)
+                    );
+                }
+
+                .ant-input-password-icon {
+                    color: var(
+                        --components-Input-Passwordcolors-passwordIcon-warning,
+                        var(--general-colors-secondary-orange-orange500)
+                    );
+                }
+            }
+        }
+
+        &.ant-input-affix-wrapper-focused {
+            // TODO change to cards-border-stroke when available
+            border-color: transparent;
+            box-shadow: 0 0 0 3px
+                var(
+                    --components-Input-Passwordcolors-border-focus-default,
+                    var(--general-colors-primary-primary200)
+                );
+
+            .ant-input::placeholder {
+                color: transparent;
+            }
+        }
+    }
+}
+
+:local(.kit-textarea) {
+     &.ant-input,
+    .ant-input {
+        padding: 4px 10px;
+        font-weight: var(
+            --components-Input-TextAreatypography-content-fontWeight,
+            var(--general-typography-mediumfontWeight)
+        );
+
+        &::placeholder {
+            font-weight: var(
+                --components-Input-TextAreatypography-placeholder-fontWeight,
+                var(--general-typography-regularFontWeight)
+            );
+        }
+    }
+
+    .ant-input-suffix {
+        .ant-input-clear-icon {
+            color: var(
+                --components-Input-TextAreacolors-clearIcon-default,
+                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+            );
+        }
+    }
+
+    &.ant-input-affix-wrapper {
+        &.ant-input-textarea-allow-clear {
+            .ant-input {
+                padding-inline-end: 24px;
+            }
+        }
+
+        &.ant-input-textarea-show-count {
+            .ant-input-data-count {
+                bottom: -23px;
+                color: var(
+                    --components-Input-TextAreacolors-showCount-default,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey300)
+                );
+                font-size: convertToPixel(
+                    --components-Input-TextAreatypography-showCount-fontSize,
+                    --general-typography-fontSize7
+                );
+                font-weight: var(
+                    --components-Input-TextAreatypography-showCount-fontWeight,
+                    var(--general-typography-regularFontWeight)
+                );
+            }
+        }
+
+        &.ant-input-affix-wrapper-disabled {
+            .ant-input-data-count {
+                color: var(
+                    --components-Input-TextAreacolors-showCount-disabled,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                );
+            }
+
+            .ant-input-suffix {
+                .ant-input-clear-icon {
+                    color: var(
+                        --components-Input-TextAreacolors-clearIcon-disabled,
+                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    );
+                }
+            }
+        }
+
+        &.ant-input-affix-wrapper-status-error {
+            .ant-input-data-count {
+                color: var(
+                    --components-Input-TextAreacolors-showCount-error,
+                    var(--general-colors-secondary-red-red300)
+                );
+            }
+
+            .ant-input-suffix {
+                .ant-input-clear-icon {
+                    color: var(
+                        --components-Input-TextAreacolors-clearIcon-error,
+                        var(--general-colors-secondary-red-red400)
+                    );
+                }
+            }
+
+            &:hover,
+            &:focus {
+                border-color: var(
+                    --components-Input-TextAreacolors-border-error,
+                    var(--general-colors-secondary-red-red400)
+                );
+            }
+        }
+
+        &.ant-input-affix-wrapper-status-warning {
+            .ant-input-data-count {
+                color: var(
+                    --components-Input-TextAreacolors-showCount-warning,
+                    var(--general-colors-secondary-orange-orange300)
+                );
+            }
+
+            .ant-input-suffix {
+                .ant-input-clear-icon {
+                    color: var(
+                        --components-Input-TextAreacolors-clearIcon-warning,
+                        var(--general-colors-secondary-orange-orange500)
+                    );
+                }
+            }
+
+            &:hover,
+            &:focus {
+                border-color: var(
+                    --components-Input-TextAreacolors-border-warning,
+                    var(--general-colors-secondary-orange-orange400)
+                );
+            }
+        }
+    }
+
+    &.ant-input-disabled,
+    .ant-input-disabled {
+        border-color: var(
+            --components-Input-TextAreacolors-border-disabled,
+            var(--general-colors-secondary-mediumGrey-mediumGrey200)
+        );
+        color: var(
+            --components-Input-TextAreacolors-typography-content-disabled,
+            var(--general-colors-secondary-mediumGrey-mediumGrey400)
+        );
+
+        &:hover {
+            border-color: var(
+                --components-Input-TextAreacolors-border-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey200)
+            );
+        }
+
+        &::placeholder {
+            color: var(
+                --components-Input-TextAreacolors-typography-placeholder-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey400)
+            );
+        }
+    }
+
+    &.ant-input-status-error,
+    &.ant-input-affix-wrapper-status-error,
+    .ant-input-status-error {
+        background-color: var(
+            --components-Input-TextAreacolors-background-error,
+            var(--general-colors-secondary-red-red100)
+        );
+        color: var(
+            --components-Input-TextAreacolors-typography-content-error,
+            var(--general-colors-secondary-red-red400)
+        );
+
+        &:not(.ant-input-borderless):not(.ant-input-disabled) {
+            border-color: var(
+                --components-Input-TextAreacolors-border-error,
+                var(--general-colors-secondary-red-red400)
+            );
+            &.ant-input-affix-wrapper-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        --components-Input-TextAreacolors-border-focus-error,
+                        var(--general-colors-secondary-red-red200)
+                    );
+
+                &:hover {
+                    border-color: transparent;
+                }
+            }
+        }
+
+        &::placeholder {
+            color: var(
+                --components-Input-TextAreacolors-typography-placeholder-error,
+                var(--general-colors-secondary-red-red400)
+            );
+        }
+    }
+
+    &.ant-input-status-warning,
+    &.ant-input-affix-wrapper-status-warning,
+    .ant-input-status-warning {
+        background-color: var(
+            --components-Input-TextAreacolors-background-warning,
+            var(--general-colors-secondary-orange-orange100)
+        );
+        color: var(
+            --components-Input-TextAreacolors-typography-content-warning,
+            var(--general-colors-secondary-orange-orange500)
+        );
+
+        &:not(.ant-input-borderless):not(.ant-input-disabled) {
+            border-color: var(
+                --components-Input-TextAreacolors-border-warning,
+                var(--general-colors-secondary-orange-orange400)
+            );
+            &.ant-input-affix-wrapper-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        --components-Input-TextAreacolors-border-focus-warning,
+                        var(--general-colors-secondary-orange-orange200)
+                    );
+
+                &:hover {
+                    border-color: transparent;
+                }
+            }
+        }
+
+        &::placeholder {
+            color: var(
+                --components-Input-TextAreacolors-typography-placeholder-warning,
+                var(--general-colors-secondary-orange-orange500)
+            );
+        }
+    }
+
+    &:focus,
+    &.ant-input-affix-wrapper-focused {
+        border-color: transparent;
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 3px
+            var(
+                --components-Input-TextAreacolors-border-focus-default,
+                var(--general-colors-primary-primary200)
+            );
+
+        .ant-input::placeholder {
+            color: transparent;
+        }
+    }
+}

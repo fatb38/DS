@@ -2,7 +2,10 @@ import React, {FC} from 'react';
 import {KitColorPickerProps} from './types';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
-import {StyledAntdColorPicker} from './style';
+import {ColorPicker as AntdColorPicker} from 'antd';
+import cn from 'classnames';
+
+import styles from './styles.module.scss';
 
 export const KitColorPicker: FC<KitColorPickerProps> = ({
     label,
@@ -13,13 +16,12 @@ export const KitColorPicker: FC<KitColorPickerProps> = ({
 }) => {
     const {appId} = useKitTheme();
 
+    const rootClx = cn(appId, styles['kit-colorpicker'], rootClassName);
+    const clx = cn(appId, className);
+
     return (
         <KitInputWrapper label={label} helper={helper} disabled={colorPickerProps.disabled}>
-            <StyledAntdColorPicker
-                {...colorPickerProps}
-                rootClassName={`${appId} kit-color-picker ${rootClassName ?? ''}`}
-                className={`${appId} ${className ?? ''}`}
-            />
+            <AntdColorPicker {...colorPickerProps} rootClassName={rootClx} className={clx} />
         </KitInputWrapper>
     );
 };

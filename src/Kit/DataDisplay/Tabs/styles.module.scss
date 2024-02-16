@@ -1,0 +1,63 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-tabs) {
+    .ant-tabs-extra-content {
+        .ant-btn {
+            border-radius: convertToPixel(--components-Tabs-extraContent-border-radius, --general-border-radius-xxs);
+            border: 1px solid
+                var(
+                    --components-Tabs-extraContent-colors-border-default,
+                    var(--general-colors-neutral-grey-grey300)
+                );
+            padding-top: convertToPixel(--components-Tabs-extraContent-padding-vertical, --general-spacing-xxs);
+            padding-bottom: convertToPixel(--components-Tabs-extraContent-padding-vertical, --general-spacing-xxs);
+            padding-left: convertToPixel(--components-Tabs-extraContent-padding-horizontal, --general-spacing-s);
+            padding-right: convertToPixel(--components-Tabs-extraContent-padding-horizontal, --general-spacing-s);
+            height: 34px;
+            color: var(
+                --components-Tabs-extraContent-colors-typography-default,
+                var(--general-colors-neutral-typography-black)
+            );
+        }
+    }
+
+    &.ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab {
+        border-radius: convertToPixel(--components-Tabs-card-border-radius, --general-border-radius-s)
+            convertToPixel(--components-Tabs-card-border-radius, --general-border-radius-s) 0 0;
+        margin-top: 10px;
+    }
+
+    &.ant-tabs-top,
+    &.ant-tabs-bottom {
+        .ant-tabs-nav .ant-tabs-extra-content:first-child {
+            padding-left: 0px;
+            padding-right: convertToPixel(--components-Tabs-extraContent-padding-horizontal, --general-spacing-s);
+        }
+
+        .ant-tabs-nav .ant-tabs-extra-content:last-child {
+            padding-left: convertToPixel(--components-Tabs-extraContent-padding-horizontal, --general-spacing-s);
+            padding-right: 0px;
+        }
+    }
+
+    &.ant-tabs-left,
+    &.ant-tabs-right {
+        .ant-tabs-nav .ant-tabs-extra-content:first-child {
+            padding-top: 0px;
+            padding-bottom: convertToPixel(--components-Tabs-extraContent-padding-vertical, --general-spacing-s);
+        }
+
+        .ant-tabs-nav .ant-tabs-extra-content:last-child {
+            padding-top: convertToPixel(--components-Tabs-extraContent-padding-vertical, --general-spacing-s);
+            padding-bottom: 0px;
+        }
+    }
+
+    &.ant-tabs-left .ant-tabs-nav .ant-tabs-extra-content {
+        padding-right: convertToPixel(--components-Tabs-extraContent-padding-horizontal, --general-spacing-xxs);
+    }
+
+    &.ant-tabs-right .ant-tabs-nav .ant-tabs-extra-content {
+        padding-left: convertToPixel(--components-Tabs-extraContent-padding-horizontal, --general-spacing-xxs);
+    }
+}

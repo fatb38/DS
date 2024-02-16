@@ -2,6 +2,7 @@ import type {StorybookConfig} from '@storybook/react-vite';
 import remarkGfm from 'remark-gfm';
 import {mergeConfig} from 'vite';
 import turbosnap from 'vite-plugin-turbosnap';
+import {withoutVitePlugins} from '@storybook/builder-vite';
 
 const addons = [
     '@storybook/addon-links',
@@ -44,17 +45,20 @@ const config: StorybookConfig = {
         docsMode: true
     },
     async viteFinal(config, {configType}) {
-        return mergeConfig(config, {
-            plugins:
-                configType === 'PRODUCTION'
-                    ? [
-                          turbosnap({
-                              // This should be the base path of your storybook.  In monorepos, you may only need process.cwd().
-                              rootDir: config.root ?? process.cwd()
-                          })
-                      ]
-                    : []
-        });
+        let plugins = await withoutVitePlugins(config.plugins, ['vite:dts', 'vite:lib-inject-css']);
+        if (configType === 'PRODUCTION') {
+            plugins.push(
+                turbosnap({
+                    // This should be the base path of your storybook.  In monorepos, you may only need process.cwd().
+                    rootDir: config.root ?? process.cwd()
+                })
+            );
+        }
+
+        return {
+            ...config,
+            plugins
+        };
     }
 };
 export default config;

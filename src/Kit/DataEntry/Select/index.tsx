@@ -14,9 +14,9 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 import {IKitOption, IKitSelect} from './types';
+import {Select as AntdSelect} from 'antd';
 import {KitIcon} from '@kit/General';
 import type {CustomTagProps} from 'rc-select/lib/BaseSelect';
-import {StyledBadge, StyledKitSelect, StyledLabel} from './style';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {KitTag} from '@kit/DataDisplay/Tag';
 import {useKitTheme} from '@theme/useKitTheme';
@@ -26,6 +26,8 @@ import {faCheck, faCircleNotch, faChevronDown} from '@fortawesome/free-solid-svg
 import type {RefSelectProps} from 'antd';
 import {useDebouncedCallback} from 'use-debounce';
 import ShortUniqueId from 'short-unique-id';
+
+import styles from './styles.module.scss';
 
 interface ISelectOption {
     icon?: ReactNode;
@@ -39,11 +41,9 @@ const _getOptionLabel = (selectOption: ISelectOption): ReactElement => {
         <div className="kit-select-option">
             {icon && <KitIcon className="kit-select-option-icon" icon={icon} on />}
             {!icon && (
-                <StyledBadge className="kit-select-option-badge">
-                    {color && <div style={{backgroundColor: color}} />}
-                </StyledBadge>
+                <div className="kit-select-option-badge">{color && <div style={{backgroundColor: color}} />}</div>
             )}
-            <StyledLabel className="kit-select-option-label">{label}</StyledLabel>
+            <div className="kit-select-option-label">{label}</div>
         </div>
     );
 };
@@ -59,7 +59,7 @@ const _parseOptions = (list: IKitOption[], labelOnly?: boolean) => {
             };
         }
         return {
-            label: labelOnly ? <StyledLabel>{rest.label}</StyledLabel> : _getOptionLabel(rest),
+            label: labelOnly ? <div className={'kit-select-option-label'}>{rest.label}</div> : _getOptionLabel(rest),
             className: rest.highlight ? `${className} kit-select-highlight-option` : (className as string),
             disabled: disabled as boolean,
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -69,12 +69,12 @@ const _parseOptions = (list: IKitOption[], labelOnly?: boolean) => {
 };
 
 const _dropDownRenderer = (menu: ReactElement<unknown, string | JSXElementConstructor<unknown>>, status) => {
-    const classNames = cn('kit-select-dropdown-content', {
+    const clx = cn('kit-select-dropdown-content', {
         'kit-select-dropdown-content-default': status !== 'warning' && status !== 'error',
         'kit-select-dropdown-content-warning': status === 'warning',
         'kit-select-dropdown-content-error': status === 'error'
     });
-    return <div className={classNames}>{menu}</div>;
+    return <div className={clx}>{menu}</div>;
 };
 
 const _tagRender = (props: CustomTagProps) => {
@@ -84,12 +84,14 @@ const _tagRender = (props: CustomTagProps) => {
         event.stopPropagation();
     };
 
+    const clx = cn(styles['kit-select-option-label']);
+
     return (
         <KitTag color="blue" secondaryColorInvert onMouseDown={onPreventMouseDown} onClose={onClose}>
             {typeof label === 'object' && label}
             {typeof label === 'string' && (
                 <div className="kit-select-option">
-                    <StyledLabel className="kit-select-option-label">{label}</StyledLabel>
+                    <div className={clx}>{label}</div>
                 </div>
             )}
         </KitTag>
@@ -104,12 +106,20 @@ const _maxTagRender = (omittedValues: {length: number}) => {
     );
 };
 
-const _getPlacementClasses = (placement: IKitSelect['placement']) => {
-    return ' ant-select-' + (placement && placement.indexOf('top') >= 0 ? 'top' : 'bottom');
+const _getPlacementClasses = (appId: string, className: string | undefined, placement: IKitSelect['placement']) => {
+    return cn(appId, styles['kit-select'], className, {
+        ['ant-select-top']: placement && placement.indexOf('top') >= 0,
+        ['ant-select-bottom']: !(placement && placement.indexOf('top') >= 0)
+    });
 };
 
-const _getPopupPlacementClasses = (placement: IKitSelect['placement'], isFocus: boolean) => {
-    return cn({
+const _getPopupPlacementClasses = (
+    appId: string,
+    className: string | undefined,
+    placement: IKitSelect['placement'],
+    isFocus: boolean
+) => {
+    return cn(appId, className, {
         'kit-select-dropdown-top': placement && placement.indexOf('top') >= 0,
         'kit-select-dropdown-bottom': !placement || placement.indexOf('top') < 0,
         'kit-select-dropdown-focus': isFocus
@@ -227,11 +237,11 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                 status={props.status}
                 className={wrapperClassName}
             >
-                <StyledKitSelect
+                <AntdSelect
                     {...props}
                     id={internalKitSelectRef.current}
-                    className={`${appId} ${className ?? ''} ${_getPlacementClasses(placement)}`}
-                    popupClassName={`${appId} ${popupClassName ?? ''} ${_getPopupPlacementClasses(placement, isFocus)}`}
+                    className={_getPlacementClasses(appId, className, placement)}
+                    popupClassName={_getPopupPlacementClasses(appId, popupClassName, placement, isFocus)}
                     options={internalOptions}
                     placement={placement}
                     menuItemSelectedIcon={<KitIcon icon={<FontAwesomeIcon icon={faCheck} />} on />}

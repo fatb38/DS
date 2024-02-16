@@ -182,29 +182,42 @@ You can override default translation by passing translation configuration to the
 mkdir DESIGN-SYSTEM/src/Kit/DataDisplay/Tooltip
 ```
 
-2. In this folder create two files
+2. In this folder create three files
 
 ```sh dark
 cd Tooltip
 touch index.tsx
 touch types.d.ts
+touch styles.module.scss
 ```
 
 3. Example of `Tooltip/index.tsx`
 
 ```tsx dark
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {Tooltip as AntdTooltip} from 'antd';
 import {IKitTooltip} from './types';
 
-export const KitTooltip: React.FunctionComponent<IKitTooltip> = tooltipProps => {
-    return <AntdTooltip {...tooltipProps} />;
+import styles from './styles.module.scss';
+
+export const KitTooltip: FunctionComponent<IKitTooltip> = tooltipProps => {
+    const {appId} = useKitTheme();
+    return <AntdTooltip {...tooltipProps}  className={`${appId} ${styles['kit-tooltip']} ${tooltipProps.className ?? ''}`}/>;
 };
 
 KitTooltip.displayName = 'KitTooltip';
 ```
+4. Ecample of `Tooltip/styles.module.scss`
 
-4. Example of `Tooltip/types.d.ts`
+```tsx dark
+@import '../../../css/mixins.scss';
+
+:local(.kit-tooltip) {
+    ...
+}
+```
+
+5. Example of `Tooltip/types.d.ts`
 
 ```tsx dark
 import {TooltipProps} from 'antd';

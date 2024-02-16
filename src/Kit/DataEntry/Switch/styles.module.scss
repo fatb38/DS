@@ -1,0 +1,142 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-switch) {
+    & {
+        background: var(
+            --components-Switch-colors-background-default-off,
+            var(--general-colors-neutral-background)
+        );
+        border: 1.3px solid
+            var(
+                --components-Switch-colors-handle-border-default-off,
+                var(--general-colors-secondary-mediumGrey-mediumGrey400)
+            );
+        height: 20px;
+        width: 32px;
+        min-width: 32px;
+        border-radius: 20px;
+    }
+
+    &.ant-switch-checked {
+        border: 1.3px solid
+            var(
+                --components-Switch-colors-handle-border-default-on,
+                var(--general-colors-primary-primary400)
+            );
+    }
+
+    &.ant-switch:hover {
+        background-color: white;
+    }
+
+    & {
+        height: 22px;
+    }
+
+    .ant-switch-handle {
+        font-size: 12px;
+        top: 1px;
+        width: 18px;
+        height: 18px;
+        inset-inline-start: 1px;
+
+        .ant-switch-loading-icon {
+            top: 3px;
+        }
+    }
+
+    &.ant-switch-checked .ant-switch-handle {
+        inset-inline-start: calc(100% - 19px);
+    }
+
+    .ant-switch-handle::before {
+        border: 1.3px solid
+            var(
+                --components-Switch-colors-handle-border-default-off,
+                var(--general-colors-secondary-mediumGrey-mediumGrey400)
+            );
+        background-color: var(
+            --components-Switch-colors-handle-background-default-off,
+            var(--general-colors-secondary-mediumGrey-mediumGrey400)
+        );
+        box-shadow: none;
+        border-radius: 9px;
+    }
+
+    &.ant-switch-checked .ant-switch-handle::before {
+        border: 1.3px solid
+            var(
+                --components-Switch-colors-handle-border-default-on,
+                var(--general-colors-primary-primary400)
+            );
+        background-color: var(
+            --components-Switch-colors-handle-background-default-on,
+            var(--general-colors-neutral-white)
+        );
+    }
+
+    &.ant-switch-disabled,
+    &.ant-switch-checked.ant-switch-disabled {
+        background: var(
+            --components-Switch-colors-background-disabled,
+            var(--general-colors-secondary-mediumGrey-mediumGrey100)
+        );
+        border-color: var(
+            --components-Switch-colors-handle-border-disabled,
+            var(--general-colors-secondary-mediumGrey-mediumGrey200)
+        );
+
+        .ant-switch-handle::before {
+            background: var(
+                --components-Switch-colors-background-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey200)
+            );
+            border-color: var(
+                --components-Switch-colors-handle-border-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey200)
+            );
+            box-shadow: none;
+        }
+    }
+
+    &.ant-switch.ant-switch-checked:not(.ant-switch-disabled) {
+        background: var(
+            --components-Switch-colors-background-default-on,
+            var(--general-colors-primary-primary400)
+        );
+
+        .ant-switch-handle::before {
+            border-color: var(
+                --components-Switch-colors-handle-border-default-on,
+                var(--general-colors-primary-primary400)
+            );
+            box-shadow: none;
+        }
+
+        &.ant-switch.ant-switch-focus {
+            .ant-switch-handle::before {
+                box-shadow: none;
+            }
+        }
+    }
+
+    // Focus
+    &.ant-switch-checked:focus-visible .ant-switch-handle {
+        width: 23px;
+        inset-inline-start: calc(100% - 24px);
+    }
+
+    &.ant-switch:not(.ant-switch-checked):focus-visible .ant-switch-handle {
+        width: 23px;
+        &::before {
+            background-color: var(
+                --components-Switch-colors-handle-background-default-on,
+                var(--general-colors-neutral-white)
+            );
+            border-color: var(
+                --components-Switch-colors-handle-border-default-on,
+                var(--general-colors-primary-primary400)
+            );
+        }
+    }
+}

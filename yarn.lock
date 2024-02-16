@@ -3280,6 +3280,52 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sass-fairy/exception@npm:^1.0.0":
+  version: 1.1.1
+  resolution: "@sass-fairy/exception@npm:1.1.1"
+  checksum: 2c221cd2bd0e8fd072bdb4900e3b8d72927ad81cae7183a9410832e3e752097db2827b9d030eddc00739c1c9073e953aa7b983a36b4eccb8b34eecb7f110e803
+  languageName: node
+  linkType: hard
+
+"@sass-fairy/list@npm:^1.0.0":
+  version: 1.2.4
+  resolution: "@sass-fairy/list@npm:1.2.4"
+  dependencies:
+    "@sass-fairy/exception": "npm:^1.0.0"
+    "@sass-fairy/math": "npm:^1.0.0"
+    "@sass-fairy/meta": "npm:^1.0.0"
+  checksum: 8700e27186bdeab710e43c7f79777e1ae7c87b0c39be2cbaa475da832860ce70a05855fad7c65d5235903e003bc1010f5938dac41c96e4f017da17dd18982c97
+  languageName: node
+  linkType: hard
+
+"@sass-fairy/math@npm:^1.0.0":
+  version: 1.0.3
+  resolution: "@sass-fairy/math@npm:1.0.3"
+  dependencies:
+    "@sass-fairy/exception": "npm:^1.0.0"
+  checksum: b1c975b8148029a9e91c7862091e844df2f7717a845ab8d7836f0fd3d7cca23c606826f2775b4ca925550beb9eb443c20c7f711bfed216f9a1da768e4f7e40c2
+  languageName: node
+  linkType: hard
+
+"@sass-fairy/meta@npm:^1.0.0":
+  version: 1.0.2
+  resolution: "@sass-fairy/meta@npm:1.0.2"
+  dependencies:
+    "@sass-fairy/exception": "npm:^1.0.0"
+  checksum: d0c244687511a008abc37b677762da86cc73f9adfc93449bb9a364aec136219bf900cdadd7d47f0e9e1fe910898a21a5d3e866cda3569aff9c7d0988edc78894
+  languageName: node
+  linkType: hard
+
+"@sass-fairy/string@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@sass-fairy/string@npm:1.3.0"
+  dependencies:
+    "@sass-fairy/exception": "npm:^1.0.0"
+    "@sass-fairy/list": "npm:^1.0.0"
+  checksum: 95da01271d1d97b025d8fe25a3a81c8ecc2426733070dd2a1ce0ac07d4aa40d6da5d9bfe9aac33aeacb29485456cf652c5acb0f5db84d88db4b0df964f708840
+  languageName: node
+  linkType: hard
+
 "@sinclair/typebox@npm:^0.27.8":
   version: 0.27.8
   resolution: "@sinclair/typebox@npm:0.27.8"
@@ -5253,6 +5299,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.6"
+    "@sass-fairy/string": "npm:^1.3.0"
     "@storybook/addon-docs": "npm:^7.6.8"
     "@storybook/addon-essentials": "npm:^7.6.8"
     "@storybook/addon-interactions": "npm:^7.6.8"
@@ -5302,6 +5349,7 @@ __metadata:
     rollup-plugin-url: "npm:^3.0.1"
     rollup-plugin-visualizer: "npm:^5.9.2"
     rollup-plugin-webpack-stats: "npm:^0.2.0"
+    sass: "npm:^1.70.0"
     short-unique-id: "npm:^5.0.2"
     storybook: "npm:^7.6.8"
     storybook-addon-pseudo-states: "npm:^2.1.2"
@@ -5313,6 +5361,7 @@ __metadata:
     use-debounce: "npm:^9.0.4"
     vite: "npm:^5.0.5"
     vite-plugin-dts: "npm:^3.5.3"
+    vite-plugin-lib-inject-css: "npm:^1.3.0"
     vite-plugin-turbosnap: "npm:^1.0.3"
   peerDependencies:
     antd: ^5.8.1
@@ -5797,6 +5846,25 @@ __metadata:
   version: 2.0.2
   resolution: "character-entities@npm:2.0.2"
   checksum: b0c645a45bcc90ff24f0e0140f4875a8436b8ef13b6bcd31ec02cfb2ca502b680362aa95386f7815bdc04b6464d48cf191210b3840d7c04241a149ede591a308
+  languageName: node
+  linkType: hard
+
+"chokidar@npm:>=3.0.0 <4.0.0":
+  version: 3.6.0
+  resolution: "chokidar@npm:3.6.0"
+  dependencies:
+    anymatch: "npm:~3.1.2"
+    braces: "npm:~3.0.2"
+    fsevents: "npm:~2.3.2"
+    glob-parent: "npm:~5.1.2"
+    is-binary-path: "npm:~2.1.0"
+    is-glob: "npm:~4.0.1"
+    normalize-path: "npm:~3.0.0"
+    readdirp: "npm:~3.6.0"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: 8361dcd013f2ddbe260eacb1f3cb2f2c6f2b0ad118708a343a5ed8158941a39cb8fb1d272e0f389712e74ee90ce8ba864eece9e0e62b9705cb468a2f6d917462
   languageName: node
   linkType: hard
 
@@ -7974,6 +8042,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"immutable@npm:^4.0.0":
+  version: 4.3.5
+  resolution: "immutable@npm:4.3.5"
+  checksum: 63d2d7908241a955d18c7822fd2215b6e89ff5a1a33cc72cd475b013cbbdef7a705aa5170a51ce9f84a57f62fdddfaa34e7b5a14b33d8a43c65cc6a881d6e894
+  languageName: node
+  linkType: hard
+
 "import-fresh@npm:^3.2.1":
   version: 3.3.0
   resolution: "import-fresh@npm:3.3.0"
@@ -8984,6 +9059,15 @@ __metadata:
   dependencies:
     "@jridgewell/sourcemap-codec": "npm:^1.4.15"
   checksum: 38ac220ca7539e96da7ea2f38d85796bdf5c69b6bcae728c4bc2565084e6dc326b9174ee9770bea345cf6c9b3a24041b767167874fab5beca874d2356a9d1520
+  languageName: node
+  linkType: hard
+
+"magic-string@npm:^0.30.2":
+  version: 0.30.7
+  resolution: "magic-string@npm:0.30.7"
+  dependencies:
+    "@jridgewell/sourcemap-codec": "npm:^1.4.15"
+  checksum: d1d949f7a53c37c6e685f4ea7b2b151c2fe0cc5af8f1f979ecba916f7d60d58f35309aaf4c8b09ce1aef7c160b957be39a38b52b478a91650750931e4ddd5daf
   languageName: node
   linkType: hard
 
@@ -11960,6 +12044,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sass@npm:^1.70.0":
+  version: 1.70.0
+  resolution: "sass@npm:1.70.0"
+  dependencies:
+    chokidar: "npm:>=3.0.0 <4.0.0"
+    immutable: "npm:^4.0.0"
+    source-map-js: "npm:>=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: 7c309ee1c096d591746d122da9f1ebd65b4c4b3a60c2cc0ec720fd98fe1205fa8b44c9f563d113b9fdfeb25af1e32ec9b3e048bd4b8e05d267f020953bd7baf0
+  languageName: node
+  linkType: hard
+
 "scheduler@npm:^0.23.0":
   version: 0.23.0
   resolution: "scheduler@npm:0.23.0"
@@ -12215,7 +12312,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-js@npm:^1.0.2":
+"source-map-js@npm:>=0.6.2 <2.0.0, source-map-js@npm:^1.0.2":
   version: 1.0.2
   resolution: "source-map-js@npm:1.0.2"
   checksum: 32f2dfd1e9b7168f9a9715eb1b4e21905850f3b50cf02cf476e47e4eebe8e6b762b63a64357896aa29b37e24922b4282df0f492e0d2ace572b43d15525976ff8
@@ -13370,6 +13467,18 @@ __metadata:
     vite:
       optional: true
   checksum: 2b10eea10a78a370e0c1f34f6f2a8fe3bc7cc8dc59cb67386e0d0db05c896a7db05f9a86c5ec50c2588c8d3d835b9a13ca829ce15e6e9825bfd86ff9453f835d
+  languageName: node
+  linkType: hard
+
+"vite-plugin-lib-inject-css@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "vite-plugin-lib-inject-css@npm:1.3.0"
+  dependencies:
+    magic-string: "npm:^0.30.2"
+    picocolors: "npm:^1.0.0"
+  peerDependencies:
+    vite: "*"
+  checksum: 0af1fc7c6767041dec721deea4dbdf0c86699ffeaac046a00c10b5789139fe458f2e5ce9b0036de80e3ebcef724d13a3167911fb10583affa290ed3f2a1316db
   languageName: node
   linkType: hard
 

@@ -1,6 +1,5 @@
 import React, {FunctionComponent, MouseEvent, useState} from 'react';
-import {IKitMenuInfo, IStyledIemMenu, IKitItemMenu} from './types';
-import {css, styled} from 'styled-components';
+import {IKitMenuInfo, IKitItemMenu} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTypography, KitIcon} from '@kit/General/';
 import {KitTooltip} from '@kit/DataDisplay/';
@@ -10,167 +9,9 @@ import {useKitTheme} from '@theme/useKitTheme';
 import useSecureClick from '@hooks/useSecureClick';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleRight, faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';
-import {kitMenuCssTokens} from '@theme/aristid/components/Navigation/Menu';
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import cn from 'classnames';
 
-const StyledIemMenu = styled.div<IStyledIemMenu>`
-    height: 32px;
-    display: grid;
-    grid-template: 'select icon title actions value rafter';
-    grid-template-columns: min-content min-content minmax(0px, auto) min-content min-content min-content;
-    padding: 4px 8px 4px 0px;
-    background-color: var(
-        ${kitMenuCssTokens.itemMenu.colors.background.default},
-        var(${kitColorsPaletteCssTokens.neutral.white})
-    );
-
-    align-items: center;
-
-    ${({$isClickable}) =>
-        $isClickable &&
-        css`
-            cursor: pointer;
-        `}
-
-    ${({$isSelected}) =>
-        $isSelected &&
-        css`
-            background-color: var(
-                ${kitMenuCssTokens.itemMenu.colors.background.active},
-                var(${kitColorsPaletteCssTokens.primary.primary100})
-            );
-            border-right: 3px solid
-                var(
-                    ${kitMenuCssTokens.itemMenu.colors.border.active},
-                    var(${kitColorsPaletteCssTokens.primary.primary400})
-                );
-            padding-inline-end: 5px;
-
-            .kit-item-menu-title span,
-            .kit-item-menu-icon span {
-                color: var(
-                    ${kitMenuCssTokens.itemMenu.colors.title.default},
-                    var(${kitColorsPaletteCssTokens.primary.primary400})
-                );
-            }
-        `}
-
-    &:hover {
-        background-color: var(
-            ${kitMenuCssTokens.itemMenu.colors.background.hover},
-            var(${kitColorsPaletteCssTokens.primary.primary100})
-        );
-    }
-
-    .kit-item-menu-checkbox {
-        grid-area: select;
-        margin-left: 8px;
-        margin-right: 8px;
-    }
-
-    .kit-item-menu-icon {
-        grid-area: icon;
-
-        span {
-            color: var(
-                ${kitMenuCssTokens.itemMenu.colors.icon.default},
-                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
-            );
-        }
-    }
-
-    .kit-item-menu-title {
-        grid-area: title;
-        margin-left: 8px;
-    }
-
-    .kit-item-menu-actions {
-        grid-area: actions;
-        display: grid;
-        grid-template-columns: inherit;
-        margin-left: 8px;
-        align-items: center;
-
-        .kit-action-more {
-            cursor: pointer;
-            transform: rotate(90deg);
-        }
-    }
-
-    ${({$type}) => {
-        switch ($type) {
-            case 'cta':
-                return css`
-                    .kit-item-menu-title span {
-                        color: var(
-                            ${kitMenuCssTokens.itemMenu.colors.title.default},
-                            var(${kitColorsPaletteCssTokens.primary.primary400})
-                        );
-                    }
-                    .kit-item-menu-icon span {
-                        color: var(
-                            ${kitMenuCssTokens.itemMenu.colors.icon.default},
-                            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
-                        );
-                    }
-                `;
-            case 'ctaDanger':
-                return css`
-                    .kit-item-menu-title span {
-                        color: var(
-                            ${kitMenuCssTokens.itemMenu.colors.title.danger},
-                            var(${kitColorsPaletteCssTokens.secondary.red.red400})
-                        );
-                    }
-                    .kit-item-menu-icon span {
-                        color: var(
-                            ${kitMenuCssTokens.itemMenu.colors.icon.danger},
-                            var(${kitColorsPaletteCssTokens.secondary.red.red400})
-                        );
-                    }
-
-                    &:hover {
-                        background-color: var(
-                            ${kitMenuCssTokens.itemMenu.colors.background.danger},
-                            var(${kitColorsPaletteCssTokens.secondary.red.red100})
-                        );
-                    }
-                `;
-            case 'default':
-                return;
-        }
-    }}
-
-    .kit-item-menu-value {
-        grid-area: value;
-        margin-left: 8px;
-
-        span {
-            color: var(
-                ${kitMenuCssTokens.itemMenu.colors.value.default},
-                var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
-            );
-        }
-    }
-
-    .kit-item-menu-rafter {
-        grid-area: rafter;
-        color: var(
-            ${kitMenuCssTokens.itemMenu.colors.rafter.default},
-            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
-        );
-        font-size: 12px;
-        margin-left: 8px;
-
-        &:hover {
-            color: var(
-                ${kitMenuCssTokens.itemMenu.colors.rafter.hover},
-                var(${kitColorsPaletteCssTokens.primary.primary400})
-            );
-            cursor: pointer;
-        }
-    }
-`;
+import styles from './styles.module.scss';
 
 const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
     type = 'default',
@@ -353,14 +194,18 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
 
     const _handleClickItemMenuSecured = useSecureClick(_handleClickItemMenu);
 
+    const clx = cn(appId, styles['kit-item-menu'], className, {
+        'is-selected': isSelected,
+        'is-clickable': isClickable,
+        cta: type === 'cta',
+        'cta-danger': type === 'ctaDanger'
+    });
+
     return (
-        <StyledIemMenu
+        <div
             {...props}
-            $isClickable={isClickable}
-            $isSelected={isSelected}
-            $type={type}
             onClick={disabledSecureClick ? _handleClickItemMenu : _handleClickItemMenuSecured}
-            className={`${appId} ${className ?? ''}`}
+            className={clx}
         >
             {_getCheckbox()}
             {_getIcon()}
@@ -368,7 +213,7 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
             {_getActions()}
             {_getValue()}
             {_getRafter()}
-        </StyledIemMenu>
+        </div>
     );
 };
 

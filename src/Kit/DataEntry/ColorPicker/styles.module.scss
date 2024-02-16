@@ -1,0 +1,40 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-colorpicker) {
+    font-weight: var(--components-ColorPicker-typography-fontWeight, var(--general-typography-mediumfontWeight));
+    height: 40px;
+    min-width: 40px;
+    line-height: 40px;
+    box-shadow: none;
+    font-size: convertToPixel(--components-ColorPicker-typography-fontSize, --general-typography-fontSize5);
+    &.ant-color-picker-trigger-active {
+        border-color: transparent;
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 3px
+            var(--components-ColorPicker-colors-border-focused, var(--general-colors-primary-primary200));
+    }
+
+    &.ant-color-picker-trigger-disabled {
+        &:hover {
+            border-color: var(
+                --components-ColorPicker-colors-border-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey200)
+            );
+        }
+
+        .ant-color-picker-trigger-text {
+            color: var(
+                --components-ColorPicker-colors-typography-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey400)
+            );
+        }
+    }
+
+    .ant-color-picker-color-block {
+        width: 32px;
+        height: 32px;
+        border-radius: convertToPixel(--components-ColorPicker-colorBlock-border-radius, --general-border-radius-xs);
+    }
+}
+
+

@@ -1,16 +1,15 @@
 import React, {FunctionComponent, useRef} from 'react';
-import {styled} from 'styled-components';
 import {IKitTagGroup} from './types';
 import {InternalTag} from './Tag';
 import useTagGroup from './useTagGroup';
 import {KitTooltip} from '@kit/DataDisplay';
+import {useKitTheme} from '@theme/useKitTheme';
+import cn from 'classnames';
 
-const StyledTagGroup = styled.div`
-    display: flex;
-    flex-wrap: nowrap;
-`;
+import styles from './styles.module.scss';
 
 const KitTagGroup: FunctionComponent<IKitTagGroup> = ({tags, style, className}) => {
+    const {appId} = useKitTheme();
     const containerRef = useRef<HTMLDivElement>(null);
     const otherRef = useRef<HTMLElement>(null);
 
@@ -21,8 +20,10 @@ const KitTagGroup: FunctionComponent<IKitTagGroup> = ({tags, style, className}) 
     const _getTooltipOverlay = () =>
         tags.slice(visibleTags).map((hiddenTag, index) => <div key={index}>{hiddenTag.wording}</div>);
 
+    const clx = cn(appId, styles['kit-tag-group'], className);
+
     return (
-        <StyledTagGroup ref={containerRef} style={style} className={className}>
+        <div ref={containerRef} style={style} className={clx}>
             {tags.map((tag, index) => (
                 <InternalTag
                     key={index}
@@ -38,7 +39,7 @@ const KitTagGroup: FunctionComponent<IKitTagGroup> = ({tags, style, className}) 
                     + {remainingTags} autres
                 </InternalTag>
             </KitTooltip>
-        </StyledTagGroup>
+        </div>
     );
 };
 

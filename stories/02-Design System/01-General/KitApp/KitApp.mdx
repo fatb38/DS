@@ -24,21 +24,6 @@ You just have to encapsulate your application with the KitApp Component.
 </KitApp>
 ```
 
-## About the Design system fonts
-
-The design system relies on 'Inter font'. By default, the KitApp component includes the font. There are 3 main cases you may not want to include the font :
-- You have arleady included it
-- You have a custom theme wich do not use this font
-- you have more than one KitApp in your app
-
-You can avoid KitApp to include the font by specifying the `includeFont` property to false
-
-```tsx
-<KitApp includeFont={false}>
-    <App />
-</KitApp>
-```
-
 ##### NB : For performance concerns, if you use more than one KitApp, only one may include the font
 
 ## Error

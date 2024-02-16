@@ -49,6 +49,21 @@ export const CompleteCardTest: FC = () => {
                 tags={tags}
                 title="Fromage Boursin ail et fines herbes - Format 150g"
             />
+
+            <KitTypography.Title level="h3">Complete card disabled</KitTypography.Title>
+
+            <KitCard
+                disabled
+                actions={actions}
+                brandingBar={true}
+                description="Retrouvez le goût de Boursin® dans une texture délicieusement onctueuse et légère."
+                onActivate={() => {}}
+                onSelect={() => {}}
+                previewSrc="public/images/boursin.jpeg"
+                extra="4,99€"
+                tags={tags}
+                title="Fromage Boursin ail et fines herbes - Format 150g"
+            />
         </div>
     );
 };

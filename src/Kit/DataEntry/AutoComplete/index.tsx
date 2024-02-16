@@ -3,19 +3,12 @@ import {AutoComplete as AntdAutoComplete, RefSelectProps} from 'antd';
 import {KitInput} from '@kit/DataEntry/Input';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import type {IKitAutoComplete} from './types';
-import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import {valueType} from 'antd/lib/statistic/utils';
+import cn from 'classnames';
 
-const StyledKitAutoComplete = styled(AntdAutoComplete)`
-    &.ant-select-auto-complete.ant-select-open {
-        .ant-input-affix-wrapper {
-            border-bottom-left-radius: 0px;
-            border-bottom-right-radius: 0px;
-        }
-    }
-`;
+import styles from './styles.module.scss';
 
 export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
     (
@@ -36,6 +29,8 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
         },
         ref?: Ref<RefSelectProps> | undefined
     ) => {
+        const popupClx = cn('ant-select-dropdown', 'kit-select-dropdown-bottom', popupClassName);
+
         return (
             <KitInputWrapper
                 label={label}
@@ -44,11 +39,12 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
                 status={status}
                 className={wrapperClassName}
             >
-                <StyledKitAutoComplete
+                <AntdAutoComplete
                     {...props}
                     disabled={disabled}
                     ref={ref}
-                    popupClassName={`ant-select-dropdown kit-select-dropdown-bottom ${popupClassName || ''}`}
+                    className={styles['kit-autocomplete']}
+                    popupClassName={popupClx}
                 >
                     <KitInput
                         prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />}
@@ -60,7 +56,7 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
                         value={value as valueType}
                         onBlur={onBlur}
                     />
-                </StyledKitAutoComplete>
+                </AntdAutoComplete>
             </KitInputWrapper>
         );
     }

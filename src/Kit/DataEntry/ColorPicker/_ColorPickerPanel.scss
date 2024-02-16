@@ -1,0 +1,81 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-colorpicker-panel) {
+    .ant-color-picker.kit-color-picker {
+        font-size: convertToPixel(--components-ColorPicker-typography-fontSize, --general-typography-fontSize5);
+        .ant-color-picker-input-container {
+            .ant-select {
+                .ant-select-selection-item {
+                    color: var(--components-ColorPicker-panel-select-colors-typography-default, var(
+                        --general-colors-primary-primary300
+                    ));
+                    font-weight: var(--components-ColorPicker-panel-select-typography-fontWeight, var(
+                        --general-typography-mediumfontWeight
+                    ));
+                }
+
+                .ant-select-arrow {
+                    color: var(--components-ColorPicker-panel-select-colors-rafter-default, var(
+                        --general-colors-secondary-mediumGrey-mediumGrey500
+                    ));
+                }
+            }
+
+            .ant-color-picker-input .ant-input-affix-wrapper{
+                &.ant-input-affix-wrapper span.ant-input-prefix {
+                    color: var(--components-ColorPicker-panel-input-colors-prefix-default, var(
+                        --general-colors-secondary-mediumGrey-mediumGrey500
+                    ));
+                }
+            }
+
+            .ant-input-affix-wrapper,
+            .ant-input-number {
+                box-shadow: none;
+
+                &.ant-input-affix-wrapper-focused,
+                &.ant-input-number-focused {
+                    border-color: transparent;
+                    // TODO change to cards-border-stroke when available
+                    box-shadow: 0 0 0 3px
+                        var(--components-ColorPicker-colors-border-focused, var(
+                            --general-colors-primary-primary200
+                        ));
+                }
+
+                input {
+                    font-weight: var(--components-ColorPicker-panel-input-typography-fontWeight, var(
+                        --general-typography-mediumfontWeight
+                    ));
+                }
+            }
+        }
+
+        .ant-color-picker-presets {
+            .ant-collapse-arrow {
+                color: var(--components-ColorPicker-panel-preset-colors-rafter-default, var(
+                    --general-colors-neutral-black
+                ));
+            }
+
+            .ant-color-picker-presets-label {
+                font-weight: var(--components-ColorPicker-panel-preset-typography-fontWeight, var(
+                    --general-typography-boldFontWeight
+                ));
+                color: var(--components-ColorPicker-panel-preset-colors-rafter-default, var(
+                    --general-colors-neutral-black
+                ));
+            }
+
+            .ant-color-picker-presets-empty {
+                color: var(--components-ColorPicker-panel-preset-colors-empty-default, var(
+                    --general-colors-secondary-mediumGrey-mediumGrey300
+                ));
+            }
+
+            .ant-color-picker-presets-color::before {
+                border-radius: 4px;
+            }
+        }
+    }
+}

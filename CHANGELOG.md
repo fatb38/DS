@@ -1,5 +1,11 @@
 # Changelog
 
+## [x.x.x](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-02-16)
+
+### 🐛 Bug Fixes
+* remove styled-components for improved performances. All Components impacted (@evoiron)
+
+
 ## [0.12.0](https://www.npmjs.com/package/aristid-ds/v/0.12.0) (2024-02-02)
 
 ### ✨ Features

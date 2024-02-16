@@ -1,6 +1,3 @@
-import {KitApp} from './Kit/App';
-import {KitFontStyle} from './Kit/Font';
+export {KitApp} from './Kit/App';
 export * from './Kit';
-export {KitApp};
-export {KitFontStyle};
 export {useKitTheme} from './theme/useKitTheme';

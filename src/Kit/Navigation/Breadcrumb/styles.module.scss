@@ -1,0 +1,14 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-breadcrumb) {
+    li:not(:last-child) a,
+    li:not(:last-child) .ant-breadcrumb-link,
+    li:not(:last-child) .ant-breadcrumb-link a {
+        font-family: var(--components-Breadcrumblink-typography-fontFamily, var(--general-typography-fontFamily));
+        font-weight: var(
+            --components-Breadcrumblink-typography-fontWeight,
+            var(--general-typography-regularFontWeight)
+        );
+        color: inherit;
+    }
+}

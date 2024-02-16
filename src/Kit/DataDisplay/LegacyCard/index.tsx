@@ -1,218 +1,14 @@
 import React, {CSSProperties, FunctionComponent, ReactElement, ReactNode, cloneElement} from 'react';
 import {Card as AntdCard} from 'antd';
-import {styled} from 'styled-components';
-import IKitLegacyCard, {IStyledKitLegacyCard, IStyledKitLegacyCardContentTitleContainer} from './types';
+import cn from 'classnames';
+import IKitLegacyCard from './types';
 import {KitIcon, KitTypography} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
 import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faLink} from '@fortawesome/free-solid-svg-icons';
-import {kitLegacyCardCssTokens} from '@theme/aristid/components/DataDisplay/LegacyCard';
-import {typographyCssTokens} from '@theme/aristid/general/typography';
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
-import {convertToPixel} from '@theme/utils/convert';
 
-const StyledCard = styled(AntdCard)<IStyledKitLegacyCard>`
-    font-family: var(${kitLegacyCardCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
-    overflow: hidden;
-
-    &.ant-card-bordered {
-        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
-        border: 1px solid
-            ${({$disabled}) =>
-                $disabled
-                    ? `var(${kitLegacyCardCssTokens.colors.border.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`
-                    : `var(${kitLegacyCardCssTokens.colors.border.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`};
-
-        &:focus,
-        &:focus-visible,
-        &:focus-within {
-            border: 1px dashed
-                ${({$disabled}) =>
-                    $disabled
-                        ? `var(${kitLegacyCardCssTokens.colors.border.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`
-                        : `var(${kitLegacyCardCssTokens.colors.border.focus}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
-            box-shadow: 0 0 16px 0
-                var(${kitLegacyCardCssTokens.colors.shadow.focus}, var(${kitColorsPaletteCssTokens.primary.primary100}));
-        }
-
-        &:hover {
-            border: 1px solid
-                ${({$disabled}) =>
-                    $disabled
-                        ? `var(${kitLegacyCardCssTokens.colors.border.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`
-                        : `var(${kitLegacyCardCssTokens.colors.border.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
-            box-shadow: 0 0 24px 0
-                ${({$disabled}) =>
-                    $disabled
-                        ? `var(${kitLegacyCardCssTokens.colors.shadow.disabled}, var(${kitColorsPaletteCssTokens.primary.primary100}))`
-                        : `var(${kitLegacyCardCssTokens.colors.shadow.hover}, var(${kitColorsPaletteCssTokens.primary.primary100}))`};
-        }
-    }
-
-    &.ant-card {
-        .ant-card-head {
-            padding: 24px 16px;
-            border-bottom: ${({$separator}) =>
-                $separator
-                    ? `1px solid var(${kitLegacyCardCssTokens.colors.separator.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`
-                    : 'none'};
-            background-color: ${({$disabled}) =>
-                $disabled
-                    ? `var(${kitLegacyCardCssTokens.colors.background.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100}))`
-                    : `var(${kitLegacyCardCssTokens.colors.background.default}, none)`};
-
-            .ant-card-head-wrapper {
-                gap: 16px;
-
-                .ant-card-head-title {
-                    color: ${({$disabled}) =>
-                        $disabled
-                            ? `var(${kitLegacyCardCssTokens.colors.typography.headerTitle.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
-                            : `var(${kitLegacyCardCssTokens.colors.typography.headerTitle.default}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
-                    font-size: ${convertToPixel(
-                        kitLegacyCardCssTokens.typography.headerTitle.fontSize,
-                        typographyCssTokens.fontSize3
-                    )};
-                    font-weight: var(
-                        ${kitLegacyCardCssTokens.typography.headerTitle.fontWeight},
-                        var(${typographyCssTokens.boldFontWeight})
-                    );
-                }
-            }
-        }
-
-        .ant-card-cover {
-            height: 252px;
-            overflow: hidden;
-            background-color: ${({$disabled}) =>
-                $disabled
-                    ? `var(${kitLegacyCardCssTokens.colors.background.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100}))`
-                    : `var(${kitLegacyCardCssTokens.colors.background.default}, none)`};
-
-            & img {
-                border-radius: 0;
-            }
-        }
-
-        .ant-card-body {
-            padding: 24px 16px;
-            background-color: ${({$disabled}) =>
-                $disabled
-                    ? `var(${kitLegacyCardCssTokens.colors.background.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100}))`
-                    : `var(${kitLegacyCardCssTokens.colors.background.default}, none)`};
-        }
-
-        .card-content-title {
-            color: ${({$disabled}) =>
-                $disabled
-                    ? `var(${kitLegacyCardCssTokens.colors.typography.contentTitle.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
-                    : `var(${kitLegacyCardCssTokens.colors.typography.contentTitle.default}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
-            font-size: ${convertToPixel(
-                kitLegacyCardCssTokens.typography.contentTitle.fontSize,
-                typographyCssTokens.fontSize2
-            )};
-            font-weight: var(
-                ${kitLegacyCardCssTokens.typography.contentTitle.fontWeight},
-                var(${typographyCssTokens.boldFontWeight})
-            );
-            line-height: normal;
-        }
-
-        .card-content-description {
-            color: ${({$disabled}) =>
-                $disabled
-                    ? `var(${kitLegacyCardCssTokens.colors.typography.description.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}))`
-                    : `var(${kitLegacyCardCssTokens.colors.typography.description.default}, var(${kitColorsPaletteCssTokens.neutral.typography.black}))`};
-            font-size: ${convertToPixel(
-                kitLegacyCardCssTokens.typography.description.fontSize,
-                typographyCssTokens.fontSize5
-            )};
-            line-height: normal;
-            font-weight: var(
-                ${kitLegacyCardCssTokens.typography.description.fontWeight},
-                var(${typographyCssTokens.regularFontWeight})
-            );
-        }
-
-        .ant-card-cover {
-            margin-top: 0;
-            margin-inline-start: 0;
-            margin-inline-end: 0;
-        }
-
-        .ant-card-actions {
-            border-top: none;
-            background-color: ${({$disabled}) =>
-                $disabled
-                    ? `var(${kitLegacyCardCssTokens.colors.background.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey100}))`
-                    : `var(${kitLegacyCardCssTokens.colors.background.default}, none)`};
-
-            & > li:not(:last-child) {
-                border-color: ${({$disabled}) =>
-                    $disabled
-                        ? `var(${kitLegacyCardCssTokens.colors.actions.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}))`
-                        : `var(${kitLegacyCardCssTokens.colors.actions.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500}))`};
-            }
-
-            & li svg {
-                color: ${({$disabled}) =>
-                    $disabled
-                        ? `var(${kitLegacyCardCssTokens.colors.actions.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}))`
-                        : `var(${kitLegacyCardCssTokens.colors.actions.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500}))`};
-
-                &:hover {
-                    cursor: ${({$disabled}) => ($disabled ? 'not-allowed' : 'inherit')};
-                    color: ${({$disabled}) =>
-                        $disabled
-                            ? `var(${kitLegacyCardCssTokens.colors.actions.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300}))`
-                            : `var(${kitLegacyCardCssTokens.colors.actions.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
-                }
-            }
-        }
-
-        .kit-card-cover {
-            width: 100%;
-            height: 100%;
-            opacity: ${({$disabled}) => ($disabled ? 0.4 : 1)};
-        }
-
-        .kit-card-content-title-icon {
-            color: ${({$disabled}) =>
-                $disabled
-                    ? `var(${kitLegacyCardCssTokens.colors.typography.contentTitle.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
-                    : `var(${kitLegacyCardCssTokens.colors.typography.contentTitle.default}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
-            font-size: ${convertToPixel(
-                kitLegacyCardCssTokens.typography.linkIcon.fontSize,
-                typographyCssTokens.fontSize3
-            )};
-            padding: 0;
-        }
-
-        .kit-card-extra {
-            color: ${({$disabled}) =>
-                $disabled
-                    ? `var(${kitLegacyCardCssTokens.colors.typography.extra.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
-                    : `var(${kitLegacyCardCssTokens.colors.typography.extra.default}, var(${kitColorsPaletteCssTokens.primary.primary400}))`};
-
-            &:hover {
-                color: ${({$disabled}) =>
-                    $disabled
-                        ? `var(${kitLegacyCardCssTokens.colors.typography.extra.disabled}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey400}))`
-                        : `var(${kitLegacyCardCssTokens.colors.typography.extra.hover}, var(${kitColorsPaletteCssTokens.primary.primary300}))`};
-                cursor: ${({$disabled}) => ($disabled ? 'not-allowed' : 'cursor')};
-            }
-        }
-    }
-`;
-
-const ContentTitleContainer = styled.div<IStyledKitLegacyCardContentTitleContainer>`
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: ${({$isContentTitleClick, $disabled}) =>
-        $disabled ? 'not-allowed' : $isContentTitleClick ? 'pointer' : 'inherit'};
-`;
+import styles from './styles.module.scss';
 
 const _getCover = (cover?: ReactNode) => {
     let cardCover: null | ReactElement = null;
@@ -274,12 +70,15 @@ export const KitLegacyCard: FunctionComponent<IKitLegacyCard> = ({
         width: style?.width ?? '340px'
     };
 
+    const clx = cn(appId, styles['kit-legacy-card'], className ?? '', {
+        disabled,
+        separator
+    });
+
     return (
-        <StyledCard
+        <AntdCard
             {...props}
-            $disabled={disabled}
-            $separator={separator}
-            className={`${appId} ${className ?? ''}`}
+            className={clx}
             style={customStyle}
             extra={_getExtra(disabled, extra)}
             cover={_getCover(cover)}
@@ -288,9 +87,8 @@ export const KitLegacyCard: FunctionComponent<IKitLegacyCard> = ({
         >
             <KitSpace direction="vertical">
                 {(contentTitle || onContentTitleClick) && (
-                    <ContentTitleContainer
-                        $disabled={disabled}
-                        $isContentTitleClick={!!onContentTitleClick}
+                    <div
+                        className={`content-title-container ${onContentTitleClick ? 'content-title-click' : ''}`}
                         onClick={disabled ? undefined : onContentTitleClick}
                     >
                         {onContentTitleClick && (
@@ -299,13 +97,13 @@ export const KitLegacyCard: FunctionComponent<IKitLegacyCard> = ({
                         {contentTitle && (
                             <KitTypography.Text className="card-content-title">{contentTitle}</KitTypography.Text>
                         )}
-                    </ContentTitleContainer>
+                    </div>
                 )}
                 {contentDescription && (
                     <KitTypography.Text className="card-content-description">{contentDescription}</KitTypography.Text>
                 )}
             </KitSpace>
-        </StyledCard>
+        </AntdCard>
     );
 };
 

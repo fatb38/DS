@@ -1,0 +1,58 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-header) {
+    padding: 16px 32px;
+    background: var(--components-Headercolors-background-default, var(--general-colors-neutral-white));
+    display: grid;
+    grid-template-areas:
+        'breadcrumb breadcrumb breadcrumb'
+        'title search actions';
+    grid-template-columns: min-content 1fr max-content;
+    grid-template-rows: 1fr min-content;
+    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
+    min-height: 40px;
+
+    .kit-header-title {
+        grid-area: title;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        align-self: center;
+        margin: 0;
+        margin-right: 32px;
+    }
+
+    .kit-header-search {
+        grid-area: search;
+        max-width: 422px;
+
+        input::placeholder {
+            color: var(
+                --components-Headercolors-typography-input-default,
+                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+            );
+        }
+    }
+
+    .kit-header-breadcrumb {
+        grid-area: breadcrumb;
+        padding-top: 8px;
+    }
+
+    .kit-header-actions {
+        grid-area: actions;
+        flex: 1 1 auto;
+        align-items: center;
+        justify-content: end;
+        display: flex;
+        padding-left: 8px;
+    }
+
+    .kit-header-plus-button {
+        width: 40px;
+    }
+
+    .kit-header-action-select {
+        min-width: 75px;
+    }
+}

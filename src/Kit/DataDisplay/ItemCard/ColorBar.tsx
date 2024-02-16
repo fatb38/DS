@@ -1,24 +1,10 @@
 import React from 'react';
-import {IKitColorbar, CardColor, IStyledKitColorbar} from './types';
-import styled from 'styled-components';
+import {IKitColorbar, CardColor} from './types';
 import {KitTooltip} from '../Tooltip';
 import {useKitTheme} from '@theme/useKitTheme';
-import {kitItemCardCssTokens} from '@theme/aristid/components/DataDisplay/ItemCard';
-import {borderCssTokens} from '@theme/aristid/general/border';
-import {convertToPixel} from '@theme/utils/convert';
+import cn from 'classnames';
 
-const Container = styled.div<IStyledKitColorbar>`
-    width: ${({$column}) => ($column ? convertToPixel(kitItemCardCssTokens.colorBar.thickness, 8) : 'auto')};
-    height: ${({$column}) => ($column ? 'auto' : convertToPixel(kitItemCardCssTokens.colorBar.thickness, 8))};
-    border-radius: ${convertToPixel(kitItemCardCssTokens.colorBar.border.radius, borderCssTokens.radius.s)};
-    display: flex;
-    flex-direction: ${({$column}) => ($column ? 'column' : 'row')};
-    overflow: hidden;
-
-    > div {
-        flex: 1 1 auto;
-    }
-`;
+import styles from './styles.module.scss';
 
 const _getSwatchStyle = (item: CardColor) => {
     return {
@@ -28,8 +14,11 @@ const _getSwatchStyle = (item: CardColor) => {
 
 const KitColorbar = (props: IKitColorbar) => {
     const {appId} = useKitTheme();
+
+    const clx = cn(appId, styles['kit-color-bar'], props.className);
+
     return (
-        <Container $column={props.vertical ?? false} className={`${appId} ${props.className}`}>
+        <div className={clx}>
             {props.colors?.map((item, i) => (
                 <KitTooltip
                     key={`${item.label}_${i}`}
@@ -39,7 +28,7 @@ const KitColorbar = (props: IKitColorbar) => {
                     <div style={_getSwatchStyle(item)} />
                 </KitTooltip>
             ))}
-        </Container>
+        </div>
     );
 };
 

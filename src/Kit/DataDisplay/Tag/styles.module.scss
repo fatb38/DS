@@ -1,0 +1,57 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-tag) {
+    padding: 4px 8px;
+    border: none;
+    height: 24px;
+
+    > div {
+        padding-left: 0;
+    }
+
+    &,
+    a {
+        font-size: convertToPixel(--components-Tag-typography-fontSize, --general-typography-fontSize7);
+        font-family: var(--components-Tag-typography-fontFamily, var(--general-typography-fontFamily));
+        font-weight: var(--components-Tag-typography-fontWeight, var(--general-typography-regularFontWeight));
+        line-height: 16px;
+        box-sizing: border-box;
+        display: flex;
+        width: fit-content;
+    }
+
+    .ant-tag-close-icon {
+        margin-left: 8px;
+        .svg-inline--fa {
+            vertical-align: -0.075em;
+        }
+    }
+
+    background: var(
+        --components-Tag-colors-default-background-default,
+        var(--general-colors-primary-primary100)
+    );
+    color: var(
+        --components-Tag-colors-default-typography-default,
+        var(--general-colors-neutral-typography-black)
+    );
+
+    .ant-tag-close-icon {
+        color: var(
+            --components-Tag-colors-default-typography-default,
+            var(--general-colors-neutral-typography-black)
+        );
+
+        &:hover {
+            color: var(
+                --components-Tag-colors-default-typography-default,
+                var(--general-colors-neutral-typography-black)
+            );
+        }
+    }
+}
+
+:local(.kit-tag-group) {
+    display: flex;
+    flex-wrap: nowrap;
+}

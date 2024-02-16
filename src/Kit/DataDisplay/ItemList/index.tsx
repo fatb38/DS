@@ -12,8 +12,9 @@ import useSecureClick from '@hooks/useSecureClick';
 import {IKitImage} from '../Image/types';
 import {IKitAvatar} from '../Avatar/types';
 import {IKitIcon} from '@kit/General/Icon/types';
-import {StyledItemList} from './style';
 import cn from 'classnames';
+
+import styles from './styles.module.scss';
 
 export const KitItemList: FunctionComponent<IKitItemList> = ({
     title,
@@ -27,6 +28,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
     disableSecureClick,
     selected = false,
     disabled = false,
+    style,
     ...props
 }) => {
     const {appId} = useKitTheme();
@@ -214,13 +216,11 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
         );
     };
 
-    const _getClassName = () => {
-        return cn(className, appId, {
-            'kit-item-list-disabled': disabled,
-            'kit-item-list-clickable': isClickable,
-            'kit-item-list-selected': selected
-        });
-    };
+    const clx = cn(styles['kit-item-list'], className, appId, {
+        'kit-item-list-disabled': disabled,
+        'kit-item-list-clickable': isClickable,
+        'kit-item-list-selected': selected
+    });
 
     const _handleClickItemList = (e: MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
@@ -230,10 +230,10 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
     const _handleClickItemListSecured = useSecureClick(_handleClickItemList);
 
     return (
-        <StyledItemList
+        <div
             tabIndex={disabled ? -1 : 0}
-            className={_getClassName()}
-            $gridTemplateColumns={_generateGridTemplateColumns()}
+            className={clx}
+            style={{...style, gridTemplateColumns: _generateGridTemplateColumns()}}
             onClick={disableSecureClick ? _handleClickItemList : _handleClickItemListSecured}
             {...props}
         >
@@ -242,7 +242,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
             {_getContent()}
             {_getTag()}
             {_getRafter()}
-        </StyledItemList>
+        </div>
     );
 };
 

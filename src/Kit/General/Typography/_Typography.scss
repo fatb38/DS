@@ -1,0 +1,103 @@
+@import '../../../css/mixins.scss';
+
+.ant-typography {
+    font-family: 'Inter';
+    line-height: var(--components-Typography-typography-lineHeight, var(--general-typography-lineHeight1));
+    font-weight: var(--components-Typography-typography-fontWeight, var(
+        --general-typography-defaultFontWeight
+    ));
+    color: var(
+        --components-Typography-colors-typography-default,
+        var(--general-colors-neutral-typography-black)
+    );
+
+    &.ant-typography-disabled {
+        color: var(
+            --components-Typography-colors-typography-disabled,
+            var(--general-colors-secondary-mediumGrey-mediumGrey400)
+        );
+    }
+}
+
+a.ant-typography {
+    color: var(--components-Typography-Link-colors-typography-default, var(
+        --general-colors-primary-primary400
+    ));
+    &:hover {
+        color: var(--components-Typography-Link-colors-typography-hover, var(
+            --general-colors-primary-primary300
+        ));
+    }
+}
+
+h1.ant-typography {
+    font-family: 'Inter';
+    font-weight: var(--components-Typography-typography-fontWeight, var(
+        --general-typography-boldFontWeight
+    ));
+    color: var(
+        --components-Typography-colors-typography-default,
+        var(--general-colors-neutral-typography-black)
+    );
+    font-size: convertToPixel(
+        --components-Typography-Title-level1-typography-fontSize,
+        --general-typography-fontSize1
+    );
+    line-height: var(--components-Typography-Title-level1-typography-lineHeight, var(
+        --general-typography-lineHeight1
+    ));
+}
+
+h2.ant-typography {
+    font-family: 'Inter';
+    font-weight: var(--components-Typography-typography-fontWeight, var(
+        --general-typography-boldFontWeight
+    ));
+    color: var(
+        --components-Typography-colors-typography-default,
+        var(--general-colors-neutral-typography-black)
+    );
+    font-size: convertToPixel(
+        --components-Typography-Title-level2-typography-fontSize,
+        --general-typography-fontSize2
+    );
+    line-height: var(--components-Typography-Title-level2-typography-lineHeight, var(
+        --general-typography-lineHeight2
+    ));
+}
+
+h3.ant-typography {
+    font-family: 'Inter';
+    font-weight: var(--components-Typography-typography-fontWeight, var(
+        --general-typography-boldFontWeight
+    ));
+    color: var(
+        --components-Typography-colors-typography-default,
+        var(--general-colors-neutral-typography-black)
+    );
+    font-size: convertToPixel(
+        --components-Typography-Title-level3-typography-fontSize,
+        --general-typography-fontSize3
+    );
+    line-height: var(--components-Typography-Title-level3-typography-lineHeight, var(
+        --general-typography-lineHeight3
+    ));
+}
+
+h4.ant-typography {
+    font-family: 'Inter';
+    font-weight: var(--components-Typography-typography-fontWeight, var(
+        --general-typography-boldFontWeight
+    ));
+    color: var(
+        --components-Typography-colors-typography-default,
+        var(--general-colors-neutral-typography-black)
+    );
+    font-size: convertToPixel(
+        --components-Typography-Title-level4-typography-fontSize,
+        --general-typography-fontSize4
+    );
+    line-height: var(--components-Typography-Title-level4-typography-lineHeight, var(
+        --general-typography-lineHeight4
+    ));
+}

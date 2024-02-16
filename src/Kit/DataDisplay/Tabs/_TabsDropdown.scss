@@ -1,0 +1,47 @@
+@import '../../../css/mixins.scss';
+
+.ant-tabs-dropdown,
+    .ant-tabs-dropdown-menu.ant-tabs-dropdown-menu-submenu {
+        padding: 10px;
+        border-radius: 7px;
+        font-family: var(--components-Tabs-DropDown-typography-fontFamily,var(--general-typography-fontFamily));
+        font-weight: var(--components-Tabs-DropDown-typography-fontWeight,var(--general-typography-mediumfontWeight));
+        background-color: var(--components-Tabs-DropDown-colors-background-default,var(--general-colors-secondary-mediumGrey-mediumGrey100));
+        color: var(--components-Tabs-DropDown-colors-typography-default,var(--general-colors-secondary-mediumGrey-mediumGrey500));
+        box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
+
+        .ant-tabs-dropdown-menu {
+            padding: 0px;
+            background-color: var(--components-Tabs-DropDown-menu-colors-background-default,var(--general-colors-secondary-mediumGrey-mediumGrey100));
+            box-shadow: none;
+
+            .ant-tabs-dropdown-menu-item,
+            .ant-tabs-dropdown-menu-submenu {
+                border-radius: 7px;
+                border: none;
+                min-height: 32px;
+                font-weight: var(--components-Tabs-DropDown-menuItem-typography-fontWeight,var(--general-typography-mediumfontWeight));
+                color: var(--components-Tabs-DropDown-menuItem-colors-typography-default,var(--general-colors-secondary-mediumGrey-mediumGrey500));
+                padding: 0 10px;
+
+                &:not(:last-child) {
+                    margin-bottom: 5px;
+                }
+
+                &.ant-tabs-dropdown-menu-item-active {
+                    background-color: var(--components-Tabs-DropDown-menuItem-colors-background-active,var(--general-colors-primary-primary100));
+                    color: var(--components-Tabs-DropDown-menuItem-colors-typography-active,var(--general-colors-primary-primary400));
+                }
+
+                &.ant-tabs-dropdown-menu-item-selected {
+                    background-color: var(--components-Tabs-DropDown-menuItem-colors-background-selected,var(--general-colors-primary-primary100));
+                }
+
+                &.ant-tabs-dropdown-menu-item-disabled {
+                    background-color: var(--components-Tabs-DropDown-menuItem-colors-background-disabled,var(--general-colors-secondary-mediumGrey-mediumGrey100));
+                    color: var(--components-Tabs-DropDown-menuItem-colors-typography-disabled,var(--general-colors-secondary-mediumGrey-mediumGrey400));
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }

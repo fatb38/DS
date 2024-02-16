@@ -1,5 +1,5 @@
 import {ForwardRefRenderFunction, createContext, forwardRef, memo, useContext, useEffect, useState} from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 import omit from 'rc-util/lib/omit';
 import React from 'react';
 import {ConfigContext} from 'antd/lib/config-provider/';
@@ -17,9 +17,9 @@ export const InternalCheckboxGroup: ForwardRefRenderFunction<HTMLDivElement, ICh
         options = [],
         prefixCls: customizePrefixCls,
         className,
-        rootClassName,
         wrapperClassName,
         status,
+        rootClassName,
         style,
         onChange,
         label,
@@ -115,7 +115,7 @@ export const InternalCheckboxGroup: ForwardRefRenderFunction<HTMLDivElement, ICh
         registerValue,
         cancelValue
     };
-    const classString = classNames(
+    const classString = cn(
         groupPrefixCls,
         {
             [`${groupPrefixCls}-rtl`]: direction === 'rtl'

@@ -1,0 +1,30 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-avatar) {
+    &:not(.ant-avatar-image) {
+        background: var(
+            --components-Avatar-colors-background-default,
+            var(--general-colors-neutral-black60)
+        );
+        color: var(
+            --components-Avatar-colors-typography-default,
+            var(--general-colors-neutral-typography-white)
+        );
+    }
+}
+
+:local(.kit-avatar-group) {
+    &.override-last > span:last-child {
+        background: var(
+            --components-AvatarGroup-colors-background-default,
+            var(--general-colors-primary-primary100)
+        );
+        color: var(
+            --components-AvatarGroup-colors-typography-default,
+            var(
+                --components-AvatarGroup-colors-background-default,
+                var(--general-colors-primary-primary200)
+            )
+        );
+    }
+}

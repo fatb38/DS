@@ -1,0 +1,213 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-radio) {
+    font-weight: var(--components-Radio-typography-fontWeight, var(--general-typography-mediumfontWeight));
+    font-size: convertToPixel(--components-Radio-typography-fontSize, --general-typography-fontSize5);
+    line-height: var(--components-Radio-typography-lineHeight, var(--general-typography-lineHeight5));
+    // Unchecked
+    .ant-radio {
+        .ant-radio-inner {
+            border: 1px solid
+                var(--components-Radio-colors-border-default, var(--general-colors-neutral-black60));
+            background-color: var(
+                --components-Radio-colors-background-default,
+                var(--general-colors-neutral-white)
+            );
+        }
+
+        .ant-radio-inner:after {
+            transform: scale(0.6);
+            visibility: hidden;
+            background-color: var(
+                --components-Radio-colors-bullet-default,
+                var(--general-colors-primary-primary400)
+            );
+        }
+    }
+
+    .ant-radio-checked::after {
+        border-color: transparent;
+    }
+
+    &.ant-radio-wrapper-disabled .ant-radio .ant-radio-inner {
+        border: 1px solid
+            var(
+                --components-Radio-colors-border-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey200)
+            );
+        background-color: var(
+            --components-Radio-colors-background-disabled,
+            var(--general-colors-secondary-mediumGrey-mediumGrey100)
+        );
+
+        &:after {
+            background-color: var(
+                --components-Radio-colors-bullet-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey200)
+            );
+        }
+    }
+
+    &.ant-radio-wrapper-danger .ant-radio {
+        .ant-radio-inner {
+            border: 1px solid
+                var(
+                    --components-Radio-colors-border-danger-default,
+                    var(--general-colors-secondary-red-red400)
+                );
+            background-color: var(
+                --components-Radio-colors-background-danger-default,
+                var(--general-colors-secondary-red-red200)
+            );
+
+            &:after {
+                background-color: var(
+                    --components-Radio-colors-bullet-danger-default,
+                    var(--general-colors-secondary-red-red400)
+                );
+            }
+        }
+
+        .ant-radio-input:hover + .ant-radio-inner {
+            border-color: var(
+                --components-Radio-colors-border-danger-hover,
+                var(--general-colors-secondary-red-red500)
+            );
+            background-color: var(
+                --components-Radio-colors-background-danger-hover,
+                var(--general-colors-secondary-red-red200)
+            );
+
+            &:after {
+                background-color: var(
+                    --components-Radio-colors-bullet-danger-hover,
+                    var(--general-colors-secondary-red-red500)
+                );
+            }
+        }
+    }
+
+    &.ant-radio-wrapper-danger.ant-radio-wrapper-disabled .ant-radio .ant-radio-inner {
+        border: 1px solid
+            var(
+                --components-Radio-colors-border-danger-default,
+                var(--general-colors-secondary-red-red400)
+            );
+        background-color: var(
+            --components-Radio-colors-background-danger-default,
+            var(--general-colors-secondary-red-red200)
+        );
+
+        &:after {
+            background-color: var(
+                --components-Radio-colors-bullet-danger-default,
+                var(--general-colors-secondary-red-red400)
+            );
+        }
+    }
+
+    &:not(.ant-radio-wrapper-danger):not(.ant-radio-wrapper-disabled) {
+        .ant-radio-checked .ant-radio-inner {
+            border-color: var(
+                --components-Radio-colors-border-checked,
+                var(--general-colors-primary-primary400)
+            );
+            background-color: var(
+                --components-Radio-colors-background-checked,
+                var(--general-colors-neutral-white)
+            );
+        }
+
+        .ant-radio-input:hover + .ant-radio-inner {
+            border-color: var(
+                --components-Radio-colors-border-hover,
+                var(--general-colors-primary-primary500)
+            );
+            background-color: var(
+                --components-Radio-colors-background-hover,
+                var(--general-colors-neutral-white)
+            );
+
+            &:after {
+                background-color: var(
+                    --components-Radio-colors-bullet-hover,
+                    var(--general-colors-primary-primary500)
+                );
+            }
+        }
+    }
+
+    .ant-radio-checked .ant-radio-inner:after {
+        visibility: visible;
+    }
+
+    // Focus
+    &:not(.ant-radio-wrapper-disabled) .ant-radio-input:focus + .ant-radio-inner {
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 2px
+            var(--components-Radio-colors-border-focus, var(--general-colors-primary-primary200));
+    }
+
+    &:not(.ant-radio-wrapper-disabled):not(.ant-radio-wrapper-danger) .ant-radio-input:focus + .ant-radio-inner {
+        border-color: transparent;
+    }
+
+    &:not(.ant-radio-wrapper-disabled) .ant-radio-input:focus-within + .ant-radio-inner::after {
+        transform: scale(0.52);
+    }
+
+    // active
+    &:not(.ant-radio-wrapper-danger) {
+        .ant-radio-disabled + span {
+            color: var(
+                --components-Radio-colors-typography-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey400)
+            );
+        }
+    }
+
+    .ant-radio-disabled {
+        color: var(
+            --components-Radio-colors-typography-disabled,
+            var(--general-colors-secondary-mediumGrey-mediumGrey400)
+        );
+    }
+
+    &.ant-radio-wrapper-danger {
+        .ant-radio {
+            &.ant-radio-disabled + span {
+                color: var(
+                    --components-Radio-colors-typography-danger-disabled,
+                    var(--general-colors-secondary-red-red200)
+                );
+            }
+        }
+
+        .ant-radio-input:hover:focus + .ant-radio-inner {
+            background-color: var(
+                --components-Radio-colors-background-hover,
+                var(--general-colors-neutral-white)
+            );
+            border-color: transparent;
+        }
+
+        .ant-radio-input:focus + .ant-radio-inner {
+            // TODO change to cards-border-stroke when available
+            box-shadow: 0 0 0 2px
+                var(
+                    --components-Radio-colors-border-danger-focus,
+                    var(--general-colors-secondary-red-red200)
+                );
+
+            background-color: var(
+                --components-Radio-colors-background-default,
+                var(--general-colors-neutral-white)
+            );
+            border-color: transparent;
+        }
+    }
+
+    .ant-radio-checked + span {
+        font-weight: var(--components-Radio-typography-fontWeight, var(--general-typography-mediumfontWeight));
+    }
+}

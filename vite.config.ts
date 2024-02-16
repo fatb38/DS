@@ -1,15 +1,14 @@
-import react from '@vitejs/plugin-react';
-import path from 'node:path';
 import {defineConfig} from 'vite';
+import path from 'path';
+import {fileURLToPath} from 'node:url';
+import glob from 'glob';
+import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
-import {webpackStats} from 'rollup-plugin-webpack-stats';
-import {uglify} from 'rollup-plugin-uglify';
-import {visualizer} from 'rollup-plugin-visualizer';
+import {libInjectCss} from 'vite-plugin-lib-inject-css';
 
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
-import multiInput from 'rollup-plugin-multi-input';
 import url from 'rollup-plugin-url';
 
 import packageJson from './package.json';
@@ -55,6 +54,8 @@ const getExclusions = () => {
         /node_modules/,
         ...Object.keys(packageJson.dependencies),
         ...Object.keys(packageJson.devDependencies),
+        'antd',
+        'react',
         'react/jsx-runtime',
         /lodash/,
         /rc-util/,
@@ -64,27 +65,24 @@ const getExclusions = () => {
     ];
 };
 
-const plugins = [
-    react({
-        jsxRuntime: 'classic'
-    }),
-    dts({
-        insertTypesEntry: true,
-        exclude: ['stories', 'package.json'],
-        copyDtsFiles: true,
-        outDir: outputDir
-    }),
-    uglify()
-];
+const inputs = Object.fromEntries(
+    glob
+        .sync('src/**/*index.{ts,tsx}', {ignore: 'src/**/*.d.ts'})
+        .map(file => [
+            path.relative('src', file.slice(0, file.length - path.extname(file).length)),
+            fileURLToPath(new URL(file, import.meta.url))
+        ])
+);
 
-if (process.env.STATS) {
-    plugins.push(webpackStats());
-    plugins.push(visualizer());
-}
-
+// https://vitejs.dev/config/
 export default defineConfig({
     publicDir: false,
-    plugins: plugins,
+    plugins: [react(), dts({include: ['src']}), libInjectCss()],
+    css: {
+        modules: {
+            scopeBehaviour: 'global'
+        }
+    },
     resolve: {
         alias: {
             '@kit': path.resolve(__dirname, './src/Kit'),
@@ -96,19 +94,24 @@ export default defineConfig({
         }
     },
     build: {
+        copyPublicDir: false,
+        cssCodeSplit: true,
         lib: {
             entry: path.resolve(__dirname, 'src/index.ts'),
-            name: 'design-system'
+            formats: ['es'],
+            fileName: 'index.es.js'
         },
-        //minify: 'terser',
         rollupOptions: {
             external: getExclusions(),
-            input: 'src/index.ts',
+            input: inputs,
             plugins: [
+                //@ts-ignore-next-line
                 commonjs(),
+                //@ts-ignore-next-line
                 typescript({outDir: outputDir, exclude: ['stories/**']}),
+                //@ts-ignore-next-line
                 resolve(),
-                multiInput(),
+                //@ts-ignore-next-line
                 url({
                     // by default, rollup-plugin-url will not handle font files
                     include: ['**/*.woff', '**/*.woff2'],
@@ -117,35 +120,21 @@ export default defineConfig({
                     limit: Infinity
                 })
             ],
-            output: [
-                {
-                    format: 'umd',
-                    name: 'design-system',
-                    inlineDynamicImports: true,
-                    preserveModules: false,
-                    interop: 'compat',
-                    plugins: [],
-                    globals,
-                    entryFileNames: () => {
-                        return `index.umd.js`;
+            output: {
+                interop: 'compat',
+                hoistTransitiveImports: false,
+                globals,
+                chunkFileNames: 'chunks/[name].[hash].js',
+                assetFileNames: 'assets/[name][extname]',
+                entryFileNames: file => {
+                    const relPath = path.relative('src', file.facadeModuleId);
+                    console.log(file.name, relPath);
+                    if (`src/${relPath}` === input) {
+                        return 'index.es.js';
                     }
-                },
-                {
-                    format: 'esm',
-                    dir: outputDir,
-                    preserveModules: true,
-                    interop: 'compat',
-                    globals,
-                    inlineDynamicImports: false,
-                    entryFileNames: file => {
-                        const relative = path.relative('src', file.facadeModuleId);
-                        if (`src/${relative}` === input) {
-                            return 'index.es.js';
-                        }
-                        return `${file.name}.js`;
-                    }
+                    return `${file.name}.js`;
                 }
-            ]
+            }
         }
     }
 });

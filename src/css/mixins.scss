@@ -1,0 +1,13 @@
+@use '@sass-fairy/string';
+
+@function convertToPixel($cssToken, $fallback:null) {
+  @if $fallback == null {
+    @return calc(var($cssToken) * 1px)
+  }
+
+  @if string.starts-with(#{$fallback}, '--') {
+    @return calc(var($cssToken, var($fallback)) * 1px)
+  }
+
+  @return calc(var($cssToken, $fallback) * 1px)
+}
