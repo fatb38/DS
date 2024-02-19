@@ -1,0 +1,40 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-steps) {
+    .ant-steps-item {
+        &:not(.ant-steps-item-active) {
+            .ant-steps-item-container[role='button']:hover {
+                .ant-steps-item-icon {
+                    .ant-steps-icon {
+                        .ant-steps-icon-dot {
+                            background: var(
+                                --components-Steps-colors-dot-default,
+                                var(--general-colors-primary-primary300)
+                            );
+                        }
+                    }
+                }
+
+                .ant-steps-item-content {
+                    .ant-steps-item-title {
+                        color: var(
+                            --components-Steps-colors-typography-text-active,
+                            var(--general-colors-primary-primary300)
+                        );
+                    }
+
+                    .ant-steps-item-description {
+                        color: var(
+                            --components-Steps-colors-typography-description-active,
+                            var(--general-colors-primary-primary300)
+                        );
+                    }
+                }
+            }
+        }
+
+        .ant-steps-item-container .ant-steps-item-tail {
+            width: 100%;
+        }
+    }
+}

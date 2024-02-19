@@ -8,12 +8,12 @@ const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitDatePicker
-                cellRender={(current: number | Dayjs, info: CellRenderInfo<Dayjs>) => {
+                cellRender={(current: string | number | Dayjs, info: CellRenderInfo<Dayjs>) => {
                     if (info.type !== 'date') return info.originNode;
 
                     const style: CSSProperties = {};
 
-                    if (typeof current !== 'number') {
+                    if (typeof current !== 'number' && typeof current !== 'string') {
                         if (current.date() === 1) {
                             style.backgroundColor = '#E7EDFF';
                         }

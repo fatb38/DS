@@ -4,10 +4,7 @@ import {KitSpace} from '@kit/Layout/';
 import type {IKitDatePicker, IKitRangePicker} from '@kit/DataEntry/DatePicker/types';
 
 const App = () => {
-    const onChange = (
-        value: IKitDatePicker['value'] | IKitRangePicker['value'],
-        dateString: [string, string] | string
-    ) => {
+    const onChange = (value: IKitDatePicker['value'] | IKitRangePicker['value'], dateString: string[] | string) => {
         console.log('Selected Time: ', value);
         console.log('Formatted Selected Time: ', dateString);
     };

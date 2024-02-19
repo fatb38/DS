@@ -1,0 +1,206 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-input-number) {
+    font-weight: var(
+        --components-InputNumber-typography-placeholder-fontWeight,
+        var(--general-typography-regularFontWeight)
+    );
+    font-size: convertToPixel(--components-InputNumber-typography-fontSize, --general-typography-fontSize5);
+    border-radius: convertToPixel(--components-InputNumber-border-radius, --general-border-radius-s);
+    height: 40px;
+    line-height: 40px;
+
+    .ant-input-number-input {
+        font-weight: var(
+            --components-InputNumber-typography-content-fontWeight,
+            var(--general-typography-mediumfontWeight)
+        );
+
+        &::placeholder {
+            font-weight: var(
+                --components-InputNumber-typography-placeholder-fontWeight,
+                var(--general-typography-regularFontWeight)
+            );
+        }
+    }
+
+    &:not(.ant-input-number-affix-wrapper) {
+        line-height: 38px;
+
+        .ant-input-number-input-wrap {
+            border-radius: convertToPixel(--components-InputNumber-border-radius, --general-border-radius-s);
+        }
+    }
+
+    &.ant-input-number-affix-wrapper.kit-input-number-affix-wrapper-focused,
+    &.ant-input-number.kit-input-number-affix-wrapper-focused {
+        border-color: transparent;
+        // TODO change to cards-border-stroke when available
+        box-shadow: 0 0 0 3px
+            var(
+                --components-InputNumber-colors-border-focus-default,
+                var(--general-colors-primary-primary200)
+            );
+
+        &.ant-input::placeholder,
+        .ant-input::placeholder {
+            color: transparent;
+        }
+    }
+
+    &.ant-input-number-focused,
+    &.ant-input-number-affix-wrapper .ant-input-number-focused,
+    &.ant-input-number-focused .ant-input-number-affix-wrapper {
+        .ant-input-number-input::placeholder {
+            color: transparent;
+        }
+    }
+
+    &.ant-input-number-disabled,
+    &.ant-input-number-affix-wrapper-disabled {
+        border-color: var(
+            --components-InputNumber-colors-border-disabled,
+            var(--general-colors-secondary-mediumGrey-mediumGrey200)
+        );
+
+        .ant-input-number-input {
+            color: var(
+                --components-InputNumber-colors-typography-content-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey400)
+            );
+
+            &::placeholder {
+                color: var(
+                    --components-InputNumber-colors-typography-placeholder-disabled,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                );
+            }
+        }
+    }
+
+    &.ant-input-number-affix-wrapper {
+        .ant-input-number-input-wrap {
+            .ant-input-number-input {
+                padding: 0px 10px 0px 0px;
+            }
+        }
+
+        .ant-input-number {
+            height: 38px;
+            line-height: 38px;
+        }
+    }
+
+    .ant-input-number-input-wrap {
+        border-radius: 0 7px 7px 0;
+
+        .ant-input-number-input {
+            padding: 0px 10px;
+            border-radius: 0;
+        }
+    }
+
+    &.ant-input-number-status-warning,
+    &.ant-input-number-affix-wrapper-status-warning {
+        background-color: var(
+            --components-InputNumber-colors-background-warning,
+            var(--general-colors-secondary-orange-orange100)
+        );
+
+        .ant-input-number-input-wrap {
+            background-color: var(
+                --components-InputNumber-colors-background-warning,
+                var(--general-colors-secondary-orange-orange100)
+            );
+        }
+
+        .ant-input-number-input {
+            color: var(
+                --components-InputNumber-colors-typography-content-warning,
+                var(--general-colors-secondary-orange-orange400)
+            );
+
+            &::placeholder {
+                color: var(
+                    --components-InputNumber-colors-typography-content-warning,
+                    var(--general-colors-secondary-orange-orange400)
+                );
+            }
+        }
+
+        &:not(.ant-input-borderless):not(.ant-input-disabled) {
+            border-color: var(
+                --components-InputNumber-colors-border-warning,
+                var(--general-colors-secondary-orange-orange400)
+            );
+
+            &.ant-input-number-affix-wrapper.kit-input-number-affix-wrapper-focused,
+            &.ant-input-number.kit-input-number-affix-wrapper-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        --components-InputNumber-colors-border-focus-warning,
+                        var(--general-colors-secondary-orange-orange200)
+                    );
+
+                &:hover {
+                    border-color: transparent;
+                }
+            }
+        }
+    }
+
+    &.ant-input-number-status-error,
+    &.ant-input-number-out-of-range,
+    &.ant-input-number-affix-wrapper-status-error {
+        background-color: var(
+            --components-InputNumber-colors-background-error,
+            var(--general-colors-secondary-red-red100)
+        );
+        box-shadow: none;
+
+        .ant-input-number-input-wrap {
+            background-color: var(
+                --components-InputNumber-colors-background-error,
+                var(--general-colors-secondary-red-red100)
+            );
+        }
+
+        .ant-input-number-input {
+            color: var(
+                --components-InputNumber-colors-typography-content-error,
+                var(--general-colors-secondary-red-red400)
+            );
+
+            &::placeholder {
+                color: var(
+                    --components-InputNumber-colors-typography-placeholder-error,
+                    var(--general-colors-secondary-red-red400)
+                );
+            }
+        }
+
+        &:not(.ant-input-borderless):not(.ant-input-disabled) {
+            border-color: var(
+                --components-InputNumber-colors-border-error,
+                var(--general-colors-secondary-red-red400)
+            );
+
+            &.ant-input-number-affix-wrapper.kit-input-number-affix-wrapper-focused,
+            &.ant-input-number.kit-input-number-affix-wrapper-focused {
+                border-color: transparent;
+                // TODO change to cards-border-stroke when available
+                box-shadow: 0 0 0 3px
+                    var(
+                        --components-InputNumber-colors-border-focus-error,
+                        var(--general-colors-secondary-red-red200)
+                    );
+
+                &:hover {
+                    border-color: transparent;
+                }
+            }
+        }
+    }
+}

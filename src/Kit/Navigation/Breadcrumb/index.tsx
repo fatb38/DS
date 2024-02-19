@@ -1,28 +1,16 @@
 import React, {FunctionComponent} from 'react';
 import {Breadcrumb} from 'antd';
-import styled from 'styled-components';
 import {IKitBreadcrumb} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
-import {kitBreadcrumbCssTokens} from '@theme/aristid/components/Navigation/Breadcrumb';
-import {typographyCssTokens} from '@theme/aristid/general/typography';
+import cn from 'classnames';
 
-const StyledBreadcrumb = styled(Breadcrumb)`
-    li:not(:last-child) a,
-    li:not(:last-child) .ant-breadcrumb-link,
-    li:not(:last-child) .ant-breadcrumb-link a {
-        font-family: var(${kitBreadcrumbCssTokens.link.typography.fontFamily}, var(${typographyCssTokens.fontFamily}));
-        font-weight: var(
-            ${kitBreadcrumbCssTokens.link.typography.fontWeight},
-            var(${typographyCssTokens.regularFontWeight})
-        );
-        color: inherit;
-    }
-`;
+import styles from './styles.module.scss';
 
 export const KitBreadcrumb: FunctionComponent<IKitBreadcrumb> = ({className, ...props}) => {
     const {appId} = useKitTheme();
+    const clx = cn(appId, styles['kit-breadcrumb'], className);
 
-    return <StyledBreadcrumb {...props} className={`${appId} ${className ?? ''}`} />;
+    return <Breadcrumb {...props} className={clx} />;
 };
 
 KitBreadcrumb.displayName = 'KitBreadcrumb';

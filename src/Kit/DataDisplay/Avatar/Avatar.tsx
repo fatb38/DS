@@ -1,24 +1,12 @@
 import React, {CSSProperties, FunctionComponent, useMemo} from 'react';
 import {Avatar as AntdAvatar} from 'antd';
 import {IKitAvatar} from './types';
-import {styled} from 'styled-components';
 import {useKitTheme} from '@theme/useKitTheme';
 import {getColor, getContrastColor, getLighterColor, isSecondaryColor, isValidColor} from '@utils/functions';
 import {kitAvatarCssTokens} from '@theme/aristid/components/DataDisplay/Avatar';
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import cn from 'classnames';
 
-const StyledAntdAvatar = styled(AntdAvatar)`
-    &:not(.ant-avatar-image) {
-        background: var(
-            ${kitAvatarCssTokens.colors.background.default},
-            var(${kitColorsPaletteCssTokens.neutral.black60})
-        );
-        color: var(
-            ${kitAvatarCssTokens.colors.typography.default},
-            var(${kitColorsPaletteCssTokens.neutral.typography.white})
-        );
-    }
-`;
+import styles from './styles.module.scss';
 
 const getCustomColors = (
     color: IKitAvatar['color'],
@@ -50,7 +38,9 @@ const KitAvatar: FunctionComponent<IKitAvatar> = ({
         [color, secondaryColorInvert, style]
     );
 
-    return <StyledAntdAvatar style={customStyle} className={`${appId} ${className ?? ''}`} {...avatarProps} />;
+    const clx = cn(appId, styles['kit-avatar'], className);
+
+    return <AntdAvatar style={customStyle} className={clx} {...avatarProps} />;
 };
 
 KitAvatar.displayName = 'KitAvatar';

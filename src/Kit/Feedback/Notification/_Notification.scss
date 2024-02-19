@@ -1,0 +1,160 @@
+@import '../../../css/mixins.scss';
+
+.ant-notification .ant-notification-notice.ant-notification-notice-info {
+    border-color: var(--components-Notification-colors-typography-message-info, var(
+        --general-colors-primary-primary400
+    ));
+
+    .ant-notification-notice-content .ant-notification-notice-message {
+        color: var(--components-Notification-colors-typography-message-info, var(
+            --general-colors-primary-primary400
+        ));
+    }
+
+    .ant-notification-notice-close {
+        color: var(--components-Notification-colors-icon-info, var(
+            --general-colors-primary-primary400
+        ));
+
+        &:hover {
+            background-color: var(--components-Notification-colors-icon-background-info, var(
+                --general-colors-primary-primary100
+            ));
+        }
+    }
+}
+
+.ant-notification .ant-notification-notice.ant-notification-notice-success {
+    border-color: var(--components-Notification-colors-typography-message-success, var(
+        --general-colors-secondary-green-green400
+    ));
+
+    .ant-notification-notice-content .ant-notification-notice-message {
+        color: var(--components-Notification-colors-typography-message-success, var(
+            --general-colors-secondary-green-green400
+        ));
+    }
+
+    .ant-notification-notice-close {
+        color: var(--components-Notification-colors-icon-success, var(
+            --general-colors-secondary-green-green400
+        ));
+
+        &:hover {
+            background-color: var(--components-Notification-colors-icon-background-success, var(
+                --general-colors-secondary-green-green100
+            ));
+        }
+    }
+}
+
+.ant-notification .ant-notification-notice.ant-notification-notice-error {
+    border-color: var(--components-Notification-colors-typography-message-error, var(
+        --general-colors-secondary-red-red400
+    ));
+
+    .ant-notification-notice-content .ant-notification-notice-message {
+        color: var(--components-Notification-colors-typography-message-error, var(
+            --general-colors-secondary-red-red400
+        ));
+    }
+
+    .ant-notification-notice-close {
+        color: var(--components-Notification-colors-icon-error, var(
+            --general-colors-secondary-red-red400
+        ));
+
+        &:hover {
+            background-color: var(--components-Notification-colors-icon-background-error, var(
+                --general-colors-secondary-red-red100
+            ));
+        }
+    }
+}
+
+.ant-notification .ant-notification-notice.ant-notification-notice-warning {
+    border-color: var(--components-Notification-colors-typography-message-warning, var(
+        --general-colors-secondary-orange-orange400
+    ));
+
+    .ant-notification-notice-content .ant-notification-notice-message {
+        color: var(--components-Notification-colors-typography-message-warning, var(
+            --general-colors-secondary-orange-orange400
+        ));
+    }
+
+    .ant-notification-notice-close {
+        color: var(--components-Notification-colors-icon-warning, var(
+            --general-colors-secondary-orange-orange400
+        ));
+
+        &:hover {
+            background-color: var(--components-Notification-colors-icon-background-warning, var(
+                --general-colors-secondary-orange-orange100
+            ));
+        }
+    }
+}
+
+.ant-notification {
+    .ant-notification-notice-wrapper{
+        .ant-notification-notice {
+            padding: convertToPixel(--general-spacing-s);
+        }
+    }
+
+    .ant-notification-notice {
+        font-family: var(--components-Notification-typography-fontFamily, var(--general-typography-fontFamily));
+        font-size: 10px;
+        border-left: convertToPixel(--general-spacing-xs) transparent solid;
+        border-radius: convertToPixel(--general-border-radius-s);
+
+        .ant-notification-notice-with-icon {
+            .ant-notification-notice-icon {
+                font-size: calc(var(--general-typography-fontSize4) * 1px);
+            }
+
+            .ant-notification-notice-message {
+                font-size: convertToPixel(
+                    --components-Notification-typography-fontSize-message,
+                    --general-typography-fontSize4
+                );
+                font-weight: var(--components-Notification-typography-fontWeight-message, var(
+                    --general-typography-mediumfontWeight
+                ));
+                margin-inline-start: 48px;
+                padding-right: 32px;
+            }
+            .ant-notification-notice-description {
+                margin-inline-start: 48px;
+                font-size: convertToPixel(
+                    --components-Notification-typography-fontSize-content,
+                    --general-typography-fontSize5
+                );
+                line-height: var(--general-typography-lineHeight5);
+                margin-bottom: 8px;
+            }
+        }
+
+        .ant-notification-notice-close {
+            position: absolute;
+            display: flex;
+            box-sizing: border-box;
+            font-size: 14px;
+            height: 20px;
+            min-width: 20px;
+            padding: 11px 0;
+            justify-content: center;
+            align-items: center;
+            top: 20px;
+            right: 20px;
+            color: var(--components-Typography-colors-typography-default, var(--general-colors-neutral-typography-black));
+            border-radius: convertToPixel(--general-border-radius-s);
+
+            &:hover {
+                background-color: var(--general-colors-secondary-mediumGrey-mediumGrey100);
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -1,0 +1,105 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-snackbar) {
+    display: grid;
+    column-gap: 8px;
+    align-items: center;
+    min-height: 24px;
+    padding: 8px 16px;
+    background-color: var(
+        --components-SnackBar-colors-background,
+        var(--general-colors-neutral-grey-grey700)
+    );
+    border: 1px solid var(--components-SnackBar-colors-border, var(--general-colors-neutral-grey-grey700));
+    border-radius: 7px;
+    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.3);
+    font-family: var(--components-SnackBar-typography-fontFamily, var(--general-typography-fontFamily));
+
+    .kit-snackbar-grid-one {
+        min-width: 150px;
+        grid-column: 1;
+    }
+
+    .kit-snackbar-grid-two {
+        grid-column: 2;
+    }
+
+    .kit-snackbar-grid-three {
+        grid-column: 3;
+
+        &.with-cta-container {
+            grid-column: 2;
+        }
+    }
+
+    .kit-snackbar-grid {
+        .kit-snackbar-title {
+            color: var(
+                --components-SnackBar-colors-typography-title,
+                var(--general-colors-neutral-grey-grey400)
+            );
+            font-size: convertToPixel(--components-SnackBar-typography-title-fontSize, --general-typography-fontSize5);
+            font-weight: var(
+                --components-SnackBar-typography-title-fontWeight,
+                var(--general-typography-regularFontWeight)
+            );
+        }
+
+        .kit-snackbar-cta-container {
+            height: 23px;
+            line-height: 23px;
+            width: fit-content;
+            padding: 0px 12px;
+            border: 0.499px solid
+                var(
+                    --components-SnackBar-colors-cta-border-default,
+                    var(--general-colors-neutral-grey-grey200)
+                );
+            border-radius: 14px;
+            cursor: pointer;
+
+            .kit-snackbar-cta {
+                color: var(
+                    --components-SnackBar-colors-cta-typography-default,
+                    var(--general-colors-neutral-grey-grey200)
+                );
+                font-size: 10px;
+                font-weight: var(
+                    --components-SnackBar-typography-cta-fontWeight,
+                    var(--general-typography-mediumfontWeight)
+                );
+                text-transform: uppercase;
+            }
+
+            &:hover {
+                border-color: var(
+                    --components-SnackBar-colors-cta-border-hover,
+                    var(--general-colors-neutral-grey-grey400)
+                );
+
+                .kit-snackbar-cta {
+                    color: var(
+                        --components-SnackBar-colors-cta-typography-hover,
+                        var(--general-colors-neutral-grey-grey400)
+                    );
+                }
+            }
+        }
+
+        .kit-snackbar-close-container {
+            color: var(
+                --components-SnackBar-colors-closeIcon-default,
+                var(--general-colors-neutral-grey-grey400)
+            );
+            font-size: 12px;
+            cursor: pointer;
+
+            &:hover {
+                color: var(
+                    --components-SnackBar-colors-closeIcon-hover,
+                    var(--general-colors-neutral-grey-grey500)
+                );
+            }
+        }
+    }
+}

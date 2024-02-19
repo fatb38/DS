@@ -1,0 +1,32 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-image) {
+    border-radius : convertToPixel(--components-Image-border-radius-default, --general-border-radius-square);
+    border: var(--components-Image-colors-border-none, none);
+
+    + .ant-image-mask {
+        border-radius: convertToPixel(--components-Image-border-radius-default, --general-border-radius-square);
+        border: var(--components-Image-colors-border-none, none);
+    }
+
+    &.rounded {
+        border-radius : convertToPixel(--components-Image-border-radius-rounded, --general-border-radius-s);
+
+        + .ant-image-mask {
+            border-radius: convertToPixel(--components-Image-border-radius-rounded, --general-border-radius-s)
+        }
+    }
+
+    &.bordered {
+        border: 1px solid var(--components-Image-colors-border-default, var(--general-colors-neutral-black60));
+
+        + .ant-image-mask {
+            border: 1px solid var(--components-Image-colors-border-default, var(--general-colors-neutral-black60));
+        }
+    }
+}
+
+:local(.mask-container) {
+    display: flex;
+    gap: 6px;
+}

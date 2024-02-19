@@ -1,0 +1,72 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-alert) {
+    &.ant-alert-with-description {
+        padding-inline: 0px;
+        padding-block: 0px;
+        padding: 8px 16px;
+
+        .ant-alert-message {
+            margin-bottom: 6px;
+        }
+    }
+
+    &:not(.ant-alert-banner) {
+        border-radius: convertToPixel(--components-Alert-border-radius, --general-border-radius-s);
+    }
+
+    padding: 8px 16px;
+
+    .ant-alert-message {
+        font-size: convertToPixel(--components-Alert-typography-fontSize-message, --general-typography-fontSize5);
+    }
+
+    .ant-alert-description {
+        font-size: convertToPixel(--components-Alert-typography-fontSize-description, --general-typography-fontSize7);
+    }
+
+    .fa-icon {
+        font-size: convertToPixel(--components-Alert-icon-alert-size, --general-typography-fontSize4);
+        margin-inline-end: 8px;
+    }
+
+    &.ant-alert-with-description .fa-icon {
+        margin-top: 3px;
+    }
+
+    &.ant-alert-success {
+        svg {
+            color: var(
+                --components-Alert-colors-icon-alert-success,
+                var(--general-colors-secondary-green-green400)
+            );
+        }
+    }
+
+    &.ant-alert-info {
+        svg {
+            color: var(
+                --components-Alert-colors-icon-alert-info,
+                var(--general-colors-secondary-blue-blue400)
+            );
+        }
+    }
+
+    &.ant-alert-warning {
+        svg {
+            color: var(
+                --components-Alert-colors-icon-alert-warning,
+                var(--general-colors-secondary-yellow-yellow400)
+            );
+        }
+    }
+
+    &.ant-alert-error {
+        svg {
+            color: var(
+                --components-Alert-colors-icon-alert-error,
+                var(--general-colors-secondary-red-red400)
+            );
+        }
+    }
+}

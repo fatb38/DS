@@ -1,0 +1,85 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-slider) {
+    flex-grow: 1;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    &.with-start-icon {
+        margin-left: 20px;
+    }
+
+    &.with-end-icon {
+        margin-right: 20px;
+    }
+
+    &.ant-slider:not(.ant-slider-disabled) {
+        .ant-slider-handle {
+            &:hover::after {
+                background-color: var(
+                    --components-Slider-handle-colors-background-hover,
+                    var(--general-colors-primary-primary100)
+                );
+            }
+
+            &::after {
+                box-shadow: 0 0 0 2px
+                    var(
+                        --components-Slider-handle-colors-border-default,
+                        var(--general-colors-primary-primary400)
+                    );
+            }
+
+            &:focus::after {
+                background-color: var(
+                    --components-Slider-handle-colors-background-focus,
+                    var(--general-colors-primary-primary400)
+                );
+            }
+        }
+
+        &:hover {
+            .ant-slider-dot:not(.ant-slider-dot-active) {
+                border-color: var(
+                    --components-Slider-dot-colors-border-default,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey200)
+                );
+            }
+        }
+
+        .ant-slider-mark .ant-slider-mark-text:not(.ant-slider-mark-text-active) {
+            color: var(
+                --components-Slider-dot-colors-border-default,
+                var(--general-colors-secondary-mediumGrey-mediumGrey200)
+            );
+        }
+
+        .ant-slider-mark {
+            top: 14px;
+        }
+    }
+
+    &.ant-slider-disabled {
+        .ant-slider-handle::after {
+            box-shadow: 0 0 0 2px
+                var(
+                    --components-Slider-handle-colors-border-disabled,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey200)
+                );
+        }
+    }
+}
+
+:local(.kit-slider-container) {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+
+    .end-icon {
+        color: var(--components-Slider-endIcon-colors-default, var(--general-colors-neutral-black60));
+    }
+
+    .start-icon {
+        color: var(--components-Slider-startIcon-colors-default, var(--general-colors-neutral-black60));
+    }
+}

@@ -1,0 +1,213 @@
+
+@import '../../../css/mixins.scss';
+
+:local(.kit-menu) {
+    padding: 16px 19px;
+    background-color: var(
+        --components-Menu-colors-background-default,
+        var(--general-colors-neutral-white)
+    );
+
+    display: grid;
+    grid-template-areas: 'header' 'content';
+
+    .kit-menu-header {
+        grid-area: header;
+        display: grid;
+
+        .kit-menu-header-topbar {
+            display: grid;
+            grid-template-areas: 'title close';
+            grid-template-columns: 1fr min-content;
+            align-items: center;
+            margin-bottom: 16px;
+
+            .kit-menu-header-title {
+                grid-area: title;
+            }
+
+            .kit-menu-header-close {
+                grid-area: close;
+            }
+        }
+
+        .kit-menu-header-primary {
+            display: grid;
+            grid-template-areas: 'button primary-input';
+            grid-template-columns: min-content 1fr;
+            margin-bottom: 16px;
+
+            .kit-menu-header-button {
+                grid-area: button;
+                margin-right: 16px;
+            }
+
+            .kit-menu-header-primary-input {
+                grid-area: primary-input;
+            }
+        }
+
+        .kit-menu-header-secondary {
+            display: grid;
+            grid-template-areas: 'secondary-input';
+            grid-template-columns: 1fr;
+            margin-bottom: 16px;
+
+            .kit-menu-header-primary-input {
+                grid-area: secondary-input;
+            }
+        }
+    }
+
+    .menu-content {
+        grid-area: content;
+    }
+}
+
+:local(.kit-item-menu) {
+    height: 32px;
+    display: grid;
+    grid-template: 'select icon title actions value rafter';
+    grid-template-columns: min-content min-content minmax(0px, auto) min-content min-content min-content;
+    padding: 4px 8px 4px 0px;
+    background-color: var(
+        --components-Menu-itemMenu-colors-background-default,
+        var(--general-colors-neutral-white)
+    );
+
+    align-items: center;
+
+    &.is-clickable {
+        cursor: pointer;
+    }
+
+    &.is-selected {
+        background-color: var(
+            --components-Menu-itemMenu-colors-background-active,
+            var(--general-colors-primary-primary100)
+        );
+        border-right: 3px solid
+            var(
+                --components-Menu-itemMenu-colors-border-active,
+                var(--general-colors-primary-primary400)
+            );
+        padding-inline-end: 5px;
+
+        .kit-item-menu-title span,
+        .kit-item-menu-icon span {
+            color: var(
+                --components-Menu-itemMenu-colors-title-default,
+                var(--general-colors-primary-primary400)
+            );
+        }
+    }
+
+    &:hover {
+        background-color: var(
+            --components-Menu-itemMenu-colors-background-hover,
+            var(--general-colors-primary-primary100)
+        );
+    }
+
+    .kit-item-menu-checkbox {
+        grid-area: select;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .kit-item-menu-icon {
+        grid-area: icon;
+
+        span {
+            color: var(
+                --components-Menu-itemMenu-colors-icon-default,
+                var(--general-colors-secondary-mediumGrey-mediumGrey300)
+            );
+        }
+    }
+
+    .kit-item-menu-title {
+        grid-area: title;
+        margin-left: 8px;
+    }
+
+    .kit-item-menu-actions {
+        grid-area: actions;
+        display: grid;
+        grid-template-columns: inherit;
+        margin-left: 8px;
+        align-items: center;
+
+        .kit-action-more {
+            cursor: pointer;
+            transform: rotate(90deg);
+        }
+    }
+
+    &.cta {
+        .kit-item-menu-title span {
+            color: var(
+                --components-Menu-itemMenu-colors-title-default,
+                var(--general-colors-primary-primary400)
+            );
+        }
+        .kit-item-menu-icon span {
+            color: var(
+                --components-Menu-itemMenu-colors-icon-default,
+                var(--general-colors-secondary-mediumGrey-mediumGrey300)
+            );
+        }
+    }
+
+    &.cta-danger {
+        .kit-item-menu-title span {
+            color: var(
+                --components-Menu-itemMenu-colors-title-danger,
+                var(--general-colors-secondary-red-red400)
+            );
+        }
+        .kit-item-menu-icon span {
+            color: var(
+                --components-Menu-itemMenu-colors-icon-danger,
+                var(--general-colors-secondary-red-red400)
+            );
+        }
+
+        &:hover {
+            background-color: var(
+                --components-Menu-itemMenu-colors-background-danger,
+                var(--general-colors-secondary-red-red100)
+            );
+        }
+    }
+
+    .kit-item-menu-value {
+        grid-area: value;
+        margin-left: 8px;
+
+        span {
+            color: var(
+                --components-Menu-itemMenu-colors-value-default,
+                var(--general-colors-secondary-mediumGrey-mediumGrey300)
+            );
+        }
+    }
+
+    .kit-item-menu-rafter {
+        grid-area: rafter;
+        color: var(
+            --components-Menu-itemMenu-colors-rafter-default,
+            var(--general-colors-secondary-mediumGrey-mediumGrey300)
+        );
+        font-size: 12px;
+        margin-left: 8px;
+
+        &:hover {
+            color: var(
+                --components-Menu-itemMenu-colors-rafter-hover,
+                var(--general-colors-primary-primary400)
+            );
+            cursor: pointer;
+        }
+    }
+}

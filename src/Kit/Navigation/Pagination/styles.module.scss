@@ -1,0 +1,147 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-pagination) {
+    &.kit-pagination-bordered:not(.ant-pagination-mini) {
+        .ant-pagination-item:not(.ant-pagination-item-active) {
+            border-color: var(
+                --components-Pagination-pagination-border-default,
+                var(--general-colors-neutral-black60)
+            );
+        }
+
+        &:not(.ant-pagination-disabled) .ant-pagination-item:hover {
+            border-color: var(
+                --components-Pagination-pagination-border-hover,
+                var(--general-colors-primary-primary400)
+            );
+            background-color: var(
+                --components-Pagination-pagination-colors-background-hover,
+                var(--general-colors-neutral-white)
+            );
+        }
+
+        .ant-pagination-next,
+        .ant-pagination-prev {
+            background-color: var(--components-Pagination-prevNext-colors-background-default, 'transparent');
+            border: 1px solid var(--components-Pagination-prevNext-colors-border-default, 'transparent');
+        }
+    }
+
+    &.ant-pagination-mini:not(.ant-pagination-disabled) {
+        .ant-pagination-item,
+        .ant-pagination-item-active {
+            background: var(--components-Pagination-pagination-colors-background-default, 'transparent');
+        }
+
+        .ant-pagination-next,
+        .ant-pagination-prev {
+            background: var(--components-Pagination-prevNext-colors-background-default, 'transparent');
+        }
+    }
+
+    .ant-pagination-next,
+    .ant-pagination-prev {
+        .ant-pagination-item-link {
+            font-size: 11px;
+        }
+
+        a {
+            padding: 0 8px;
+        }
+    }
+
+    &:not(.ant-pagination-disabled) {
+        .ant-pagination-next,
+        .ant-pagination-prev {
+            background-color: var(--components-Pagination-prevNext-colors-background-default, 'transparent');
+            border: 1px solid var(--components-Pagination-prevNext-colors-border-default, 'transparent');
+
+            a {
+                color: inherit;
+            }
+
+            &:hover {
+                border-color: var(
+                    --components-Pagination-prevNext-colors-border-hover,
+                    var(--general-colors-primary-primary400)
+                );
+                color: var(
+                    --components-Pagination-prevNext-colors-typography-hover,
+                    var(--general-colors-primary-primary400)
+                );
+
+                .ant-pagination-item-link {
+                    background-color: var(--components-Pagination-prevNext-colors-background-default, 'transparent');
+                }
+
+                button {
+                    color: var(
+                        --components-Pagination-prevNext-colors-typography-hover,
+                        var(--general-colors-primary-primary400)
+                    );
+                }
+            }
+        }
+    }
+
+    &.ant-pagination-simple {
+        .ant-pagination-next,
+        .ant-pagination-prev {
+            .ant-pagination-item-link {
+                height: 22px;
+            }
+        }
+    }
+
+    &.ant-pagination-disabled {
+        .ant-pagination-item-active a {
+            color: var(
+                --components-Pagination-pagination-colors-typography-disabledActive,
+                var(--general-colors-neutral-typography-white)
+            );
+        }
+    }
+
+    & .kit-pagination-prev,
+    & .kit-pagination-next {
+        font-size: convertToPixel(
+            --components-Pagination-prevNext-typography-fontSize,
+            --general-typography-fontSize5
+        );
+    }
+
+    & .ant-pagination-options-quick-jumper {
+        height: 24px;
+        line-height: 24px;
+
+        input {
+            height: 24px;
+            border-color: var(
+                --components-Pagination-quickJumper-colors-border-default,
+                var(--general-colors-neutral-black60)
+            );
+        }
+    }
+
+    & .ant-pagination-options-size-changer {
+        height: 24px;
+
+        .ant-select-selector {
+            height: 24px;
+            background: var(
+                --components-Pagination-selector-colors-background-default,
+                var(--general-colors-neutral-white)
+            );
+            border-color: var(
+                --components-Pagination-selector-colors-border-default,
+                var(--general-colors-neutral-black60)
+            );
+
+            input,
+            .ant-select-selection-item {
+                height: 22px;
+                line-height: 22px;
+            }
+        }
+    }
+}

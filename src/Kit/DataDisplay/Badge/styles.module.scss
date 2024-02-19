@@ -1,0 +1,36 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-badge) {
+     height: 16px;
+    min-width: 16px;
+    line-height: 16px;
+    font-size: convertToPixel(--general-typography-fontSize7);
+    &.ant-badge .ant-badge-count {
+        background: var(
+            --components-Badge-colors-background-default,
+            var(--general-colors-secondary-red-red400)
+        );
+        color: var(
+            --components-Badge-colors-typography-default,
+            var(--general-colors-neutral-typography-white)
+        );
+    }
+        
+        .ant-badge-status-processing {
+            &.ant-scroll-number {
+                position: absolute;
+            }
+
+            &::after {
+                animation-name: none;
+                content: initial;
+            }
+
+            &.ant-badge-status-dot {
+                &::after {
+                    animation-name: none;
+                    content: initial;
+                }
+            }
+        }
+}

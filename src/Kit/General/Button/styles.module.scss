@@ -1,0 +1,328 @@
+@use 'sass:map';
+@import '../../../css/mixins.scss';
+@import './defaultValues';
+
+$sizes: ("xs": 7, "s": 6, "m": 5, "l": 4, "xl": 3);
+$prefix: "kit-btn-";
+
+
+@mixin colorTokens($name, $color, $path) {
+    $defaultValues: map.get($defaultColorValues, $color);
+    &.#{$name} {
+        --kit-btn-color-default: var(--components-Button-#{$path}-typography-default, #{map.get($defaultValues, "color-default")});
+        --kit-btn-color-hover: var(--components-Button-#{$path}-typography-hover, #{map.get($defaultValues, "color-hover")});
+        --kit-btn-color-focus: var(--components-Button-#{$path}-typography-focus, #{map.get($defaultValues, "color-focus")});
+        --kit-btn-color-active: var(--components-Button-#{$path}-typography-active, #{map.get($defaultValues, "color-active")});
+        --kit-btn-color-disabled: var(--components-Button-#{$path}-typography-disabled, #{map.get($defaultValues, "color-disabled")});
+        --kit-btn-color-ghost: var(--components-Button-#{$path}-typography-disabled, #{map.get($defaultValues, "color-ghost")});
+        --kit-btn-color-background-default: var(--components-Button-#{$path}-background-default, #{map.get($defaultValues, "color-background-default")});
+        --kit-btn-color-background-hover: var(--components-Button-#{$path}-background-hover, #{map.get($defaultValues, "color-background-hover")});
+        --kit-btn-color-background-focus: var(--components-Button-#{$path}-background-focus, #{map.get($defaultValues, "color-background-focus")});
+        --kit-btn-color-background-active: var(--components-Button-#{$path}-background-active, #{map.get($defaultValues, "color-background-active")});
+        --kit-btn-color-background-disabled: var(--components-Button-#{$path}-background-disabled, #{map.get($defaultValues, "color-background-disabled")});
+        --kit-btn-color-background-ghost: var(--components-Button-#{$path}-background-disabled, #{map.get($defaultValues, "color-background-ghost")});
+        --kit-btn-color-border-default: var(--components-Button-#{$path}-border-default, #{map.get($defaultValues, "color-border-default")});
+        --kit-btn-color-border-hover: var(--components-Button-#{$path}-border-hover, #{map.get($defaultValues, "color-border-hover")});
+        --kit-btn-color-border-focus: var(--components-Button-#{$path}-border-focus, #{map.get($defaultValues, "color-border-focus")});
+        --kit-btn-color-border-active: var(--components-Button-#{$path}-border-active, #{map.get($defaultValues, "color-border-active")});
+        --kit-btn-color-border-disabled: var(--components-Button-#{$path}-border-disabled, #{map.get($defaultValues, "color-border-disabled")});
+        --kit-btn-color-border-ghost: var(--components-Button-#{$path}-border-disabled, #{map.get($defaultValues, "color-border-ghost")});
+    }
+}
+
+
+:local(.kit-btn) {
+    height: 40px;
+    width: 100%;
+    min-width: 40px;
+    padding: 6.6px 15px;
+    box-shadow: none;
+    font-family:var(--components-Button-typography-fontFamily, var(--general-typography-fontFamily));
+    font-weight: var(--components-Button-typography-fontWeight, var(--general-typography-regularFontWeight));
+    font-size:   convertToPixel(--components-Button-typography-fontSize, --general-typography-fontSize5);
+    line-height: var(--components-Button-typography-lineHeight, var(--general-typography-lineHeight5));
+    border-radius: convertToPixel(--components-Button-border-radius-default, --general-border-radius-pills);
+    --kit-btn-segmented-border-radius-default: 10px;
+
+    color: var(--kit-btn-color-default);
+    background-color: var(--kit-btn-color-background-default);
+
+    &[href].ant-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &.ant-btn-icon-only {
+        padding-inline-start: 0;
+        padding-inline-end: 0;
+    }
+
+    border-color: var(--kit-btn-color-border-default);
+
+    @each $size, $default in $sizes {
+        &.ant-btn.icon-#{$size} .ant-btn-icon svg {
+            font-size: convertToPixel(--components-Button-typography-iconSize-#{$size}, --general-typography-fontSize#{$default});
+        }
+    }
+
+    &.ant-btn-compact-item {
+        border-radius: 0;
+
+        &.ant-btn-compact-first-item {
+            border-radius: convertToPixel(
+                    --components-Button-border-radius-compact,
+                    --general-border-radius-s
+                ) 0 0 convertToPixel(
+                    --components-Button-border-radius-compact,
+                    --general-border-radius-s
+                );
+        }
+
+        &.ant-btn-compact-last-item {
+            border-radius: 0 convertToPixel(
+                    --components-Button-border-radius-compact,
+                    --general-border-radius-s
+                ) convertToPixel(
+                    --components-Button-border-radius-compact,
+                    --general-border-radius-s
+                ) 0;
+        }
+
+        &.ant-btn-compact-first-item.ant-btn-compact-last-item {
+            border-radius: convertToPixel(
+                    --components-Button-border-radius-compact,
+                    --general-border-radius-s
+                );
+        }
+    }
+
+    &.ant-btn-compact-vertical-item {
+        border-radius: 0;
+
+        &.ant-btn-compact-vertical-first-item {
+            border-radius: convertToPixel(
+                    --components-Button-border-radius-compact,
+                    --general-border-radius-s
+                ) convertToPixel(
+                    --kit-btn-custom-compact-border-radius,
+                    --kit-btn-default-compact-border-radius
+                ) 0 0;
+        }
+
+        &.ant-btn-compact-vertical-last-item {
+            border-radius: 0 0 convertToPixel(
+                    --components-Button-border-radius-compact,
+                    --general-border-radius-s
+                ) convertToPixel(
+                    --components-Button-border-radius-compact,
+                    --general-border-radius-s
+                );
+        }
+
+        &.ant-btn-compact-first-item.ant-btn-compact-last-item {
+            border-radius: convertToPixel(
+                    --components-Button-border-radius-compact,
+                    --general-border-radius-s
+                );
+        }
+    }
+
+
+    &:not(:disabled):not(.dangerous) {
+        &:hover {
+            color: var(--kit-btn-color-hover);
+            background-color: var(--kit-btn-color-background-hover);
+            border-color: var(--kit-btn-color-border-hover);
+        }
+
+        &:focus {
+            color: var(--kit-btn-color-focus);
+            background-color: var(--kit-btn-color-background-focus);
+            border-color: var(--kit-btn-color-border-focus);
+        }
+
+        &:active {
+            color: var(--kit-btn-color-active);
+            background-color: var(--kit-btn-color-background-active);
+            border-color: var(--kit-btn-color-border-active);
+        }
+    }
+
+
+    &.ant-btn-dangerous {
+        box-shadow: none;
+
+        &.ant-btn-default.ant-btn-dangerous:not(:disabled):not(.ant-btn-loading),
+        &.ant-btn-primary.ant-btn-dangerous:not(:disabled):not(.ant-btn-disabled) {
+            color: var(--kit-btn-color-default);
+            background-color: var(--kit-btn-color-background-default);
+            border-color: var(--kit-btn-color-border-default);
+
+            &:hover {
+                border-color: var(--kit-btn-color-border-hover);
+                background-color: var(--kit-btn-color-background-hover);
+            }
+        }
+
+        &:not(.ant-btn-loading):not(:disabled) {
+            &:hover {
+                &.ant-btn-link {
+                    border-width: 0 0 1px 0;
+                }
+            }
+
+            &:focus {
+                border-style: dashed;
+
+                &.ant-btn-link {
+                    border-width: 0 0 1px 0;
+                }
+            }
+
+            &:active {
+                &.ant-btn-link {
+                    border-width: 0 0 1px 0;
+                }
+            }
+        }
+
+        &:disabled {
+            opacity: initial;
+            color: var(--kit-btn-color-disabled);
+            background-color: var(--kit-btn-color-background-disabled);
+        }
+    }
+
+    &:disabled,
+    &.ant-btn-loading:not(:disabled) {
+        color: var(--kit-btn-color-disabled);
+        background-color: var(--kit-btn-color-background-disabled);
+        opacity: initial;
+
+        &:not(.ant-btn-text) {
+            border-color: var(--kit-btn-color-border-disabled);
+        }
+
+        &:hover {
+            color: var(--kit-btn-color-disabled);
+            background-color: var(--kit-btn-color-background-disabled);
+
+            &:not(.ant-btn-text) {
+                border-color: var(--kit-btn-color-border-disabled);
+            }
+        }
+    }
+
+    &.kit-btn-ghost {
+        background-color: transparent;
+    }
+}
+
+.kit-btn-segmented {
+    border-radius: 10px; // convertToPixel(--components-Button-border-radius-segmented, --kit-btn-segmented-border-radius-default);
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &.kit-btn-segmented-actived:not(.ant-btn-dangerous) {
+        color: var(--kit-btn-color-active);
+        background-color: var(--kit-btn-color-background-active);
+        border-color: var(--kit-btn-color-border-active);
+        z-index: 2;
+
+        &:not(.ant-btn-link):not(.ant-btn-loading):not(.ant-btn-dangerous):not(:disabled) {
+            &:hover {
+                color: var(--kit-btn-color-active);
+                background-color: var(--kit-btn-color-background-active);
+            }
+        }
+
+        .ant-btn-icon {
+            margin: 0;
+        }
+    }
+
+
+    .kit-btn-segmented-actived-icon {
+        position: absolute;
+        z-index: 2;
+        bottom: 6px;
+        right: 5px;
+        font-size: 12px;
+        color: var(--kit-btn-color-border-active);
+    }
+
+
+    $secondaryColors: "mediumGrey", "yellow", "orange", "pink", "red", "blue", "green";
+    @each $color in ("mediumGrey", "yellow", "orange", "pink", "red", "blue", "green") {
+        @include colorTokens(#{$prefix}#{$color}, $color, "color-segmented-#{$color}");
+    }
+
+    @include colorTokens('ant-btn-dangerous', "danger-segmented", "color-danger-segmented");
+}
+
+.kit-btn-link {
+    height: 22px;
+    padding: 0px;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid var(--kit-btn-color-background-default);
+
+    &:disabled {
+        border-bottom: none;
+    }
+
+    &:not(.ant-btn-loading):not(:disabled) {
+        &:hover {
+            color: var(--kit-btn-color-default);
+            border-bottom: 1px solid var(--kit-btn-color-border-hover);
+        }
+
+        &:focus {
+            border-bottom: 1px dashed var(--kit-btn-color-border-focus);
+        }
+
+        &:active {
+            border-bottom: 1px dashed var(--kit-btn-color-border-active);
+        }
+    }
+
+    @include colorTokens(#{$prefix}link, "link", "link");
+    @include colorTokens("ant-btn-dangerous", "danger-link", "color-danger-link");
+}
+
+.kit-btn-text {
+    border-color: transparent;
+
+    &:not(.ant-btn-loading):not(:disabled) {
+        &:hover {
+            background-color: var(--kit-btn-color-background-hover);
+        }
+
+        &:focus {
+            border: 1px dashed var(--kit-btn-color-border-focus);
+        }
+
+        &:active {
+            border-bottom: 1px dashed var(--kit-btn-color-border-active);
+        }
+    }
+
+    @include colorTokens(#{$prefix}text, "text", "text-default");
+    @include colorTokens(#{$prefix}black, "text-black", "text-black");
+    @include colorTokens(#{$prefix}grey, "text-grey", "text-grey");
+    @include colorTokens("ant-btn-dangerous", "danger-text", "color-danger-text");
+}
+
+.kit-btn-primary {
+    @include colorTokens(#{$prefix}primary, "primary", "color-primary");
+    @include colorTokens("ant-btn-dangerous", "danger-primary", "color-danger-primary");
+}
+
+.kit-btn-default {
+
+    @include colorTokens(#{$prefix}default, "default", "color-default");
+    @include colorTokens("ant-btn-dangerous", "danger-default", "color-danger-default");
+}

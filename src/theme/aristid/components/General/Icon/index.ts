@@ -1,7 +1,7 @@
 import {IKitIconCssTokens} from '@theme/types/components/General/Icon';
 import {generateCssTokens} from '@theme/utils/css-tokens-generator';
 
-export const kitIconCssTokens = generateCssTokens<IKitIconCssTokens>('--components-Typography', {
+export const kitIconCssTokens = generateCssTokens<IKitIconCssTokens>('--components-Icon', {
     colors: {
         icon: {
             default: '',

@@ -1,75 +1,12 @@
 import React, {FunctionComponent} from 'react';
 import {IKitMenu} from './types';
-import {styled} from 'styled-components';
 import {KitTypography, KitButton} from '@kit/General';
 import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
-import {kitMenuCssTokens} from '@theme/aristid/components/Navigation/Menu';
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import cn from 'classnames';
 
-const StyledMenu = styled.div`
-    padding: 16px 19px;
-    background-color: var(
-        ${kitMenuCssTokens.colors.background.default},
-        var(${kitColorsPaletteCssTokens.neutral.white})
-    );
-
-    display: grid;
-    grid-template-areas: 'header' 'content';
-
-    .kit-menu-header {
-        grid-area: header;
-        display: grid;
-
-        .kit-menu-header-topbar {
-            display: grid;
-            grid-template-areas: 'title close';
-            grid-template-columns: 1fr min-content;
-            align-items: center;
-            margin-bottom: 16px;
-
-            .kit-menu-header-title {
-                grid-area: title;
-            }
-
-            .kit-menu-header-close {
-                grid-area: close;
-            }
-        }
-
-        .kit-menu-header-primary {
-            display: grid;
-            grid-template-areas: 'button primary-input';
-            grid-template-columns: min-content 1fr;
-            margin-bottom: 16px;
-
-            .kit-menu-header-button {
-                grid-area: button;
-                margin-right: 16px;
-            }
-
-            .kit-menu-header-primary-input {
-                grid-area: primary-input;
-            }
-        }
-
-        .kit-menu-header-secondary {
-            display: grid;
-            grid-template-areas: 'secondary-input';
-            grid-template-columns: 1fr;
-            margin-bottom: 16px;
-
-            .kit-menu-header-primary-input {
-                grid-area: secondary-input;
-            }
-        }
-    }
-
-    .menu-content {
-        grid-area: content;
-    }
-`;
+import styles from './styles.module.scss';
 
 const KitMenu: FunctionComponent<IKitMenu> = ({
     title,
@@ -140,8 +77,10 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
         return <div className="kit-menu-header-secondary-input">{secondaryInput}</div>;
     };
 
+    const clx = cn(appId, styles['kit-menu'], className);
+
     return (
-        <StyledMenu {...props} className={`${appId} ${className ?? ''}`}>
+        <div {...props} className={clx}>
             <div className="kit-menu-header">
                 {shouldDisplayHeaderTopbar && (
                     <div className="kit-menu-header-topbar">
@@ -160,7 +99,7 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
                 )}
             </div>
             <div className="menu-content">{children}</div>
-        </StyledMenu>
+        </div>
     );
 };
 

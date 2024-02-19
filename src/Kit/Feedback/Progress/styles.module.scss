@@ -1,0 +1,12 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-progress) {
+    font-size: convertToPixel(--components-Progress-typography-fontSize, --general-typography-fontSize7);
+    &.ant-progress-circle .ant-progress-text {
+        font-size: convertToPixel(--components-Progress-circle-typography-fontSize, --general-typography-fontSize2);
+        font-weight: var(
+            --components-Progress-circle-typography-fontWeight,
+            var(--general-typography-regularFontWeight)
+        );
+    }
+}

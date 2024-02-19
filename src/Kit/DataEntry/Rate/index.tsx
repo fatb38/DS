@@ -1,7 +1,6 @@
 import React, {ReactNode, forwardRef, useMemo} from 'react';
 import {Rate as AntdRate} from 'antd';
 import {IKitRate} from './types';
-import styled from 'styled-components';
 import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar as faStarActive} from '@fortawesome/free-solid-svg-icons';
@@ -11,49 +10,9 @@ import {getColor, isValidColor} from '@utils/functions';
 import {StarProps} from 'rc-rate/lib/Star';
 import {KitColorProp} from '@utils/functions/types';
 import {kitRateCssTokens} from '@theme/aristid/components/DataEntry/Rate';
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import cn from 'classnames';
 
-const StyledRate = styled(AntdRate)`
-    color: var(${kitRateCssTokens.colors.star.default}, var(${kitColorsPaletteCssTokens.secondary.yellow.yellow400}));
-
-    &.ant-rate .ant-rate-star {
-        &:not(.ant-rate-star-half):not(.ant-rate-star-full) {
-            .ant-rate-star-first {
-                color: var(
-                    ${kitRateCssTokens.colors.star.default},
-                    var(${kitColorsPaletteCssTokens.secondary.yellow.yellow400})
-                );
-            }
-        }
-
-        &:not(.ant-rate-star-full) {
-            .ant-rate-star-second {
-                color: var(
-                    ${kitRateCssTokens.colors.star.default},
-                    var(${kitColorsPaletteCssTokens.secondary.yellow.yellow400})
-                );
-            }
-        }
-    }
-
-    &.ant-rate-disabled .ant-rate-star {
-        cursor: not-allowed;
-        color: var(
-            ${kitRateCssTokens.colors.star.disabled},
-            var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
-        );
-
-        &:not(.ant-rate-star-half):not(.ant-rate-star-full) {
-            .ant-rate-star-first,
-            .ant-rate-star-second {
-                color: var(
-                    ${kitRateCssTokens.colors.star.disabled},
-                    var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey300})
-                );
-            }
-        }
-    }
-`;
+import styles from './styles.module.scss';
 
 const _getCharacter = (props: StarProps, defaultIcon?: ReactNode, halfIcon?: ReactNode, activeIcon?: ReactNode) => {
     if (props.index !== undefined && props.value !== undefined && props.index < props.value) {
@@ -80,12 +39,13 @@ export const KitRate = forwardRef<RateRef, IKitRate>(
         const {appId} = useKitTheme();
 
         const customStyle = useMemo(() => ({...style, ...getCustomColor(color)}), [color, style]);
+        const clx = cn(appId, styles['kit-rate'], className);
 
         return (
-            <StyledRate
+            <AntdRate
                 {...rateProps}
                 style={customStyle}
-                className={`${appId} ${className ?? ''}`}
+                className={clx}
                 ref={ref}
                 character={props => _getCharacter(props, defaultIcon, halfIcon, activeIcon)}
             />

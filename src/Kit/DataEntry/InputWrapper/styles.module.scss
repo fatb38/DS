@@ -1,0 +1,88 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-input-wrapper) {
+    .kit-input-wrapper-label {
+        margin-bottom: convertToPixel(--components-InputWrapper-gap-label, --general-spacing-xs);
+    }
+
+    .kit-input-wrapper-helper {
+        margin-top: convertToPixel(--components-InputWrapper-gap-helper, --general-spacing-xs);
+    }
+
+    .kit-input-wrapper-label,
+    .kit-input-wrapper-helper {
+        &,
+        .ant-typography {
+            color: var(
+                --components-InputWrapper-colors-typography-default,
+                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+            );
+        }
+    }
+
+    &.bordered .kit-input-wrapper-content {
+        border: 1px solid
+            var(
+                --components-InputWrapper-colors-border-default,
+                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+            );
+        border-radius: convertToPixel(--components-InputWrapper-border-radius, --general-border-radius-s);
+        padding: 10px;
+    }
+
+    &.error {
+        .kit-input-wrapper-label,
+        .kit-input-wrapper-helper {
+            &,
+            .ant-typography {
+                color: var(
+                    --components-InputWrapper-colors-typography-error,
+                    var(--general-colors-secondary-red-red400)
+                );
+            }
+        }
+        .kit-input-wrapper-content {
+            border-color: var(
+                --components-InputWrapper-colors-border-error,
+                var(--general-colors-secondary-red-red400)
+            );
+        }
+    }
+    &.warning {
+        .kit-input-wrapper-label,
+        .kit-input-wrapper-helper {
+            &,
+            .ant-typography {
+                color: var(
+                    --components-InputWrapper-colors-typography-warning,
+                    var(--general-colors-secondary-orange-orange400)
+                );
+            }
+        }
+        .kit-input-wrapper-content {
+            border-color: var(
+                --components-InputWrapper-colors-border-warning,
+                var(--general-colors-secondary-orange-orange400)
+            );
+        }
+    }
+
+    &.disabled {
+        .kit-input-wrapper-label,
+        .kit-input-wrapper-helper {
+            &,
+            .ant-typography {
+                color: var(
+                    --components-InputWrapper-colors-typography-disabled,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                );
+            }
+        }
+        .kit-input-wrapper-content {
+            border-color: var(
+                --components-InputWrapper-colors-border-disabled,
+                var(--general-colors-secondary-mediumGrey-mediumGrey200)
+            );
+        }
+    }
+}

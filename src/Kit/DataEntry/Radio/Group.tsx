@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, {forwardRef, memo, useContext} from 'react';
 import {ConfigContext} from 'antd/lib/config-provider/';
@@ -7,10 +7,10 @@ import pickAttrs from 'rc-util/lib/pickAttrs';
 import {RadioGroupContextProvider} from './context';
 import type {RadioChangeEvent, RadioGroupButtonStyle} from 'antd/lib/radio/interface';
 import Radio from './Radio';
-
-import useStyle from 'antd/lib/radio/style';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {KitRadioGroup} from './types';
+
+import useStyle from 'antd/lib/radio/style';
 
 const RadioGroup = memo(
     forwardRef<HTMLDivElement, KitRadioGroup>((props, ref) => {
@@ -92,7 +92,7 @@ const RadioGroup = memo(
         }
 
         const mergedSize = customizeSize || size;
-        const classString = classNames(
+        const clx = cn(
             groupPrefixCls,
             `${groupPrefixCls}-${buttonStyle}`,
             {
@@ -110,7 +110,7 @@ const RadioGroup = memo(
                     aria: true,
                     data: true
                 })}
-                className={classString}
+                className={clx}
                 style={style}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
@@ -122,7 +122,6 @@ const RadioGroup = memo(
                 <RadioGroupContextProvider
                     value={{
                         onChange: _onRadioChange,
-
                         value,
                         disabled: props.disabled,
                         name: props.name

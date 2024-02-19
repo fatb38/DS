@@ -1,7 +1,6 @@
-import {FunctionComponent, ReactNode} from 'react';
+import {CSSProperties, FunctionComponent, ReactNode} from 'react';
 import type ReactModal from 'react-modal';
 import {KitHTMLAttributes} from '../../../types';
-import {CSSProperties} from 'styled-components';
 
 type propsToOmit =
     | 'bodyOpenClassName'

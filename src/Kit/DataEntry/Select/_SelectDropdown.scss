@@ -1,0 +1,254 @@
+@import '../../../css/mixins.scss';
+
+.ant-select-dropdown {
+    background: transparent;
+    overflow: visible;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: var(
+        --components-Select-DropDowntypography-fontFamily,
+        var(--general-typography-fontFamily)
+    );
+    font-weight: var(
+        --components-Select-DropDowntypography-fontWeight-default,
+        var(--general-typography-mediumfontWeight)
+    );
+    color: var(
+        --components-Select-DropDowncolors-typography-default,
+        var(--general-colors-secondary-mediumGrey-mediumGrey500)
+    );
+
+    &.ant-select-dropdown-placement-bottomLeft.kit-select-dropdown-focus .kit-select-dropdown-content {
+        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        box-shadow:
+            0px 1.5px 0px 1.5px var(--general-colors-primary-primary200),-1.5px 1.5px 0px 1px var(
+                --general-colors-primary-primary200
+            ), 1.5px 1.5px 0px 1px var(--general-colors-primary-primary200)
+    }
+
+    &.ant-select-dropdown-placement-topLeft.kit-select-dropdown-focus .kit-select-dropdown-content {
+        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        z-index: 1000;
+        box-shadow:
+            0px -1.5px 0px 1.5px var(--general-colors-primary-primary200),-1.5px -1.5px 0px 1px var(
+                --general-colors-primary-primary200
+            ), 1.5px -1.5px 0px 1px var(--general-colors-primary-primary200)
+    }
+
+    &.kit-select-dropdown-bottom {
+        .kit-select-dropdown-content {
+            border-radius: 0 0 convertToPixel(
+                --components-Select-DropDownborder-radius,
+                --general-border-radius-s
+            ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s);
+            transform: translate(-1px, -3px);
+        }
+
+        > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
+            border-radius: 0 0 convertToPixel(
+                --components-Select-DropDownborder-radius,
+                --general-border-radius-s
+            ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s);
+            transform: translate(0px, -4px);
+        }
+
+        &.ant-select-dropdown-placement-topLeft, &.ant-select-dropdown-placement-topRight {
+            .kit-select-dropdown-content {
+                transform: translate(-1px, 3px);
+                border-radius: convertToPixel(
+                    --components-Select-DropDownborder-radius,
+                    --general-border-radius-s
+                ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s) 0 0;
+            }
+
+            > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
+                transform: translate(0px, 4px);
+                border-radius: convertToPixel(
+                    --components-Select-DropDownborder-radius,
+                    --general-border-radius-s
+                ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s) 0 0;
+            }
+        }
+    }
+
+    &.kit-select-dropdown-top {
+        .kit-select-dropdown-content {
+            border-radius: convertToPixel(
+                --components-Select-DropDownborder-radius,
+                --general-border-radius-s
+            ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s) 0 0;
+            transform: translate(-1px, 3px);
+        }
+
+        > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
+            border-radius: convertToPixel(
+                --components-Select-DropDownborder-radius,
+                --general-border-radius-s
+            ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s) 0 0;
+            transform: translate(0px, 4px);
+        }
+
+        &.ant-select-dropdown-placement-bottomLeft, &.ant-select-dropdown-placement-bottomRight {
+            .kit-select-dropdown-content {
+                transform: translate(-1px, -3px);
+                border-radius: 0 0 convertToPixel(
+                    --components-Select-DropDownborder-radius,
+                    --general-border-radius-s
+                ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s);
+            }
+
+            > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
+                transform: translate(0px, -4px);
+                border-radius: 0 0 convertToPixel(
+                    --components-Select-DropDownborder-radius,
+                    --general-border-radius-s
+                ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s);
+            }
+        }
+    }
+
+    > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
+    .kit-select-dropdown-content {
+        &.kit-select-dropdown-content {
+            width: calc(100% + 42px);
+        }
+
+        box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
+        background-color: var(
+            --components-Select-DropDowncolors-background-default,
+            var(--general-colors-secondary-mediumGrey-mediumGrey100)
+        );
+        padding: 10px;
+        overflow: hidden;
+        border-radius: 7px ;
+
+        .ant-select-item {
+            border: none;
+            min-height: 36px;
+            font-weight: var(
+                --components-Select-DropDowntypography-fontWeight-selected,
+                var(--general-typography-mediumfontWeight)
+            );
+            color: var(
+                --components-Select-DropDowncolors-typography-selected,
+                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+            );
+
+            &:last-of-type {
+                min-height: 32px;
+            }
+
+            &.ant-select-item-option {
+                padding: 0;
+                margin: 0;
+                border: none;
+                background: transparent;
+
+                &.ant-select-item-option-grouped {
+                    margin-left: 5px;
+                }
+
+                .ant-select-item-option-content {
+                    display: flex;
+                    align-items: center;
+                    min-height: 32px;
+                    height: 32px;
+                    border-radius: 8px;
+                    padding-left: 8px;
+                }
+
+                .kit-select-option {
+                    display: inline-flex;
+                    gap: 8px;
+                    align-items: center;
+                    width: 100%;
+
+                    .kit-select-option-icon {
+                        vertical-align: middle;
+                    }
+
+                    .kit-select-option-icon + .kit-select-option-label,
+                    .kit-select-option-badge + .kit-select-option-label {
+                        width: calc(100% - 20px);
+                    }
+
+                    .kit-select-option-badge {
+                        display: inline-block;
+                        vertical-align: middle;
+                        
+                        div {
+                            margin-left: 4px;
+                            width: convertToPixel(--components-Select-ColorBadge-width, 16);
+                            height: convertToPixel(--components-Select-ColorBadge-height, 16);
+                            border-radius: convertToPixel(--components-Select-ColorBadge-border-radius, --general-border-radius-xxs);
+                        }   
+                    }
+                }
+
+                .kit-icon {
+                    padding: 5px;
+                }
+            }
+
+            &.ant-select-item-option-selected {
+                .ant-select-item-option-content {
+                    background: var(
+                        --components-Select-DropDowncolors-background-selected,
+                        var(--general-colors-primary-primary100)
+                    );
+                    font-weight: var(
+                        --components-Select-DropDowntypography-fontWeight-selected,
+                        var(--general-typography-mediumfontWeight)
+                    );
+                    color: var(
+                        --components-Select-DropDowncolors-typography-selected,
+                        var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                    );
+                    border-radius: 8px 0 0 8px;
+                }
+
+                .ant-select-item-option-state {
+                    background: var(
+                        --components-Select-DropDowncolors-background-selected,
+                        var(--general-colors-primary-primary100)
+                    );
+                    border-radius: 0 8px 8px 0;
+                    min-width: 8px;
+                    height: 32px;
+                }
+            }
+
+            &.ant-select-item-option-active .ant-select-item-option-content {
+                background: var(
+                    --components-Select-DropDowncolors-background-active,
+                    var(--general-colors-primary-primary100)
+                );
+                font-weight: var(
+                    --components-Select-DropDowntypography-fontWeight-active,
+                    var(--general-typography-mediumfontWeight)
+                );
+                color: var(
+                    --components-Select-DropDowncolors-typography-active,
+                    var(--general-colors-primary-primary400)
+                );
+            }
+
+            &.ant-select-item-option-disabled .ant-select-item-option-content {
+                opacity: .5;
+            }
+
+            &.ant-select-item-group {
+                font-weight: var(
+                    --components-Select-DropDowntypography-fontWeight-group,
+                    var(--general-typography-boldFontWeight)
+                );
+                color: var(
+                    --components-Select-DropDowncolors-typography-group,
+                    var(--general-colors-neutral-typography-black)
+                );
+                padding: 8px 0;
+            }
+        }
+    }
+}

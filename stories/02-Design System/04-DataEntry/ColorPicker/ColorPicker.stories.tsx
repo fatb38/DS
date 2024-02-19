@@ -21,26 +21,28 @@ export const Api: Story = {
     }
 };
 
+const defaultValue = '#1677ff';
+
 export const ChromaticTest: Story = {
     render: () => (
         <>
             <KitTypography.Title level="h3">Colorpicker</KitTypography.Title>
             <div style={{display: 'flex', gap: '250px'}}>
-                <KitColorPicker presets={[recommendedColors, recentColors]} open />
-                <KitColorPicker open />
-                <KitColorPicker showText open />
+                <KitColorPicker defaultValue={defaultValue} presets={[recommendedColors, recentColors]} open />
+                <KitColorPicker defaultValue={defaultValue} open />
+                <KitColorPicker defaultValue={defaultValue} showText open />
             </div>
             <div style={{marginTop: '480px', marginBottom: '24px'}}>
                 <KitTypography.Title level="h3">Disabled</KitTypography.Title>
                 <div style={{display: 'flex', gap: '10px'}}>
-                    <KitColorPicker disabled />
-                    <KitColorPicker disabled showText />
+                    <KitColorPicker defaultValue={defaultValue} disabled />
+                    <KitColorPicker defaultValue={defaultValue} disabled showText />
                 </div>
             </div>
             <KitTypography.Title level="h3">Labeled</KitTypography.Title>
             <div style={{display: 'flex', gap: '10px'}}>
-                <KitColorPicker label="Label" helper="Helper" showText />
-                <KitColorPicker label="Label" helper="Helper" showText disabled />
+                <KitColorPicker label="Label" helper="Helper" defaultValue={defaultValue} showText />
+                <KitColorPicker label="Label" helper="Helper" defaultValue={defaultValue} showText disabled />
             </div>
         </>
     )
