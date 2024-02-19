@@ -208,7 +208,8 @@
 
     &.ant-input-status-error,
     &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-error,
-    &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-error .ant-input {
+    &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-error .ant-input,
+    &.ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
         background-color: var(
             --components-input-colors-background-error,
             var(--general-colors-secondary-red-red100)
@@ -238,7 +239,7 @@
             }
         }
 
-        &::placeholder {
+        &.ant-input-affix-wrapper .ant-input::placeholder {
             color: var(
                 --components-input-colors-typography-placeholder-error,
                 var(--general-colors-secondary-red-red400)
@@ -248,7 +249,8 @@
 
     &.ant-input-status-warning,
     &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-warning,
-    &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-warning .ant-input {
+    &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-warning .ant-input,
+    &.ant-input-outlined.ant-input-status-warning:not(.ant-input-disabled) {
         background-color: var(
             --components-input-colors-background-warning,
             var(--general-colors-secondary-orange-orange100)
@@ -278,7 +280,7 @@
             }
         }
 
-        &::placeholder {
+        &.ant-input-affix-wrapper .ant-input::placeholder {
             color: var(
                 --components-input-colors-typography-placeholder-warning,
                 var(--general-colors-secondary-orange-orange500)
@@ -418,7 +420,8 @@
         }
 
         &.ant-input-affix-wrapper-status-error,
-        &.ant-input-affix-wrapper-status-error .ant-input {
+        &.ant-input-affix-wrapper-status-error .ant-input,
+        &.ant-input-outlined.ant-input-status-error:not(.ant-input-disabled)  {
             background-color: var(
                 --components-Input-Passwordcolors-background-error,
                 var(--general-colors-secondary-red-red100)
@@ -448,7 +451,7 @@
                 }
             }
 
-            &::placeholder {
+            &.ant-input-affix-wrapper .ant-input::placeholder {
                 color: var(
                     --components-Input-Passwordcolors-typography-placeholder-error,
                     var(--general-colors-secondary-red-red400)
@@ -492,7 +495,8 @@
         }
 
         &.ant-input-affix-wrapper-status-warning,
-        &.ant-input-affix-wrapper-status-warning .ant-input {
+        &.ant-input-affix-wrapper-status-warning .ant-input,
+        &.ant-input-outlined.ant-input-status-warning:not(.ant-input-disabled) {
             background-color: var(
                 --components-Input-Passwordcolors-background-warning,
                 var(--general-colors-secondary-orange-orange100)
@@ -522,7 +526,7 @@
                 }
             }
 
-            &::placeholder {
+            &.ant-input-affix-wrapper .ant-input::placeholder {
                 color: var(
                     --components-Input-Passwordcolors-typography-placeholder-warning,
                     var(--general-colors-secondary-orange-orange500)
@@ -731,7 +735,8 @@
 
     &.ant-input-status-error,
     &.ant-input-affix-wrapper-status-error,
-    .ant-input-status-error {
+    .ant-input-status-error,
+    &.ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
         background-color: var(
             --components-Input-TextAreacolors-background-error,
             var(--general-colors-secondary-red-red100)
@@ -761,7 +766,8 @@
             }
         }
 
-        &::placeholder {
+        &.ant-input-affix-wrapper .ant-input,
+        &.ant-input-affix-wrapper .ant-input::placeholder {
             color: var(
                 --components-Input-TextAreacolors-typography-placeholder-error,
                 var(--general-colors-secondary-red-red400)
@@ -771,7 +777,8 @@
 
     &.ant-input-status-warning,
     &.ant-input-affix-wrapper-status-warning,
-    .ant-input-status-warning {
+    .ant-input-status-warning,
+    &.ant-input-outlined.ant-input-status-warning:not(.ant-input-disabled) {
         background-color: var(
             --components-Input-TextAreacolors-background-warning,
             var(--general-colors-secondary-orange-orange100)
@@ -801,7 +808,8 @@
             }
         }
 
-        &::placeholder {
+        &.ant-input-affix-wrapper .ant-input,
+        &.ant-input-affix-wrapper .ant-input::placeholder {
             color: var(
                 --components-Input-TextAreacolors-typography-placeholder-warning,
                 var(--general-colors-secondary-orange-orange500)

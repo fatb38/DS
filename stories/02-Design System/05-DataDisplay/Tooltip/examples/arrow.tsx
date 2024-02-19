@@ -23,7 +23,7 @@ const App = () => {
                 value={arrow}
                 options={['Show', 'Hide', 'Center']}
                 onChange={val => {
-                    setArrow(val as string);
+                    setArrow(val);
                 }}
             />
             <br />

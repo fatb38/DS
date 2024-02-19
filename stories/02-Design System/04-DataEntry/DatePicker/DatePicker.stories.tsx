@@ -5,6 +5,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 import {Template} from './Template';
 import {KitTypography} from '@kit/General';
+import {userEvent, within} from '@storybook/testing-library';
 
 const meta: Meta<typeof KitDatePicker> = {
     component: KitDatePicker,
@@ -100,6 +101,10 @@ export const ChromaticTestYear: Story = {
     )
 };
 
+function sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export const ChromaticTestDisabled: Story = {
     render: () => (
         <div style={{width: '400px', display: 'flex', flexDirection: 'column', gap: '10px'}}>
@@ -111,12 +116,19 @@ export const ChromaticTestDisabled: Story = {
                 disabled
             />
             <KitDatePicker.RangePicker
+                data-testid="disabled-range"
                 defaultValue={[dayjs('2023-06-06', 'YYYY-MM-DD'), dayjs('2023-06-06', 'YYYY-MM-DD')]}
                 disabled={[false, true]}
-                open
             />
         </div>
-    )
+    ),
+    play: async ({canvasElement}) => {
+        // need to pass by the play function, as with the open prop, there is a bug
+        const canvas = within(canvasElement);
+        const rangepickerElement = canvas.queryAllByTestId('disabled-range')[0];
+        await userEvent.click(rangepickerElement);
+        await sleep(500);
+    }
 };
 
 export const ChromaticTestLabelHelperStatus: Story = {
