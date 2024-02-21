@@ -1,25 +1,22 @@
 # Changelog
 
-## [xx.xx.xx](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-02-02)
+## [1.0.0](https://www.npmjs.com/package/aristid-ds/v/1.0.0) (2024-02-02)
 * **⚠️ Breaking change - Button:**  (@evoiron)
     * update color Management
     * remove design tokens
     * remove some props : `href`, `target`, `wrapperClassName`, `wrapperStyle`, `textColor`
-    * rename props: 
+    * rename props:
       * `segmentedColor` is now `color`
       * `segmentedactived` is now `active`
       * `segmentedChecked` is now `checked`
     * modify button types:
       * add `tertiary` type
       * remove `link` type
-      * 
+
 ### ✨ Features
 * **Typography:**
     * Add `color` prop to set color on each typography elements (@evoiron)
 
-## [0.13.0](https://www.npmjs.com/package/aristid-ds/v/0.13.0) (2024-02-19)
-
-### ✨ Features
 * **Breadcrumb:**
     * change `breadcrumb` design (@Delmotte-Vincent)
     * add `icon` props in `breadcrumb` items (@Delmotte-Vincent)
