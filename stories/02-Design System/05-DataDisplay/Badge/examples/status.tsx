@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitBadge} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
-import {KitButton} from '@kit/General';
+import {KitTypography} from '@kit/General';
 
 const App = () => {
     return (
@@ -26,19 +26,19 @@ const App = () => {
             <br />
             <KitSpace>
                 <KitBadge dot status="success">
-                    <KitButton type="link">Link</KitButton>
+                    <KitTypography.Link>Link</KitTypography.Link>
                 </KitBadge>
                 <KitBadge dot status="error">
-                    <KitButton type="link">Link</KitButton>
+                    <KitTypography.Link>Link</KitTypography.Link>
                 </KitBadge>
                 <KitBadge dot status="default">
-                    <KitButton type="link">Link</KitButton>
+                    <KitTypography.Link>Link</KitTypography.Link>
                 </KitBadge>
                 <KitBadge dot status="processing">
-                    <KitButton type="link">Link</KitButton>
+                    <KitTypography.Link>Link</KitTypography.Link>
                 </KitBadge>
                 <KitBadge dot status="warning">
-                    <KitButton type="link">Link</KitButton>
+                    <KitTypography.Link>Link</KitTypography.Link>
                 </KitBadge>
             </KitSpace>
         </KitSpace>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {KitSpace, KitButton, KitRadio} from '@kit/index';
+import {KitSpace, KitButton, KitRadio, KitTypography} from '@kit/index';
 import {IKitSpace, KitSpaceSize} from '@kit/Layout/Space/types';
 import {RadioChangeEvent} from 'antd';
 
@@ -25,7 +25,7 @@ const App = () => {
             <KitSpace size={size}>
                 <KitButton type="primary">Primary</KitButton>
                 <KitButton>Default</KitButton>
-                <KitButton type="link">Link</KitButton>
+                <KitTypography.Link>Link</KitTypography.Link>
             </KitSpace>
         </>
     );

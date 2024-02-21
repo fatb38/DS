@@ -77,8 +77,7 @@ const _getActions = (actions: ReactNode[] | undefined, disabled: boolean): React
             key: index,
             type: 'default',
             disabled: disabled,
-            className: `${ReactNode.className ?? ''} kit-card-select-button`,
-            wrapperClassName: `${ReactNode.wrapperClassName ?? ''} kit-card-select-button-wrapper`
+            className: `${ReactNode.className ?? ''} kit-card-select-button`
         });
     });
 };
@@ -123,9 +122,8 @@ export const KitItemCard: FunctionComponent<IKitItemCard> = ({
                     )}
                     {onEdit && (
                         <KitButton
-                            wrapperClassName="kit-card-select-button-wrapper"
                             className="kit-card-select-button"
-                            onClick={e => onEdit && onEdit(e)}
+                            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => onEdit && onEdit(e)}
                             disabled={disabled}
                         >
                             <FontAwesomeIcon icon={faPencil} />

@@ -1,8 +1,9 @@
 import React from 'react';
 import {KitBreadcrumb} from '@kit/Navigation';
 import {KitTypography} from '@kit/General';
+import {IKitBreadcrumbItem, IKitBreadcrumbMenuItem} from '@kit/Navigation/Breadcrumb/types';
 
-const menuItems = [
+const menuItems: IKitBreadcrumbMenuItem[] = [
     {
         key: '1',
         label: (
@@ -29,7 +30,7 @@ const menuItems = [
     }
 ];
 
-const items = [
+const items: IKitBreadcrumbItem[] = [
     {
         title: 'Aristid Design'
     },
@@ -38,7 +39,7 @@ const items = [
     },
     {
         title: <a href="">General</a>,
-        menu: {items: menuItems, open: true}
+        menu: {items: menuItems}
     },
     {
         title: 'Button'

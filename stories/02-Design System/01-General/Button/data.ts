@@ -51,31 +51,6 @@ export const argTypes = {
         },
         defaultValue: false
     },
-    href: {
-        name: 'href',
-        control: {type: 'text'},
-        description: 'Redirect url of link button',
-        table: {
-            type: {
-                summary: 'string'
-            },
-            defaultValue: {summary: '-'},
-            category: 'Button'
-        }
-    },
-    htmlType: {
-        name: 'htmlType',
-        control: {type: 'text'},
-        description:
-            'Set the original html `type` of `button`, see: [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type)',
-        table: {
-            type: {
-                summary: 'string'
-            },
-            defaultValue: {summary: 'button'},
-            category: 'Button'
-        }
-    },
     icon: {
         name: 'icon',
         options: ['-', 'faMagnifyingGlass', 'faDownload', 'faCircleCheck'],
@@ -118,23 +93,11 @@ export const argTypes = {
         },
         defaultValue: false
     },
-    target: {
-        name: 'target',
-        description: 'Same as target attribute of a, works when href is specified',
-        control: {type: 'text'},
-        table: {
-            type: {
-                summary: 'string'
-            },
-            defaultValue: {summary: '-'},
-            category: 'Button'
-        }
-    },
     type: {
         name: 'type',
-        options: ['primary', 'default', 'text', 'link', 'segmented'],
+        options: ['primary', 'secondary', 'tertiary', 'text', 'segmented'],
         control: {type: 'select'},
-        description: 'Can be set to `primary` | `default` | `text` | `link` | `segmented`',
+        description: 'Can be set to `primary` | `secondary` | `tertiary` | `text` | `segmented`',
         table: {
             type: {
                 summary: 'string'
@@ -144,8 +107,8 @@ export const argTypes = {
         },
         defaultValue: 'default'
     },
-    segmentedActived: {
-        name: 'segmentedActived',
+    active: {
+        name: 'active',
         control: {type: 'boolean'},
         description: '[Only for segmented type] - Option to display segmented button with an active state',
         table: {
@@ -157,8 +120,8 @@ export const argTypes = {
         },
         defaultValue: false
     },
-    segmentedChecked: {
-        name: 'segmentedChecked',
+    checked: {
+        name: 'checked',
         control: {type: 'boolean'},
         description: '[Only for segmented type] - Option to display segmented button with a check icon',
         table: {
@@ -170,9 +133,9 @@ export const argTypes = {
         },
         defaultValue: false
     },
-    segmentedColor: {
-        name: 'segmentedColor',
-        options: ['mediumGrey', 'yellow', 'orange', 'pink', 'red', 'blue', 'green'],
+    color: {
+        name: 'color',
+        options: ['mediumGrey', 'yellow', 'orange', 'pink', 'red', 'blue', 'green', 'grey', 'black'],
         control: {type: 'select'},
         description: '[Only for segmented type] - Option to display segmented button with an other color',
         table: {
@@ -196,24 +159,19 @@ export const argTypes = {
         },
         defaultValue: () => {}
     },
-    wrapperClassName: {
-        name: 'wrapperClassName',
-        description: 'Add a classname to the button wrapper',
+    className: {
         table: {
-            type: {
-                summary: 'string'
-            },
-            category: 'Button'
+            disable: true
         }
     },
-    wrapperStyle: {
-        name: 'wrapperStyle',
-        description: 'Add a style to the button wrapper',
+    primaryModal: {
         table: {
-            type: {
-                summary: 'CssProperties'
-            },
-            category: 'Button'
+            disable: true
+        }
+    },
+    styles: {
+        table: {
+            disable: true
         }
     }
 };

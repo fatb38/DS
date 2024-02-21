@@ -1,4 +1,5 @@
 import React, {FunctionComponent, useState} from 'react';
+import type {MouseEvent} from 'react';
 import {IKitMenuInfo, IKitHeaderExtra, IKitHeaderExtraActions, IKitHeaderExtraMoreActions} from './types';
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
@@ -24,7 +25,7 @@ const HeaderExtraActions: FunctionComponent<IKitHeaderExtraActions> = ({actions,
                     <KitButton
                         icon={firstAction.icon}
                         disabled={disabled}
-                        onClick={e => {
+                        onClick={(e: MouseEvent<HTMLElement>) => {
                             e.stopPropagation();
                             firstAction.onClick && firstAction.onClick(e);
                         }}
@@ -36,7 +37,7 @@ const HeaderExtraActions: FunctionComponent<IKitHeaderExtraActions> = ({actions,
                     <KitButton
                         icon={secondAction.icon}
                         disabled={disabled}
-                        onClick={e => {
+                        onClick={(e: MouseEvent<HTMLElement>) => {
                             e.stopPropagation();
                             secondAction.onClick !== undefined && secondAction.onClick(e);
                         }}

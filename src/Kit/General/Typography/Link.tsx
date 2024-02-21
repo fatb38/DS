@@ -1,7 +1,7 @@
-import React, {forwardRef} from 'react';
+import React, {forwardRef, useMemo} from 'react';
 import {Typography} from 'antd';
 import {IKitLink} from './types';
-import {getWeightClassname} from './commons';
+import {getCustomColor, getWeightClassname} from './commons';
 import {useKitTheme} from '@theme/useKitTheme';
 
 import styles from './styles.module.scss';
@@ -11,6 +11,7 @@ const KitLink = forwardRef<HTMLElement, IKitLink>(({size = 'medium', className, 
     const {appId} = useKitTheme();
 
     const clx = cn(
+        appId,
         styles['kit-typography-link'],
         {
             'kit-typography-link-small': size === 'small',
@@ -19,8 +20,11 @@ const KitLink = forwardRef<HTMLElement, IKitLink>(({size = 'medium', className, 
         },
         className
     );
+    const customStyle = useMemo(() => ({...props.style, ...getCustomColor(props.color)}), [props.color, props.style]);
 
-    return <Typography.Link {...props} ref={ref} className={`${appId} ${clx} ${getWeightClassname(props)}`} />;
+    return (
+        <Typography.Link {...props} ref={ref} className={`${clx} ${getWeightClassname(props)}`} style={customStyle} />
+    );
 });
 KitLink.displayName = 'KitLink';
 

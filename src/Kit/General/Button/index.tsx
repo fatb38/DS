@@ -1,7 +1,16 @@
-import React, {ForwardRefRenderFunction, forwardRef} from 'react';
-import {Button as AntdButton} from 'antd';
-import type {IKitButton, KitButtonCompoundedComponent} from './types';
-import {ButtonType} from 'antd/lib/button';
+import React, {
+    ForwardRefRenderFunction,
+    LegacyRef,
+    ReactElement,
+    ReactNode,
+    cloneElement,
+    forwardRef,
+    useEffect,
+    useMemo,
+    useState
+} from 'react';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import type {IKitButton, KitButtonCompoundedComponent, loadingConfig, loadingType} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleCheck} from '@fortawesome/free-solid-svg-icons';
@@ -9,127 +18,114 @@ import useSecureClick from '@hooks/useSecureClick';
 import cn from 'classnames';
 
 import styles from './styles.module.scss';
+import {IKitIcon} from '../Icon/types';
+
+const _getIconElement = (icon): ReactNode | null => {
+    if (!icon) {
+        return null;
+    }
+
+    const props = (icon as ReactElement).props as IKitIcon;
+    return cloneElement(icon as ReactElement, {
+        className: (props?.className ?? '') + ' kit-btn-icon'
+    });
+};
+
+const _getLoadingConfig = (loading: loadingType): loadingConfig => {
+    if (typeof loading === 'object' && loading) {
+        let delay = loading?.delay;
+        delay = !Number.isNaN(delay) && typeof delay === 'number' ? delay : 0;
+        return {
+            loading: delay <= 0,
+            delay
+        };
+    }
+
+    return {
+        loading: !!loading,
+        delay: 0
+    };
+};
 
 const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IKitButton> = (
     {
         iconSize,
         primaryModal,
-        type,
-        segmentedChecked,
-        segmentedActived,
-        segmentedColor,
-        textColor,
+        type = 'secondary',
+        checked,
+        active,
+        loading: internalLoading = false,
+        icon,
+        danger,
+        color,
+        block,
         className,
-        wrapperClassName,
-        wrapperStyle,
         onClick,
         disableSecureClick,
         children,
+        disabled,
         ...props
     },
     ref
 ) => {
     const {appId} = useKitTheme();
+    const [loading, setLoading] = useState(false);
+
+    const loadingOrDelay = useMemo<loadingConfig>(() => _getLoadingConfig(internalLoading), [internalLoading]);
 
     const secureClick = useSecureClick(onClick);
 
-    // const _getButtonCssTokens = () => {
-    //     if (primaryModal) {
-    //         return {
-    //             custom: kitButtonCssTokens.primary,
-    //             default: kitButtonDefaultCssTokens.primary
-    //         };
-    //     }
+    const iconOnly = !children && icon;
 
-    //     switch (type) {
-    //         case 'primary':
-    //             return {
-    //                 custom: kitButtonCssTokens.primary,
-    //                 default: kitButtonDefaultCssTokens.primary
-    //             };
-    //         case 'link':
-    //             return {
-    //                 custom: kitButtonCssTokens.link,
-    //                 default: kitButtonDefaultCssTokens.link
-    //             };
-    //         case 'text':
-    //             return !textColor
-    //                 ? {
-    //                       custom: kitButtonCssTokens.text.default,
-    //                       default: kitButtonDefaultCssTokens.text.default
-    //                   }
-    //                 : {
-    //                       custom: kitButtonCssTokens.text[textColor],
-    //                       default: kitButtonDefaultCssTokens.text[textColor]
-    //                   };
-    //         case 'segmented':
-    //             return !segmentedColor
-    //                 ? {
-    //                       custom: kitButtonCssTokens.segmented.default,
-    //                       default: kitButtonDefaultCssTokens.segmented.default
-    //                   }
-    //                 : {
-    //                       custom: kitButtonCssTokens.segmented[segmentedColor],
-    //                       default: kitButtonDefaultCssTokens.segmented[segmentedColor]
-    //                   };
-    //         case 'default':
-    //         default:
-    //             return {
-    //                 custom: kitButtonCssTokens.default,
-    //                 default: kitButtonDefaultCssTokens.default
-    //             };
-    //     }
-    // };
-
-    const _getAntdType = (): ButtonType => {
-        if (primaryModal) {
-            return 'primary';
-        }
-
-        switch (type) {
-            case 'segmented':
-            default:
-                return 'default';
-            case 'primary':
-            case 'link':
-            case 'text':
-            case 'default':
-                return type;
-        }
-    };
-
-    const clx = cn(appId, styles['kit-btn'], className, `kit-btn-${type ?? 'default'}`, {
-        // 'kit-btn-segmented': type === 'segmented',
-        [`kit-btn-${textColor ?? 'default'}`]: type === 'text',
-        [`kit-btn-${segmentedColor ?? 'default'}`]: type === 'segmented' && !props.danger,
-        ['ant-btn-icon-only']: !children && children !== 0 && !props.loading && props.icon,
+    const clx = cn(appId, styles['kit-btn'], className, {
+        [`kit-btn-${type}`]: !primaryModal && type,
+        ['kit-btn-primaryModal']: primaryModal,
+        ['kit-btn-danger']: danger,
+        ['kit-btn-block']: block,
+        ['kit-btn-segmented-active']: active,
         [`icon-${iconSize ?? 'm'}`]: iconSize,
-        'kit-btn-segmented-actived': segmentedActived
+        [`kit-btn-icon-only`]: iconOnly,
+        [`kit-btn-color-${color}`]: color
     });
 
+    const BtnIcon = _getIconElement(icon);
+
+    useEffect(() => {
+        let delayTimer: ReturnType<typeof setTimeout> | null = null;
+
+        if (loadingOrDelay.delay > 0) {
+            delayTimer = setTimeout(() => {
+                delayTimer = null;
+                setLoading(true);
+            }, loadingOrDelay.delay);
+        } else {
+            setLoading(loadingOrDelay.loading);
+        }
+
+        function cleanupTimer() {
+            if (delayTimer) {
+                clearTimeout(delayTimer);
+                delayTimer = null;
+            }
+        }
+
+        return cleanupTimer;
+    }, [internalLoading, loadingOrDelay]);
+
     return (
-        <div
-            className={wrapperClassName ?? ''}
-            style={{
-                position: 'relative',
-                display: 'inline-block',
-                ...wrapperStyle
-            }}
+        <button
+            onClick={disableSecureClick ? onClick : secureClick}
+            disabled={disabled}
+            ref={ref as LegacyRef<HTMLButtonElement>}
+            {...props}
+            className={clx}
         >
-            <AntdButton
-                {...props}
-                className={clx}
-                ghost={primaryModal}
-                type={_getAntdType()}
-                onClick={disableSecureClick ? onClick : secureClick}
-                ref={ref}
-            >
-                {children}
-                {type === 'segmented' && segmentedChecked && (
-                    <FontAwesomeIcon icon={faCircleCheck} className="kit-btn-segmented-actived-icon" />
-                )}
-            </AntdButton>
-        </div>
+            {loading ? <LoadingOutlined className="kit-btn-icon" /> : BtnIcon}
+            {children}
+            {type === 'segmented' && checked && (
+                <FontAwesomeIcon icon={faCircleCheck} className="kit-btn-segmented-actived-icon" />
+            )}
+        </button>
     );
 };
 

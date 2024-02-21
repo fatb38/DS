@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {KitButton, KitTypography} from '@kit/General';
+import {KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 import {KitDropDown} from '@kit/Navigation';
@@ -11,9 +11,9 @@ export const BasicDropdownTest: FC = () => (
             Basic dropdown
         </KitTypography.Title>
         <KitDropDown open menu={{items: genericDropdownItems}}>
-            <KitButton type="link" id="hover">
+            <KitTypography.Link id="hover">
                 Hover me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-            </KitButton>
+            </KitTypography.Link>
         </KitDropDown>
     </div>
 );

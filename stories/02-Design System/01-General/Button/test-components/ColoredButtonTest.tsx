@@ -10,10 +10,10 @@ export const ColoredButtonTest: FC = () => (
             <KitButton type="text" icon={<FontAwesomeIcon icon={faRotateRight} />}>
                 Refresh
             </KitButton>
-            <KitButton type="text" textColor="grey" icon={<FontAwesomeIcon icon={faRotateRight} />}>
+            <KitButton type="text" color="grey" icon={<FontAwesomeIcon icon={faRotateRight} />}>
                 Refresh
             </KitButton>
-            <KitButton type="text" textColor="black" icon={<FontAwesomeIcon icon={faRotateRight} />}>
+            <KitButton type="text" color="black" icon={<FontAwesomeIcon icon={faRotateRight} />}>
                 Refresh
             </KitButton>
         </div>

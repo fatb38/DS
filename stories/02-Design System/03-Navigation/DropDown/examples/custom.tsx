@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
-import {KitButton} from '@kit/General';
+import {KitButton, KitTypography} from '@kit/General';
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
@@ -41,9 +41,9 @@ const App = () => {
         <KitSpace>
             <KitDropDown menu={{items}} dropdownRender={customRender}>
                 <a onClick={e => e.preventDefault()}>
-                    <KitButton type="link">
+                    <KitTypography.Link>
                         Hover me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-                    </KitButton>
+                    </KitTypography.Link>
                 </a>
             </KitDropDown>
         </KitSpace>

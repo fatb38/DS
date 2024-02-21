@@ -13,13 +13,13 @@ export const IconButtonTest: FC = () => (
             </KitButton>
             <KitButton icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
             <KitButton icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>Default</KitButton>
+            <KitButton type="tertiary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+            <KitButton type="tertiary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                Tertiary
+            </KitButton>
             <KitButton type="text" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
             <KitButton type="text" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                 Text
-            </KitButton>
-            <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
-            <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
-                Link
             </KitButton>
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faFilter} />} />
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faFilter} />}>

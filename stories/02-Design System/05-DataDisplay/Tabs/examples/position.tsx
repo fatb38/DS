@@ -13,31 +13,23 @@ const App = () => {
             <KitSpace style={{marginBottom: 24}}>
                 Tab position:
                 <KitSpace.Compact block>
-                    <KitButton
-                        type="segmented"
-                        onClick={() => setTabPosition('top')}
-                        segmentedActived={tabPosition === 'top'}
-                    >
+                    <KitButton type="segmented" onClick={() => setTabPosition('top')} active={tabPosition === 'top'}>
                         Top
                     </KitButton>
                     <KitButton
                         type="segmented"
                         onClick={() => setTabPosition('bottom')}
-                        segmentedActived={tabPosition === 'bottom'}
+                        active={tabPosition === 'bottom'}
                     >
                         Bottom
                     </KitButton>
-                    <KitButton
-                        type="segmented"
-                        onClick={() => setTabPosition('left')}
-                        segmentedActived={tabPosition === 'left'}
-                    >
+                    <KitButton type="segmented" onClick={() => setTabPosition('left')} active={tabPosition === 'left'}>
                         Left
                     </KitButton>
                     <KitButton
                         type="segmented"
                         onClick={() => setTabPosition('right')}
-                        segmentedActived={tabPosition === 'right'}
+                        active={tabPosition === 'right'}
                     >
                         Right
                     </KitButton>

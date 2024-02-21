@@ -3,6 +3,7 @@
 :local(.kit-typography-link) {
     font-size: convertToPixel(--general-typography-fontSize6);
     line-height: var(--general-typography-lineHeight6);
+    color: var(--kit-typography-color, 'inherit');
 
     &.ant-typography-regular {
         font-weight: var(
@@ -26,6 +27,7 @@
 :local(.kit-typography-paragraph) {
     font-size: convertToPixel(--general-typography-fontSize6);
     line-height: var(--general-typography-lineHeight6);
+    color: var(--kit-typography-color, 'inherit');
 
     &.ant-typography-regular {
         font-weight: var(
@@ -52,6 +54,7 @@
 :local(.kit-typography-text) {
     font-size: convertToPixel(--general-typography-fontSize6);
     line-height: var(--general-typography-lineHeight6);
+    color: var(--kit-typography-color, 'inherit');
 
     &.kit-typography-text-small {
         font-size: convertToPixel(var(--general-typography-fontSize7));
@@ -85,4 +88,11 @@
     &.ant-typography-bold {
         font-weight: var(--components-Typography-Text-fontWeight-bold, var(--general-typography-boldFontWeight));
     }
+}
+
+h1.ant-typography,
+h2.ant-typography,
+h3.ant-typography,
+h4.ant-typography {
+    color: var(--kit-typography-color, 'inherit');
 }

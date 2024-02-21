@@ -10,10 +10,10 @@ const App = () => {
     return (
         <>
             <KitSpace.Compact block>
-                <KitButton type="segmented" onClick={() => setMode('top')} segmentedActived={mode === 'top'}>
+                <KitButton type="segmented" onClick={() => setMode('top')} active={mode === 'top'}>
                     Horizontal
                 </KitButton>
-                <KitButton type="segmented" onClick={() => setMode('left')} segmentedActived={mode === 'left'}>
+                <KitButton type="segmented" onClick={() => setMode('left')} active={mode === 'left'}>
                     Vertical
                 </KitButton>
             </KitSpace.Compact>

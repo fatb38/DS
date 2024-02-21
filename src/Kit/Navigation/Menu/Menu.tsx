@@ -42,9 +42,9 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
                 <KitButton
                     className="kit-menu-header-close"
                     type="text"
-                    textColor="black"
+                    color="black"
                     icon={<FontAwesomeIcon icon={faXmark} />}
-                    onClick={e => onCloseClick(e)}
+                    onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => onCloseClick(e)}
                     aria-label="close"
                     data-name="close"
                     role="img"

@@ -7,56 +7,36 @@ const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitSpace wrap>
-                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} segmentedActived />
-                <KitButton
-                    type="segmented"
-                    icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
-                    segmentedActived
-                    segmentedChecked
-                />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} active />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} active checked />
             </KitSpace>
             <br />
             <KitSpace wrap>
                 <KitSpace.Compact block>
-                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} segmentedActived />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} active />
                     <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
                 </KitSpace.Compact>
                 <KitSpace.Compact block>
                     <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} />
-                    <KitButton
-                        type="segmented"
-                        icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
-                        segmentedActived
-                        segmentedChecked
-                    />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} active checked />
                 </KitSpace.Compact>
             </KitSpace>
             <br />
             <KitSpace wrap>
                 <KitSpace.Compact block>
-                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} segmentedActived />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} active />
                     <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
                     <KitButton type="segmented" icon={<FontAwesomeIcon icon={faRotateRight} />} />
                 </KitSpace.Compact>
                 <KitSpace.Compact block>
                     <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} />
-                    <KitButton
-                        type="segmented"
-                        icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
-                        segmentedActived
-                        segmentedChecked
-                    />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} active checked />
                     <KitButton type="segmented" icon={<FontAwesomeIcon icon={faRotateRight} />} />
                 </KitSpace.Compact>
                 <KitSpace.Compact block>
                     <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} />
                     <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
-                    <KitButton
-                        type="segmented"
-                        icon={<FontAwesomeIcon icon={faRotateRight} />}
-                        segmentedActived
-                        segmentedChecked
-                    />
+                    <KitButton type="segmented" icon={<FontAwesomeIcon icon={faRotateRight} />} active checked />
                 </KitSpace.Compact>
             </KitSpace>
         </KitSpace>

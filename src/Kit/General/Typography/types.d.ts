@@ -1,10 +1,13 @@
 import type {BlockProps, EllipsisConfig} from 'antd/lib/typography/Base';
 import {AllHTMLAttributes, ForwardedRef, FunctionComponent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
+import {CSSProperties} from 'react';
 
 export interface IInternalKitTitle extends Base {
     component?: string;
     ref: ForwardedRef;
+    style?: CSSProperties;
+    className?: string;
 }
 
 type antdTitleTypesToOmit = 'type' | 'editable' | 'code' | 'italic' | 'keyboard' | 'mark' | 'underline';
@@ -23,6 +26,8 @@ export interface IKitTitle
         > {
     level?: TitleLevelKeys;
     regular?: boolean;
+    color?: string;
+    className?: string;
 }
 
 export interface IKitText
@@ -31,6 +36,8 @@ export interface IKitText
     ellipsis?: boolean | Omit<EllipsisConfig, 'onExpand'>;
     size?: kitTextSize;
     weight?: kitTextWeight;
+    color?: string;
+    style?: CSSProperties;
 }
 
 export interface IKitLink
@@ -39,6 +46,8 @@ export interface IKitLink
     ellipsis?: boolean;
     size?: kitTextSize;
     weight?: kitTextWeight;
+    color?: string;
+    style?: CSSProperties;
 }
 
 export interface IStyledKitLink {

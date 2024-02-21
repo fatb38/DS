@@ -1,16 +1,17 @@
-import React, {forwardRef} from 'react';
+import React, {forwardRef, useMemo} from 'react';
 import {Typography} from 'antd';
 import {IKitText} from './types';
-import {getWeightClassname} from './commons';
+import {getCustomColor, getWeightClassname} from './commons';
 import {useKitTheme} from '@theme/useKitTheme';
+import cn from 'classnames';
 
 import styles from './styles.module.scss';
-import cn from 'classnames';
 
 const KitText = forwardRef<HTMLElement, IKitText>(({size = 'medium', className, ...props}, ref) => {
     const {appId} = useKitTheme();
 
     const clx = cn(
+        appId,
         styles['kit-typography-text'],
         {
             'kit-typography-text-small': size === 'small',
@@ -20,7 +21,11 @@ const KitText = forwardRef<HTMLElement, IKitText>(({size = 'medium', className, 
         className
     );
 
-    return <Typography.Text {...props} ref={ref} className={`${appId} ${clx} ${getWeightClassname(props)}`} />;
+    const customStyle = useMemo(() => ({...props.style, ...getCustomColor(props.color)}), [props.color, props.style]);
+
+    return (
+        <Typography.Text {...props} ref={ref} className={`${clx} ${getWeightClassname(props)}`} style={customStyle} />
+    );
 });
 
 KitText.displayName = 'KitText';
