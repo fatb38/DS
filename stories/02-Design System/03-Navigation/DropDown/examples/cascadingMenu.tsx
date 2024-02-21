@@ -2,7 +2,7 @@ import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
-import {KitButton} from '@kit/General';
+import {KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 
@@ -130,15 +130,15 @@ const App = () => {
     return (
         <KitSpace size="m">
             <KitDropDown menu={{items}}>
-                <KitButton type="link">
+                <KitTypography.Link>
                     Cascading <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-                </KitButton>
+                </KitTypography.Link>
             </KitDropDown>
             <KitDropDown menu={{items: itemsGroups}}>
-                <KitButton type="link">
+                <KitTypography.Link>
                     Cascading with groups
                     <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-                </KitButton>
+                </KitTypography.Link>
             </KitDropDown>
         </KitSpace>
     );

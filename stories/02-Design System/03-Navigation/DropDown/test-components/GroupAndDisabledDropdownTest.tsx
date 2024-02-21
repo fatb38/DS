@@ -29,9 +29,9 @@ export const GroupAndDisabledDropdownTest: FC = () => {
                         items: disabledAndDividerDropdownItems
                     }}
                 >
-                    <KitButton type="link">
+                    <KitTypography.Link>
                         Divider and disabled <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-                    </KitButton>
+                    </KitTypography.Link>
                 </KitDropDown>
                 <KitDropDown
                     open
@@ -39,15 +39,15 @@ export const GroupAndDisabledDropdownTest: FC = () => {
                         items: groupDropdownItems
                     }}
                 >
-                    <KitButton type="link">
+                    <KitTypography.Link>
                         Groups <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-                    </KitButton>
+                    </KitTypography.Link>
                 </KitDropDown>
                 <KitDropDown open menu={{items: disabledAndDividerDropdownItems}} dropdownRender={customRender}>
                     <a onClick={e => e.preventDefault()}>
-                        <KitButton type="link">
+                        <KitTypography.Link>
                             Hover me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-                        </KitButton>
+                        </KitTypography.Link>
                     </a>
                 </KitDropDown>
             </div>

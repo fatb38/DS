@@ -15,12 +15,7 @@ const App = () => {
                     title="View options"
                     onCloseClick={() => console.log('on click close')}
                     segmentedButton={
-                        <KitButton
-                            type="segmented"
-                            segmentedColor="green"
-                            segmentedActived
-                            icon={<FontAwesomeIcon icon={faHouse} />}
-                        />
+                        <KitButton type="segmented" color="green" active icon={<FontAwesomeIcon icon={faHouse} />} />
                     }
                     primaryInput={<KitInput placeholder="Opération #1" />}
                     secondaryInput={<KitInput placeholder="Description" />}

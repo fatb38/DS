@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitButton} from '@kit/General/';
+import {KitButton, KitTypography} from '@kit/General/';
 import {KitDropDown} from '@kit/Navigation/';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
@@ -58,24 +58,24 @@ export const EditorTemplate: IEditorTemplate = () => {
     return (
         <KitSpace size="m">
             <KitDropDown menu={{items}}>
-                <KitButton type="link">
+                <KitTypography.Link>
                     Basic <FontAwesomeIcon icon={faAngleDown} />
-                </KitButton>
+                </KitTypography.Link>
             </KitDropDown>
             <KitDropDown menu={{items, selectable: true}}>
-                <KitButton type="link">
+                <KitTypography.Link>
                     Selectable <FontAwesomeIcon icon={faAngleDown} />
-                </KitButton>
+                </KitTypography.Link>
             </KitDropDown>
             <KitDropDown menu={{items: disabledAndDividerDropdownItems}}>
-                <KitButton type="link">
+                <KitTypography.Link>
                     With divider <FontAwesomeIcon icon={faAngleDown} />
-                </KitButton>
+                </KitTypography.Link>
             </KitDropDown>
             <KitDropDown menu={{items: groupDropdownItems}}>
-                <KitButton type="link">
+                <KitTypography.Link>
                     With groups <FontAwesomeIcon icon={faAngleDown} />
-                </KitButton>
+                </KitTypography.Link>
             </KitDropDown>
         </KitSpace>
     );

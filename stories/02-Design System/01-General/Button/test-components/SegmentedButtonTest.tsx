@@ -30,37 +30,22 @@ export const SegmentedButtonTest: FC = () => (
             </KitButton>
         </div>
         <div style={{display: 'flex', gap: '8px'}}>
-            <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} segmentedActived />
-            <KitButton
-                type="segmented"
-                icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
-                segmentedActived
-                segmentedChecked
-            />
+            <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} active />
+            <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} active checked />
             <KitSpace.Compact>
-                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} segmentedActived />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} active />
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faRotateRight} />} />
             </KitSpace.Compact>
             <KitSpace.Compact>
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} />
-                <KitButton
-                    type="segmented"
-                    icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
-                    segmentedActived
-                    segmentedChecked
-                />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} active checked />
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faRotateRight} />} />
             </KitSpace.Compact>
             <KitSpace.Compact>
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} />
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
-                <KitButton
-                    type="segmented"
-                    icon={<FontAwesomeIcon icon={faRotateRight} />}
-                    segmentedActived
-                    segmentedChecked
-                />
+                <KitButton type="segmented" icon={<FontAwesomeIcon icon={faRotateRight} />} active checked />
             </KitSpace.Compact>
         </div>
     </div>

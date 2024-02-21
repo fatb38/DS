@@ -3,25 +3,25 @@ import {KitButton, KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
-export const DefaultButtonTest: FC = () => (
+export const TertiaryButtonTest: FC = () => (
     <div style={{marginBottom: '40px'}}>
-        <KitTypography.Title level={'h3'}>Secondary (Default) button</KitTypography.Title>
+        <KitTypography.Title level={'h3'}>Tertiary button</KitTypography.Title>
         <div style={{display: 'inline-flex', gap: '8px'}}>
-            <KitButton type="secondary">Default</KitButton>
-            <KitButton type="secondary" id="hover">
+            <KitButton type="tertiary">Default</KitButton>
+            <KitButton type="tertiary" id="hover">
                 Hover
             </KitButton>
-            <KitButton type="secondary" id="focus">
+            <KitButton type="tertiary" id="focus">
                 Focus
             </KitButton>
-            <KitButton type="secondary" disabled>
+            <KitButton type="tertiary" disabled>
                 Disabled
             </KitButton>
-            <KitButton type="secondary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
-            <KitButton type="secondary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+            <KitButton type="tertiary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+            <KitButton type="tertiary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                 Search
             </KitButton>
-            <KitButton type="secondary" loading>
+            <KitButton type="tertiary" loading>
                 Loading
             </KitButton>
         </div>

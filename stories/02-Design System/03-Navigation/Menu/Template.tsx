@@ -87,14 +87,7 @@ const mockData = {
     },
     menu: {
         title: 'View options',
-        segmentedButton: (
-            <KitButton
-                type="primary"
-                icon={<FontAwesomeIcon icon={faHouse} />}
-                segmentedColor="green"
-                segmentedActived
-            />
-        ),
+        segmentedButton: <KitButton type="primary" icon={<FontAwesomeIcon icon={faHouse} />} color="green" active />,
         primaryInput: <KitInput placeholder="Opération #1" />,
         secondaryInput: <KitInput placeholder="Description" />,
         onCloseClick: () => console.log('on click close')

@@ -13,7 +13,7 @@ const App = () => {
             <KitButton type="text" danger>
                 Text
             </KitButton>
-            <KitButton type="link" danger>
+            <KitButton type="tertiary" danger>
                 Link
             </KitButton>
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger />

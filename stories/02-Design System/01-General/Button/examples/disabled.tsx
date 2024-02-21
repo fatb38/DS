@@ -27,6 +27,18 @@ const App = () => {
                 </KitButton>
             </KitSpace>
             <KitSpace>
+                <KitButton type="tertiary">Primary</KitButton>
+                <KitButton type="tertiary" disabled>
+                    Primary(disabled)
+                </KitButton>
+                <KitButton danger type="tertiary">
+                    Danger Text
+                </KitButton>
+                <KitButton danger type="tertiary" disabled>
+                    Danger Text(disabled)
+                </KitButton>
+            </KitSpace>
+            <KitSpace>
                 <KitButton type="text">Text</KitButton>
                 <KitButton type="text" disabled>
                     Text(disabled)
@@ -36,18 +48,6 @@ const App = () => {
                 </KitButton>
                 <KitButton type="text" danger disabled>
                     Text danger(disabled)
-                </KitButton>
-            </KitSpace>
-            <KitSpace>
-                <KitButton type="link">Link</KitButton>
-                <KitButton type="link" disabled>
-                    Link(disabled)
-                </KitButton>
-                <KitButton type="link" danger>
-                    Danger Link
-                </KitButton>
-                <KitButton type="link" danger disabled>
-                    Danger Link(disabled)
                 </KitButton>
             </KitSpace>
             <KitSpace>

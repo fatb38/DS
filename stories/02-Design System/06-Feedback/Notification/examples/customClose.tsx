@@ -13,7 +13,7 @@ const App = () => {
 
         const btn = (
             <KitSpace>
-                <KitButton type="link" onClick={() => kitNotification.destroy()}>
+                <KitButton type="text" onClick={() => kitNotification.destroy()}>
                     Destroy All
                 </KitButton>
                 <KitButton type="primary" onClick={() => kitNotification.destroy(key)}>

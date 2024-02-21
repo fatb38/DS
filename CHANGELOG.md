@@ -1,5 +1,20 @@
 # Changelog
 
+## [xx.xx.xx](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-02-02)
+
+### ✨ Features
+  * **⚠️ Breaking change - Button:**  (@evoiron)
+    * update color Management
+    * remove design tokens
+    * remove some props : `href`, `target`, `wrapperClassName`, `wrapperStyle`, `textColor`
+    * rename props: 
+      * `segmentedColor` is now `color`
+      * `segmentedactived` is now `active`
+      * `segmentedChecked` is now `checked`
+    * modify button types:
+      * add `tertiary` type
+      * remove `link` type
+
 ## [0.13.0](https://www.npmjs.com/package/aristid-ds/v/0.13.0) (2024-02-19)
 
 ### ✨ Features

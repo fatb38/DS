@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
-import {KitButton} from '@kit/General';
+import {KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 import {disabledAndDividerDropdownItems, groupDropdownItems} from '../commons.tsx';
@@ -14,18 +14,18 @@ const App = () => {
                     items: disabledAndDividerDropdownItems
                 }}
             >
-                <KitButton type="link">
+                <KitTypography.Link>
                     Divider and disabled <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-                </KitButton>
+                </KitTypography.Link>
             </KitDropDown>
             <KitDropDown
                 menu={{
                     items: groupDropdownItems
                 }}
             >
-                <KitButton type="link">
+                <KitTypography.Link>
                     Groups <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-                </KitButton>
+                </KitTypography.Link>
             </KitDropDown>
         </KitSpace>
     );

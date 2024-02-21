@@ -8,17 +8,17 @@ const App = () => {
         <KitSpace direction="vertical">
             <KitSpace wrap>
                 <KitButton type="text" icon={<FontAwesomeIcon icon={faRotateRight} />} />
-                <KitButton type="text" textColor="grey" icon={<FontAwesomeIcon icon={faRotateRight} />} />
-                <KitButton type="text" textColor="black" icon={<FontAwesomeIcon icon={faRotateRight} />} />
+                <KitButton type="text" color="grey" icon={<FontAwesomeIcon icon={faRotateRight} />} />
+                <KitButton type="text" color="black" icon={<FontAwesomeIcon icon={faRotateRight} />} />
             </KitSpace>
             <KitSpace wrap>
                 <KitButton type="text" icon={<FontAwesomeIcon icon={faRotateRight} />}>
                     Refresh
                 </KitButton>
-                <KitButton type="text" textColor="grey" icon={<FontAwesomeIcon icon={faRotateRight} />}>
+                <KitButton type="text" color="grey" icon={<FontAwesomeIcon icon={faRotateRight} />}>
                     Refresh
                 </KitButton>
-                <KitButton type="text" textColor="black" icon={<FontAwesomeIcon icon={faRotateRight} />}>
+                <KitButton type="text" color="black" icon={<FontAwesomeIcon icon={faRotateRight} />}>
                     Refresh
                 </KitButton>
             </KitSpace>

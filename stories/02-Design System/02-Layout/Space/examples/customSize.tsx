@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {KitSpace, KitButton} from '@kit/index';
+import {KitSpace, KitButton, KitTypography} from '@kit/index';
 import {Slider} from 'antd';
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
             <KitSpace size={size}>
                 <KitButton type="primary">Primary</KitButton>
                 <KitButton>Default</KitButton>
-                <KitButton type="link">Link</KitButton>
+                <KitTypography.Link>Link</KitTypography.Link>
             </KitSpace>
         </>
     );

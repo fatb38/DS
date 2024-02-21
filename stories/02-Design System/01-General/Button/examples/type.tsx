@@ -7,9 +7,9 @@ const App = () => {
     return (
         <KitSpace wrap>
             <KitButton type="primary">Primary Button</KitButton>
-            <KitButton>Default Button</KitButton>
+            <KitButton type="secondary">Secondary Button</KitButton>
+            <KitButton type="tertiary">Tertiary Button</KitButton>
             <KitButton type="text">Text Button</KitButton>
-            <KitButton type="link">Link Button</KitButton>
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faRotateRight} />} />
         </KitSpace>
     );

@@ -13,12 +13,12 @@ const App = () => {
                 </KitButton>
                 <KitButton icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
                 <KitButton icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>Search</KitButton>
-                <KitButton type="text" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
-                <KitButton type="text" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                <KitButton type="tertiary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+                <KitButton type="tertiary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                     Search
                 </KitButton>
-                <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
-                <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                <KitButton type="text" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+                <KitButton type="text" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                     Search
                 </KitButton>
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faFilter} />} />

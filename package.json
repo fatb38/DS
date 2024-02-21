@@ -22,7 +22,7 @@
     "chromatic": "chromatic --exit-zero-on-changes",
     "copy-typescript-definitions": "copyfiles -u 1 \"src/**/*.d.ts\" dist",
     "dev": "vite",
-    "generate-tokens": "node tokens-generator.js",
+    "generate-tokens": "node tokens-generator.cjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
     "preview": "vite preview",
