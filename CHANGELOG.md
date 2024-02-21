@@ -1,9 +1,7 @@
 # Changelog
 
 ## [xx.xx.xx](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-02-02)
-
-### ✨ Features
-  * **⚠️ Breaking change - Button:**  (@evoiron)
+* **⚠️ Breaking change - Button:**  (@evoiron)
     * update color Management
     * remove design tokens
     * remove some props : `href`, `target`, `wrapperClassName`, `wrapperStyle`, `textColor`
@@ -14,6 +12,10 @@
     * modify button types:
       * add `tertiary` type
       * remove `link` type
+      * 
+### ✨ Features
+* **Typography:**
+    * Add `color` prop to set color on each typography elements (@evoiron)
 
 ## [0.13.0](https://www.npmjs.com/package/aristid-ds/v/0.13.0) (2024-02-19)
 

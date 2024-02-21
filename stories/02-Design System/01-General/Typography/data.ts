@@ -42,6 +42,20 @@ export const argTypes = {
         },
         defaultValue: false
     },
+    color: {
+        name: 'color',
+        control: {type: 'text'},
+        description: 'Set a color',
+        table: {
+            type: {
+                summary:
+                    '`hexadecimal` | `rgb` | `hsl` | `mediumGrey` | `yellow` | `orange` | `pink` | `red` | `blue` | `green` | `primary` | `black` | `black60` | `white` | `grey`'
+            },
+            defaultValue: {summary: false},
+            category: 'Common'
+        },
+        defaultValue: null
+    },
     ellipsis: {
         name: 'ellipsis',
         description:

@@ -36,5 +36,9 @@ export const TextAndLinkTypographyTest: FC = () => (
         <KitTypography.Link href="https://aristid.com" target="_blank">
             Aristid Design (Link)
         </KitTypography.Link>
+        <KitTypography.Title level="h3">Colored Text</KitTypography.Title>
+        <KitTypography.Paragraph color="primary">Aristid Design</KitTypography.Paragraph>
+        <KitTypography.Paragraph color="red">Aristid Design</KitTypography.Paragraph>
+        <KitTypography.Paragraph color="green">Aristid Design</KitTypography.Paragraph>
     </>
 );

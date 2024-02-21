@@ -1,7 +1,7 @@
-import React, {forwardRef} from 'react';
+import React, {forwardRef, useMemo} from 'react';
 import {Typography} from 'antd';
 import {IKitText} from './types';
-import {getWeightClassname} from './commons';
+import {getCustomColor, getWeightClassname} from './commons';
 import {useKitTheme} from '@theme/useKitTheme';
 import styles from './styles.module.scss';
 import cn from 'classnames';
@@ -10,6 +10,7 @@ const KitParagraph = forwardRef<HTMLElement, IKitText>(({size = 'medium', classN
     const {appId} = useKitTheme();
 
     const clx = cn(
+        appId,
         styles['kit-typography-paragraph'],
         {
             'kit-typography-paragraph-small': size === 'small',
@@ -19,7 +20,16 @@ const KitParagraph = forwardRef<HTMLElement, IKitText>(({size = 'medium', classN
         className
     );
 
-    return <Typography.Paragraph {...props} ref={ref} className={`${appId} ${clx} ${getWeightClassname(props)}`} />;
+    const customStyle = useMemo(() => ({...props.style, ...getCustomColor(props.color)}), [props.color, props.style]);
+
+    return (
+        <Typography.Paragraph
+            {...props}
+            ref={ref}
+            className={`${clx} ${getWeightClassname(props)}`}
+            style={customStyle}
+        />
+    );
 });
 KitParagraph.displayName = 'KitParagraph';
 
