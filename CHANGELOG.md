@@ -2,6 +2,13 @@
 
 ## [0.13.0](https://www.npmjs.com/package/aristid-ds/v/0.13.0) (2024-02-19)
 
+### ✨ Features
+* **Breadcrumb:**
+    * change `breadcrumb` design (@Delmotte-Vincent)
+    * add `icon` props in `breadcrumb` items (@Delmotte-Vincent)
+
+## [0.13.0](https://www.npmjs.com/package/aristid-ds/v/0.13.0) (2024-02-16)
+
 ### 🐛 Bug Fixes
 * remove styled-components for improved performances. All Components impacted (@evoiron)
 * upgrade Ant to versin 5.14.1 (@evoiron)

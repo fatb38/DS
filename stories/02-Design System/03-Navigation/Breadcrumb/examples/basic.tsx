@@ -1,7 +1,8 @@
 import React from 'react';
 import {KitBreadcrumb} from '@kit/Navigation';
+import {IKitBreadcrumbItem} from '@kit/Navigation/Breadcrumb/types';
 
-const items = [
+const items: IKitBreadcrumbItem[] = [
     {
         title: 'Home'
     },

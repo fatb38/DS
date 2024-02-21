@@ -2,10 +2,10 @@ import React from 'react';
 import {KitTypography} from '@kit/General/';
 import {KitBreadcrumb} from '@kit/Navigation/';
 import {IEditorTemplate} from '../../../types';
-import {IKitBreadcrumb} from '@kit/Navigation/Breadcrumb/types';
+import {IKitBreadcrumb, IKitBreadcrumbItem, IKitBreadcrumbMenuItem} from '@kit/Navigation/Breadcrumb/types';
 import {argTypes} from './data';
 
-const menuItems = [
+const menuItems: IKitBreadcrumbMenuItem[] = [
     {
         key: '1',
         label: (
@@ -32,15 +32,15 @@ const menuItems = [
     }
 ];
 
-const items = [
+const items: IKitBreadcrumbItem[] = [
     {
         title: 'Aristid Design'
     },
     {
-        title: <KitTypography.Link href="">Component</KitTypography.Link>
+        title: 'Component'
     },
     {
-        title: <KitTypography.Link href="">General</KitTypography.Link>,
+        title: 'General',
         menu: {items: menuItems}
     },
     {

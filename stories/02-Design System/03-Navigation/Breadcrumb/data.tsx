@@ -1,7 +1,8 @@
 import React from 'react';
 import {KitTypography} from '@kit/General';
+import {IKitBreadcrumbItem, IKitBreadcrumbMenuItem} from '@kit/Navigation/Breadcrumb/types';
 
-const menuItems = [
+const menuItems: IKitBreadcrumbMenuItem[] = [
     {
         key: '1',
         label: (
@@ -28,15 +29,16 @@ const menuItems = [
     }
 ];
 
-const items = [
+const items: IKitBreadcrumbItem[] = [
     {
         title: 'Aristid Design'
     },
     {
-        title: <KitTypography.Link href="">Component</KitTypography.Link>
+        title: 'Component',
+        href: ''
     },
     {
-        title: <KitTypography.Link href="">General</KitTypography.Link>,
+        title: 'General',
         menu: {items: menuItems}
     },
     {
@@ -51,7 +53,7 @@ export const argTypes = {
         description: 'The routing stack information of router',
         table: {
             type: {
-                summary: '[items[]](#ItemType)'
+                summary: '[items[]](#IKitBreadcrumbItem[])'
             },
             defaultValue: {summary: ''},
             category: 'Breadcrumb'
