@@ -48,7 +48,7 @@ const App = () => {
 
     return (
         <KitAutoComplete
-            popupMatchSelectWidth={252}
+            popupMatchSelectWidth
             style={{width: 300}}
             options={options}
             onSelect={onSelect}
