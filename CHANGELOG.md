@@ -8,6 +8,7 @@
 
 * **Select:**
   * Fix dropdown border when focused or when a status is set (@philippechevieux)
+  * Fix dropdown border on click on arrow (@renaudamsellem)
 
 * **InputWrapper:**
   * Fix border default color (@philippechevieux)
