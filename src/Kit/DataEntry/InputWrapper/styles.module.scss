@@ -20,7 +20,7 @@
         }
     }
 
-    &.bordered .kit-input-wrapper-content {
+    &.bordered > .kit-input-wrapper-content {
         border: 1px solid
             var(
                 --components-InputWrapper-colors-border-default,
@@ -41,6 +41,7 @@
                 );
             }
         }
+
         .kit-input-wrapper-content {
             border-color: var(
                 --components-InputWrapper-colors-border-error,
@@ -48,6 +49,7 @@
             );
         }
     }
+
     &.warning {
         .kit-input-wrapper-label,
         .kit-input-wrapper-helper {
@@ -59,6 +61,7 @@
                 );
             }
         }
+
         .kit-input-wrapper-content {
             border-color: var(
                 --components-InputWrapper-colors-border-warning,
@@ -78,6 +81,7 @@
                 );
             }
         }
+
         .kit-input-wrapper-content {
             border-color: var(
                 --components-InputWrapper-colors-border-disabled,
