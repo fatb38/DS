@@ -24,7 +24,7 @@
         border: 1px solid
             var(
                 --components-InputWrapper-colors-border-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                var(--general-colors-secondary-mediumGrey-mediumGrey200)
             );
         border-radius: convertToPixel(--components-InputWrapper-border-radius, --general-border-radius-s);
         padding: 10px;
