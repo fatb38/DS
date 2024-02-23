@@ -9,6 +9,9 @@
 * **Select:**
   * Fix dropdown border when focused or when a status is set (@philippechevieux)
 
+* **InputWrapper:**
+  * Fix border default color (@philippechevieux)
+
 ## [1.0.0](https://www.npmjs.com/package/aristid-ds/v/1.0.0) (2024-02-02)
 * **⚠️ Breaking change - Button:**  (@evoiron)
     * update color Management
