@@ -10,6 +10,12 @@ import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
+const _getPopupPlacementClasses = (className: string | undefined, isFocus: boolean) => {
+    return cn(className, 'ant-select-dropdown', 'kit-select-dropdown-bottom', {
+        'kit-select-dropdown-focus': isFocus
+    });
+};
+
 export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
     (
         {
@@ -29,8 +35,6 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
         },
         ref?: Ref<RefSelectProps> | undefined
     ) => {
-        const popupClx = cn('ant-select-dropdown', 'kit-select-dropdown-bottom', popupClassName);
-
         return (
             <KitInputWrapper
                 label={label}
@@ -44,7 +48,7 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
                     disabled={disabled}
                     ref={ref}
                     className={styles['kit-autocomplete']}
-                    popupClassName={popupClx}
+                    popupClassName={_getPopupPlacementClasses(popupClassName, true)}
                 >
                     <KitInput
                         prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />}
