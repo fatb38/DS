@@ -1,4 +1,4 @@
-import React, {Ref, forwardRef} from 'react';
+import React, {FocusEvent, Ref, forwardRef, useState} from 'react';
 import {AutoComplete as AntdAutoComplete, RefSelectProps} from 'antd';
 import {KitInput} from '@kit/DataEntry/Input';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
@@ -9,6 +9,18 @@ import {valueType} from 'antd/lib/statistic/utils';
 import cn from 'classnames';
 
 import styles from './styles.module.scss';
+
+const _getPopupPlacementClasses = (
+    className: string | undefined,
+    isFocus: boolean,
+    status: IKitAutoComplete['status']
+) => {
+    return cn(className, 'ant-select-dropdown', 'kit-select-dropdown-bottom', {
+        'kit-select-dropdown-focus': isFocus,
+        'kit-select-dropdown-error': status === 'error',
+        'kit-select-dropdown-warning': status === 'warning'
+    });
+};
 
 export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
     (
@@ -22,6 +34,7 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
             placeholder,
             status,
             value,
+            onFocus,
             onBlur,
             popupClassName,
             wrapperClassName,
@@ -29,7 +42,23 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
         },
         ref?: Ref<RefSelectProps> | undefined
     ) => {
-        const popupClx = cn('ant-select-dropdown', 'kit-select-dropdown-bottom', popupClassName);
+        const [isFocus, setIsFocus] = useState(false);
+
+        const _handleOnFocus = (e: FocusEvent<HTMLInputElement>) => {
+            setIsFocus(true);
+
+            if (onFocus) {
+                onFocus(e);
+            }
+        };
+
+        const _handleOnBlur = (e: FocusEvent<HTMLInputElement>) => {
+            setIsFocus(false);
+
+            if (onBlur) {
+                onBlur(e);
+            }
+        };
 
         return (
             <KitInputWrapper
@@ -44,7 +73,7 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
                     disabled={disabled}
                     ref={ref}
                     className={styles['kit-autocomplete']}
-                    popupClassName={popupClx}
+                    popupClassName={_getPopupPlacementClasses(popupClassName, isFocus, status)}
                 >
                     <KitInput
                         prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />}
@@ -54,7 +83,8 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
                         placeholder={placeholder}
                         status={status}
                         value={value as valueType}
-                        onBlur={onBlur}
+                        onBlur={_handleOnBlur}
+                        onFocus={_handleOnFocus}
                     />
                 </AntdAutoComplete>
             </KitInputWrapper>
