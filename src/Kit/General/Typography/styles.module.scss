@@ -57,17 +57,17 @@
     color: var(--kit-typography-color, 'inherit');
 
     &.kit-typography-text-small {
-        font-size: convertToPixel(var(--general-typography-fontSize7));
+        font-size: convertToPixel(--general-typography-fontSize7);
         line-height: var(--general-typography-lineHeight7);
     }
 
     &.kit-typography-text-medium {
-        font-size: convertToPixel(var(--general-typography-fontSize6));
+        font-size: convertToPixel(--general-typography-fontSize6);
         line-height: var(--general-typography-lineHeight6);
     }
 
     &.kit-typography-text-large {
-        font-size: convertToPixel(var(--general-typography-fontSize5));
+        font-size: convertToPixel(--general-typography-fontSize5);
         line-height: var(--general-typography-lineHeight5);
     }
 

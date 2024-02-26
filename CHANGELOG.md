@@ -12,6 +12,13 @@
 * **InputWrapper:**
   * Fix border default color (@philippechevieux)
 
+
+
+## [1.0.1](https://www.npmjs.com/package/aristid-ds/v/1.0.1) (2024-02-26)
+### 🐛 Bug Fixes
+* **Typography:**
+  * fix css error leading to application crash
+
 ## [1.0.0](https://www.npmjs.com/package/aristid-ds/v/1.0.0) (2024-02-02)
 * **⚠️ Breaking change - Button:**  (@evoiron)
     * update color Management
