@@ -44,7 +44,7 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
     ) => {
         const [isFocus, setIsFocus] = useState(false);
 
-        const _handleOnFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+        const _handleOnFocus = (e: FocusEvent<HTMLInputElement>) => {
             setIsFocus(true);
 
             if (onFocus) {
