@@ -1,6 +1,6 @@
 import {ReactNode, MouseEvent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
-import {IconComponentProps} from '@ant-design/icons/lib/components/Icon';
+import {IconComponentProps} from '@ant-design/icons/es/components/Icon';
 import {KitColorProp} from '@utils/functions/types';
 
 export interface IKitIcon extends IconComponentProps, KitHTMLAttributes<HTMLSpanElement> {

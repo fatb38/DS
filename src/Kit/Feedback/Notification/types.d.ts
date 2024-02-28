@@ -1,4 +1,4 @@
-import {ArgsProps} from 'antd/lib/notification/interface';
+import {ArgsProps} from 'antd/es/notification/interface';
 
 type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 

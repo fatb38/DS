@@ -1,4 +1,4 @@
-import type {BlockProps, EllipsisConfig} from 'antd/lib/typography/Base';
+import type {BlockProps, EllipsisConfig} from 'antd/es/typography/Base';
 import {AllHTMLAttributes, ForwardedRef, FunctionComponent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {CSSProperties} from 'react';

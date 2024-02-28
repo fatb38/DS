@@ -461,7 +461,7 @@ A nightly version of the package is published on daily basis on branch develop (
 **Note:** Though it is useful to test upcoming feature, this version should **NEVER** be used in production
 
 ## Important
-Every import of antd library should pass by `antd` or `/lib/antd`. `es` import will lead to issues in the build process.
+Every import of antd library should pass by `antd` or `ant/es`. `lib` import will lead to issues in the build process.
 
 ## Contributing
 

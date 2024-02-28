@@ -5,7 +5,7 @@ import {useKitTheme} from '@theme/useKitTheme';
 import cn from 'classnames';
 
 import styles from './styles.module.scss';
-import {ItemType} from 'antd/lib/breadcrumb/Breadcrumb';
+import {ItemType} from 'antd/es/breadcrumb/Breadcrumb';
 
 const formatItemsForAntd = (items?: IKitBreadcrumbItem[]): ItemType[] | undefined => {
     if (items === undefined) {

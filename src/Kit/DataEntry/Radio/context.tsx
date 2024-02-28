@@ -1,4 +1,4 @@
-import type {RadioGroupContextProps} from 'antd/lib/radio/interface';
+import type {RadioGroupContextProps} from 'antd/es/radio/interface';
 import {createContext} from 'react';
 
 const RadioGroupContext = createContext<RadioGroupContextProps | null>(null);

@@ -1,10 +1,10 @@
 import {ForwardRefRenderFunction, createContext, forwardRef, memo, useContext, useEffect, useState} from 'react';
 import cn from 'classnames';
-import omit from 'rc-util/lib/omit';
+import omit from 'rc-util/es/omit';
 import React from 'react';
-import {ConfigContext} from 'antd/lib/config-provider/';
+import {ConfigContext} from 'antd/es/config-provider/';
 import Checkbox from './Checkbox';
-import useStyle from 'antd/lib/checkbox/style';
+import useStyle from 'antd/es/checkbox/style';
 import {ICheckboxGroupContext, ICheckboxGroup, CheckboxOptionType, CheckboxValueType} from './types';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 

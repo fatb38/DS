@@ -1,6 +1,6 @@
 import {ColorPickerProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
-import type {Color} from 'antd/lib/color-picker';
+import type {Color} from 'antd/es/color-picker';
 
 type AntdColorPickerTypesToOmit = 'size';
 

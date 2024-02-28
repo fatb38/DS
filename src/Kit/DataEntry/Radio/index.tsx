@@ -10,7 +10,7 @@ import type {
     RadioGroupContextProps,
     RadioGroupOptionType,
     RadioGroupProps
-} from 'antd/lib/radio/interface';
+} from 'antd/es/radio/interface';
 
 export {
     RadioChangeEvent,

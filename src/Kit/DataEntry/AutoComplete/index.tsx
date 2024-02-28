@@ -5,7 +5,7 @@ import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import type {IKitAutoComplete} from './types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
-import {valueType} from 'antd/lib/statistic/utils';
+import {valueType} from 'antd/es/statistic/utils';
 import cn from 'classnames';
 
 import styles from './styles.module.scss';

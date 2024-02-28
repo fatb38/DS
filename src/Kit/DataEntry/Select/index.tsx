@@ -16,7 +16,7 @@ import cn from 'classnames';
 import {IKitOption, IKitSelect} from './types';
 import {Select as AntdSelect} from 'antd';
 import {KitIcon} from '@kit/General';
-import type {CustomTagProps} from 'rc-select/lib/BaseSelect';
+import type {CustomTagProps} from 'rc-select/es/BaseSelect';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {KitTag} from '@kit/DataDisplay/Tag';
 import {useKitTheme} from '@theme/useKitTheme';

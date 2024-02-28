@@ -1,7 +1,7 @@
 import {CollapseProps} from 'antd';
 import {ReactNode, MouseEvent, ReactInstance, KeyboardEvent, FunctionComponent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
-import {SwitchChangeEventHandler} from 'antd/lib/switch';
+import {SwitchChangeEventHandler} from 'antd/es/switch';
 
 type AntdCollapseTypesToOmit = 'bordered' | 'expandIconPosition' | 'ghost';
 

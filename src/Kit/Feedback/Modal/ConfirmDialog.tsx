@@ -3,7 +3,7 @@ import Modal from './Modal';
 import {KitButton, KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {IKitConfirmDialog} from './types';
-import {useLocale} from 'antd/lib/locale';
+import {useLocale} from 'antd/es/locale';
 import {faCheck, faExclamation, faInfo, faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {getCssPropertyValue} from '@theme/utils';

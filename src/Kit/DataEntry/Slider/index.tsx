@@ -3,7 +3,7 @@ import cn from 'classnames';
 import React, {forwardRef} from 'react';
 import {IKitSliderRange, IKitSliderSingle} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
-import type {SliderRef} from 'rc-slider/lib/Slider';
+import type {SliderRef} from 'rc-slider/es/Slider';
 
 import styles from './styles.module.scss';
 

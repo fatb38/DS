@@ -1,4 +1,4 @@
-import {DatePickerProps, RangePickerProps} from 'antd/lib/date-picker';
+import {DatePickerProps, RangePickerProps} from 'antd/es/date-picker';
 
 // Use "never" instead of Omit properties to avoid issues with Antd type/interface declarations
 interface IInternalDatePicker {

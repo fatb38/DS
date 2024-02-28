@@ -7,6 +7,9 @@
 
 ### 🐛 Bug Fixes
 * **AutoComplete:**
+  * Fix crashing release (@evoiron)
+
+* **AutoComplete:**
   * Fix dropdown border when focused or when a status is set (@philippechevieux)
 
 * **Select:**
