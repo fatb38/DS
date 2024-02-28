@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.X.X](https://www.npmjs.com/package/aristid-ds/v/1.X.X) (2024-XX-XX)
+## [1.1.0](https://www.npmjs.com/package/aristid-ds/v/1.1.0) (2024-02-28)
 ### ✨ Features
 * **Nightly build:**
   * publish a nightly version of the package under `next`. (@evoiron)
