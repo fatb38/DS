@@ -12,9 +12,8 @@
         }
     }
 
-    &.ant-select.ant-select-focused.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input) {
+    &.ant-select-focused.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input) {
         .ant-select-selector {
-            border-color: transparent;
             box-shadow: none;
         }
     }
@@ -65,6 +64,7 @@
             --components-Select-colors-background-default,
             var(--general-colors-neutral-white)
         );
+        border: 1px solid #d1dfe9;
         border-radius: convertToPixel(--components-Select-border-radius, --general-border-radius-s);
         transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
@@ -82,15 +82,11 @@
             );
         }
 
-        .ant-select-selector:has(~ .ant-select-clear)  {
-            padding-right: 60px;
-        }
-            
         .ant-select-selector {
-            grid-column: 1 / 4;
-            padding: 4px 30px 4px 9px;
+            grid-area: input;
+            padding: 4px 9px;
             background-color: inherit;
-            border: 1px solid var(--general-colors-secondary-mediumGrey-mediumGrey200);
+            border: none;
             transition: none;
             min-height: 38px;
 
@@ -161,16 +157,21 @@
         }
 
         .ant-select-arrow {
-            grid-column: 3/4;
+            grid-area: arrow;
+            position: relative;
+            top: 49%;
             color: var(
                 --components-Select-colors-icon-arrow-default,
                 var(--general-colors-secondary-mediumGrey-mediumGrey500)
             );
+            inset-inline-end: 0;
         }
 
         .ant-select-clear {
-            grid-column: 2/3;
+            grid-area: clear;
+            position: relative;
             display: flex;
+            inset-inline-end: 0;
             font-size: 12px;
             transform: none;
             transition: none;
@@ -283,6 +284,10 @@
                         --components-Select-colors-border-focus-warning,
                         var(--general-colors-secondary-orange-orange200)
                     );
+
+                &:hover {
+                    border-color: transparent;
+                }
             }
         }
 
@@ -344,6 +349,10 @@
                         --components-Select-colors-border-focus-error,
                         var(--general-colors-secondary-red-red200)
                     );
+
+                &:hover {
+                    border-color: transparent;
+                }
             }
         }
 
