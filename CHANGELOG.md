@@ -1,6 +1,9 @@
 # Changelog
 
 ## [1.X.X](https://www.npmjs.com/package/aristid-ds/v/1.X.X) (2024-XX-XX)
+### ✨ Features
+* **Nightly build:**
+  * publish a nightly version of the package under `next`. (@evoiron)
 
 ### 🐛 Bug Fixes
 * **AutoComplete:**

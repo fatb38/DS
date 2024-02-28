@@ -21,6 +21,7 @@ ARiSTiD Design System Readme.
     - [Component code](#component-code)
   - [Component theming](#component-theming)
     - [Component documentation](#component-documentation)
+- [Nightly build](#nightly-build)
 - [Important](#important)
 - [Contributing](#contributing)
   - [Commit](#commit)
@@ -451,6 +452,13 @@ Every components **style** of the design system can be **override** by tokens.
     After the script run, section `Design Tokens` documentation is up to date with all design tokens.
 
 
+## Nightly build
+A nightly version of the package is published on daily basis on branch develop (assuming new commits have been pushed on develop branch). To use it just install the more recent next version :
+
+```sh
+    yarn add aristid-ds@next
+```
+**Note:** Though it is useful to test upcoming feature, this version should **NEVER** be used in production
 
 ## Important
 Every import of antd library should pass by `antd` or `/lib/antd`. `es` import will lead to issues in the build process.
