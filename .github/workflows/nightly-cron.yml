@@ -1,0 +1,9 @@
+name: "Publish nightly Package to npmjs cron task"
+
+on:
+  schedule:
+    - cron: '0 23 * * *'
+
+jobs:
+  nightly:
+    uses: ./.github/workflows/nightly.yml

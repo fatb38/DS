@@ -1,7 +1,7 @@
 import {IKitInput} from '../../DataEntry/Input/types';
 import {ReactElement, ReactNode, MouseEvent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
-import {CheckboxChangeEvent} from 'antd/lib/checkbox';
+import {CheckboxChangeEvent} from 'antd/es/checkbox';
 import {IKitButton} from '@kit/General/Button/types';
 
 export interface IKitMenu extends KitHTMLAttributes<HTMLDivElement> {

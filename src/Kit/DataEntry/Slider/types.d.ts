@@ -1,5 +1,5 @@
 import {SliderSingleProps} from 'antd';
-import {SliderMarks, SliderRangeProps} from 'antd/lib/slider';
+import {SliderMarks, SliderRangeProps} from 'antd/es/slider';
 import {ReactNode} from 'react';
 
 type AntdSliderTypesToOmit = 'vertical' | 'trackStyle' | 'railStyle' | 'handleStyle' | 'marks' | 'value';

@@ -1,7 +1,6 @@
 import React, {Key, createContext} from 'react';
 import {KitIcon} from '@kit/General/Icon';
-import notification from 'antd/lib/notification';
-import {NotificationInstance} from 'antd/lib/notification/interface';
+import {NotificationInstance} from 'antd/es/notification/interface';
 import {IKitNotification, IKitNotificationArgs, IKitNotificationContext} from './types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faExclamation, faTimes, faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
@@ -9,11 +8,12 @@ import {faCircleCheck, faCircleXmark} from '@fortawesome/free-regular-svg-icons'
 import {useKitTheme} from '@theme/useKitTheme';
 import {getErrorStyle, getInfoStyle, getSuccessStyle, getWarningStyle} from './style';
 import cn from 'classnames';
+import useNotification from 'antd/es/notification/useNotification';
 
 export const KitNotificationContext = createContext<IKitNotificationContext | undefined>(undefined);
 
 export const KitNotificationProvider = ({children}) => {
-    const [api, contextHolder] = notification.useNotification();
+    const [api, contextHolder] = useNotification();
     const value = useKitNotificationProvider(api);
 
     return (

@@ -6,7 +6,7 @@ import {IKitUpload} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleNotch, faPlus, faUpload} from '@fortawesome/free-solid-svg-icons';
-import {UploadRef} from 'antd/lib/upload/Upload';
+import {UploadRef} from 'antd/es/upload/Upload';
 
 import styles from './styles.module.scss';
 

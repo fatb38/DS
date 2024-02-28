@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.1.0](https://www.npmjs.com/package/aristid-ds/v/1.1.0) (2024-02-28)
+### ✨ Features
+* **Nightly build:**
+  * publish a nightly version of the package under `next`. (@evoiron)
+
+### 🐛 Bug Fixes
+* **AutoComplete:**
+  * Fix crashing release (@evoiron)
+
+* **AutoComplete:**
+  * Fix dropdown border when focused or when a status is set (@philippechevieux)
+
+* **Select:**
+  * Fix dropdown border when focused or when a status is set (@philippechevieux)
+  * Fix dropdown border on click on arrow (@renaudamsellem)
+
+* **InputWrapper:**
+  * Fix border default color (@philippechevieux)
+
 
 
 ## [1.0.1](https://www.npmjs.com/package/aristid-ds/v/1.0.1) (2024-02-26)

@@ -1,9 +1,9 @@
 import React, {FunctionComponent, useCallback, useMemo} from 'react';
 import {Space as AntdSpace} from 'antd';
 import type {IKitSpace} from './types';
-import {SpaceCompactProps} from 'antd/lib/space/Compact';
+import {SpaceCompactProps} from 'antd/es/space/Compact';
 import {useKitTheme} from '@theme/useKitTheme';
-import {SpaceSize} from 'antd/lib/space';
+import {SpaceSize} from 'antd/es/space';
 
 const Space: FunctionComponent<IKitSpace> = ({size, ...props}) => {
     const {spacing} = useKitTheme();

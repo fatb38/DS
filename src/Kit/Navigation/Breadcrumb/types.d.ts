@@ -1,7 +1,7 @@
 import {BreadcrumbProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
-import {ItemType} from 'antd/lib/breadcrumb/Breadcrumb';
-import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
+import {ItemType} from 'antd/es/breadcrumb/Breadcrumb';
+import {MenuItemType} from 'antd/es/menu/hooks/useItems';
 
 export interface IKitBreadcrumbMenuItem extends MenuItemType {}
 export interface IKitBreadcrumbItem extends ItemType {

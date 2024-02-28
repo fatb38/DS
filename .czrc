@@ -1,0 +1,33 @@
+{
+    "path": "cz-conventional-changelog-coauthors",
+    "defaultCoAuthors": [
+        {
+            "name": "Arnaud Groby",
+            "email": "a.groby-ext@aristid.com"
+        },
+        {
+            "name": "Emile Voiron",
+            "email": "e.voiron-levy@aristid.com"
+        },
+        {
+            "name": "Jules Hablot",
+            "email": "j.hablot-ext@aristid.com"
+        },
+        {
+            "name": "Philippe Chevieux",
+            "email": "p.chevieux@aristid.com"
+        },
+        {
+            "name": "Renaud Amsellem",
+            "email": "r.amsellem-ext@aristid.com"
+        },
+        {
+            "name": "Teddy Paul",
+            "email": "t.paul@aristid.com"
+        },
+        {
+            "name": "Vincent Delmotte",
+            "email": "v.delmotte@aristid.com"
+        }
+    ]
+}

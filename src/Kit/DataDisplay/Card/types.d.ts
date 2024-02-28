@@ -1,7 +1,7 @@
 import {CSSProperties, ReactNode} from 'react';
 import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
-import {CheckboxChangeEvent} from 'antd/lib/checkbox';
-import {SwitchChangeEventHandler} from 'antd/lib/switch';
+import {CheckboxChangeEvent} from 'antd/es/checkbox';
+import {SwitchChangeEventHandler} from 'antd/es/switch';
 
 export interface IKitCard {
     title: string;

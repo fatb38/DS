@@ -1,5 +1,5 @@
 import {SelectProps} from 'antd';
-import type {OptionProps} from 'rc-select/lib/Option';
+import type {OptionProps} from 'rc-select/es/Option';
 import {KitHTMLAttributes} from '../../../types';
 import {ReactNode} from 'react';
 

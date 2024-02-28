@@ -1,7 +1,7 @@
 import {ReactNode, CSSProperties} from 'react';
 import {CheckboxProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
-import type {CheckboxChangeEvent} from 'antd/lib/checkbox/Checkbox';
+import type {CheckboxChangeEvent} from 'antd/es/checkbox/Checkbox';
 
 export interface IKitCheckbox extends CheckboxProps, KitHTMLAttributes<HTMLLabelElement> {
     danger?: boolean;

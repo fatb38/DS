@@ -4,7 +4,7 @@ import {IKitMenuInfo, IKitHeaderExtra, IKitHeaderExtraActions, IKitHeaderExtraMo
 import {KitTooltip} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
 import {KitDropDown} from '@kit/Navigation/';
-import {MenuItemType} from 'antd/lib/menu/hooks/useItems';
+import {MenuItemType} from 'antd/es/menu/hooks/useItems';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';
 import {useKitLocale} from '@translation/useKitLocale';

@@ -1,5 +1,5 @@
 import {AvatarProps} from 'antd';
-import {GroupProps} from 'antd/lib/avatar';
+import {GroupProps} from 'antd/es/avatar';
 import {KitHTMLAttributes} from '../../../types';
 import {FunctionComponent} from 'react';
 import {KitColorProp} from '@utils/functions/types';

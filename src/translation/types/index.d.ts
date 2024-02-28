@@ -1,4 +1,4 @@
-import {Locale} from 'antd/lib/locale';
+import {Locale} from 'antd/es/locale';
 import {IKitItemListLocale} from './components/DataDisplay/ItemList';
 import {IKitItemCardLocale} from './components/DataDisplay/ItemCard';
 import {IKitImageLocale} from './components/DataDisplay/Image';

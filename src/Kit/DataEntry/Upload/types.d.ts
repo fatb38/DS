@@ -1,5 +1,5 @@
 import {UploadProps} from 'antd';
-import {DraggerProps} from 'antd/lib/upload';
+import {DraggerProps} from 'antd/es/upload';
 
 type AntdUploadTypesToOmit = 'listType' | 'itemRender' | 'openFileDialogOnClick';
 

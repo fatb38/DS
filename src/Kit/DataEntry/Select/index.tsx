@@ -16,7 +16,7 @@ import cn from 'classnames';
 import {IKitOption, IKitSelect} from './types';
 import {Select as AntdSelect} from 'antd';
 import {KitIcon} from '@kit/General';
-import type {CustomTagProps} from 'rc-select/lib/BaseSelect';
+import type {CustomTagProps} from 'rc-select/es/BaseSelect';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {KitTag} from '@kit/DataDisplay/Tag';
 import {useKitTheme} from '@theme/useKitTheme';
@@ -117,12 +117,15 @@ const _getPopupPlacementClasses = (
     appId: string,
     className: string | undefined,
     placement: IKitSelect['placement'],
-    isFocus: boolean
+    isFocus: boolean,
+    status: IKitSelect['status']
 ) => {
     return cn(appId, className, {
         'kit-select-dropdown-top': placement && placement.indexOf('top') >= 0,
         'kit-select-dropdown-bottom': !placement || placement.indexOf('top') < 0,
-        'kit-select-dropdown-focus': isFocus
+        'kit-select-dropdown-focus': isFocus,
+        'kit-select-dropdown-error': status === 'error',
+        'kit-select-dropdown-warning': status === 'warning'
     });
 };
 
@@ -241,7 +244,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                     {...props}
                     id={internalKitSelectRef.current}
                     className={_getPlacementClasses(appId, className, placement)}
-                    popupClassName={_getPopupPlacementClasses(appId, popupClassName, placement, isFocus)}
+                    popupClassName={_getPopupPlacementClasses(appId, popupClassName, placement, isFocus, props.status)}
                     options={internalOptions}
                     placement={placement}
                     menuItemSelectedIcon={<KitIcon icon={<FontAwesomeIcon icon={faCheck} />} on />}

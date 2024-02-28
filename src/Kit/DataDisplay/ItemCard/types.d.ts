@@ -1,7 +1,7 @@
 import {KitHTMLAttributes} from '../../../types';
 import {IKitTag} from '../Tag/types';
 import {ReactNode, MouseEvent} from 'react';
-import {CheckboxChangeEvent} from 'antd/lib/checkbox';
+import {CheckboxChangeEvent} from 'antd/es/checkbox';
 
 export type CardColor = {
     label: string;

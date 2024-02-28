@@ -1,16 +1,16 @@
 import cn from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, {forwardRef, memo, useContext} from 'react';
-import {ConfigContext} from 'antd/lib/config-provider/';
-import SizeContext from 'antd/lib/config-provider/SizeContext';
-import pickAttrs from 'rc-util/lib/pickAttrs';
+import {ConfigContext} from 'antd/es/config-provider/';
+import SizeContext from 'antd/es/config-provider/SizeContext';
+import pickAttrs from 'rc-util/es/pickAttrs';
 import {RadioGroupContextProvider} from './context';
-import type {RadioChangeEvent, RadioGroupButtonStyle} from 'antd/lib/radio/interface';
+import type {RadioChangeEvent, RadioGroupButtonStyle} from 'antd/es/radio/interface';
 import Radio from './Radio';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {KitRadioGroup} from './types';
 
-import useStyle from 'antd/lib/radio/style';
+import useStyle from 'antd/es/radio/style';
 
 const RadioGroup = memo(
     forwardRef<HTMLDivElement, KitRadioGroup>((props, ref) => {
