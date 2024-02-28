@@ -71,6 +71,6 @@ jobs:
         run: yarn
       - name: build project
         run: yarn build
-      - run: yarn npm publish --tag next
+      - run: npm publish --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
