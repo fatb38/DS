@@ -1,7 +1,7 @@
 {
   "name": "aristid-ds",
   "description": "ARiSTiD design system",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "type": "module",
   "authors": [
     "e.voiron-levy@aristid.com",
