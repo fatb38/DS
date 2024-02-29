@@ -7,3 +7,4 @@ on:
 jobs:
   nightly:
     uses: ./.github/workflows/nightly.yml
+    secrets: inherit
