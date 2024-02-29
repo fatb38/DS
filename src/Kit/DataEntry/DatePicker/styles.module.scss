@@ -40,7 +40,7 @@
                 grid-area: icon;
                 color: var(
                     --components-DatePicker-colors-icon-default,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                    var(--general-colors-secondary-mediumGrey-mediumGrey600)
                 );
             }
 
@@ -55,7 +55,7 @@
                 opacity: 1;
                 color: var(
                     --components-DatePicker-colors-clearIcon-default,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                    var(--general-colors-secondary-mediumGrey-mediumGrey600)
                 );
             }
         }
@@ -84,14 +84,14 @@
                 .ant-picker-suffix {
                     color: var(
                         --components-DatePicker-colors-icon-disabled,
-                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                        var(--general-colors-secondary-mediumGrey-mediumGrey600)
                     );
                 }
 
                 .ant-picker-clear {
                     color: var(
                         --components-DatePicker-colors-clearIcon-disabled,
-                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                        var(--general-colors-secondary-mediumGrey-mediumGrey600)
                     );
                 }
             }
@@ -268,7 +268,7 @@
             .ant-picker-separator {
                 color: var(
                     --components-DatePicker-RangePicker-colors-separator-default,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                    var(--general-colors-secondary-mediumGrey-mediumGrey600)
                 );
             }
         }
@@ -311,7 +311,7 @@
             grid-area: icon;
             color: var(
                 --components-DatePicker-RangePicker-colors-icon-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                var(--general-colors-secondary-mediumGrey-mediumGrey600)
             );
         }
 
@@ -326,7 +326,7 @@
             opacity: 1;
             color: var(
                 --components-DatePicker-RangePicker-colors-clearIcon-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                var(--general-colors-secondary-mediumGrey-mediumGrey600)
             );
         }
 
@@ -364,21 +364,21 @@
             .ant-picker-range-separator .ant-picker-separator {
                 color: var(
                     --components-DatePicker-RangePicker-colors-separator-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-colors-secondary-mediumGrey-mediumGrey600)
                 );
             }
 
             .ant-picker-suffix {
                 color: var(
                     --components-DatePicker-RangePicker-colors-icon-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-colors-secondary-mediumGrey-mediumGrey600)
                 );
             }
 
             .ant-picker-clear {
                 color: var(
                     --components-DatePicker-RangePicker-colors-clearIcon-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-colors-secondary-mediumGrey-mediumGrey600)
                 );
             }
         }

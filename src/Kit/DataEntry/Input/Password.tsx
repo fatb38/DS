@@ -1,11 +1,11 @@
-import React, {forwardRef} from 'react';
-import {Input as AntdInput, InputRef} from 'antd';
-import {IKitPassword} from './types';
+import {faCircleXmark, faEye, faEyeSlash} from '@fortawesome/free-regular-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleXmark, faEye, faEyeSlash} from '@fortawesome/free-regular-svg-icons';
+import {Input as AntdInput, InputRef} from 'antd';
 import cn from 'classnames';
+import React, {forwardRef} from 'react';
+import {IKitPassword} from './types';
 
 import styles from './styles.module.scss';
 
@@ -33,7 +33,11 @@ const KitPassword = forwardRef<InputRef, IKitPassword>(
                     {...passwordProps}
                     className={clx}
                     ref={ref}
-                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
+                    allowClear={
+                        allowClear
+                            ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}
+                            : undefined
+                    }
                     iconRender={iconRender ?? _getIconRender}
                 />
             </KitInputWrapper>

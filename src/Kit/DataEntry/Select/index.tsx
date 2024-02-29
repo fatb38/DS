@@ -1,31 +1,31 @@
+import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
+import {faCheck, faChevronDown, faCircleNotch} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {KitTag} from '@kit/DataDisplay/Tag';
+import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
+import {KitIcon} from '@kit/General';
+import {useKitTheme} from '@theme/useKitTheme';
+import type {RefSelectProps} from 'antd';
+import {Select as AntdSelect} from 'antd';
+import cn from 'classnames';
+import type {CustomTagProps} from 'rc-select/es/BaseSelect';
 import React, {
-    useEffect,
-    useState,
     FocusEvent,
-    MouseEvent,
-    forwardRef,
-    Ref,
-    RefObject,
-    useRef,
     JSXElementConstructor,
+    MouseEvent,
     ReactElement,
     ReactNode,
-    useMemo
+    Ref,
+    RefObject,
+    forwardRef,
+    useEffect,
+    useMemo,
+    useRef,
+    useState
 } from 'react';
-import cn from 'classnames';
-import {IKitOption, IKitSelect} from './types';
-import {Select as AntdSelect} from 'antd';
-import {KitIcon} from '@kit/General';
-import type {CustomTagProps} from 'rc-select/es/BaseSelect';
-import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
-import {KitTag} from '@kit/DataDisplay/Tag';
-import {useKitTheme} from '@theme/useKitTheme';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
-import {faCheck, faCircleNotch, faChevronDown} from '@fortawesome/free-solid-svg-icons';
-import type {RefSelectProps} from 'antd';
-import {useDebouncedCallback} from 'use-debounce';
 import ShortUniqueId from 'short-unique-id';
+import {useDebouncedCallback} from 'use-debounce';
+import {IKitOption, IKitSelect} from './types';
 
 import styles from './styles.module.scss';
 
@@ -255,7 +255,11 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                             <FontAwesomeIcon icon={faChevronDown} />
                         )
                     }
-                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
+                    allowClear={
+                        allowClear
+                            ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}
+                            : undefined
+                    }
                     dropdownRender={menu => _dropDownRenderer(menu, props.status)}
                     tagRender={props.mode ? _tagRender : undefined}
                     maxTagCount={oneLineTags ? 'responsive' : undefined}

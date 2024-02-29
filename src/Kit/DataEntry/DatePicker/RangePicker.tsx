@@ -1,16 +1,16 @@
-import React, {ReactNode, forwardRef} from 'react';
-import {DatePicker as AntdDatePicker} from 'antd';
-import {IKitRangePicker} from './types';
+import {faCalendar, faCircleXmark, faClock} from '@fortawesome/free-regular-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleXmark, faClock, faCalendar} from '@fortawesome/free-regular-svg-icons';
+import {DatePicker as AntdDatePicker} from 'antd';
 import cn from 'classnames';
+import React, {ReactNode, forwardRef} from 'react';
+import {IKitRangePicker} from './types';
 
 import styles from './styles.module.scss';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const KitDatePicker = forwardRef<any, IKitRangePicker>(
+const KitRangePicker = forwardRef<any, IKitRangePicker>(
     ({label, className, helper, suffixIcon, picker, allowClear = true, ...rangePickerProps}, ref) => {
         const {appId} = useKitTheme();
 
@@ -48,7 +48,11 @@ const KitDatePicker = forwardRef<any, IKitRangePicker>(
                         picker={picker}
                         ref={ref}
                         suffixIcon={(suffixIcon as ReactNode) ?? _getSuffixIcon()}
-                        allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : false}
+                        allowClear={
+                            allowClear
+                                ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}
+                                : false
+                        }
                         className={clx}
                     />
                 </div>
@@ -57,4 +61,4 @@ const KitDatePicker = forwardRef<any, IKitRangePicker>(
     }
 );
 
-export default KitDatePicker;
+export default KitRangePicker;

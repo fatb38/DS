@@ -6,7 +6,15 @@
   * Fix default border color (@philippechevieux)
 * **Badge:**
   * Fix custom className bug (@evoiron)
-
+* **Input:**
+   * Update color of content, label, placeholder and clear icon (@TdyP)
+  * Add aria-label on clear icon to improve testability (@TdyP)
+* **InputNumber:**
+  * Update color of content, label, placeholder and clear icon (@TdyP)
+* **ColorPicker:**
+  * Update color of content, label and placeholder (@TdyP)
+* **DatePicker:**
+  * Update color of content, label and placeholder (@TdyP)
 
 ## [1.1.0](https://www.npmjs.com/package/aristid-ds/v/1.1.0) (2024-02-28)
 ### ✨ Features
@@ -26,8 +34,6 @@
 
 * **InputWrapper:**
   * Fix border default color (@philippechevieux)
-
-
 
 ## [1.0.1](https://www.npmjs.com/package/aristid-ds/v/1.0.1) (2024-02-26)
 ### 🐛 Bug Fixes
