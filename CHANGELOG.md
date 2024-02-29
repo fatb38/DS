@@ -1,9 +1,11 @@
 # Changelog
 
-## [1.1.0](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
+## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
 ### 🐛 Bug Fixes
 * **Select:**
   * Fix default border color (@philippechevieux)
+* **Badge:**
+  * Fix custom className bug (@evoiron)
 
 
 ## [1.1.0](https://www.npmjs.com/package/aristid-ds/v/1.1.0) (2024-02-28)
