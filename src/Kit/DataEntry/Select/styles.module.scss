@@ -69,10 +69,16 @@
         transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
         &:hover {
-            border-color: var(
-                --components-Select-colors-border-hover,
-                var(--general-colors-primary-primary400)
-            );
+            &:not(.ant-select-disabled) .ant-select-selector{
+                border-color: var(
+                    --components-Select-colors-border-hover,
+                    var(--general-colors-primary-primary400)
+                );
+            }
+
+            .ant-select-arrow:not(:last-child) {
+                opacity: 1;
+            }
         }
 
         &.ant-select-focused {
@@ -85,7 +91,7 @@
         .ant-select-selector:has(~ .ant-select-clear)  {
             padding-right: 60px;
         }
-            
+
         .ant-select-selector {
             grid-column: 1 / 4;
             padding: 4px 30px 4px 9px;
@@ -190,11 +196,14 @@
                 --components-Select-colors-typography-content-disabled,
                 var(--general-colors-secondary-mediumGrey-mediumGrey400)
             );
-            border-color: var(
-                --components-Select-colors-border-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey200)
-            );
             cursor: not-allowed;
+
+            .ant-select-selector {
+                border-color: var(
+                    --components-Select-colors-border-disabled,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey200)
+                );
+            }
 
             .ant-select-selection-item {
                 color: var(
@@ -234,10 +243,20 @@
                 --components-Select-colors-typography-content-warning,
                 var(--general-colors-secondary-orange-orange500)
             );
-            border-color: var(
-                --components-Select-colors-border-warning,
-                var(--general-colors-secondary-orange-orange400)
-            );
+
+            &:hover:not(.ant-select-disabled):not(.ant-select-focused) .ant-select-selector{
+                border-color: var(
+                    --components-Select-colors-border-warning,
+                    var(--general-colors-secondary-orange-orange400)
+                );
+            }
+
+            .ant-select-selector {
+                border-color: var(
+                    --components-Select-colors-border-warning,
+                    var(--general-colors-secondary-orange-orange400)
+                );
+            }
 
             .ant-select-selection-item {
                 color: var(
@@ -295,10 +314,20 @@
                 --components-Select-colors-typography-content-error,
                 var(--general-colors-secondary-red-red400)
             );
-            border-color: var(
-                --components-Select-colors-border-error,
-                var(--general-colors-secondary-red-red400)
-            );
+
+            &:hover:not(.ant-select-disabled):not(.ant-select-focused) .ant-select-selector{
+                border-color: var(
+                    --components-Select-colors-border-error,
+                    var(--general-colors-secondary-red-red400)
+                );
+            }
+
+            .ant-select-selector {
+                border-color: var(
+                    --components-Select-colors-border-error,
+                    var(--general-colors-secondary-red-red400)
+                );
+            }
 
             .ant-select-selection-item {
                 color: var(

@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.0](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
+### 🐛 Bug Fixes
+* **Select:**
+  * Fix default border color (@philippechevieux)
+
+
 ## [1.1.0](https://www.npmjs.com/package/aristid-ds/v/1.1.0) (2024-02-28)
 ### ✨ Features
 * **Nightly build:**
