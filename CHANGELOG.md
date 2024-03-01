@@ -1,7 +1,16 @@
 # Changelog
 
-## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
+## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.Xx) (2024-XX-XX)
+
 ### ✨ Features
+* **InputWrapper:**
+  * Add 4 properties: (@evoiron)
+    * `required`: show a red asterisk right after the label
+    * `actions`: an array of items to display at the right of the label
+    * `onInfoClick`: When set, display a clickable info icon which triggers this event
+    * `infoIcon`: customise the infoIcon displayed
+  * These components now accept the 4 properties above: (@evoiron)
+    * `AutoComplete`, `Checkbox.Group`, `Radio.Group`, `ColorPicker`, `DatePicker`, `RangePicker`, `Input`, `InputNumber`, `Select`
 * **Tabs:**
     * Add `hideSeparator` prop to hide separator between tabs and content (@P0ppoff)
     * (Style) Allow tabs center on extraContent (@P0ppoff)
@@ -23,6 +32,7 @@
   * Update color of content, label and placeholder (@TdyP)
 
 ## [1.1.0](https://www.npmjs.com/package/aristid-ds/v/1.1.0) (2024-02-28)
+
 ### ✨ Features
 * **Nightly build:**
   * publish a nightly version of the package under `next`. (@evoiron)

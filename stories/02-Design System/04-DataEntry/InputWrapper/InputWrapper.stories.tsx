@@ -6,6 +6,9 @@ import {BasicInputWrapperTest} from './test-components/BasicInputWrapperTest';
 import {BorderInputWrapperTest} from './test-components/BorderInputWrapperTest';
 import {StatusInputWrapperTest} from './test-components/StatusInputWrapperTest';
 import {DisabledInputWrapperTest} from './test-components/DisabledInputWrapperTest';
+import {RequiredInputWrapperTest} from './test-components/RequiredInputWrapperTest';
+import {InfosInputWrapperTest} from './test-components/InfosInputWrapperTest';
+import {ActionsInputWrapperTest} from './test-components/ActionsInputWrapperTest';
 import KitInputWrapper from '@kit/DataEntry/InputWrapper/InputWrapper.tsx';
 
 const meta: Meta<typeof KitInputWrapper> = {
@@ -32,6 +35,9 @@ export const ChromaticTest: Story = {
                 <BorderInputWrapperTest />
                 <StatusInputWrapperTest />
                 <DisabledInputWrapperTest />
+                <RequiredInputWrapperTest />
+                <InfosInputWrapperTest />
+                <ActionsInputWrapperTest />
             </div>
         </div>
     )

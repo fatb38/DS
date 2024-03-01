@@ -1,16 +1,30 @@
+import React, {forwardRef} from 'react';
+import {Input as AntdInput, InputRef} from 'antd';
 import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
-import {Input as AntdInput, InputRef} from 'antd';
 import cn from 'classnames';
-import React, {forwardRef} from 'react';
 import {IKitInput} from './types';
 
 import styles from './styles.module.scss';
 
 const KitInput = forwardRef<InputRef, IKitInput>(
-    ({label, className, helper, wrapperClassName, allowClear = true, ...inputProps}, ref) => {
+    (
+        {
+            label,
+            className,
+            helper,
+            wrapperClassName,
+            allowClear = true,
+            required,
+            infoIcon,
+            actions,
+            onInfoClick,
+            ...inputProps
+        },
+        ref
+    ) => {
         const {appId} = useKitTheme();
         const clx = cn(appId, styles['kit-input'], className);
 
@@ -21,6 +35,10 @@ const KitInput = forwardRef<InputRef, IKitInput>(
                 disabled={inputProps.disabled}
                 status={inputProps.status}
                 className={wrapperClassName}
+                required={required}
+                infoIcon={infoIcon}
+                actions={actions}
+                onInfoClick={onInfoClick}
             >
                 <AntdInput
                     {...inputProps}

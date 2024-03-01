@@ -21,6 +21,10 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
             wrapperClassName,
             picker = 'date',
             allowClear = true,
+            required,
+            infoIcon,
+            actions,
+            onInfoClick,
             ...datePickerProps
         },
         ref
@@ -43,13 +47,17 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
                 disabled={datePickerProps.disabled as boolean}
                 status={datePickerProps.status as IKitInputWrapper['status']}
                 className={wrapperClassName}
+                required={required}
+                infoIcon={infoIcon}
+                actions={actions}
+                onInfoClick={onInfoClick}
             >
                 <div>
                     <AntdDatePicker
                         {...datePickerProps}
                         picker={picker}
                         ref={ref}
-                        suffixIcon={(suffixIcon as ReactNode) ?? _getSuffixIcon()}
+                        suffixIcon={suffixIcon ?? _getSuffixIcon()}
                         allowClear={
                             allowClear
                                 ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}

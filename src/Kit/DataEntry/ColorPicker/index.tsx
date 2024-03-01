@@ -12,6 +12,10 @@ export const KitColorPicker: FunctionComponent<KitColorPickerProps> = ({
     className,
     helper,
     rootClassName,
+    required,
+    infoIcon,
+    actions,
+    onInfoClick,
     ...colorPickerProps
 }) => {
     const {appId} = useKitTheme();
@@ -20,7 +24,15 @@ export const KitColorPicker: FunctionComponent<KitColorPickerProps> = ({
     const clx = cn(appId, className);
 
     return (
-        <KitInputWrapper label={label} helper={helper} disabled={colorPickerProps.disabled}>
+        <KitInputWrapper
+            label={label}
+            helper={helper}
+            disabled={colorPickerProps.disabled}
+            required={required}
+            infoIcon={infoIcon}
+            actions={actions}
+            onInfoClick={onInfoClick}
+        >
             <AntdColorPicker {...colorPickerProps} rootClassName={rootClx} className={clx} />
         </KitInputWrapper>
     );

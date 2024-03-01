@@ -23,4 +23,8 @@ export interface KitRadioGroup extends RadioGroupProps, KitHTMLAttributes<HTMLDi
     status?: '' | 'warning' | 'error';
     bordered?: boolean;
     wrapperClassName?: string;
+    required?: boolean;
+    infoIcon?: ReactNode;
+    actions?: ReactElement[];
+    onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
 }

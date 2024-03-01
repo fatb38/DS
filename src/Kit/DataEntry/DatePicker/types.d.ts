@@ -1,4 +1,5 @@
 import {DatePickerProps, RangePickerProps} from 'antd/es/date-picker';
+import {ReactNode} from 'react';
 
 // Use "never" instead of Omit properties to avoid issues with Antd type/interface declarations
 interface IInternalDatePicker {
@@ -10,6 +11,10 @@ interface IInternalDatePicker {
     cellRender?: DatePickerProps['cellrender'];
     wrapperClassName?: string;
     disabledTime?: unknow;
+    required?: boolean;
+    infoIcon?: ReactNode;
+    actions?: ReactElement[];
+    onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 interface IDatePickerProps extends Omit<DatePickerProps, 'picker'> {
@@ -26,6 +31,10 @@ interface IInternalRangerPicker {
     label?: string;
     helper?: string;
     allowClear?: boolean;
+    required?: boolean;
+    infoIcon?: ReactNode;
+    actions?: ReactElement[];
+    onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 export type IKitRangePicker = RangePickerProps & IInternalRangerPicker;

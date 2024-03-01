@@ -152,6 +152,42 @@ const RadioGroupArgTypes = {
             category: 'Radio.Group'
         }
     },
+    required: {
+        name: 'required',
+        description: 'Whether the input is mandatory',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            category: 'Radio.Group',
+            defaultValue: {summary: false}
+        },
+        defaultValue: false
+    },
+    infoIcon: {
+        name: 'infoIcon',
+        description: 'Custom Icon to display when onInfoClick is set',
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            category: 'Radio.Group',
+            defaultValue: {summary: '<FontAwesomeIcon icon={faCircleInfo} />'}
+        },
+        defaultValue: false
+    },
+    actions: {
+        name: 'actions',
+        description: 'Actions to add on the right of the label',
+        table: {
+            type: {
+                summary: 'ReactNode[]'
+            },
+            category: 'Radio.Group',
+            defaultValue: {summary: null}
+        },
+        defaultValue: false
+    },
     name: {
         name: 'name',
         description: ' The `name` property of all `input[type="radio"]` children',
@@ -205,6 +241,18 @@ const RadioGroupArgTypes = {
             defaultValue: {summary: '-'},
             category: 'Radio.Group'
         }
+    },
+    onInfoClick: {
+        name: 'onInfoClick',
+        description: 'If set, show info icon, and set the handler to handle `click` event on it',
+        table: {
+            type: {
+                summary: '(e: MouseEvent<HTMLElement, MouseEvent>) => void;'
+            },
+            category: 'Radio.Group',
+            defaultValue: {summary: '-'}
+        },
+        defaultValue: () => {}
     }
 };
 

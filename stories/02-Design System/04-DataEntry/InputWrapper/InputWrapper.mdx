@@ -39,9 +39,30 @@ Set `status` property to set status. available values are `''`, `error` and `war
 
 ##### Disabled
 
-Set `disabled`property to show the wrapper in disabled state.
+Set `disabled` property to show the wrapper in disabled state.
 
 <CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="input-wrapper-disabled" />
+
+
+##### Required
+
+Set `required` property to show a red asterisk.
+
+<CustomCanvas content={Examples.Required} source={Sources.Required} id="input-wrapper-required" />
+
+##### Infos
+
+Set `onInfoClick` property to show a a clickable info Icon. You can also set the `infoIcon` with a custom to override the default info icon
+
+<CustomCanvas content={Examples.Infos} source={Sources.Infos} id="input-wrapper-infos" />
+
+##### Actions
+
+Set `actions` property to show actions on the right of label.
+
+***Note*** If the `disabled` prop is set to `true`, `disabled={true}` is passed to each action. If you pass an action that does not handle this prop, it's up to you to manage its state correctly.
+
+<CustomCanvas content={Examples.Actions} source={Sources.Actions} id="input-wrapper-actions" />
 
 ## Api
 

@@ -1,6 +1,7 @@
 import {ColorPickerProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import type {Color} from 'antd/es/color-picker';
+import {ReactNode} from 'react';
 
 type AntdColorPickerTypesToOmit = 'size';
 
@@ -9,6 +10,10 @@ export interface KitColorPickerProps
         KitHTMLAttributes<HTMLSpanElement | HTMLInputElement> {
     label?: string;
     helper?: string;
+    required?: boolean;
+    infoIcon?: ReactNode;
+    actions?: ReactElement[];
+    onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 export type KitColor = Color;

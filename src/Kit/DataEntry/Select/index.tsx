@@ -170,6 +170,10 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             labelOnly = false,
             oneLineTags = false,
             allowClear = true,
+            required,
+            infoIcon,
+            actions,
+            onInfoClick,
             ...props
         },
         ref?: Ref<RefSelectProps> | undefined
@@ -239,6 +243,10 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                 disabled={props.disabled}
                 status={props.status}
                 className={wrapperClassName}
+                required={required}
+                infoIcon={infoIcon}
+                actions={actions}
+                onInfoClick={onInfoClick}
             >
                 <AntdSelect
                     {...props}

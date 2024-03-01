@@ -1,6 +1,7 @@
 import {InputProps} from 'antd';
 import {PasswordProps, TextAreaProps} from 'antd/es/input';
 import {KitHTMLAttributes} from '../../../types';
+import {ReactNode} from 'react';
 
 type AntdInputTypesToOmit = 'styles' | 'type' | 'bordered' | 'size' | 'addonBefore' | 'addonAfter';
 
@@ -11,6 +12,10 @@ export interface IKitInput
     helper?: string;
     allowClear?: boolean;
     wrapperClassName?: string;
+    required?: boolean;
+    infoIcon?: ReactNode;
+    actions?: ReactElement[];
+    onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 export interface IKitTextArea
@@ -20,6 +25,10 @@ export interface IKitTextArea
     helper?: string;
     allowClear?: boolean;
     wrapperClassName?: string;
+    required?: boolean;
+    infoIcon?: ReactNode;
+    actions?: ReactElement[];
+    onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 export interface IKitPassword
@@ -29,4 +38,8 @@ export interface IKitPassword
     helper?: string;
     allowClear?: boolean;
     wrapperClassName?: string;
+    required?: boolean;
+    infoIcon?: ReactNode;
+    actions?: ReactElement[];
+    onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
 }

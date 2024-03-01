@@ -11,7 +11,22 @@ import styles from './styles.module.scss';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const KitRangePicker = forwardRef<any, IKitRangePicker>(
-    ({label, className, helper, suffixIcon, picker, allowClear = true, ...rangePickerProps}, ref) => {
+    (
+        {
+            label,
+            className,
+            helper,
+            suffixIcon,
+            picker,
+            allowClear = true,
+            required,
+            infoIcon,
+            actions,
+            onInfoClick,
+            ...rangePickerProps
+        },
+        ref
+    ) => {
         const {appId} = useKitTheme();
 
         const _getSuffixIcon = (): ReactNode => {
@@ -41,13 +56,17 @@ const KitRangePicker = forwardRef<any, IKitRangePicker>(
                 helper={helper}
                 disabled={_isRangePickerDisabled()}
                 status={rangePickerProps.status}
+                required={required}
+                infoIcon={infoIcon}
+                actions={actions}
+                onInfoClick={onInfoClick}
             >
                 <div>
                     <AntdDatePicker.RangePicker
                         {...rangePickerProps}
                         picker={picker}
                         ref={ref}
-                        suffixIcon={(suffixIcon as ReactNode) ?? _getSuffixIcon()}
+                        suffixIcon={suffixIcon ?? _getSuffixIcon()}
                         allowClear={
                             allowClear
                                 ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}

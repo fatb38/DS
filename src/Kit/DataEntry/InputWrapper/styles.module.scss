@@ -3,11 +3,14 @@
 :local(.kit-input-wrapper) {
     .kit-input-wrapper-label {
         margin-bottom: convertToPixel(--components-InputWrapper-gap-label, --general-spacing-xs);
+        display: flex;
+        align-items: center;
     }
 
     .kit-input-wrapper-helper {
         margin-top: convertToPixel(--components-InputWrapper-gap-helper, --general-spacing-xs);
     }
+
 
     .kit-input-wrapper-label,
     .kit-input-wrapper-helper {
@@ -20,7 +23,15 @@
         }
     }
 
-    &.bordered > .kit-input-wrapper-content {
+    .kit-input-wrapper-required {
+        color: var(--components-InputWrapper-colors-typography-error,
+            var(--general-colors-secondary-red-red400)
+        );
+        padding-left: 4px;
+        font-variant-position: super;
+    }
+
+    &.bordered .kit-input-wrapper-content {
         border: 1px solid
             var(
                 --components-InputWrapper-colors-border-default,
@@ -80,6 +91,13 @@
                     var(--general-colors-secondary-mediumGrey-mediumGrey400)
                 );
             }
+        }
+
+        .kit-input-wrapper-required {
+            color: var(
+                    --components-InputWrapper-colors-typography-disabled,
+                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                );
         }
 
         .kit-input-wrapper-content {

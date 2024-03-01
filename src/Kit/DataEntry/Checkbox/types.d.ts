@@ -39,6 +39,10 @@ export interface ICheckboxGroup extends AbstractCheckboxGroup {
     value?: Array<CheckboxValueType>;
     onChange?: (checkedValue: Array<CheckboxValueType>) => void;
     children?: ReactNode;
+    required?: boolean;
+    infoIcon?: ReactNode;
+    actions?: ReactElement[];
+    onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 export interface ICheckboxGroupContext {

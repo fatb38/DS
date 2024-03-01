@@ -136,5 +136,10 @@ export default defineConfig({
                 }
             }
         }
+    },
+    test: {
+        deps: {
+            inline: ['arisitd-ds']
+        }
     }
 });

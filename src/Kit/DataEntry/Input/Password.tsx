@@ -1,16 +1,31 @@
+import React, {forwardRef} from 'react';
+import {Input as AntdInput, InputRef} from 'antd';
+import {IKitPassword} from './types';
 import {faCircleXmark, faEye, faEyeSlash} from '@fortawesome/free-regular-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
-import {Input as AntdInput, InputRef} from 'antd';
 import cn from 'classnames';
-import React, {forwardRef} from 'react';
-import {IKitPassword} from './types';
 
 import styles from './styles.module.scss';
 
 const KitPassword = forwardRef<InputRef, IKitPassword>(
-    ({label, className, helper, iconRender, wrapperClassName, allowClear = true, ...passwordProps}, ref) => {
+    (
+        {
+            label,
+            className,
+            helper,
+            iconRender,
+            wrapperClassName,
+            allowClear = true,
+            required,
+            infoIcon,
+            actions,
+            onInfoClick,
+            ...passwordProps
+        },
+        ref
+    ) => {
         const {appId} = useKitTheme();
         const clx = cn(appId, styles['kit-password'], className);
 
@@ -28,6 +43,10 @@ const KitPassword = forwardRef<InputRef, IKitPassword>(
                 disabled={passwordProps.disabled}
                 status={passwordProps.status}
                 className={wrapperClassName}
+                required={required}
+                infoIcon={infoIcon}
+                actions={actions}
+                onInfoClick={onInfoClick}
             >
                 <AntdInput.Password
                     {...passwordProps}

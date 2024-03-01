@@ -38,6 +38,10 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
             onBlur,
             popupClassName,
             wrapperClassName,
+            required,
+            infoIcon,
+            actions,
+            onInfoClick,
             ...props
         },
         ref?: Ref<RefSelectProps> | undefined
@@ -67,6 +71,10 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
                 disabled={disabled}
                 status={status}
                 className={wrapperClassName}
+                required={required}
+                infoIcon={infoIcon}
+                actions={actions}
+                onInfoClick={onInfoClick}
             >
                 <AntdAutoComplete
                     {...props}
