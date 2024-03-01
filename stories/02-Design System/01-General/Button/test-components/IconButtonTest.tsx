@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitButton, KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFilter, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
-export const IconButtonTest: FC = () => (
+export const IconButtonTest: FunctionComponent = () => (
     <div style={{marginBottom: '40px'}}>
         <KitTypography.Title level={'h3'}>Icon button</KitTypography.Title>
         <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>

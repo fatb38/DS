@@ -113,7 +113,7 @@ export const argTypes = {
         name: 'items',
         description:
             'Collapse items content <br/>' +
-            '[ItemType](https://github.com/react-component/collapse/blob/27250ca5415faab16db412b9bff2c131bb4f32fc/src/interface.ts#L6)',
+            '[ItemType](https://github.com/react-component/collapse/blob/27250ca5415faab16db412b9bff2c131bb4f32FunctionComponent/src/interface.ts#L6)',
         table: {
             category: 'Collapse'
         }

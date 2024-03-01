@@ -9,7 +9,10 @@ const App = () => {
             }}
         >
             <KitImage width={200} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
-            <KitImage width={200} src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg" />
+            <KitImage
+                width={200}
+                src="https://gw.alipayobjects.com/zos/antfincdn/aPkFunctionComponent8Sj7n/method-draw-image.svg"
+            />
         </KitImage.PreviewGroup>
     );
 };

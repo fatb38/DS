@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitInput} from '@kit/DataEntry';
 
-export const CountingInputTest: FC = () => (
+export const CountingInputTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3">Character counting input</KitTypography.Title>
         <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>

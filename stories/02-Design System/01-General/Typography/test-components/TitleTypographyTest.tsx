@@ -1,7 +1,7 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 
-export const TitleTypographyTest: FC = () => (
+export const TitleTypographyTest: FunctionComponent = () => (
     <>
         <KitTypography.Title level="h3">Titles</KitTypography.Title>
         <div style={{display: 'flex', gap: '8px', flexDirection: 'column'}}>

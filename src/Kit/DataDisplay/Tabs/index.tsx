@@ -6,12 +6,13 @@ import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
-const KitTabs: FunctionComponent<IKitTabs> = ({className, popupClassName, ...tabsProps}) => {
+const KitTabs: FunctionComponent<IKitTabs> = ({className, popupClassName, hideSeparator = false, ...tabsProps}) => {
     const {appId} = useKitTheme();
 
-    const clx = cn(appId, styles['kit-tabs'], className);
+    const clx = cn(appId, styles['kit-tabs'], className, {'hide-separator': hideSeparator});
+    const popupClx = cn(appId, popupClassName);
 
-    return <AntTabs className={clx} popupClassName={`${appId} ${popupClassName ?? ''}`} {...tabsProps} />;
+    return <AntTabs className={clx} popupClassName={popupClx} {...tabsProps} />;
 };
 
 export {KitTabs};

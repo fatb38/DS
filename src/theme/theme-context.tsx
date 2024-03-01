@@ -1,4 +1,4 @@
-import React, {FC, PropsWithChildren, useLayoutEffect, useRef, useState} from 'react';
+import React, {FunctionComponent, PropsWithChildren, useLayoutEffect, useRef, useState} from 'react';
 
 // TODO: Later add option to have more arisitd themes
 import {IKitCustomTheme} from './types';
@@ -18,7 +18,7 @@ const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: str
 
 const globalStyleId = 'aristid-ds-global';
 
-export const KitThemeProvider: FC<PropsWithChildren<{customTheme?: IKitCustomTheme; id?: string}>> = ({
+export const KitThemeProvider: FunctionComponent<PropsWithChildren<{customTheme?: IKitCustomTheme; id?: string}>> = ({
     children,
     customTheme,
     id

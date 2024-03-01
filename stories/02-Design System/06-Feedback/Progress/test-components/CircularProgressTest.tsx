@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitProgress} from '@kit/Feedback';
 import {KitTypography} from '@kit/General';
 
-export const CircularProgressTest: FC = () => (
+export const CircularProgressTest: FunctionComponent = () => (
     <>
         <KitTypography.Title level="h3">Circular progress</KitTypography.Title>
         <div style={{display: 'flex', gap: '8px', flexDirection: 'column', width: '500px'}}>

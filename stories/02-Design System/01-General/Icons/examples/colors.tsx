@@ -40,8 +40,8 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>HEX format</KitTypography.Text>
             <KitSpace>
                 <KitSpace direction="vertical">
-                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="#fcba03" />
-                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color="#fcba03" />
+                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="#FunctionComponentba03" />
+                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color="#FunctionComponentba03" />
                 </KitSpace>
                 <KitSpace direction="vertical">
                     <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="#001d75" />

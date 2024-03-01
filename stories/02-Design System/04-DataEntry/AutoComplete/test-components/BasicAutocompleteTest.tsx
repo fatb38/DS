@@ -1,22 +1,22 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitAutoComplete} from '@kit/DataEntry';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 
-export const BasicAutocompleteTest: FC = () => {
+export const BasicAutocompleteTest: FunctionComponent = () => {
     const renderTitle = title => (
         <span>
-                {title}
+            {title}
             <a
                 style={{float: 'right'}}
                 href="https://www.google.com/search?q=antd"
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                    more
-                </a>
-            </span>
+                more
+            </a>
+        </span>
     );
 
     const renderItem = (title: string, count: number) => ({
@@ -31,8 +31,8 @@ export const BasicAutocompleteTest: FC = () => {
             >
                 {title}
                 <span>
-                        <FontAwesomeIcon icon={faUser} /> {count}
-                    </span>
+                    <FontAwesomeIcon icon={faUser} /> {count}
+                </span>
             </div>
         )
     });
@@ -55,24 +55,24 @@ export const BasicAutocompleteTest: FC = () => {
     return (
         <div>
             <KitTypography.Title level="h3">Basic autocomplete</KitTypography.Title>
-                <KitAutoComplete
-                    options={[{label: 'Test', value: 'test'}]}
-                    style={{
-                        width: 200,
-                        marginBottom: 70
-                    }}
-                    placeholder="input here"
-                    open
-                />
+            <KitAutoComplete
+                options={[{label: 'Test', value: 'test'}]}
+                style={{
+                    width: 200,
+                    marginBottom: 70
+                }}
+                placeholder="input here"
+                open
+            />
 
-                <KitAutoComplete
-                    popupClassName="certain-category-search-dropdown"
-                    popupMatchSelectWidth={350}
-                    placeholder="input here"
-                    style={{width: 350}}
-                    options={options}
-                    open
-                />
+            <KitAutoComplete
+                popupClassName="certain-category-search-dropdown"
+                popupMatchSelectWidth={350}
+                placeholder="input here"
+                style={{width: 350}}
+                options={options}
+                open
+            />
         </div>
-    )
-}
+    );
+};

@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {getParentSelector, ModalContainer, modalProps} from './commons.ts';
 import ConfirmDialog from '@kit/Feedback/Modal/ConfirmDialog.tsx';
 import {KitApp} from '@kit/App';
 
-export const FullConfirmModalTest: FC = () => {
+export const FullConfirmModalTest: FunctionComponent = () => {
     return (
         <KitApp>
             <div>

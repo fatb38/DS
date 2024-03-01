@@ -1,7 +1,7 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 
-export const TextAndLinkTypographyTest: FC = () => (
+export const TextAndLinkTypographyTest: FunctionComponent = () => (
     <>
         <KitTypography.Title level="h3">Text and link</KitTypography.Title>
         <KitTypography.Paragraph size="large" weight="bold">

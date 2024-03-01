@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitIcon, KitTypography} from '@kit/General';
 import {KitAvatar, KitBadge} from '@kit/DataDisplay';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faClock} from '@fortawesome/free-regular-svg-icons';
 
-export const BasicBadgeTest: FC = () => (
+export const BasicBadgeTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3">Basic badge</KitTypography.Title>
         <div style={{display: 'flex', gap: '20px', margin: '20px 0 60px'}}>

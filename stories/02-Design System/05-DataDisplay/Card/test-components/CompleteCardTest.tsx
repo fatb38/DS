@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {IKitCardAction} from '@kit/DataDisplay/Card/types';
 import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowsUpDownLeftRight, faPencil, faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import {KitCard} from '@kit/DataDisplay';
 
-export const CompleteCardTest: FC = () => {
+export const CompleteCardTest: FunctionComponent = () => {
     const tags: IKitTagConfig[] = [
         {wording: 'Multimédia'},
         {wording: 'Promo 2021'},

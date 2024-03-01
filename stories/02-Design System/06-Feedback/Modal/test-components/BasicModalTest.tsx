@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitModal} from '@kit/Feedback';
 import {KitButton, KitTypography} from '@kit/General';
 import {getParentSelector, ModalContainer} from './commons.ts';
 
-export const BasicModalTest: FC = () => (
+export const BasicModalTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3">Basic modal</KitTypography.Title>
         <div style={{display: 'flex'}}>

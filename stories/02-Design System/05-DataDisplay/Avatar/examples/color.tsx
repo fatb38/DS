@@ -46,7 +46,7 @@ const App = () => {
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>HEX format</KitTypography.Text>
             <KitSpace>
-                <KitAvatar color="#fcba03">Y</KitAvatar>
+                <KitAvatar color="#FunctionComponentba03">Y</KitAvatar>
                 <KitAvatar color="#001d75">D</KitAvatar>
                 <KitAvatar color="#850065">P</KitAvatar>
             </KitSpace>

@@ -1,15 +1,15 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTabs} from '@kit/DataDisplay';
 import {KitTypography} from '@kit/General';
 
-export const SizeTabsTest: FC = () => (
+export const SizeTabsTest: FunctionComponent = () => (
     <div style={{width: '550px'}}>
         <KitTypography.Title level="h3">Different size tabs</KitTypography.Title>
         <div style={{display: 'flex', flexDirection: 'column'}}>
             <KitTabs
                 defaultActiveKey="1"
                 size="small"
-                style={{marginBottom: 32}}
+                style={{marginBottom: 15}}
                 items={new Array(3).fill(null).map((_, i) => {
                     const id = String(i + 1);
                     return {
@@ -21,7 +21,7 @@ export const SizeTabsTest: FC = () => (
             />
             <KitTabs
                 defaultActiveKey="1"
-                style={{marginBottom: 32}}
+                style={{marginBottom: 15}}
                 items={new Array(3).fill(null).map((_, i) => {
                     const id = String(i + 1);
                     return {
@@ -34,7 +34,7 @@ export const SizeTabsTest: FC = () => (
             <KitTabs
                 defaultActiveKey="1"
                 size="large"
-                style={{marginBottom: 32}}
+                style={{marginBottom: 15}}
                 items={new Array(3).fill(null).map((_, i) => {
                     const id = String(i + 1);
                     return {
@@ -48,7 +48,7 @@ export const SizeTabsTest: FC = () => (
                 type="card"
                 defaultActiveKey="1"
                 size="small"
-                style={{marginBottom: 32}}
+                style={{marginBottom: 15}}
                 items={new Array(3).fill(null).map((_, i) => {
                     const id = String(i + 1);
                     return {
@@ -61,7 +61,7 @@ export const SizeTabsTest: FC = () => (
             <KitTabs
                 type="card"
                 defaultActiveKey="1"
-                style={{marginBottom: 32}}
+                style={{marginBottom: 15}}
                 items={new Array(3).fill(null).map((_, i) => {
                     const id = String(i + 1);
                     return {
@@ -75,7 +75,7 @@ export const SizeTabsTest: FC = () => (
                 type="card"
                 defaultActiveKey="1"
                 size="large"
-                style={{marginBottom: 32}}
+                style={{marginBottom: 15}}
                 items={new Array(3).fill(null).map((_, i) => {
                     const id = String(i + 1);
                     return {

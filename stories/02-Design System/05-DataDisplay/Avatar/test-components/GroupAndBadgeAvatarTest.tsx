@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitAvatar, KitBadge} from '@kit/DataDisplay';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 
-export const GroupAndBadgeAvatarTest: FC = () => {
+export const GroupAndBadgeAvatarTest: FunctionComponent = () => {
     const url = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 
     return (

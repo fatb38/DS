@@ -1,7 +1,7 @@
 import React, {ReactNode, useMemo, useState} from 'react';
 import {KitTabs} from '@kit/DataDisplay';
 import {KitCheckbox} from '@kit/DataEntry';
-import {KitButton} from '@kit/General';
+import {KitButton, KitTypography} from '@kit/General';
 import {KitDivider} from '@kit/Layout';
 
 const CheckboxGroup = KitCheckbox.Group;
@@ -50,7 +50,7 @@ const App = () => {
             <br />
             <br />
             <br />
-            <div>You can also specify its direction or both side</div>
+            <KitTypography.Text>You can also specify its direction or both side</KitTypography.Text>
             <KitDivider />
             <CheckboxGroup
                 options={options}
@@ -62,6 +62,9 @@ const App = () => {
             <br />
             <br />
             <KitTabs tabBarExtraContent={slot} items={items} />
+            <br />
+            <br />
+            <KitTabs centered tabBarExtraContent={slot} items={items} />
         </>
     );
 };

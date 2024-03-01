@@ -1,11 +1,11 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitAvatar} from '@kit/DataDisplay';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 import {colorsPalette} from '@theme/aristid/general/colors';
 
-export const ColoredAvatarTest: FC = () => {
+export const ColoredAvatarTest: FunctionComponent = () => {
     const secondaryColors = Object.keys(colorsPalette.secondary);
 
     return (
@@ -41,7 +41,7 @@ export const ColoredAvatarTest: FC = () => {
                     <div>
                         <KitTypography.Title level="h4">HEX format</KitTypography.Title>
                         <div style={{display: 'flex', gap: '10px'}}>
-                            <KitAvatar color="#fcba03">Y</KitAvatar>
+                            <KitAvatar color="#FunctionComponentba03">Y</KitAvatar>
                             <KitAvatar color="#001d75">D</KitAvatar>
                             <KitAvatar color="#850065">P</KitAvatar>
                         </div>

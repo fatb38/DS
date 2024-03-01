@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitInput} from '@kit/DataEntry';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 
-export const LabelAndHelperInputTest: FC = () => (
+export const LabelAndHelperInputTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3">Label and helper input</KitTypography.Title>
         <div style={{display: 'flex', gap: '30px'}}>
