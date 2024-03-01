@@ -128,6 +128,6 @@
     "public/images/gitflow-feature.png",
     "CHANGELOG.md"
   ],
-  "module": "./dist/index.es.js",
+  "main": "./dist/index.es.js",
   "types": "./dist/index.d.ts"
 }
