@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitSelect} from '@kit/DataEntry';
 import {colorOptions, iconOptions} from './commons.tsx';
 
-export const BasicSelectTest: FC = () => (
+export const BasicSelectTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3">Basic select</KitTypography.Title>
         <div style={{display: 'flex', gap: '20px', marginBottom: '10px'}}>

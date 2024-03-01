@@ -1,6 +1,12 @@
 # Changelog
 
 ## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
+### ✨ Features
+* **Tabs:**
+    * Add `hideSeparator` prop to hide separator between tabs and content (@P0ppoff)
+    * (Style) Allow tabs center on extraContent (@P0ppoff)
+    * (Style) Reduce space between tabs and separator (@P0ppoff)
+
 ### 🐛 Bug Fixes
 * **Select:**
   * Fix default border color (@philippechevieux)

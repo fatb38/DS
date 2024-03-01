@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import {IKitNotificationArgs} from './types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
@@ -15,7 +15,7 @@ import {KitSpace} from '@kit/Layout';
 
 import styles from './styles.module.scss';
 
-export const KitNotification: React.FC<IKitNotificationArgs> = ({
+export const KitNotification: FunctionComponent<IKitNotificationArgs> = ({
     message,
     description,
     messageExtra,

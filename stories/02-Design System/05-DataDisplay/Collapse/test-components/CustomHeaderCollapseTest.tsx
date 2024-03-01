@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitCollapse} from '@kit/DataDisplay';
 import {KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMinus, faPlus} from '@fortawesome/free-solid-svg-icons';
 
-export const CustomHeaderCollapseTest: FC = () => {
+export const CustomHeaderCollapseTest: FunctionComponent = () => {
     const text =
         'A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.';
 

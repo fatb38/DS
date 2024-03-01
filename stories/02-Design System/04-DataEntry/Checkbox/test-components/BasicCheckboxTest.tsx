@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitCheckbox} from '@kit/DataEntry';
 import {KitTypography} from '@kit/General';
 
-export const BasicCheckboxTest: FC = () => (
+export const BasicCheckboxTest: FunctionComponent = () => (
     <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
         <KitTypography.Title level="h3">Basic checkbox</KitTypography.Title>
         <KitCheckbox checked>Checked</KitCheckbox>

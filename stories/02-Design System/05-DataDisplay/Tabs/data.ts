@@ -54,6 +54,20 @@ export const argTypes = {
             category: 'Tabs'
         }
     },
+    hideSeparator: {
+        name: 'hideSeparator',
+        description: 'Hide tabs separator',
+        control: {type: 'boolean'},
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {
+                summary: false
+            },
+            category: 'Tabs'
+        }
+    },
     defaultActiveKey: {
         name: 'defaultActiveKey',
         description: "Initial active TabPane's key, if `activeKey` is not set",

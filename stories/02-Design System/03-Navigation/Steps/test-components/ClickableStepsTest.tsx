@@ -1,10 +1,12 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitSteps} from '@kit/Navigation';
 
-export const ClickableStepsTest: FC = () => (
+export const ClickableStepsTest: FunctionComponent = () => (
     <>
-        <KitTypography.Title level="h3" style={{ marginBottom: '24px'}}>Clickable steps</KitTypography.Title>
+        <KitTypography.Title level="h3" style={{marginBottom: '24px'}}>
+            Clickable steps
+        </KitTypography.Title>
         <KitSteps
             current={0}
             onChange={() => console.log('onChange')}
@@ -24,4 +26,4 @@ export const ClickableStepsTest: FC = () => (
             ]}
         />
     </>
-)
+);

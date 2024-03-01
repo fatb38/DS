@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {getParentSelector, ModalContainer, modalProps} from './commons.ts';
 import ConfirmDialog from '@kit/Feedback/Modal/ConfirmDialog.tsx';
 import {KitApp} from '@kit/App';
 
-export const ConfirmTypesModalTest: FC = () => (
+export const ConfirmTypesModalTest: FunctionComponent = () => (
     <KitApp>
         <KitTypography.Title level="h3">Confirm types modal</KitTypography.Title>
         <div style={{display: 'flex', flexDirection: 'column', gap: '16px'}}>

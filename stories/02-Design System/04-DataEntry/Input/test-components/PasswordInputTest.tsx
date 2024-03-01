@@ -1,10 +1,10 @@
-import React, {FC, useState} from 'react';
+import React, {FunctionComponent, useState} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitInput} from '@kit/DataEntry';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 
-export const PasswordInputTest: FC = () => {
+export const PasswordInputTest: FunctionComponent = () => {
     const [passwordVisible, setPasswordVisible] = useState(true);
 
     return (

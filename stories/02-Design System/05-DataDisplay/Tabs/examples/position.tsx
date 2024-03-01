@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {KitButton} from '@kit/General';
+import {KitButton, KitTypography} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
 import {KitTabs} from '@kit/DataDisplay';
 
@@ -11,7 +11,7 @@ const App = () => {
     return (
         <>
             <KitSpace style={{marginBottom: 24}}>
-                Tab position:
+                <KitTypography.Text>Tab position:</KitTypography.Text>
                 <KitSpace.Compact block>
                     <KitButton type="segmented" onClick={() => setTabPosition('top')} active={tabPosition === 'top'}>
                         Top

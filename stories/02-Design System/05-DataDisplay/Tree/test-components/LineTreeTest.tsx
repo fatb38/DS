@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTree} from '@kit/DataDisplay';
 import {KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFile, faFolder} from '@fortawesome/free-regular-svg-icons';
 
-export const LineTreeTest: FC = () => {
+export const LineTreeTest: FunctionComponent = () => {
     const treeData = [
         {
             title: 'parent 1',

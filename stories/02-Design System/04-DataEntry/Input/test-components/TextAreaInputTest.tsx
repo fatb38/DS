@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitInput} from '@kit/DataEntry';
 
-export const TextAreaInputTest: FC = () => (
+export const TextAreaInputTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3">Text Area input</KitTypography.Title>
         <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>

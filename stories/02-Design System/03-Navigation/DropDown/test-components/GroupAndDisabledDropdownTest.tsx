@@ -1,11 +1,11 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitButton, KitTypography} from '@kit/General';
 import {KitDropDown} from '@kit/Navigation';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 import {disabledAndDividerDropdownItems, groupDropdownItems} from '../commons.tsx';
 
-export const GroupAndDisabledDropdownTest: FC = () => {
+export const GroupAndDisabledDropdownTest: FunctionComponent = () => {
     const customRender = (menu: React.ReactNode) => {
         return (
             <>

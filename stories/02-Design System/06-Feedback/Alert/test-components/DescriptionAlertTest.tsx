@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitAlert} from '@kit/Feedback';
 
-export const DescriptionAlertTest: FC = () => (
+export const DescriptionAlertTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3">Description alerts</KitTypography.Title>
         <div style={{display: 'flex', gap: '10px'}}>

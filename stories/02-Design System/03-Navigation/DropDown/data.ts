@@ -78,7 +78,7 @@ const DropDownArgTypes = {
     getPopupContainer: {
         name: 'getPopupContainer',
         description:
-            'To set the container of the DropDown menu. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/afc163/pen/zEjNOy?editors=0010) ',
+            'To set the container of the DropDown menu. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/aFunctionComponent163/pen/zEjNOy?editors=0010) ',
         table: {
             type: {
                 summary: '(triggerNode: HTMLElement) => HTMLElement | () => document.body'

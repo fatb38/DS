@@ -163,7 +163,7 @@ export const argTypes = {
         table: {
             type: {
                 summary:
-                    '(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode'
+                    '(panel: React.ReactNode, extra: { components: { Picker: FunctionComponent; Presets: FunctionComponent } }) => React.ReactNode'
             },
             category: 'ColorPicker'
         }

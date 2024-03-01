@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitButton, KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faRotateRight} from '@fortawesome/free-solid-svg-icons';
 
-export const ColoredButtonTest: FC = () => (
+export const ColoredButtonTest: FunctionComponent = () => (
     <div style={{marginBottom: '40px'}}>
         <KitTypography.Title level={'h3'}>Colored button</KitTypography.Title>
         <div style={{display: 'flex', gap: '8px'}}>

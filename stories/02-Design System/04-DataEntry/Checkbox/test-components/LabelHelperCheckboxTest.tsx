@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitCheckbox} from '@kit/DataEntry';
 import {KitTypography} from '@kit/General';
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
 
-export const LabelHelperCheckboxTest: FC = () => (
+export const LabelHelperCheckboxTest: FunctionComponent = () => (
     <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
         <KitTypography.Title level="h3">Checkbox group with label and helper</KitTypography.Title>
         <div style={{display: 'flex', gap: '10px'}}>

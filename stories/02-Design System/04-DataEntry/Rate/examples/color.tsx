@@ -32,7 +32,7 @@ const App = () => {
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>HEX format</KitTypography.Text>
             <KitSpace size="m">
-                <KitRate defaultValue={3} color="#fcba03" />
+                <KitRate defaultValue={3} color="#FunctionComponentba03" />
                 <KitRate defaultValue={3} color="#001d75" />
                 <KitRate defaultValue={3} color="#850065" />
             </KitSpace>

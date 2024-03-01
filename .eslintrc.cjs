@@ -24,6 +24,16 @@ module.exports = {
             {
                 allowConstantExport: true
             }
-        ]
+        ],
+        'no-restricted-imports': [
+            'error',
+            {
+                "paths": [{
+                    "name": "react",
+                    "importNames": ["FC"],
+                    "message": "Please use FunctionComponent instead."
+                }]
+            },
+        ],
     }
 };

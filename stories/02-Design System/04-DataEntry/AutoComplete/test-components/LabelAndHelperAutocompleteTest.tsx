@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitAutoComplete} from '@kit/DataEntry';
 import {KitTypography} from '@kit/General';
 
-export const LabelAndHelperAutocompleteTest: FC = () => (
+export const LabelAndHelperAutocompleteTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3">Label and Helper autocomplete</KitTypography.Title>
         <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>

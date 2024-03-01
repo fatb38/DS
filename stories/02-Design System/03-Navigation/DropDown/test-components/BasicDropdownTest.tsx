@@ -1,11 +1,11 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 import {KitDropDown} from '@kit/Navigation';
 import {genericDropdownItems} from '../commons.tsx';
 
-export const BasicDropdownTest: FC = () => (
+export const BasicDropdownTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3" style={{marginBottom: '16px'}}>
             Basic dropdown

@@ -1,12 +1,13 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitTabs} from '@kit/DataDisplay';
-import {argTypes} from './data';
+import {KitDivider} from '@kit/Layout';
 import React from 'react';
+import {argTypes} from './data';
 import {Template} from './Template';
 import {BasicTabsTest} from './test-componnents/BasicTabsTest.tsx';
-import {SizeTabsTest} from './test-componnents/SizeTabsTest.tsx';
+import {ExtraContentTabsTest} from './test-componnents/ExtraContentTabsTest.tsx';
 import {PositionTabsTest} from './test-componnents/PositionTabsTest.tsx';
-import {KitDivider} from '@kit/Layout';
+import {SizeTabsTest} from './test-componnents/SizeTabsTest.tsx';
 
 const meta: Meta<typeof KitTabs> = {
     component: KitTabs,
@@ -33,7 +34,11 @@ export const ChromaticTest: Story = {
                     <KitDivider color="lightGrey" />
                     <PositionTabsTest />
                 </div>
-                <SizeTabsTest />
+                <div>
+                    <SizeTabsTest />
+                    <KitDivider color="lightGrey" />
+                    <ExtraContentTabsTest />
+                </div>
             </div>
         </>
     )

@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitPagination} from '@kit/Navigation';
 import {KitTypography} from '@kit/General';
 
-export const BorderedPaginationTest: FC = () => (
+export const BorderedPaginationTest: FunctionComponent = () => (
     <>
         <KitTypography.Title level="h3">Bordered pagination</KitTypography.Title>
         <div style={{display: 'flex', flexDirection: 'column', gap: '24px', marginTop: '24px'}}>
