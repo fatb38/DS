@@ -1,4 +1,4 @@
-import React, {FunctionComponent, ReactElement, ReactNode, cloneElement, useMemo} from 'react';
+import React, {FunctionComponent, ReactNode, cloneElement, useMemo} from 'react';
 import {IKitInputWrapper} from './types';
 import {KitButton, KitTypography} from '@kit/General/';
 import {useKitTheme} from '@theme/useKitTheme';
@@ -38,7 +38,7 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
         }
         return actions
             ? actions.map(action =>
-                  cloneElement(action as ReactElement, {
+                  cloneElement(action, {
                       disabled: true
                   })
               )

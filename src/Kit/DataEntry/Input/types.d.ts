@@ -1,7 +1,7 @@
 import {InputProps} from 'antd';
 import {PasswordProps, TextAreaProps} from 'antd/es/input';
 import {KitHTMLAttributes} from '../../../types';
-import {ReactNode} from 'react';
+import {ReactNode, ReactElement, MouseEvent} from 'react';
 
 type AntdInputTypesToOmit = 'styles' | 'type' | 'bordered' | 'size' | 'addonBefore' | 'addonAfter';
 

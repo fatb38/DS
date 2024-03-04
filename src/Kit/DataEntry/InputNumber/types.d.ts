@@ -1,6 +1,6 @@
 import {InputNumberProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
-import {ReactNode} from 'react';
+import {ReactNode, ReactElement, MouseEvent} from 'react';
 
 type AntdInputNumberTypesToOmit = 'size' | 'addonBefore' | 'addonAfter' | 'borderless' | 'suffix';
 

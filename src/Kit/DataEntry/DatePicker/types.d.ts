@@ -1,5 +1,5 @@
 import {DatePickerProps, RangePickerProps} from 'antd/es/date-picker';
-import {ReactNode} from 'react';
+import {ReactNode, ReactElement, MouseEvent} from 'react';
 
 // Use "never" instead of Omit properties to avoid issues with Antd type/interface declarations
 interface IInternalDatePicker {

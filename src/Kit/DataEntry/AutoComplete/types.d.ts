@@ -1,6 +1,6 @@
 import {AutoCompleteProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
-import {ReactNode} from 'react';
+import {ReactNode, ReactElement, MouseEvent} from 'react';
 
 export interface IKitAutoComplete extends AutoCompleteProps<T, E>, KitHTMLAttributes<HTMLInputElement> {
     label?: string;

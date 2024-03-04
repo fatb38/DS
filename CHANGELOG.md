@@ -17,6 +17,7 @@
     * (Style) Reduce space between tabs and separator (@P0ppoff)
 
 ### 🐛 Bug Fixes
+* **Package**: include typescript definitions for each component in built package (@evoiron)
 * **Select:**
   * Fix default border color (@philippechevieux)
 * **Badge:**

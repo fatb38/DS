@@ -1,7 +1,7 @@
 import {ColorPickerProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import type {Color} from 'antd/es/color-picker';
-import {ReactNode} from 'react';
+import {ReactNode, ReactElement, MouseEvent} from 'react';
 
 type AntdColorPickerTypesToOmit = 'size';
 

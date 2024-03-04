@@ -1,7 +1,7 @@
 import {SelectProps} from 'antd';
 import type {OptionProps} from 'rc-select/es/Option';
 import {KitHTMLAttributes} from '../../../types';
-import {ReactNode} from 'react';
+import {ReactNode, ReactElement, MouseEvent} from 'react';
 
 type AntdSelectTypesToOmit =
     | 'dropdownMatchSelectWidth'

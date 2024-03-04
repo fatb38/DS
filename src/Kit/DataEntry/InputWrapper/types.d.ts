@@ -1,5 +1,5 @@
 import {KitHTMLAttributes} from '../../../types';
-import {ReactNode} from 'react';
+import {ReactNode, ReactElement, MouseEvent} from 'react';
 
 export interface IKitInputWrapper extends KitHTMLAttributes<HTMLDivElement> {
     label?: string;
