@@ -29,7 +29,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
     selected = false,
     disabled = false,
     style,
-    draggable,
+    draggable = false,
     ...props
 }) => {
     const {appId} = useKitTheme();
@@ -77,15 +77,13 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
 
     const _getCheckbox = () =>
         isSelectable && (
-            <div>
-                <KitCheckbox
-                    disabled={disabled}
-                    onClick={e => e.stopPropagation()}
-                    onChange={e => {
-                        onSelect && onSelect(e);
-                    }}
-                />
-            </div>
+            <KitCheckbox
+                disabled={disabled}
+                onClick={e => e.stopPropagation()}
+                onChange={e => {
+                    onSelect && onSelect(e);
+                }}
+            />
         );
 
     const _getPicture = () => {
