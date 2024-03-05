@@ -3,6 +3,8 @@
 ## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.Xx) (2024-XX-XX)
 
 ### ✨ Features
+* **Typography:**
+  * update default typography color (@evoiron)
 * **InputWrapper:**
   * Add 4 properties: (@evoiron)
     * `required`: show a red asterisk right after the label
