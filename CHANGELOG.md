@@ -13,6 +13,8 @@
     * `infoIcon`: customise the infoIcon displayed
   * These components now accept the 4 properties above: (@evoiron)
     * `AutoComplete`, `Checkbox.Group`, `Radio.Group`, `ColorPicker`, `DatePicker`, `RangePicker`, `Input`, `InputNumber`, `Select`
+* **ItemList**
+    * Add `draggable` property showing an icon that indicates the item is draggable (@fatb38)
 * **Tabs:**
     * Add `hideSeparator` prop to hide separator between tabs and content (@P0ppoff)
     * (Style) Allow tabs center on extraContent (@P0ppoff)

@@ -147,5 +147,20 @@ export const argTypes = {
             },
             category: 'ItemList'
         }
+    },
+    draggable: {
+        name: 'draggable',
+        description:
+            'A boolean that indicates the item is draggable. A dedicated icon appears, the drag and drop feature must be implemented in your application.',
+        control: 'boolean',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {
+                summary: 'boolean'
+            },
+            category: 'ItemList'
+        }
     }
 };

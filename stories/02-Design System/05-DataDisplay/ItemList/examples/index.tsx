@@ -6,6 +6,7 @@ import Rafter from './rafter';
 import All from './all';
 import Sizing from './sizing';
 import Disabled from './disabled';
+import Draggable from './draggable/draggable.tsx';
 
 import BasicSource from './basic?raw';
 import SelectableSource from './selectable?raw';
@@ -15,6 +16,7 @@ import RafterSource from './rafter?raw';
 import AllSource from './all?raw';
 import SizingSource from './sizing?raw';
 import DisabledSource from './disabled?raw';
+import DraggableSource from './draggable/draggable.tsx?raw';
 
 export const Sources = {
     Basic: BasicSource,
@@ -24,7 +26,8 @@ export const Sources = {
     Rafter: RafterSource,
     All: AllSource,
     Sizing: SizingSource,
-    Disabled: DisabledSource
+    Disabled: DisabledSource,
+    Draggable: DraggableSource
 };
 
 export default {
@@ -35,5 +38,6 @@ export default {
     Rafter,
     All,
     Sizing,
-    Disabled
+    Disabled,
+    Draggable
 };
