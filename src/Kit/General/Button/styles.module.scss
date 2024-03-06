@@ -137,33 +137,6 @@ $prefix: "kit-btn-";
         }
     }
 
-    &.kit-btn-primaryModal {
-        color: var(--kit-btn-main-color);
-        border-color: var(--kit-btn-main-color);
-        background-color: var(--kit-btn-invert-color);
-
-        &:hover {
-            background-color: var(--kit-btn-main-dark);
-            border-color:  var(--kit-btn-main-dark);
-            color: var(--kit-btn-invert-color);
-        }
-
-        &:active {
-            background-color: var(--kit-btn-main-dark-deep);
-            border-color: var(--kit-btn-main-dark-deep);
-        }
-
-        &:focus {
-             border-color: var(--kit-btn-main-focus);
-        }
-
-        &:disabled {
-            color: var(--kit-btn-disabled-color);
-            background-color: var(--kit-btn-grey-light);
-            border-color: var(--kit-btn-border-color);
-        }
-    }
-
     &.kit-btn-tertiary {
         background-color: transparent;
         border-color: transparent;
@@ -217,7 +190,7 @@ $prefix: "kit-btn-";
         justify-content: center;
     }
 
-    &.kit-btn-danger {
+    &.kit-btn-danger, &.kit-btn-danger-modal {
         --kit-btn-main-color: var(--general-colors-secondary-red-red500);
         --kit-btn-main-light: var(--general-colors-secondary-red-red100);
         --kit-btn-main-focus: var(--general-colors-secondary-red-red500);
@@ -227,6 +200,10 @@ $prefix: "kit-btn-";
 
         &.kit-btn-primary:not(:disabled):hover {
             border-color: var(--kit-btn-main-dark);
+        }
+
+        &.kit-btn-danger-modal {
+            border-color: var(--kit-btn-main-color);
         }
     }
 

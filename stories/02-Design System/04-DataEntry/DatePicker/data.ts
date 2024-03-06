@@ -26,6 +26,45 @@ const CommonArgs = {
             category: 'Common API'
         }
     },
+    required: {
+        name: 'required',
+        description: 'Whether the input is mandatory',
+        control: {type: 'boolean'},
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            category: 'Common API',
+            defaultValue: {summary: false}
+        },
+        defaultValue: false
+    },
+    infoIcon: {
+        name: 'infoIcon',
+        description: 'Custom Icon to display when onInfoClick is set',
+        options: ['-', 'faMagnifyingGlass', 'faDownload', 'faCircleCheck'],
+        control: {type: 'select'},
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            category: 'Common API',
+            defaultValue: {summary: '<FontAwesomeIcon icon={faCircleInfo} />'}
+        },
+        defaultValue: false
+    },
+    actions: {
+        name: 'actions',
+        description: 'Actions to add on the right of the label',
+        table: {
+            type: {
+                summary: 'ReactNode[]'
+            },
+            category: 'Common API',
+            defaultValue: {summary: null}
+        },
+        defaultValue: false
+    },
     allowClear: {
         name: 'allowClear',
         description: 'Customize clear button',
@@ -387,6 +426,20 @@ const CommonArgs = {
                 summary: '{}'
             }
         }
+    },
+    onInfoClick: {
+        name: 'onInfoClick',
+        description: 'If set, show info icon, and set the handler to handle `click` event on it',
+        options: ['-', 'log to console'],
+        control: {type: 'select'},
+        table: {
+            type: {
+                summary: '(e: MouseEvent<HTMLElement, MouseEvent>) => void;'
+            },
+            category: 'Common API',
+            defaultValue: {summary: '-'}
+        },
+        defaultValue: () => {}
     },
     onOpenChange: {
         name: 'onOpenChange',

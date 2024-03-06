@@ -1,5 +1,5 @@
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {kitInputNumberCssTokens} from '@theme/aristid/components/DataEntry/InputNumber';
+import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
 
 export const inputNumberKitTokenToAntdToken = {
@@ -8,7 +8,7 @@ export const inputNumberKitTokenToAntdToken = {
     colorBorder: `var(${kitInputNumberCssTokens.colors.border.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`,
     colorPrimary: `var(${kitInputNumberCssTokens.colors.border.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}))`,
     colorPrimaryHover: `var(${kitInputNumberCssTokens.colors.border.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}))`,
-    colorTextPlaceholder: `var(${kitInputNumberCssTokens.colors.typography.placeholder.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey500}))`,
-    colorText: `var(${kitInputNumberCssTokens.colors.typography.content.default}, var(${kitColorsPaletteCssTokens.primary.primary300}))`,
+    colorTextPlaceholder: `var(${kitInputNumberCssTokens.colors.typography.placeholder.default}, var(${kitColorsPaletteCssTokens.neutral.grey.grey400}))`,
+    colorText: `var(${kitInputNumberCssTokens.colors.typography.content.default}, var(${kitColorsPaletteCssTokens.neutral.grey.grey600}))`,
     fontFamily: `var(${kitInputNumberCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`
 };

@@ -28,7 +28,7 @@ export interface IKitButton extends KitHTMLAttributes<HTMLDivElement> {
     className?: string;
     children?: React.ReactNode;
     checked?: boolean;
-    primaryModal?: boolean;
+    dangerModal?: boolean;
     block?: boolean;
     active?: boolean;
     [key: `data-${string}`]: string;

@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {getParentSelector, ModalContainer, modalProps} from './commons.ts';
 import ConfirmDialog from '@kit/Feedback/Modal/ConfirmDialog.tsx';
 import {KitApp} from '@kit/App';
 
-export const ConfirmTypesModalTest: FC = () => (
+export const ConfirmTypesModalTest: FunctionComponent = () => (
     <KitApp>
         <KitTypography.Title level="h3">Confirm types modal</KitTypography.Title>
         <div style={{display: 'flex', flexDirection: 'column', gap: '16px'}}>
@@ -18,6 +18,7 @@ export const ConfirmTypesModalTest: FC = () => (
             </div>
             <div style={{display: 'flex', gap: '16px'}}>
                 <ModalContainer id="modal-test-confirm"></ModalContainer>
+                <ModalContainer id="modal-test-confirm-danger"></ModalContainer>
             </div>
         </div>
         <ConfirmDialog
@@ -68,6 +69,17 @@ export const ConfirmTypesModalTest: FC = () => (
             {...modalProps}
             type="confirm"
             title=" Confirm dialog"
+            okCancel={modalProps.showSecondaryCta}
+        />
+        <ConfirmDialog
+            isOpen
+            shouldFocusAfterRender={false}
+            dangerConfirm={true}
+            ariaHideApp={false}
+            parentSelector={getParentSelector('#modal-test-confirm-danger')}
+            {...modalProps}
+            type="confirm"
+            title=" Confirm dialog danger"
             okCancel={modalProps.showSecondaryCta}
         />
     </KitApp>

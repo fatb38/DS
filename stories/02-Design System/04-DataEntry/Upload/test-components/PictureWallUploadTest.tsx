@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {UploadProps} from 'antd';
 import {KitUpload} from '@kit/DataEntry';
 import {KitTypography} from '@kit/General';
 
-export const PictureWallUploadTest: FC = () => {
+export const PictureWallUploadTest: FunctionComponent = () => {
     const defaultFileList: UploadProps['defaultFileList'] = [
         {
             uid: '-1',

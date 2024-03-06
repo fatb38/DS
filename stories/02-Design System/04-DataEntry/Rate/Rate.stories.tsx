@@ -30,7 +30,7 @@ const secondaryColors = Object.keys(colorsPalette.secondary);
 
 export const ChromaticTest: Story = {
     render: () => (
-        <div style={{ display: 'flex', gap: '100px'}}>
+        <div style={{display: 'flex', gap: '100px'}}>
             <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
                 <div>
                     <KitTypography.Title level="h4">Basic rate</KitTypography.Title>
@@ -74,7 +74,7 @@ export const ChromaticTest: Story = {
                 <div>
                     <KitTypography.Title level="h4">HEX format</KitTypography.Title>
                     <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                        <KitRate defaultValue={3} color="#fcba03" />
+                        <KitRate defaultValue={3} color="#FunctionComponentba03" />
                         <KitRate defaultValue={3} color="#001d75" />
                         <KitRate defaultValue={3} color="#850065" />
                     </div>

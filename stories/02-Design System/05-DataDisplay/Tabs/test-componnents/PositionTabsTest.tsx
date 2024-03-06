@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTabs} from '@kit/DataDisplay';
 import {KitTypography} from '@kit/General';
 
-export const PositionTabsTest: FC = () => (
+export const PositionTabsTest: FunctionComponent = () => (
     <div style={{width: '550px'}}>
         <KitTypography.Title level="h3">Position size tabs</KitTypography.Title>
         <div style={{display: 'flex', flexDirection: 'column', gap: '40px'}}>

@@ -1,4 +1,4 @@
-import {ReactNode, CSSProperties} from 'react';
+import {ReactNode, CSSProperties, ReactElement, MouseEvent} from 'react';
 import {CheckboxProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
 import type {CheckboxChangeEvent} from 'antd/es/checkbox/Checkbox';
@@ -39,6 +39,10 @@ export interface ICheckboxGroup extends AbstractCheckboxGroup {
     value?: Array<CheckboxValueType>;
     onChange?: (checkedValue: Array<CheckboxValueType>) => void;
     children?: ReactNode;
+    required?: boolean;
+    infoIcon?: ReactNode;
+    actions?: ReactElement[];
+    onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 export interface ICheckboxGroupContext {

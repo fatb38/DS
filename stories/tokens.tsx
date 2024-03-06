@@ -59,6 +59,12 @@ const forms = {
                 "typography": {
                     "_label": "typography",
                     "_path": "general.colors.neutral.typography",
+                    "default": {
+                        "_label": "default",
+                        "_path": "general.colors.neutral.typography.default",
+                        "_type": "color",
+                        "_description": "typography default color"
+                    },
                     "black": {
                         "_label": "black",
                         "_path": "general.colors.neutral.typography.black",

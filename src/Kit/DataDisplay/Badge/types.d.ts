@@ -4,7 +4,7 @@ import {KitColorProp} from '@utils/functions/types';
 
 type AntdBadgeTypesToOmit = 'color' | 'size' | 'offset' | 'text';
 
-export interface IKitBadge extends Omit<BadgeProps, AntdBadgeTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
+export interface IKitBadge extends KitHTMLAttributes<HTMLDivElement>, Omit<BadgeProps, AntdBadgeTypesToOmit> {
     color?: KitColorProp;
     secondaryColorInvert?: boolean;
 }

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {RadioProps, RadioGroupProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
-import {ReactNode, CSSProperties} from 'react';
+import {ReactNode, CSSProperties, ReactElement, MouseEvent} from 'react';
 
 export interface KitRadioProps extends RadioProps, KitHTMLAttributes<HTMLLabelElement> {
     danger?: boolean;
@@ -23,4 +23,8 @@ export interface KitRadioGroup extends RadioGroupProps, KitHTMLAttributes<HTMLDi
     status?: '' | 'warning' | 'error';
     bordered?: boolean;
     wrapperClassName?: string;
+    required?: boolean;
+    infoIcon?: ReactNode;
+    actions?: ReactElement[];
+    onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
 }

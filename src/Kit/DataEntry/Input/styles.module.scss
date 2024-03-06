@@ -34,7 +34,7 @@
             margin-inline-end: 10px;
             color: var(
                 --components-input-colors-prefix-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                var(--general-colors-secondary-mediumGrey-mediumGrey600)
             );
         }
 
@@ -42,14 +42,14 @@
             margin-inline-start: 10px;
             color: var(
                 --components-input-colors-suffix-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                var(--general-colors-secondary-mediumGrey-mediumGrey600)
             );
 
             .ant-input-clear-icon {
                 display: flex;
                 color: var(
                     --components-input-colors-clearIcon-default,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                    var(--general-colors-secondary-mediumGrey-mediumGrey600)
                 );
             }
         }

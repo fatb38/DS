@@ -1,7 +1,7 @@
 import {SelectProps} from 'antd';
 import type {OptionProps} from 'rc-select/es/Option';
 import {KitHTMLAttributes} from '../../../types';
-import {ReactNode} from 'react';
+import {ReactNode, ReactElement, MouseEvent} from 'react';
 
 type AntdSelectTypesToOmit =
     | 'dropdownMatchSelectWidth'
@@ -35,6 +35,10 @@ export interface IKitSelect extends Omit<SelectProps, AntdSelectTypesToOmit>, Ki
     options?: IKitOption[];
     labelOnly?: boolean;
     wrapperClassName?: string;
+    required?: boolean;
+    infoIcon?: ReactNode;
+    actions?: ReactElement[];
+    onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 interface IKitOption extends Omit<OptionProps, ''> {

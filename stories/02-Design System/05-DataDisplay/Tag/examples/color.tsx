@@ -43,7 +43,7 @@ const App = () => {
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>HEX format</KitTypography.Text>
             <KitSpace>
-                <KitTag color="#fcba03">Yellow</KitTag>
+                <KitTag color="#FunctionComponentba03">Yellow</KitTag>
                 <KitTag color="#001d75">Dark blue</KitTag>
                 <KitTag color="#850065">Purple</KitTag>
             </KitSpace>

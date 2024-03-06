@@ -64,9 +64,10 @@ You can pass any of the Modal properties plus :
 | type | Dialog type, one of `info` | `success` | `warning` | `error` | `warn` | `confirm` | `string` | - |
 | image | url of image displayed on top the modal. if not specified, image is not shown | `string` | - |
 | icon | Icon to show on the left of the content. If not specified, show icon corresponding to specified type. If you set icon={null}, the modal won't show icon at all | `ReactNode` | - |
-| firstLine | first line of text to display | `ReactNode`| - |
-| secondLine | second line of text to display | `ReactNode`| - |
-| okCancel | Wether to display sCancel button or only Ok button | `boolean`| false |
+| content | first line of text to display | `ReactNode`| - |
+| showCloseIcon | Wether to display the top right close icon| `boolean`| false |
+| dangerConfirm | If true, | `boolean`| false |
+| okCancel | Wether to display Cancel button or only Ok button | `boolean`| false |
 | title | Title to display | string | - |
 | cancelText | text to display in cancel button | string| 'Cancel' |
 | okText | text to display in Ok button | string| 'Ok' |

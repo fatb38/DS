@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitInputWrapper} from '@kit/DataEntry/';
 
-export const DisabledInputWrapperTest: FC = () => (
+export const DisabledInputWrapperTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3">Disabled component</KitTypography.Title>
         <div style={{display: 'flex', gap: '24px', alignItems: 'center'}}>

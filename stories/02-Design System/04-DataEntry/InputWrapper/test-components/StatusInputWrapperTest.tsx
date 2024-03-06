@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitInputWrapper} from '@kit/DataEntry/';
 
-export const StatusInputWrapperTest: FC = () => (
+export const StatusInputWrapperTest: FunctionComponent = () => (
     <>
         <div>
             <KitTypography.Title level="h3">Status component</KitTypography.Title>

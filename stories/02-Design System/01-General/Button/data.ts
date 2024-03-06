@@ -164,7 +164,7 @@ export const argTypes = {
             disable: true
         }
     },
-    primaryModal: {
+    dangerModal: {
         table: {
             disable: true
         }

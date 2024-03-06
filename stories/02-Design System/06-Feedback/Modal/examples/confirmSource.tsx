@@ -6,10 +6,11 @@ const App = () => {
         KitModal.confirm({
             image: 'public/images/portrait.png',
             title: 'confirm action',
-            firstLine: 'Do you confirm this action ?',
-            secondLine: 'you can also show some complementary text',
+            content: 'Do you confirm this action ?',
             icon: true,
             showSecondaryCta: true,
+            showCloseIcon: true,
+            dangerConfirm: true,
             type: 'confirm'
         });
     };

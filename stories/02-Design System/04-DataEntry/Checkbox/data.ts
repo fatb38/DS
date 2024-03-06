@@ -116,6 +116,42 @@ const CheckboxGroupArgTypes = {
             category: 'Checkbox.Group'
         }
     },
+    required: {
+        name: 'required',
+        description: 'Whether the input is mandatory',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            category: 'Checkbox.Group',
+            defaultValue: {summary: false}
+        },
+        defaultValue: false
+    },
+    infoIcon: {
+        name: 'infoIcon',
+        description: 'Custom Icon to display when onInfoClick is set',
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            category: 'Checkbox.Group',
+            defaultValue: {summary: '<FontAwesomeIcon icon={faCircleInfo} />'}
+        },
+        defaultValue: false
+    },
+    actions: {
+        name: 'actions',
+        description: 'Actions to add on the right of the label',
+        table: {
+            type: {
+                summary: 'ReactNode[]'
+            },
+            category: 'Checkbox.Group',
+            defaultValue: {summary: null}
+        },
+        defaultValue: false
+    },
     disabled: {
         name: 'disabled',
         description: 'If disable all checkboxes',
@@ -214,8 +250,20 @@ const CheckboxGroupArgTypes = {
                 summary: '(checkedValue: CheckboxValueType[]) => void'
             },
             defaultValue: {summary: '-'},
-            category: 'Checkbox'
+            category: 'Checkbox.Group'
         }
+    },
+    onInfoClick: {
+        name: 'onInfoClick',
+        description: 'If set, show info icon, and set the handler to handle `click` event on it',
+        table: {
+            type: {
+                summary: '(e: MouseEvent<HTMLElement, MouseEvent>) => void;'
+            },
+            category: 'Checkbox.Group',
+            defaultValue: {summary: '-'}
+        },
+        defaultValue: () => {}
     }
 };
 

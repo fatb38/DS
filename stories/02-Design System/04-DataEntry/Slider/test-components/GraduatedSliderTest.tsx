@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitSlider} from '@kit/DataEntry';
 import {KitSliderMarks} from '@kit/DataEntry/Slider/types';
 
-export const GraduatedSliderTest: FC = () => {
+export const GraduatedSliderTest: FunctionComponent = () => {
     const marks: KitSliderMarks = {
         0: '0',
         25: '25',

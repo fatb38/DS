@@ -1,7 +1,7 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 
-export const EllipsisTypographyTest: FC = () => (
+export const EllipsisTypographyTest: FunctionComponent = () => (
     <>
         <KitTypography.Title level="h3">Ellipsis</KitTypography.Title>
         <div style={{width: '250px'}}>

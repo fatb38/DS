@@ -13,6 +13,7 @@ export interface IKitItemList extends KitHTMLAttributes<HTMLDivElement> {
     onClick?: () => void;
     selected?: boolean;
     disableSecureClick?: boolean;
+    draggable?: boolean;
 }
 
 export interface IStyledKitItemList {

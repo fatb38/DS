@@ -16,8 +16,8 @@ export const ModalContainer = styled.div`
 export const modalProps = {
     type: 'confirm',
     image: undefined,
-    firstLine: 'Do you confirm this action ?',
-    secondLine: 'You can also show some complementary text',
+    content: 'Do you confirm this action ?',
+    showCloseIcon: true,
     icon: true,
     showSecondaryCta: false
 };

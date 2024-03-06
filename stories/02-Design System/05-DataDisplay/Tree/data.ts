@@ -36,10 +36,10 @@ export const argTypes = {
     checkedKeys: {
         name: 'checkable',
         description:
-            "(Controlled) Specifies the keys of the checked treeNodes (PS: When this specifies the key of a treeNode which is also a parent treeNode, all the children treeNodes of will be checked; and vice versa, when it specifies the key of a treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, its object has `checked` and `halfChecked` property. Regardless of whether the child or parent treeNode is checked, they won't impact each other",
+            "(Controlled) Specifies the keys of the checked treeNodes (PS: When this specifies the key of a treeNode which is also a parent treeNode, all the children treeNodes of will be checked; and vice versa, when it specifies the key of a treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, its object has `checked` and `halFunctionComponenthecked` property. Regardless of whether the child or parent treeNode is checked, they won't impact each other",
         table: {
             type: {
-                summary: 'string[] | {checked: string[], halfChecked: string[]}'
+                summary: 'string[] | {checked: string[], halFunctionComponenthecked: string[]}'
             },
             category: 'Tree',
             defaultValue: {summary: '[]'}
@@ -322,7 +322,8 @@ export const argTypes = {
         description: 'Callback function for when the onCheck event occurs',
         table: {
             type: {
-                summary: 'function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys})'
+                summary:
+                    'function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halFunctionComponentheckedKeys})'
             },
             category: 'Tree'
         }

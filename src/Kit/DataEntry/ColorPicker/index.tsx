@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitColorPickerProps} from './types';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
@@ -7,11 +7,15 @@ import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
-export const KitColorPicker: FC<KitColorPickerProps> = ({
+export const KitColorPicker: FunctionComponent<KitColorPickerProps> = ({
     label,
     className,
     helper,
     rootClassName,
+    required,
+    infoIcon,
+    actions,
+    onInfoClick,
     ...colorPickerProps
 }) => {
     const {appId} = useKitTheme();
@@ -20,7 +24,15 @@ export const KitColorPicker: FC<KitColorPickerProps> = ({
     const clx = cn(appId, className);
 
     return (
-        <KitInputWrapper label={label} helper={helper} disabled={colorPickerProps.disabled}>
+        <KitInputWrapper
+            label={label}
+            helper={helper}
+            disabled={colorPickerProps.disabled}
+            required={required}
+            infoIcon={infoIcon}
+            actions={actions}
+            onInfoClick={onInfoClick}
+        >
             <AntdColorPicker {...colorPickerProps} rootClassName={rootClx} className={clx} />
         </KitInputWrapper>
     );

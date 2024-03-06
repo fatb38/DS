@@ -1,6 +1,51 @@
 # Changelog
 
+## [2.0.0](https://www.npmjs.com/package/aristid-ds/v/2.0.0) (2024-03-06)
+### ✨ Features
+* **⚠️ Breaking change - Modal:**  (@evoiron)
+  * update Modal Design
+  * update confirmModal Options: 
+    * remove `secondLine` property
+    * rename `firstLine` to `content`
+    * add `dangerConfirm` property to show Cta Button as danger look n' feel, 
+    * add `showCloseIcon` to display top tight button for closing
+* **Section:** (@Delmotte-Vincent)
+  * Add new component Section
+* **Typography:**
+  * update default typography color (@evoiron)
+* **InputWrapper:**
+  * Add 4 properties: (@evoiron)
+    * `required`: show a red asterisk right after the label
+    * `actions`: an array of items to display at the right of the label
+    * `onInfoClick`: When set, display a clickable info icon which triggers this event
+    * `infoIcon`: customise the infoIcon displayed
+  * These components now accept the 4 properties above: (@evoiron)
+    * `AutoComplete`, `Checkbox.Group`, `Radio.Group`, `ColorPicker`, `DatePicker`, `RangePicker`, `Input`, `InputNumber`, `Select`
+* **ItemList**
+    * Add `draggable` property showing an icon that indicates the item is draggable (@fatb38)
+* **Tabs:**
+    * Add `hideSeparator` prop to hide separator between tabs and content (@P0ppoff)
+    * (Style) Allow tabs center on extraContent (@P0ppoff)
+    * (Style) Reduce space between tabs and separator (@P0ppoff)
+
+### 🐛 Bug Fixes
+* **Package**: include typescript definitions for each component in built package (@evoiron)
+* **Select:**
+  * Fix default border color (@philippechevieux)
+* **Badge:**
+  * Fix custom className bug (@evoiron)
+* **Input:**
+   * Update color of content, label, placeholder and clear icon (@TdyP)
+  * Add aria-label on clear icon to improve testability (@TdyP)
+* **InputNumber:**
+  * Update color of content, label, placeholder and clear icon (@TdyP)
+* **ColorPicker:**
+  * Update color of content, label and placeholder (@TdyP)
+* **DatePicker:**
+  * Update color of content, label and placeholder (@TdyP)
+
 ## [1.1.0](https://www.npmjs.com/package/aristid-ds/v/1.1.0) (2024-02-28)
+
 ### ✨ Features
 * **Nightly build:**
   * publish a nightly version of the package under `next`. (@evoiron)
@@ -18,8 +63,6 @@
 
 * **InputWrapper:**
   * Fix border default color (@philippechevieux)
-
-
 
 ## [1.0.1](https://www.npmjs.com/package/aristid-ds/v/1.0.1) (2024-02-26)
 ### 🐛 Bug Fixes

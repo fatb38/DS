@@ -39,6 +39,11 @@ export interface IKitColorsPalette {
     neutral: {
         typography: {
             /**
+             * typography default color
+             * @TJS-type color
+             */
+            default: string;
+            /**
              * typography black color
              * @TJS-type color
              */

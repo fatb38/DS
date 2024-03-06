@@ -19,6 +19,18 @@ export const argTypes = {
             }
         }
     },
+    required: {
+        name: 'required',
+        description: 'Whether the input is mandatory',
+        control: {type: 'boolean'},
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: false}
+        },
+        defaultValue: false
+    },
     disabled: {
         name: 'disabled',
         description: 'Whether the input is disabled',
@@ -54,6 +66,30 @@ export const argTypes = {
             }
         }
     },
+    infoIcon: {
+        name: 'infoIcon',
+        description: 'Custom Icon to display when onInfoClick is set',
+        options: ['-', 'faMagnifyingGlass', 'faDownload', 'faCircleCheck'],
+        control: {type: 'select'},
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            defaultValue: {summary: '<FontAwesomeIcon icon={faCircleInfo} />'}
+        },
+        defaultValue: false
+    },
+    actions: {
+        name: 'actions',
+        description: 'Actions to add on the right of the label',
+        table: {
+            type: {
+                summary: 'ReactNode[]'
+            },
+            defaultValue: {summary: null}
+        },
+        defaultValue: false
+    },
     className: {
         name: 'className',
         description: 'Component class name',
@@ -62,5 +98,18 @@ export const argTypes = {
                 summary: 'string'
             }
         }
+    },
+    onInfoClick: {
+        name: 'onInfoClick',
+        description: 'If set, show info icon, and set the handler to handle `click` event on it',
+        options: ['-', 'log to console'],
+        control: {type: 'select'},
+        table: {
+            type: {
+                summary: '(e: MouseEvent<HTMLElement, MouseEvent>) => void;'
+            },
+            defaultValue: {summary: '-'}
+        },
+        defaultValue: () => {}
     }
 };

@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitSlider} from '@kit/DataEntry';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlassMinus, faMagnifyingGlassPlus} from '@fortawesome/free-solid-svg-icons';
 
-export const IconsSliderTest: FC = () => (
+export const IconsSliderTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3">With icons slider</KitTypography.Title>
         <div style={{width: '400px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
@@ -17,4 +17,4 @@ export const IconsSliderTest: FC = () => (
             />
         </div>
     </div>
-)
+);

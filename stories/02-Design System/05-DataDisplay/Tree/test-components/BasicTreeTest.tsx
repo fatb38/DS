@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTree} from '@kit/DataDisplay';
 import {KitTypography} from '@kit/General';
 
-export const BasicTreeTest: FC = () => {
+export const BasicTreeTest: FunctionComponent = () => {
     const treeData = [
         {
             title: 'parent 1',

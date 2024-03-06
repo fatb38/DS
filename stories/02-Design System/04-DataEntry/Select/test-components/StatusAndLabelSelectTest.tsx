@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitSelect} from '@kit/DataEntry';
 import {colorOptions} from './commons.tsx';
 
-export const StatusAndLabelSelectTest: FC = () => (
+export const StatusAndLabelSelectTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3">Status and label select</KitTypography.Title>
         <div style={{display: 'flex', gap: '20px'}}>

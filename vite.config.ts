@@ -77,7 +77,7 @@ const inputs = Object.fromEntries(
 // https://vitejs.dev/config/
 export default defineConfig({
     publicDir: false,
-    plugins: [react(), dts({include: ['src']}), libInjectCss()],
+    plugins: [react(), dts({include: ['src'], copyDtsFiles: true}), libInjectCss()],
     css: {
         modules: {
             scopeBehaviour: 'global'

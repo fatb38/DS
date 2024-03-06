@@ -51,7 +51,7 @@ const App = () => {
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>HEX format</KitTypography.Text>
             <KitSpace size="m">
-                <KitBadge count={5} color="#fcba03">
+                <KitBadge count={5} color="#FunctionComponentba03">
                     <KitAvatar shape="square" size="large" />
                 </KitBadge>
                 <KitBadge count={5} color="#001d75">

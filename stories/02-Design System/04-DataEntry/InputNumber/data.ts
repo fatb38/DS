@@ -21,6 +21,45 @@ export const argTypes = {
             category: 'InputNumber'
         }
     },
+    required: {
+        name: 'required',
+        description: 'Whether the input is mandatory',
+        control: {type: 'boolean'},
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            category: 'InputNumber',
+            defaultValue: {summary: false}
+        },
+        defaultValue: false
+    },
+    infoIcon: {
+        name: 'infoIcon',
+        description: 'Custom Icon to display when onInfoClick is set',
+        options: ['-', 'faMagnifyingGlass', 'faDownload', 'faCircleCheck'],
+        control: {type: 'select'},
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            category: 'InputNumber',
+            defaultValue: {summary: '<FontAwesomeIcon icon={faCircleInfo} />'}
+        },
+        defaultValue: false
+    },
+    actions: {
+        name: 'actions',
+        description: 'Actions to add on the right of the label',
+        table: {
+            type: {
+                summary: 'ReactNode[]'
+            },
+            category: 'InputNumber',
+            defaultValue: {summary: null}
+        },
+        defaultValue: false
+    },
     placeHolder: {
         name: 'placeHolder',
         description: 'HTML input placeholder',
@@ -266,6 +305,20 @@ export const argTypes = {
             },
             category: 'InputNumber'
         }
+    },
+    onInfoClick: {
+        name: 'onInfoClick',
+        description: 'If set, show info icon, and set the handler to handle `click` event on it',
+        options: ['-', 'log to console'],
+        control: {type: 'select'},
+        table: {
+            type: {
+                summary: '(e: MouseEvent<HTMLElement, MouseEvent>) => void;'
+            },
+            category: 'InputNumber',
+            defaultValue: {summary: '-'}
+        },
+        defaultValue: () => {}
     },
     wrapperClassName: {
         name: 'wrapperClassName',

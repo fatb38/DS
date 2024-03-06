@@ -1,16 +1,30 @@
 import React, {forwardRef} from 'react';
 import {Input as AntdInput, InputRef} from 'antd';
-import {IKitInput} from './types';
+import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 import cn from 'classnames';
+import {IKitInput} from './types';
 
 import styles from './styles.module.scss';
 
 const KitInput = forwardRef<InputRef, IKitInput>(
-    ({label, className, helper, wrapperClassName, allowClear = true, ...inputProps}, ref) => {
+    (
+        {
+            label,
+            className,
+            helper,
+            wrapperClassName,
+            allowClear = true,
+            required,
+            infoIcon,
+            actions,
+            onInfoClick,
+            ...inputProps
+        },
+        ref
+    ) => {
         const {appId} = useKitTheme();
         const clx = cn(appId, styles['kit-input'], className);
 
@@ -21,12 +35,20 @@ const KitInput = forwardRef<InputRef, IKitInput>(
                 disabled={inputProps.disabled}
                 status={inputProps.status}
                 className={wrapperClassName}
+                required={required}
+                infoIcon={infoIcon}
+                actions={actions}
+                onInfoClick={onInfoClick}
             >
                 <AntdInput
                     {...inputProps}
                     ref={ref}
                     className={clx}
-                    allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : undefined}
+                    allowClear={
+                        allowClear
+                            ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}
+                            : undefined
+                    }
                 />
             </KitInputWrapper>
         );

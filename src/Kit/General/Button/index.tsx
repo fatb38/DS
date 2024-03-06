@@ -50,7 +50,7 @@ const _getLoadingConfig = (loading: loadingType): loadingConfig => {
 const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IKitButton> = (
     {
         iconSize,
-        primaryModal,
+        dangerModal,
         type = 'secondary',
         checked,
         active,
@@ -78,8 +78,9 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
     const iconOnly = !children && icon;
 
     const clx = cn(appId, styles['kit-btn'], className, {
-        [`kit-btn-${type}`]: !primaryModal && type,
-        ['kit-btn-primaryModal']: primaryModal,
+        [`kit-btn-${type}`]: !dangerModal && type,
+        [`kit-btn-secondary`]: dangerModal,
+        ['kit-btn-danger-modal']: dangerModal,
         ['kit-btn-danger']: danger,
         ['kit-btn-block']: block,
         ['kit-btn-segmented-active']: active,

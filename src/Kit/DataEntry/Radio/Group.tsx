@@ -52,7 +52,11 @@ const RadioGroup = memo(
             onMouseEnter,
             onMouseLeave,
             onFocus,
-            onBlur
+            onBlur,
+            required,
+            infoIcon,
+            actions,
+            onInfoClick
         } = props;
         const prefixCls = getPrefixCls('radio', customizePrefixCls);
         const groupPrefixCls = `${prefixCls}-group`;
@@ -134,6 +138,10 @@ const RadioGroup = memo(
                         bordered={bordered}
                         status={status}
                         className={wrapperClassName}
+                        required={required}
+                        infoIcon={infoIcon}
+                        actions={actions}
+                        onInfoClick={onInfoClick}
                     >
                         {childrenToRender}
                     </KitInputWrapper>

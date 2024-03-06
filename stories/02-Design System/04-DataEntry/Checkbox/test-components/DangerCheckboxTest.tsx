@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitCheckbox} from '@kit/DataEntry';
 import {KitTypography} from '@kit/General';
 
-export const DangerCheckboxTest: FC = () => (
+export const DangerCheckboxTest: FunctionComponent = () => (
     <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
         <KitTypography.Title level="h3">Danger checkbox</KitTypography.Title>
         <KitCheckbox defaultChecked danger>

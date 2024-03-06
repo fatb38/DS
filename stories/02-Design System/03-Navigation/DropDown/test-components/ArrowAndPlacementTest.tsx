@@ -1,11 +1,13 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitButton, KitTypography} from '@kit/General';
 import {genericDropdownItems} from '../commons.tsx';
 
-export const ArrowAndPlacementTest: FC = () => (
+export const ArrowAndPlacementTest: FunctionComponent = () => (
     <>
-        <KitTypography.Title level="h3" style={{ marginBottom: '16px'}}>Arrow and placement dropdown</KitTypography.Title>
+        <KitTypography.Title level="h3" style={{marginBottom: '16px'}}>
+            Arrow and placement dropdown
+        </KitTypography.Title>
         <div style={{display: 'flex', flexDirection: 'column', gap: '50px'}}>
             <div style={{height: '180px', display: 'flex', alignItems: 'flex-start', gap: '150px'}}>
                 <KitDropDown open menu={{items: genericDropdownItems}} placement="bottomLeft" arrow>

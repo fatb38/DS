@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitAvatar, KitBadge} from '@kit/DataDisplay';
 import {colorsPalette} from '@theme/aristid/general/colors';
 
-export const ColoredBadgeTest: FC = () => {
+export const ColoredBadgeTest: FunctionComponent = () => {
     const secondaryColors = Object.keys(colorsPalette.secondary);
 
     return (
@@ -43,7 +43,7 @@ export const ColoredBadgeTest: FC = () => {
 
                 <KitTypography.Text size="large">HEX format</KitTypography.Text>
                 <div style={{display: 'flex', gap: '20px', marginBottom: '30px'}}>
-                    <KitBadge count={5} color="#fcba03">
+                    <KitBadge count={5} color="#FunctionComponentba03">
                         <KitAvatar shape="square" size="large" />
                     </KitBadge>
                     <KitBadge count={5} color="#001d75">

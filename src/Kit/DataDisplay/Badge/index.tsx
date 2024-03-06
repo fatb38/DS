@@ -22,7 +22,13 @@ const getCustomColors = (
     } as CSSProperties;
 };
 
-export const KitBadge: FunctionComponent<IKitBadge> = ({color, style, secondaryColorInvert = false, ...badgeProps}) => {
+export const KitBadge: FunctionComponent<IKitBadge> = ({
+    color,
+    style,
+    secondaryColorInvert = false,
+    className,
+    ...badgeProps
+}) => {
     const {appId} = useKitTheme();
 
     const customStyle = useMemo(
@@ -30,9 +36,9 @@ export const KitBadge: FunctionComponent<IKitBadge> = ({color, style, secondaryC
         [color, secondaryColorInvert, style]
     );
 
-    const clx = cn(appId, styles['kit-badge'], badgeProps.className);
+    const clx = cn(appId, styles['kit-badge'], className);
 
-    return <AntdBadge style={customStyle} className={clx} {...badgeProps} />;
+    return <AntdBadge style={customStyle} {...badgeProps} className={clx} />;
 };
 
 KitBadge.displayName = 'KitBadge';

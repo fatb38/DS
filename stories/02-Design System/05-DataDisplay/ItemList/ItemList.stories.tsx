@@ -45,6 +45,14 @@ export const ChromaticTest: Story = {
                 onClick={() => console.log('on click itemlist')}
             />
             <KitItemList
+                draggable
+                picture={<KitImage src="public/images/tondeuse.png" />}
+                title="Tondeuse à gazon"
+                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
+                tagNumber={4}
+                onRafterClick={() => console.log('click rafter')}
+            />
+            <KitItemList
                 onSelect={e => console.log('selected', e.target.checked)}
                 picture={<KitIcon icon={<FontAwesomeIcon icon={faUser} />} />}
                 title="Tondeuse à gazon"
@@ -64,9 +72,19 @@ export const ChromaticTest: Story = {
                 onClick={() => console.log('on click itemlist')}
                 disabled
             />
+
+            <KitItemList
+                draggable
+                picture={<KitImage src="public/images/tondeuse.png" />}
+                title="Tondeuse à gazon"
+                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
+                tagNumber={4}
+                onRafterClick={() => console.log('click rafter')}
+                disabled
+            />
             <KitItemList
                 onSelect={e => console.log('selected', e.target.checked)}
-                selected={true}
+                selected
                 picture={<KitImage src="public/images/tondeuse.png" />}
                 title="Tondeuse à gazon"
                 description="Tondeuse thermique Auto tractée 70 VL 55 TH"

@@ -2,12 +2,12 @@ import React, {FunctionComponent, MouseEvent, ReactElement, cloneElement, useSta
 import {IKitItemList} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTag} from '@kit/DataDisplay/Tag';
-import {KitTypography} from '@kit/General/';
+import {KitButton, KitTypography} from '@kit/General/';
 import {useKitTheme} from '@theme/useKitTheme';
 import {useKitLocale} from '@translation/useKitLocale';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-regular-svg-icons';
-import {faAngleRight} from '@fortawesome/free-solid-svg-icons';
+import {faAngleRight, faBars} from '@fortawesome/free-solid-svg-icons';
 import useSecureClick from '@hooks/useSecureClick';
 import {IKitImage} from '../Image/types';
 import {IKitAvatar} from '../Avatar/types';
@@ -29,6 +29,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
     selected = false,
     disabled = false,
     style,
+    draggable = false,
     ...props
 }) => {
     const {appId} = useKitTheme();
@@ -48,6 +49,9 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
     const _generateGridTemplateColumns = () => {
         let gridTemplateColumns = '';
 
+        // Drag'n'Drop
+        gridTemplateColumns += draggable ? ' min-content' : '';
+
         // Checkbox
         gridTemplateColumns += isSelectable ? ' min-content' : '';
 
@@ -66,21 +70,21 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
         return gridTemplateColumns;
     };
 
-    const _getCheckbox = () => {
-        return (
-            isSelectable && (
-                <div>
-                    <KitCheckbox
-                        disabled={disabled}
-                        onClick={e => e.stopPropagation()}
-                        onChange={e => {
-                            onSelect && onSelect(e);
-                        }}
-                    />
-                </div>
-            )
+    const _getDragIcon = () =>
+        draggable && (
+            <KitButton disabled={disabled} type={'text'} iconSize={'l'} icon={<FontAwesomeIcon icon={faBars} />} />
         );
-    };
+
+    const _getCheckbox = () =>
+        isSelectable && (
+            <KitCheckbox
+                disabled={disabled}
+                onClick={e => e.stopPropagation()}
+                onChange={e => {
+                    onSelect && onSelect(e);
+                }}
+            />
+        );
 
     const _getPicture = () => {
         const pictureJsx = picture as JSX.Element;
@@ -186,15 +190,12 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
         );
     };
 
-    const _getTag = () => {
-        return (
-            hasTag && (
-                <div className="kit-item-list-tag">
-                    <KitTag color="blue">{tagNumber}</KitTag>
-                </div>
-            )
+    const _getTag = () =>
+        hasTag && (
+            <div className="kit-item-list-tag">
+                <KitTag color="blue">{tagNumber}</KitTag>
+            </div>
         );
-    };
 
     const _handleClickRafter = (e: MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
@@ -203,18 +204,15 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
 
     const _handleClickRafterSecured = useSecureClick(_handleClickRafter);
 
-    const _getRafter = () => {
-        return (
-            hasRafter && (
-                <div
-                    className="kit-item-list-rafter"
-                    onClick={disableSecureClick ? _handleClickRafter : _handleClickRafterSecured}
-                >
-                    <FontAwesomeIcon icon={faAngleRight} />
-                </div>
-            )
+    const _getRafter = () =>
+        hasRafter && (
+            <div
+                className="kit-item-list-rafter"
+                onClick={disableSecureClick ? _handleClickRafter : _handleClickRafterSecured}
+            >
+                <FontAwesomeIcon icon={faAngleRight} />
+            </div>
         );
-    };
 
     const clx = cn(styles['kit-item-list'], className, appId, {
         'kit-item-list-disabled': disabled,
@@ -237,6 +235,7 @@ export const KitItemList: FunctionComponent<IKitItemList> = ({
             onClick={disableSecureClick ? _handleClickItemList : _handleClickItemListSecured}
             {...props}
         >
+            {_getDragIcon()}
             {_getCheckbox()}
             {_getPicture()}
             {_getContent()}

@@ -1,14 +1,14 @@
-import React, {ReactNode, forwardRef} from 'react';
-import {DatePicker as AntdDatePicker} from 'antd';
-import {IKitDatePicker} from './types';
+import {faCalendar, faCircleXmark, faClock} from '@fortawesome/free-regular-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleXmark, faCalendar, faClock} from '@fortawesome/free-regular-svg-icons';
+import {DatePicker as AntdDatePicker} from 'antd';
 import cn from 'classnames';
+import React, {ReactNode, forwardRef} from 'react';
+import {IKitDatePicker} from './types';
 
-import styles from './styles.module.scss';
 import {IKitInputWrapper} from '../InputWrapper/types';
+import styles from './styles.module.scss';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const KitDatePicker = forwardRef<any, IKitDatePicker>(
@@ -21,6 +21,10 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
             wrapperClassName,
             picker = 'date',
             allowClear = true,
+            required,
+            infoIcon,
+            actions,
+            onInfoClick,
             ...datePickerProps
         },
         ref
@@ -43,14 +47,22 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
                 disabled={datePickerProps.disabled as boolean}
                 status={datePickerProps.status as IKitInputWrapper['status']}
                 className={wrapperClassName}
+                required={required}
+                infoIcon={infoIcon}
+                actions={actions}
+                onInfoClick={onInfoClick}
             >
                 <div>
                     <AntdDatePicker
                         {...datePickerProps}
                         picker={picker}
                         ref={ref}
-                        suffixIcon={(suffixIcon as ReactNode) ?? _getSuffixIcon()}
-                        allowClear={allowClear ? {clearIcon: <FontAwesomeIcon icon={faCircleXmark} />} : false}
+                        suffixIcon={suffixIcon ?? _getSuffixIcon()}
+                        allowClear={
+                            allowClear
+                                ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}
+                                : false
+                        }
                         className={clx}
                     />
                 </div>

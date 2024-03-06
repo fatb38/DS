@@ -1,15 +1,16 @@
 @import '../../../css/mixins.scss';
 
 .ant-typography {
+    --kit-typography-color: var(
+        --components-Typography-colors-typography-default,
+        var(--general-colors-neutral-typography-default)
+    );
     font-family: 'Inter';
     line-height: var(--components-Typography-typography-lineHeight, var(--general-typography-lineHeight1));
     font-weight: var(--components-Typography-typography-fontWeight, var(
         --general-typography-defaultFontWeight
     ));
-    color: var(
-        --components-Typography-colors-typography-default,
-        var(--general-colors-neutral-typography-black)
-    );
+    color: var(--kit-typography-color);
 
     &.ant-typography-disabled {
         color: var(
@@ -37,7 +38,7 @@ h1.ant-typography {
     ));
     color: var(
         --components-Typography-colors-typography-default,
-        var(--general-colors-neutral-typography-black)
+        var(--general-colors-neutral-typography-default)
     );
     font-size: convertToPixel(
         --components-Typography-Title-level1-typography-fontSize,
@@ -55,7 +56,7 @@ h2.ant-typography {
     ));
     color: var(
         --components-Typography-colors-typography-default,
-        var(--general-colors-neutral-typography-black)
+        var(--general-colors-neutral-typography-default)
     );
     font-size: convertToPixel(
         --components-Typography-Title-level2-typography-fontSize,
@@ -73,7 +74,7 @@ h3.ant-typography {
     ));
     color: var(
         --components-Typography-colors-typography-default,
-        var(--general-colors-neutral-typography-black)
+        var(--general-colors-neutral-typography-default)
     );
     font-size: convertToPixel(
         --components-Typography-Title-level3-typography-fontSize,
@@ -91,7 +92,7 @@ h4.ant-typography {
     ));
     color: var(
         --components-Typography-colors-typography-default,
-        var(--general-colors-neutral-typography-black)
+        var(--general-colors-neutral-typography-default)
     );
     font-size: convertToPixel(
         --components-Typography-Title-level4-typography-fontSize,

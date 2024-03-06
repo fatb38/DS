@@ -2,10 +2,42 @@ import React, {ReactNode} from 'react';
 import {KitSpace} from '@kit/Layout/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCircleCheck, faUser} from '@fortawesome/free-regular-svg-icons';
-import {faMagnifyingGlass, faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons';
+import {faMagnifyingGlass, faArrowRightToBracket, faDownload} from '@fortawesome/free-solid-svg-icons';
 import {IEditorTemplate} from '../../../types';
 import {IKitInput, IKitTextArea} from '@kit/DataEntry/Input/types';
 import {KitInput} from '@kit/DataEntry';
+
+const getInfoIcon = ({infoIcon}) => {
+    switch (infoIcon) {
+        case 'faMagnifyingGlass':
+            return <FontAwesomeIcon icon={faMagnifyingGlass} />;
+        case 'faDownload':
+            return <FontAwesomeIcon icon={faDownload} />;
+        case 'faCircleCheck':
+            return <FontAwesomeIcon icon={faCircleCheck} />;
+        case '-':
+        default:
+            return null;
+    }
+};
+
+const getInfoClick = ({onInfoClick}): IKitInput['onInfoClick'] | undefined => {
+    switch (onInfoClick) {
+        case 'log to console':
+            return () => console.log('info clicked');
+        case '-':
+        default:
+            return;
+    }
+};
+
+type toOmit = 'infoIcon' | 'onInfoClick';
+
+interface ITemplate extends Omit<IKitInput & IKitTextArea, toOmit> {
+    infoIcon: string;
+    onInfoClick: string;
+    component: string;
+}
 
 const getIcon = (icon: ReactNode): ReactNode | string | undefined => {
     switch (icon) {
@@ -22,25 +54,41 @@ const getIcon = (icon: ReactNode): ReactNode | string | undefined => {
 const getComponent = (component: string, args: IKitInput & IKitTextArea) => {
     const prefix = getIcon(args.prefix);
     const suffix = getIcon(args.suffix);
+    const icon = getInfoIcon(args as never as ITemplate);
+    const onInfoClick = getInfoClick(args as never as ITemplate);
 
     const {Password, TextArea} = KitInput;
 
     switch (component) {
         case 'Password':
-            return <Password {...args} prefix={prefix} suffix={suffix}></Password>;
+            return (
+                <Password
+                    {...args}
+                    prefix={prefix}
+                    suffix={suffix}
+                    infoIcon={icon}
+                    onInfoClick={onInfoClick}
+                ></Password>
+            );
         case 'TextArea':
-            return <TextArea {...args} prefix={prefix as string}></TextArea>;
+            return <TextArea {...args} prefix={prefix as string} infoIcon={icon} onInfoClick={onInfoClick}></TextArea>;
         case 'Input':
         default:
-            return <KitInput {...args} prefix={prefix} suffix={suffix}></KitInput>;
+            return (
+                <KitInput
+                    {...args}
+                    prefix={prefix}
+                    suffix={suffix}
+                    infoIcon={icon}
+                    onInfoClick={onInfoClick}
+                ></KitInput>
+            );
     }
 };
 
-type ITemplate = IKitInput & IKitTextArea & {component: string};
-
 export const Template = (args: IKitInput) => {
-    const {component, ...props} = args as ITemplate;
-    return <KitSpace direction="vertical">{getComponent(component, props)}</KitSpace>;
+    const {component, ...props} = args as never as ITemplate;
+    return <KitSpace direction="vertical">{getComponent(component, props as never)}</KitSpace>;
 };
 
 export const EditorTemplate: IEditorTemplate = () => {

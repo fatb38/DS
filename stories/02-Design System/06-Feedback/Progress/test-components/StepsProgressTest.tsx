@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitProgress} from '@kit/Feedback';
 import {KitTypography} from '@kit/General';
 
-export const StepsProgressTest: FC = () => (
+export const StepsProgressTest: FunctionComponent = () => (
     <>
         <KitTypography.Title level="h3">Steps progress</KitTypography.Title>
         <div style={{display: 'flex', gap: '8px', flexDirection: 'column', width: '500px'}}>

@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitSlider} from '@kit/DataEntry';
 
-export const BasicSliderTest: FC = () => (
+export const BasicSliderTest: FunctionComponent = () => (
     <div>
         <KitTypography.Title level="h3">Basic slider</KitTypography.Title>
         <div style={{width: '400px', display: 'flex', flexDirection: 'column', gap: '5px'}}>
@@ -12,4 +12,4 @@ export const BasicSliderTest: FC = () => (
             <KitSlider range defaultValue={[30, 60]} disabled />
         </div>
     </div>
-)
+);

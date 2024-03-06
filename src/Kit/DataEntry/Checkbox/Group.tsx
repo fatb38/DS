@@ -24,6 +24,10 @@ export const InternalCheckboxGroup: ForwardRefRenderFunction<HTMLDivElement, ICh
         onChange,
         label,
         helper,
+        required,
+        infoIcon,
+        actions,
+        onInfoClick,
         ...restProps
     },
     ref
@@ -134,6 +138,10 @@ export const InternalCheckboxGroup: ForwardRefRenderFunction<HTMLDivElement, ICh
                     bordered={restProps.bordered}
                     status={status}
                     className={wrapperClassName}
+                    required={required}
+                    infoIcon={infoIcon}
+                    actions={actions}
+                    onInfoClick={onInfoClick}
                 >
                     {children}
                 </KitInputWrapper>

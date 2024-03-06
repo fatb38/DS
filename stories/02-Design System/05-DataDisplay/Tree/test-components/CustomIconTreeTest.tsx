@@ -1,11 +1,11 @@
-import React, {FC} from 'react';
+import React, {FunctionComponent} from 'react';
 import {KitTree} from '@kit/DataDisplay';
 import {KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFile, faFolder} from '@fortawesome/free-regular-svg-icons';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 
-export const CustomIconTreeTest: FC = () => {
+export const CustomIconTreeTest: FunctionComponent = () => {
     const treeData = [
         {
             title: 'parent 1',
