@@ -1,8 +1,9 @@
 # Changelog
 
-## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.Xx) (2024-XX-XX)
-
+## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
 ### ✨ Features
+* **Section:** (@Delmotte-Vincent)
+  * Add new component Section
 * **Typography:**
   * update default typography color (@evoiron)
 * **InputWrapper:**

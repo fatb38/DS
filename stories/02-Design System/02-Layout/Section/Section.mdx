@@ -1,0 +1,29 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import * as KitSection from './Section.stories';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas';
+import Examples, { Sources } from "./exemples";
+
+<Meta of={KitSection} />
+
+# Section
+
+##### Basic
+
+Basic usage of the section component.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="section-basic"/>
+
+##### Colors
+
+Exemple with all the color available in the design system (primary, secondary, rgb, hex, hsl).
+
+<CustomCanvas content={Examples.Colors} source={Sources.Colors} id="section-colors"/>
+
+## API
+
+### Section
+
+<Canvas of={KitSection.Api} />
+
+<Controls of={KitSection.Api} />
