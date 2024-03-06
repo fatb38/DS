@@ -40,8 +40,9 @@ const App = () => {
         type: 'confirm',
         image: undefined,
         title: undefined,
-        firstLine: 'Do you confirm this action ?',
-        secondLine: null,
+        content: 'Do you confirm this action ?',
+        showCloseIcon: false,
+        dangerConfirm: false,
         icon: false,
         showSecondaryCta: false
     });
@@ -60,22 +61,28 @@ const App = () => {
             icon: !modalProps.icon
         });
 
+    const handleShowCloseIcon = () =>
+        setModalProps({
+            ...modalProps,
+            showCloseIcon: !modalProps.showCloseIcon
+        });
+
     const handleShowTitle = () =>
         setModalProps({
             ...modalProps,
             title: !modalProps.title ? 'confirm action' : undefined
         });
 
-    const handleShowSecondLine = () =>
-        setModalProps({
-            ...modalProps,
-            secondLine: !modalProps.secondLine ? 'you can also show some complementary text' : undefined
-        });
-
     const handleshowSecondCta = () =>
         setModalProps({
             ...modalProps,
             showSecondaryCta: !modalProps.showSecondaryCta
+        });
+
+    const handleDangerCta = () =>
+        setModalProps({
+            ...modalProps,
+            dangerConfirm: !modalProps.dangerConfirm
         });
 
     const getContainer = () => document.querySelector('#modal-test-container');
@@ -88,8 +95,9 @@ const App = () => {
                     <KitCheckbox onChange={handleShowImage}>Show Image</KitCheckbox>
                     <KitCheckbox onChange={handleShowIcon}>Show Icon</KitCheckbox>
                     <KitCheckbox onChange={handleShowTitle}>Show Title</KitCheckbox>
-                    <KitCheckbox onChange={handleShowSecondLine}>Show Second line</KitCheckbox>
+                    <KitCheckbox onChange={handleShowCloseIcon}>Show Close Icon</KitCheckbox>
                     <KitCheckbox onChange={handleshowSecondCta}>Show Secondary Cta</KitCheckbox>
+                    <KitCheckbox onChange={handleDangerCta}>Danger Cta</KitCheckbox>
                 </KitSpace>
             </KitSpace>
             <StyleContainer id="modal-test-container">

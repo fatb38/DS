@@ -10,9 +10,14 @@
         0 6px 16px 0 rgba(0, 0, 0, 0.08),
         0 3px 6px -4px rgba(0, 0, 0, 0.12),
         0 9px 28px 8px rgba(0, 0, 0, 0.05);
-    padding: 32px 32px 24px 32px;
     display: flex;
+    flex-direction: column;
     position: relative;
+
+    .kit-modal-wrapper & {
+        display: inline-flex;
+        min-width: 350px;
+    }
 
     .kit-modal-wrapper-fullscreen & {
         border-radius: 0;
@@ -21,25 +26,50 @@
         box-sizing: border-box;
     }
 
+    .kit-modal-header {
+        display: flex;
+        align-items: center;
+        padding: convertToPixel(--general-spacing-s);
+        padding-left: convertToPixel(--general-spacing-l);
+
+        > .kit-modal-title {
+            flex: 1 0 auto;
+            padding-right: convertToPixel(--general-spacing-s);
+
+            h2 {
+                margin: 0;
+            }
+        }
+
+        .kit-modal-close {
+            flex: 0;
+        }
+    }
+
     .kit-modal-content-wrapper {
         flex: 0 1 100%;
         position: relative;
         display: flex;
         flex-direction: column;
-
-        > .kit-modal-title {
-            flex: 0 1 auto;
-        }
+        padding:  convertToPixel(--general-spacing-s)  convertToPixel(--general-spacing-l);
 
         .kit-modal-content {
             flex: 1 1 auto;
         }
+    }
 
-        .kit-modal-close {
-            position: absolute;
-            right: 0;
-            top: 0;
-        }
+    .kit-modal-footer {
+        display: flex;
+        justify-content: end;
+        width: '100%';
+        gap: 10px;
+        box-sizing: border-box;
+        padding: convertToPixel(--general-spacing-s);
+        padding-left: convertToPixel(--general-spacing-l);
+        border-top: 1px solid var(
+             --components-Card-colors-border-default,
+            var(--general-colors-secondary-mediumGrey-mediumGrey200)
+        );
     }
 
     .kit-modal-title {
@@ -105,12 +135,9 @@
         }
     }
 
-    .kit-modal-footer {
-        margin-top: convertToPixel(--components-Modal-spacing-vertical-items, --general-spacing-m);
-    }
 }
 
-:local(.kit-modal-overlay) {
+.kit-modal-overlay {
     background: var(--components-Modal-Overlay-colors-background-default, rgba(0, 0, 0, 0.45));
     inset: 0px;
     position: fixed;

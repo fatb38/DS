@@ -2,24 +2,25 @@ import React, {ReactNode} from 'react';
 import Modal from './Modal';
 import {KitButton, KitIcon} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
-import {IKitConfirmDialog} from './types';
+import {IKitConfirmDialog, IKitModal} from './types';
 import {useLocale} from 'antd/es/locale';
-import {faCheck, faExclamation, faInfo, faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
+import {faCheck, faExclamation, faInfo, faTriangleExclamation, faXmark} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {getCssPropertyValue} from '@theme/utils';
 import {kitModalCssTokens} from '@theme/aristid/components/Feedback/Modal';
 import {spacingCssTokens} from '@theme/aristid/general/spacing';
+import {IKitButton} from '@kit/General/Button/types';
 
 const ConfirmDialog = (props: IKitConfirmDialog) => {
     const {
         icon,
         title,
-        firstLine,
-        secondLine,
+        content,
         image,
         type = 'confirm',
         width,
         portalClassName,
+        dangerConfirm,
         okCancel,
         onCancel,
         cancelText,
@@ -76,14 +77,31 @@ const ConfirmDialog = (props: IKitConfirmDialog) => {
     };
 
     const cancelButton = mergedOkCancel && (
-        <KitButton onClick={_onClick(onCancel)}>{cancelText || locale?.cancelText}</KitButton>
+        <KitButton icon={<FontAwesomeIcon icon={faXmark} />} onClick={_onClick(onCancel)}>
+            {cancelText || locale?.cancelText}
+        </KitButton>
     );
 
+    const okProps: IKitButton = dangerConfirm
+        ? {
+              dangerModal: true
+          }
+        : {
+              type: 'primary'
+          };
+
     const OkButton = (
-        <KitButton primaryModal onClick={_onClick(onOk)}>
+        <KitButton {...okProps} onClick={_onClick(onOk)} icon={<FontAwesomeIcon icon={faCheck} />}>
             {okText || (mergedOkCancel ? locale?.okText : locale?.justOkText)}
         </KitButton>
     );
+
+    const additionalProps: IKitModal = {
+        ...rest
+    };
+    if (props.showCloseIcon) {
+        additionalProps.close = _onClick(onCancel);
+    }
 
     const itemsVerticalSpacing = +(getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)
         ? getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)
@@ -100,13 +118,14 @@ const ConfirmDialog = (props: IKitConfirmDialog) => {
             width={width ?? 'auto'}
             style={{content: {minWidth: '350px'}}}
             portalClassName={portalClassName as string}
+            title={title}
             footer={
                 <>
                     {cancelButton}
                     {OkButton}
                 </>
             }
-            {...rest}
+            {...additionalProps}
         >
             <KitSpace direction="vertical" size={itemsVerticalSpacing}>
                 {image && (
@@ -115,9 +134,7 @@ const ConfirmDialog = (props: IKitConfirmDialog) => {
                 <KitSpace size={itemsVerticalSpacing}>
                     {mergedIcon}
                     <KitSpace direction="vertical" size={textVerticalSpacing}>
-                        {title && <div className="ant-modal-title">{title}</div>}
-                        <div className="ant-modal-body">{firstLine}</div>
-                        {secondLine && <div className="ant-modal-body">{secondLine}</div>}
+                        <div className="ant-modal-body">{content}</div>
                     </KitSpace>
                 </KitSpace>
             </KitSpace>

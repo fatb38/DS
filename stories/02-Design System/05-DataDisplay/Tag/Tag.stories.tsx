@@ -69,7 +69,7 @@ export const ChromaticTest: Story = {
 
                 <KitTypography.Title level="h3">HEX format</KitTypography.Title>
                 <div style={{display: 'flex', gap: '10px'}}>
-                    <KitTag color="#FunctionComponentba03">Yellow</KitTag>
+                    <KitTag color="#fcba03">Yellow</KitTag>
                     <KitTag color="#001d75">Dark blue</KitTag>
                     <KitTag color="#850065">Purple</KitTag>
                 </div>

@@ -112,7 +112,7 @@ export const kitColorsPaletteCssTokens: IKitColorsPaletteCssTokens = {
     },
     neutral: {
         typography: {
-            default: `${base}-neutral-typography-defaule`,
+            default: `${base}-neutral-typography-default`,
             black: `${base}-neutral-typography-black`,
             black60: `${base}-neutral-typography-black60`,
             white: `${base}-neutral-typography-white`

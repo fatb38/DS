@@ -4,11 +4,9 @@ import {IKitModal} from './types';
 import {KitSpace} from '@kit/Layout/';
 import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
-import {kitModalCssTokens} from '@theme/aristid/components/Feedback/Modal';
-import {spacingCssTokens} from '@theme/aristid/general/spacing';
-import {getCssPropertyValue} from '@theme/utils';
 import cn from 'classnames';
+import {KitButton, KitTypography} from '@kit/General';
+import {faXmark} from '@fortawesome/free-solid-svg-icons';
 
 import ModalStyles from './styles.module.scss';
 
@@ -50,7 +48,7 @@ const Modal: FunctionComponent<IKitModal> = ({
         props.className as string
     );
 
-    const overlayClx = cn(appId, props.overlayClassName as string);
+    const overlayClx = cn(appId, 'kit-modal-overlay', props.overlayClassName as string);
 
     const mergedProps = {
         ...props,
@@ -60,30 +58,31 @@ const Modal: FunctionComponent<IKitModal> = ({
         overlayClassName: overlayClx
     };
 
-    const kitSpaceSize = +(getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)
-        ? getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)
-        : getCssPropertyValue(spacingCssTokens.m));
-
     return (
         <ReactModal {...mergedProps} shouldCloseOnOverlayClick={props.showCloseIcon} onRequestClose={_onOverlayClick}>
             <div className={ModalStyles['kit-modal']}>
-                <div className="kit-modal-content-wrapper">
+                <div className="kit-modal-header">
+                    <div className="kit-modal-title">
+                        <KitTypography.Title level="h2">{title}</KitTypography.Title>
+                    </div>
                     {props.showCloseIcon && (
-                        <FontAwesomeIcon icon={faCircleXmark} className="kit-modal-close" onClick={_onOverlayClick} />
-                    )}
-                    <div className="kit-modal-title">{title}</div>
-                    <div className="kit-modal-content">{props.children}</div>
-                    {props.footer && (
-                        <KitSpace
-                            className="kit-modal-footer"
-                            size={kitSpaceSize}
-                            align="end"
-                            style={{justifyContent: 'end', width: '100%'}}
-                        >
-                            {props.footer}
-                        </KitSpace>
+                        <KitButton
+                            onClick={_onOverlayClick}
+                            iconSize="xl"
+                            icon={
+                                <FontAwesomeIcon icon={faXmark} className="kit-modal-close" onClick={_onOverlayClick} />
+                            }
+                        ></KitButton>
                     )}
                 </div>
+                <div className="kit-modal-content-wrapper">
+                    <div className="kit-modal-content">{props.children}</div>
+                </div>
+                {props.footer && (
+                    <KitSpace className="kit-modal-footer" align="end">
+                        {props.footer}
+                    </KitSpace>
+                )}
             </div>
         </ReactModal>
     );

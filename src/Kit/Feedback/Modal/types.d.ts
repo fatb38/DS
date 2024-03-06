@@ -34,8 +34,9 @@ export interface IKitConfirmDialog extends IKitModal {
     type: 'info' | 'success' | 'warning' | 'error' | 'warn' | 'confirm';
     image?: string;
     icon?: ReactNode;
-    firstLine?: ReactNode;
-    secondLine?: ReactNode;
+    content?: ReactNode;
+    dangerConfirm?: boolean;
+    showCloseIcon?: boolean;
     okCancel?: boolean;
     title?: string;
     cancelText?: string;

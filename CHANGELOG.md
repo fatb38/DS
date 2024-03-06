@@ -2,6 +2,13 @@
 
 ## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
 ### ✨ Features
+* **⚠️ Breaking change - Modal:**  (@evoiron)
+  * update Modal Design
+  * update confirmModal Options: 
+    * remove `secondLine` property
+    * rename `firstLine` to `content`
+    * add `dangerConfirm` property to show Cta Button as danger look n' feel, 
+    * add `showCloseIcon` to display top tight button for closing
 * **Section:** (@Delmotte-Vincent)
   * Add new component Section
 * **Typography:**

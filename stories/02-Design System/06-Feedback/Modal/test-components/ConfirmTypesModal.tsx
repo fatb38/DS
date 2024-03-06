@@ -18,6 +18,7 @@ export const ConfirmTypesModalTest: FunctionComponent = () => (
             </div>
             <div style={{display: 'flex', gap: '16px'}}>
                 <ModalContainer id="modal-test-confirm"></ModalContainer>
+                <ModalContainer id="modal-test-confirm-danger"></ModalContainer>
             </div>
         </div>
         <ConfirmDialog
@@ -68,6 +69,17 @@ export const ConfirmTypesModalTest: FunctionComponent = () => (
             {...modalProps}
             type="confirm"
             title=" Confirm dialog"
+            okCancel={modalProps.showSecondaryCta}
+        />
+        <ConfirmDialog
+            isOpen
+            shouldFocusAfterRender={false}
+            dangerConfirm={true}
+            ariaHideApp={false}
+            parentSelector={getParentSelector('#modal-test-confirm-danger')}
+            {...modalProps}
+            type="confirm"
+            title=" Confirm dialog danger"
             okCancel={modalProps.showSecondaryCta}
         />
     </KitApp>
