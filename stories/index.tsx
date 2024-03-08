@@ -26,6 +26,7 @@ import {EditorTemplateGroup as AvatarGroup} from './02-Design System/05-DataDisp
 import {EditorTemplate as Badge} from './02-Design System/05-DataDisplay/Badge/Template';
 import {EditorTemplate as Card} from './02-Design System/05-DataDisplay/Card/Template';
 import {EditorTemplate as Collapse} from './02-Design System/05-DataDisplay/Collapse/Template';
+import {EditorTemplate as Empty} from './02-Design System/05-DataDisplay/Empty/Template';
 import {EditorTemplate as Image} from './02-Design System/05-DataDisplay/Image/Template';
 import {EditorTemplate as ItemCard} from './02-Design System/05-DataDisplay/ItemCard/Template';
 import {EditorTemplate as ItemList} from './02-Design System/05-DataDisplay/ItemList/Template';
@@ -76,6 +77,7 @@ export default {
         Badge,
         Card,
         Collapse,
+        Empty,
         Image,
         ItemCard,
         ItemList,
