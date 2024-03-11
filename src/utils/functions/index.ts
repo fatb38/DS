@@ -4,6 +4,7 @@ import {KitColorProp} from './types';
 import {colorsPalette} from '@theme/aristid/general/colors';
 import {IJSONObject} from '.storybook/components/ThemeEditor/types';
 import {HSL, RGB} from 'color-convert/conversions';
+import isEmpty from 'lodash/isEmpty';
 
 type CssVariablesList = Record<string, string>;
 
@@ -107,7 +108,7 @@ const _colorToLightHSL = (color: KitColorProp, lightness = 95): string | null =>
 };
 
 /**
-A function that returns a universally unique identifier (uuid).  
+A function that returns a universally unique identifier (uuid).
 example: 1b83fd69-abe7-468c-bea1-306a8aa1c81d
 @returns `string` : 32 character uuid (see example)
 */
@@ -122,4 +123,40 @@ export const uuid = (): string => {
         }
     }
     return uuid.join('');
+};
+
+// Function extract from "leav-engine/libs/utils/src/utils.ts"
+export const getInitials = (label: string, length: number = 2) => {
+    if (typeof label !== 'string' || isEmpty(label.trim()) || !length) {
+        return '?';
+    }
+
+    const words = label.split(' ');
+    /*  Setting up the list of word by using a regex according to the label sent
+        if the label contains letters & numbers, filter only on these letters
+        if the label contains only numbers, filter only on these numbers
+        symbols are ignored by the regex
+        if both list filtered by the regex are null, using the basic filter and split the label by space
+    */
+    const letterRegex = new RegExp(/[A-Za-z]+/g);
+    const numberRegex = new RegExp(/[1-9]+/g);
+    const wordsRegex = label.match(letterRegex) ? label.match(letterRegex) : label.match(numberRegex);
+    return wordsRegex !== null ? _getInitialEngine(wordsRegex, length) : _getInitialEngine(words, length);
+};
+
+// Function extract from "leav-engine/libs/utils/src/utils.ts"
+export const _getInitialEngine = (words: string[], length: number) => {
+    if (words.length === 1) {
+        return words[0].slice(0, length).toUpperCase();
+    }
+    //the number of initial to display cannot exceed the number of words filtered
+    if (words.length < length) {
+        length = words.length;
+    }
+    let initials: string = '';
+    for (let index = 0; index < length; index++) {
+        initials += words[index].charAt(0);
+    }
+
+    return initials.toUpperCase();
 };

@@ -1,8 +1,15 @@
-import React, {CSSProperties, FunctionComponent, useMemo} from 'react';
+import React, {CSSProperties, FunctionComponent, PropsWithChildren, useMemo} from 'react';
 import {Avatar as AntdAvatar} from 'antd';
 import {IKitAvatar} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
-import {getColor, getContrastColor, getLighterColor, isSecondaryColor, isValidColor} from '@utils/functions';
+import {
+    getColor,
+    getContrastColor,
+    getInitials,
+    getLighterColor,
+    isSecondaryColor,
+    isValidColor
+} from '@utils/functions';
 import {kitAvatarCssTokens} from '@theme/aristid/components/DataDisplay/Avatar';
 import cn from 'classnames';
 
@@ -24,11 +31,14 @@ const getCustomColors = (
     } as CSSProperties;
 };
 
-const KitAvatar: FunctionComponent<IKitAvatar> = ({
+const KitAvatar: FunctionComponent<PropsWithChildren<IKitAvatar>> = ({
+    label,
+    initialsMaxChars,
     color,
     className,
     style,
     secondaryColorInvert = false,
+    children,
     ...avatarProps
 }) => {
     const {appId} = useKitTheme();
@@ -40,7 +50,11 @@ const KitAvatar: FunctionComponent<IKitAvatar> = ({
 
     const clx = cn(appId, styles['kit-avatar'], className);
 
-    return <AntdAvatar style={customStyle} className={clx} {...avatarProps} />;
+    return (
+        <AntdAvatar style={customStyle} className={clx} {...avatarProps}>
+            {label !== undefined ? getInitials(label, initialsMaxChars) : children}
+        </AntdAvatar>
+    );
 };
 
 KitAvatar.displayName = 'KitAvatar';

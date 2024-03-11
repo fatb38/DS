@@ -4,6 +4,11 @@
 ### ✨ Features
 * **Empty:**
   * Add a new component `KitEmpty` (@philippechevieux)
+* **IdCard:**
+  * Add a new component `KitIdCard` (@philippechevieux)
+* **Avatar:**
+  * Add `label` property to retrieve avatar initials from (@philippechevieux)
+  * Add `initialsMaxChars` property to set the number of initials (@philippechevieux)
 
 
 ### 🐛 Bug Fixes

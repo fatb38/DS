@@ -1,0 +1,44 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Examples, { Sources } from './examples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
+import * as KitIdCardStories from './IdCard.stories';
+
+<Meta of={KitIdCardStories} />
+
+# IdCard
+
+Simple container.
+
+## Usage
+
+An Idcard can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.
+
+## Examples
+
+##### Basic
+
+Simplest Usage.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="component-id-card"/>
+
+##### With Avatar
+
+You can set an avatar to the component using the `avatar` property.
+
+<CustomCanvas content={Examples.Avatar} source={Sources.Avatar} id="component-avatar"/>
+
+##### Sizes
+
+You can set the size of the component using the `size` property.
+
+<CustomCanvas content={Examples.Size} source={Sources.Size} id="component-size"/>
+
+
+## Api
+
+<Canvas of={KitIdCardStories.Api} />
+
+<Controls of={KitIdCardStories.Api} />

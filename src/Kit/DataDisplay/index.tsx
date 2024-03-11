@@ -3,6 +3,7 @@ export {KitBadge} from './Badge';
 export {KitCard} from './Card';
 export {KitCollapse} from './Collapse';
 export {KitEmpty} from './Empty';
+export {KitIdCard} from './IdCard';
 export {KitItemCard} from './ItemCard';
 export {KitImage} from './Image';
 export {KitItemList} from './ItemList';
