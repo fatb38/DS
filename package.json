@@ -2,7 +2,6 @@
   "name": "aristid-ds",
   "description": "ARiSTiD design system",
   "version": "2.0.0",
-  "type": "module",
   "authors": [
     "e.voiron-levy@aristid.com",
     "p.chevieux@aristid.com",
@@ -15,7 +14,7 @@
   "homepage": "https://www.aristid.com",
   "packageManager": "yarn@4.0.2",
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "tsc && vite build -c vite.config.cjs.ts && vite build -c vite.config.ts --emptyOutDir false",
     "build-stats": "STATS=true tsc && vite build",
     "build-storybook": "env=production storybook build --docs",
     "build-all": "yarn build && yarn build-storybook",
@@ -69,6 +68,7 @@
     "@commitlint/cli": "18.4.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.5",
     "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-docs": "^7.6.8",
     "@storybook/addon-essentials": "^7.6.8",
@@ -131,6 +131,7 @@
     "public/images/gitflow-feature.png",
     "CHANGELOG.md"
   ],
-  "main": "./dist/index.es.js",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts"
 }

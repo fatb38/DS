@@ -12,7 +12,7 @@ module.exports = {
         'plugin:storybook/recommended',
         'prettier'
     ],
-    ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts'],
+    ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'vite.common.ts', 'vite.config.cjs.ts'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         project: './tsconfig.json'
@@ -28,12 +28,14 @@ module.exports = {
         'no-restricted-imports': [
             'error',
             {
-                "paths": [{
-                    "name": "react",
-                    "importNames": ["FC"],
-                    "message": "Please use FunctionComponent instead."
-                }]
-            },
-        ],
+                paths: [
+                    {
+                        name: 'react',
+                        importNames: ['FC'],
+                        message: 'Please use FunctionComponent instead.'
+                    }
+                ]
+            }
+        ]
     }
 };

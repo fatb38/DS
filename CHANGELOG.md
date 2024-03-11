@@ -5,6 +5,10 @@
 * **Empty:**
   * Add a new component `KitEmpty` (@philippechevieux)
 
+
+### 🐛 Bug Fixes
+* **Build**: Build as EsModule and commonjs module (@evoiron)
+
 ## [2.0.0](https://www.npmjs.com/package/aristid-ds/v/2.0.0) (2024-03-06)
 ### ✨ Features
 * **⚠️ Breaking change - Modal:**  (@evoiron)
