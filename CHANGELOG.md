@@ -10,9 +10,11 @@
   * Add `label` property to retrieve avatar initials from (@philippechevieux)
   * Add `initialsMaxChars` property to set the number of initials (@philippechevieux)
 
-
 ### 🐛 Bug Fixes
-* **Build**: Build as EsModule and commonjs module (@evoiron)
+* **Button:**
+  * Add missing property `htmlType` to `KitButton` (@philippechevieux)
+* **Build:**
+  * Build as EsModule and commonjs module (@evoiron)
 
 ## [2.0.0](https://www.npmjs.com/package/aristid-ds/v/2.0.0) (2024-03-06)
 ### ✨ Features

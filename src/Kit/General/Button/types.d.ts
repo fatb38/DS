@@ -4,6 +4,8 @@ import {IKitButtonPropetiesCssTokens} from '@theme/types/components/General/Butt
 
 export type KitButtonType = 'primary' | 'secondary' | 'tertiary' | 'text' | 'segmented';
 
+type KitButtonHtmlType = 'submit' | 'button' | 'reset';
+
 export type KitButtonIconSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 
 export type loadingType =
@@ -19,6 +21,7 @@ export type loadingConfig = {
 
 export interface IKitButton extends KitHTMLAttributes<HTMLDivElement> {
     type?: KitButtonType;
+    htmlType?: KitButtonHtmlType;
     iconSize?: KitButtonIconSize;
     disableSecureClick?: boolean;
     disabled?: boolean;
