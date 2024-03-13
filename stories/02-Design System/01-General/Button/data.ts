@@ -121,6 +121,18 @@ export const argTypes = {
         },
         defaultValue: 'default'
     },
+    form: {
+        name: 'form',
+        description: 'Link the button to a form by its id. Usefull when button is outside the form.',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            defaultValue: {summary: null},
+            category: 'Button'
+        },
+        defaultValue: 'default'
+    },
     active: {
         name: 'active',
         control: {type: 'boolean'},

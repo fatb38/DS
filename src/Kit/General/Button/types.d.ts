@@ -22,6 +22,7 @@ export type loadingConfig = {
 export interface IKitButton extends KitHTMLAttributes<HTMLDivElement> {
     type?: KitButtonType;
     htmlType?: KitButtonHtmlType;
+    form?: string | undefined;
     iconSize?: KitButtonIconSize;
     disableSecureClick?: boolean;
     disabled?: boolean;

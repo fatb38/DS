@@ -12,6 +12,7 @@
 
 ### 🐛 Bug Fixes
 * **Button:**
+  * Add missing property `form` to `KitButton` (@evoiron)
   * Add missing property `htmlType` to `KitButton` (@philippechevieux)
 * **Build:**
   * Build as EsModule and commonjs module (@evoiron)
