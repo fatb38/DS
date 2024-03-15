@@ -5,6 +5,8 @@ export {
     KitLegacyCard,
     KitItemCard,
     KitCollapse,
+    KitEmpty,
+    KitIdCard,
     KitImage,
     KitItemList,
     KitTooltip,
@@ -15,6 +17,7 @@ export {
 } from './DataDisplay';
 export {
     KitCheckbox,
+    KitInputWrapper,
     KitInput,
     KitInputNumber,
     KitRadio,
@@ -38,7 +41,7 @@ export {
     KitNotification
 } from './Feedback';
 export {KitButton, KitTypography, KitIcon} from './General';
-export {KitDivider, KitGrid, KitSpace} from './Layout';
+export {KitDivider, KitGrid, KitSpace, KitSection} from './Layout';
 export {KitBreadcrumb, KitDropDown, KitPageHeader, KitHeader, KitMenu, KitSteps, KitPagination} from './Navigation';
 
 export * from './Ant';
