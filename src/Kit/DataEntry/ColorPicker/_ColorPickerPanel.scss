@@ -1,9 +1,10 @@
 @import '../../../css/mixins.scss';
 
-:local(.kit-colorpicker-panel) {
+.kit-colorpicker-panel.ant-colorpicker {
     .ant-color-picker.kit-color-picker {
         font-size: convertToPixel(--components-ColorPicker-typography-fontSize, --general-typography-fontSize5);
         .ant-color-picker-input-container {
+            align-items: center;
             .ant-select {
                 .ant-select-selection-item {
                     color: var(--components-ColorPicker-panel-select-colors-typography-default, var(
