@@ -1,6 +1,6 @@
 # Changelog
 
-## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
+## [3.0.0](https://www.npmjs.com/package/aristid-ds/v/3.0.0) (2024-03-15)
 ### ✨ Features
 * **Empty:**
   * Add a new component `KitEmpty` (@philippechevieux)
