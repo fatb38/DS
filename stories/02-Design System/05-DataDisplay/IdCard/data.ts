@@ -24,6 +24,10 @@ const TemplateArgTypes = {
     avatar: {
         name: 'avatar',
         description: 'Display an avatar',
+        options: ['-', 'Image', 'Icon', 'Avatar'],
+        control: {
+            type: 'select'
+        },
         table: {
             type: {
                 summary: 'ReactNode'

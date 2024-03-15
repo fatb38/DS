@@ -5,6 +5,7 @@ import {EditorTemplate as Divider} from './02-Design System/02-Layout/Divider/Te
 import {EditorTemplate as Breadcrumb} from './02-Design System/03-Navigation/Breadcrumb/Template';
 import {EditorTemplate as DropDown} from './02-Design System/03-Navigation/DropDown/Template';
 import {EditorTemplate as Header} from './02-Design System/03-Navigation/Header/Template';
+import {EditorTemplate as PageHeader} from './02-Design System/03-Navigation/PageHeader/Template';
 import {EditorTemplate as Menu} from './02-Design System/03-Navigation/Menu/Template';
 import {EditorTemplate as Pagination} from './02-Design System/03-Navigation/Pagination/Template';
 import {EditorTemplate as Steps} from './02-Design System/03-Navigation/Steps/Template';
@@ -54,6 +55,7 @@ export default {
         Breadcrumb,
         DropDown,
         Header,
+        PageHeader,
         Menu,
         Pagination,
         Steps

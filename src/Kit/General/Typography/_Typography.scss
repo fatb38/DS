@@ -36,10 +36,7 @@ h1.ant-typography {
     font-weight: var(--components-Typography-typography-fontWeight, var(
         --general-typography-boldFontWeight
     ));
-    color: var(
-        --components-Typography-colors-typography-default,
-        var(--general-colors-neutral-typography-default)
-    );
+    color: var(--kit-typography-color);
     font-size: convertToPixel(
         --components-Typography-Title-level1-typography-fontSize,
         --general-typography-fontSize1
@@ -54,10 +51,7 @@ h2.ant-typography {
     font-weight: var(--components-Typography-typography-fontWeight, var(
         --general-typography-boldFontWeight
     ));
-    color: var(
-        --components-Typography-colors-typography-default,
-        var(--general-colors-neutral-typography-default)
-    );
+    color: var(--kit-typography-color);
     font-size: convertToPixel(
         --components-Typography-Title-level2-typography-fontSize,
         --general-typography-fontSize2
@@ -72,10 +66,7 @@ h3.ant-typography {
     font-weight: var(--components-Typography-typography-fontWeight, var(
         --general-typography-boldFontWeight
     ));
-    color: var(
-        --components-Typography-colors-typography-default,
-        var(--general-colors-neutral-typography-default)
-    );
+    color: var(--kit-typography-color);
     font-size: convertToPixel(
         --components-Typography-Title-level3-typography-fontSize,
         --general-typography-fontSize3
@@ -90,10 +81,7 @@ h4.ant-typography {
     font-weight: var(--components-Typography-typography-fontWeight, var(
         --general-typography-boldFontWeight
     ));
-    color: var(
-        --components-Typography-colors-typography-default,
-        var(--general-colors-neutral-typography-default)
-    );
+    color: var(--kit-typography-color);
     font-size: convertToPixel(
         --components-Typography-Title-level4-typography-fontSize,
         --general-typography-fontSize4

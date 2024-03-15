@@ -1,5 +1,5 @@
 import React from 'react';
-import {KitHeader} from '@kit/Navigation';
+import {KitPageHeader} from '@kit/Navigation';
 
 const searchProps = {
     allowClear: true,
@@ -7,7 +7,7 @@ const searchProps = {
 };
 
 const App = () => {
-    return <KitHeader search={searchProps} />;
+    return <KitPageHeader search={searchProps} />;
 };
 
 export default App;

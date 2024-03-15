@@ -1,6 +1,11 @@
 export interface IKitColorsPalette {
     primary: {
         /**
+         * Primary 50 color
+         * @TJS-type color
+         */
+        primary50: string;
+        /**
          * Primary 100 color
          * @TJS-type color
          */

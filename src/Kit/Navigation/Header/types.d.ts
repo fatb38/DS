@@ -1,11 +1,18 @@
-import {IKitInput} from '@kit/DataEntry/Input/types';
+import {ReactNode} from 'react';
 import {KitHTMLAttributes} from '../../../types';
-import {ReactElement, ReactNode, MouseEventHandler} from 'react';
+import {MenuProps} from 'antd';
 
 export interface IKitHeader extends KitHTMLAttributes<HTMLDivElement> {
-    title?: string;
-    search?: IKitInput;
-    actions?: ReactNode[];
-    breadcrumb?: ReactElement;
-    onPlusClick?: MouseEventHandler<HTMLButtonElement>;
+    menu?: ReactNode;
+    logo?: ReactNode;
+    langSwitcher?: ReactNode;
+    profile?: ReactNode;
+    children?: ReactNode;
+}
+
+export interface IKitHeaderProfile extends KitHTMLAttributes<HTMLDivElement> {
+    logo?: string;
+    tag?: ReactNode;
+    userCard?: ReactNode;
+    menu?: ReactNode | MenuProps;
 }

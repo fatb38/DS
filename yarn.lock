@@ -5680,6 +5680,7 @@ __metadata:
     rc-util: "npm:^5.37.0"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
+    react-flag-kit: "npm:^1.1.1"
     react-hot-toast: "npm:^2.4.1"
     react-modal: "npm:^3.16.1"
     react-resize-detector: "npm:^9.1.0"
@@ -12382,6 +12383,15 @@ __metadata:
     react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
     react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
   checksum: 0d60a0ea758529c32a706d0c69d70b69fb94de3c46442fffdee34f08f51ffceddbb5395b41dfd1565895653e9f60f98ca525835be9d5db1f16d6b22be12f4cd4
+  languageName: node
+  linkType: hard
+
+"react-flag-kit@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "react-flag-kit@npm:1.1.1"
+  peerDependencies:
+    react: ^16.6.0 || ^17.0.0 || ^18.0.0
+  checksum: 6e71fda339cc862a5427615e405b2da3b55d876d66e0a8d6e65929c75b2b40b1daebbeb33e96cd19045553880e92d89fc42b50fce5e94a41d4bf0e4259825f34
   languageName: node
   linkType: hard
 

@@ -1,35 +1,31 @@
-import Basic from './basic';
-import Title from './title';
-import Search from './search';
-import Breadcrumb from './breadcrumb';
-import PlusAction from './plusAction';
-import Actions from './actions';
 import All from './all';
+import Basic from './basic';
+import Lang from './lang';
+import Menu from './menu';
+import Profile from './profile';
+import Logo from './logo';
 
-import BasicSource from './basic?raw';
-import TitleSource from './title?raw';
-import SearchSource from './search?raw';
-import BreadcrumbSource from './breadcrumb?raw';
-import PlusActionSource from './plusAction?raw';
-import ActionsSource from './actions?raw';
 import AllSource from './all?raw';
+import BasicSource from './basic?raw';
+import LangSource from './lang?raw';
+import MenuSource from './menu?raw';
+import ProfileSource from './profile?raw';
+import LogoSource from './logo?raw';
 
 export const Sources = {
+    All: AllSource,
     Basic: BasicSource,
-    Title: TitleSource,
-    Search: SearchSource,
-    Breadcrumb: BreadcrumbSource,
-    PlusAction: PlusActionSource,
-    Actions: ActionsSource,
-    All: AllSource
+    Lang: LangSource,
+    Menu: MenuSource,
+    Profile: ProfileSource,
+    Logo: LogoSource
 };
 
 export default {
+    All,
     Basic,
-    Title,
-    Search,
-    Breadcrumb,
-    PlusAction,
-    Actions,
-    All
+    Lang,
+    Menu,
+    Profile,
+    Logo
 };

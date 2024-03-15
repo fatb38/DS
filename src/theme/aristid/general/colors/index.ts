@@ -2,6 +2,7 @@ import {IKitColorsPalette, IKitColorsPaletteCssTokens} from '@theme/types/genera
 
 export const colorsPalette: IKitColorsPalette = {
     primary: {
+        primary50: '#F4F7FF',
         primary100: '#E7EDFF',
         primary200: '#97B9FD',
         primary300: '#5784FC',
@@ -102,6 +103,7 @@ const base = '--general-colors';
 
 export const kitColorsPaletteCssTokens: IKitColorsPaletteCssTokens = {
     primary: {
+        primary50: `${base}-primary-primary50`,
         primary100: `${base}-primary-primary100`,
         primary200: `${base}-primary-primary200`,
         primary300: `${base}-primary-primary300`,

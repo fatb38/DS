@@ -9,6 +9,9 @@
 * **Avatar:**
   * Add `label` property to retrieve avatar initials from (@philippechevieux)
   * Add `initialsMaxChars` property to set the number of initials (@philippechevieux)
+* **⚠️ Breaking change - Header:**
+  * Existing `Header` is renamed to `PageHeader` (@TdyP)
+  * `Header` component is now a totally new component (@TdyP, @evoiron)
 
 ### 🐛 Bug Fixes
 * **Button:**
@@ -21,10 +24,10 @@
 ### ✨ Features
 * **⚠️ Breaking change - Modal:**  (@evoiron)
   * update Modal Design
-  * update confirmModal Options: 
+  * update confirmModal Options:
     * remove `secondLine` property
     * rename `firstLine` to `content`
-    * add `dangerConfirm` property to show Cta Button as danger look n' feel, 
+    * add `dangerConfirm` property to show Cta Button as danger look n' feel,
     * add `showCloseIcon` to display top tight button for closing
 * **Section:** (@Delmotte-Vincent)
   * Add new component Section
