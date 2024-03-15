@@ -1,13 +1,33 @@
 # Changelog
 
+## [3.0.0](https://www.npmjs.com/package/aristid-ds/v/3.0.0) (2024-03-15)
+### ✨ Features
+* **Empty:**
+  * Add a new component `KitEmpty` (@philippechevieux)
+* **IdCard:**
+  * Add a new component `KitIdCard` (@philippechevieux)
+* **Avatar:**
+  * Add `label` property to retrieve avatar initials from (@philippechevieux)
+  * Add `initialsMaxChars` property to set the number of initials (@philippechevieux)
+* **⚠️ Breaking change - Header:**
+  * Existing `Header` is renamed to `PageHeader` (@TdyP)
+  * `Header` component is now a totally new component (@TdyP, @evoiron)
+
+### 🐛 Bug Fixes
+* **Button:**
+  * Add missing property `form` to `KitButton` (@evoiron)
+  * Add missing property `htmlType` to `KitButton` (@philippechevieux)
+* **Build:**
+  * Build as EsModule and commonjs module (@evoiron)
+
 ## [2.0.0](https://www.npmjs.com/package/aristid-ds/v/2.0.0) (2024-03-06)
 ### ✨ Features
 * **⚠️ Breaking change - Modal:**  (@evoiron)
   * update Modal Design
-  * update confirmModal Options: 
+  * update confirmModal Options:
     * remove `secondLine` property
     * rename `firstLine` to `content`
-    * add `dangerConfirm` property to show Cta Button as danger look n' feel, 
+    * add `dangerConfirm` property to show Cta Button as danger look n' feel,
     * add `showCloseIcon` to display top tight button for closing
 * **Section:** (@Delmotte-Vincent)
   * Add new component Section

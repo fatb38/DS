@@ -41,6 +41,12 @@ export const BasicAndTypeAvatarTest: FunctionComponent = () => {
                     <KitAvatar size="large" src={url} />
                     <KitAvatar size={64} src={url} />
                 </div>
+                <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                    <KitAvatar size="small" label="John Doe" />
+                    <KitAvatar label="John Doe" />
+                    <KitAvatar size="large" label="John Doe" />
+                    <KitAvatar size={64} label="John Doe" />
+                </div>
             </div>
         </div>
     );

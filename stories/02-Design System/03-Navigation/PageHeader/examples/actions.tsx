@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import {KitHeader} from '@kit/Navigation';
+import {KitPageHeader} from '@kit/Navigation';
 import {KitButton} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowUpZA, faFilter, faSliders} from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +13,7 @@ const actions: ReactNode[] = [
 ];
 
 const App = () => {
-    return <KitHeader actions={actions} />;
+    return <KitPageHeader actions={actions} />;
 };
 
 export default App;

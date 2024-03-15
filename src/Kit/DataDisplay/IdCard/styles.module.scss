@@ -1,0 +1,30 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-id-card) {
+    &.id-card-grid {
+        display: grid;
+        grid-template-columns: min-content auto;
+        grid-template-areas: "avatar info";
+
+        &:has(.card-avatar):has(.card-info) {
+            column-gap: convertToPixel(--general-spacing-xs);
+        }
+
+        .card-avatar {
+            grid-area: avatar;
+            align-self: center;
+        }
+
+        .card-info {
+            grid-area: info;
+            gap: 2px;
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+
+            .kit-id-card-title-large {
+                font-size: convertToPixel(--general-typography-fontSize1);
+            }
+        }
+    }
+}

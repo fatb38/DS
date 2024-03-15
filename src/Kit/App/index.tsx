@@ -11,6 +11,7 @@ import {useKitLocale} from '@translation/useKitLocale';
 import {KitNotificationProvider} from '@kit/Feedback/Notification/notification-provider';
 
 import './styles.scss';
+import {KitEmpty} from '@kit/DataDisplay';
 
 export const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;
@@ -28,8 +29,7 @@ export const KitApp: FunctionComponent<{
 };
 
 const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale}>> = ({children, locale}) => {
-    const {setKitLocale} = useKitLocale();
-
+    const {locale: kitLocal, setKitLocale} = useKitLocale();
     useEffect(() => {
         if (locale !== undefined) {
             setKitLocale(locale);
@@ -37,7 +37,17 @@ const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale}>> 
     }, [locale, setKitLocale]);
 
     return (
-        <ConfigProvider theme={antdThemeConfig} locale={mapKitLocaleToAntdLocale(locale)}>
+        <ConfigProvider
+            theme={antdThemeConfig}
+            locale={mapKitLocaleToAntdLocale(locale)}
+            renderEmpty={() => (
+                <KitEmpty
+                    className={'default-render'}
+                    image={KitEmpty.ASSET_LIST}
+                    description={kitLocal.Empty?.noData}
+                />
+            )}
+        >
             <KitNotificationProvider>
                 <KitSnackBarProvider />
                 {children}

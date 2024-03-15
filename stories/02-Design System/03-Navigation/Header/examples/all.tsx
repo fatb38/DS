@@ -1,16 +1,19 @@
-import React from 'react';
-import {KitBreadcrumb, KitHeader} from '@kit/Navigation';
-import {actions, items, searchProps} from '../commons.tsx';
+import {KitHeader} from '@kit/Navigation';
+import {KitInput} from '@kit/DataEntry';
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {menuContentExample, userProfileExample, langSwitcherExample} from '../commons';
 
 const App = () => {
     return (
         <KitHeader
-            title="Campagne 1 - soldes rentrée"
-            search={searchProps}
-            breadcrumb={<KitBreadcrumb items={items} />}
-            actions={actions}
-            onPlusClick={() => console.log('click on plus')}
-        />
+            menu={menuContentExample}
+            logo={<img src="public/images/omnipublish-logo.svg" />}
+            profile={userProfileExample}
+            langSwitcher={langSwitcherExample}
+        >
+            <KitInput placeholder="Search..." prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+        </KitHeader>
     );
 };
 

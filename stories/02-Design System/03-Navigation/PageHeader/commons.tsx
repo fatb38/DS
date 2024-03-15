@@ -1,8 +1,21 @@
-import React from 'react';
-import {KitBreadcrumb, KitHeader} from '@kit/Navigation';
-import {KitTypography} from '@kit/General';
+import React, {ReactNode} from 'react';
+import {KitButton, KitTypography} from '@kit/General';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowUpZA, faFilter, faObjectUngroup, faSliders} from '@fortawesome/free-solid-svg-icons';
 
-const menuItems = [
+export const searchProps = {
+    allowClear: true,
+    placeholder: 'Rechercher un PAC, une opération, un livrable'
+};
+
+export const actions: ReactNode[] = [
+    <KitButton icon={<FontAwesomeIcon icon={faFilter} />}></KitButton>,
+    <KitButton icon={<FontAwesomeIcon icon={faObjectUngroup} />}></KitButton>,
+    <KitButton icon={<FontAwesomeIcon icon={faArrowUpZA} />}></KitButton>,
+    <KitButton icon={<FontAwesomeIcon icon={faSliders} />}>Vue</KitButton>
+];
+
+export const menuItems = [
     {
         key: '1',
         label: (
@@ -29,7 +42,7 @@ const menuItems = [
     }
 ];
 
-const items = [
+export const items = [
     {
         title: 'Aristid Design'
     },
@@ -44,9 +57,3 @@ const items = [
         title: 'Button'
     }
 ];
-
-const App = () => {
-    return <KitHeader breadcrumb={<KitBreadcrumb items={items} />} />;
-};
-
-export default App;

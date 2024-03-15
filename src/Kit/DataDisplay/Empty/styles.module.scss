@@ -1,0 +1,35 @@
+@import '../../../css/mixins.scss';
+
+@mixin svgColorsClasses() {
+    @for $i from 1 through 7 {
+        .fill-#{$i}00 {
+            fill: var(--general-colors-primary-primary#{$i}00);
+        }
+        .stroke-#{$i}00 {
+            stroke: var(--general-colors-primary-primary#{$i}00);
+        }
+    }
+
+    .fill-white {
+        fill: var(--general-colors-neutral-white);
+    }
+}
+
+:local(.kit-empty) {
+    @include svgColorsClasses();
+
+    &.ant-empty {
+        .ant-empty-image {
+            height: 200px;
+        }
+
+         &.default-render .ant-empty-image {
+            height: 100px;
+        }
+
+        .empty-title {
+            margin-block-start: convertToPixel(--general-spacing-s);
+            margin-block-end: 0;
+        }
+    } 
+}

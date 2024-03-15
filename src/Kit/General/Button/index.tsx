@@ -52,6 +52,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
         iconSize,
         dangerModal,
         type = 'secondary',
+        htmlType = 'button',
         checked,
         active,
         loading: internalLoading = false,
@@ -118,6 +119,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
             onClick={disableSecureClick ? onClick : secureClick}
             disabled={disabled}
             ref={ref as LegacyRef<HTMLButtonElement>}
+            type={htmlType}
             {...props}
             className={clx}
         >

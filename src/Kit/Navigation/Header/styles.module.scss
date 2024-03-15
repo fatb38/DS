@@ -1,58 +1,111 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-header) {
-    padding: 16px 32px;
-    background: var(--components-Headercolors-background-default, var(--general-colors-neutral-white));
-    display: grid;
-    grid-template-areas:
-        'breadcrumb breadcrumb breadcrumb'
-        'title search actions';
-    grid-template-columns: min-content 1fr max-content;
-    grid-template-rows: 1fr min-content;
-    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
-    min-height: 40px;
+    --kit-header-height: 64px;
 
-    .kit-header-title {
-        grid-area: title;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        align-self: center;
-        margin: 0;
-        margin-right: 32px;
+    display: flex;
+    gap: convertToPixel(--general-spacing-s);
+    padding-right: convertToPixel(--general-spacing-s);
+    align-items: center;
+    height: var(--kit-header-height);
+    overflow: hidden;
+    background: var(--general-colors-neutral-white);
+    width: 100%;
+    box-sizing: border-box;
+
+    .kit-header-menu {
+        height: var(--kit-header-height);
+        width: var(--kit-header-height);
+        flex-grow: 0;
+        flex-shrink: 0;
+        background: var(--general-colors-primary-primary400);
+        color: var(--kit-header-invert-color);
+        padding: 0;
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .kit-header-search {
-        grid-area: search;
-        max-width: 422px;
+    .kit-header-logo {
+        grid-area: logo;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        input::placeholder {
-            color: var(
-                --components-Headercolors-typography-input-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey500)
-            );
+        img {
+            height: calc(var(--kit-header-height) - (2 * (convertToPixel(--general-spacing-xs))));
         }
     }
 
-    .kit-header-breadcrumb {
-        grid-area: breadcrumb;
-        padding-top: 8px;
+    &:not(.with-menu) .kit-header-logo {
+        padding-left: convertToPixel(--general-spacing-s);
     }
 
-    .kit-header-actions {
-        grid-area: actions;
-        flex: 1 1 auto;
-        align-items: center;
-        justify-content: end;
+    .kit-header-content {
+        grid-area: content;
+        padding-left: convertToPixel(--general-spacing-s);
+        justify-content: flex-start;
+    }
+
+    .kit-header-right-items {
+        margin-left: auto;
         display: flex;
-        padding-left: 8px;
+        align-items: center;
+        gap: convertToPixel(--general-spacing-s);
     }
 
-    .kit-header-plus-button {
-        width: 40px;
+    .kit-header-profile {
+        grid-area: profile;
+        display: flex;
+        padding: convertToPixel(--general-spacing-xxs) convertToPixel(--general-spacing-s);
+        background-color: var(--general-colors-primary-primary50);
+        align-items: center;
+        border-radius: convertToPixel(--general-spacing-xs);
+
+        &.with-menu {
+            cursor: pointer;
+        }
+
+        .kit-header-profile-logo {
+            max-height: 32px;
+        }
+
+        .id-card-grid:not(:first-child) {
+            margin-left: convertToPixel(--general-spacing-s);
+        }
+
     }
 
-    .kit-header-action-select {
-        min-width: 75px;
+    .kit-header-lang {
+        grid-area: lang;
+
+        .select {
+            width: 130px;
+        }
+
+        .flagIcon {
+            border-radius: 100%;
+        }
+
+        .kit-select-option-icon:has(.flagIcon) {
+            margin-left: 2px;
+        }
     }
+}
+
+.kit-header-profile-tag {
+    &#{&} {
+        --components-Tag-typography-fontWeight: var(--general-typography-boldFontWeight);
+        margin: 0;
+    }
+
+    &:not(:first-child) {
+        margin-left: convertToPixel(--general-spacing-xs);
+    }
+}
+
+.kit-select-option-icon:has(.flagIcon) {
+    background-color: transparent;
 }

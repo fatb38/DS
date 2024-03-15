@@ -8,6 +8,8 @@ type AntdAvatarTypesToOmit = '';
 type AntdAvatarGroupTypesToOmit = 'maxStyle';
 
 export interface IKitAvatar extends Omit<AvatarProps, AntdAvatarTypesToOmit>, KitHTMLAttributes<HTMLSpanElement> {
+    label?: string;
+    initialsMaxChars?: number;
     color?: KitColorProp;
     secondaryColorInvert?: boolean;
 }

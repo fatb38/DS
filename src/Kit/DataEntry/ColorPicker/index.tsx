@@ -20,8 +20,8 @@ export const KitColorPicker: FunctionComponent<KitColorPickerProps> = ({
 }) => {
     const {appId} = useKitTheme();
 
-    const rootClx = cn(appId, styles['kit-colorpicker'], rootClassName);
-    const clx = cn(appId, className);
+    const rootClx = cn(appId, 'kit-colorpicker-panel', rootClassName);
+    const clx = cn(appId, styles['kit-colorpicker'], className);
 
     return (
         <KitInputWrapper
