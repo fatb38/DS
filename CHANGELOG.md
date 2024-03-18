@@ -2,7 +2,9 @@
 
 ## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-xx-xx)
 ### 🐛 Bug Fixes
-* Add missing exports for Empty, IdCard, InputWrapper and Section (@philippechevieux)
+* **IdCard:**
+  * Add default ellipsis to `title` and `description` (@philippechevieux)
+* Add missing exports for `useKitLocale`, `KitEmpty`, `KitIdCard`, `KitInputWrapper` and `KitSection` (@philippechevieux)
 
 ## [3.0.0](https://www.npmjs.com/package/aristid-ds/v/3.0.0) (2024-03-15)
 ### ✨ Features
