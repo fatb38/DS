@@ -5,6 +5,8 @@
 * **IdCard:**
   * Add default ellipsis to `title` and `description` (@philippechevieux)
 * Add missing exports for `useKitLocale`, `KitEmpty`, `KitIdCard`, `KitInputWrapper` and `KitSection` (@philippechevieux)
+* **DatePicker / RangePicker:**
+  * Fix calendar icon disapearing on hover when a default value is set (@evoiron)
 
 ## [3.0.0](https://www.npmjs.com/package/aristid-ds/v/3.0.0) (2024-03-15)
 ### ✨ Features

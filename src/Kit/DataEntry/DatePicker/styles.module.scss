@@ -38,6 +38,7 @@
 
             .ant-picker-suffix {
                 grid-area: icon;
+                opacity: 1;
                 color: var(
                     --components-DatePicker-colors-icon-default,
                     var(--general-colors-secondary-mediumGrey-mediumGrey600)
@@ -309,6 +310,7 @@
 
         .ant-picker-suffix {
             grid-area: icon;
+            opacity: 1;
             color: var(
                 --components-DatePicker-RangePicker-colors-icon-default,
                 var(--general-colors-secondary-mediumGrey-mediumGrey600)
