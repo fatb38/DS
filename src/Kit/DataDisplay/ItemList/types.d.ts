@@ -1,21 +1,13 @@
-import {KitHTMLAttributes} from '../../../types';
 import {ReactNode} from 'react';
-import {CheckboxChangeEvent} from 'antd/es/checkbox';
+import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
+import {IKitActionButton} from '@kit/DataDisplay/types';
+import {KitHTMLAttributes} from '../../../types';
 
 export interface IKitItemList extends KitHTMLAttributes<HTMLDivElement> {
-    title?: string;
-    description?: string;
-    picture?: ReactNode;
-    onSelect?: (e: CheckboxChangeEvent) => void;
-    tagNumber?: number;
-    onRafterClick?: () => void;
-    disabled?: boolean;
+    idCardProps: IKitIdCard;
+    draggableHandler?: ReactNode;
+    onSelect?: (isChecked: boolean) => void;
     onClick?: () => void;
-    selected?: boolean;
-    disableSecureClick?: boolean;
-    draggable?: boolean;
-}
-
-export interface IStyledKitItemList {
-    $gridTemplateColumns: string;
+    actions?: IKitActionButton[];
+    content?: ReactNode;
 }

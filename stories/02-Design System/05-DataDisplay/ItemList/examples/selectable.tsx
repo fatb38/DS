@@ -1,17 +1,22 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {KitSpace} from '@kit/Layout';
-import {KitItemList} from '@kit/DataDisplay';
+import {KitAvatar, KitItemList} from '@kit/DataDisplay';
 
 const App = () => {
-    const [selected, setSelected] = useState(false);
+    const idCardProps = {
+        title: 'Tondeuse à gazon',
+        description: 'Tondeuse thermique Auto tractée 70 VL 55 TH',
+        avatar: <KitAvatar label={'TG'} />
+    };
+
     return (
         <KitSpace direction="vertical" size="m">
-            <div style={{width: '350px'}}>
+            <div style={{width: '350px', display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                <KitItemList onSelect={console.log} idCardProps={idCardProps} />
                 <KitItemList
-                    title="Tondeuse à gazon"
-                    description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                    onSelect={e => setSelected(e.target.checked)}
-                    selected={selected}
+                    onSelect={console.log}
+                    onClick={() => alert('click sur l’item list')}
+                    idCardProps={idCardProps}
                 />
             </div>
         </KitSpace>

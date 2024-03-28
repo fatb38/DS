@@ -5631,6 +5631,7 @@ __metadata:
     "@dnd-kit/core": "npm:^6.1.0"
     "@dnd-kit/modifiers": "npm:^7.0.0"
     "@dnd-kit/sortable": "npm:^8.0.0"
+    "@dnd-kit/utilities": "npm:^3.2.2"
     "@fortawesome/fontawesome-svg-core": "npm:^6.4.2"
     "@fortawesome/free-regular-svg-icons": "npm:^6.4.2"
     "@fortawesome/free-solid-svg-icons": "npm:^6.4.2"

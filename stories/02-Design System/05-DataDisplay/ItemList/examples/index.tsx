@@ -1,43 +1,31 @@
-import Basic from './basic';
-import Selectable from './selectable';
-import Picture from './picture';
-import Tag from './tag';
-import Rafter from './rafter';
+import Actions from './actions';
 import All from './all';
-import Sizing from './sizing';
-import Disabled from './disabled';
-import Draggable from './draggable/draggable.tsx';
+import Basic from './basic';
+import Content from './content';
+import Draggable from './draggable';
+import Selectable from './selectable';
 
-import BasicSource from './basic?raw';
-import SelectableSource from './selectable?raw';
-import PictureSource from './picture?raw';
-import TagSource from './tag?raw';
-import RafterSource from './rafter?raw';
+import ActionsSource from './actions?raw';
 import AllSource from './all?raw';
-import SizingSource from './sizing?raw';
-import DisabledSource from './disabled?raw';
-import DraggableSource from './draggable/draggable.tsx?raw';
+import BasicSource from './basic?raw';
+import ContentSource from './content?raw';
+import DraggableSource from './draggable?raw';
+import SelectableSource from './selectable?raw';
 
 export const Sources = {
-    Basic: BasicSource,
-    Selectable: SelectableSource,
-    Picture: PictureSource,
-    Tag: TagSource,
-    Rafter: RafterSource,
+    Actions: ActionsSource,
     All: AllSource,
-    Sizing: SizingSource,
-    Disabled: DisabledSource,
-    Draggable: DraggableSource
+    Basic: BasicSource,
+    Content: ContentSource,
+    Draggable: DraggableSource,
+    Selectable: SelectableSource
 };
 
 export default {
-    Basic,
-    Selectable,
-    Picture,
-    Tag,
-    Rafter,
+    Actions,
     All,
-    Sizing,
-    Disabled,
-    Draggable
+    Basic,
+    Content,
+    Draggable,
+    Selectable
 };

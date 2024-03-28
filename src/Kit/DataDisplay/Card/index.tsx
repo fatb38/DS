@@ -34,7 +34,7 @@ export const KitCard: FunctionComponent<IKitCard> = ({
     });
 
     const isMoreThenTwoActions = actions && actions.length > 2;
-    const isOneOrTwoActions = actions && actions.length <= 2;
+    const isLessThanThreeActions = actions && actions.length <= 2;
 
     return (
         <div tabIndex={disabled ? -1 : 0} className={clx} style={style}>
@@ -58,10 +58,11 @@ export const KitCard: FunctionComponent<IKitCard> = ({
                     />
                 )}
                 <div className="kit-card-buttons">
-                    {isOneOrTwoActions && (
+                    {isLessThanThreeActions && (
                         <>
                             {actions.map(action => (
                                 <KitButton
+                                    key={action.key}
                                     type="segmented"
                                     icon={action.icon}
                                     onClick={action.onClick}

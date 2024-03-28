@@ -1,11 +1,12 @@
-import {CSSProperties, ReactNode} from 'react';
+import {CSSProperties} from 'react';
 import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
 import {CheckboxChangeEvent} from 'antd/es/checkbox';
 import {SwitchChangeEventHandler} from 'antd/es/switch';
+import {IKitActionButton} from '@kit/DataDisplay/types';
 
 export interface IKitCard {
     title: string;
-    actions?: IKitCardAction[];
+    actions?: IKitActionButton[];
     activated?: boolean;
     brandingBar?: boolean;
     className?: string;
@@ -18,13 +19,6 @@ export interface IKitCard {
     onSelect?: (e: CheckboxChangeEvent) => void;
     selected?: boolean;
     tags?: IKitTagConfig[];
-}
-
-export interface IKitCardAction {
-    key: string;
-    label: string;
-    icon: ReactNode;
-    onClick: (e: unknown) => void;
 }
 
 export interface IStyledKitCard {

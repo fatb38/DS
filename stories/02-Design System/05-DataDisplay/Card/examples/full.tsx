@@ -1,9 +1,9 @@
 import {faArrowsUpDownLeftRight, faPencil, faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitCard} from '@kit/DataDisplay';
-import {IKitCardAction} from '@kit/DataDisplay/Card/types';
 import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
 import React, {useState} from 'react';
+import {IKitActionButton} from '@kit/DataDisplay/types';
 
 const App = () => {
     const [selected, setSelected] = useState(false);
@@ -16,7 +16,7 @@ const App = () => {
         {wording: 'Fromage'}
     ];
 
-    const actions: IKitCardAction[] = [
+    const actions: IKitActionButton[] = [
         {
             key: '1',
             label: 'Drag the content',

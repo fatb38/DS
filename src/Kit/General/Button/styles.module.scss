@@ -4,8 +4,6 @@
 $sizes: ("xs": 7, "s": 6, "m": 5, "l": 4, "xl": 3);
 $prefix: "kit-btn-";
 
-
-
 @mixin secondaryColorTokens($name, $color) {
     &.kit-btn-#{$name} {
         --kit-btn-main-color: var(--general-colors-secondary-#{$color}-#{$color}400);

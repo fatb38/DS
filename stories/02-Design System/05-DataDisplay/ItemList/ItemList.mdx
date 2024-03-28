@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from "@storybook/addon-docs";
+import {Controls} from "@storybook/addon-docs";
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -10,82 +10,61 @@ import * as KitItemListStories from './ItemList.stories';
 
 # ItemList
 
-Simple rectangular container with text, icons, and images and components such as Checkbox and Rafter, among others.
+Display a row of a list.
 
 ## Usage
 
-Use the ItemList to display a repeated piece of information in, for instance, a List component, to allow users to take possible actions.
+Use the **ItemList** to display a repeated piece of information from an unordered list.
 
 ## Examples
 
 ##### Basic
 
-A basic ItemList can contain a `title` and/or a `description`.
+A basic **ItemList** should contain a [`<KitIdCard />`](/docs/design-system-datadisplay-idcard--docs). You should provide mandatory props `idCardProps`.
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="itemlist-basic" />
 
 ##### Selectable
 
-To mark an ItemList as selectable, use the `onSelect` property.
+Each **ItemList** could be selectable if props `onSelect` is set.
+When `onClick` props is also set, the select behavior is applied only on the checkbox.
+
+> `onSelect` props will tell you if the item is selected or not.
 
 <CustomCanvas content={Examples.Selectable} source={Sources.Selectable} id="itemlist-selectable" />
 
-##### Picture
+##### Content
 
-ItemList can contain a picture using the `picture` property.
+**ItemList** support extra content. The [`<KitIdCard />`](/docs/design-system-datadisplay-idcard--docs) will grow and the `content` props will fit to the content.
 
-<CustomCanvas content={Examples.Picture} source={Sources.Picture} id="itemlist-picture" />
+<CustomCanvas content={Examples.Content} source={Sources.Content} id="itemlist-content" />
 
-##### Tag
+##### Actions
 
-ItemList can display a tag using the `tagNumber` property.
+**ItemList** can have many behaviors.
 
-<CustomCanvas content={Examples.Tag} source={Sources.Tag} id="itemlist-tag" />
+* You can provide a method via props `onClick` that will be called when user click on it.
+* You can provide a list of actions buttons (`actions` props) that will be stacked on the right of the component.
 
-##### Rafter
-
-ItemList can display a rafter using the `onRafterClick` property.
-
-<CustomCanvas content={Examples.Rafter} source={Sources.Rafter} id="itemlist-rafter" />
-
-##### With everything
-
-ItemList with all options to display.
-
-<CustomCanvas content={Examples.All} source={Sources.All} id="itemlist-all" />
-
-##### Sizing
-
-ItemList has no defined width. It will take the width of its parent container
-
-<CustomCanvas content={Examples.Sizing} source={Sources.Sizing} id="itemlist-sizing" />
-
-##### Disabled
-
-To mark an ItemList as disabled, add the `disabled` property.
-
-<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="itemlist-disabled" />
+<CustomCanvas content={Examples.Actions} source={Sources.Actions} id="itemlist-actions" />
 
 ##### Draggable
 
-To mark an ItemList as draggable, add the `draggable` property. Note that an icon appears but you need to implement your own drag and drop solution in your application.
+**ItemList** can be dragged and dropped inside the list. To mark an **ItemList** as draggable, add the `draggable` props.
+
+Note that an icon appears and cursor changes, but you need to implement your own drag and drop solution in your application.
 
 <CustomCanvas content={Examples.Draggable} source={Sources.Draggable} id="itemlist-draggable" />
 
-## API
+##### All
+
+You can combine all props together.
+
+<CustomCanvas content={Examples.All} source={Sources.All} id="itemlist-all" />
+
+## Api
 
 <Canvas of={KitItemListStories.Api} />
 
 <Controls of={KitItemListStories.Api} />
 
-
-## Design Tokens
-
-<DesignTokens path="components.ItemList" tokens={fields?.components?.ItemList} />
-
-## Translation Tokens
-
-|   | en-US | fr-FR |
-|---|-------|-------|
-| more | More | Plus |
-| less | Less | Moins |
