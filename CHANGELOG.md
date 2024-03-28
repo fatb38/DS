@@ -15,6 +15,8 @@
   * Fix calendar icon disapearing on hover when a default value is set (@evoiron)
 * **⚠️ Breaking change - ItemList:**
   * Refactor ItemList (@P0ppoff / @Delmotte-Vincent / @renaudamsellem / @philippechevieux)
+* **Modal:**
+  * Remove use of getComputedStyle which can be time consuming in tests (@evoiron)
 
 ## [3.0.0](https://www.npmjs.com/package/aristid-ds/v/3.0.0) (2024-03-15)
 ### ✨ Features

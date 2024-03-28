@@ -56,6 +56,25 @@
         .kit-modal-content {
             flex: 1 1 auto;
         }
+
+        .kit-modal-vertical-items-spacing {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 8px;
+            row-gap: convertToPixel(--components-Modal-spacing-vertical-items, --general-spacing-m);
+        }
+        .kit-modal-horizontal-items-spacing {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            column-gap: convertToPixel(--components-Modal-spacing-vertical-items, --general-spacing-m);
+        }
+        .kit-modal-vertical-text-spacing {
+            display: inilne-flex;
+            flex-direction: column;
+            gap: 25px;
+            row-gap: convertToPixel(--components-Modal-spacing-vertical-items, --general-spacing-xs);
+        }
     }
 
     .kit-modal-footer {
