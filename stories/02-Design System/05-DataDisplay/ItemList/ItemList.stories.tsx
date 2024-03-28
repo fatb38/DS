@@ -1,11 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {KitImage, KitItemList} from '@kit/DataDisplay';
+import {KitItemList} from '@kit/DataDisplay';
 import {argTypes} from './data';
 import React from 'react';
-import {KitIcon} from '@kit/General';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faUser} from '@fortawesome/free-regular-svg-icons';
 import {Template} from './Template';
+import {FullItemList} from './test-components/FullItemList';
+import {BasicItemList} from './test-components/BasicItemList';
+import {ActionItemList} from './test-components/ActionItemList';
+import {SelectableItemList} from './test-components/SelectableList';
 
 const meta: Meta<typeof KitItemList> = {
     component: KitItemList,
@@ -25,73 +26,16 @@ export const Api: Story = {
 
 export const ChromaticTest: Story = {
     render: () => (
-        <div style={{width: '350px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
-            <KitItemList
-                onSelect={e => console.log('selected', e.target.checked)}
-                picture={<KitIcon icon={<FontAwesomeIcon icon={faUser} />} />}
-                title="Tondeuse à gazon"
-                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                tagNumber={4}
-                onRafterClick={() => console.log('click rafter')}
-                onClick={() => console.log('on click itemlist')}
-            />
-            <KitItemList
-                onSelect={e => console.log('selected', e.target.checked)}
-                picture={<KitImage src="public/images/tondeuse.png" />}
-                title="Tondeuse à gazon"
-                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                tagNumber={4}
-                onRafterClick={() => console.log('click rafter')}
-                onClick={() => console.log('on click itemlist')}
-            />
-            <KitItemList
-                draggable
-                picture={<KitImage src="public/images/tondeuse.png" />}
-                title="Tondeuse à gazon"
-                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                tagNumber={4}
-                onRafterClick={() => console.log('click rafter')}
-            />
-            <KitItemList
-                onSelect={e => console.log('selected', e.target.checked)}
-                picture={<KitIcon icon={<FontAwesomeIcon icon={faUser} />} />}
-                title="Tondeuse à gazon"
-                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                tagNumber={4}
-                onRafterClick={() => console.log('click rafter')}
-                onClick={() => console.log('on click itemlist')}
-                disabled
-            />
-            <KitItemList
-                onSelect={e => console.log('selected', e.target.checked)}
-                picture={<KitImage src="public/images/tondeuse.png" />}
-                title="Tondeuse à gazon"
-                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                tagNumber={4}
-                onRafterClick={() => console.log('click rafter')}
-                onClick={() => console.log('on click itemlist')}
-                disabled
-            />
-
-            <KitItemList
-                draggable
-                picture={<KitImage src="public/images/tondeuse.png" />}
-                title="Tondeuse à gazon"
-                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                tagNumber={4}
-                onRafterClick={() => console.log('click rafter')}
-                disabled
-            />
-            <KitItemList
-                onSelect={e => console.log('selected', e.target.checked)}
-                selected
-                picture={<KitImage src="public/images/tondeuse.png" />}
-                title="Tondeuse à gazon"
-                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                tagNumber={4}
-                onRafterClick={() => console.log('click rafter')}
-                onClick={() => console.log('on click itemlist')}
-            />
+        <div style={{width: '1000px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
+            <div style={{width: '1000px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
+                <BasicItemList />
+                <SelectableItemList />
+                <ActionItemList />
+                <FullItemList />
+            </div>
+            <div style={{width: '600px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
+                <FullItemList />
+            </div>
         </div>
     )
 };

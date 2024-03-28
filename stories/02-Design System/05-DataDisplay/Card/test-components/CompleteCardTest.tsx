@@ -1,10 +1,10 @@
 import React, {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
-import {IKitCardAction} from '@kit/DataDisplay/Card/types';
 import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowsUpDownLeftRight, faPencil, faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import {KitCard} from '@kit/DataDisplay';
+import {IKitActionButton} from '@kit/DataDisplay/types';
 
 export const CompleteCardTest: FunctionComponent = () => {
     const tags: IKitTagConfig[] = [
@@ -14,7 +14,7 @@ export const CompleteCardTest: FunctionComponent = () => {
         {wording: 'Fromage'}
     ];
 
-    const actions: IKitCardAction[] = [
+    const actions: IKitActionButton[] = [
         {
             key: '1',
             label: 'Drag the content',

@@ -2,6 +2,7 @@ import {colorsPalette} from '@theme/aristid/general/colors';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFile} from '@fortawesome/free-regular-svg-icons';
 import React from 'react';
+import KitAvatar from '@kit/DataDisplay/Avatar/Avatar';
 
 export const colorOptions = [
     {
@@ -109,5 +110,56 @@ export const groupOptions = [
                 label: 'File 4.3'
             }
         ]
+    }
+];
+
+export const idCardOptions = [
+    {
+        value: 'cha-yellow',
+        label: 'Chartreuse Jaune',
+        idCard: {
+            title: 'Chartreuse Jaune',
+            avatar: (
+                <KitAvatar
+                    size={'small'}
+                    shape={'square'}
+                    imageFit={'contain'}
+                    src={'public/images/chartreuse-jaune.png'}
+                    label={'Chartreuse Jaune'}
+                />
+            )
+        }
+    },
+    {
+        value: 'cha-vep',
+        label: 'Chartreuse VEP',
+        idCard: {
+            title: 'Chartreuse VEP',
+            avatar: (
+                <KitAvatar
+                    size={'small'}
+                    shape={'square'}
+                    imageFit={'contain'}
+                    src={'public/images/chartreuse-vep.png'}
+                    label={'Chartreuse VEP'}
+                />
+            )
+        }
+    },
+    {
+        value: 'cha-verte',
+        label: 'Chartreuse Verte',
+        idCard: {
+            title: 'Chartreuse Verte',
+            avatar: (
+                <KitAvatar
+                    size={'small'}
+                    shape={'square'}
+                    imageFit={'contain'}
+                    src={'public/images/chartreuse-verte.png'}
+                    label={'Chartreuse Verte'}
+                />
+            )
+        }
     }
 ];

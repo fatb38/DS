@@ -1,5 +1,23 @@
 # Changelog
 
+## [4.0.0](https://www.npmjs.com/package/aristid-ds/v/4.0.0) (2024-03-28)
+### ✨ Features
+* **Select:**
+  * Add `idCard` property to option to display a `KitIdCard` instead of the label (@philippechevieux)
+* **Avatar:**
+  * Add a new property `imageFit` to change how image will fit (@philippechevieux)
+
+### 🐛 Bug Fixes
+* **IdCard:**
+  * Add default ellipsis to `title` and `description` (@philippechevieux)
+* Add missing exports for `useKitLocale`, `KitEmpty`, `KitIdCard`, `KitInputWrapper` and `KitSection` (@philippechevieux)
+* **DatePicker / RangePicker:**
+  * Fix calendar icon disapearing on hover when a default value is set (@evoiron)
+* **⚠️ Breaking change - ItemList:**
+  * Refactor ItemList (@P0ppoff / @Delmotte-Vincent / @renaudamsellem / @philippechevieux)
+* **Modal:**
+  * Remove use of getComputedStyle which can be time consuming in tests (@evoiron)
+
 ## [3.0.0](https://www.npmjs.com/package/aristid-ds/v/3.0.0) (2024-03-15)
 ### ✨ Features
 * **Empty:**

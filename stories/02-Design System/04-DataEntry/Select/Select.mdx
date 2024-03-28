@@ -50,6 +50,11 @@ Add status to KitSelect with `status`, which could be `error` or `warning`.
 
 <CustomCanvas content={Examples.Status} source={Sources.Status} id="select-status" />
 
+##### With a custom render
+Add `idCardProps` to display a [`<KitIdCard />`](/docs/design-system-datadisplay-idcard--docs) as an option instead of the label. You can also use `dropdownRender` to customize the dropdown menu.
+
+<CustomCanvas content={Examples.CustomRender} source={Sources.CustomRender} id="select-custom-render" />
+
 ##### Label and Helper
 
 Add `label` and/or `helper` properties to give field context.
@@ -75,12 +80,15 @@ Add `label` and/or `helper` properties to give field context.
 
 ### Option props
 
-| Property  | Description                          | Type             | Default | Version |
-| --------- | ------------------------------------ | ---------------- | ------- | ------- |
-| className | The additional class to option       | string           | -       |         |
-| disabled  | Disable this option                  | boolean          | false   |         |
-| title     | `title` attribute of Select Option   | string           | -       |         |
-| value     | Default to filter with this property | string \| number | -       |         |
+| Property  | Description                                   | Type             | Default | Version |
+| --------- | --------------------------------------------- | ---------------- | ------- | ------- |
+| className | The additional class to option                | string           | -       |         |
+| disabled  | Disable this option                           | boolean          | false   |         |
+| title     | `title` attribute of Select Option            | string           | -       |         |
+| icon      | `icon` display next to the label              | ReactNode        | -       |         |
+| color     | Color `badge` display next to the label       | string           | -       |         |
+| idCard    | `KitIdCard` to display instead of the label   | string           | -       |         |
+| value     | Default to filter with this property          | string \| number | -       |         |
 
 ### OptGroup props
 

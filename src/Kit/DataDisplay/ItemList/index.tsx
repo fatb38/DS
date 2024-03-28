@@ -1,248 +1,110 @@
-import React, {FunctionComponent, MouseEvent, ReactElement, cloneElement, useState} from 'react';
+import React, {MouseEvent, useState, KeyboardEvent, forwardRef} from 'react';
 import {IKitItemList} from './types';
-import {KitCheckbox} from '@kit/DataEntry/';
-import {KitTag} from '@kit/DataDisplay/Tag';
-import {KitButton, KitTypography} from '@kit/General/';
+import {KitCheckbox} from '@kit/DataEntry';
+import {KitIdCard} from '@kit/DataDisplay';
+import {KitButton} from '@kit/General';
+import {KitDropDown} from '@kit/Navigation';
 import {useKitTheme} from '@theme/useKitTheme';
-import {useKitLocale} from '@translation/useKitLocale';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faEye} from '@fortawesome/free-regular-svg-icons';
-import {faAngleRight, faBars} from '@fortawesome/free-solid-svg-icons';
-import useSecureClick from '@hooks/useSecureClick';
-import {IKitImage} from '../Image/types';
-import {IKitAvatar} from '../Avatar/types';
-import {IKitIcon} from '@kit/General/Icon/types';
+import {faEllipsis} from '@fortawesome/free-solid-svg-icons';
 import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
-export const KitItemList: FunctionComponent<IKitItemList> = ({
-    title,
-    description,
-    picture,
-    onSelect,
-    tagNumber,
-    onRafterClick,
-    onClick,
-    className,
-    disableSecureClick,
-    selected = false,
-    disabled = false,
-    style,
-    draggable = false,
-    ...props
-}) => {
-    const {appId} = useKitTheme();
-    const {locale} = useKitLocale();
+export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
+    ({idCardProps, draggableHandler, actions, content, onSelect, onClick, className, ...props}, ref) => {
+        const {appId} = useKitTheme();
 
-    const [descriptionVisible, setDescriptionVisible] = useState(false);
-    const [isDescriptionEllipsis, setIsDescriptionEllipsis] = useState(false);
+        const [isChecked, setIsChecked] = useState(false);
 
-    const hasTitle = title !== undefined;
-    const hasDescription = description !== undefined;
-    const hasPicture = picture !== undefined;
-    const hasTag = tagNumber !== undefined;
-    const isClickable = onClick !== undefined;
-    const isSelectable = onSelect !== undefined;
-    const hasRafter = onRafterClick !== undefined;
+        const isSelectable = onSelect !== undefined;
+        const isLessThanThreeActions = (actions ?? []).length <= 2;
 
-    const _generateGridTemplateColumns = () => {
-        let gridTemplateColumns = '';
+        const _getCheckbox = () => {
+            if (!isSelectable) return null;
 
-        // Drag'n'Drop
-        gridTemplateColumns += draggable ? ' min-content' : '';
+            const onChange = () => {
+                const newIsCheckedValue = !isChecked;
+                setIsChecked(newIsCheckedValue);
+                return onSelect(newIsCheckedValue);
+            };
 
-        // Checkbox
-        gridTemplateColumns += isSelectable ? ' min-content' : '';
+            return (
+                <KitCheckbox
+                    checked={isChecked}
+                    onClick={e => e.stopPropagation()}
+                    onChange={onChange}
+                    aria-label={idCardProps.title ?? idCardProps.description}
+                />
+            );
+        };
 
-        // Picture
-        gridTemplateColumns += hasPicture ? ' min-content' : '';
+        const _getActionButtons = () =>
+            actions &&
+            actions.length !== 0 && (
+                <div className={styles['kit-item-list-buttons']} onClick={e => e.stopPropagation()}>
+                    {isLessThanThreeActions ? (
+                        <>
+                            {actions.map(action => (
+                                <KitButton
+                                    key={action.key}
+                                    type={'tertiary'}
+                                    icon={action.icon}
+                                    onClick={action.onClick}
+                                />
+                            ))}
+                        </>
+                    ) : (
+                        <>
+                            <KitButton type={'tertiary'} icon={actions[0].icon} onClick={actions[0].onClick} />
+                            <KitDropDown menu={{items: actions.slice(1)}}>
+                                <KitButton type={'tertiary'} icon={<FontAwesomeIcon icon={faEllipsis} />} />
+                            </KitDropDown>
+                        </>
+                    )}
+                </div>
+            );
 
-        // Text (Use minmax to fix ellipsis)
-        gridTemplateColumns += ' minmax(0px, auto)';
+        const _getContent = () => content && <div className={styles['kit-item-list-content']}>{content}</div>;
 
-        // Tag
-        gridTemplateColumns += hasTag ? ' min-content' : '';
+        const _handleClickItemList = (e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
+            e.stopPropagation();
 
-        // Rafter
-        gridTemplateColumns += hasRafter ? ' min-content' : '';
+            const isKeyUpEvent = (
+                e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>
+            ): e is KeyboardEvent<HTMLDivElement> => 'key' in e;
+            const enterKey = 'Enter';
+            const spaceKey = ' ';
 
-        return gridTemplateColumns;
-    };
+            if (e.type === 'click' || (isKeyUpEvent(e) && [enterKey, spaceKey].includes(e.key))) {
+                if (onClick != null) {
+                    return onClick();
+                }
+                if (onSelect != null) {
+                    const newIsCheckedValue = !isChecked;
+                    setIsChecked(newIsCheckedValue);
+                    return onSelect(newIsCheckedValue);
+                }
+            }
+        };
 
-    const _getDragIcon = () =>
-        draggable && (
-            <KitButton disabled={disabled} type={'text'} iconSize={'l'} icon={<FontAwesomeIcon icon={faBars} />} />
-        );
-
-    const _getCheckbox = () =>
-        isSelectable && (
-            <KitCheckbox
-                disabled={disabled}
-                onClick={e => e.stopPropagation()}
-                onChange={e => {
-                    onSelect && onSelect(e);
-                }}
-            />
-        );
-
-    const _getPicture = () => {
-        const pictureJsx = picture as JSX.Element;
-
-        if (!pictureJsx || !pictureJsx.type) {
-            return null;
-        }
-
-        let noBorder = false;
-        let cloneProps = {};
-        let itemProps: IKitImage | IKitAvatar | IKitIcon;
-        let wrapperClassName = 'kit-item-list-picture-container';
-
-        switch ((pictureJsx.type as FunctionComponent).displayName) {
-            case 'KitImage':
-                itemProps = (pictureJsx as ReactElement).props as IKitImage;
-                cloneProps = {
-                    preview: {
-                        ...((itemProps.preview as Record<string, unknown>) ?? {}),
-                        mask: <FontAwesomeIcon icon={faEye} />
-                    },
-                    width: '100%',
-                    height: '100%',
-                    bordered: true,
-                    rounded: true,
-                    rootClassName: (itemProps.rootClassName || '') + ' kit-item-list-image-container'
-                };
-                wrapperClassName += ' kit-item-list-image';
-                break;
-            case 'KitIcon':
-                noBorder = true;
-                cloneProps = {
-                    on: true
-                };
-                wrapperClassName += ' kit-item-list-icon';
-                break;
-            case 'KitAvatar':
-                break;
-        }
-
-        const Component = cloneElement(pictureJsx, cloneProps);
-
-        return <div className={cn(wrapperClassName, {noBorder: noBorder})}>{Component}</div>;
-    };
-
-    const _getContent = () => {
-        const contentClassName = cn('kit-item-list-text-container', {
-            'kit-item-list-text-container-with-gap': hasTitle && hasDescription
+        const clx = cn(appId, styles['kit-item-list'], className, {
+            [styles['kit-item-list-clickable']]: isSelectable || onClick != null,
+            [styles['kit-item-list-selected']]: isChecked
         });
 
         return (
-            <div className={contentClassName}>
-                <KitTypography.Text
-                    className="kit-item-list-text kit-item-list-title"
-                    size="large"
-                    weight="bold"
-                    ellipsis={{tooltip: true}}
-                >
-                    {title}
-                </KitTypography.Text>
-
-                <div className="kit-item-list-description-container">
-                    <KitTypography.Paragraph
-                        className="kit-item-list-text kit-item-list-description"
-                        size="large"
-                        weight="regular"
-                        ellipsis={
-                            descriptionVisible
-                                ? false
-                                : {
-                                      rows: 2,
-                                      expandable: true,
-                                      onEllipsis: () => setIsDescriptionEllipsis(true)
-                                  }
-                        }
-                    >
-                        {description}
-                        {descriptionVisible && (
-                            <KitTypography.Link
-                                className="kit-item-list-description-collexp kit-item-list-description-collapse"
-                                onClick={e => {
-                                    e.stopPropagation();
-                                    setDescriptionVisible(false);
-                                }}
-                            >
-                                {locale.ItemList?.less}
-                            </KitTypography.Link>
-                        )}
-                    </KitTypography.Paragraph>
-                    {isDescriptionEllipsis && !descriptionVisible && (
-                        <KitTypography.Link
-                            className="kit-item-list-description-collexp kit-item-list-description-expand"
-                            onClick={e => {
-                                e.stopPropagation();
-                                setDescriptionVisible(true);
-                            }}
-                        >
-                            {locale.ItemList?.more}
-                        </KitTypography.Link>
-                    )}
+            <div ref={ref} className={clx} onClick={_handleClickItemList} onKeyUp={_handleClickItemList} {...props}>
+                {draggableHandler}
+                {_getCheckbox()}
+                <div className={styles['kit-item-list-id-card']}>
+                    <KitIdCard {...idCardProps} />
                 </div>
+                {_getContent()}
+                {_getActionButtons()}
             </div>
         );
-    };
-
-    const _getTag = () =>
-        hasTag && (
-            <div className="kit-item-list-tag">
-                <KitTag color="blue">{tagNumber}</KitTag>
-            </div>
-        );
-
-    const _handleClickRafter = (e: MouseEvent<HTMLDivElement>) => {
-        e.stopPropagation();
-        onRafterClick && onRafterClick();
-    };
-
-    const _handleClickRafterSecured = useSecureClick(_handleClickRafter);
-
-    const _getRafter = () =>
-        hasRafter && (
-            <div
-                className="kit-item-list-rafter"
-                onClick={disableSecureClick ? _handleClickRafter : _handleClickRafterSecured}
-            >
-                <FontAwesomeIcon icon={faAngleRight} />
-            </div>
-        );
-
-    const clx = cn(styles['kit-item-list'], className, appId, {
-        'kit-item-list-disabled': disabled,
-        'kit-item-list-clickable': isClickable,
-        'kit-item-list-selected': selected
-    });
-
-    const _handleClickItemList = (e: MouseEvent<HTMLDivElement>) => {
-        e.stopPropagation();
-        onClick && onClick();
-    };
-
-    const _handleClickItemListSecured = useSecureClick(_handleClickItemList);
-
-    return (
-        <div
-            tabIndex={disabled ? -1 : 0}
-            className={clx}
-            style={{...style, gridTemplateColumns: _generateGridTemplateColumns()}}
-            onClick={disableSecureClick ? _handleClickItemList : _handleClickItemListSecured}
-            {...props}
-        >
-            {_getDragIcon()}
-            {_getCheckbox()}
-            {_getPicture()}
-            {_getContent()}
-            {_getTag()}
-            {_getRafter()}
-        </div>
-    );
-};
+    }
+);
 
 KitItemList.displayName = 'KitItemList';

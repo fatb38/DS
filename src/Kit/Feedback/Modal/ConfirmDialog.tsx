@@ -1,14 +1,10 @@
 import React, {ReactNode} from 'react';
 import Modal from './Modal';
 import {KitButton, KitIcon} from '@kit/General/';
-import {KitSpace} from '@kit/Layout/';
 import {IKitConfirmDialog, IKitModal} from './types';
 import {useLocale} from 'antd/es/locale';
 import {faCheck, faExclamation, faInfo, faTriangleExclamation, faXmark} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {getCssPropertyValue} from '@theme/utils';
-import {kitModalCssTokens} from '@theme/aristid/components/Feedback/Modal';
-import {spacingCssTokens} from '@theme/aristid/general/spacing';
 import {IKitButton} from '@kit/General/Button/types';
 
 const ConfirmDialog = (props: IKitConfirmDialog) => {
@@ -103,14 +99,6 @@ const ConfirmDialog = (props: IKitConfirmDialog) => {
         additionalProps.close = _onClick(onCancel);
     }
 
-    const itemsVerticalSpacing = +(getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)
-        ? getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)
-        : getCssPropertyValue(spacingCssTokens.m));
-
-    const textVerticalSpacing = +(getCssPropertyValue(kitModalCssTokens.spacing.vertical.text)
-        ? getCssPropertyValue(kitModalCssTokens.spacing.vertical.items)
-        : getCssPropertyValue(spacingCssTokens.xs));
-
     return (
         <Modal
             isOpen={isOpen}
@@ -127,17 +115,17 @@ const ConfirmDialog = (props: IKitConfirmDialog) => {
             }
             {...additionalProps}
         >
-            <KitSpace direction="vertical" size={itemsVerticalSpacing}>
+            <div className="kit-modal-vertical-items-spacing">
                 {image && (
                     <div className="kit-confirm-image-wrapper" style={{backgroundImage: 'url(' + image + ')'}}></div>
                 )}
-                <KitSpace size={itemsVerticalSpacing}>
+                <div className="kit-modal-horizontal-items-spacing">
                     {mergedIcon}
-                    <KitSpace direction="vertical" size={textVerticalSpacing}>
+                    <div className="kit-modal-vertical-text-spacing">
                         <div className="ant-modal-body">{content}</div>
-                    </KitSpace>
-                </KitSpace>
-            </KitSpace>
+                    </div>
+                </div>
+            </div>
         </Modal>
     );
 };

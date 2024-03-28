@@ -1,115 +1,52 @@
-import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
-import {faCheck, faChevronDown, faCircleNotch} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {KitTag} from '@kit/DataDisplay/Tag';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
-import {KitIcon} from '@kit/General';
 import {useKitTheme} from '@theme/useKitTheme';
 import type {RefSelectProps} from 'antd';
 import {Select as AntdSelect} from 'antd';
 import cn from 'classnames';
-import type {CustomTagProps} from 'rc-select/es/BaseSelect';
-import React, {
-    FocusEvent,
-    JSXElementConstructor,
-    MouseEvent,
-    ReactElement,
-    ReactNode,
-    Ref,
-    RefObject,
-    forwardRef,
-    useEffect,
-    useMemo,
-    useRef,
-    useState
-} from 'react';
+import {FocusEvent, MouseEvent, Ref, RefObject, forwardRef, useEffect, useMemo, useRef, useState} from 'react';
 import ShortUniqueId from 'short-unique-id';
 import {useDebouncedCallback} from 'use-debounce';
-import {IKitOption, IKitSelect} from './types';
-
+import {IKitInternalOption, IKitOption, IKitSelect} from './types';
 import styles from './styles.module.scss';
+import flatten from 'lodash/flatten';
+import useIcons from './useIcons';
+import {
+    fixSelectRender,
+    getDropdownRender,
+    getLabelRender,
+    getMaxTagRender,
+    getOptionLabelRender,
+    getOptionRender,
+    getTagRender
+} from './renders';
 
-interface ISelectOption {
-    icon?: ReactNode;
-    color?: string;
-    label?: string;
-}
+const _parseOptions = (optionList: IKitOption[], labelOnly?: IKitSelect['labelOnly']): IKitInternalOption[] => {
+    return optionList.map(option => {
+        const {className, disabled, value, options, label} = option;
 
-const _getOptionLabel = (selectOption: ISelectOption): ReactElement => {
-    const {icon, color, label} = selectOption;
-    return (
-        <div className="kit-select-option">
-            {icon && <KitIcon className="kit-select-option-icon" icon={icon} on />}
-            {!icon && (
-                <div className="kit-select-option-badge">{color && <div style={{backgroundColor: color}} />}</div>
-            )}
-            <div className="kit-select-option-label">{label}</div>
-        </div>
-    );
-};
-
-const _parseOptions = (list: IKitOption[], labelOnly?: boolean) => {
-    return list.map(option => {
-        const {className, disabled, value, options, ...rest} = option;
         if (options) {
             return {
-                label: rest.label,
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-argument
+                label,
                 options: _parseOptions(options, labelOnly)
             };
         }
+
         return {
-            label: labelOnly ? <div className={'kit-select-option-label'}>{rest.label}</div> : _getOptionLabel(rest),
-            className: rest.highlight ? `${className} kit-select-highlight-option` : (className as string),
-            disabled: disabled as boolean,
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+            label: option?.label ?? '',
+            labelToDisplay: getOptionLabelRender(option, labelOnly),
+            className,
+            disabled,
             value
         };
     });
 };
 
-const _dropDownRenderer = (menu: ReactElement<unknown, string | JSXElementConstructor<unknown>>, status) => {
-    const clx = cn('kit-select-dropdown-content', {
-        'kit-select-dropdown-content-default': status !== 'warning' && status !== 'error',
-        'kit-select-dropdown-content-warning': status === 'warning',
-        'kit-select-dropdown-content-error': status === 'error'
-    });
-    return <div className={clx}>{menu}</div>;
-};
-
-const _tagRender = (props: CustomTagProps) => {
-    const {label, onClose} = props;
-    const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
-        event.preventDefault();
-        event.stopPropagation();
-    };
-
-    const clx = cn(styles['kit-select-option-label']);
-
-    return (
-        <KitTag color="blue" secondaryColorInvert onMouseDown={onPreventMouseDown} onClose={onClose}>
-            {typeof label === 'object' && label}
-            {typeof label === 'string' && (
-                <div className="kit-select-option">
-                    <div className={clx}>{label}</div>
-                </div>
-            )}
-        </KitTag>
-    );
-};
-
-const _maxTagRender = (omittedValues: {length: number}) => {
-    return (
-        <KitTag color="blue" secondaryColorInvert>
-            +{omittedValues.length}
-        </KitTag>
-    );
-};
-
 const _getPlacementClasses = (appId: string, className: string | undefined, placement: IKitSelect['placement']) => {
+    const isTop = placement && placement.indexOf('top') >= 0;
+
     return cn(appId, styles['kit-select'], className, {
-        ['ant-select-top']: placement && placement.indexOf('top') >= 0,
-        ['ant-select-bottom']: !(placement && placement.indexOf('top') >= 0)
+        'ant-select-top': isTop,
+        'ant-select-bottom': !isTop
     });
 };
 
@@ -120,34 +57,15 @@ const _getPopupPlacementClasses = (
     isFocus: boolean,
     status: IKitSelect['status']
 ) => {
-    return cn(appId, className, {
-        'kit-select-dropdown-top': placement && placement.indexOf('top') >= 0,
-        'kit-select-dropdown-bottom': !placement || placement.indexOf('top') < 0,
+    const isTop = placement && placement.indexOf('top') >= 0;
+
+    return cn(appId, className, 'kit-select-dropdown-content', {
+        'kit-select-dropdown-top': isTop,
+        'kit-select-dropdown-bottom': !isTop,
         'kit-select-dropdown-focus': isFocus,
         'kit-select-dropdown-error': status === 'error',
         'kit-select-dropdown-warning': status === 'warning'
     });
-};
-
-const _fixSelectRender = (id: string) => {
-    const inputElement = document.getElementById(id);
-    const selectElement = inputElement?.closest('.ant-select');
-    const dropDownElement = document.getElementById(id + '_list')?.closest('.ant-select-dropdown');
-
-    if (selectElement && dropDownElement) {
-        const isDropDownOnTop = dropDownElement.className.indexOf('ant-select-dropdown-placement-top') >= 0;
-        const isDropDownOnBottom = dropDownElement.className.indexOf('ant-select-dropdown-placement-bottom') >= 0;
-
-        if (isDropDownOnTop) {
-            selectElement.classList.remove('ant-select-bottom');
-            selectElement.classList.add('ant-select-top');
-        }
-
-        if (isDropDownOnBottom) {
-            selectElement.classList.remove('ant-select-top');
-            selectElement.classList.add('ant-select-bottom');
-        }
-    }
 };
 
 const uid = new ShortUniqueId({length: 10, dictionary: 'alpha'});
@@ -157,9 +75,15 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         {
             id,
             options,
+            defaultValue,
+            disabled,
+            status,
+            mode,
             label,
             helper,
             placement,
+            open,
+            onChange,
             onClick,
             onClear,
             onBlur,
@@ -169,28 +93,36 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             popupClassName,
             labelOnly = false,
             oneLineTags = false,
-            allowClear = true,
+            allowClear,
+            loading,
             required,
             infoIcon,
             actions,
             onInfoClick,
+            dropdownRender,
             ...props
         },
         ref?: Ref<RefSelectProps> | undefined
     ) => {
         const {appId} = useKitTheme();
         const [isOpen, setIsOpen] = useState(false);
-        const internalKitSelectRef = useRef(id ?? uid.rnd());
         const [isFocus, setIsFocus] = useState(false);
+        const [selectedOption, setSelectedOption] = useState<IKitInternalOption | IKitInternalOption[]>();
+        const internalKitSelectRef = useRef(id ?? uid.rnd());
+
+        const {clearIcon, suffixIcon, selectedItemIcon} = useIcons({
+            allowClear,
+            loading
+        });
 
         const _handleDocumentScroll = useDebouncedCallback(() => {
-            _fixSelectRender(internalKitSelectRef.current);
+            fixSelectRender(internalKitSelectRef.current);
         }, 15);
 
         useEffect(() => {
             if (isOpen) {
                 requestAnimationFrame(() => {
-                    _fixSelectRender(internalKitSelectRef.current);
+                    fixSelectRender(internalKitSelectRef.current);
                 });
 
                 document.addEventListener('scroll', _handleDocumentScroll);
@@ -201,17 +133,35 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             };
         }, [_handleDocumentScroll, isOpen]);
 
-        const internalOptions = useMemo((): IKitOption[] => {
-            return options ? (_parseOptions(options, labelOnly) as IKitOption[]) : [];
-        }, [options, labelOnly]);
+        const internalOptions = useMemo(
+            (): IKitInternalOption[] => (options ? _parseOptions(options, labelOnly) : []),
+            [options, labelOnly]
+        );
+
+        const flattenInternalOptions = useMemo(
+            (): IKitInternalOption[] =>
+                flatten<IKitInternalOption>(internalOptions.map(option => option.options ?? option)),
+            [internalOptions]
+        );
+
+        if (defaultValue && selectedOption === undefined) {
+            let selectedOption: IKitInternalOption | IKitInternalOption[] | undefined;
+
+            if (Array.isArray(defaultValue)) {
+                selectedOption = internalOptions.filter(option => {
+                    return defaultValue.includes(option.value);
+                });
+            } else {
+                selectedOption = internalOptions.filter(option => option.value === defaultValue)[0];
+            }
+
+            setSelectedOption(selectedOption);
+        }
 
         const _handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
             (ref as RefObject<RefSelectProps>)?.current?.focus();
 
-            if (
-                (!props.mode && isOpen) ||
-                (props.mode && isOpen && (event.target as HTMLElement).closest('.ant-select'))
-            ) {
+            if ((!mode && isOpen) || (mode && isOpen && (event.target as HTMLElement).closest('.ant-select'))) {
                 setIsOpen(false);
             } else {
                 setIsOpen(true);
@@ -236,48 +186,56 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             onFocus && onFocus(event);
         };
 
+        const _handleOnChange = (value: IKitSelect['value'], option: IKitInternalOption | IKitInternalOption[]) => {
+            setSelectedOption(option);
+            onChange && onChange(value, option);
+        };
+
         return (
             <KitInputWrapper
                 label={label}
+                actions={actions}
                 helper={helper}
-                disabled={props.disabled}
-                status={props.status}
+                disabled={disabled}
+                status={status}
                 className={wrapperClassName}
                 required={required}
                 infoIcon={infoIcon}
-                actions={actions}
                 onInfoClick={onInfoClick}
             >
                 <AntdSelect
                     {...props}
                     id={internalKitSelectRef.current}
                     className={_getPlacementClasses(appId, className, placement)}
-                    popupClassName={_getPopupPlacementClasses(appId, popupClassName, placement, isFocus, props.status)}
+                    popupClassName={_getPopupPlacementClasses(appId, popupClassName, placement, isFocus, status)}
                     options={internalOptions}
                     placement={placement}
-                    menuItemSelectedIcon={<KitIcon icon={<FontAwesomeIcon icon={faCheck} />} on />}
-                    suffixIcon={
-                        props.loading ? (
-                            <FontAwesomeIcon icon={faCircleNotch} spin />
-                        ) : (
-                            <FontAwesomeIcon icon={faChevronDown} />
-                        )
+                    disabled={disabled}
+                    status={status}
+                    menuItemSelectedIcon={selectedItemIcon}
+                    mode={mode}
+                    loading={loading}
+                    suffixIcon={suffixIcon}
+                    allowClear={clearIcon ? {clearIcon} : false}
+                    optionRender={option => getOptionRender(option, flattenInternalOptions)}
+                    dropdownRender={menu => getDropdownRender(menu, dropdownRender)}
+                    labelRender={props => getLabelRender(props, selectedOption)}
+                    tagRender={
+                        mode !== undefined ? props => getTagRender(props, disabled, status, selectedOption) : undefined
                     }
-                    allowClear={
-                        allowClear
-                            ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}
-                            : undefined
-                    }
-                    dropdownRender={menu => _dropDownRenderer(menu, props.status)}
-                    tagRender={props.mode ? _tagRender : undefined}
                     maxTagCount={oneLineTags ? 'responsive' : undefined}
-                    maxTagPlaceholder={oneLineTags ? _maxTagRender : undefined}
+                    maxTagPlaceholder={
+                        oneLineTags ? omittedValues => getMaxTagRender(omittedValues, disabled, status) : undefined
+                    }
                     ref={ref}
-                    open={props.open !== undefined ? props.open : isOpen}
-                    onClick={event => _handleOnClick(event)}
+                    open={open !== undefined ? open : isOpen}
+                    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                    defaultValue={defaultValue}
+                    onChange={_handleOnChange}
+                    onClick={_handleOnClick}
                     onClear={_handleOnClear}
-                    onBlur={event => _handleOnBlur(event)}
-                    onFocus={event => _handleFocus(event)}
+                    onBlur={_handleOnBlur}
+                    onFocus={_handleFocus}
                 />
             </KitInputWrapper>
         );

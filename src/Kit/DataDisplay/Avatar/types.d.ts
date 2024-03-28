@@ -7,11 +7,14 @@ import {KitColorProp} from '@utils/functions/types';
 type AntdAvatarTypesToOmit = '';
 type AntdAvatarGroupTypesToOmit = 'maxStyle';
 
+type KitImageFit = 'cover' | 'contain' | 'fill';
+
 export interface IKitAvatar extends Omit<AvatarProps, AntdAvatarTypesToOmit>, KitHTMLAttributes<HTMLSpanElement> {
     label?: string;
     initialsMaxChars?: number;
     color?: KitColorProp;
     secondaryColorInvert?: boolean;
+    imageFit?: KitImageFit;
 }
 
 export interface IKitAvatarGroup

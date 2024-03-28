@@ -10,7 +10,7 @@ const _getTitle = (title: IKitIdCard['title'], cardSize: IKitIdCard['size']) => 
     const clx = cn({'kit-id-card-title-large': cardSize === 'large'});
 
     return (
-        <KitTypography.Text className={clx} size="large" weight="bold">
+        <KitTypography.Text className={clx} size="large" weight="bold" ellipsis={{tooltip: true}}>
             {title}
         </KitTypography.Text>
     );
@@ -19,7 +19,11 @@ const _getTitle = (title: IKitIdCard['title'], cardSize: IKitIdCard['size']) => 
 const _getDescription = (description: IKitIdCard['description'], cardSize: IKitIdCard['size']) => {
     const textSize = cardSize === 'medium' ? 'small' : 'large';
 
-    return <KitTypography.Text size={textSize}>{description}</KitTypography.Text>;
+    return (
+        <KitTypography.Text size={textSize} ellipsis={{tooltip: true}}>
+            {description}
+        </KitTypography.Text>
+    );
 };
 
 export const KitIdCard: FunctionComponent<IKitIdCard> = ({

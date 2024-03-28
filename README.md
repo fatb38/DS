@@ -460,6 +460,25 @@ A nightly version of the package is published on daily basis on branch develop (
 ```
 **Note:** Though it is useful to test upcoming feature, this version should **NEVER** be used in production
 
+## Tests
+Tests can be slow when using the Design system. It is caused by jsdom which heavily use Window.GetComputedStyle. To workaround this performance issue, you shoud update the version of jsdom used by you test library (typically jest) to 21.1.0 or even 24.0.0. To achieve this, update your projects package.json and add these lines:
+
+if using yarn:
+```sh
+    "resolutions": {
+        "jsdom": "21.1.0"
+    }
+```
+
+if using npm and jest:
+```sh
+    "overrides": {
+        "jest-environment-jsdom": {
+            "jsdom": "21.1.0"
+        }
+    }
+```
+
 ## Important
 Every import of antd library should pass by `antd` or `ant/es`. `lib` import will lead to issues in the build process.
 

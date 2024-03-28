@@ -98,6 +98,19 @@ const SelectArgTypes = {
         },
         defaultValue: false
     },
+    search: {
+        name: 'search',
+        control: {type: 'boolean'},
+        description: 'Whether select is searchable',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: 'single: false, multiple: true'},
+            category: 'Select'
+        },
+        defaultValue: false
+    },
     autoClearSearchValue: {
         name: 'autoClearSearchValue',
         control: {type: 'boolean'},
@@ -296,6 +309,18 @@ const SelectArgTypes = {
             category: 'Select'
         }
     },
+    maxCount: {
+        name: 'maxCount',
+        control: {type: 'number'},
+        description: 'The max number of items can be selected, only applies when `mode` is `multiple` or `tags`',
+        table: {
+            type: {
+                summary: 'number'
+            },
+            defaultValue: {summary: '-'},
+            category: 'Select'
+        }
+    },
     placement: {
         name: 'placement',
         control: {type: 'select'},
@@ -424,6 +449,18 @@ const SelectArgTypes = {
         table: {
             type: {
                 summary: 'function'
+            },
+            defaultValue: {summary: '-'},
+            category: 'Select'
+        },
+        defaultValue: () => {}
+    },
+    onSearch: {
+        name: 'onSearch',
+        description: 'Callback function that is fired when input changed',
+        table: {
+            type: {
+                summary: 'function(value: string)'
             },
             defaultValue: {summary: '-'},
             category: 'Select'

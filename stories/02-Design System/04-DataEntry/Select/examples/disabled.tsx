@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import {useKitTheme} from '@theme/useKitTheme';

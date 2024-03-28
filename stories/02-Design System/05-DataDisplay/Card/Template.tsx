@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {IEditorTemplate} from '../../../types';
 import {KitCard} from '@kit/DataDisplay';
-import {IKitCardAction} from '@kit/DataDisplay/Card/types';
 import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowsUpDownLeftRight, faPencil, faTrashCan} from '@fortawesome/free-solid-svg-icons';
+import {IKitActionButton} from '@kit/DataDisplay/types';
 
 export const Template = ({title = 'This is a title', ...args}) => {
     return <KitCard title={title} {...args} />;
@@ -21,7 +21,7 @@ export const EditorTemplate: IEditorTemplate = () => {
         {wording: 'Fromage'}
     ];
 
-    const actions: IKitCardAction[] = [
+    const actions: IKitActionButton[] = [
         {
             key: '1',
             label: 'Drag the content',

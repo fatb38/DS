@@ -11,6 +11,24 @@
             var(--general-colors-neutral-typography-white)
         );
     }
+
+    &.kit-avatar-image-fit-cover {
+        img {
+            object-fit: cover;
+        }
+    }
+
+    &.kit-avatar-image-fit-contain {
+        img {
+            object-fit: contain;
+        }
+    }
+
+    &.kit-avatar-image-fit-fill {
+        img {
+            object-fit: fill;
+        }
+    }
 }
 
 :local(.kit-avatar-group) {
