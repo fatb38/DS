@@ -1,6 +1,12 @@
 # Changelog
 
 ## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-xx-xx)
+### ✨ Features
+* **Select:**
+  * Add `idCard` property to option to display a `KitIdCard` instead of the label (@philippechevieux)
+* **Avatar:**
+  * Add a new property `imageFit` to change how image will fit (@philippechevieux)
+
 ### 🐛 Bug Fixes
 * **IdCard:**
   * Add default ellipsis to `title` and `description` (@philippechevieux)

@@ -214,6 +214,7 @@
 
     > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
     .kit-select-dropdown-content {
+        display: grid;
         box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
         background-color: var(
             --components-Select-DropDowncolors-background-default,
@@ -276,13 +277,17 @@
                     .kit-select-option-badge {
                         display: inline-block;
                         vertical-align: middle;
-                        
+
                         div {
                             margin-left: 4px;
                             width: convertToPixel(--components-Select-ColorBadge-width, 16);
                             height: convertToPixel(--components-Select-ColorBadge-height, 16);
                             border-radius: convertToPixel(--components-Select-ColorBadge-border-radius, --general-border-radius-xxs);
-                        }   
+                        }
+                    }
+
+                    .card-info {
+                        gap: 0;
                     }
                 }
 

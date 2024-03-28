@@ -1,7 +1,7 @@
 import {SelectProps} from 'antd';
-import type {OptionProps} from 'rc-select/es/Option';
 import {KitHTMLAttributes} from '../../../types';
 import {ReactNode, ReactElement, MouseEvent} from 'react';
+import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
 
 type AntdSelectTypesToOmit =
     | 'dropdownMatchSelectWidth'
@@ -16,16 +16,41 @@ type AntdSelectTypesToOmit =
     | 'optionLabelProp'
     | 'removeIcon'
     | 'searchValue'
-    | 'showSearch'
     | 'size'
     | 'tokenSeparators'
     | 'virtual'
+    | 'variant'
     | 'clearIcon'
     | 'onDeselect'
     | 'onInputKeyDown'
     | 'dropdownStyle'
     | 'menuItemSelectedIcon'
+    | 'labelRender'
+    | 'optionRender'
     | 'suffixIcon';
+
+type OptionCommons = {
+    label?: string;
+    value?: string | number | null;
+    className?: string;
+    disabled?: boolean;
+};
+
+export type IdCard = OptionCommons & {
+    idCard?: IKitIdCard;
+};
+
+export type ClassicOption = OptionCommons & {
+    icon?: ReactNode;
+    color?: string;
+    options?: Omit<IKitOption, 'options'>[];
+};
+
+export type IKitOption = IdCard & ClassicOption;
+
+export type IKitInternalOption = IKitOption & {
+    labelToDisplay?: ReactNode;
+};
 
 export interface IKitSelect extends Omit<SelectProps, AntdSelectTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     label?: string;
@@ -39,10 +64,4 @@ export interface IKitSelect extends Omit<SelectProps, AntdSelectTypesToOmit>, Ki
     infoIcon?: ReactNode;
     actions?: ReactElement[];
     onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
-}
-
-interface IKitOption extends Omit<OptionProps, ''> {
-    icon?: ReactNode;
-    color?: string;
-    label: string;
 }

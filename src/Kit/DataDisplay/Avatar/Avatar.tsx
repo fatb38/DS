@@ -39,6 +39,7 @@ const KitAvatar: FunctionComponent<PropsWithChildren<IKitAvatar>> = ({
     style,
     secondaryColorInvert = false,
     children,
+    imageFit = 'cover',
     ...avatarProps
 }) => {
     const {appId} = useKitTheme();
@@ -48,7 +49,11 @@ const KitAvatar: FunctionComponent<PropsWithChildren<IKitAvatar>> = ({
         [color, secondaryColorInvert, style]
     );
 
-    const clx = cn(appId, styles['kit-avatar'], className);
+    const clx = cn(appId, styles['kit-avatar'], className, {
+        'kit-avatar-image-fit-cover': imageFit === 'cover',
+        'kit-avatar-image-fit-contain': imageFit === 'contain',
+        'kit-avatar-image-fit-fill': imageFit === 'fill'
+    });
 
     return (
         <AntdAvatar style={customStyle} className={clx} {...avatarProps}>

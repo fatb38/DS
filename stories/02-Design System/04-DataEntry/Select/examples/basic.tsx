@@ -1,6 +1,6 @@
-import React from 'react';
 import {KitSelect} from '@kit/DataEntry/';
-import {KitDivider, KitSpace} from '@kit/Layout/';
+import {KitSpace} from '@kit/Layout/';
+import {KitTypography} from '@kit/General';
 import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFile} from '@fortawesome/free-regular-svg-icons';
@@ -61,48 +61,60 @@ const App = () => {
     const style = {width: 320};
 
     return (
-        <KitSpace direction="vertical">
-            <KitDivider orientation="left">Label only</KitDivider>
-            <KitSpace>
-                <KitSelect
-                    placeholder="Select a status"
-                    style={style}
-                    labelOnly
-                    defaultActiveFirstOption={false}
-                    onChange={handleChange}
-                    options={colorOptions}
-                />
-                <KitSelect
-                    placeholder="Select a file"
-                    defaultValue="file-2"
-                    style={style}
-                    labelOnly
-                    defaultActiveFirstOption={false}
-                    onChange={handleChange}
-                    options={iconOptions}
-                />
+        <KitSpace direction="vertical" size={'l'}>
+            <KitSpace direction="vertical">
+                <KitTypography.Text weight="bold">Label only</KitTypography.Text>
+                <KitSpace>
+                    <KitSelect
+                        placeholder="Select a status"
+                        style={style}
+                        labelOnly
+                        defaultActiveFirstOption={false}
+                        onChange={handleChange}
+                        options={colorOptions}
+                    />
+                    <KitSelect
+                        placeholder="Select a file"
+                        defaultValue="file-2"
+                        style={style}
+                        labelOnly
+                        defaultActiveFirstOption={false}
+                        onChange={handleChange}
+                        options={iconOptions}
+                    />
+                </KitSpace>
             </KitSpace>
-            <KitDivider orientation="left">Color and Icon</KitDivider>
-            <KitSpace>
-                <KitSelect
-                    defaultValue="not-allowed"
-                    style={style}
-                    defaultActiveFirstOption={false}
-                    onChange={handleChange}
-                    options={colorOptions}
-                />
-                <KitSelect
-                    defaultValue="file-2"
-                    style={style}
-                    defaultActiveFirstOption={false}
-                    onChange={handleChange}
-                    options={iconOptions}
-                />
+            <KitSpace direction="vertical">
+                <KitTypography.Text weight="bold">Color and Icon</KitTypography.Text>
+                <KitSpace>
+                    <KitSelect
+                        defaultValue="not-allowed"
+                        style={style}
+                        defaultActiveFirstOption={false}
+                        onChange={handleChange}
+                        options={colorOptions}
+                    />
+                    <KitSelect
+                        defaultValue="file-2"
+                        style={style}
+                        defaultActiveFirstOption={false}
+                        onChange={handleChange}
+                        options={iconOptions}
+                    />
+                </KitSpace>
             </KitSpace>
-            <KitDivider orientation="left">Loading and allowClear=false</KitDivider>
-            <KitSpace>
-                <KitSelect defaultValue="not-allowed" style={style} allowClear={false} loading options={colorOptions} />
-                <KitSelect defaultValue="file-2" style={style} allowClear={false} loading options={iconOptions} />
+            <KitSpace direction="vertical">
+                <KitTypography.Text weight="bold">Loading and allowClear=false</KitTypography.Text>
+                <KitSpace>
+                    <KitSelect
+                        defaultValue="not-allowed"
+                        style={style}
+                        allowClear={false}
+                        loading
+                        options={colorOptions}
+                    />
+                    <KitSelect defaultValue="file-2" style={style} allowClear={false} loading options={iconOptions} />
+                </KitSpace>
             </KitSpace>
         </KitSpace>
     );

@@ -6,6 +6,7 @@ import {Template} from './Template';
 import {BasicAndTypeAvatarTest} from './test-components/BasicAndTypeAvatarTest.tsx';
 import {ColoredAvatarTest} from './test-components/ColoredAvatarTest.tsx';
 import {GroupAndBadgeAvatarTest} from './test-components/GroupAndBadgeAvatarTest.tsx';
+import {ImageFitTest} from './test-components/ImageFitTest.tsx';
 
 const meta: Meta<typeof KitAvatar> = {
     component: KitAvatar,
@@ -30,6 +31,7 @@ export const ChromaticTest: Story = {
                 <BasicAndTypeAvatarTest />
                 <ColoredAvatarTest />
                 <GroupAndBadgeAvatarTest />
+                <ImageFitTest />
             </div>
         </div>
     )

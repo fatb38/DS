@@ -4,6 +4,8 @@ const pophoverPlacement = ['top', 'bottom'];
 
 const pophoverTrigger = ['hover', 'click', 'focus'];
 
+const imageFit = ['cover', 'contain', 'fill'];
+
 export const argTypes = {
     alt: {
         name: 'alt',
@@ -100,6 +102,32 @@ export const argTypes = {
             category: 'Avatar'
         }
     },
+    label: {
+        name: 'label',
+        description: 'The label that will be used to generate the initials',
+        control: {
+            type: 'text'
+        },
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Avatar'
+        }
+    },
+    initialsMaxChars: {
+        name: 'labinitialsMaxCharsel',
+        description: 'The maximum number of characters to use for the initials',
+        control: {
+            type: 'text'
+        },
+        table: {
+            type: {
+                summary: 'number'
+            },
+            category: 'Avatar'
+        }
+    },
     src: {
         name: 'src',
         description: 'The address of the image for an image avatar or image element',
@@ -122,6 +150,24 @@ export const argTypes = {
         table: {
             type: {
                 summary: 'string'
+            },
+            category: 'Avatar'
+        }
+    },
+    imageFit: {
+        name: 'imageFit',
+        description: 'The fit type of the image',
+        options: imageFit,
+        control: {
+            type: 'select',
+            defaultValue: 'cover'
+        },
+        table: {
+            type: {
+                summary: 'contain | cover | fill'
+            },
+            defaultValue: {
+                summary: 'cover'
             },
             category: 'Avatar'
         }
