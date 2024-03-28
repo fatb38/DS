@@ -1,6 +1,6 @@
 # Changelog
 
-## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-xx-xx)
+## [4.0.0](https://www.npmjs.com/package/aristid-ds/v/4.0.0) (2024-03-28)
 ### ✨ Features
 * **Select:**
   * Add `idCard` property to option to display a `KitIdCard` instead of the label (@philippechevieux)
