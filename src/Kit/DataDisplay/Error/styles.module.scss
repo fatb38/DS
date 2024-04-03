@@ -1,0 +1,19 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-error) {
+    @include svgColorsClasses();
+
+    padding: convertToPixel(--general-spacing-veryHuge) 0;
+
+    &.ant-empty {
+        .ant-empty-image {
+            height: unset;
+            margin-bottom: convertToPixel(--general-spacing-xl);
+        }
+
+        .error-title {
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+    }
+}

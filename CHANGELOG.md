@@ -4,6 +4,8 @@
 ### ✨ Features
 * **Header.Profile:**
   * Add `alt` property (@philippechevieux)
+* **Error:**
+  * Add a new component `KitError` to manage error page (@P0ppoff)
 
 ### 🐛 Bug Fixes
 * **Avatar:**

@@ -28,6 +28,7 @@ import {EditorTemplate as Badge} from './02-Design System/05-DataDisplay/Badge/T
 import {EditorTemplate as Card} from './02-Design System/05-DataDisplay/Card/Template';
 import {EditorTemplate as Collapse} from './02-Design System/05-DataDisplay/Collapse/Template';
 import {EditorTemplate as Empty} from './02-Design System/05-DataDisplay/Empty/Template';
+import {EditorTemplate as Error} from './02-Design System/05-DataDisplay/Error/Template';
 import {EditorTemplate as IdCard} from './02-Design System/05-DataDisplay/IdCard/Template';
 import {EditorTemplate as Image} from './02-Design System/05-DataDisplay/Image/Template';
 import {EditorTemplate as ItemCard} from './02-Design System/05-DataDisplay/ItemCard/Template';
@@ -81,6 +82,7 @@ export default {
         Card,
         Collapse,
         Empty,
+        Error,
         IdCard,
         Image,
         ItemCard,

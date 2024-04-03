@@ -6,6 +6,7 @@ export {
     KitItemCard,
     KitCollapse,
     KitEmpty,
+    KitError,
     KitIdCard,
     KitImage,
     KitItemList,
