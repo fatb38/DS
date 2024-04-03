@@ -6,6 +6,7 @@ const App = () => {
     return (
         <KitSpace direction="horizontal" size={'l'}>
             <KitAvatar label="John Doe" />
+            <KitAvatar label="Amélie Poulin" />
             <KitAvatar label="John Doe Smith" initialsMaxChars={3} />
         </KitSpace>
     );
