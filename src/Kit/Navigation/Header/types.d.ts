@@ -12,6 +12,7 @@ export interface IKitHeader extends KitHTMLAttributes<HTMLDivElement> {
 
 export interface IKitHeaderProfile extends KitHTMLAttributes<HTMLDivElement> {
     logo?: string;
+    alt?: string;
     tag?: ReactNode;
     userCard?: ReactNode;
     menu?: ReactNode | MenuProps;

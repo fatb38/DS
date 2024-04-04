@@ -70,6 +70,7 @@ export const logoExample = <img src="public/images/omnipublish-logo.svg" />;
 export const userProfileExample = (
     <KitHeader.Profile
         logo="/public/images/logo.png"
+        alt="Logo ARiSTiD"
         tag="Grenoble Centre"
         menu={profileMenuContentExemple}
         userCard={<KitIdCard avatar={<KitAvatar src="public/images/portrait.png" />} />}

@@ -1,6 +1,10 @@
 # Changelog
 
 ## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-xx-xx)
+### ✨ Features
+* **Header.Profile:**
+  * Add `alt` property (@philippechevieux)
+
 ### 🐛 Bug Fixes
 * **Avatar:**
   * Fix incorrect digram when label contains accented characters (@evoiron)

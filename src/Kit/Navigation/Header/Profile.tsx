@@ -8,7 +8,7 @@ import {KitTag} from '@kit/DataDisplay/Tag';
 import {IKitDropdown} from '../DropDown/types';
 import {MenuProps} from 'antd';
 
-const Profile: FunctionComponent<IKitHeaderProfile> = ({logo, tag, userCard, menu = null, className}) => {
+const Profile: FunctionComponent<IKitHeaderProfile> = ({logo, tag, userCard, className, menu = null, alt = ''}) => {
     const {appId, theme} = useKitTheme();
 
     const clx = cn(
@@ -37,7 +37,7 @@ const Profile: FunctionComponent<IKitHeaderProfile> = ({logo, tag, userCard, men
     return (
         <KitDropDown {...dropDownProps}>
             <div className={clx}>
-                {logo && <img className="kit-header-profile-logo" src={logo} />}
+                {logo && <img className="kit-header-profile-logo" src={logo} alt={alt} />}
                 {tag && (
                     <KitTag className="kit-header-profile-tag" color={theme.colors.neutral.typography.default}>
                         {tag}

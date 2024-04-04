@@ -43,7 +43,9 @@ export const ChromaticTest: Story = {
                     <KitTypography.Title level="h4">Header with logo</KitTypography.Title>
                     <KitHeader logo={logoExample}>{headerContent}</KitHeader>
                     <KitTypography.Title level="h4">Header with profile</KitTypography.Title>
-                    <KitHeader profile={<KitHeader.Profile logo={userProfileProps.logo} />}>{headerContent}</KitHeader>
+                    <KitHeader profile={<KitHeader.Profile logo={userProfileProps.logo} alt="Logo ARiSTiD" />}>
+                        {headerContent}
+                    </KitHeader>
                     <KitHeader profile={<KitHeader.Profile tag={userProfileProps.tag} />}>{headerContent}</KitHeader>
                     <KitHeader profile={<KitHeader.Profile userCard={userProfileProps.userCard} />}>
                         {headerContent}
