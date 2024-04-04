@@ -9,6 +9,9 @@
 * **Avatar:**
   * Fix incorrect digram when label contains accented characters (@evoiron)
 
+### 📚 Documentation
+* Add an example for searching with a Select (@philippechevieux)
+
 ## [4.0.0](https://www.npmjs.com/package/aristid-ds/v/4.0.0) (2024-03-28)
 ### ✨ Features
 * **Select:**
