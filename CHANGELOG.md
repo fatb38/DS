@@ -2,6 +2,11 @@
 
 ## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-xx-xx)
 ### ✨ Features
+### ✨ Features
+* **Avatar:**
+ * Add `disabled` property (@Delmotte-Vincent)
+* **Avatar.Group:**
+ * Add `disabled` property (@Delmotte-Vincent)
 * **Header.Profile:**
   * Add `alt` property (@philippechevieux)
 * **Error:**

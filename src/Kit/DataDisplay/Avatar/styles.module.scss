@@ -29,6 +29,32 @@
             object-fit: fill;
         }
     }
+
+}
+
+:local(.kit-avatar-disabled) {
+    --mask-color: #8db1c880;
+    &.ant-avatar-icon {
+        color: var(--general-colors-secondary-mediumGrey-mediumGrey400);
+        background-color: var(--general-colors-secondary-mediumGrey-mediumGrey200);
+    }
+
+    &.kit-avatar-image-fit-cover, & {
+        color: var(--general-colors-secondary-mediumGrey-mediumGrey400);
+        background-color: var(--general-colors-secondary-mediumGrey-mediumGrey200);
+    }
+
+    &.ant-avatar-image::after {
+        content: "";
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: var(--mask-color);
+    }
+
 }
 
 :local(.kit-avatar-group) {
@@ -44,5 +70,12 @@
                 var(--general-colors-primary-primary200)
             )
         );
+    }
+}
+
+:local(.kit-avatar-group-disabled) {
+    &.override-last > span:last-child {
+        background-color: var(--general-colors-secondary-mediumGrey-mediumGrey200);
+        color: var(--general-colors-secondary-mediumGrey-mediumGrey400);
     }
 }

@@ -39,6 +39,7 @@ const KitAvatar: FunctionComponent<PropsWithChildren<IKitAvatar>> = ({
     style,
     secondaryColorInvert = false,
     children,
+    disabled,
     imageFit = 'cover',
     ...avatarProps
 }) => {
@@ -52,7 +53,8 @@ const KitAvatar: FunctionComponent<PropsWithChildren<IKitAvatar>> = ({
     const clx = cn(appId, styles['kit-avatar'], className, {
         'kit-avatar-image-fit-cover': imageFit === 'cover',
         'kit-avatar-image-fit-contain': imageFit === 'contain',
-        'kit-avatar-image-fit-fill': imageFit === 'fill'
+        'kit-avatar-image-fit-fill': imageFit === 'fill',
+        [styles['kit-avatar-disabled']]: disabled
     });
 
     return (

@@ -9,6 +9,7 @@ import {AvatarSize} from 'antd/es/avatar/AvatarContext';
 
 interface ITemplate extends IKitAvatar {
     sizeGroup: AvatarSize;
+    groupDisabled?: boolean;
 }
 
 export const Template = (args: IKitAvatar) => {
@@ -21,15 +22,15 @@ export const Template = (args: IKitAvatar) => {
             <br />
             <br />
             <KitSpace>
-                <KitAvatar.Group {...(props as IKitAvatarGroup)} size={props.sizeGroup}>
-                    <KitAvatar>G</KitAvatar>
-                    <KitAvatar>R</KitAvatar>
-                    <KitAvatar>E</KitAvatar>
-                    <KitAvatar>N</KitAvatar>
-                    <KitAvatar>O</KitAvatar>
-                    <KitAvatar>B</KitAvatar>
-                    <KitAvatar>L</KitAvatar>
-                    <KitAvatar>E</KitAvatar>
+                <KitAvatar.Group {...(props as IKitAvatarGroup)} size={props.sizeGroup} disabled={props.groupDisabled}>
+                    <KitAvatar disabled={props.disabled}>G</KitAvatar>
+                    <KitAvatar disabled={props.disabled}>R</KitAvatar>
+                    <KitAvatar disabled={props.disabled}>E</KitAvatar>
+                    <KitAvatar disabled={props.disabled}>N</KitAvatar>
+                    <KitAvatar disabled={props.disabled}>O</KitAvatar>
+                    <KitAvatar disabled={props.disabled}>B</KitAvatar>
+                    <KitAvatar disabled={props.disabled}>L</KitAvatar>
+                    <KitAvatar disabled={props.disabled}>E</KitAvatar>
                 </KitAvatar.Group>
             </KitSpace>
         </>
@@ -51,6 +52,9 @@ export const EditorTemplate: IEditorTemplate = () => {
             </KitAvatar>
             <KitAvatar shape="square">V</KitAvatar>
             <KitAvatar shape="square" size="large">
+                V
+            </KitAvatar>
+            <KitAvatar disabled shape="square" size="large">
                 V
             </KitAvatar>
         </KitSpace>
@@ -90,6 +94,13 @@ export const EditorTemplateGroup: IEditorTemplate = () => {
                 <KitAvatar>K</KitAvatar>
                 <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} />
                 <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} />
+            </KitAvatar.Group>
+            <KitDivider orientation="left">KitAvatar.Group disabled</KitDivider>
+            <KitAvatar.Group disabled maxCount={2} size="large">
+                <KitAvatar disabled src={url} />
+                <KitAvatar disabled>K</KitAvatar>
+                <KitAvatar disabled icon={<FontAwesomeIcon icon={faUser} />} />
+                <KitAvatar disabled icon={<FontAwesomeIcon icon={faUser} />} />
             </KitAvatar.Group>
         </KitSpace>
     );
