@@ -16,8 +16,8 @@ export const emptyList = (
         <path className="fill-white" d="M130 102a3 3 0 0 1 3-3h26a3 3 0 1 1 0 6h-26a3 3 0 0 1-3-3Z" />
         <path
             className="stroke-400"
-            stroke-linecap="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeWidth="2"
             d="M47 140.529V149a4 4 0 0 0 4 4h8.47M140.529 153H149a4 4 0 0 0 4-4v-8.471M59.47 47H51a4 4 0 0 0-4 4v8.47M153 59.47V51a4 4 0 0 0-4-4h-8.471"
         />
         <g filter="url(#filter-list)">
@@ -40,10 +40,10 @@ export const emptyList = (
                 height="52"
                 x="39"
                 y="77"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
                 filterUnits="userSpaceOnUse"
             >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                 <feOffset dy="3" />
                 <feGaussianBlur stdDeviation="4" />

@@ -22,7 +22,7 @@ export const emptyPage = (
         </g>
         <path
             className="fill-white stroke-400"
-            stroke-width="2"
+            strokeWidth="2"
             d="M141.902 23.5c1.155-2 4.041-2 5.196 0l14.29 24.75c1.154 2-.289 4.5-2.599 4.5h-28.578c-2.31 0-3.753-2.5-2.598-4.5l14.289-24.75Z"
         />
         <path
@@ -36,10 +36,10 @@ export const emptyPage = (
                 height="128"
                 x="36"
                 y="39"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
                 filterUnits="userSpaceOnUse"
             >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                 <feOffset dy="3" />
                 <feGaussianBlur stdDeviation="4" />

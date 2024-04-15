@@ -6,9 +6,9 @@
   * Change `avatar` property to `avatarProps`. `avatarProps` are `KitAvatar`'s props. (@Delmotte-Vincent)
   * Add `disabled`property (@Delmotte-Vincent)
 * **Avatar:**
- * Add `disabled` property (@Delmotte-Vincent)
+  * Add `disabled` property (@Delmotte-Vincent)
 * **Avatar.Group:**
- * Add `disabled` property (@Delmotte-Vincent)
+  * Add `disabled` property (@Delmotte-Vincent)
 * **Header.Profile:**
   * Add `alt` property (@philippechevieux)
 * **Error:**
@@ -17,6 +17,8 @@
 ### 🐛 Bug Fixes
 * **Avatar:**
   * Fix incorrect digram when label contains accented characters (@evoiron)
+* **Empty:**
+  * Removing console errors on svg attributes (kebab-case instead of camelCase) (@fatb38)
 
 ### 📚 Documentation
 * Add an example for searching with a Select (@philippechevieux)
