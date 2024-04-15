@@ -1,10 +1,11 @@
-import type {Meta, StoryObj} from '@storybook/react';
 import React from 'react';
+import type {Meta, StoryObj} from '@storybook/react';
 import {Template} from './Template';
 import {argTypes} from './data';
 import {KitIdCard} from '@kit/DataDisplay';
 import {BasicIdCardTest} from './test-components/BasicIdCard';
 import {LargeIdCardTest} from './test-components/LargeIdCard';
+import {DisabledIdCardTest} from './test-components/DisabledCard';
 
 const meta: Meta<typeof KitIdCard> = {
     component: KitIdCard,
@@ -27,6 +28,7 @@ export const ChromaticTest: Story = {
         <>
             <BasicIdCardTest />
             <LargeIdCardTest />
+            <DisabledIdCardTest />
         </>
     )
 };

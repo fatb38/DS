@@ -2,36 +2,35 @@ const TemplateArgTypes = {
     title: {
         name: 'title',
         description: 'Customize the title',
-        control: {type: 'text'},
         table: {
-            type: {
-                summary: 'string'
-            },
             category: 'IdCard'
         }
     },
     description: {
         name: 'description',
         description: 'Customize the description',
-        control: {type: 'text'},
         table: {
-            type: {
-                summary: 'string'
-            },
             category: 'IdCard'
         }
     },
-    avatar: {
-        name: 'avatar',
-        description: 'Display an avatar',
-        options: ['-', 'Image', 'Icon', 'Avatar'],
-        control: {
-            type: 'select'
-        },
+    avatarProps: {
+        name: 'avatarProps',
+        description: 'Props to display an Avatar',
         table: {
-            type: {
-                summary: 'ReactNode'
-            },
+            category: 'IdCard'
+        }
+    },
+    disabled: {
+        name: 'disabled',
+        description: 'Disabled IdCard',
+        table: {
+            category: 'IdCard'
+        }
+    },
+    size: {
+        name: 'size',
+        description: 'Size of the IdCard',
+        table: {
             category: 'IdCard'
         }
     }

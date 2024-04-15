@@ -1,9 +1,10 @@
 import {KitHTMLAttributes} from '../../../types';
-import {ReactNode} from 'react';
+import {IKitAvatar} from '../Avatar/types';
 
 export interface IKitIdCard extends KitHTMLAttributes<HTMLDivElement> {
-    avatar?: ReactNode;
+    avatarProps?: IKitAvatar;
     size?: 'medium' | 'large';
     title?: string;
     description?: string;
+    disabled?: boolean;
 }

@@ -1,5 +1,5 @@
 import {ComponentProps, FunctionComponent, useState} from 'react';
-import {KitAvatar, KitItemList} from '@kit/DataDisplay';
+import {KitItemList} from '@kit/DataDisplay';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBullhorn, faCartPlus, faGripLines, faStar} from '@fortawesome/free-solid-svg-icons';
 import {KitButton} from '@kit/General';
@@ -8,6 +8,7 @@ import {SortableContext, arrayMove, useSortable, verticalListSortingStrategy} fr
 import {KitSpace} from '@kit/Layout';
 import {restrictToVerticalAxis} from '@dnd-kit/modifiers';
 import {CSS} from '@dnd-kit/utilities';
+import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
 
 type Item = {
     id: number;
@@ -15,10 +16,10 @@ type Item = {
     actions: ComponentProps<typeof KitItemList>['actions'];
 };
 
-const idCardProps = {
+const idCardProps: IKitIdCard = {
     title: 'Tondeuse à gazon',
     description: 'Tondeuse thermique Auto tractée 70 VL 55 TH',
-    avatar: <KitAvatar label={'TG'} />
+    avatarProps: {label: 'TG'}
 };
 
 const actions = [

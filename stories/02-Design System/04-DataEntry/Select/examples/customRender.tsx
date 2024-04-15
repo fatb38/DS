@@ -1,6 +1,5 @@
 import {KitSelect} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
-import {KitAvatar} from '@kit/DataDisplay';
 import {KitTypography} from '@kit/General';
 import {IKitOption} from '@kit/DataEntry/Select/types';
 
@@ -11,15 +10,13 @@ const App = () => {
             label: 'Chartreuse Jaune',
             idCard: {
                 title: 'Chartreuse Jaune',
-                avatar: (
-                    <KitAvatar
-                        size={'small'}
-                        shape={'square'}
-                        imageFit={'contain'}
-                        src={'public/images/chartreuse-jaune.png'}
-                        label={'Chartreuse Jaune'}
-                    />
-                )
+                avatarProps: {
+                    size: 'small',
+                    shape: 'square',
+                    imageFit: 'contain',
+                    src: 'public/images/chartreuse-jaune.png',
+                    label: 'Chartreuse Jaune'
+                }
             }
         },
         {
@@ -27,15 +24,13 @@ const App = () => {
             label: 'Chartreuse VEP',
             idCard: {
                 title: 'Chartreuse VEP',
-                avatar: (
-                    <KitAvatar
-                        size={'small'}
-                        shape={'square'}
-                        imageFit={'contain'}
-                        src={'public/images/chartreuse-vep.png'}
-                        label={'Chartreuse VEP'}
-                    />
-                )
+                avatarProps: {
+                    size: 'small',
+                    shape: 'square',
+                    imageFit: 'contain',
+                    src: 'public/images/chartreuse-vep.png',
+                    label: 'Chartreuse VEP'
+                }
             }
         },
         {
@@ -43,15 +38,13 @@ const App = () => {
             label: 'Chartreuse Verte',
             idCard: {
                 title: 'Chartreuse Verte',
-                avatar: (
-                    <KitAvatar
-                        size={'small'}
-                        shape={'square'}
-                        imageFit={'contain'}
-                        src={'public/images/chartreuse-verte.png'}
-                        label={'Chartreuse Verte'}
-                    />
-                )
+                avatarProps: {
+                    size: 'small',
+                    shape: 'square',
+                    imageFit: 'contain',
+                    src: 'public/images/chartreuse-verte.png',
+                    label: 'Chartreuse Verte'
+                }
             }
         }
     ];

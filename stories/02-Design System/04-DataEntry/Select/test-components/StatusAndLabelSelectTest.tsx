@@ -48,21 +48,24 @@ export const StatusAndLabelSelectTest: FunctionComponent = () => (
                 placeholder="Select an element"
                 style={{width: '320px'}}
                 options={idCardOptions}
-                defaultValue={idCardOptions[0].value}
+                mode="tags"
+                defaultValue={idCardOptions?.[0].value}
                 disabled
             />
             <KitSelect
                 placeholder="Select an element"
                 style={{width: '320px'}}
                 options={idCardOptions}
-                defaultValue={idCardOptions[0].value}
+                mode="tags"
+                defaultValue={idCardOptions?.[0].value}
                 status="error"
             />
             <KitSelect
                 placeholder="Select an element"
                 style={{width: '320px'}}
                 options={idCardOptions}
-                defaultValue={idCardOptions[0].value}
+                mode="tags"
+                defaultValue={[idCardOptions?.[0].value]}
                 status="warning"
             />
         </div>
@@ -73,7 +76,7 @@ export const StatusAndLabelSelectTest: FunctionComponent = () => (
                 options={idCardOptions}
                 mode="multiple"
                 oneLineTags
-                defaultValue={[idCardOptions[0].value, idCardOptions[1].value]}
+                defaultValue={[idCardOptions?.[0].value, idCardOptions?.[1].value]}
                 disabled
             />
             <KitSelect
@@ -82,7 +85,7 @@ export const StatusAndLabelSelectTest: FunctionComponent = () => (
                 options={idCardOptions}
                 mode="multiple"
                 oneLineTags
-                defaultValue={[idCardOptions[0].value, idCardOptions[1].value]}
+                defaultValue={[idCardOptions?.[0].value, idCardOptions?.[1].value]}
                 status="error"
             />
             <KitSelect
@@ -91,7 +94,7 @@ export const StatusAndLabelSelectTest: FunctionComponent = () => (
                 options={idCardOptions}
                 mode="multiple"
                 oneLineTags
-                defaultValue={[idCardOptions[0].value, idCardOptions[1].value]}
+                defaultValue={[idCardOptions?.[0].value, idCardOptions?.[1].value]}
                 status="warning"
             />
         </div>

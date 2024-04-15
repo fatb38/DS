@@ -5,7 +5,7 @@ import {KitTypography} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
 import {Template} from './Template.tsx';
 import {menuContentExample, logoExample, userProfileExample, langSwitcherExample} from './commons.tsx';
-import {KitAvatar, KitIdCard} from '@kit/DataDisplay/index.tsx';
+import {KitIdCard} from '@kit/DataDisplay/index.tsx';
 
 const meta: Meta<typeof KitHeader> = {
     component: KitHeader,
@@ -26,7 +26,7 @@ export const Api: Story = {
 const userProfileProps = {
     logo: '/public/images/logo.png',
     tag: 'grenoble',
-    userCard: <KitIdCard avatar={<KitAvatar src="public/images/portrait.png" />} />
+    userCard: <KitIdCard avatarProps={{src: 'public/images/portrait.png'}} />
 };
 
 export const ChromaticTest: Story = {

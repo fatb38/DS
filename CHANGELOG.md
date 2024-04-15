@@ -2,7 +2,9 @@
 
 ## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-xx-xx)
 ### ✨ Features
-### ✨ Features
+* **⚠️ Breaking change - IdCard:**
+  * Change `avatar` property to `avatarProps`. `avatarProps` are `KitAvatar`'s props. (@Delmotte-Vincent)
+  * Add `disabled`property (@Delmotte-Vincent)
 * **Avatar:**
  * Add `disabled` property (@Delmotte-Vincent)
 * **Avatar.Group:**

@@ -1,18 +1,24 @@
-import {KitAvatar, KitIdCard} from '@kit/DataDisplay';
 import React from 'react';
+import {KitIdCard} from '@kit/DataDisplay';
 import {KitSpace} from '@kit/Layout';
+import {IKitAvatar} from '@kit/DataDisplay/Avatar/types';
+
+const avatarProps: IKitAvatar = {
+    shape: 'square',
+    label: 'John Doe'
+};
 
 const App = () => {
     return (
         <KitSpace direction="horizontal" size={'l'}>
             <KitIdCard
-                avatar={<KitAvatar shape="square" size="large" label="John Doe" />}
+                avatarProps={avatarProps}
                 title="John Doe"
                 description="A talented software developer."
                 size="medium"
             />
             <KitIdCard
-                avatar={<KitAvatar shape="square" size="large" label="John Doe" />}
+                avatarProps={avatarProps}
                 title="John Doe"
                 description="A talented software developer."
                 size="large"

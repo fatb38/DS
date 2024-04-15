@@ -1,8 +1,8 @@
+import React from 'react';
 import {colorsPalette} from '@theme/aristid/general/colors';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFile} from '@fortawesome/free-regular-svg-icons';
-import React from 'react';
-import KitAvatar from '@kit/DataDisplay/Avatar/Avatar';
+import {IKitSelect} from '@kit/DataEntry/Select/types';
 
 export const colorOptions = [
     {
@@ -113,21 +113,19 @@ export const groupOptions = [
     }
 ];
 
-export const idCardOptions = [
+export const idCardOptions: IKitSelect['options'] = [
     {
         value: 'cha-yellow',
         label: 'Chartreuse Jaune',
         idCard: {
             title: 'Chartreuse Jaune',
-            avatar: (
-                <KitAvatar
-                    size={'small'}
-                    shape={'square'}
-                    imageFit={'contain'}
-                    src={'public/images/chartreuse-jaune.png'}
-                    label={'Chartreuse Jaune'}
-                />
-            )
+            avatarProps: {
+                size: 'small',
+                shape: 'square',
+                imageFit: 'contain',
+                src: 'public/images/chartreuse-jaune.png',
+                label: 'Chartreuse Jaune'
+            }
         }
     },
     {
@@ -135,15 +133,13 @@ export const idCardOptions = [
         label: 'Chartreuse VEP',
         idCard: {
             title: 'Chartreuse VEP',
-            avatar: (
-                <KitAvatar
-                    size={'small'}
-                    shape={'square'}
-                    imageFit={'contain'}
-                    src={'public/images/chartreuse-vep.png'}
-                    label={'Chartreuse VEP'}
-                />
-            )
+            avatarProps: {
+                size: 'small',
+                shape: 'square',
+                imageFit: 'contain',
+                src: 'public/images/chartreuse-vep.png',
+                label: 'Chartreuse VEP'
+            }
         }
     },
     {
@@ -151,15 +147,13 @@ export const idCardOptions = [
         label: 'Chartreuse Verte',
         idCard: {
             title: 'Chartreuse Verte',
-            avatar: (
-                <KitAvatar
-                    size={'small'}
-                    shape={'square'}
-                    imageFit={'contain'}
-                    src={'public/images/chartreuse-verte.png'}
-                    label={'Chartreuse Verte'}
-                />
-            )
+            avatarProps: {
+                size: 'small',
+                shape: 'square',
+                imageFit: 'contain',
+                src: 'public/images/chartreuse-verte.png',
+                label: 'Chartreuse Verte'
+            }
         }
     }
 ];

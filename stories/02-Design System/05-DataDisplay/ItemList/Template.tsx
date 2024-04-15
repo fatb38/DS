@@ -1,4 +1,4 @@
-import {KitAvatar, KitItemList} from '@kit/DataDisplay/';
+import {KitItemList} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {IEditorTemplate} from '../../../types';
@@ -8,7 +8,7 @@ import {IKitItemList} from '@kit/DataDisplay/ItemList/types';
 const idCardProps = {
     title: 'Tondeuse à gazon',
     description: 'Tondeuse thermique Auto tractée 70 VL 55 TH',
-    avatar: <KitAvatar label={'TG'} />
+    avatarProps: {label: 'TG'}
 };
 
 const actions = [

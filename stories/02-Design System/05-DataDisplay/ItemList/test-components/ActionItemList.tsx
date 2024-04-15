@@ -1,12 +1,14 @@
 import {faBullhorn, faCartPlus, faStar} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {KitAvatar, KitItemList} from '@kit/DataDisplay';
+import {KitItemList} from '@kit/DataDisplay';
 import {FunctionComponent} from 'react';
 
 const idCardProps = {
     title: 'Tondeuse à gazon',
     description: 'Tondeuse thermique Auto tractée 70 VL 55 TH',
-    avatar: <KitAvatar label={'TG'} />
+    avatarProps: {
+        label: 'TG'
+    }
 };
 
 const [action1, action2, action3] = [
