@@ -18,17 +18,28 @@
         );
     border-radius: convertToPixel(--components-ItemList-border-default, --general-border-radius-s);
 
-    &:hover {
+    &:hover:not(.kit-item-list-disabled) {
+        margin: 1px;
         border: 2px solid
             var(
                 --components-ItemList-colors-border-hover,
                 var(--general-colors-primary-primary400)
             );
-        margin: 1px;
     }
 
     & > .ant-checkbox-wrapper {
         padding-right: 8px;
+    }
+
+    &:focus-visible:not(.kit-card-disabled) {
+        margin: 0;
+        border: 3px solid var(--general-colors-primary-primary200);
+        outline: none;
+    }
+
+    &.kit-item-list-disabled {
+        background-color: var(--general-colors-secondary-mediumGrey-mediumGrey100);
+        cursor: not-allowed;
     }
 }
 

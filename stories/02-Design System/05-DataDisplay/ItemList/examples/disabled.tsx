@@ -78,7 +78,7 @@ const App = () => {
 };
 
 const DraggableItemList: FunctionComponent<{item: Item}> = ({item}) => {
-    const {setNodeRef, isDragging, listeners, transform, transition} = useSortable({id: item.id});
+    const {setNodeRef, transform, transition} = useSortable({id: item.id});
 
     const style = {
         transform: CSS.Transform.toString(transform),
@@ -87,6 +87,7 @@ const DraggableItemList: FunctionComponent<{item: Item}> = ({item}) => {
 
     return (
         <KitItemList
+            disabled
             ref={setNodeRef}
             style={style}
             idCardProps={idCardProps}
@@ -112,11 +113,11 @@ const DraggableItemList: FunctionComponent<{item: Item}> = ({item}) => {
             draggableHandler={
                 <KitButton
                     key={item.id}
+                    disabled
                     type="tertiary"
                     iconSize="l"
                     icon={<FontAwesomeIcon icon={faGripLines} />}
-                    style={{marginRight: '8px', cursor: isDragging ? 'grabbing' : 'grab'}}
-                    {...listeners}
+                    style={{marginRight: '8px'}}
                 />
             }
         />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {CSSProperties} from 'react';
 import {KitSpace} from '@kit/Layout';
 import {KitItemList} from '@kit/DataDisplay';
 import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
@@ -10,7 +10,7 @@ const App = () => {
         avatarProps: {label: 'TG'}
     };
 
-    const baseStyle = {
+    const baseStyle: CSSProperties = {
         color: 'var(--general-colors-secondary-mediumGrey-mediumGrey400)',
         backgroundColor: 'var(--general-colors-secondary-mediumGrey-mediumGrey100)',
         borderRadius: '8px',

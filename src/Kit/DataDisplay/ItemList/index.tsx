@@ -12,7 +12,10 @@ import cn from 'classnames';
 import styles from './styles.module.scss';
 
 export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
-    ({idCardProps, draggableHandler, actions, content, onSelect, onClick, className, ...props}, ref) => {
+    (
+        {idCardProps, draggableHandler, actions, content, onSelect, onClick, className, disabled = false, ...props},
+        ref
+    ) => {
         const {appId} = useKitTheme();
 
         const [isChecked, setIsChecked] = useState(false);
@@ -31,6 +34,7 @@ export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
 
             return (
                 <KitCheckbox
+                    disabled={disabled}
                     checked={isChecked}
                     onClick={e => e.stopPropagation()}
                     onChange={onChange}
@@ -47,6 +51,7 @@ export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
                         <>
                             {actions.map(action => (
                                 <KitButton
+                                    disabled={disabled}
                                     key={action.key}
                                     type={'tertiary'}
                                     icon={action.icon}
@@ -56,8 +61,13 @@ export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
                         </>
                     ) : (
                         <>
-                            <KitButton type={'tertiary'} icon={actions[0].icon} onClick={actions[0].onClick} />
-                            <KitDropDown menu={{items: actions.slice(1)}}>
+                            <KitButton
+                                disabled={disabled}
+                                type={'tertiary'}
+                                icon={actions[0].icon}
+                                onClick={actions[0].onClick}
+                            />
+                            <KitDropDown disabled={disabled} menu={{items: actions.slice(1)}}>
                                 <KitButton type={'tertiary'} icon={<FontAwesomeIcon icon={faEllipsis} />} />
                             </KitDropDown>
                         </>
@@ -69,6 +79,7 @@ export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
 
         const _handleClickItemList = (e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
             e.stopPropagation();
+            if (disabled) return;
 
             const isKeyUpEvent = (
                 e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>
@@ -90,15 +101,24 @@ export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
 
         const clx = cn(appId, styles['kit-item-list'], className, {
             [styles['kit-item-list-clickable']]: isSelectable || onClick != null,
-            [styles['kit-item-list-selected']]: isChecked
+            [styles['kit-item-list-selected']]: isChecked,
+            'kit-item-list-disabled': disabled
         });
 
         return (
-            <div ref={ref} className={clx} onClick={_handleClickItemList} onKeyUp={_handleClickItemList} {...props}>
+            <div
+                aria-disabled={disabled}
+                ref={ref}
+                tabIndex={disabled ? -1 : 0}
+                className={clx}
+                onClick={_handleClickItemList}
+                onKeyUp={_handleClickItemList}
+                {...props}
+            >
                 {draggableHandler}
                 {_getCheckbox()}
                 <div className={styles['kit-item-list-id-card']}>
-                    <KitIdCard {...idCardProps} />
+                    <KitIdCard {...idCardProps} disabled={disabled} />
                 </div>
                 {_getContent()}
                 {_getActionButtons()}

@@ -9,6 +9,7 @@ import {KitItemList} from '@kit/DataDisplay';
 import {KitButton} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
 import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
+import {IKitItemList} from '@kit/DataDisplay/ItemList/types';
 
 type Item = {
     id: number;
@@ -22,7 +23,7 @@ const idCardProps: IKitIdCard = {
     avatarProps: {label: 'TG'}
 };
 
-const actions = [
+const actions: IKitItemList['actions'] = [
     {
         key: '1',
         label: 'Delete item',
@@ -54,7 +55,7 @@ const App = () => {
     return (
         <DndContext onDragEnd={_handleDragEnd} modifiers={[restrictToVerticalAxis]}>
             <SortableContext items={items} strategy={verticalListSortingStrategy}>
-                <KitSpace direction={'vertical'} style={{width: '350px'}}>
+                <KitSpace direction="vertical" style={{width: '350px'}}>
                     {items.map(item => (
                         <DraggableItemList key={item.id} item={item} />
                     ))}

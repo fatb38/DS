@@ -7,6 +7,7 @@ import {FullItemList} from './test-components/FullItemList';
 import {BasicItemList} from './test-components/BasicItemList';
 import {ActionItemList} from './test-components/ActionItemList';
 import {SelectableItemList} from './test-components/SelectableList';
+import {DisabledItemList} from './test-components/DisabledItemList';
 
 const meta: Meta<typeof KitItemList> = {
     component: KitItemList,
@@ -32,6 +33,7 @@ export const ChromaticTest: Story = {
                 <SelectableItemList />
                 <ActionItemList />
                 <FullItemList />
+                <DisabledItemList />
             </div>
             <div style={{width: '600px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
                 <FullItemList />

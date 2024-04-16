@@ -4,6 +4,7 @@ import {KitItemList} from '@kit/DataDisplay';
 import {faCartPlus, faStar, faBullhorn} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
+import {IKitItemList} from '@kit/DataDisplay/ItemList/types';
 
 const App = () => {
     const idCardProps: IKitIdCard = {
@@ -12,7 +13,7 @@ const App = () => {
         avatarProps: {label: 'TG'}
     };
 
-    const [action1, action2, action3] = [
+    const [action1, action2, action3]: IKitItemList['actions'] = [
         {
             key: '1',
             label: 'Add to basket',

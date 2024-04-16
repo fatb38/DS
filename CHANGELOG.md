@@ -2,6 +2,9 @@
 
 ## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-xx-xx)
 ### ✨ Features
+* **ItemList:**
+  * Add `disabled`property (@Delmotte-Vincent)
+  * Add highlight style on component `focus` (@Delmotte-Vincent)
 * **⚠️ Breaking change - IdCard:**
   * Change `avatar` property to `avatarProps`. `avatarProps` are `KitAvatar`'s props. (@Delmotte-Vincent)
   * Add `disabled`property (@Delmotte-Vincent)

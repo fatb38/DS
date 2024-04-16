@@ -1,9 +1,11 @@
 import {faBullhorn, faCartPlus, faStar} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitItemList} from '@kit/DataDisplay';
+import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
+import {IKitItemList} from '@kit/DataDisplay/ItemList/types';
 import {FunctionComponent} from 'react';
 
-const idCardProps = {
+const idCardProps: IKitIdCard = {
     title: 'Tondeuse à gazon',
     description: 'Tondeuse thermique Auto tractée 70 VL 55 TH',
     avatarProps: {
@@ -11,7 +13,7 @@ const idCardProps = {
     }
 };
 
-const [action1, action2, action3] = [
+const [action1, action2, action3]: IKitItemList['actions'] = [
     {
         key: '1',
         label: 'Add to basket',

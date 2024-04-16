@@ -3,8 +3,8 @@ import {faBullhorn, faCartPlus, faGripLines, faStar} from '@fortawesome/free-sol
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitItemList} from '@kit/DataDisplay';
 import {KitButton} from '@kit/General';
-import {IKitItemList} from '@kit/DataDisplay/ItemList/types';
 import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
+import {IKitItemList} from '@kit/DataDisplay/ItemList/types';
 
 const idCardProps: IKitIdCard = {
     title: 'Tondeuse à gazon',
@@ -35,12 +35,13 @@ const actions: IKitItemList['actions'] = [
     }
 ];
 
-export const FullItemList: FunctionComponent = () => (
+export const DisabledItemList: FunctionComponent = () => (
     <KitItemList
         idCardProps={idCardProps}
         onSelect={console.log}
         onClick={() => alert('click sur l’item list')}
         actions={actions}
+        disabled
         content={
             <div
                 style={{
@@ -59,6 +60,7 @@ export const FullItemList: FunctionComponent = () => (
         }
         draggableHandler={
             <KitButton
+                disabled
                 type="tertiary"
                 iconSize="l"
                 icon={<FontAwesomeIcon icon={faGripLines} />}
