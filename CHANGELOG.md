@@ -16,6 +16,8 @@
   * Add `alt` property (@philippechevieux)
 * **Error:**
   * Add a new component `KitError` to manage error page (@P0ppoff)
+* **Table:**
+  * Add a new component `Table` to display a collection of structured data (@philippechevieux)
 
 ### 🐛 Bug Fixes
 * **Avatar:**

@@ -1,0 +1,261 @@
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
+import * as KitTableStories from './Table.stories';
+
+<Meta of={KitTableStories} />
+
+# Table
+
+A table displays rows of data.
+
+## When To Use
+
+-   To display a collection of structured data.
+-   To sort, search, paginate data.
+
+## Examples
+
+### Basic
+
+Simple table with actions.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="table-basic" />
+
+### Selection
+
+Rows can become selectable by making the first column as a selectable column. You can use `rowSelection.type` to set selection type. Default is `checkbox`.
+
+> selection happens when clicking checkbox by default. You can see https://codesandbox.io/s/000vqw38rl if you need
+> row-click selection behavior.
+
+<CustomCanvas content={Examples.Selection} source={Sources.Selection} id="table-selection" />
+
+### Selection and operation
+
+To perform operations and clear selections after selecting some rows, use `rowSelection.selectedRowKeys` to control selected rows.
+
+<CustomCanvas
+    content={Examples.SelectionAndOperation}
+    source={Sources.SelectionAndOperation}
+    id="table-selection-and-operation"
+/>
+
+### Sorter
+
+Use `sorter` to make a column sortable. `sorter` can be a function of the type sorter: `function(rowA, rowB) { ... }` for sorting data locally.
+`sortDirections: ['ascend', 'descend']` defines available sort methods for each column, effective for all columns when set on table props. You can set as `['ascend', 'descend']` to prevent sorter back to default status.
+
+Use `defaultSortOrder` to make a column sorted by default.
+If a `sortOrder` or `defaultSortOrder` is specified with the value `ascend` or `descend`, you can access this value from within the function passed to the `sorter` as explained above. Such a function can take the form: `function(a, b, sortOrder) { ... }`.
+
+<CustomCanvas content={Examples.Sorter} source={Sources.Sorter} id="table-sorter" />
+
+### Multiple Sorter
+
+`column.sorter` support `multiple` to config the priority of sort columns. Though `sorter.compare` to customize compare function. You can also leave it empty to use the interactive only.
+
+<CustomCanvas content={Examples.MultipleSorter} source={Sources.MultipleSorter} id="table-multiple-sorter" />
+
+### Reset Sorters
+
+Control sorters by `sortOrder`.
+
+<blockquote>
+    <ul>
+        <li>Defining `sortOrder` means that it is in the controlled mode.</li>
+        <li>Make sure `sortOrder` is assigned for only one column. </li>
+        <li>`column.key` is required.</li>
+    </ul>
+</blockquote>
+
+<CustomCanvas content={Examples.ResetSorter} source={Sources.ResetSorter} id="table-reset-sorter" />
+
+### Title and Footer
+
+Add title and footer for table.
+
+<CustomCanvas content={Examples.TitleAndFooter} source={Sources.TitleAndFooter} id="table-title-and-footer" />
+
+### colSpan
+
+Table column title supports `colSpan` that set in `column`.
+
+Table cell supports `colSpan` that set in onCell return object. When set to `0`, the cell will not be rendered.
+
+<CustomCanvas content={Examples.ColSpan} source={Sources.ColSpan} id="table-colspan" />
+
+### Fixed Header
+
+Display large amounts of data in scrollable view.
+
+> Specify width of columns if header and cell do not align properly. If specified width is not working or have gutter
+> between columns, please try to leave one column at least without width to fit fluid layout, or make sure no long
+> word to break table layout.
+
+<CustomCanvas content={Examples.FixedHeader} source={Sources.FixedHeader} id="table-fixed-header" />
+
+### Fixed Columns
+
+To fix some columns and scroll inside other columns, and you must set `scroll.x` meanwhile.
+
+> Specify the width of columns if header and cell do not align properly. If specified width is not working or have
+> gutter between columns, please try to leave one column at least without width to fit fluid layout, or make sure no
+> long word to break table layout. A fixed value which is greater than table width for `scroll.x` is recommended. The
+> sum of unfixed columns should not greater than `scroll.x`.
+
+<CustomCanvas content={Examples.FixedColumns} source={Sources.FixedColumns} id="table-fixed-columns" />
+
+### Stack Fixed Columns
+
+Fixed column only when scroll some distance, and scroll to stack other columns.
+
+<CustomCanvas content={Examples.StackFixedColumns} source={Sources.StackFixedColumns} id="table-stack-fixed-columns" />
+
+### Fixed Columns and Header
+
+A solution for displaying large amounts of data with long columns.
+
+<CustomCanvas
+    content={Examples.FixedColumnsAndHeader}
+    source={Sources.FixedColumnsAndHeader}
+    id="table-fixed-columns-and-header"
+/>
+
+### BackgroundColor
+
+Rows has no background color by default. You can use `cellsBackgroundColor` to set background color for fixed cells.
+
+<CustomCanvas content={Examples.BackgroundColor} source={Sources.BackgroundColor} id="table-background-color" />
+
+### Hidden Columns
+
+Hide columns with `hidden`.
+
+<CustomCanvas content={Examples.HiddenColumns} source={Sources.HiddenColumns} id="table-hidden-columns" />
+
+### Editable Cells
+
+Table with editable cells. When work with `shouldCellUpdate`, please take care of [closure](https://github.com/ant-design/ant-design/issues/29243).
+
+> To ensure correct row rendering when a cell is in error, we strongly recommend using the Ant Form.
+
+<CustomCanvas content={Examples.EditableCells} source={Sources.EditableCells} id="table-editable-cells" />
+
+### Editable Rows
+
+Table with editable rows.
+
+<CustomCanvas content={Examples.EditableRows} source={Sources.EditableRows} id="table-editable-rows" />
+
+### Ellipsis Column
+
+Ellipsis cell content via setting `column.ellipsis.`.
+
+> Cannot ellipsis table header with sorters and filters for now.
+
+<CustomCanvas content={Examples.EllipsisColumn} source={Sources.EllipsisColumn} id="table-ellipsis-columns" />
+
+### Ellipsis Column Custom Tooltip
+
+Ellipsis cell content via setting `column.ellipsis.showTitle`, use `KitTooltip` instead of the html title attribute.
+
+<CustomCanvas
+    content={Examples.EllipsisColumnTooltip}
+    source={Sources.EllipsisColumnTooltip}
+    id="table-ellipsis-columns-tooltip"
+/>
+
+### Pagination Settings
+
+Table pagination settings.
+
+<CustomCanvas
+    content={Examples.PaginationSettings}
+    source={Sources.PaginationSettings}
+    id="table-ellipsis-pagination-settings"
+/>
+
+## Api
+
+<Canvas of={KitTableStories.Api} />
+
+<Controls of={KitTableStories.Api} />
+
+### Table ref
+
+| Property          | Description                                                            | Type                                                                  |
+| ----------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **nativeElement** | The wrap element                                                       | `HTMLDivElement`                                                      |
+| **scrollTo**      | Trigger to scroll to target position. `key` match with record `rowKey` | `(config: { index?: number, key?: React.Key, top?: number }) => void` |
+
+### Column
+
+One of the Table `columns` prop for describing the table's columns, Column has the same API.
+
+| Property              | Description                                                                                                                                                                                            | Type                                                                     | Default                     |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | --------------------------- |
+| **align**             | Specifies which way that column is aligned                                                                                                                                                             | `left` `right` `center`                                                  | `left`                      |
+| **className**         | The className of this column                                                                                                                                                                           | `string`                                                                 | -                           |
+| **colSpan**           | Span of this column's title                                                                                                                                                                            | `number`                                                                 | -                           |
+| **dataIndex**         | Display field of the data record, support nest path by string array                                                                                                                                    | `string` `string[]`                                                      | -                           |
+| **defaultSortOrder**  | Default order of sorted values                                                                                                                                                                         | `ascend` `descend`                                                       | -                           |
+| **ellipsis**          | The ellipsis cell content, not working with sorter and filters for now. tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }`                                            | `boolean` `{showTitle?: boolean }`                                       | `false`                     |
+| **fixed**             | (IE not support) Set column to be fixed: `true` (same as left) `left` `right`                                                                                                                          | `boolean` `string`                                                       | `false`                     |
+| **key**               | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex`                                                                                                                 | `string`                                                                 |                             |
+| **render**            | Renderer of the table cell. The return value should be a ReactNode                                                                                                                                     | `function(text, record, index)`                                          |                             |
+| **rowScope**          | Set scope attribute for all cells in this column                                                                                                                                                       | `row` `group`                                                            |                             |
+| **shouldCellUpdate**  | Control cell render logic                                                                                                                                                                              | `function(record, prevRecord): boolean`                                  |                             |
+| **showSorterTooltip** | If header show next sorter direction tooltip, override `showSorterTooltip` in table                                                                                                                    | `boolean` `KitTooltip props & {target?: 'full-header' or 'sorter-icon'}` | `{ target: 'full-header' }` |
+| **sortDirections**    | Supported sort way, override sortDirections in `Table`, could be `ascend`, `descend`                                                                                                                   | `ascend` `descend`                                                       | [`ascend`, `descend`]       |
+| **sorter**            | Sort function for local sort, see Array.sort's compareFunction. If it is server-side sorting, set to true, but if you want to support multi-column sorting, you can set it to `{ multiple: number }  ` | `function` `boolean` `{ compare: function, multiple: number }`           | -                           |
+| **sortOrder**         | Supported sort way, override sortDirections in `Table`, could be `ascend`, `descend`                                                                                                                   | `ascend` `descend`                                                       | [`ascend`, `descend`]       |
+| **title**             | Title of this column                                                                                                                                                                                   | `ReactNode` `function({ sortOrder, sortColumn, filters }): ReactNode`    | -                           |
+| **width**             | Width of this column                                                                                                                                                                                   | `string` `number`                                                        | -                           |
+| **hidden**            | Hidden this column                                                                                                                                                                                     | `boolean`                                                                | `false`                     |
+| **onCell**            | Set props on per cell                                                                                                                                                                                  | `function(record, rowIndex)`                                             | -                           |
+| **onHeaderCell**      | Set props on per header cell                                                                                                                                                                           | `function(column)`                                                       | -                           |
+
+### Pagination
+
+Properties for pagination.
+
+| Property     | Description                                                                                                                      | Type    | Default         |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------- | ------- | --------------- |
+| **position** | Specify the position of Pagination, could `betopLeft` , `topCenter` , `topRight` ,`bottomLeft` , `bottomCenter` or `bottomRight` | `Array` | [`bottomRight`] |
+
+More about pagination, please check [pagination](/docs/design-system-navigation-pagination--docs).
+
+### rowSelection
+
+Properties for row selection.
+
+| Property                    | Description                                                 | Type                                                      | Default    |
+| --------------------------- | ----------------------------------------------------------- | --------------------------------------------------------- | ---------- |
+| **columnTitle**             | Set the title of the selection column                       | `ReactNode` `(originalNode: ReactNode) => ReactNode`      | -          |
+| **fixed**                   | Fixed selection column on the left                          | `boolean`                                                 | -          |
+| **getCheckboxProps**        | Get Checkbox or Radio props                                 | `function(record)`                                        | -          |
+| **hideSelectAll**           | Hide the selectAll checkbox and custom selection            | `boolean`                                                 | `false`    |
+| **preserveSelectedRowKeys** | Keep selection `key` even when it removed from `dataSource` | `boolean`                                                 | -          |
+| **renderCell**              | Renderer of the table cell. Same as `render` in column      | `function(checked, record, index, originNode)`            | -          |
+| **selectedRowKeys**         | Controlled selected row keys                                | `string[]` `number[]`                                     | []         |
+| **type**                    | `checkbox` or `radio`                                       | `checkbox` `radio`                                        | `checkbox` |
+| **onCell**                  | Set props on per cell. Same as `onCell` in column           | `function(record, rowIndex)`                              | -          |
+| **onChange**                | Callback executed when selected rows change                 | `function(selectedRowKeys, selectedRows, info: { type })` | -          |
+| **onSelect**                | Callback executed when select/deselect one row              | `function(record, selected, selectedRows, nativeEvent)`   | -          |
+| **onSelectAll**             | Callback executed when select/deselect all rows             | `function(selected, selectedRows, changeRows)`            | -          |
+
+### scroll
+
+| Property                     | Description                                                                                                                                                                                                    | Type                     | Default |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------- |
+| **scrollToFirstRowOnChange** | Whether to scroll to the top of the table when paging, sorting, filtering changes                                                                                                                              | `boolean`                | -       |
+| **x**                        | Set horizontal scrolling, can also be used to specify the width of the scroll area, could be number, percent value, true and [max-content](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | `string` `number` `true` | -       |
+| **y**                        | Set vertical scrolling, can also be used to specify the height of the scroll area, could be string or number                                                                                                   | `string` `number`        | -       |
+
+## Design Tokens
+
+<DesignTokens path="components.Table" tokens={fields?.components?.Table} />

@@ -10,6 +10,7 @@ export {
     KitIdCard,
     KitImage,
     KitItemList,
+    KitTable,
     KitTooltip,
     KitTree,
     KitTabs,

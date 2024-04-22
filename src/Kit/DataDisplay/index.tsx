@@ -9,6 +9,7 @@ export {KitItemCard} from './ItemCard';
 export {KitImage} from './Image';
 export {KitItemList} from './ItemList';
 export {KitLegacyCard} from './LegacyCard';
+export {KitTable} from './Table';
 export {KitTag} from './Tag';
 export {KitTabs} from './Tabs';
 export {KitTree} from './Tree';
