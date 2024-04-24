@@ -1,16 +1,20 @@
+import React, {FunctionComponent} from 'react';
 import {faBullhorn, faCartPlus, faGripLines, faStar} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {KitAvatar, KitItemList} from '@kit/DataDisplay';
+import {KitItemList} from '@kit/DataDisplay';
 import {KitButton} from '@kit/General';
-import React, {FunctionComponent} from 'react';
+import {IKitItemList} from '@kit/DataDisplay/ItemList/types';
+import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
 
-const idCardProps = {
+const idCardProps: IKitIdCard = {
     title: 'Tondeuse à gazon',
     description: 'Tondeuse thermique Auto tractée 70 VL 55 TH',
-    avatar: <KitAvatar label={'TG'} />
+    avatarProps: {
+        label: 'TG'
+    }
 };
 
-const actions = [
+const actions: IKitItemList['actions'] = [
     {
         key: '1',
         label: 'Add to basket',
@@ -55,8 +59,8 @@ export const FullItemList: FunctionComponent = () => (
         }
         draggableHandler={
             <KitButton
-                type={'tertiary'}
-                iconSize={'l'}
+                type="tertiary"
+                iconSize="l"
                 icon={<FontAwesomeIcon icon={faGripLines} />}
                 style={{marginRight: '8px'}}
             />

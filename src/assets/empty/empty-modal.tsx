@@ -12,13 +12,13 @@ export const emptyModal = (
             <path
                 className="fill-white"
                 d="M42.8 74.1a8.8 8.8 0 0 1 8.8-8.8h96.8a8.8 8.8 0 0 1 8.8 8.8v58.3a8.8 8.8 0 0 1-8.8 8.8H51.6a8.8 8.8 0 0 1-8.8-8.8V74.1Z"
-                shape-rendering="crispEdges"
+                shapeRendering="crispEdges"
             />
             <path
                 className="stroke-400"
-                stroke-width="1.1"
+                strokeWidth="1.1"
                 d="M43.35 74.1a8.25 8.25 0 0 1 8.25-8.25h96.8a8.25 8.25 0 0 1 8.25 8.25v58.3a8.25 8.25 0 0 1-8.25 8.25H51.6a8.25 8.25 0 0 1-8.25-8.25V74.1Z"
-                shape-rendering="crispEdges"
+                shapeRendering="crispEdges"
             />
             <path
                 className="fill-200"
@@ -34,7 +34,7 @@ export const emptyModal = (
                 x="52.15"
                 y="92.25"
                 className="fill-white stroke-400"
-                stroke-width="1.1"
+                strokeWidth="1.1"
                 rx="3.85"
             />
             <rect
@@ -43,7 +43,7 @@ export const emptyModal = (
                 x="85.15"
                 y="92.25"
                 className="fill-white stroke-400"
-                stroke-width="1.1"
+                strokeWidth="1.1"
                 rx="3.85"
             />
             <g filter="url(#filter-modal-bis)">
@@ -54,7 +54,7 @@ export const emptyModal = (
                     x="118.15"
                     y="92.25"
                     className="stroke-400"
-                    stroke-width="1.1"
+                    strokeWidth="1.1"
                     rx="3.85"
                 />
             </g>
@@ -65,7 +65,7 @@ export const emptyModal = (
         </g>
         <path
             className="fill-white stroke-400"
-            stroke-width="2.2"
+            strokeWidth="2.2"
             d="M148.292 47.15c1.27-2.2 4.446-2.2 5.716 0l15.718 27.225c1.27 2.2-.317 4.95-2.858 4.95h-31.436c-2.541 0-4.128-2.75-2.858-4.95l15.718-27.225Z"
         />
         <path
@@ -79,10 +79,10 @@ export const emptyModal = (
                 height="91.9"
                 x="34.8"
                 y="60.3"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
                 filterUnits="userSpaceOnUse"
             >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                 <feOffset dy="3" />
                 <feGaussianBlur stdDeviation="4" />
@@ -97,10 +97,10 @@ export const emptyModal = (
                 height="30.3"
                 x="109.6"
                 y="86.7"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
                 filterUnits="userSpaceOnUse"
             >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                 <feOffset dy="3" />
                 <feGaussianBlur stdDeviation="4" />

@@ -20,6 +20,22 @@ export const argTypes = {
             category: 'Avatar'
         }
     },
+    disabled: {
+        name: 'disabled',
+        description: 'Display avatar in disabled state',
+        control: {
+            type: 'boolean'
+        },
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {
+                summary: false
+            },
+            category: 'Avatar'
+        }
+    },
     gap: {
         name: 'gap',
         description: 'Letter type unit distance between left and right sides',
@@ -253,6 +269,22 @@ export const argTypes = {
             },
             defaultValue: {
                 summary: 'hover'
+            },
+            category: 'AvatarGroup'
+        }
+    },
+    groupDisabled: {
+        name: 'disabled',
+        description: 'Display Avatar group in disabled state',
+        control: {
+            type: 'boolean'
+        },
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {
+                summary: false
             },
             category: 'AvatarGroup'
         }

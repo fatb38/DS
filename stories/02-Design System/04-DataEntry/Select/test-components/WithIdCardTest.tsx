@@ -12,7 +12,7 @@ export const WithIdCard: FunctionComponent = () => (
                 style={{width: '320px'}}
                 options={idCardOptions}
                 open
-                defaultValue={idCardOptions[0].value}
+                defaultValue={idCardOptions?.[0].value}
             />
             <KitSelect
                 placeholder="Select an element"
@@ -21,7 +21,7 @@ export const WithIdCard: FunctionComponent = () => (
                 oneLineTags
                 options={idCardOptions}
                 open
-                defaultValue={[idCardOptions[0].value, idCardOptions[1].value]}
+                defaultValue={[idCardOptions?.[0].value, idCardOptions?.[1].value]}
             />
             <KitSelect
                 placeholder="Select an element"
@@ -29,7 +29,7 @@ export const WithIdCard: FunctionComponent = () => (
                 mode="multiple"
                 options={idCardOptions}
                 open
-                defaultValue={[idCardOptions[0].value, idCardOptions[1].value]}
+                defaultValue={[idCardOptions?.[0].value, idCardOptions?.[1].value]}
             />
         </div>
     </div>

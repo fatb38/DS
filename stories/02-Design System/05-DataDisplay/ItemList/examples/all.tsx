@@ -1,5 +1,5 @@
 import {ComponentProps, FunctionComponent, useState} from 'react';
-import {KitAvatar, KitItemList} from '@kit/DataDisplay';
+import {KitItemList} from '@kit/DataDisplay';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBullhorn, faCartPlus, faGripLines, faStar} from '@fortawesome/free-solid-svg-icons';
 import {KitButton} from '@kit/General';
@@ -8,6 +8,8 @@ import {SortableContext, arrayMove, useSortable, verticalListSortingStrategy} fr
 import {KitSpace} from '@kit/Layout';
 import {restrictToVerticalAxis} from '@dnd-kit/modifiers';
 import {CSS} from '@dnd-kit/utilities';
+import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
+import {IKitItemList} from '@kit/DataDisplay/ItemList/types';
 
 type Item = {
     id: number;
@@ -15,13 +17,13 @@ type Item = {
     actions: ComponentProps<typeof KitItemList>['actions'];
 };
 
-const idCardProps = {
+const idCardProps: IKitIdCard = {
     title: 'Tondeuse à gazon',
     description: 'Tondeuse thermique Auto tractée 70 VL 55 TH',
-    avatar: <KitAvatar label={'TG'} />
+    avatarProps: {label: 'TG'}
 };
 
-const actions = [
+const actions: IKitItemList['actions'] = [
     {
         key: '1',
         label: 'Add to basket',
@@ -65,7 +67,7 @@ const App = () => {
     return (
         <DndContext onDragEnd={_handleDragEnd} modifiers={[restrictToVerticalAxis]}>
             <SortableContext items={items} strategy={verticalListSortingStrategy}>
-                <KitSpace direction={'vertical'} style={{width: '600px'}}>
+                <KitSpace direction="vertical" style={{width: '600px'}}>
                     {items.map(item => (
                         <DraggableItemList key={item.id} item={item} />
                     ))}
@@ -110,8 +112,8 @@ const DraggableItemList: FunctionComponent<{item: Item}> = ({item}) => {
             draggableHandler={
                 <KitButton
                     key={item.id}
-                    type={'tertiary'}
-                    iconSize={'l'}
+                    type="tertiary"
+                    iconSize="l"
                     icon={<FontAwesomeIcon icon={faGripLines} />}
                     style={{marginRight: '8px', cursor: isDragging ? 'grabbing' : 'grab'}}
                     {...listeners}

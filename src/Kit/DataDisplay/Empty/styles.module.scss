@@ -1,22 +1,11 @@
 @import '../../../css/mixins.scss';
 
-@mixin svgColorsClasses() {
-    @for $i from 1 through 7 {
-        .fill-#{$i}00 {
-            fill: var(--general-colors-primary-primary#{$i}00);
-        }
-        .stroke-#{$i}00 {
-            stroke: var(--general-colors-primary-primary#{$i}00);
-        }
-    }
+:local(.kit-empty) {
+    @include svgColorsClasses();
 
     .fill-white {
         fill: var(--general-colors-neutral-white);
     }
-}
-
-:local(.kit-empty) {
-    @include svgColorsClasses();
 
     &.ant-empty {
         .ant-empty-image {
@@ -31,5 +20,5 @@
             margin-block-start: convertToPixel(--general-spacing-s);
             margin-block-end: 0;
         }
-    } 
+    }
 }

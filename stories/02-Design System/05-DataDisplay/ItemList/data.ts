@@ -58,5 +58,12 @@ export const argTypes = {
                 summary: 'ReactNode'
             }
         }
+    },
+    disabled: {
+        name: 'disabled',
+        description: 'disable ItemList component except **draggableHandler** and **content**',
+        table: {
+            category: 'ItemList'
+        }
     }
 };

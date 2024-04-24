@@ -2,13 +2,13 @@ import React, {FunctionComponent} from 'react';
 import {Empty as AntdEmpty} from 'antd';
 import {IKitEmpty} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
+import {KitTypography} from '../../General/Typography';
+import {KitSpace} from '../../Layout/Space';
 import cn from 'classnames';
 
 import {emptyResult} from '../../../assets/empty/empty-result.tsx';
 
 import styles from './styles.module.scss';
-import {KitTypography} from '../../General/Typography';
-import {KitSpace} from '../../Layout/Space';
 
 const _setLayoutForAntDescription = (
     title: IKitEmpty['title'],
@@ -25,7 +25,7 @@ const _setLayoutForAntDescription = (
         );
 
     const _description =
-        typeof description === 'string' || typeof title === 'number' ? (
+        typeof description === 'string' || typeof description === 'number' ? (
             <KitTypography.Text>{description}</KitTypography.Text>
         ) : (
             description

@@ -98,8 +98,8 @@ const SelectArgTypes = {
         },
         defaultValue: false
     },
-    search: {
-        name: 'search',
+    showSearch: {
+        name: 'showSearch',
         control: {type: 'boolean'},
         description: 'Whether select is searchable',
         table: {
@@ -159,7 +159,7 @@ const SelectArgTypes = {
             'Which prop value of option will be used for filter if filterOption is true. If `options` is set, it should be set to `label`',
         table: {
             type: {
-                summary: 'boolean | function(inputValue, option)'
+                summary: 'string'
             },
             defaultValue: {summary: 'value'},
             category: 'Select'
@@ -253,7 +253,7 @@ const SelectArgTypes = {
                 summary: 'boolean'
             },
             defaultValue: {
-                summary: 'string | string[] | <br />number | number[] | <br />LabeledValue | LabeledValue[]'
+                summary: 'string | string[] | number | number[] | LabeledValue | LabeledValue[]'
             },
             category: 'Select'
         },

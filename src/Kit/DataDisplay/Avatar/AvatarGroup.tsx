@@ -6,11 +6,12 @@ import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
-const KitAvatarGroup: FunctionComponent<IKitAvatarGroup> = ({className, maxCount, ...avatarGroupProps}) => {
+const KitAvatarGroup: FunctionComponent<IKitAvatarGroup> = ({className, disabled, maxCount, ...avatarGroupProps}) => {
     const {appId} = useKitTheme();
 
     const clx = cn(appId, styles['kit-avatar-group'], className, {
-        ['override-last']: maxCount
+        ['override-last']: maxCount,
+        [styles['kit-avatar-group-disabled']]: disabled
     });
 
     return (

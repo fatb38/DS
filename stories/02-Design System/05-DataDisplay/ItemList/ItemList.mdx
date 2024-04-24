@@ -62,6 +62,13 @@ You can combine all props together.
 
 <CustomCanvas content={Examples.All} source={Sources.All} id="itemlist-all" />
 
+##### Disabled
+
+You can disable `ItemList` to prevent all actions by setting the `disabled`.\
+⚠️ ItemList doesn't apply `disabled` on the `content` and the `draggableHandler` props, you have to manage it by yourself.
+
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="itemlist-disabled" />
+
 ## Api
 
 <Canvas of={KitItemListStories.Api} />

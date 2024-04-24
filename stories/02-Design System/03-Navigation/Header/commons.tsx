@@ -1,6 +1,6 @@
 import {KitIdCard} from '@kit/DataDisplay';
 import {CSSProperties} from 'react';
-import {KitAvatar, KitSelect, KitSpace, KitTypography} from '@kit/index';
+import {KitSelect, KitSpace, KitTypography} from '@kit/index';
 import {FlagIcon} from 'react-flag-kit';
 import {KitHeader} from '@kit/Navigation';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -70,10 +70,11 @@ export const logoExample = <img src="public/images/omnipublish-logo.svg" />;
 export const userProfileExample = (
     <KitHeader.Profile
         logo="/public/images/logo.png"
+        alt="Logo ARiSTiD"
         tag="Grenoble Centre"
         menu={profileMenuContentExemple}
-        userCard={<KitIdCard avatar={<KitAvatar src="public/images/portrait.png" />} />}
-    ></KitHeader.Profile>
+        userCard={<KitIdCard avatarProps={{src: 'public/images/portrait.png'}} />}
+    />
 );
 
 export const langSwitcherExample = (

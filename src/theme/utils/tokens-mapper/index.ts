@@ -3,6 +3,7 @@ import {
     badgeKitTokenToAntdToken,
     collapseKitTokenToAntdToken,
     tabsKitTokenToAntdToken,
+    tableKitTokenToAntdToken,
     tooltipKitTokenToAntdToken,
     treeKitTokenToAntdToken
 } from './DataDisplay';
@@ -19,6 +20,7 @@ import {selectKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Se
 import {tagKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Tag';
 import {sliderKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Slider';
 import {checkboxKitTokenToAntdToken} from './DataEntry/Checkbox';
+import {formKitTokenToAntdToken} from './DataEntry/Form';
 
 export const antdThemeConfig: ThemeConfig = {
     components: {
@@ -38,9 +40,11 @@ export const antdThemeConfig: ThemeConfig = {
         Select: selectKitTokenToAntdToken,
         Slider: sliderKitTokenToAntdToken,
         Steps: stepsKitTokenToAntdToken,
+        Table: tableKitTokenToAntdToken,
         Tabs: tabsKitTokenToAntdToken,
         Tag: tagKitTokenToAntdToken,
         Tree: treeKitTokenToAntdToken,
-        Tooltip: tooltipKitTokenToAntdToken
+        Tooltip: tooltipKitTokenToAntdToken,
+        Form: formKitTokenToAntdToken
     }
 };

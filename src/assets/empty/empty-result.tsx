@@ -14,12 +14,12 @@ export const emptyResult = (
             <path
                 className="fill-white"
                 d="M62.643 64.731a8 8 0 0 1 8-8h57.894a8 8 0 0 1 8 8v85.179a8 8 0 0 1-8 8H70.643a8 8 0 0 1-8-8V64.731Z"
-                shape-rendering="crispEdges"
+                shapeRendering="crispEdges"
             />
             <path
                 className="stroke-400"
                 d="M63.143 64.731a7.5 7.5 0 0 1 7.5-7.5h57.894a7.5 7.5 0 0 1 7.5 7.5v85.179a7.5 7.5 0 0 1-7.5 7.5H70.643a7.5 7.5 0 0 1-7.5-7.5V64.731Z"
-                shape-rendering="crispEdges"
+                shapeRendering="crispEdges"
             />
             <path className="fill-100" d="M45.559 73.123a3 3 0 0 1 3-3h26a3 3 0 0 1 0 6h-26a3 3 0 0 1-3-3Z" />
             <path className="fill-200" d="M45.559 81.123a3 3 0 0 1 3-3h34a3 3 0 0 1 0 6h-34a3 3 0 0 1-3-3Z" />
@@ -28,7 +28,7 @@ export const emptyResult = (
         <rect width="40" height="12" x="111" y="133" className="fill-200" rx="4" />
         <path
             className="fill-white stroke-400"
-            stroke-width="2"
+            strokeWidth="2"
             d="M133.902 41.5c1.155-2 4.041-2 5.196 0l14.29 24.75c1.154 2-.289 4.5-2.599 4.5h-28.578c-2.31 0-3.753-2.5-2.598-4.5l14.289-24.75Z"
         />
         <path
@@ -42,10 +42,10 @@ export const emptyResult = (
                 height="117.178"
                 x="37.559"
                 y="51.731"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
                 filterUnits="userSpaceOnUse"
             >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                 <feOffset dy="3" />
                 <feGaussianBlur stdDeviation="4" />

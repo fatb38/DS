@@ -1,10 +1,13 @@
-import {KitAvatar, KitItemList} from '@kit/DataDisplay';
+import {KitItemList} from '@kit/DataDisplay';
+import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
 import {FunctionComponent} from 'react';
 
-const idCardProps = {
+const idCardProps: IKitIdCard = {
     title: 'Tondeuse à gazon',
     description: 'Tondeuse thermique Auto tractée 70 VL 55 TH',
-    avatar: <KitAvatar label={'TG'} />
+    avatarProps: {
+        label: 'TG'
+    }
 };
 
 export const SelectableItemList: FunctionComponent = () => (

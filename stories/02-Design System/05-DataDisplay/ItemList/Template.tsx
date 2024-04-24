@@ -1,17 +1,18 @@
-import {KitAvatar, KitItemList} from '@kit/DataDisplay/';
+import {KitItemList} from '@kit/DataDisplay/';
 import {KitButton} from '@kit/General/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {IEditorTemplate} from '../../../types';
 import {faBullhorn, faCartPlus, faGripLines, faStar} from '@fortawesome/free-solid-svg-icons';
 import {IKitItemList} from '@kit/DataDisplay/ItemList/types';
+import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
 
-const idCardProps = {
+const idCardProps: IKitIdCard = {
     title: 'Tondeuse à gazon',
     description: 'Tondeuse thermique Auto tractée 70 VL 55 TH',
-    avatar: <KitAvatar label={'TG'} />
+    avatarProps: {label: 'TG'}
 };
 
-const actions = [
+const actions: IKitItemList['actions'] = [
     {
         key: '1',
         label: 'Add to basket',
@@ -57,8 +58,8 @@ export const Template = (args: IKitItemList) => (
         }
         draggableHandler={
             <KitButton
-                type={'tertiary'}
-                iconSize={'l'}
+                type="tertiary"
+                iconSize="l"
                 icon={<FontAwesomeIcon icon={faGripLines} />}
                 style={{marginRight: '8px'}}
             />
@@ -67,36 +68,70 @@ export const Template = (args: IKitItemList) => (
 );
 
 export const EditorTemplate: IEditorTemplate = () => (
-    <KitItemList
-        idCardProps={idCardProps}
-        onSelect={console.log}
-        onClick={() => alert('click sur l’item list')}
-        actions={actions}
-        content={
-            <div
-                style={{
-                    width: '300px',
-                    color: 'var(--general-colors-secondary-mediumGrey-mediumGrey400)',
-                    backgroundColor: 'var(--general-colors-secondary-mediumGrey-mediumGrey100)',
-                    padding: '16px 8px',
-                    margin: '8px',
-                    borderRadius: '8px',
-                    border: '2px dashed var(--general-colors-secondary-mediumGrey-mediumGrey200)',
-                    fontSize: 'var(--general-typography-fontSize7)'
-                }}
-            >
-                Replace this empty component by your component (eg. a progress)
-            </div>
-        }
-        draggableHandler={
-            <KitButton
-                type={'tertiary'}
-                iconSize={'l'}
-                icon={<FontAwesomeIcon icon={faGripLines} />}
-                style={{marginRight: '8px'}}
-            />
-        }
-    />
+    <div style={{display: 'flex', flexDirection: 'column', gap: '24px'}}>
+        <KitItemList
+            idCardProps={idCardProps}
+            onSelect={console.log}
+            onClick={() => alert('click sur l’item list')}
+            actions={actions}
+            content={
+                <div
+                    style={{
+                        width: '300px',
+                        color: 'var(--general-colors-secondary-mediumGrey-mediumGrey400)',
+                        backgroundColor: 'var(--general-colors-secondary-mediumGrey-mediumGrey100)',
+                        padding: '16px 8px',
+                        margin: '8px',
+                        borderRadius: '8px',
+                        border: '2px dashed var(--general-colors-secondary-mediumGrey-mediumGrey200)',
+                        fontSize: 'var(--general-typography-fontSize7)'
+                    }}
+                >
+                    Replace this empty component by your component (eg. a progress)
+                </div>
+            }
+            draggableHandler={
+                <KitButton
+                    type="tertiary"
+                    iconSize="l"
+                    icon={<FontAwesomeIcon icon={faGripLines} />}
+                    style={{marginRight: '8px'}}
+                />
+            }
+        />
+        <KitItemList
+            disabled
+            idCardProps={idCardProps}
+            onSelect={console.log}
+            onClick={() => alert('click sur l’item list')}
+            actions={actions}
+            content={
+                <div
+                    style={{
+                        width: '300px',
+                        color: 'var(--general-colors-secondary-mediumGrey-mediumGrey400)',
+                        backgroundColor: 'var(--general-colors-secondary-mediumGrey-mediumGrey100)',
+                        padding: '16px 8px',
+                        margin: '8px',
+                        borderRadius: '8px',
+                        border: '2px dashed var(--general-colors-secondary-mediumGrey-mediumGrey200)',
+                        fontSize: 'var(--general-typography-fontSize7)'
+                    }}
+                >
+                    Replace this empty component by your component (eg. a progress)
+                </div>
+            }
+            draggableHandler={
+                <KitButton
+                    disabled
+                    type="tertiary"
+                    iconSize="l"
+                    icon={<FontAwesomeIcon icon={faGripLines} />}
+                    style={{marginRight: '8px'}}
+                />
+            }
+        />
+    </div>
 );
 
 EditorTemplate.path = 'components.ItemList';

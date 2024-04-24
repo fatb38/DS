@@ -11,3 +11,14 @@
 
   @return calc(var($cssToken, $fallback) * 1px)
 }
+
+@mixin svgColorsClasses() {
+  @for $i from 1 through 7 {
+    .fill-#{$i}00 {
+      fill: var(--general-colors-primary-primary#{$i}00);
+    }
+    .stroke-#{$i}00 {
+      stroke: var(--general-colors-primary-primary#{$i}00);
+    }
+  }
+}

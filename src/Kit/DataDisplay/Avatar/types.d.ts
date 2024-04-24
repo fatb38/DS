@@ -15,11 +15,14 @@ export interface IKitAvatar extends Omit<AvatarProps, AntdAvatarTypesToOmit>, Ki
     color?: KitColorProp;
     secondaryColorInvert?: boolean;
     imageFit?: KitImageFit;
+    disabled?: boolean;
 }
 
 export interface IKitAvatarGroup
     extends Omit<GroupProps, AntdAvatarGroupTypesToOmit>,
-        KitHTMLAttributes<HTMLDivElement> {}
+        KitHTMLAttributes<HTMLDivElement> {
+    disabled?: boolean;
+}
 
 export type KitAvatarCompoundedComponent = FunctionComponent<IKitAvatar> & {
     Group: FunctionComponent<IKitAvatarGroup>;

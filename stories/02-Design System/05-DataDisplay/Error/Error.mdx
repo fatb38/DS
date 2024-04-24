@@ -1,0 +1,51 @@
+import {Meta, Canvas, Controls} from "@storybook/addon-docs";
+import Examples, {Sources} from './examples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitErrorStories from './Error.stories';
+
+<Meta of={KitErrorStories} />
+
+# Error
+
+Error state placeholder.
+
+## Usage
+
+- When there is a navigation error.
+- When there is a ressource not found.
+
+## Examples
+
+### Basic
+
+Simplest Usage. `title` property should be only a string, but you can customize `description` property as you want.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="component-error" />
+
+The component is responsive.
+
+<CustomCanvas content={Examples.Responsive} source={Sources.Responsive} id="component-error-responsive" />
+
+### Customize
+
+Here an example with a more complex `description` property.
+
+<CustomCanvas content={Examples.Description} source={Sources.Description} id="component-error-description" />
+
+### Integrated
+
+When the error is for navigation, you probably have a header above.
+
+<CustomCanvas content={Examples.Integrated} source={Sources.Integrated} id="component-error-integrated" />
+
+## Api
+
+<Canvas of={KitErrorStories.Api} />
+
+<Controls of={KitErrorStories.Api} />
+
+## Translation Tokens
+
+|          | en-US           | fr-FR               |
+|----------|-----------------|---------------------|
+| error404 | Error type: 404 | Type d’erreur : 404 |

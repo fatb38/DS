@@ -1,15 +1,16 @@
-import React from 'react';
+import React, {CSSProperties} from 'react';
 import {KitSpace} from '@kit/Layout';
-import {KitAvatar, KitItemList} from '@kit/DataDisplay';
+import {KitItemList} from '@kit/DataDisplay';
+import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
 
 const App = () => {
-    const idCardProps = {
+    const idCardProps: IKitIdCard = {
         title: 'Tondeuse à gazon',
         description: 'Tondeuse thermique Auto tractée 70 VL 55 TH',
-        avatar: <KitAvatar label={'TG'} />
+        avatarProps: {label: 'TG'}
     };
 
-    const baseStyle = {
+    const baseStyle: CSSProperties = {
         color: 'var(--general-colors-secondary-mediumGrey-mediumGrey400)',
         backgroundColor: 'var(--general-colors-secondary-mediumGrey-mediumGrey100)',
         borderRadius: '8px',

@@ -1,5 +1,35 @@
 # Changelog
 
+## [5.0.0](https://www.npmjs.com/package/aristid-ds/v/5.0.0) (2024-04-24)
+### ✨ Features
+* **ItemList:**
+  * Add `disabled`property (@Delmotte-Vincent)
+  * Add highlight style on component `focus` (@Delmotte-Vincent)
+* **⚠️ Breaking change - IdCard:**
+  * Change `avatar` property to `avatarProps`. `avatarProps` are `KitAvatar`'s props. (@Delmotte-Vincent)
+  * Add `disabled`property (@Delmotte-Vincent)
+* **Avatar:**
+  * Add `disabled` property (@Delmotte-Vincent)
+* **Avatar.Group:**
+  * Add `disabled` property (@Delmotte-Vincent)
+* **Header.Profile:**
+  * Add `alt` property (@philippechevieux)
+* **Error:**
+  * Add a new component `KitError` to manage error page (@P0ppoff)
+* **Table:**
+  * Add a new component `Table` to display a collection of structured data (@philippechevieux)
+
+### 🐛 Bug Fixes
+* **Select:**
+  * Fix Select displaying option value instead of label when setting value prop (@evoiron / @renaudamsellem / @TdyP)
+* **Avatar:**
+  * Fix incorrect digram when label contains accented characters (@evoiron)
+* **Empty:**
+  * Removing console errors on svg attributes (kebab-case instead of camelCase) (@fatb38)
+
+### 📚 Documentation
+* Add an example for searching with a Select (@philippechevieux)
+
 ## [4.0.0](https://www.npmjs.com/package/aristid-ds/v/4.0.0) (2024-03-28)
 ### ✨ Features
 * **Select:**

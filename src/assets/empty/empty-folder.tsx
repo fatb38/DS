@@ -26,7 +26,7 @@ export const emptyFolder = (
         />
         <path
             className="fill-white stroke-400"
-            stroke-width="2"
+            strokeWidth="2"
             d="M74.113 43c-5.347 0-9.683 4.335-9.683 9.683 0 5.347 4.335 9.683 9.683 9.683s9.683-4.336 9.683-9.683c0-5.348-4.335-9.683-9.683-9.683Z"
         />
         <defs>
@@ -36,10 +36,10 @@ export const emptyFolder = (
                 height="84.103"
                 x="63.978"
                 y="74.897"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
                 filterUnits="userSpaceOnUse"
             >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
                 <feOffset dy="3" />
                 <feGaussianBlur stdDeviation="4" />

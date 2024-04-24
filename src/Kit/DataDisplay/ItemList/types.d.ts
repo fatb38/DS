@@ -10,4 +10,5 @@ export interface IKitItemList extends KitHTMLAttributes<HTMLDivElement> {
     onClick?: () => void;
     actions?: IKitActionButton[];
     content?: ReactNode;
+    disabled?: boolean;
 }
