@@ -1,4 +1,4 @@
-import {ReactElement} from 'react';
+import {ReactElement, ReactNode} from 'react';
 import {KitIdCard, KitTag} from '@kit/DataDisplay';
 import {KitIcon} from '@kit/General';
 import {IKitInternalOption, IKitOption, IKitSelect} from './types';
@@ -8,22 +8,15 @@ import type {CustomTagProps} from 'rc-select/es/BaseSelect';
 import {FlattenOptionData} from 'rc-select/lib/interface';
 import {BaseOptionType} from 'antd/es/select';
 
-export const getLabelRender = (
-    {value}: LabelInValueType | CustomTagProps,
-    selectedOption?: IKitInternalOption | IKitInternalOption[]
-) => {
-    if (!Array.isArray(selectedOption)) {
-        return selectedOption?.labelToDisplay;
-    }
-
-    return selectedOption.filter(option => option.value === value).pop()?.labelToDisplay;
+export const getLabelRender = ({value}: LabelInValueType | CustomTagProps, options: IKitInternalOption[]) => {
+    return options.filter(option => option.value === value).pop()?.labelToDisplay;
 };
 
 export const getTagRender = (
     customTag: CustomTagProps,
     disabled: IKitSelect['disabled'],
     status: IKitSelect['status'],
-    selectedOption?: IKitInternalOption | IKitInternalOption[]
+    options: IKitInternalOption[]
 ) => {
     const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
         event.preventDefault();
@@ -37,7 +30,7 @@ export const getTagRender = (
             onMouseDown={onPreventMouseDown}
             onClose={!disabled ? customTag.onClose : undefined}
         >
-            {getLabelRender(customTag, selectedOption)}
+            {getLabelRender(customTag, options)}
         </KitTag>
     );
 };
@@ -100,10 +93,7 @@ export const getOptionRender = (
     return flattenInternalOptions.find(option => option.value === value)?.labelToDisplay ?? label;
 };
 
-export const getOptionLabelRender = (
-    selectOption: IKitOption,
-    labelOnly?: IKitSelect['labelOnly']
-): ReactElement | string => {
+export const getOptionLabelRender = (selectOption: IKitOption, labelOnly?: IKitSelect['labelOnly']): ReactNode => {
     if (isIdCardOption(selectOption)) {
         const {idCard} = selectOption;
 

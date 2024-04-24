@@ -20,6 +20,8 @@
   * Add a new component `Table` to display a collection of structured data (@philippechevieux)
 
 ### 🐛 Bug Fixes
+* **Select:**
+  * Fix Select displaying option value instead of label when setting value prop (@evoiron)
 * **Avatar:**
   * Fix incorrect digram when label contains accented characters (@evoiron)
 * **Empty:**

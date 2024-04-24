@@ -48,8 +48,11 @@ export type ClassicOption = OptionCommons & {
 
 export type IKitOption = IdCard & ClassicOption;
 
-export type IKitInternalOption = IKitOption & {
+export type IKitInternalOption = Omit<IKitOption, 'label' | 'options'> & {
+    label: ReactNode;
     labelToDisplay?: ReactNode;
+    rawLabel?: ReactNode;
+    options?: IKitInternalOption[];
 };
 
 export interface IKitSelect extends Omit<SelectProps, AntdSelectTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {

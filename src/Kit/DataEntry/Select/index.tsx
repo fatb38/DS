@@ -32,8 +32,9 @@ const _parseOptions = (optionList: IKitOption[], labelOnly?: IKitSelect['labelOn
         }
 
         return {
-            label: option?.label ?? '',
+            label: getOptionLabelRender(option, labelOnly),
             labelToDisplay: getOptionLabelRender(option, labelOnly),
+            rawLabel: option?.label ?? '',
             className,
             disabled,
             value
@@ -107,7 +108,6 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         const {appId} = useKitTheme();
         const [isOpen, setIsOpen] = useState(false);
         const [isFocus, setIsFocus] = useState(false);
-        const [selectedOption, setSelectedOption] = useState<IKitInternalOption | IKitInternalOption[]>();
         const internalKitSelectRef = useRef(id ?? uid.rnd());
 
         const {clearIcon, suffixIcon, selectedItemIcon} = useIcons({
@@ -144,24 +144,16 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             [internalOptions]
         );
 
-        if (defaultValue && selectedOption === undefined) {
-            let selectedOption: IKitInternalOption | IKitInternalOption[] | undefined;
-
-            if (Array.isArray(defaultValue)) {
-                selectedOption = internalOptions.filter(option => {
-                    return defaultValue.includes(option.value);
-                });
-            } else {
-                selectedOption = internalOptions.filter(option => option.value === defaultValue)[0];
-            }
-
-            setSelectedOption(selectedOption);
-        }
-
         const _handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
             (ref as RefObject<RefSelectProps>)?.current?.focus();
 
-            if ((!mode && isOpen) || (mode && isOpen && (event.target as HTMLElement).closest('.ant-select'))) {
+            const target = event.target as HTMLElement;
+
+            // When the clear icon is clicked, the dropdown should not open
+            if (
+                target.ariaLabel === 'clear' ||
+                (mode && isOpen && (event.target as HTMLElement).closest('.ant-select'))
+            ) {
                 setIsOpen(false);
             } else {
                 setIsOpen(true);
@@ -184,11 +176,6 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         const _handleFocus = (event: FocusEvent<HTMLElement, Element>) => {
             setIsFocus(true);
             onFocus && onFocus(event);
-        };
-
-        const _handleOnChange = (value: IKitSelect['value'], option: IKitInternalOption | IKitInternalOption[]) => {
-            setSelectedOption(option);
-            onChange && onChange(value, option);
         };
 
         return (
@@ -219,9 +206,9 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                     allowClear={clearIcon ? {clearIcon} : false}
                     optionRender={option => getOptionRender(option, flattenInternalOptions)}
                     dropdownRender={menu => getDropdownRender(menu, dropdownRender)}
-                    labelRender={props => getLabelRender(props, selectedOption)}
+                    labelRender={props => getLabelRender(props, internalOptions)}
                     tagRender={
-                        mode !== undefined ? props => getTagRender(props, disabled, status, selectedOption) : undefined
+                        mode !== undefined ? props => getTagRender(props, disabled, status, internalOptions) : undefined
                     }
                     maxTagCount={oneLineTags ? 'responsive' : undefined}
                     maxTagPlaceholder={
@@ -231,7 +218,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                     open={open !== undefined ? open : isOpen}
                     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                     defaultValue={defaultValue}
-                    onChange={_handleOnChange}
+                    onChange={onChange}
                     onClick={_handleOnClick}
                     onClear={_handleOnClear}
                     onBlur={_handleOnBlur}
