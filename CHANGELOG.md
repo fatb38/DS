@@ -1,6 +1,6 @@
 # Changelog
 
-## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-xx-xx)
+## [5.0.0](https://www.npmjs.com/package/aristid-ds/v/5.0.0) (2024-04-24)
 ### ✨ Features
 * **ItemList:**
   * Add `disabled`property (@Delmotte-Vincent)
@@ -21,7 +21,7 @@
 
 ### 🐛 Bug Fixes
 * **Select:**
-  * Fix Select displaying option value instead of label when setting value prop (@evoiron)
+  * Fix Select displaying option value instead of label when setting value prop (@evoiron / @renaudamsellem / @TdyP)
 * **Avatar:**
   * Fix incorrect digram when label contains accented characters (@evoiron)
 * **Empty:**
