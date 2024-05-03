@@ -2,8 +2,7 @@ import React from 'react';
 import {KitUpload} from '@kit/DataEntry';
 import {UploadProps} from 'antd';
 
-const beforeUpload: UploadProps['beforeUpload'] = file => {
-    return new Promise(resolve => {
+const beforeUpload: UploadProps['beforeUpload'] = file => new Promise(resolve => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
@@ -27,10 +26,7 @@ const beforeUpload: UploadProps['beforeUpload'] = file => {
             };
         };
     });
-};
 
-const App = () => {
-    return <KitUpload listType="picture" beforeUpload={beforeUpload} />;
-};
+const App = () => <KitUpload listType="picture" beforeUpload={beforeUpload} />;
 
 export default App;

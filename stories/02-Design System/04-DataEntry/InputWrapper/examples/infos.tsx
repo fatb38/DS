@@ -9,8 +9,7 @@ const onInfoClick = () => {
     console.log('info clicked');
 };
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical" size={24}>
             <KitInputWrapper bordered label="label" helper="helper" onInfoClick={onInfoClick}>
                 <KitTypography.Text>Component to wrap with info icon</KitTypography.Text>
@@ -32,6 +31,5 @@ const App = () => {
             </KitInputWrapper>
         </KitSpace>
     );
-};
 
 export default App;

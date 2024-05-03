@@ -6,11 +6,9 @@ import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
-const _getSwatchStyle = (item: CardColor) => {
-    return {
+const _getSwatchStyle = (item: CardColor) => ({
         background: item.color ?? 'transparent'
-    };
-};
+    });
 
 const KitColorbar = (props: IKitColorbar) => {
     const {appId} = useKitTheme();

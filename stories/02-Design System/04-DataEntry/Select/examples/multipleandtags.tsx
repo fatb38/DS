@@ -61,7 +61,7 @@ const App = () => {
     const style = {width: 340};
 
     return (
-        <KitSpace direction="vertical" size={'l'}>
+        <KitSpace direction="vertical" size="l">
             <KitSpace direction="vertical">
                 <KitTypography.Text weight="bold">Mode=multiple (default / oneLine)</KitTypography.Text>
                 <KitSpace>

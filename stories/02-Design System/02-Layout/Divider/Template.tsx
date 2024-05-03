@@ -13,8 +13,7 @@ export const Template = (args: IKitDivider) => {
     return <KitDivider {...props}>{label}</KitDivider>;
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitGrid.Row>
             <KitGrid.Col span={24}>
                 <KitSpace direction="vertical">
@@ -41,6 +40,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             </KitGrid.Col>
         </KitGrid.Row>
     );
-};
 EditorTemplate.path = 'components.Divider';
 EditorTemplate.title = 'Divider';

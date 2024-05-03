@@ -4,12 +4,9 @@ import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
 import {RadioProps} from 'antd';
 
-export const Template = (args: RadioProps) => {
-    return <KitRadio {...args}>Radio label</KitRadio>;
-};
+export const Template = (args: RadioProps) => <KitRadio {...args}>Radio label</KitRadio>;
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace size="m">
             <KitSpace direction="vertical">
                 <KitRadio>Radio</KitRadio>
@@ -33,6 +30,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.Radio';
 EditorTemplate.title = 'Radio';

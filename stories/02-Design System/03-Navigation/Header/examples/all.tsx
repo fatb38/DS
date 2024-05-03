@@ -4,17 +4,15 @@ import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {menuContentExample, userProfileExample, langSwitcherExample} from '../commons';
 
-const App = () => {
-    return (
-        <KitHeader
-            menu={menuContentExample}
-            logo={<img src="public/images/omnipublish-logo.svg" />}
-            profile={userProfileExample}
-            langSwitcher={langSwitcherExample}
-        >
-            <KitInput placeholder="Search..." prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
-        </KitHeader>
-    );
-};
+const App = () => (
+    <KitHeader
+        menu={menuContentExample}
+        logo={<img src="public/images/omnipublish-logo.svg" alt="" />}
+        profile={userProfileExample}
+        langSwitcher={langSwitcherExample}
+    >
+        <KitInput placeholder="Search..." prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+    </KitHeader>
+);
 
 export default App;

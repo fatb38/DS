@@ -4,8 +4,7 @@ import {KitSpace} from '@kit/Layout/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical" size={16}>
             <KitSpace wrap size={16}>
                 <KitAvatar size="small" icon={<FontAwesomeIcon icon={faUser} />} />
@@ -21,6 +20,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

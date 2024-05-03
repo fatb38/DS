@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitItemCard, KitImage} from '@kit/DataDisplay/';
 
-const App = () => {
-    return (
+const App = () => (
         <KitItemCard
             title="Tondeuse à gazon"
             description="Tondeuse thermique Auto tractée 70 VL 55 TH"
@@ -10,6 +9,5 @@ const App = () => {
             picture={<KitImage src="public/images/tondeuse.png" />}
         />
     );
-};
 
 export default App;

@@ -6,8 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload} from '@fortawesome/free-solid-svg-icons';
 import {faFolderOpen} from '@fortawesome/free-regular-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitItemCard
                 title="Tondeuse à gazon"
@@ -62,6 +61,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

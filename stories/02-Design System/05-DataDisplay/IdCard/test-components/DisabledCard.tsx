@@ -20,8 +20,7 @@ const avatar3: IKitAvatar = {
     icon: <FontAwesomeIcon icon={faUser} />
 };
 
-export const DisabledIdCardTest: FunctionComponent = () => {
-    return (
+export const DisabledIdCardTest: FunctionComponent = () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
             <KitTypography.Title level="h3">Disabled IdCard</KitTypography.Title>
             <KitIdCard
@@ -44,4 +43,3 @@ export const DisabledIdCardTest: FunctionComponent = () => {
             />
         </div>
     );
-};

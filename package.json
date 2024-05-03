@@ -66,6 +66,7 @@
     "use-debounce": "^9.0.4"
   },
   "devDependencies": {
+    "@aristid/eslint-plugin": "^1.1.4",
     "@babel/core": "^7.22.9",
     "@commitlint/cli": "18.4.4",
     "@rollup/plugin-commonjs": "^25.0.7",

@@ -9,7 +9,7 @@ export const ImageFitTest: FunctionComponent = () => {
     return (
         <div>
             <KitTypography.Title level="h3">Image fit</KitTypography.Title>
-            <KitSpace direction="horizontal" size={'l'}>
+            <KitSpace direction="horizontal" size="l">
                 <KitSpace direction="vertical">
                     <KitTypography.Text weight="bold">Cover</KitTypography.Text>
                     <KitAvatar shape="square" size="large" imageFit="contain" src={src} />

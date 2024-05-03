@@ -19,8 +19,7 @@ const _getCellClasses = (className: string | undefined): {antCell?: string; inte
     };
 };
 
-export const getInternalComponents = (components: IKitTable['components']): TableProps['components'] => {
-    return {
+export const getInternalComponents = (components: IKitTable['components']): TableProps['components'] => ({
         header: {
             cell: ({children, className, style, title, rowSpan, colSpan, ...props}: KitInternalComponentsCellProps) => {
                 const classes = _getCellClasses(className);
@@ -81,5 +80,4 @@ export const getInternalComponents = (components: IKitTable['components']): Tabl
                 );
             }
         }
-    };
-};
+    });

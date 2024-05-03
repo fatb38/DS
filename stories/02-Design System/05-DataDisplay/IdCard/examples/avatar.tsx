@@ -7,8 +7,6 @@ const avatarProps: IKitAvatar = {
     label: 'John Doe'
 };
 
-const App = () => {
-    return <KitIdCard avatarProps={avatarProps} title="John Doe" description="A talented software developer." />;
-};
+const App = () => <KitIdCard avatarProps={avatarProps} title="John Doe" description="A talented software developer." />;
 
 export default App;

@@ -41,8 +41,7 @@ const items: IKitDropdownMenu['items'] = [
     }
 ];
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace>
             <KitDropDown menu={{items}}>
                 <KitTypography.Link>
@@ -51,6 +50,5 @@ const App = () => {
             </KitDropDown>
         </KitSpace>
     );
-};
 
 export default App;

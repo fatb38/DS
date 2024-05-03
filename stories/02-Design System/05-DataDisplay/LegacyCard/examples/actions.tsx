@@ -5,8 +5,7 @@ import {KitSpace} from '@kit/Layout';
 import React from 'react';
 import {KitIcon} from '@kit/General';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitLegacyCard
                 contentTitle="Promos mai"
@@ -58,6 +57,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

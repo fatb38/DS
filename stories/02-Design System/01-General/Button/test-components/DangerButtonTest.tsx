@@ -5,7 +5,7 @@ import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 export const DangerButtonTest: FunctionComponent = () => (
     <div style={{marginBottom: '40px'}}>
-        <KitTypography.Title level={'h3'}>Danger button</KitTypography.Title>
+        <KitTypography.Title level="h3">Danger button</KitTypography.Title>
         <div style={{display: 'inline-flex', gap: '8px'}}>
             <KitButton type="primary" danger>
                 Danger

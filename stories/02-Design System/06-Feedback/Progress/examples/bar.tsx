@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitProgress} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <>
             <KitProgress percent={30} />
             <KitProgress percent={50} status="active" />
@@ -11,6 +10,5 @@ const App = () => {
             <KitProgress percent={50} showInfo={false} />
         </>
     );
-};
 
 export default App;

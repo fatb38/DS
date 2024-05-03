@@ -39,12 +39,10 @@ const columns: KitTableColumnsType<DataType> = [
     }
 ];
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace size="l" direction="vertical" style={{width: '900px'}}>
             <KitTable dataSource={dataSource} columns={columns} pagination={{pageSize: 50}} scroll={{y: 240, x: 800}} />
         </KitSpace>
     );
-};
 
 export default App;

@@ -68,9 +68,7 @@ export const KitPageHeader: FunctionComponent<IKitPageHeader> = ({
           })
         : null;
 
-    const actionsToDisplay = useMemo(() => {
-        return _getActions(actions, onPlusClick);
-    }, [actions, onPlusClick]);
+    const actionsToDisplay = useMemo(() => _getActions(actions, onPlusClick), [actions, onPlusClick]);
 
     const clx = cn(appId, styles['kit-page-header'], className);
 

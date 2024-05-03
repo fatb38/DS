@@ -3,21 +3,13 @@ import {KitInputNumber} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout';
 
 const App = () => {
-    const formatterDollar = value => {
-        return `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    };
+    const formatterDollar = value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-    const formatterPercent = value => {
-        return `${value}%`;
-    };
+    const formatterPercent = value => `${value}%`;
 
-    const parserDollar = (value: string | undefined) => {
-        return value?.replace(/\$\s?|(,*)/g, '') ?? '';
-    };
+    const parserDollar = (value: string | undefined) => value?.replace(/\$\s?|(,*)/g, '') ?? '';
 
-    const parserPercent = (value: string | undefined) => {
-        return value?.replace('%', '') ?? '';
-    };
+    const parserPercent = (value: string | undefined) => value?.replace('%', '') ?? '';
 
     return (
         <KitSpace>

@@ -59,13 +59,11 @@ const columns: KitTableColumnsType<DataType> = [
         dataIndex: 'tags',
         render: (_, {tags}) => (
             <div style={{display: 'inline-flex'}}>
-                {tags.map(tag => {
-                    return (
-                        <KitTag color={'blue'} key={tag}>
+                {tags.map(tag => (
+                        <KitTag color="blue" key={tag}>
                             {tag.toUpperCase()}
                         </KitTag>
-                    );
-                })}
+                    ))}
             </div>
         )
     },
@@ -81,12 +79,8 @@ const columns: KitTableColumnsType<DataType> = [
     }
 ];
 
-export const Template = (args: IKitTable) => {
-    return <KitTable {...args} dataSource={dataSource} columns={columns} />;
-};
+export const Template = (args: IKitTable) => <KitTable {...args} dataSource={dataSource} columns={columns} />;
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return <KitTable dataSource={dataSource} columns={columns} />;
-};
+export const EditorTemplate: IEditorTemplate = () => <KitTable dataSource={dataSource} columns={columns} />;
 EditorTemplate.path = 'components.Table';
 EditorTemplate.title = 'Table';

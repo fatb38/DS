@@ -9,9 +9,7 @@ import styles from './styles.module.scss';
 export const KitPagination: React.FunctionComponent<IKitPagination> = ({className, bordered, ...props}) => {
     const {appId} = useKitTheme();
 
-    const _itemRender: IKitPagination['itemRender'] = (_, type, originalElement) => {
-        return props.itemRender ? props.itemRender(_, type, originalElement) : originalElement;
-    };
+    const _itemRender: IKitPagination['itemRender'] = (_, type, originalElement) => props.itemRender ? props.itemRender(_, type, originalElement) : originalElement;
 
     const clx = cn(appId, styles['kit-pagination'], className, {
         ['kit-pagination-bordered']: bordered

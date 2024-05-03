@@ -74,7 +74,7 @@ const columns: KitTableColumnsType<DataType> = [
     {
         title: 'Name',
         dataIndex: 'name',
-        render: text => <KitTag color={'blue'}>{text}</KitTag>,
+        render: text => <KitTag color="blue">{text}</KitTag>,
         onCell: (_, index) => ({
             colSpan: index === 1 ? 5 : 1
         })
@@ -103,12 +103,10 @@ const columns: KitTableColumnsType<DataType> = [
     }
 ];
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace size="l">
             <KitTable dataSource={dataSource} columns={columns} pagination={false} />
         </KitSpace>
     );
-};
 
 export default App;

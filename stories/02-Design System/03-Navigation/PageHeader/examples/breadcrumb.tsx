@@ -45,8 +45,6 @@ const items = [
     }
 ];
 
-const App = () => {
-    return <KitPageHeader breadcrumb={<KitBreadcrumb items={items} />} />;
-};
+const App = () => <KitPageHeader breadcrumb={<KitBreadcrumb items={items} />} />;
 
 export default App;

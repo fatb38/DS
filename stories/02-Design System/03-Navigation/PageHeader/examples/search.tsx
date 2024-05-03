@@ -6,8 +6,6 @@ const searchProps = {
     placeholder: 'Rechercher un PAC, une opération, un livrable'
 };
 
-const App = () => {
-    return <KitPageHeader search={searchProps} />;
-};
+const App = () => <KitPageHeader search={searchProps} />;
 
 export default App;

@@ -24,9 +24,7 @@ export const toCssVariables = (tokens: IJSONObject, prefix = '-', items = {}): C
     return items;
 };
 
-export const isSecondaryColor = (color: string): boolean => {
-    return Object.keys(colorsPalette.secondary).includes(color);
-};
+export const isSecondaryColor = (color: string): boolean => Object.keys(colorsPalette.secondary).includes(color);
 
 export const isValidColor = (color: string): boolean => {
     const rgbRegex = /^rgb\(\s*(\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3})\s*\)$/i;

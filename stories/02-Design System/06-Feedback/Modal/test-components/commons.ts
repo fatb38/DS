@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-export const getParentSelector = (selector: string) => () => {
-    return document.querySelector<HTMLElement>(selector) || document.querySelector<HTMLElement>('body');
-};
+export const getParentSelector = (selector: string) => () => document.querySelector<HTMLElement>(selector) || document.querySelector<HTMLElement>('body');
 
 export const ModalContainer = styled.div`
     padding-top: 1rem;

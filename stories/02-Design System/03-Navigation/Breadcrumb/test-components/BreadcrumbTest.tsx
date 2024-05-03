@@ -66,8 +66,7 @@ const dropdownBreadcrumbItems: IKitBreadcrumbItem[] = [
     }
 ];
 
-export const BreadcrumbTest: FunctionComponent = () => {
-    return (
+export const BreadcrumbTest: FunctionComponent = () => (
         <>
             <KitTypography.Title level="h3">Breadcrumb</KitTypography.Title>
             <div style={{marginBlock: '24px'}}>
@@ -76,4 +75,3 @@ export const BreadcrumbTest: FunctionComponent = () => {
             <KitBreadcrumb separator=">" items={dropdownBreadcrumbItems} />
         </>
     );
-};

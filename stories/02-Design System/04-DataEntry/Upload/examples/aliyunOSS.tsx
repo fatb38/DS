@@ -93,8 +93,6 @@ const AliyunOSSUpload = ({value, onChange}: AliyunOSSUploadProps) => {
     );
 };
 
-const App = () => {
-    return <AliyunOSSUpload />;
-};
+const App = () => <AliyunOSSUpload />;
 
 export default App;

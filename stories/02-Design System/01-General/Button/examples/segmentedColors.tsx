@@ -3,8 +3,7 @@ import {KitButton, KitSpace} from '@kit/index';
 import {faPowerOff} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitSpace wrap>
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} color="blue" />
@@ -71,6 +70,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

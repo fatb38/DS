@@ -14,8 +14,7 @@ export const Template = (args: IKitPagination) => {
     return <KitPagination pageSizeOptions={sizeOptions} {...props} />;
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace direction="vertical" size="m">
             <KitPagination defaultCurrent={1} total={50} />
             <KitPagination defaultCurrent={1} total={50} bordered />
@@ -26,6 +25,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             <KitPagination total={85} showSizeChanger showQuickJumper showTotal={total => `Total ${total} items`} />
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.Pagination';
 EditorTemplate.title = 'Pagination';

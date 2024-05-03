@@ -4,8 +4,7 @@ import {KitSpace} from '@kit/Layout';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlassMinus, faMagnifyingGlassPlus} from '@fortawesome/free-solid-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical" style={{width: '300px'}}>
             <KitSlider endIcon={<FontAwesomeIcon icon={faMagnifyingGlassPlus} />} />
             <KitSlider startIcon={<FontAwesomeIcon icon={faMagnifyingGlassMinus} />} />
@@ -15,6 +14,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

@@ -2,8 +2,7 @@ import React from 'react';
 import {KitRadio} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitRadio danger>Unchecked</KitRadio>
             <KitRadio danger defaultChecked>
@@ -17,6 +16,5 @@ const App = () => {
             </KitRadio>
         </KitSpace>
     );
-};
 
 export default App;

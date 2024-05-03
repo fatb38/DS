@@ -20,8 +20,7 @@ const iconAvatarProps: IKitAvatar = {
     icon: <FontAwesomeIcon icon={faUser} />
 };
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace size={24}>
             <KitIdCard
                 disabled={true}
@@ -43,6 +42,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

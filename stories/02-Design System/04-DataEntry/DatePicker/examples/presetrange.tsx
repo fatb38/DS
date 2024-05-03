@@ -3,8 +3,7 @@ import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import dayjs from 'dayjs';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitDatePicker
                 presets={[
@@ -23,6 +22,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

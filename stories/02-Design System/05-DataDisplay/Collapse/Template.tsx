@@ -3,8 +3,7 @@ import {IKitCollapse} from '@kit/DataDisplay/Collapse/types';
 import React from 'react';
 import {IEditorTemplate} from 'stories/types';
 
-export const Template = (args: IKitCollapse) => {
-    return (
+export const Template = (args: IKitCollapse) => (
         <KitCollapse
             {...args}
             items={[
@@ -29,7 +28,6 @@ export const Template = (args: IKitCollapse) => {
             ]}
         />
     );
-};
 
 const text = `
         A dog is a type of domesticated animal.
@@ -55,12 +53,10 @@ const items = [
     }
 ];
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <div style={{width: '100%'}}>
             <KitCollapse items={items} defaultActiveKey={1} />
         </div>
     );
-};
 EditorTemplate.path = 'components.Collapse';
 EditorTemplate.title = 'Collapse';

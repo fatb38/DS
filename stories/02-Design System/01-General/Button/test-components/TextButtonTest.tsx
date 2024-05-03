@@ -5,7 +5,7 @@ import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 export const TextButtonTest: FunctionComponent = () => (
     <div style={{marginBottom: '40px'}}>
-        <KitTypography.Title level={'h3'}>Text button</KitTypography.Title>
+        <KitTypography.Title level="h3">Text button</KitTypography.Title>
         <div style={{display: 'inline-flex', gap: '8px'}}>
             <KitButton type="text">Text</KitButton>
             <KitButton type="text" id="hover">

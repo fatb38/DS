@@ -1,8 +1,7 @@
 import React from 'react';
 import {openKitSnackBar, closeKitSnackBar, KitSpace, KitButton} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace>
             <KitButton
                 type="primary"
@@ -24,6 +23,5 @@ const App = () => {
             </KitButton>
         </KitSpace>
     );
-};
 
 export default App;

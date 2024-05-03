@@ -1,8 +1,6 @@
 import {KitEmpty} from '@kit/DataDisplay';
 import React from 'react';
 
-const App = () => {
-    return <KitEmpty />;
-};
+const App = () => <KitEmpty />;
 
 export default App;

@@ -19,8 +19,6 @@ const items: IKitBreadcrumbItem[] = [
     }
 ];
 
-const App = () => {
-    return <KitBreadcrumb separator=">" items={items} />;
-};
+const App = () => <KitBreadcrumb separator=">" items={items} />;
 
 export default App;

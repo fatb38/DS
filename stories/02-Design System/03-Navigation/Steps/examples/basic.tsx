@@ -2,8 +2,7 @@ import React from 'react';
 import {KitSteps} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitSteps
                 current={1}
@@ -99,6 +98,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

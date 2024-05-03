@@ -17,8 +17,6 @@ const onChange = (info: UploadChangeParam) => {
     console.log(info.fileList);
 };
 
-const App = () => {
-    return <KitUpload onChange={onChange} beforeUpload={beforeUpload} />;
-};
+const App = () => <KitUpload onChange={onChange} beforeUpload={beforeUpload} />;
 
 export default App;

@@ -15,7 +15,7 @@ export const Template = (args: IKitHeader) => {
     return (
         <KitHeader
             menu={menu ? menuContentExample : undefined}
-            logo={logo ? <img src={`public/images/${logo}`} /> : undefined}
+            logo={logo ? <img src={`public/images/${logo}`} alt="" /> : undefined}
             profile={profile ? userProfileExample : undefined}
             langSwitcher={langSwitcher ? langSwitcherExample : undefined}
             {...props}
@@ -23,15 +23,13 @@ export const Template = (args: IKitHeader) => {
     );
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
-        <KitHeader
-            menu={menuContentExample}
-            logo={logoExample}
-            profile={userProfileExample}
-            langSwitcher={langSwitcherExample}
-        />
-    );
-};
+export const EditorTemplate: IEditorTemplate = () => (
+    <KitHeader
+        menu={menuContentExample}
+        logo={logoExample}
+        profile={userProfileExample}
+        langSwitcher={langSwitcherExample}
+    />
+);
 EditorTemplate.path = 'components.Header';
 EditorTemplate.title = 'Header';

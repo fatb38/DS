@@ -1,8 +1,6 @@
 import React from 'react';
 import {KitPageHeader} from '@kit/Navigation';
 
-const App = () => {
-    return <KitPageHeader />;
-};
+const App = () => <KitPageHeader />;
 
 export default App;

@@ -4,12 +4,10 @@ import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {langSwitcherExample} from '../commons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitHeader langSwitcher={langSwitcherExample}>
             <KitInput placeholder="Search..." prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
         </KitHeader>
     );
-};
 
 export default App;

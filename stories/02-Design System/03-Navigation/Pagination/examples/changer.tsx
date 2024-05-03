@@ -6,8 +6,7 @@ const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
 };
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical" style={{height: '200px'}}>
             <KitPagination
                 showSizeChanger
@@ -26,6 +25,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

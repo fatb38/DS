@@ -141,8 +141,7 @@ export const Template = (args: IKitItemMenu) => {
     );
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitMenu
             style={{width: '400px'}}
             title={mockData.menu.title}
@@ -195,6 +194,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             />
         </KitMenu>
     );
-};
 EditorTemplate.path = 'components.Menu';
 EditorTemplate.title = 'Menu';

@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitSteps} from '@kit/Navigation';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSteps
             current={1}
             direction="vertical"
@@ -22,6 +21,5 @@ const App = () => {
             ]}
         />
     );
-};
 
 export default App;

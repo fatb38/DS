@@ -187,9 +187,7 @@ const mockData = {
     }
 };
 
-export const Template = (args: IKitTree) => {
-    return <KitTree {...args} treeData={mockData.data.line} />;
-};
+export const Template = (args: IKitTree) => <KitTree {...args} treeData={mockData.data.line} />;
 
 const treeData = [
     {
@@ -282,12 +280,10 @@ const treeData = [
     }
 ];
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <div style={{width: '300px'}}>
             <KitTree showLine={true} defaultExpandAll treeData={treeData} />
         </div>
     );
-};
 EditorTemplate.path = 'components.Tree';
 EditorTemplate.title = 'Tree';

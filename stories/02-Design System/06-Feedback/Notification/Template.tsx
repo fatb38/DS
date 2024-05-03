@@ -11,9 +11,7 @@ import {KitAristidThemeGeneral} from '@theme/aristid/general';
 
 export const FakeNotification: React.FunctionComponent<IKitNotificationArgs> = () => null;
 
-const checkRequiredField = (args: IKitNotificationArgs, requiredFields: string[]) => {
-    return !requiredFields.some((field: string) => args[field] === undefined || args[field] === '');
-};
+const checkRequiredField = (args: IKitNotificationArgs, requiredFields: string[]) => !requiredFields.some((field: string) => args[field] === undefined || args[field] === '');
 
 const getIcon = icon => {
     switch (icon) {

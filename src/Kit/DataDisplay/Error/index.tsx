@@ -26,8 +26,8 @@ const _setLayoutForAntDescription = (
     const _errorType = <KitTypography.Paragraph>{locale.Error?.error404}</KitTypography.Paragraph>;
 
     return (
-        <KitSpace direction={'vertical'} size={'l'}>
-            <KitTypography.Title className={'error-title'} level={'h1'}>
+        <KitSpace direction="vertical" size="l">
+            <KitTypography.Title className="error-title" level="h1">
                 {title}
             </KitTypography.Title>
             {_description}

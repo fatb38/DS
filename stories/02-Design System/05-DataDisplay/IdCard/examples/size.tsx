@@ -8,9 +8,8 @@ const avatarProps: IKitAvatar = {
     label: 'John Doe'
 };
 
-const App = () => {
-    return (
-        <KitSpace direction="horizontal" size={'l'}>
+const App = () => (
+        <KitSpace direction="horizontal" size="l">
             <KitIdCard
                 avatarProps={avatarProps}
                 title="John Doe"
@@ -25,6 +24,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

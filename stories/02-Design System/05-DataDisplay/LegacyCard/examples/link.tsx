@@ -2,8 +2,7 @@ import React from 'react';
 import {KitLegacyCard} from '@kit/DataDisplay';
 import {KitSpace} from '@kit/Layout';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitLegacyCard
                 onContentTitleClick={() => console.log('Redirect')}
@@ -16,6 +15,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitLegacyCard} from '@kit/DataDisplay';
 
-const App = () => {
-    return (
+const App = () => (
         <KitLegacyCard
             title="Card Title"
             contentTitle="Promos mai"
@@ -10,6 +9,5 @@ const App = () => {
             cover={<img alt="example" src="public/images/free-copyright.jpeg" />}
         />
     );
-};
 
 export default App;

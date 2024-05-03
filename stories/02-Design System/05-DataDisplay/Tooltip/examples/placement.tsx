@@ -3,8 +3,7 @@ import {KitTooltip} from '@kit/DataDisplay';
 import {KitButton} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace>
             <div>
                 <div style={{marginLeft: 70, whiteSpace: 'nowrap'}}>
@@ -62,6 +61,5 @@ const App = () => {
             </div>
         </KitSpace>
     );
-};
 
 export default App;

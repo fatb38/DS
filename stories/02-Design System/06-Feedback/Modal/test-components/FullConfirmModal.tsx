@@ -4,8 +4,7 @@ import {getParentSelector, ModalContainer, modalProps} from './commons.ts';
 import ConfirmDialog from '@kit/Feedback/Modal/ConfirmDialog.tsx';
 import {KitApp} from '@kit/App';
 
-export const FullConfirmModalTest: FunctionComponent = () => {
-    return (
+export const FullConfirmModalTest: FunctionComponent = () => (
         <KitApp>
             <div>
                 <KitTypography.Title level="h3">Full confirm modal</KitTypography.Title>
@@ -26,4 +25,3 @@ export const FullConfirmModalTest: FunctionComponent = () => {
             </div>
         </KitApp>
     );
-};

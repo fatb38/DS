@@ -47,8 +47,7 @@ export const Template = (args: KitInputNumberProps) => {
     );
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace size="m">
             <KitInputNumber placeholder="10" />
             <KitInputNumber disabled placeholder="10" />
@@ -56,6 +55,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             <KitInputNumber status="error" placeholder="10" />
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.InputNumber';
 EditorTemplate.title = 'InputNumber';

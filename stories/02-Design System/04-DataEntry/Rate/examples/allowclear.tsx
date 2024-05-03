@@ -3,8 +3,7 @@ import {KitRate} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout';
 import {KitTypography} from '@kit/General';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitRate defaultValue={3} />
             <KitTypography.Text>allowClear: true</KitTypography.Text>
@@ -13,6 +12,5 @@ const App = () => {
             <KitTypography.Text>allowClear: false</KitTypography.Text>
         </KitSpace>
     );
-};
 
 export default App;

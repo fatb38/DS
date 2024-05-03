@@ -8,9 +8,7 @@ import type {CustomTagProps} from 'rc-select/es/BaseSelect';
 import {FlattenOptionData} from 'rc-select/lib/interface';
 import {BaseOptionType} from 'antd/es/select';
 
-export const getLabelRender = ({value}: LabelInValueType | CustomTagProps, options: IKitInternalOption[]) => {
-    return options.filter(option => option.value === value).pop()?.labelToDisplay;
-};
+export const getLabelRender = ({value}: LabelInValueType | CustomTagProps, options: IKitInternalOption[]) => options.filter(option => option.value === value).pop()?.labelToDisplay;
 
 export const getTagRender = (
     customTag: CustomTagProps,
@@ -89,9 +87,7 @@ export const fixSelectRender = (id: string) => {
 export const getOptionRender = (
     {value, label}: FlattenOptionData<BaseOptionType>,
     flattenInternalOptions: IKitInternalOption[]
-) => {
-    return flattenInternalOptions.find(option => option.value === value)?.labelToDisplay ?? label;
-};
+) => flattenInternalOptions.find(option => option.value === value)?.labelToDisplay ?? label;
 
 export const getOptionLabelRender = (selectOption: IKitOption, labelOnly?: IKitSelect['labelOnly']): ReactNode => {
     if (isIdCardOption(selectOption)) {

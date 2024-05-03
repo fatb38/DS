@@ -6,7 +6,7 @@ import {KitSpace} from '@kit/Layout';
 
 export const SegmentedButtonTest: FunctionComponent = () => (
     <div style={{marginBottom: '40px'}}>
-        <KitTypography.Title level={'h3'}>Segmented button</KitTypography.Title>
+        <KitTypography.Title level="h3">Segmented button</KitTypography.Title>
         <div style={{display: 'inline-flex', gap: '8px', marginBottom: '8px'}}>
             <KitButton type="segmented">Link</KitButton>
             <KitButton type="segmented" id="hover">

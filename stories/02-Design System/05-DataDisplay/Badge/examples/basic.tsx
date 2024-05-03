@@ -5,8 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faClock} from '@fortawesome/free-regular-svg-icons';
 import {KitIcon} from '@kit/General';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace size="s">
             <KitBadge count={5}>
                 <KitAvatar shape="square" size="large" />
@@ -19,6 +18,5 @@ const App = () => {
             </KitBadge>
         </KitSpace>
     );
-};
 
 export default App;

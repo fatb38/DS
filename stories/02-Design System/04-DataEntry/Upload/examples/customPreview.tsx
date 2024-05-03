@@ -15,8 +15,6 @@ const previewFile = (file: File | Blob) => {
     );
 };
 
-const App = () => {
-    return <KitUpload previewFile={previewFile} listType="picture" />;
-};
+const App = () => <KitUpload previewFile={previewFile} listType="picture" />;
 
 export default App;

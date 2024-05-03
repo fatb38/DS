@@ -41,8 +41,7 @@ const showUploadList = {
     removeIcon: <FontAwesomeIcon icon={faStar} onClick={e => console.log(e, 'custom removeIcon event')} />
 };
 
-const App = () => {
-    return (
+const App = () => (
         <KitUpload
             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             fileList={defaultFileList}
@@ -50,6 +49,5 @@ const App = () => {
             showUploadList={showUploadList}
         />
     );
-};
 
 export default App;

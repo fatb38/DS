@@ -2,8 +2,7 @@ import React from 'react';
 import {KitInput} from '@kit/DataEntry/';
 import {KitDivider, KitSpace} from '@kit/Layout/';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitDivider orientation="left">Input</KitDivider>
             <KitSpace align="start">
@@ -22,6 +21,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

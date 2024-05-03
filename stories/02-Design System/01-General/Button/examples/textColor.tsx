@@ -3,8 +3,7 @@ import {KitButton, KitSpace} from '@kit/index';
 import {faRotateRight} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitSpace wrap>
                 <KitButton type="text" icon={<FontAwesomeIcon icon={faRotateRight} />} />
@@ -24,6 +23,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

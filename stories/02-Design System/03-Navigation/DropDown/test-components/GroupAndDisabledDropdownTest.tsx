@@ -6,8 +6,7 @@ import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 import {disabledAndDividerDropdownItems, groupDropdownItems} from '../commons.tsx';
 
 export const GroupAndDisabledDropdownTest: FunctionComponent = () => {
-    const customRender = (menu: React.ReactNode) => {
-        return (
+    const customRender = (menu: React.ReactNode) => (
             <>
                 {menu}
                 <KitButton type="primary" block style={{marginTop: '15px'}}>
@@ -15,7 +14,6 @@ export const GroupAndDisabledDropdownTest: FunctionComponent = () => {
                 </KitButton>
             </>
         );
-    };
 
     return (
         <div>

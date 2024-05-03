@@ -86,8 +86,7 @@ export const Template = (args: IKitHeader) => {
     );
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitPageHeader
             title="Campagne 1 - soldes rentrée"
             search={searchProps}
@@ -96,6 +95,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             onPlusClick={() => console.log('click on plus')}
         />
     );
-};
 EditorTemplate.path = 'components.PageHeader';
 EditorTemplate.title = 'PageHeader';

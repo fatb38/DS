@@ -18,15 +18,13 @@ export const KitApp: FunctionComponent<{
     locale?: IKitLocale;
     children?: ReactNode;
     id?: string;
-}> = ({children, locale, customTheme, id}) => {
-    return (
+}> = ({children, locale, customTheme, id}) => (
         <KitThemeProvider customTheme={customTheme} id={id}>
             <KitLocaleProvider>
                 <KitAppConfig locale={locale}>{children}</KitAppConfig>
             </KitLocaleProvider>
         </KitThemeProvider>
     );
-};
 
 const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale}>> = ({children, locale}) => {
     const {locale: kitLocal, setKitLocale} = useKitLocale();
@@ -42,7 +40,7 @@ const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale}>> 
             locale={mapKitLocaleToAntdLocale(locale)}
             renderEmpty={() => (
                 <KitEmpty
-                    className={'default-render'}
+                    className="default-render"
                     image={KitEmpty.ASSET_LIST}
                     description={kitLocal.Empty?.noData}
                 />

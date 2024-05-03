@@ -36,9 +36,9 @@ const languageOptions = [
 
 export const menuContentExample = (
     <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px'}}>
-        <img src="public/images/omnipublish-logo.svg" style={{width: '100px', height: '100px'}} />
-        <img src="public/images/pim-logo.svg" style={{width: '100px', height: '100px'}} />
-        <img src="public/images/dam-logo.svg" style={{width: '100px', height: '100px'}} />
+        <img src="public/images/omnipublish-logo.svg" style={{width: '100px', height: '100px'}} alt="" />
+        <img src="public/images/pim-logo.svg" style={{width: '100px', height: '100px'}} alt="" />
+        <img src="public/images/dam-logo.svg" style={{width: '100px', height: '100px'}} alt="" />
     </div>
 );
 
@@ -65,7 +65,7 @@ export const profileMenuContentExemple = {
     ]
 };
 
-export const logoExample = <img src="public/images/omnipublish-logo.svg" />;
+export const logoExample = <img src="public/images/omnipublish-logo.svg" alt="" />;
 
 export const userProfileExample = (
     <KitHeader.Profile

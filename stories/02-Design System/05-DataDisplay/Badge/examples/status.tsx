@@ -3,8 +3,7 @@ import {KitBadge} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {KitTypography} from '@kit/General';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitSpace direction="vertical">
                 <KitBadge dot status="success">
@@ -43,6 +42,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

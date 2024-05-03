@@ -39,8 +39,6 @@ const defaultFileList: UploadProps['defaultFileList'] = [
     }
 ];
 
-const App = () => {
-    return <KitUpload onChange={onChange} progress={progress} defaultFileList={defaultFileList} />;
-};
+const App = () => <KitUpload onChange={onChange} progress={progress} defaultFileList={defaultFileList} />;
 
 export default App;

@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitSpace, KitButton} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace>
             <KitSpace.Compact direction="vertical">
                 <KitButton>Button 1</KitButton>
@@ -21,6 +20,5 @@ const App = () => {
             </KitSpace.Compact>
         </KitSpace>
     );
-};
 
 export default App;

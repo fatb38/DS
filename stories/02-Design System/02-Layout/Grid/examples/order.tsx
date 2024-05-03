@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitDivider, KitGrid} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <>
             <KitDivider orientation="left">Normal</KitDivider>
             <KitGrid.Row>
@@ -36,6 +35,5 @@ const App = () => {
             </KitGrid.Row>
         </>
     );
-};
 
 export default App;

@@ -47,8 +47,7 @@ export const Template = (args: KitColorPickerProps) => {
     );
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace direction="vertical">
             <KitSpace size="m">
                 <KitColorPicker />
@@ -60,6 +59,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.ColorPicker';
 EditorTemplate.title = 'ColorPicker';

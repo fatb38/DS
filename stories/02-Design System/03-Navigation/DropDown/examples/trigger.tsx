@@ -25,8 +25,7 @@ const items: IKitDropdownMenu['items'] = [
     }
 ];
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace>
             <KitDropDown menu={{items}} trigger={['click']}>
                 <a onClick={e => e.preventDefault()}>
@@ -37,6 +36,5 @@ const App = () => {
             </KitDropDown>
         </KitSpace>
     );
-};
 
 export default App;

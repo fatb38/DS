@@ -13,8 +13,7 @@ export const Template = (args: IKitCheckbox) => {
     return <KitCheckbox {...props}>{label}</KitCheckbox>;
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace size="m">
             <KitSpace direction="vertical">
                 <KitCheckbox>Checkbox</KitCheckbox>
@@ -38,6 +37,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.Checkbox';
 EditorTemplate.title = 'Checkbox';

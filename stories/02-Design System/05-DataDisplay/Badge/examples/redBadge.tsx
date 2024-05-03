@@ -5,8 +5,7 @@ import {KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBell} from '@fortawesome/free-regular-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace size="s">
             <KitBadge dot>
                 <FontAwesomeIcon icon={faBell} style={{fontSize: 16}} />
@@ -16,6 +15,5 @@ const App = () => {
             </KitBadge>
         </KitSpace>
     );
-};
 
 export default App;

@@ -3,8 +3,7 @@ import {KitMenu} from '@kit/Navigation';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHouse, faMinus, faPercent, faPlus} from '@fortawesome/free-solid-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <div style={{width: '100%', padding: '5px', background: 'lightgrey'}}>
             <div style={{width: '350px'}}>
                 <KitMenu.Item
@@ -111,6 +110,5 @@ const App = () => {
             </div>
         </div>
     );
-};
 
 export default App;

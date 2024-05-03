@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitTypography, KitDivider} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <>
             <KitTypography.Text>Lorem</KitTypography.Text>
             <KitDivider type="vertical" />
@@ -11,6 +10,5 @@ const App = () => {
             <KitTypography.Text>dolor</KitTypography.Text>
         </>
     );
-};
 
 export default App;

@@ -34,8 +34,7 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
 
     const [showMoreTooltip, setShowMoreTooltip] = useState(false);
 
-    const _getCheckbox = () => {
-        return (
+    const _getCheckbox = () => (
             isSelectable && (
                 <div className="kit-item-menu-checkbox">
                     <KitCheckbox
@@ -47,20 +46,16 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                 </div>
             )
         );
-    };
 
-    const _getIcon = () => {
-        return (
+    const _getIcon = () => (
             icon && (
                 <div className="kit-item-menu-icon">
                     <KitIcon icon={icon} on={isSelected} />
                 </div>
             )
         );
-    };
 
-    const _getTitle = () => {
-        return (
+    const _getTitle = () => (
             title && (
                 <div className="kit-item-menu-title">
                     <KitTypography.Text size="large" weight="medium" ellipsis={{tooltip: true}}>
@@ -69,7 +64,6 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                 </div>
             )
         );
-    };
 
     const _getActions = () => {
         if (actions) {
@@ -152,8 +146,7 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
         return dropDownActions;
     };
 
-    const _getValue = () => {
-        return (
+    const _getValue = () => (
             value && (
                 <div className="kit-item-menu-value">
                     <KitTypography.Text size="large" weight="regular" ellipsis={{tooltip: true}}>
@@ -162,7 +155,6 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                 </div>
             )
         );
-    };
 
     const _handleClickRafter = (e: MouseEvent<HTMLElement>) => {
         e.stopPropagation();
@@ -171,8 +163,7 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
 
     const _handleClickRafterSecured = useSecureClick(_handleClickRafter);
 
-    const _getRafter = () => {
-        return (
+    const _getRafter = () => (
             hasRafter && (
                 <div
                     className="kit-item-menu-rafter"
@@ -185,7 +176,6 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
                 </div>
             )
         );
-    };
 
     const _handleClickItemMenu = (e: MouseEvent<HTMLElement>) => {
         e.stopPropagation();

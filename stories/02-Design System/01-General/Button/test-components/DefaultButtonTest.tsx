@@ -5,7 +5,7 @@ import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 export const DefaultButtonTest: FunctionComponent = () => (
     <div style={{marginBottom: '40px'}}>
-        <KitTypography.Title level={'h3'}>Secondary (Default) button</KitTypography.Title>
+        <KitTypography.Title level="h3">Secondary (Default) button</KitTypography.Title>
         <div style={{display: 'inline-flex', gap: '8px'}}>
             <KitButton type="secondary">Default</KitButton>
             <KitButton type="secondary" id="hover">

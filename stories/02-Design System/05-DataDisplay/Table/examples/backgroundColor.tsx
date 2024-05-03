@@ -87,8 +87,7 @@ const columns: KitTableColumnsType<DataType> = [
     }
 ];
 
-const App = () => {
-    return (
+const App = () => (
         <div style={{backgroundColor: '#F4F7FF'}}>
             <KitTable
                 dataSource={dataSource}
@@ -99,6 +98,5 @@ const App = () => {
             />
         </div>
     );
-};
 
 export default App;
