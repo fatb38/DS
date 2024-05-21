@@ -1,5 +1,10 @@
 # Changelog
 
+## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-xx-xx)
+### 🐛 Bug Fixes
+* **Button, Icon, ItemMenu:**
+  * Fix bug in useSecureClick causing onClick not called in some cases (@evoiron)
+
 ## [5.0.0](https://www.npmjs.com/package/aristid-ds/v/5.0.0) (2024-04-24)
 ### ✨ Features
 * **ItemList:**

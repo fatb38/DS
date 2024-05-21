@@ -1,23 +1,18 @@
-import {useCallback, useRef} from 'react';
-
 type GenericOnCkick = (...args: never[]) => void;
 
-const useSecureClick = (onClick?: GenericOnCkick, timeout = 500) => {
-    const isClickable = useRef(true);
+const useSecureClick = (onClick?: GenericOnCkick, timeout = 2000) => {
+    let isClickable = true;
 
-    const secureClick = useCallback(
-        (...args: never[]) => {
-            if (isClickable.current && onClick) {
-                onClick(...args);
-                isClickable.current = false;
+    const secureClick = (...args: never[]) => {
+        if (isClickable && onClick) {
+            onClick(...args);
+            isClickable = false;
 
-                setTimeout(() => {
-                    isClickable.current = true;
-                }, timeout);
-            }
-        },
-        [onClick, timeout]
-    );
+            setTimeout(() => {
+                isClickable = true;
+            }, timeout);
+        }
+    };
 
     return secureClick;
 };
