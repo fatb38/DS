@@ -2,8 +2,7 @@ import React from 'react';
 import {KitPagination} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical" style={{height: '230px'}}>
             <KitPagination
                 total={85}
@@ -19,6 +18,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

@@ -74,8 +74,7 @@ export const Template = (args: IKitItemCard) => {
     );
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace>
             <KitItemCard
                 title="Tondeuse à gazon"
@@ -111,6 +110,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             />
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.ItemCard';
 EditorTemplate.title = 'ItemCard';

@@ -34,7 +34,7 @@ const App = () => {
             placeholder="Select a status"
             style={style}
             options={colorOptions}
-            optionFilterProp={'label'}
+            optionFilterProp="label"
             showSearch
             onSearch={value => console.log(value)}
         />

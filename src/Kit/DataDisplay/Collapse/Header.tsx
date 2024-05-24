@@ -38,15 +38,13 @@ const HeaderImage: FunctionComponent<IKitHeaderImage> = ({imageSrc}) => (
             e => e.stopPropagation()
         }
     >
-        {
-            <KitImage
+        <KitImage
                 src={imageSrc}
                 style={{height: 'auto', width: 'auto', maxHeight: '90px', maxWidth: '50px'}}
                 preview={{
                     mask: <FontAwesomeIcon icon={faEye} />
                 }}
             />
-        }
     </div>
 );
 
@@ -94,15 +92,13 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({
     description,
     tagContent,
     disabled = false
-}) => {
-    return (
+}) => (
         <div className={`${styles['kit-collapse-header']}`}>
             {onSwitchChange !== undefined && <HeaderSwitch onSwitchChange={onSwitchChange} disabled={disabled} />}
             {imageSrc !== undefined && <HeaderImage imageSrc={imageSrc} />}
-            {<HeaderContent title={title} description={description} tagContent={tagContent} disabled={disabled} />}
+            <HeaderContent title={title} description={description} tagContent={tagContent} disabled={disabled} />
         </div>
     );
-};
 
 KitHeader.displayName = 'KitHeader';
 

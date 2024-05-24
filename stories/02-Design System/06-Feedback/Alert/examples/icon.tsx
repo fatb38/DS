@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitAlert} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <>
             <KitAlert message="Success Tips" type="success" showIcon />
             <br />
@@ -37,6 +36,5 @@ const App = () => {
             <KitAlert message="Error" description="This is an error message about copywriting." type="error" showIcon />
         </>
     );
-};
 
 export default App;

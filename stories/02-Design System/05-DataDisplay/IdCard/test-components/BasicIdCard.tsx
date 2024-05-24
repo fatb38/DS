@@ -8,11 +8,9 @@ const avatarProps: IKitAvatar = {
     children: 'JD'
 };
 
-export const BasicIdCardTest: FunctionComponent = () => {
-    return (
+export const BasicIdCardTest: FunctionComponent = () => (
         <div>
             <KitTypography.Title level="h3">Default size IdCard</KitTypography.Title>
             <KitIdCard avatarProps={avatarProps} title="John Doe" description="A talented software developer." />
         </div>
     );
-};

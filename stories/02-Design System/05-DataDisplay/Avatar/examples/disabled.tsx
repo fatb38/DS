@@ -45,10 +45,10 @@ const App = () => {
                 <KitAvatar disabled shape="square" size="large" imageFit="fill" src={src} />
             </KitSpace>
             <KitAvatar.Group disabled maxCount={2}>
-                <KitAvatar disabled src={'https://xsgames.co/randomusers/avatar.php?g=pixel&key=1'} />
+                <KitAvatar disabled src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1" />
                 <KitAvatar disabled>K</KitAvatar>
                 <KitAvatar disabled icon={<FontAwesomeIcon icon={faUser} />} />
-                <KitAvatar disabled src={'https://xsgames.co/randomusers/avatar.php?g=pixel&key=1'} />
+                <KitAvatar disabled src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1" />
             </KitAvatar.Group>
         </KitSpace>
     );

@@ -126,8 +126,7 @@ const itemsGroups = [
     }
 ];
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace size="m">
             <KitDropDown menu={{items}}>
                 <KitTypography.Link>
@@ -142,6 +141,5 @@ const App = () => {
             </KitDropDown>
         </KitSpace>
     );
-};
 
 export default App;

@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitProgress} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <>
             <KitProgress
                 type="circle"
@@ -15,6 +14,5 @@ const App = () => {
             <span style={{marginLeft: 8}}>Freeing code</span>
         </>
     );
-};
 
 export default App;

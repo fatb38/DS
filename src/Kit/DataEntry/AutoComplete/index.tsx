@@ -14,13 +14,11 @@ const _getPopupPlacementClasses = (
     className: string | undefined,
     isFocus: boolean,
     status: IKitAutoComplete['status']
-) => {
-    return cn(className, 'ant-select-dropdown', 'kit-select-dropdown-bottom', {
+) => cn(className, 'ant-select-dropdown', 'kit-select-dropdown-bottom', {
         'kit-select-dropdown-focus': isFocus,
         'kit-select-dropdown-error': status === 'error',
         'kit-select-dropdown-warning': status === 'warning'
     });
-};
 
 export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
     (

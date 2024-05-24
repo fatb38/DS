@@ -57,8 +57,6 @@ const columns: KitTableColumnsType<DataType> = [
     }
 ];
 
-const App = () => {
-    return <KitTable dataSource={dataSource} columns={columns} pagination={false} scroll={{x: 1300}} />;
-};
+const App = () => <KitTable dataSource={dataSource} columns={columns} pagination={false} scroll={{x: 1300}} />;
 
 export default App;

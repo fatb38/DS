@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitAlert} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <>
             <KitAlert
                 type="success"
@@ -29,6 +28,5 @@ const App = () => {
             />
         </>
     );
-};
 
 export default App;

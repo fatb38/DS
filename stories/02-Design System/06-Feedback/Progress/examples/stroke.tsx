@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitProgress, KitSpace} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <>
             <KitProgress strokeLinecap="butt" percent={75} />
             <KitSpace wrap>
@@ -11,6 +10,5 @@ const App = () => {
             </KitSpace>
         </>
     );
-};
 
 export default App;

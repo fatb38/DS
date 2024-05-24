@@ -57,8 +57,7 @@ export const Template = (args: IKitLegacyCard) => {
     );
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace direction="vertical">
             <KitLegacyCard
                 title="Card Title"
@@ -75,7 +74,6 @@ export const EditorTemplate: IEditorTemplate = () => {
             />
         </KitSpace>
     );
-};
 
 EditorTemplate.path = 'components.LegacyCard';
 EditorTemplate.title = 'LegacyCard';

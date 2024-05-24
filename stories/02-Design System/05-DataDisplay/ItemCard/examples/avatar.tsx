@@ -2,8 +2,7 @@ import React from 'react';
 import {KitAvatar, KitItemCard} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace>
             <KitSpace direction="vertical">
                 <KitItemCard
@@ -39,6 +38,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

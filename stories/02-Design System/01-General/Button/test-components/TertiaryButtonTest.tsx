@@ -5,7 +5,7 @@ import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 export const TertiaryButtonTest: FunctionComponent = () => (
     <div style={{marginBottom: '40px'}}>
-        <KitTypography.Title level={'h3'}>Tertiary button</KitTypography.Title>
+        <KitTypography.Title level="h3">Tertiary button</KitTypography.Title>
         <div style={{display: 'inline-flex', gap: '8px'}}>
             <KitButton type="tertiary">Default</KitButton>
             <KitButton type="tertiary" id="hover">

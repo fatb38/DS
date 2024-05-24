@@ -5,8 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace>
             <KitSpace direction="vertical" align="start">
                 <KitInput placeholder="Prefix & default" prefix={<FontAwesomeIcon icon={faUser} />} />
@@ -31,6 +30,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitSpace, KitButton} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <div className="space-align-container">
             <div className="space-align-block">
                 <KitSpace align="center">
@@ -34,6 +33,5 @@ const App = () => {
             </div>
         </div>
     );
-};
 
 export default App;

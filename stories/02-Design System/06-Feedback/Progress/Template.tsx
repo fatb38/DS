@@ -3,12 +3,9 @@ import {KitProgress} from '@kit/Feedback/';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
 
-export const Template = args => {
-    return <KitProgress {...args} />;
-};
+export const Template = args => <KitProgress {...args} />;
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace direction="vertical" style={{width: '200px'}}>
             <KitProgress percent={30} />
             <KitProgress percent={50} status="active" />
@@ -26,6 +23,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.Progress';
 EditorTemplate.title = 'Progress';

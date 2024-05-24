@@ -5,8 +5,7 @@ import {KitSpace} from '@kit/Layout/';
 import {IEditorTemplate} from '../../../types';
 import {IKitOpenSnackBar} from '@kit/Feedback/SnackBar/types';
 
-export const Template = (args: IKitOpenSnackBar) => {
-    return (
+export const Template = (args: IKitOpenSnackBar) => (
         <div>
             <KitSnackBarProvider />
             <KitSpace>
@@ -34,10 +33,8 @@ export const Template = (args: IKitOpenSnackBar) => {
             </KitSpace>
         </div>
     );
-};
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace>
             <KitButton
                 type="primary"
@@ -61,6 +58,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             </KitButton>
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.SnackBar';
 EditorTemplate.title = 'SnackBar';

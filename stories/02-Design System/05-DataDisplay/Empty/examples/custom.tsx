@@ -7,7 +7,7 @@ import {KitSpace} from '@kit/Layout';
 
 const App = () => {
     const title = (
-        <KitTypography.Title level={'h3'}>
+        <KitTypography.Title level="h3">
             No folder has been found on <a>/documents/upload/</a>
         </KitTypography.Title>
     );
@@ -21,7 +21,7 @@ const App = () => {
 
     return (
         <KitEmpty
-            image={'https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'}
+            image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
             title={title}
             description={description}
             button={

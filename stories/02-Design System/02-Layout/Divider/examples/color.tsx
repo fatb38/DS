@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitTypography, KitDivider} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <>
             <KitTypography.Paragraph size="medium" weight="regular">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare,
@@ -20,6 +19,5 @@ const App = () => {
             </KitTypography.Paragraph>
         </>
     );
-};
 
 export default App;

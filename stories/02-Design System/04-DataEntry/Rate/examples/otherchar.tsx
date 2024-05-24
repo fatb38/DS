@@ -6,8 +6,7 @@ import {faCircle as faCircleDefault} from '@fortawesome/free-regular-svg-icons';
 import {faCircle as faCircleActive} from '@fortawesome/free-solid-svg-icons';
 import {faCircleHalfStroke as faCircleHalf} from '@fortawesome/free-solid-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitRate
                 allowHalf
@@ -18,6 +17,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

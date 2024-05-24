@@ -19,14 +19,14 @@ const App = () => (
     <AntLayout>
         <KitHeader
             menu={menuContentExample}
-            logo={<img alt={''} src="public/images/omnipublish-logo.svg" />}
+            logo={<img alt="" src="public/images/omnipublish-logo.svg" />}
             profile={userProfileExample}
             langSwitcher={langSwitcherExample}
         >
             <KitInput placeholder="Search..." prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
         </KitHeader>
         <AntLayout.Content style={{backgroundColor: 'var(--general-colors-primary-primary50)'}}>
-            <KitError title={'Page not found'} description={<_Description />} />
+            <KitError title="Page not found" description={<_Description />} />
         </AntLayout.Content>
     </AntLayout>
 );

@@ -17,7 +17,7 @@ const _setLayoutForAntDescription = (
 ) => {
     const _title =
         typeof title === 'string' || typeof title === 'number' ? (
-            <KitTypography.Title className="empty-title" level={'h4'}>
+            <KitTypography.Title className="empty-title" level="h4">
                 {title}
             </KitTypography.Title>
         ) : (
@@ -32,7 +32,7 @@ const _setLayoutForAntDescription = (
         );
 
     return (
-        <KitSpace direction="vertical" size={'s'}>
+        <KitSpace direction="vertical" size="s">
             {_title}
             {_description}
             {button}

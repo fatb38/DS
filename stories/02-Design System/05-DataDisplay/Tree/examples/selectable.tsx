@@ -30,12 +30,10 @@ const treeData = [
     }
 ];
 
-const App = () => {
-    return (
+const App = () => (
         <div style={{width: '300px'}}>
             <KitTree multiple treeData={treeData} defaultExpandAll />
         </div>
     );
-};
 
 export default App;

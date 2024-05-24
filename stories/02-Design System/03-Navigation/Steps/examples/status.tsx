@@ -2,8 +2,7 @@ import React from 'react';
 import {KitSteps} from '@kit/Navigation';
 import {KitDivider, KitSpace} from '@kit/Layout';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical" size={32}>
             <KitSpace direction="vertical">
                 <KitDivider orientation="left">Status on 'Steps'</KitDivider>
@@ -50,6 +49,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

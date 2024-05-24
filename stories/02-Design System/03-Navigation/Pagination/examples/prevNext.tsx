@@ -15,8 +15,6 @@ const itemRender = (
     return originalElement;
 };
 
-const App = () => {
-    return <KitPagination style={{height: '200px'}} total={500} itemRender={itemRender} />;
-};
+const App = () => <KitPagination style={{height: '200px'}} total={500} itemRender={itemRender} />;
 
 export default App;

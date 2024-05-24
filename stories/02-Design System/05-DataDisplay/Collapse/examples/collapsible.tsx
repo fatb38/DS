@@ -27,7 +27,7 @@ const App = () => {
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 1"
                     description="This is a description 1"
-                    tagContent={'sprint #6'}
+                    tagContent="sprint #6"
                     onSwitchChange={checked => console.log(checked)}
                 />
             ),
@@ -57,7 +57,7 @@ const App = () => {
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 2"
                     description="This is a description 2"
-                    tagContent={'sprint #7'}
+                    tagContent="sprint #7"
                     onSwitchChange={checked => console.log(checked)}
                 />
             ),

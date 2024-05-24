@@ -87,13 +87,11 @@ const _getMoreActionsDropDownItems = ({actions}: IKitHeaderExtraMoreActions): Me
     return dropDownActions;
 };
 
-export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions, disabled = false}) => {
-    return (
+export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions, disabled = false}) => (
         <div className={`${styles['kit-collapse-header-extra']}`}>
             {actions !== undefined && <HeaderExtraActions actions={actions} disabled={disabled} />}
         </div>
     );
-};
 
 KitHeaderExtra.displayName = 'KitHeaderExtra';
 

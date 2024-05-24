@@ -47,8 +47,7 @@ const StyleContainer = styled.div`
     }
 `;
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace direction="vertical">
             <StyleContainer id="modal-test-container-1">
                 <ConfirmDialog
@@ -100,6 +99,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             </StyleContainer>
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.Modal';
 EditorTemplate.title = 'Modal';

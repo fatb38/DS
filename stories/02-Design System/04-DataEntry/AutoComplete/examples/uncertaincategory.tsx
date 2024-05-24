@@ -4,8 +4,7 @@ import {KitAutoComplete} from '@kit/DataEntry';
 const App = () => {
     const getRandomInt = (max, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-    const searchResult = query => {
-        return new Array(getRandomInt(5))
+    const searchResult = query => new Array(getRandomInt(5))
             .join('.')
             .split('.')
             .map((_, idx) => {
@@ -34,7 +33,6 @@ const App = () => {
                     )
                 };
             });
-    };
 
     const [options, setOptions] = useState<{value: string; label: ReactNode}[]>([]);
 

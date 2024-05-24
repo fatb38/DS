@@ -27,13 +27,11 @@ const items = [
     }
 ];
 
-export const Template = (args: IKitDropdown) => {
-    return (
+export const Template = (args: IKitDropdown) => (
         <KitDropDown {...args} menu={{items}}>
             <KitButton>Label</KitButton>
         </KitDropDown>
     );
-};
 
 export const EditorTemplate: IEditorTemplate = () => {
     const items: IKitDropdownMenu['items'] = [

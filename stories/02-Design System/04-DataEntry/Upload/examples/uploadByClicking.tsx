@@ -13,8 +13,6 @@ const onChange = (info: UploadChangeParam) => {
     }
 };
 
-const App = () => {
-    return <KitUpload onChange={onChange} />;
-};
+const App = () => <KitUpload onChange={onChange} />;
 
 export default App;

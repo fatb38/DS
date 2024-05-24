@@ -4,8 +4,7 @@ import {KitButton} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAdd} from '@fortawesome/free-solid-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitEmpty
             image={KitEmpty.ASSET_FOLDER}
             title="No Folder Found"
@@ -17,6 +16,5 @@ const App = () => {
             }
         />
     );
-};
 
 export default App;

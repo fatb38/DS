@@ -4,8 +4,7 @@ import {KitSpace} from '@kit/Layout';
 
 const showTotal = total => `Total ${total} items`;
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical" style={{height: '230px'}}>
             <KitPagination size="small" total={50} />
             <KitPagination size="small" total={50} showSizeChanger showQuickJumper />
@@ -13,6 +12,5 @@ const App = () => {
             <KitPagination size="small" total={50} disabled showTotal={showTotal} showSizeChanger showQuickJumper />
         </KitSpace>
     );
-};
 
 export default App;

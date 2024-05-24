@@ -6,9 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowsUpDownLeftRight, faPencil, faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import {IKitActionButton} from '@kit/DataDisplay/types';
 
-export const Template = ({title = 'This is a title', ...args}) => {
-    return <KitCard title={title} {...args} />;
-};
+export const Template = ({title = 'This is a title', ...args}) => <KitCard title={title} {...args} />;
 
 export const EditorTemplate: IEditorTemplate = () => {
     const [selected, setSelected] = useState(false);

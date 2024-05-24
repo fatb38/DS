@@ -58,8 +58,6 @@ export const Template = (args: IKitBreadcrumb) => {
     );
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return <KitBreadcrumb items={items} />;
-};
+export const EditorTemplate: IEditorTemplate = () => <KitBreadcrumb items={items} />;
 EditorTemplate.path = 'components.Breadcrumb';
 EditorTemplate.title = 'Breadcrumb';

@@ -2,8 +2,7 @@ import React from 'react';
 import {KitLegacyCard} from '@kit/DataDisplay';
 import {KitSpace} from '@kit/Layout';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitLegacyCard
                 separator={true}
@@ -19,6 +18,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

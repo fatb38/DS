@@ -53,7 +53,7 @@ export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
                                 <KitButton
                                     disabled={disabled}
                                     key={action.key}
-                                    type={'tertiary'}
+                                    type="tertiary"
                                     icon={action.icon}
                                     onClick={action.onClick}
                                 />
@@ -63,12 +63,12 @@ export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
                         <>
                             <KitButton
                                 disabled={disabled}
-                                type={'tertiary'}
+                                type="tertiary"
                                 icon={actions[0].icon}
                                 onClick={actions[0].onClick}
                             />
                             <KitDropDown disabled={disabled} menu={{items: actions.slice(1)}}>
-                                <KitButton type={'tertiary'} icon={<FontAwesomeIcon icon={faEllipsis} />} />
+                                <KitButton type="tertiary" icon={<FontAwesomeIcon icon={faEllipsis} />} />
                             </KitDropDown>
                         </>
                     )}

@@ -62,22 +62,22 @@ export const ExtraContentTabsTest: FunctionComponent = () => (
         <div style={{display: 'flex', flexDirection: 'column'}}>
             <KitTabs
                 style={{marginBottom: 15}}
-                defaultActiveKey={'1'}
+                defaultActiveKey="1"
                 centered
                 items={items}
-                type={'card'}
+                type="card"
                 tabBarExtraContent={largeRightColumn}
             />
             <KitTabs
                 style={{marginBottom: 15}}
-                defaultActiveKey={'2'}
+                defaultActiveKey="2"
                 centered
                 items={items}
                 tabBarExtraContent={{left: largeLeftColumn}}
             />
             <KitTabs
                 style={{marginBottom: 15}}
-                defaultActiveKey={'3'}
+                defaultActiveKey="3"
                 centered
                 items={items}
                 hideSeparator

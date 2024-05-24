@@ -20,8 +20,7 @@ import {
     getTagRender
 } from './renders';
 
-const _parseOptions = (optionList: IKitOption[], labelOnly?: IKitSelect['labelOnly']): IKitInternalOption[] => {
-    return optionList.map(option => {
+const _parseOptions = (optionList: IKitOption[], labelOnly?: IKitSelect['labelOnly']): IKitInternalOption[] => optionList.map(option => {
         const {className, disabled, value, options, label} = option;
 
         if (options) {
@@ -40,7 +39,6 @@ const _parseOptions = (optionList: IKitOption[], labelOnly?: IKitSelect['labelOn
             value
         };
     });
-};
 
 const _getPlacementClasses = (appId: string, className: string | undefined, placement: IKitSelect['placement']) => {
     const isTop = placement && placement.indexOf('top') >= 0;

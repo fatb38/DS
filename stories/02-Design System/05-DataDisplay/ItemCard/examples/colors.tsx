@@ -2,8 +2,7 @@ import React from 'react';
 import {KitItemCard, KitImage} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitItemCard
                 title="Tondeuse à gazon"
@@ -28,6 +27,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

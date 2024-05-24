@@ -23,8 +23,7 @@ const items: IKitDropdownMenu['items'] = [
     }
 ];
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitSpace wrap>
                 <KitDropDown menu={{items}} placement="bottomLeft">
@@ -50,6 +49,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

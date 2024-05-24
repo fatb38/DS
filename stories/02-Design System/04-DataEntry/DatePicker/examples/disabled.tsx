@@ -3,8 +3,7 @@ import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import dayjs from 'dayjs';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitDatePicker disabled />
             <KitDatePicker defaultValue={dayjs('2023-06-06', 'YYYY-MM-DD')} disabled />
@@ -19,6 +18,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

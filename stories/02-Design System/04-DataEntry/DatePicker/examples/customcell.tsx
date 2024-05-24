@@ -4,8 +4,7 @@ import {KitSpace} from '@kit/Layout/';
 import type {Dayjs} from 'dayjs';
 import type {CellRenderInfo} from 'rc-picker/lib/interface';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitDatePicker
                 cellRender={(current: string | number | Dayjs, info: CellRenderInfo<Dayjs>) => {
@@ -28,6 +27,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

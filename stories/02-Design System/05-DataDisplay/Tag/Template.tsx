@@ -13,12 +13,10 @@ export const Template = (args: IKitTag) => {
     return <KitTag {...props}>{label ? label : 'Default label'}</KitTag>;
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace>
             <KitTag onClose={() => {}}>Tag</KitTag>
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.Tag';
 EditorTemplate.title = 'Tag';

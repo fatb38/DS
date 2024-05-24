@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitTypography} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <>
             <KitTypography.Paragraph size="large" weight="bold">
                 Aristid Design Paragraph-L bold
@@ -38,6 +37,5 @@ const App = () => {
             </KitTypography.Link>
         </>
     );
-};
 
 export default App;

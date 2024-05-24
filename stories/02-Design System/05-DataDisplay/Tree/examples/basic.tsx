@@ -48,8 +48,7 @@ const onCheck = (checkedKeys, info) => {
     console.log('onCheck', checkedKeys, info);
 };
 
-const App = () => {
-    return (
+const App = () => (
         <div style={{width: '300px'}}>
             <KitTree
                 draggable
@@ -63,6 +62,5 @@ const App = () => {
             />
         </div>
     );
-};
 
 export default App;

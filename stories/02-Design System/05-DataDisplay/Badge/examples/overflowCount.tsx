@@ -2,8 +2,7 @@ import React from 'react';
 import {KitAvatar, KitBadge} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace size="m">
             <KitBadge count={99}>
                 <KitAvatar shape="square" size="large" />
@@ -19,6 +18,5 @@ const App = () => {
             </KitBadge>
         </KitSpace>
     );
-};
 
 export default App;

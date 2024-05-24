@@ -40,7 +40,7 @@ export const KitCard: FunctionComponent<IKitCard> = ({
         <div tabIndex={disabled ? -1 : 0} className={clx} style={style}>
             <div className={`kit-card-picture ${brandingBar ? 'brandingBar' : ''}`}>
                 {/*Change with Empty component when ready*/}
-                <img src={previewSrc ?? 'public/images/no-preview.png'} />
+                <img src={previewSrc ?? 'public/images/no-preview.png'} alt="" />
                 {onSelect && (
                     <KitCheckbox
                         className="kit-card-checkbox"

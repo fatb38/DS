@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitGrid} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <KitGrid.Row>
             <KitGrid.Col xs={2} sm={4} md={6} lg={8} xl={10}>
                 <div className="col-demo odd">Col</div>
@@ -15,6 +14,5 @@ const App = () => {
             </KitGrid.Col>
         </KitGrid.Row>
     );
-};
 
 export default App;

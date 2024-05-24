@@ -61,7 +61,7 @@ const App = () => {
     const style = {width: 320};
 
     return (
-        <KitSpace direction="vertical" size={'l'}>
+        <KitSpace direction="vertical" size="l">
             <KitSpace direction="vertical">
                 <KitTypography.Text weight="bold">Label only</KitTypography.Text>
                 <KitSpace>

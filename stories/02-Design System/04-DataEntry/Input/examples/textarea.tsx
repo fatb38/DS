@@ -2,8 +2,7 @@ import React from 'react';
 import {KitInput} from '@kit/DataEntry/';
 import {KitDivider, KitSpace} from '@kit/Layout/';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitSpace>
                 <KitInput.TextArea placeholder="Default" />
@@ -17,6 +16,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

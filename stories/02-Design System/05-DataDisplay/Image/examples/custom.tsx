@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitImage} from '@kit/DataDisplay';
 
-const App = () => {
-    return (
+const App = () => (
         <KitImage
             width={200}
             src='public/images/portraitBlur.png'
@@ -11,6 +10,5 @@ const App = () => {
             }}
         />
     );
-};
 
 export default App;

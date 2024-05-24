@@ -4,8 +4,7 @@ import {KitSpace} from '@kit/Layout';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHouse} from '@fortawesome/free-solid-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <div style={{width: '100%', padding: '5px', background: 'lightgrey'}}>
             <KitSpace direction="vertical" style={{width: '350px'}}>
                 <KitMenu.Item
@@ -22,6 +21,5 @@ const App = () => {
             </KitSpace>
         </div>
     );
-};
 
 export default App;

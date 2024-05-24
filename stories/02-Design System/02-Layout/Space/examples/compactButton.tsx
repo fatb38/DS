@@ -3,8 +3,7 @@ import {KitSpace, KitButton, KitTooltip} from '@kit/index';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload} from '@fortawesome/free-solid-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace.Compact block>
             <KitButton type="primary">Button 1</KitButton>
             <KitButton type="primary">Button 2</KitButton>
@@ -22,6 +21,5 @@ const App = () => {
             </KitTooltip>
         </KitSpace.Compact>
     );
-};
 
 export default App;

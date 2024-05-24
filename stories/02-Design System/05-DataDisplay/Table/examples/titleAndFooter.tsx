@@ -57,8 +57,7 @@ const columns: KitTableColumnsType<DataType> = [
     }
 ];
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace size="l">
             <KitTable
                 dataSource={dataSource}
@@ -69,6 +68,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

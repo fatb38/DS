@@ -3,8 +3,7 @@ import {KitButton, KitSpace} from '@kit/index';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitSpace>
                 <KitButton type="primary">Primary</KitButton>
@@ -58,6 +57,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

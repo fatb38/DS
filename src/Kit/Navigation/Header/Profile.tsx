@@ -20,9 +20,7 @@ const Profile: FunctionComponent<IKitHeaderProfile> = ({logo, tag, userCard, cla
         className
     );
 
-    const _renderDropdown = () => {
-        return menu;
-    };
+    const _renderDropdown = () => menu;
     const dropDownProps: IKitDropdown = {
         disabled: !menu,
         placement: 'bottomRight'

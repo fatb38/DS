@@ -3,8 +3,7 @@ import {KitButton, KitSpace} from '@kit/index';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitSpace wrap>
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} iconSize="xs" />
@@ -15,6 +14,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

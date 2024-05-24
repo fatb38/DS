@@ -2,8 +2,7 @@ import React from 'react';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitCheckbox defaultChecked={false} danger>
                 Unchecked
@@ -19,6 +18,5 @@ const App = () => {
             </KitCheckbox>
         </KitSpace>
     );
-};
 
 export default App;

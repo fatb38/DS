@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitUpload} from '@kit/DataEntry';
 
-const App = () => {
-    return (
+const App = () => (
         <KitUpload
             defaultFileList={[
                 {
@@ -27,6 +26,5 @@ const App = () => {
             listType="picture"
         />
     );
-};
 
 export default App;

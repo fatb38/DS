@@ -43,14 +43,12 @@ const convertToFontAwesomeIconName = (inputString: string): string => {
 const filterIcons = (key: string) => key !== 'fas' && key !== 'prefix';
 const sortIconByAlphabetically = (a: IconDefinition, b: IconDefinition) => a.iconName.localeCompare(b.iconName);
 
-const removeDuplicateIcons = (icons: IconDefinition[]) => {
-    return icons.reduce<IconDefinition[]>((accumulator, current) => {
+const removeDuplicateIcons = (icons: IconDefinition[]) => icons.reduce<IconDefinition[]>((accumulator, current) => {
         if (!accumulator.some(icon => icon.iconName === current.iconName)) {
             accumulator.push(current);
         }
         return accumulator;
     }, []);
-};
 
 const getRegularIcons = () => {
     const filteredFaRegularIconsKeys = Object.keys(FaRegularIcons).filter(filterIcons);
@@ -193,13 +191,11 @@ const Gallery = () => {
 
 export default Gallery;
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace>
             <KitIcon icon={<FontAwesomeIcon icon={FaSolidIcons.faDownload} />} />
             <KitIcon icon={<FontAwesomeIcon icon={FaSolidIcons.faDownload} />} on />
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.Icon';
 EditorTemplate.title = 'Icon';

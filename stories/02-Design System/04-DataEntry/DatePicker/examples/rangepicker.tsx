@@ -2,8 +2,7 @@ import React from 'react';
 import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitDatePicker.RangePicker />
             <KitDatePicker.RangePicker picker="time" />
@@ -13,6 +12,5 @@ const App = () => {
             <KitDatePicker.RangePicker picker="year" />
         </KitSpace>
     );
-};
 
 export default App;

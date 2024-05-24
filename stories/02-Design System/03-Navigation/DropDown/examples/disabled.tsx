@@ -6,8 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 import {disabledAndDividerDropdownItems, groupDropdownItems} from '../commons.tsx';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace size="m">
             <KitDropDown
                 menu={{
@@ -29,6 +28,5 @@ const App = () => {
             </KitDropDown>
         </KitSpace>
     );
-};
 
 export default App;

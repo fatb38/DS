@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitImage} from '@kit/DataDisplay';
 
-const App = () => {
-    return (
+const App = () => (
         <KitImage.PreviewGroup
             preview={{
                 onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`)
@@ -15,6 +14,5 @@ const App = () => {
             />
         </KitImage.PreviewGroup>
     );
-};
 
 export default App;

@@ -3,8 +3,7 @@ import {KitTooltip} from '@kit/DataDisplay';
 import {KitTypography} from '@kit/General';
 import {KitSpace} from '@kit/Layout';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace>
             <KitTooltip title="prompt text">
                 <KitTypography.Paragraph size="medium" weight="regular">
@@ -13,6 +12,5 @@ const App = () => {
             </KitTooltip>
         </KitSpace>
     );
-};
 
 export default App;

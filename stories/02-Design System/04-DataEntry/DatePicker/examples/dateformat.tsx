@@ -9,15 +9,15 @@ const App = () => {
     const monthFormat = 'YYYY/MM';
     const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY', 'DD-MM-YYYY', 'DD-MM-YY'];
 
-    const customWeekStartEndFormat = value => {
+    const customWeekStartEndFormat = value => 
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        return `${dayjs(value).startOf('week').format(weekFormat)} ~ ${dayjs(value).endOf('week').format(weekFormat)}`;
-    };
+         `${dayjs(value).startOf('week').format(weekFormat)} ~ ${dayjs(value).endOf('week').format(weekFormat)}`
+    ;
 
-    const customFormat = value => {
+    const customFormat = value => 
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-        return `custom format: ${value.format(dateFormat)}`;
-    };
+         `custom format: ${value.format(dateFormat)}`
+    ;
 
     return (
         <KitSpace direction="vertical">

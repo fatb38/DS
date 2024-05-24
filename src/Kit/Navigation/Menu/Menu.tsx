@@ -24,8 +24,7 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
     const shouldDisplayHeaderPrimary = segmentedButton !== undefined || primaryInput !== undefined;
     const shouldDisplayHeaderSecondary = secondaryInput !== undefined;
 
-    const _getTitle = () => {
-        return (
+    const _getTitle = () => (
             title && (
                 <div className="kit-menu-header-title">
                     <KitTypography.Text size="large" weight="medium" ellipsis={{tooltip: true}}>
@@ -34,10 +33,8 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
                 </div>
             )
         );
-    };
 
-    const _getCloseIcon = () => {
-        return (
+    const _getCloseIcon = () => (
             isClosable && (
                 <KitButton
                     className="kit-menu-header-close"
@@ -51,7 +48,6 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
                 />
             )
         );
-    };
 
     const _getSegmentedButton = () => {
         if (segmentedButton === undefined) return;

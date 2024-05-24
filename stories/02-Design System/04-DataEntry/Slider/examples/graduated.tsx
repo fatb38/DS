@@ -16,8 +16,7 @@ const marks: KitSliderMarks = {
     }
 };
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical" style={{width: '300px'}}>
             <KitTypography.Text>included=true</KitTypography.Text>
             <KitSlider marks={marks} defaultValue={25} />
@@ -30,6 +29,5 @@ const App = () => {
             <KitSlider marks={marks} step={null} defaultValue={25} />
         </KitSpace>
     );
-};
 
 export default App;

@@ -26,8 +26,7 @@ const items: IKitDropdownMenu['items'] = [
 ];
 
 const App = () => {
-    const customRender = (menu: React.ReactNode) => {
-        return (
+    const customRender = (menu: React.ReactNode) => (
             <>
                 {menu}
                 <KitButton type="primary" block style={{marginTop: '15px'}}>
@@ -35,7 +34,6 @@ const App = () => {
                 </KitButton>
             </>
         );
-    };
 
     return (
         <KitSpace>

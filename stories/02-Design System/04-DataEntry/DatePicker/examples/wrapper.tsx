@@ -2,8 +2,7 @@ import React from 'react';
 import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace>
             <KitSpace direction="vertical" style={{width: '200px', paddingRight: '20px'}}>
                 <KitDatePicker helper="Helper" label="Label" allowClear={false} />
@@ -21,6 +20,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

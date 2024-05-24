@@ -6,13 +6,11 @@ const onChange = pageNumber => {
     console.log('Page: ', pageNumber);
 };
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical" style={{height: '200px'}}>
             <KitPagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} />
             <KitPagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} disabled />
         </KitSpace>
     );
-};
 
 export default App;

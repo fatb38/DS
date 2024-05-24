@@ -3,8 +3,7 @@ import {KitButton, KitSpace} from '@kit/index';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faRotateRight} from '@fortawesome/free-solid-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace wrap>
             <KitButton type="primary">Primary Button</KitButton>
             <KitButton type="secondary">Secondary Button</KitButton>
@@ -13,6 +12,5 @@ const App = () => {
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faRotateRight} />} />
         </KitSpace>
     );
-};
 
 export default App;

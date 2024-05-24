@@ -44,8 +44,7 @@ const items = [
     }
 ];
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace direction="vertical">
             <KitTabs defaultActiveKey="1" items={items} />
             <KitTabs
@@ -69,9 +68,8 @@ export const EditorTemplate: IEditorTemplate = () => {
                     }
                 ]}
             />
-            <KitTabs type="editable-card" activeKey={'1'} items={items} />
+            <KitTabs type="editable-card" activeKey="1" items={items} />
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.Tabs';
 EditorTemplate.title = 'Tabs';

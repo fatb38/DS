@@ -5,8 +5,7 @@ import {KitIcon} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFaceSmile} from '@fortawesome/free-regular-svg-icons';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitItemCard
                 title="Tondeuse à gazon"
@@ -23,6 +22,5 @@ const App = () => {
             />
         </KitSpace>
     );
-};
 
 export default App;

@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitPagination} from '@kit/Navigation';
 
-const App = () => {
-    return (
+const App = () => (
         <KitPagination
             style={{height: '200px'}}
             total={85}
@@ -11,6 +10,5 @@ const App = () => {
             showTotal={total => `Total ${total} items`}
         />
     );
-};
 
 export default App;

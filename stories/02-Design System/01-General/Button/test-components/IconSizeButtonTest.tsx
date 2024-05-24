@@ -5,7 +5,7 @@ import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 export const IconSizeButtonTest: FunctionComponent = () => (
     <div style={{marginBottom: '40px'}}>
-        <KitTypography.Title level={'h3'}>Icon size button</KitTypography.Title>
+        <KitTypography.Title level="h3">Icon size button</KitTypography.Title>
         <div style={{display: 'flex', gap: '8px'}}>
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} iconSize="xs" />
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} iconSize="s" />

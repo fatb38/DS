@@ -4,8 +4,7 @@ import {KitSpace} from '@kit/Layout/';
 import {faUser} from '@fortawesome/free-regular-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace>
             <KitSpace direction="vertical" style={{width: '400px', paddingRight: '20px'}}>
                 <KitInput placeholder="Prefix & default" helper="Helper" label="Label" allowClear={false} />
@@ -96,6 +95,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

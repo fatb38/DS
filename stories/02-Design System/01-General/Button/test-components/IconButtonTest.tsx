@@ -5,7 +5,7 @@ import {faFilter, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 export const IconButtonTest: FunctionComponent = () => (
     <div style={{marginBottom: '40px'}}>
-        <KitTypography.Title level={'h3'}>Icon button</KitTypography.Title>
+        <KitTypography.Title level="h3">Icon button</KitTypography.Title>
         <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
             <KitButton type="primary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
             <KitButton type="primary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>

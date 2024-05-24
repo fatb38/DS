@@ -3,12 +3,9 @@ import {KitAlert} from '@kit/Feedback/';
 import {IEditorTemplate} from '../../../types';
 import {KitSpace} from '@kit/Layout';
 
-export const Template = args => {
-    return <KitAlert message="Default message" {...args} />;
-};
+export const Template = args => <KitAlert message="Default message" {...args} />;
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace direction="vertical">
             <KitAlert
                 message="Success Tips"
@@ -32,6 +29,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             <KitAlert message="Error" description="This is an error message about copywriting." type="error" showIcon />
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.Alert';
 EditorTemplate.title = 'Alert';

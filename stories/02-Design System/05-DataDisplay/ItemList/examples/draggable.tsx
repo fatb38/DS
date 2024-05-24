@@ -70,8 +70,8 @@ const DraggableButton: FunctionComponent<{isDragging: boolean; listeners: Dragga
     listeners
 }) => (
     <KitButton
-        type={'tertiary'}
-        iconSize={'l'}
+        type="tertiary"
+        iconSize="l"
         icon={<FontAwesomeIcon icon={faGripLines} />}
         style={{marginRight: '8px', cursor: isDragging ? 'grabbing' : 'grab'}}
         {...listeners}

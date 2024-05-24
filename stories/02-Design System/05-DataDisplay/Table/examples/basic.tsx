@@ -57,13 +57,11 @@ const columns: KitTableColumnsType<DataType> = [
         dataIndex: 'tags',
         render: (_, {tags}) => (
             <div style={{display: 'inline-flex'}}>
-                {tags.map(tag => {
-                    return (
-                        <KitTag color={'blue'} key={tag}>
+                {tags.map(tag => (
+                        <KitTag color="blue" key={tag}>
                             {tag.toUpperCase()}
                         </KitTag>
-                    );
-                })}
+                    ))}
             </div>
         )
     },
@@ -79,12 +77,10 @@ const columns: KitTableColumnsType<DataType> = [
     }
 ];
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace size="l">
             <KitTable dataSource={dataSource} columns={columns} pagination={false} />
         </KitSpace>
     );
-};
 
 export default App;

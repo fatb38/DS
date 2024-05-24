@@ -3,8 +3,7 @@ import {KitSpace} from '@kit/Layout/';
 import {KitInputWrapper} from '@kit/DataEntry/';
 import {KitTypography} from '@kit/General';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical" size={24}>
             <KitSpace wrap size={24}>
                 <KitInputWrapper label="label" helper="helper">
@@ -31,6 +30,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

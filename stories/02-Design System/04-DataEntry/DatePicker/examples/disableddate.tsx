@@ -13,9 +13,7 @@ const App = () => {
         return result;
     };
 
-    const disabledDate: IKitRangePicker['disabledDate'] = current => {
-        return current && current < dayjs().endOf('day');
-    };
+    const disabledDate: IKitRangePicker['disabledDate'] = current => current && current < dayjs().endOf('day');
 
     const disabledDateTime = () => ({
         disabledHours: () => range(0, 24).splice(4, 20),

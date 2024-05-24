@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitItemCard, KitImage} from '@kit/DataDisplay/';
 
-const App = () => {
-    return (
+const App = () => (
         <KitItemCard
             vertical
             title="Tondeuse à gazon"
@@ -11,6 +10,5 @@ const App = () => {
             picture={<KitImage src="public/images/tondeuse.png" />}
         />
     );
-};
 
 export default App;

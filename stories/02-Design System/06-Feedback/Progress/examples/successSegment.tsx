@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitProgress, KitSpace, KitTooltip} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <>
             <KitTooltip title="3 done / 3 in progress / 4 to do">
                 <KitProgress percent={60} success={{percent: 30}} />
@@ -17,6 +16,5 @@ const App = () => {
             </KitSpace>
         </>
     );
-};
 
 export default App;

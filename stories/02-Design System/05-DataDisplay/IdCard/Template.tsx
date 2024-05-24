@@ -3,12 +3,9 @@ import {KitIdCard} from '@kit/DataDisplay/';
 import {IEditorTemplate} from '../../../types';
 import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';
 
-export const Template = (args: IKitIdCard) => {
-    return <KitIdCard {...args} />;
-};
+export const Template = (args: IKitIdCard) => <KitIdCard {...args} />;
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
             <KitIdCard
                 avatarProps={{shape: 'square', size: 'large', children: 'JD'}}
@@ -23,6 +20,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             />
         </div>
     );
-};
 EditorTemplate.path = 'components.IdCard';
 EditorTemplate.title = 'IdCard';

@@ -37,8 +37,7 @@ export const Template = (args: IKitAvatar) => {
     );
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace>
             <KitAvatar shape="circle" size="small">
                 A
@@ -59,7 +58,6 @@ export const EditorTemplate: IEditorTemplate = () => {
             </KitAvatar>
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.Avatar';
 EditorTemplate.title = 'Avatar';
 

@@ -2,8 +2,7 @@ import React from 'react';
 import {KitDatePicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitDatePicker renderExtraFooter={() => 'extra footer'} />
             <KitDatePicker renderExtraFooter={() => 'extra footer'} showTime />
@@ -12,6 +11,5 @@ const App = () => {
             <KitDatePicker renderExtraFooter={() => 'extra footer'} picker="month" />
         </KitSpace>
     );
-};
 
 export default App;

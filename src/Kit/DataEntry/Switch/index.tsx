@@ -16,7 +16,7 @@ export const KitSwitch = forwardRef<HTMLButtonElement, IKitSwitch>(({className, 
             ref={ref}
             checkedChildren={null}
             unCheckedChildren={null}
-            size={'default'}
+            size="default"
             className={clx}
         />
     );

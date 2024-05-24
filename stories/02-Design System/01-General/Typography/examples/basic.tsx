@@ -1,8 +1,7 @@
 import React from 'react';
 import {KitTypography, KitSpace} from '@kit/index';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace direction="vertical">
             <KitTypography.Title>h1. Aristid Design</KitTypography.Title>
             <KitTypography.Title level="h2">h2. Aristid Design</KitTypography.Title>
@@ -10,6 +9,5 @@ const App = () => {
             <KitTypography.Title level="h4">h4. Aristid Design</KitTypography.Title>
         </KitSpace>
     );
-};
 
 export default App;

@@ -12,8 +12,6 @@ const actions: ReactNode[] = [
     <KitButton icon={<FontAwesomeIcon icon={faSliders} />}>Vue</KitButton>
 ];
 
-const App = () => {
-    return <KitPageHeader actions={actions} />;
-};
+const App = () => <KitPageHeader actions={actions} />;
 
 export default App;

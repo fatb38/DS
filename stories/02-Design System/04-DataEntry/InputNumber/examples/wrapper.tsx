@@ -2,8 +2,7 @@ import React from 'react';
 import {KitInputNumber} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout';
 
-const App = () => {
-    return (
+const App = () => (
         <KitSpace>
             <KitSpace direction="vertical" style={{width: '100px'}}>
                 <KitInputNumber placeholder="2" helper="Helper" label="Label" />
@@ -14,6 +13,5 @@ const App = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 
 export default App;

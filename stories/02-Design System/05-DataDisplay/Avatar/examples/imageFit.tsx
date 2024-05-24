@@ -6,7 +6,7 @@ const App = () => {
     const src = 'public/images/catalog.jpg';
 
     return (
-        <KitSpace direction="horizontal" size={'l'}>
+        <KitSpace direction="horizontal" size="l">
             <KitSpace direction="vertical">
                 <KitTypography.Text weight="bold">Cover</KitTypography.Text>
                 <KitAvatar shape="square" size="large" imageFit="contain" src={src} />

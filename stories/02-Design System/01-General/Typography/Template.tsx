@@ -28,8 +28,7 @@ export const Template = args => {
     return <KitSpace direction="vertical">{getComponent(component, content, props)}</KitSpace>;
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitGrid.Row>
             <KitGrid.Col span={12}>
                 <KitSpace direction="vertical">
@@ -77,6 +76,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             </KitGrid.Col>
         </KitGrid.Row>
     );
-};
 EditorTemplate.path = 'components.Typography';
 EditorTemplate.title = 'Typography';

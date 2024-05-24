@@ -34,8 +34,7 @@ export const Template = (args: IKitButton) => {
     );
 };
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSpace direction="vertical">
             <KitSpace>
                 <KitButton type="primary">Primary</KitButton>
@@ -224,6 +223,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             </KitSpace>
         </KitSpace>
     );
-};
 EditorTemplate.path = 'components.Button';
 EditorTemplate.title = 'Button';

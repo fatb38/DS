@@ -4,8 +4,7 @@ import {IEditorTemplate} from '../../../types';
 import {IKitSection} from '@kit/Layout/Section/types';
 import {KitTypography} from '@kit/General';
 
-export const Template = ({style, ...args}: IKitSection) => {
-    return (
+export const Template = ({style, ...args}: IKitSection) => (
         <KitSection
             {...args}
             style={{
@@ -19,10 +18,8 @@ export const Template = ({style, ...args}: IKitSection) => {
             <KitTypography.Text>This is section API</KitTypography.Text>
         </KitSection>
     );
-};
 
-export const EditorTemplate: IEditorTemplate = () => {
-    return (
+export const EditorTemplate: IEditorTemplate = () => (
         <KitSection
             style={{
                 display: 'flex',
@@ -34,6 +31,5 @@ export const EditorTemplate: IEditorTemplate = () => {
             <KitTypography.Text>This is Section</KitTypography.Text>
         </KitSection>
     );
-};
 EditorTemplate.path = 'components.Section';
 EditorTemplate.title = 'Section';
