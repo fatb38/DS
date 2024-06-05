@@ -44,6 +44,15 @@ export {
 } from './Feedback';
 export {KitButton, KitTypography, KitIcon} from './General';
 export {KitDivider, KitGrid, KitSpace, KitSection} from './Layout';
-export {KitBreadcrumb, KitDropDown, KitPageHeader, KitHeader, KitMenu, KitSteps, KitPagination} from './Navigation';
+export {
+    KitBreadcrumb,
+    KitDropDown,
+    KitPageHeader,
+    KitHeader,
+    KitMenu,
+    KitSteps,
+    KitPagination,
+    KitSideMenu
+} from './Navigation';
 
 export * from './Ant';

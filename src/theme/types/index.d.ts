@@ -42,6 +42,7 @@ import {IKitTypographyTheme} from './components/General/Typography';
 import {IKitColorPickerTheme} from './components/DataEntry/ColorPicker';
 import {ThemeConfig} from 'antd';
 import {IKitCardTheme} from './components/DataDisplay/Card';
+import {IKitSideMenuTheme} from './components/Navigation/SideMenu';
 
 export type DeepPartial<T> = T extends object
     ? {
@@ -97,6 +98,7 @@ export interface IKitThemeComponents {
     Icon: IKitIconTheme;
     Typography: IKitTypographyTheme;
     ColorPicker: IKitColorPickerTheme;
+    SideMenu: IKitSideMenuTheme;
 }
 
 export interface IKitTheme {

@@ -7,6 +7,7 @@ import {EditorTemplate as DropDown} from './02-Design System/03-Navigation/DropD
 import {EditorTemplate as Header} from './02-Design System/03-Navigation/Header/Template';
 import {EditorTemplate as PageHeader} from './02-Design System/03-Navigation/PageHeader/Template';
 import {EditorTemplate as Menu} from './02-Design System/03-Navigation/Menu/Template';
+import {EditorTemplate as SideMenu} from './02-Design System/03-Navigation/SideMenu/Template';
 import {EditorTemplate as Pagination} from './02-Design System/03-Navigation/Pagination/Template';
 import {EditorTemplate as Steps} from './02-Design System/03-Navigation/Steps/Template';
 import {EditorTemplate as Checkbox} from './02-Design System/04-DataEntry/Checkbox/Template';
@@ -59,6 +60,7 @@ export default {
         Header,
         PageHeader,
         Menu,
+        SideMenu,
         Pagination,
         Steps
     },

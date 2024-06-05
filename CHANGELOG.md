@@ -1,5 +1,18 @@
 # Changelog
 
+## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-XX-XX)
+### ✨ Features
+* **SideMenu:**
+  * Add `SideMenu` component (@evoiron)
+### 🐛 Bug Fixes
+* **Collapse:**
+  * Fix border width (@evoiron)
+* **Avatar:**
+  * Fix background color for transparent images, and add box shadow to avatar group (@evoiron)
+* **Modal:**
+  * Fix modal width bug (@evoiron)
+  * Allow multiline text in modal (@evoiron)
+
 ## [5.1.0](https://www.npmjs.com/package/aristid-ds/v/5.1.0) (2024-05-24)
 ### 🐛 Bug Fixes
 * **Button, Icon, ItemMenu:**
