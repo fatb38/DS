@@ -1,6 +1,6 @@
 # Changelog
 
-## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/x.x.x) (2024-XX-XX)
+## [6.0.0](https://www.npmjs.com/package/aristid-ds/v/6.0.0) (2024-06-05)
 ### ✨ Features
 * **SideMenu:**
   * Add `SideMenu` component (@evoiron)
