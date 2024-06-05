@@ -1,0 +1,194 @@
+
+@import '../../../css/mixins.scss';
+
+:local(.kit-side-menu) {
+    --sideMenu-colors-text: var(--components-SideMenu-colors-text, #00254E); // Should be in global variables ??
+    --sideMenu-shadow: 5px 3px 8px -5px #0000001A;
+    --sideMenu-inset-shadow: inset 5px 3px 8px -5px #0000001A;
+    --sideMenu-default-width-close: 64;
+    --sideMenu-default-width-open: 248;
+
+    position: relative;
+    background-color: var(--components-SideMenu-colors-background, var(--general-colors-neutral-white));
+    color: var(--sideMenu-colors-text);
+    box-sizing: border-box;
+    width: convertToPixel(--components-SideMenu-width-close, --sideMenu-default-width-close);
+    height: 100%;
+    padding: convertToPixel(--components-SideMenu-padding-vertical, --general-spacing-s) 0;
+    box-shadow: var(--components-SideMenu-shadow, var(--sideMenu-shadow)); // Default shadow will be a default token soon
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s) 0;
+    transition: width 0.2s ease-in-out;
+
+    ul, li {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+
+    .menu-items {
+        display: flex;
+        flex-direction: column;
+        gap:  convertToPixel(--components-SideMenu-item-spacing, --general-spacing-m);
+        position: relative;
+        padding: 0 convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s);
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: convertToPixel(--general-spacing-xs);
+        position: relative;
+        width: 100%;
+
+        .kit-btn-icon-only {
+            position: relative;
+            width: convertToPixel(--general-spacing-l);
+            min-width: convertToPixel(--general-spacing-l);
+            height: convertToPixel(--general-spacing-l);
+            padding: 0;
+            color: var(--sideMenu-colors-text);
+            left: 0;
+            transition: left 0.5s ease-in-out;
+
+            .kit-btn-icon {
+                width: 8px;
+                height: 8px;
+                transform: rotate(0);
+                transition: transform 0.15s ease-in-out;
+            }
+        }
+    }
+
+    :local(.kit-side-menu-search-block) {
+        width:100%;
+        position: relative;
+        height: 40px;
+
+        .search-input {
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            pointer-events: none;
+
+            .ant-select {
+                width: 100%;
+            }
+        }
+
+        :local(.kit-side-menu-search-box) {
+            display: flex;
+            position: absolute;
+            height: 40px;
+            width: 32px;
+            padding: 16px;
+            box-sizing: border-box;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+    }
+
+
+    &.open {
+        width: convertToPixel(--components-SideMenu-width-open, --sideMenu-default-width-open);
+        transition: width 0.2s ease-in-out;
+
+        .kit-btn-icon-only {
+            left: calc(100% - 32px);
+            transition: left 0.2s ease-in-out;
+            .kit-btn-icon {
+                transform: rotate(-180deg);
+                transition: transform 0.15s ease-in-out;
+            }
+        }
+
+        .search-input {
+            pointer-events: initial;
+            opacity: 1;
+            transition: opacity 0.1s ease-in-out 0.2s;
+        }
+
+         :local(.kit-side-menu-search-box) {
+            opacity: 0;
+            transition: opacity 0.1s ease-in-out;
+         }
+    }
+}
+
+:local(.kit-side-menu-item) {
+    display: flex;
+    flex: 0 0 auto;
+    gap: convertToPixel(--components-SideMenu-item-spacing, --general-spacing-xs);
+    width: calc(100% + convertToPixel(--general-spacing-s));
+    box-sizing: border-box;
+    background: var(--components-SideMenu-item-colors-background-default, transparent);
+    height: 40px;
+    color: var(--sideMenu-colors-text);
+    position: relative;
+    border-radius: var(--components-SideMenu-item-radius, 20px 0 0 20px);
+    display: flex;
+    align-items: center;
+    padding-right: convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s);
+    overflow: hidden;
+    transition: padding-left 0.1s ease-in-out;
+
+    &.clickable {
+        cursor: pointer;
+    }
+
+    >.icon {
+        color: var(--components-SideMenu-item-colors-icon-default, var(--general-colors-primary-primary400));
+        height: convertToPixel(--general-spacing-l);
+        width: convertToPixel(--general-spacing-l);
+        padding: convertToPixel(--general-spacing-xs);
+        box-sizing:border-box;
+    }
+
+    >.title {
+        width: calc(100% - convertToPixel(--general-spacing-l) - convertToPixel(--components-SideMenu-item-spacing, --general-spacing-xs) - convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s));
+
+        &, & .ant-typography {
+            color: var(--components-SideMenu-item-colors-text-default, var(--sideMenu-colors-text));
+        }
+    }
+
+    &.active, &:hover {
+        padding-left: convertToPixel(--component-SideMenu-item-activeOffset, --general-spacing-xs);
+        background: var(--components-SideMenu-item-colors-background-hover, var(--general-colors-secondary-mediumGrey-mediumGrey100));
+        transition: padding-left 0.1s ease-in-out, background-color 0s 0.1s;
+    }
+
+    &.active, &.active:hover {
+        background: var(--components-SideMenu-item-colors-background-active, var(--general-colors-primary-primary400));
+
+        >.icon, >.title, >.title .ant-typography {
+            color: var(--components-SideMenu-item-colors-text-active, var(--general-colors-neutral-white));
+        }
+    }
+
+    &.disabled  {
+        background-color:  var(--components-SideMenu-item-colors-background-disabled, transparent);
+        border-color: var(--components-SideMenu-item-colors-background-default, var(--general-colors-secondary-mediumGrey-mediumGrey200));
+        padding-right: convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s);
+        pointer-events: none;
+
+        > .icon, > .title, > .title .ant-typography {
+            color: var(--components-SideMenu-item-colors-text-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey400));
+        }
+    }
+}
+
+:local(.kit-side-menu-separator) {
+    height: 0;
+    width: 100%;
+    border-top: 1px solid var(--components-SideMenu-item-colors-separator, var(--general-colors-secondary-mediumGrey-mediumGrey200));
+}
+

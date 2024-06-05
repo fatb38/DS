@@ -1,6 +1,8 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-avatar) {
+    background: var(--general-colors-neutral-typography-white);
+
     &:not(.ant-avatar-image) {
         background: var(
             --components-Avatar-colors-background-default,
@@ -70,6 +72,10 @@
                 var(--general-colors-primary-primary200)
             )
         );
+    }
+
+    .ant-avatar {
+        box-shadow:  0px 3px 14px 0px rgba(0, 0, 0, 0.30);
     }
 }
 

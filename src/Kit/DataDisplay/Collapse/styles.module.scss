@@ -9,7 +9,7 @@
                 --components-Collapse-colors-border-default,
                 var(--general-colors-secondary-mediumGrey-mediumGrey300)
             );
-        padding: 2px;
+        padding: 0;
 
         &.ant-collapse-item-disabled {
             background-color: var(
@@ -31,7 +31,7 @@
         &:hover:not(.ant-collapse-item-disabled),
         &:not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
             // TODO: add css variable outline-width: cards-border-stroke
-            border: 3px solid
+            border: 1px solid
                 var(--components-Collapse-colors-border-active, var(--general-colors-primary-primary400));
             padding: 0;
 
@@ -45,7 +45,7 @@
             & + .ant-collapse-item[data-item-selected='true'],
             & + .ant-collapse-item.ant-collapse-item-active {
                 border-top: none;
-                padding-top: 2px;
+                padding-top: 0;
             }
 
             & + .ant-collapse-item:not([data-item-selected='true']),
@@ -55,7 +55,7 @@
                 &:hover,
                 &:not([data-item-selected='true']):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus),
                 &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
-                    padding-top: 2px;
+                    padding-top: 0;
                 }
             }
         }
@@ -63,7 +63,7 @@
         &:not([data-item-selected='true']):not(.ant-collapse-item-disabled):not(:last-of-type),
         &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):not(:last-of-type) {
             &:not(.pseudo-hover):hover {
-                border-bottom: 3px solid
+                border-bottom: 1px solid
                     var(
                         --components-Collapse-colors-border-active,
                         var(--general-colors-primary-primary400)
@@ -71,7 +71,7 @@
             }
 
             &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
-                border-bottom: 3px solid
+                border-bottom: 1px solid
                     var(
                         --components-Collapse-colors-border-active,
                         var(--general-colors-primary-primary200)
