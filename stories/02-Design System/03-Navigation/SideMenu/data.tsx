@@ -12,6 +12,7 @@ import {
     faPenToSquare,
     faUserGroup
 } from '@fortawesome/free-solid-svg-icons';
+import {KitTag} from '@kit/DataDisplay';
 
 export const items: IKitSideMenuItemProps[] = [
     {
@@ -46,11 +47,18 @@ export const items: IKitSideMenuItemProps[] = [
     {
         key: 'statistics',
         title: 'Statisitques',
+        complement: <KitTag color="primary">A venir</KitTag>,
         icon: <FontAwesomeIcon icon={faChartLine} />
     },
     {
         key: 'models',
         title: 'Titre vraiment très long pour voir comment ça se comporte',
+        icon: <FontAwesomeIcon icon={faCube} />
+    },
+    {
+        key: 'models',
+        title: 'Titre vraiment très long pour voir comment ça se comporte',
+        complement: <KitTag color="primary">A venir</KitTag>,
         icon: <FontAwesomeIcon icon={faCube} />
     },
     {

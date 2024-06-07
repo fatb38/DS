@@ -5,15 +5,15 @@ import useSecureClick from '@hooks/useSecureClick';
 import cn from 'classnames';
 
 import styles from './styles.module.scss';
-import {KitTypography} from '@kit/General';
-import {KitTooltip} from '@kit/DataDisplay';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFile} from '@fortawesome/free-solid-svg-icons';
+import {KitTooltip} from '@kit/DataDisplay';
 
 const KitSideMenuItem: FunctionComponent<IKitSideMenuItemComponent> = ({
     type = 'default',
     itemKey = '',
     title,
+    complement,
     icon,
     disabled,
     large,
@@ -52,13 +52,14 @@ const KitSideMenuItem: FunctionComponent<IKitSideMenuItemComponent> = ({
                 onClick={disabledSecureClick ? _handleClickItem : _handleClickItemSecured}
                 className={clx}
             >
-                <div className="icon">{icon ?? <FontAwesomeIcon icon={faFile} />}</div>
+                <div className="kit-side-menu-item-icon">{icon ?? <FontAwesomeIcon icon={faFile} />}</div>
                 {large && (
-                    <div className="title">
-                        <KitTypography.Text size="large" weight="medium" ellipsis>
-                            {title}
-                        </KitTypography.Text>
-                    </div>
+                    <>
+                        <div className="kit-side-menu-item-title">
+                            <span>{title}</span>
+                        </div>
+                        {complement && <div className="kit-side-menu-item-complement">{complement}</div>}
+                    </>
                 )}
             </li>
         );

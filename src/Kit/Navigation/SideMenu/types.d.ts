@@ -16,7 +16,8 @@ export interface IKitSideMenu extends KitHTMLAttributes<HTMLDivElement> {
 export interface IKitSideMenuItemProps extends KitHTMLAttributes<HTMLDivElement> {
     key?: string;
     type?: 'default' | 'separator';
-    title?: string;
+    title?: ReactNode;
+    complement?: ReactNode;
     icon?: ReactNode;
     disabled?: boolean;
     onClick?: (key: string) => void;

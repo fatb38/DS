@@ -20,6 +20,8 @@
     overflow-x: hidden;
     scrollbar-width: convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s) 0;
     transition: width 0.2s ease-in-out;
+    font-family: var(--general-typography-fontFamily);
+    font-style: var(--general-typography-fontStyle);
 
     ul, li {
         padding: 0;
@@ -136,27 +138,63 @@
     border-radius: var(--components-SideMenu-item-radius, 20px 0 0 20px);
     display: flex;
     align-items: center;
-    padding-right: convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s);
     overflow: hidden;
     transition: padding-left 0.1s ease-in-out;
+    font-size: convertToPixel(--general-typography-fontSize5);
+    line-height: var(--general-typography-lineHeight5);
+    font-weight: var(--components-Typography-Text-fontWeight-medium, var(--general-typography-mediumfontWeight));
+
+    &#{&} {
+        padding-right: convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s);
+    }
 
     &.clickable {
         cursor: pointer;
     }
 
-    >.icon {
+    >.kit-side-menu-item-icon {
         color: var(--components-SideMenu-item-colors-icon-default, var(--general-colors-primary-primary400));
         height: convertToPixel(--general-spacing-l);
         width: convertToPixel(--general-spacing-l);
         padding: convertToPixel(--general-spacing-xs);
         box-sizing:border-box;
+        display: flex;
+        flex: 0 0 convertToPixel(--general-spacing-l);
+        justify-content: center;
+        align-items: center;
     }
 
-    >.title {
-        width: calc(100% - convertToPixel(--general-spacing-l) - convertToPixel(--components-SideMenu-item-spacing, --general-spacing-xs) - convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s));
+    >.kit-side-menu-item-title {
+        font-family: 'Inter';
+        font-size: convertToPixel(--general-typography-fontSize5);
+        line-height: var(--general-typography-lineHeight5);
+        font-weight: var(
+            --components-Typography-Text-fontWeight-medium,
+            var(--general-typography-mediumfontWeight)
+        );
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        overflow: hidden;
+
+        > span {
+            display: block;
+            width: 100%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
 
         &, & .ant-typography {
             color: var(--components-SideMenu-item-colors-text-default, var(--sideMenu-colors-text));
+        }
+    }
+
+    >.kit-side-menu-item-complement {
+        padding-left: convertToPixel(--components-SideMenu-item-spacing, --general-spacing-xs);
+
+        & :only-child {
+            margin: 0;
         }
     }
 
@@ -169,7 +207,7 @@
     &.active, &.active:hover {
         background: var(--components-SideMenu-item-colors-background-active, var(--general-colors-primary-primary400));
 
-        >.icon, >.title, >.title .ant-typography {
+        >.kit-side-menu-item-icon, >.kit-side-menu-item-title, >.kit-side-menu-item-title .ant-typography {
             color: var(--components-SideMenu-item-colors-text-active, var(--general-colors-neutral-white));
         }
     }
@@ -180,7 +218,7 @@
         padding-right: convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s);
         pointer-events: none;
 
-        > .icon, > .title, > .title .ant-typography {
+        > .kit-side-menu-item-icon, > .kit-side-menu-item-title, > .kit-side-menu-item-title .ant-typography {
             color: var(--components-SideMenu-item-colors-text-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey400));
         }
     }
