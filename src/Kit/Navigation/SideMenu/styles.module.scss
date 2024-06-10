@@ -14,14 +14,16 @@
     box-sizing: border-box;
     width: convertToPixel(--components-SideMenu-width-close, --sideMenu-default-width-close);
     min-width: convertToPixel(--components-SideMenu-width-close, --sideMenu-default-width-close);
-    max-width: convertToPixel(--components-SideMenu-width-close, --sideMenu-default-width-close);
+    // max-width: convertToPixel(--components-SideMenu-width-close, --sideMenu-default-width-close);
     height: 100%;
     padding: convertToPixel(--components-SideMenu-padding-vertical, --general-spacing-s) 0;
     box-shadow: var(--components-SideMenu-shadow, var(--sideMenu-shadow)); // Default shadow will be a default token soon
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s) 0;
-    transition: width 0.2s ease-in-out;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-property: width, min-width, max-width;
     font-family: var(--general-typography-fontFamily);
     font-style: var(--general-typography-fontStyle);
 
@@ -105,7 +107,9 @@
         width: convertToPixel(--components-SideMenu-width-open, --sideMenu-default-width-open);
         min-width: convertToPixel(--components-SideMenu-width-open, --sideMenu-default-width-open);
         max-width: convertToPixel(--components-SideMenu-width-open, --sideMenu-default-width-open);
-        transition: width 0.2s ease-in-out;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in-out;
+        transition-property: width, min-width, max-width;
 
         .kit-btn-icon-only {
             left: calc(100% - 32px);
