@@ -13,6 +13,8 @@
     color: var(--sideMenu-colors-text);
     box-sizing: border-box;
     width: convertToPixel(--components-SideMenu-width-close, --sideMenu-default-width-close);
+    min-width: convertToPixel(--components-SideMenu-width-close, --sideMenu-default-width-close);
+    max-width: convertToPixel(--components-SideMenu-width-close, --sideMenu-default-width-close);
     height: 100%;
     padding: convertToPixel(--components-SideMenu-padding-vertical, --general-spacing-s) 0;
     box-shadow: var(--components-SideMenu-shadow, var(--sideMenu-shadow)); // Default shadow will be a default token soon
@@ -101,6 +103,8 @@
 
     &.open {
         width: convertToPixel(--components-SideMenu-width-open, --sideMenu-default-width-open);
+        min-width: convertToPixel(--components-SideMenu-width-open, --sideMenu-default-width-open);
+        max-width: convertToPixel(--components-SideMenu-width-open, --sideMenu-default-width-open);
         transition: width 0.2s ease-in-out;
 
         .kit-btn-icon-only {

@@ -1,5 +1,12 @@
 # Changelog
 
+
+## [x.x.x](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-06-10)
+### 🐛 Bug Fixes
+* **SideMenu:**
+  * fix css strange behavior (@evoiron)
+  * expose `complement`prop to SideMenuItem (@evoiron)
+
 ## [6.0.0](https://www.npmjs.com/package/aristid-ds/v/6.0.0) (2024-06-05)
 ### ✨ Features
 * **SideMenu:**
