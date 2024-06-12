@@ -1,7 +1,7 @@
 # Changelog
 
 
-## [x.x.x](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-06-10)
+## [7.0.0](https://www.npmjs.com/package/aristid-ds/v/X7.0.0) (2024-06-12)
 ### 🐛 Bug Fixes
 * **SideMenu:**
   * fix css strange behavior (@evoiron)
