@@ -39,8 +39,8 @@ export const argTypes = {
             category: 'Table'
         }
     },
-    fixedCellsBackgroundColor: {
-        name: 'fixedCellsBackgroundColor',
+    cellsBackgroundColor: {
+        name: 'cellsBackgroundColor',
         control: {type: 'text'},
         description: 'Background color of fixed cells',
         table: {
@@ -162,6 +162,9 @@ export const argTypes = {
             type: {
                 summary: 'boolean | {offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}'
             },
+            defaultValue: {
+                summary: false
+            },
             category: 'Table'
         }
     },
@@ -195,6 +198,9 @@ export const argTypes = {
         table: {
             type: {
                 summary: 'boolean'
+            },
+            defaultValue: {
+                summary: false
             },
             category: 'Table'
         }

@@ -1,4 +1,4 @@
-import {FunctionComponent} from 'react';
+import {FunctionComponent, MouseEvent} from 'react';
 import {Table as AntdTable} from 'antd';
 import cn from 'classnames';
 import {IKitTable, onChangeExtra, onChangePagination, onChangeSorter} from './types';
@@ -6,6 +6,10 @@ import {useKitTheme} from '@theme/useKitTheme';
 import styles from './styles.module.scss';
 import {getInternalComponents} from './internalComponents';
 import {SortIcon} from './SortIcon';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCaretDown, faCaretRight} from '@fortawesome/free-solid-svg-icons';
+import {KitButton} from '@kit/General';
+import {DefaultRecordType, RenderExpandIconProps, RowClassName} from 'rc-table/lib/interface';
 
 export const KitTable: FunctionComponent<IKitTable> = ({
     className,
@@ -16,7 +20,7 @@ export const KitTable: FunctionComponent<IKitTable> = ({
     components,
     ...tableProps
 }) => {
-    const {appId} = useKitTheme();
+    const {appId, theme} = useKitTheme();
 
     const clx = cn(appId, styles['kit-table'], className);
 
@@ -30,6 +34,32 @@ export const KitTable: FunctionComponent<IKitTable> = ({
         onChange?.(pagination, sorter, extra);
     };
 
+    const _handleExpandIcon = ({
+        record,
+        expanded,
+        onExpand
+    }: {
+        record: RenderExpandIconProps<DefaultRecordType>['record'];
+        expanded: RenderExpandIconProps<DefaultRecordType>['expanded'];
+        onExpand: RenderExpandIconProps<DefaultRecordType>['onExpand'];
+    }) => {
+        if (!Array.isArray(record?.children) || !record?.children?.length) return undefined;
+
+        return (
+            <KitButton
+                className={styles['expand-button']}
+                type="text"
+                color="black"
+                onClick={(e: MouseEvent<HTMLButtonElement>) => onExpand(record, e)}
+            >
+                <FontAwesomeIcon icon={expanded ? faCaretDown : faCaretRight} />
+            </KitButton>
+        );
+    };
+
+    const _handleRowClassName: RowClassName<DefaultRecordType> = (record, _, indent) =>
+        indent > 0 && (!Array.isArray(record?.children) || !record?.children?.length) ? 'last-expandable-level' : '';
+
     return (
         <AntdTable
             className={clx}
@@ -37,6 +67,13 @@ export const KitTable: FunctionComponent<IKitTable> = ({
             columns={columnsWithSortIcon}
             components={getInternalComponents(components)}
             onChange={_handleOnChange}
+            // Pour l'instant on garde expandable dans les props à Omit<>
+            // A voir si on permet de custom uniquement certaines propriété
+            expandable={{
+                expandedRowClassName: _handleRowClassName,
+                expandIcon: _handleExpandIcon,
+                indentSize: theme.spacing.m
+            }}
             {...tableProps}
         />
     );

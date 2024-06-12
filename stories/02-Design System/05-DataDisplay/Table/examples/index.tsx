@@ -17,6 +17,7 @@ import SelectionAndOperation from './selectionAndOperation';
 import Sorter from './sorter';
 import StackFixedColumns from './stackFixedColumns';
 import TitleAndFooter from './titleAndFooter';
+import TreeData from './treeData';
 
 import BackgroundColorSource from './backgroundColor?raw';
 import BasicSource from './basic?raw';
@@ -37,6 +38,7 @@ import SelectionAndOperationSource from './selectionAndOperation?raw';
 import SorterSource from './sorter?raw';
 import StackFixedColumnsSource from './stackFixedColumns?raw';
 import TitleAndFooterSource from './titleAndFooter?raw';
+import TreeDataSource from './treeData?raw';
 
 export const Sources = {
     BackgroundColor: BackgroundColorSource,
@@ -57,7 +59,8 @@ export const Sources = {
     SelectionAndOperation: SelectionAndOperationSource,
     Sorter: SorterSource,
     StackFixedColumns: StackFixedColumnsSource,
-    TitleAndFooter: TitleAndFooterSource
+    TitleAndFooter: TitleAndFooterSource,
+    TreeData: TreeDataSource
 };
 
 export default {
@@ -79,5 +82,6 @@ export default {
     SelectionAndOperation,
     Sorter,
     StackFixedColumns,
-    TitleAndFooter
+    TitleAndFooter,
+    TreeData
 };

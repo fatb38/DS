@@ -40,13 +40,7 @@ export type onChangePagination = Parameters<TableProps<RecordType>['onChange']>[
 export type onChangeSorter = Parameters<TableProps<RecordType>['onChange']>[2];
 export type onChangeExtra = Parameters<TableProps<RecordType>['onChange']>[3];
 
-type AntdRowSelectionToOmit =
-    | 'selection'
-    | 'checkStrictly'
-    | 'columnWidth'
-    | 'onSelectInvert'
-    | 'onSelectNone'
-    | 'onSelectMultiple';
+type AntdRowSelectionToOmit = 'selection' | 'columnWidth' | 'onSelectInvert' | 'onSelectNone' | 'onSelectMultiple';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface IKitTable<RecordType = any>

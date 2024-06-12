@@ -6,6 +6,9 @@
 * **SideMenu:**
   * fix css strange behavior (@evoiron)
   * expose `complement`prop to SideMenuItem (@evoiron)
+### ✨ Features
+* **Table:**
+  * Handle tree data and expandable rows (@renaudamsellem /@philippechevieux)
 
 ## [6.0.0](https://www.npmjs.com/package/aristid-ds/v/6.0.0) (2024-06-05)
 ### ✨ Features

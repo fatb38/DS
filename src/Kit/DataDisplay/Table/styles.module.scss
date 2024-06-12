@@ -52,6 +52,14 @@
                 border-radius: convertToPixel((--general-border-radius-s));
                 padding: convertToPixel(--general-spacing-s);
 
+                &:first-of-type {
+                    padding-left: calc(convertToPixel(--general-spacing-xxs) + convertToPixel(--general-spacing-s) + convertToPixel(--general-spacing-xs));
+
+                    &.ant-table-selection-column {
+                        padding-left:  calc(convertToPixel(--general-spacing-s) + convertToPixel(--general-spacing-xs));
+                    }
+                }
+
                 &.ant-table-column-has-sorters .ant-table-cell {
                     cursor: pointer;
 
@@ -124,146 +132,255 @@
                 }
             }
 
-            tbody.ant-table-tbody {
-                & > tr {
-                    &:first-of-type td {
-                        padding-top: convertToPixel(--general-spacing-s);
-                    }
+            tbody {
+                &:before {
+                    content:"@";
+                    display:block;
+                    line-height:convertToPixel(--general-spacing-xs);
+                    text-indent:-99999px;
+                }
 
-                    & > td {
-                        border-bottom: none;
-                        padding: convertToPixel(--general-spacing-xs) 0 0 0;
-                        background-color: var(--kit-table-cells-background-color, var(--general-colors-neutral-white));
+                &.ant-table-tbody {
+                    & > tr {
+                        & > td {
+                            border-bottom: none;
+                            padding: convertToPixel(--general-spacing-xs) 0 0 0;
+                            background-color: var(--kit-table-cells-background-color, var(--general-colors-neutral-white));
 
-                        &:first-of-type {
-                            .ant-table-cell {
-                                border-right: none;
-                                border-top-right-radius: 0;
-                                border-bottom-right-radius: 0;
-                                border-top-left-radius: convertToPixel((--general-border-radius-s));
-                                border-bottom-left-radius: convertToPixel((--general-border-radius-s));
+                            &:first-of-type {
+                                padding-left: convertToPixel(--general-spacing-xs);
 
-                                &:not(.ant-table-selection-column) {
-                                    padding-left: convertToPixel(--kit-table-row-side-padding);
-                                }
-                            }
-                        }
+                                .ant-table-cell {
+                                    border-right: none;
+                                    border-top-right-radius: 0;
+                                    border-bottom-right-radius: 0;
+                                    border-top-left-radius: convertToPixel((--general-border-radius-s));
+                                    border-bottom-left-radius: convertToPixel((--general-border-radius-s));
 
-                        &:not(:first-of-type):not(:last-of-type) .ant-table-cell {
-                            border-left: none;
-                            border-right: none;
-                            border-radius: 0;
-                        }
-
-                        &:last-of-type .ant-table-cell {
-                            border-left: none;
-                            border-top-left-radius: 0;
-                            border-bottom-left-radius: 0;
-                            border-top-right-radius: convertToPixel((--general-border-radius-s));
-                            border-bottom-right-radius: convertToPixel((--general-border-radius-s));
-                            padding-right: convertToPixel(--kit-table-row-side-padding);
-                        }
-
-                        &.ant-table-selection-column {
-                            padding-inline-start: 0;
-                            padding-inline-end: 0;
-                        }
-
-                        .ant-table-cell {
-                            height: var(--kit-table-body-cell-height);
-                            align-content: center;
-                            border: 1px solid transparent;
-                            padding-right: convertToPixel(--general-spacing-s);
-
-                            &.ant-table-selection-column {
-                                padding-inline-start: 15px;
-                            }
-
-                            .ant-form-item {
-                                margin: 0;
-
-                                &.ant-form-item-has-error {
-                                    margin-top: 20px;
-                                }
-
-                                .ant-form-item-explain-error {
-                                    display: grid;
-                                    margin-top: convertToPixel(--general-spacing-xxs);
-
-                                    .ant-typography {
-                                        color: var(--general-colors-secondary-red-red400);
-
-                                        &:focus-visible {
-                                            outline: none;
-                                        }
+                                    &:not(.ant-table-selection-column) {
+                                        padding-left: convertToPixel(--kit-table-row-side-padding);
                                     }
                                 }
                             }
+
+                            &:not(:first-of-type):not(:last-of-type) .ant-table-cell {
+                                border-left: none;
+                                border-right: none;
+                                border-radius: 0;
+                            }
+
+                            &:last-of-type {
+                                padding-right: convertToPixel(--general-spacing-xs);
+
+                                .ant-table-cell {
+                                    border-left: none;
+                                    border-top-left-radius: 0;
+                                    border-bottom-left-radius: 0;
+                                    border-top-right-radius: convertToPixel((--general-border-radius-s));
+                                    border-bottom-right-radius: convertToPixel((--general-border-radius-s));
+                                    padding-right: convertToPixel(--kit-table-row-side-padding);
+                                }
+                            }
+
+                            .ant-table-cell {
+                                height: var(--kit-table-body-cell-height);
+                                align-content: center;
+                                border: 1px solid transparent;
+                                padding-right: convertToPixel(--general-spacing-s);
+
+                                &.ant-table-selection-column {
+                                    padding-inline-start: 15px;
+                                }
+
+                                .ant-form-item {
+                                    margin: 0;
+
+                                    &.ant-form-item-has-error {
+                                        margin-top: 20px;
+                                    }
+
+                                    .ant-form-item-explain-error {
+                                        display: grid;
+                                        margin-top: convertToPixel(--general-spacing-xxs);
+
+                                        .ant-typography {
+                                            color: var(--general-colors-secondary-red-red400);
+
+                                            &:focus-visible {
+                                                outline: none;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .expand-button {
+                                    height: initial;
+                                    padding: 0 12px 0 2px;
+                                    margin-right: convertToPixel(--general-spacing-xxs);
+                                    width: 0;
+                                    min-width: 0;
+                                    display: inline;
+                                }
+                            }
+
+                            &.ant-table-column-sort {
+                                background: unset;
+                            }
                         }
 
-                        &.ant-table-column-sort {
-                            background: unset;
+                        &:has(.ant-table-cell .ant-form-item-has-error) {
+                            .ant-table-cell {
+                                height: calc(var(--kit-table-body-cell-height) + 40px);
+                                background-color: var(--general-colors-secondary-red-red100);
+                                border-color: var(--general-colors-secondary-red-red400);
+                            }
                         }
-                    }
 
-                    &:has(.ant-table-cell .ant-form-item-has-error) {
-                        .ant-table-cell {
-                            height: calc(var(--kit-table-body-cell-height) + 40px);
-                            background-color: var(--general-colors-secondary-red-red100);
-                            border-color: var(--general-colors-secondary-red-red400);
+                        &:hover {
+                            .ant-table-cell {
+                                border: 1px solid var(--general-colors-primary-primary400);
+                            }
+
+                            &.ant-table-row-selected,
+                            &.ant-table-row-level-0:has(+ .ant-table-row-level-1),
+                            &.last-expandable-level {
+                                .ant-table-cell {
+                                    border-color: var(--general-colors-primary-primary400);
+                                }
+                            }
                         }
-                    }
 
-                    &:hover {
-                        .ant-table-cell {
-                            border: 1px solid var(--general-colors-primary-primary400);
+                        &:focus-visible {
+                            outline: none;
+                            --kit-table-row-focused-cell-padding: calc(var(--kit-table-row-side-padding) - 2);
+                            --kit-table-row-focused-cell-selection-padding: calc(var(--general-spacing-xs) + 5);
+
+                            .ant-table-cell {
+                                border: 3px solid var(--general-colors-primary-primary200);
+                            }
+
+                            td:first-of-type .ant-table-cell:not(.ant-table-selection-column) {
+                                padding-left: convertToPixel(--kit-table-row-focused-cell-padding);
+                            }
+
+                            td:first-of-type .ant-table-cell.ant-table-selection-column {
+                                padding-left: convertToPixel(--kit-table-row-focused-cell-selection-padding);
+                            }
+
+                            td:last-of-type .ant-table-cell {
+                                padding-right: convertToPixel(--kit-table-row-focused-cell-padding);
+                            }
+
+                            &.ant-table-row-selected,
+                            &.ant-table-row-level-0:has(+ .ant-table-row-level-1),
+                            &.last-expandable-level {
+                                .ant-table-cell {
+                                    border-color: var(--general-colors-primary-primary200);
+                                }
+                            }
+                        }
+
+                        &.ant-table-row-level-0:has(+ .ant-table-row-level-1) {
+                            td {
+                                border: 1px solid var(--general-colors-primary-primary400);
+                                border-bottom: none;
+
+                                .ant-table-cell {
+                                    background-color: var(--general-colors-primary-primary100);
+                                }
+
+                                &:not(:first-of-type):not(:last-of-type)  {
+                                    border-left: none;
+                                    border-right: none;
+                                    border-radius: 0;
+                                }
+
+                                &:first-of-type  {
+                                    border-right: none;
+                                    border-top-left-radius: convertToPixel((--general-border-radius-s));
+                                    border-bottom-left-radius: 0;
+                                }
+
+                                &:last-of-type {
+                                    border-left: none;
+                                    border-top-right-radius: convertToPixel((--general-border-radius-s));
+                                    border-bottom-right-radius: 0;
+                                }
+                            }
+                        }
+
+                        &:not(.ant-table-row-level-0) {
+                            td {
+                                border: 1px solid var(--general-colors-primary-primary400);
+                                border-top: none;
+                                border-bottom: none;
+
+                                &:not(:first-of-type):not(:last-of-type)  {
+                                    border-left: none;
+                                    border-right: none;
+                                    border-radius: 0;
+                                }
+
+                                &:first-of-type  {
+                                    border-right: none;
+                                    border-top-left-radius: 0;
+                                    border-bottom-left-radius: 0;
+                                }
+
+                                &:last-of-type  {
+                                    border-left: none;
+                                    border-top-right-radius: 0;
+                                    border-bottom-right-radius: 0;
+                                }
+                            }
+                        }
+
+                        &:not(.ant-table-row-level-0):has(+ .ant-table-row-level-0) {
+                            td {
+                                border: 1px solid var(--general-colors-primary-primary400);
+                                border-top: none;
+                                padding-bottom: convertToPixel(--general-spacing-xs);
+
+                                &:not(:first-of-type):not(:last-of-type)  {
+                                    border-left: none;
+                                    border-right: none;
+                                    border-radius: 0;
+                                }
+
+                                &:first-of-type  {
+                                    border-right: none;
+                                    border-top-left-radius: 0;
+                                    border-bottom-left-radius: convertToPixel((--general-border-radius-s));
+                                }
+
+                                &:last-of-type  {
+                                    border-left: none;
+                                    border-top-right-radius: 0;
+                                    border-bottom-right-radius: convertToPixel((--general-border-radius-s));
+                                }
+                            }
+                        }
+
+                        &.last-expandable-level .ant-table-cell {
+                            background-color: var(--general-colors-secondary-mediumGrey-mediumGrey100);
+                            border-color: var(--general-colors-secondary-mediumGrey-mediumGrey100);
                         }
 
                         &.ant-table-row-selected .ant-table-cell {
-                            border-color: var(--general-colors-primary-primary400);
+                            background-color: var(--general-colors-primary-primary100);
+                            border-color: var(--general-colors-primary-primary100);
                         }
                     }
 
-                    &:focus-visible {
-                        outline: none;
-                        --kit-table-row-focused-cell-padding: calc(var(--kit-table-row-side-padding) - 2);
-                        --kit-table-row-focused-cell-selection-padding: calc(var(--general-spacing-xs) + 5);
-
-                        .ant-table-cell {
-                            border: 3px solid var(--general-colors-primary-primary200);
+                    & > tr.ant-table-placeholder {
+                        & > td .ant-table-cell {
+                            height: auto;
                         }
 
-                        td:first-of-type .ant-table-cell:not(.ant-table-selection-column) {
-                            padding-left: convertToPixel(--kit-table-row-focused-cell-padding);
-                        }
-
-                        td:first-of-type .ant-table-cell.ant-table-selection-column {
-                            padding-left: convertToPixel(--kit-table-row-focused-cell-selection-padding);
-                        }
-
-                        td:last-of-type .ant-table-cell {
-                            padding-right: convertToPixel(--kit-table-row-focused-cell-padding);
-                        }
-
-                        &.ant-table-row-selected .ant-table-cell {
-                            border-color: var(--general-colors-primary-primary200);
-                        }
-                    }
-
-                    &.ant-table-row-selected .ant-table-cell {
-                        background-color: var(--general-colors-primary-primary100);
-                        border-color: var(--general-colors-primary-primary100);
-                    }
-                }
-
-                & > tr.ant-table-placeholder {
-                    & > td .ant-table-cell {
-                        height: auto;
-                    }
-
-                    &:hover {
-                        .ant-table-cell {
-                            border: 1px solid transparent;
+                        &:hover {
+                            .ant-table-cell {
+                                border: 1px solid transparent;
+                            }
                         }
                     }
                 }

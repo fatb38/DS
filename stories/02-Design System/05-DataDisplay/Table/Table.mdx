@@ -88,6 +88,13 @@ Table cell supports `colSpan` that set in onCell return object. When set to `0`,
 
 <CustomCanvas content={Examples.ColSpan} source={Sources.ColSpan} id="table-colspan" />
 
+### Tree data
+
+Display tree structure data in Table when there is field key `children` in dataSource, try to customize `childrenColumnName` property to avoid tree table structure.
+
+<CustomCanvas content={Examples.TreeData} source={Sources.TreeData} id="table-tree-data" />
+
+
 ### Fixed Header
 
 Display large amounts of data in scrollable view.
@@ -233,26 +240,27 @@ More about pagination, please check [pagination](/docs/design-system-navigation-
 
 Properties for row selection.
 
-| Property                    | Description                                                 | Type                                                      | Default    |
-| --------------------------- | ----------------------------------------------------------- | --------------------------------------------------------- | ---------- |
-| **columnTitle**             | Set the title of the selection column                       | `ReactNode` `(originalNode: ReactNode) => ReactNode`      | -          |
-| **fixed**                   | Fixed selection column on the left                          | `boolean`                                                 | -          |
-| **getCheckboxProps**        | Get Checkbox or Radio props                                 | `function(record)`                                        | -          |
-| **hideSelectAll**           | Hide the selectAll checkbox and custom selection            | `boolean`                                                 | `false`    |
-| **preserveSelectedRowKeys** | Keep selection `key` even when it removed from `dataSource` | `boolean`                                                 | -          |
-| **renderCell**              | Renderer of the table cell. Same as `render` in column      | `function(checked, record, index, originNode)`            | -          |
-| **selectedRowKeys**         | Controlled selected row keys                                | `string[]` `number[]`                                     | []         |
-| **type**                    | `checkbox` or `radio`                                       | `checkbox` `radio`                                        | `checkbox` |
-| **onCell**                  | Set props on per cell. Same as `onCell` in column           | `function(record, rowIndex)`                              | -          |
-| **onChange**                | Callback executed when selected rows change                 | `function(selectedRowKeys, selectedRows, info: { type })` | -          |
-| **onSelect**                | Callback executed when select/deselect one row              | `function(record, selected, selectedRows, nativeEvent)`   | -          |
-| **onSelectAll**             | Callback executed when select/deselect all rows             | `function(selected, selectedRows, changeRows)`            | -          |
+| Property                    | Description                                                                 | Type                                                      | Default    |
+| --------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------- | ---------- |
+| **checkStrictly**           | Check table row precisely; parent row and children rows are not associated  | `boolean`                                                 | `true`     |
+| **columnTitle**             | Set the title of the selection column                                       | `ReactNode` `(originalNode: ReactNode) => ReactNode`      | -          |
+| **fixed**                   | Fixed selection column on the left                                          | `boolean`                                                 | `false`    |
+| **getCheckboxProps**        | Get Checkbox or Radio props                                                 | `function(record)`                                        | -          |
+| **hideSelectAll**           | Hide the selectAll checkbox and custom selection                            | `boolean`                                                 | `false`    |
+| **preserveSelectedRowKeys** | Keep selection `key` even when it removed from `dataSource`                 | `boolean`                                                 | `false`    |
+| **renderCell**              | Renderer of the table cell. Same as `render` in column                      | `function(checked, record, index, originNode)`            | -          |
+| **selectedRowKeys**         | Controlled selected row keys                                                | `string[]` `number[]`                                     | []         |
+| **type**                    | `checkbox` or `radio`                                                       | `checkbox` `radio`                                        | `checkbox` |
+| **onCell**                  | Set props on per cell. Same as `onCell` in column                           | `function(record, rowIndex)`                              | -          |
+| **onChange**                | Callback executed when selected rows change                                 | `function(selectedRowKeys, selectedRows, info: { type })` | -          |
+| **onSelect**                | Callback executed when select/deselect one row                              | `function(record, selected, selectedRows, nativeEvent)`   | -          |
+| **onSelectAll**             | Callback executed when select/deselect all rows                             | `function(selected, selectedRows, changeRows)`            | -          |
 
 ### scroll
 
 | Property                     | Description                                                                                                                                                                                                    | Type                     | Default |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------- |
-| **scrollToFirstRowOnChange** | Whether to scroll to the top of the table when paging, sorting, filtering changes                                                                                                                              | `boolean`                | -       |
+| **scrollToFirstRowOnChange** | Whether to scroll to the top of the table when paging, sorting, filtering changes                                                                                                                              | `boolean`                | `false` |
 | **x**                        | Set horizontal scrolling, can also be used to specify the width of the scroll area, could be number, percent value, true and [max-content](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | `string` `number` `true` | -       |
 | **y**                        | Set vertical scrolling, can also be used to specify the height of the scroll area, could be string or number                                                                                                   | `string` `number`        | -       |
 
