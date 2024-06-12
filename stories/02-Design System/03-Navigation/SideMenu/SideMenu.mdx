@@ -44,9 +44,16 @@ A basic Menu with serach field. Just set `showSearch` prop and set `autoComplete
 
 <CustomCanvas content={Examples.menuSearch} source={Sources.menuSearch} id="sidemenu-search" />
 
+
+##### With complement
+
+just pass the `complement`prop on an item to display a complement next to title, when menu is open
+
+<CustomCanvas content={Examples.menuComplement} source={Sources.menuComplement} id="sidemenu-complement" />
+
 ##### With disabled item
 
-Just set the `disabled` prop on an item to diable it
+Just set the `disabled` prop on an item to disable it
 
 <CustomCanvas content={Examples.menuDisabled} source={Sources.menuDisabled} id="sidemenu-disabled" />
 
@@ -64,7 +71,8 @@ SideMenuItem also accepts `data_*` and `aria-*` attributes
 | --- | --- | --- | --- |
 | key | The item key (used to identify active item) | string | - |
 | type | The type of item (`default` \| `separator`) | string | `default` |
-| title | Title of item | string | - |
+| title | Title of item | `ReactNode` | - |
+| complement |Complement element to display after the titel when menu is open | `ReactNode` | - |
 | icon | Icon to associate to item | `ReactNode` | - |
 | disabled | whether the item is isabled | boolean | - |
 | disabledSecureClick | whether to disable secure click on this particular item | boolean | - |

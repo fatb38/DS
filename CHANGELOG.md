@@ -1,5 +1,15 @@
 # Changelog
 
+
+## [7.0.0](https://www.npmjs.com/package/aristid-ds/v/X7.0.0) (2024-06-12)
+### 🐛 Bug Fixes
+* **SideMenu:**
+  * fix css strange behavior (@evoiron)
+  * expose `complement`prop to SideMenuItem (@evoiron)
+### ✨ Features
+* **Table:**
+  * Handle tree data and expandable rows (@renaudamsellem /@philippechevieux)
+
 ## [6.0.0](https://www.npmjs.com/package/aristid-ds/v/6.0.0) (2024-06-05)
 ### ✨ Features
 * **SideMenu:**
