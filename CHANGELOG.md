@@ -1,6 +1,11 @@
 # Changelog
 
 
+## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
+### 🐛 Bug Fixes
+* **ItemList et Card**:
+  * add `disabled`to actions (@evoiron)
+
 ## [7.0.0](https://www.npmjs.com/package/aristid-ds/v/X7.0.0) (2024-06-12)
 ### 🐛 Bug Fixes
 * **SideMenu:**
