@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.0](https://www.npmjs.com/package/aristid-ds/v/7.1.0) (2024-06-14)
+### 🐛 Bug Fixes
+* **Table:**
+  * fix last children rows indentaion of first data column (@evoiron)
+  * fix last row bottom truncated when its not a filrst level row (@evoiron)
+* **ItemList et Card**:
+  * add `disabled`to actions (@evoiron)
 
 ## [7.0.0](https://www.npmjs.com/package/aristid-ds/v/X7.0.0) (2024-06-12)
 ### 🐛 Bug Fixes

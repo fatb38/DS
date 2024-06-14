@@ -24,6 +24,7 @@ const App = () => {
             key: '2',
             label: 'Add to favorite',
             icon: <FontAwesomeIcon icon={faStar} />,
+            disabled: true,
             onClick: () => console.log('action 2')
         },
         {

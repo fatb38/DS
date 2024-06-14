@@ -51,7 +51,7 @@ export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
                         <>
                             {actions.map(action => (
                                 <KitButton
-                                    disabled={disabled}
+                                    disabled={action.disabled || disabled}
                                     key={action.key}
                                     type="tertiary"
                                     icon={action.icon}

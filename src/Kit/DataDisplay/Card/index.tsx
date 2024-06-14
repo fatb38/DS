@@ -66,7 +66,7 @@ export const KitCard: FunctionComponent<IKitCard> = ({
                                     type="segmented"
                                     icon={action.icon}
                                     onClick={action.onClick}
-                                    disabled={disabled}
+                                    disabled={action.disabled || disabled}
                                 />
                             ))}
                         </>
