@@ -212,15 +212,6 @@
                                         }
                                     }
                                 }
-
-                                .expand-button {
-                                    height: initial;
-                                    padding: 0 12px 0 2px;
-                                    margin-right: convertToPixel(--general-spacing-xxs);
-                                    width: 0;
-                                    min-width: 0;
-                                    display: inline;
-                                }
                             }
 
                             &.ant-table-column-sort {
@@ -335,7 +326,8 @@
                             }
                         }
 
-                        &:not(.ant-table-row-level-0):has(+ .ant-table-row-level-0) {
+                        &:not(.ant-table-row-level-0):has(+ .ant-table-row-level-0),
+                        &:not(.ant-table-row-level-0):last-child {
                             td {
                                 border: 1px solid var(--general-colors-primary-primary400);
                                 border-top: none;
@@ -386,5 +378,14 @@
                 }
             }
         }
+    }
+
+    :local(.expand-button) {
+        height: initial;
+        padding: 0 12px 0 2px;
+        margin-right: convertToPixel(--general-spacing-xxs);
+        width: 0;
+        min-width: 0;
+        display: inline;
     }
 }

@@ -69,6 +69,47 @@ const dataSource: DataType[] = [
         age: 60,
         address: '10 Downing Street',
         tags: ['nice', 'developer']
+    },
+    {
+        key: '4',
+        name: 'Mike',
+        age: 51,
+        address: '10 Downing Street',
+        tags: ['nice', 'developer'],
+        children: [
+            {
+                key: '41',
+                name: 'Mike',
+                age: 51,
+                address: '10 Downing Street',
+                tags: ['nice', 'developer'],
+                children: [
+                    {
+                        key: '411',
+                        name: 'Mike',
+                        age: 51,
+                        address: '10 Downing Street',
+                        tags: ['nice', 'developer']
+                    }
+                ]
+            },
+            {
+                key: '42',
+                name: 'Mike',
+                age: 51,
+                address: '10 Downing Street',
+                tags: ['nice', 'developer'],
+                children: [
+                    {
+                        key: '121',
+                        name: 'Mike',
+                        age: 51,
+                        address: '10 Downing Street',
+                        tags: ['nice', 'developer']
+                    }
+                ]
+            }
+        ]
     }
 ];
 
