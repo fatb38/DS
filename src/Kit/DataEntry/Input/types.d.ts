@@ -3,7 +3,7 @@ import {PasswordProps, TextAreaProps} from 'antd/es/input';
 import {KitHTMLAttributes} from '../../../types';
 import {ReactNode, ReactElement, MouseEvent} from 'react';
 
-type AntdInputTypesToOmit = 'styles' | 'type' | 'bordered' | 'size' | 'addonBefore' | 'addonAfter';
+type AntdInputTypesToOmit = 'styles' | 'bordered' | 'size' | 'addonBefore' | 'addonAfter';
 
 export interface IKitInput
     extends Omit<InputProps, AntdInputTypesToOmit>,

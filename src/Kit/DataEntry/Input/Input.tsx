@@ -42,6 +42,7 @@ const KitInput = forwardRef<InputRef, IKitInput>(
             >
                 <AntdInput
                     {...inputProps}
+                    required={required}
                     ref={ref}
                     className={clx}
                     allowClear={

@@ -31,6 +31,17 @@ export const argTypes = {
             }
         }
     },
+    type: {
+        name: 'type',
+        description:
+            'The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types) ( use `Input.TextArea` instead of type="textarea")',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            }
+        }
+    },
     required: {
         name: 'required',
         description: 'Whether the input is mandatory',

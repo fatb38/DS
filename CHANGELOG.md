@@ -1,5 +1,15 @@
 # Changelog
 
+## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
+### 🐛 Bug Fixes
+* **ItemList**:
+  * fix border (@evoiron)
+* **Input**:
+  * fix `required`prop not passed to input element
+  * enabled `type`property
+* **Select**:
+  * fix select not closing automatically when selecting value in simple mode
+
 ## [7.1.0](https://www.npmjs.com/package/aristid-ds/v/7.1.0) (2024-06-14)
 ### 🐛 Bug Fixes
 * **Table:**

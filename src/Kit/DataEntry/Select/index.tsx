@@ -20,7 +20,8 @@ import {
     getTagRender
 } from './renders';
 
-const _parseOptions = (optionList: IKitOption[], labelOnly?: IKitSelect['labelOnly']): IKitInternalOption[] => optionList.map(option => {
+const _parseOptions = (optionList: IKitOption[], labelOnly?: IKitSelect['labelOnly']): IKitInternalOption[] =>
+    optionList.map(option => {
         const {className, disabled, value, options, label} = option;
 
         if (options) {
@@ -150,6 +151,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             // When the clear icon is clicked, the dropdown should not open
             if (
                 target.ariaLabel === 'clear' ||
+                (!mode && isOpen) ||
                 (mode && isOpen && (event.target as HTMLElement).closest('.ant-select'))
             ) {
                 setIsOpen(false);
