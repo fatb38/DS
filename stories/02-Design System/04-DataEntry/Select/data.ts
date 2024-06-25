@@ -34,6 +34,21 @@ const SelectArgTypes = {
         },
         defaultValue: false
     },
+    mode: {
+        name: 'mode',
+        control: {type: 'text'},
+        description: 'Select mode. Can be `multiple`, `tags` or `undefined`for simple mode',
+        table: {
+            type: {
+                summary: 'string | undefined'
+            },
+            defaultValue: {
+                summary: 'undefined'
+            },
+            category: 'Select'
+        },
+        defaultValue: undefined
+    },
     infoIcon: {
         name: 'infoIcon',
         description: 'Custom Icon to display when onInfoClick is set',
