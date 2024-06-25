@@ -1,6 +1,6 @@
 # Changelog
 
-## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
+## [7.2.0](https://www.npmjs.com/package/aristid-ds/v/7.2.0) (2024-06-25)
 ### 🐛 Bug Fixes
 * **ItemList**:
   * fix border (@evoiron)
