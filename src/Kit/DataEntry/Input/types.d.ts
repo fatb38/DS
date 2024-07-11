@@ -16,6 +16,7 @@ export interface IKitInput
     infoIcon?: ReactNode;
     actions?: ReactElement[];
     onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
+    readonly?: boolean;
 }
 
 export interface IKitTextArea
@@ -29,6 +30,7 @@ export interface IKitTextArea
     infoIcon?: ReactNode;
     actions?: ReactElement[];
     onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
+    readonly?: boolean;
 }
 
 export interface IKitPassword

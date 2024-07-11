@@ -351,5 +351,13 @@ export const argTypes = {
             },
             category: 'Input'
         }
+    },
+    readonly: {
+        name: 'readonly',
+        description: 'Boolean to set the input in readonly mode',
+        table: {
+            defaultValue: {summary: false},
+            category: 'Common API'
+        }
     }
 };

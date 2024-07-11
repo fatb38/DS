@@ -245,6 +245,22 @@
                 color: transparent;
             }
         }
+
+        &.kit-picker-readonly {
+            height: fit-content;
+
+            .ant-picker-input input, .ant-picker-input input::placeholder {
+                font-weight: var(--general-typography-boldFontWeight);
+                color: var(--general-colors-neutral-typography-default);
+                cursor: default;
+            }
+
+            &.ant-picker-status-error {
+                input, input::placeholder, .ant-picker-suffix {
+                    color: #EB0D18; // TODO add ds variable for red color
+                }
+            }
+        }
     }
 }
 
@@ -544,6 +560,27 @@
 
             &:not(.ant-picker-disabled) .ant-picker-input:focus-within input::placeholder {
                 color: transparent;
+            }
+        }
+
+        &.kit-picker-readonly {
+            height: fit-content;
+
+            .ant-picker-input input, .ant-picker-input input::placeholder {
+                font-weight: var(--general-typography-boldFontWeight);
+                color: var(--general-colors-neutral-typography-default);
+                cursor: default;
+            }
+
+            &.ant-picker-status-error {
+                input::placeholder {
+                    color: #EB0D18;
+                }
+
+                input, .ant-picker-suffix, svg {
+                    color: #EB0D18; // TODO add ds variable for red color
+                }
+
             }
         }
     }

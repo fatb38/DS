@@ -9,6 +9,7 @@ import {TextAreaInputTest} from './test-components/TextAreaInputTest.tsx';
 import {CountingInputTest} from './test-components/CountingInputTest.tsx';
 import {PrefixAndSuffixInputTest} from './test-components/PrefixAndSuffixInputTest.tsx';
 import {LabelAndHelperInputTest} from './test-components/LabelAndHelperInputTest.tsx';
+import {ReadonlyTest} from './test-components/ReadonlyTest.tsx';
 
 const meta: Meta<typeof KitInput> = {
     component: KitInput,
@@ -35,6 +36,7 @@ export const ChromaticTest: Story = {
                 <TextAreaInputTest />
                 <CountingInputTest />
                 <PrefixAndSuffixInputTest />
+                <ReadonlyTest />
             </div>
             <LabelAndHelperInputTest />
         </div>

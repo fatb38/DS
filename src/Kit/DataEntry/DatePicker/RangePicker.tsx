@@ -23,6 +23,7 @@ const KitRangePicker = forwardRef<any, IKitRangePicker>(
             infoIcon,
             actions,
             onInfoClick,
+            readonly,
             ...rangePickerProps
         },
         ref
@@ -48,7 +49,7 @@ const KitRangePicker = forwardRef<any, IKitRangePicker>(
             return (rangePickerProps.disabled[0] as boolean) && (rangePickerProps.disabled[1] as boolean);
         };
 
-        const clx = cn(appId, styles['kit-rangepicker'], className as string);
+        const clx = cn(appId, styles['kit-rangepicker'], className as string, readonly ? 'kit-picker-readonly' : '');
 
         return (
             <KitInputWrapper
@@ -66,6 +67,8 @@ const KitRangePicker = forwardRef<any, IKitRangePicker>(
                         {...rangePickerProps}
                         picker={picker}
                         ref={ref}
+                        disabled={readonly ?? _isRangePickerDisabled()}
+                        variant={readonly ? 'borderless' : undefined}
                         suffixIcon={suffixIcon ?? _getSuffixIcon()}
                         allowClear={
                             allowClear

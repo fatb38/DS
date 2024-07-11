@@ -1,5 +1,18 @@
 # Changelog
 
+## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-XX-XX)
+### ✨ Features
+* **Input**:
+  * adding new prop `readonly` (@fatb38)
+* **InputWrapper**:
+  * update info icon (@fatb38)
+  * adding warning and error icon (@fatb38)
+  * adding ellipsis for too long helper label (@fatb38)
+* **TextArea**:
+  * adding new prop `readonly` (@fatb38)
+* **Select**:
+  * adding new prop `readonly` (@fatb38)
+
 ## [7.2.0](https://www.npmjs.com/package/aristid-ds/v/7.2.0) (2024-06-25)
 ### 🐛 Bug Fixes
 * **ItemList**:

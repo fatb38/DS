@@ -2,7 +2,7 @@
 
 :local(.kit-input-wrapper) {
     .kit-input-wrapper-label {
-        margin-bottom: convertToPixel(--components-InputWrapper-gap-label, --general-spacing-xs);
+        margin-bottom: convertToPixel(--components-InputWrapper-gap-label, --general-spacing-xxs);
         display: flex;
         align-items: center;
     }

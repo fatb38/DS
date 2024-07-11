@@ -41,12 +41,18 @@ const _parseOptions = (optionList: IKitOption[], labelOnly?: IKitSelect['labelOn
         };
     });
 
-const _getPlacementClasses = (appId: string, className: string | undefined, placement: IKitSelect['placement']) => {
+const _getPlacementClasses = (
+    appId: string,
+    className: string | undefined,
+    placement: IKitSelect['placement'],
+    readonly?: boolean
+) => {
     const isTop = placement && placement.indexOf('top') >= 0;
 
     return cn(appId, styles['kit-select'], className, {
         'ant-select-top': isTop,
-        'ant-select-bottom': !isTop
+        'ant-select-bottom': !isTop,
+        'kit-select-readonly': readonly
     });
 };
 
@@ -100,6 +106,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             actions,
             onInfoClick,
             dropdownRender,
+            readonly,
             ...props
         },
         ref?: Ref<RefSelectProps> | undefined
@@ -193,11 +200,12 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                 <AntdSelect
                     {...props}
                     id={internalKitSelectRef.current}
-                    className={_getPlacementClasses(appId, className, placement)}
+                    className={_getPlacementClasses(appId, className, placement, readonly)}
                     popupClassName={_getPopupPlacementClasses(appId, popupClassName, placement, isFocus, status)}
                     options={internalOptions}
                     placement={placement}
-                    disabled={disabled}
+                    disabled={disabled || readonly}
+                    variant={readonly ? 'borderless' : undefined}
                     status={status}
                     menuItemSelectedIcon={selectedItemIcon}
                     mode={mode}

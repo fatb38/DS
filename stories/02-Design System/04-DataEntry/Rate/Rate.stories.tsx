@@ -40,7 +40,7 @@ export const ChromaticTest: Story = {
                     </div>
                 </div>
                 <div>
-                    <KitTypography.Title level="h4">Readonly</KitTypography.Title>
+                    <KitTypography.Title level="h4">Read only</KitTypography.Title>
                     <KitRate disabled defaultValue={2} />
                 </div>
                 <div>

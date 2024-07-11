@@ -67,4 +67,5 @@ export interface IKitSelect extends Omit<SelectProps, AntdSelectTypesToOmit>, Ki
     infoIcon?: ReactNode;
     actions?: ReactElement[];
     onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
+    readonly?: boolean;
 }

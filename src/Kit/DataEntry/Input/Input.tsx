@@ -8,6 +8,7 @@ import cn from 'classnames';
 import {IKitInput} from './types';
 
 import styles from './styles.module.scss';
+import {KitTypography} from '@kit/General';
 
 const KitInput = forwardRef<InputRef, IKitInput>(
     (
@@ -21,6 +22,7 @@ const KitInput = forwardRef<InputRef, IKitInput>(
             infoIcon,
             actions,
             onInfoClick,
+            readonly,
             ...inputProps
         },
         ref
@@ -40,17 +42,27 @@ const KitInput = forwardRef<InputRef, IKitInput>(
                 actions={actions}
                 onInfoClick={onInfoClick}
             >
-                <AntdInput
-                    {...inputProps}
-                    required={required}
-                    ref={ref}
-                    className={clx}
-                    allowClear={
-                        allowClear
-                            ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}
-                            : undefined
-                    }
-                />
+                {readonly ? (
+                    <KitTypography.Text
+                        weight="bold"
+                        size="large"
+                        style={{color: inputProps.status === 'error' ? '#EB0D18' : undefined}} // TODO add ds variable for red color
+                    >
+                        {(inputProps.value as string) ?? inputProps.placeholder}
+                    </KitTypography.Text>
+                ) : (
+                    <AntdInput
+                        {...inputProps}
+                        required={required}
+                        ref={ref}
+                        className={clx}
+                        allowClear={
+                            allowClear
+                                ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}
+                                : undefined
+                        }
+                    />
+                )}
             </KitInputWrapper>
         );
     }

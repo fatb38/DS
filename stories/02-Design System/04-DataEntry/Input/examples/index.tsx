@@ -7,6 +7,7 @@ import Counting from './counting';
 import Clearicon from './clearicon';
 import Status from './status';
 import Wrapper from './wrapper';
+import Readonly from './readonly.tsx';
 
 import BasicSource from './basic?raw';
 import PrefixsuffixSource from './prefixsuffix?raw';
@@ -17,6 +18,7 @@ import CountingSource from './counting?raw';
 import CleariconSource from './clearicon?raw';
 import StatusSource from './status?raw';
 import WrapperSource from './wrapper?raw';
+import ReadonlySource from './readonly.tsx?raw';
 
 export const Sources = {
     Basic: BasicSource,
@@ -27,7 +29,8 @@ export const Sources = {
     Counting: CountingSource,
     Clearicon: CleariconSource,
     Status: StatusSource,
-    Wrapper: WrapperSource
+    Wrapper: WrapperSource,
+    Readonly: ReadonlySource
 };
 export default {
     Basic,
@@ -38,5 +41,6 @@ export default {
     Counting,
     Clearicon,
     Status,
-    Wrapper
+    Wrapper,
+    Readonly
 };

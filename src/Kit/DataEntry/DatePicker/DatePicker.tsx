@@ -25,6 +25,7 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
             infoIcon,
             actions,
             onInfoClick,
+            readonly,
             ...datePickerProps
         },
         ref
@@ -38,7 +39,7 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
             return <FontAwesomeIcon icon={faCalendar} />;
         };
 
-        const clx = cn(appId, styles['kit-datepicker'], className as string);
+        const clx = cn(appId, styles['kit-datepicker'], className as string, readonly ? 'kit-picker-readonly' : '');
 
         return (
             <KitInputWrapper
@@ -56,10 +57,12 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
                     <AntdDatePicker
                         {...datePickerProps}
                         picker={picker}
+                        disabled={!!readonly}
+                        variant={readonly ? 'borderless' : undefined}
                         ref={ref}
                         suffixIcon={suffixIcon ?? _getSuffixIcon()}
                         allowClear={
-                            allowClear
+                            !readonly && allowClear
                                 ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}
                                 : false
                         }

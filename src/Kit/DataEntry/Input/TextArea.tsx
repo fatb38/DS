@@ -8,6 +8,7 @@ import {useKitTheme} from '@theme/useKitTheme';
 import cn from 'classnames';
 
 import styles from './styles.module.scss';
+import {KitTypography} from '@kit/General';
 
 const KitTextArea = forwardRef<InputRef, IKitTextArea>(
     (
@@ -21,7 +22,7 @@ const KitTextArea = forwardRef<InputRef, IKitTextArea>(
             infoIcon,
             actions,
             onInfoClick,
-
+            readonly,
             ...textAreaProps
         },
         ref
@@ -41,16 +42,26 @@ const KitTextArea = forwardRef<InputRef, IKitTextArea>(
                 actions={actions}
                 onInfoClick={onInfoClick}
             >
-                <AntdInput.TextArea
-                    {...textAreaProps}
-                    ref={ref}
-                    allowClear={
-                        allowClear
-                            ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}
-                            : undefined
-                    }
-                    className={clx}
-                />
+                {readonly ? (
+                    <KitTypography.Text
+                        weight="bold"
+                        size="large"
+                        style={{color: textAreaProps.status === 'error' ? '#EB0D18' : undefined}} // TODO add ds variable for red color
+                    >
+                        {(textAreaProps.value as string) ?? textAreaProps.placeholder}
+                    </KitTypography.Text>
+                ) : (
+                    <AntdInput.TextArea
+                        {...textAreaProps}
+                        ref={ref}
+                        allowClear={
+                            allowClear
+                                ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}
+                                : undefined
+                        }
+                        className={clx}
+                    />
+                )}
             </KitInputWrapper>
         );
     }

@@ -4,7 +4,7 @@ import {KitButton, KitTypography} from '@kit/General/';
 import {useKitTheme} from '@theme/useKitTheme';
 import cn from 'classnames';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleInfo} from '@fortawesome/free-solid-svg-icons';
+import {faCircleInfo, faTriangleExclamation, faCircleXmark} from '@fortawesome/free-solid-svg-icons';
 
 import styles from './styles.module.scss';
 
@@ -24,13 +24,23 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
     const {appId} = useKitTheme();
 
     const _wrapperClassName = cn(styles['kit-input-wrapper'], appId, className ?? '', {
-        disabled: disabled,
-        bordered: bordered,
+        disabled,
+        bordered,
         error: status === 'error',
         warning: status === 'warning'
     });
 
-    const _infoIcon: ReactNode = infoIcon ?? <FontAwesomeIcon icon={faCircleInfo} />;
+    const getFontAwesomeIcon = () => {
+        if (status === 'warning') {
+            return faTriangleExclamation;
+        }
+        if (status === 'error') {
+            return faCircleXmark;
+        }
+        return faCircleInfo;
+    };
+
+    const _infoIcon: ReactNode = infoIcon ?? <FontAwesomeIcon icon={getFontAwesomeIcon()} />;
 
     const _actions = useMemo(() => {
         if (!disabled) {
@@ -71,8 +81,8 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
             <div className="kit-input-wrapper-content">{children}</div>
             {helper && (
                 <div className="kit-input-wrapper-helper">
-                    <KitTypography.Text size="small" weight="regular">
-                        * {helper}
+                    <KitTypography.Text size="small" weight="regular" ellipsis={{tooltip: true}}>
+                        {_infoIcon} {helper}
                     </KitTypography.Text>
                 </div>
             )}

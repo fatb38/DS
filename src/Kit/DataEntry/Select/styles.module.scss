@@ -3,7 +3,7 @@
 :local(.kit-select) {
     &.ant-select.ant-select-compact-item {
         &:not(.ant-select-compact-last-item) {
-            margin-inline-end: 0px;
+            margin-inline-end: 0;
         }
 
         &.ant-select-compact-first-item:not(.ant-select-compact-last-item):not(.ant-select-open) {
@@ -27,19 +27,19 @@
             }
 
             &.ant-select-top {
-                border-radius: 0 0 convertToPixel(--components-Select-border-radius, --general-border-radius-s) 
+                border-radius: 0 0 convertToPixel(--components-Select-border-radius, --general-border-radius-s)
                     convertToPixel(--components-Select-border-radius, --general-border-radius-s);
             }
         }
 
         &.ant-select-compact-item {
             &.ant-select-bottom {
-                border-radius: convertToPixel(--components-Select-border-raius, --general-border-radius-s) 
+                border-radius: convertToPixel(--components-Select-border-raius, --general-border-radius-s)
                     convertToPixel(--components-Select-border-radius, --general-border-radius-s) 0 0;
             }
 
             &.ant-select-top {
-                border-radius: 0 0 convertToPixel(--components-Select-border-radius, --general-border-radius-s) 
+                border-radius: 0 0 convertToPixel(--components-Select-border-radius, --general-border-radius-s)
                     convertToPixel(--components-Select-border-radius, --general-border-radius-s);
             }
         }
@@ -55,7 +55,7 @@
         }
     }
 
-    &.ant-select:not(.ant-select-customize-input) {
+    &.ant-select:not(.ant-select-customize-input):not(.ant-select-borderless) {
         display: grid;
         min-height: 40px;
         grid-template-areas: 'input clear arrow';
@@ -105,7 +105,7 @@
             min-height: 38px;
 
             .ant-select-selection-overflow {
-                gap: 4px 0px;
+                gap: 4px 0;
 
                 .ant-select-selection-overflow-item {
                     max-width: calc(100% - 4px);
@@ -430,5 +430,39 @@
         align-items: center;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    &.kit-select-readonly.ant-select-disabled {
+        &.ant-select-single {
+            height: 20px;
+        }
+
+        .ant-select-arrow {
+            display: none;
+        }
+
+        .ant-select-selector {
+            padding-left: convertToPixel(--general-spacing-none);;
+            cursor: default;
+
+            input {
+                cursor: inherit;
+            }
+
+            .ant-select-selection-placeholder, .kit-select-option-label, .ant-select-selection-item {
+                color: var(--general-colors-neutral-typography-default);
+                font-weight: var(--general-typography-boldFontWeight);
+            }
+
+            .kit-select-option-badge {
+                margin-right: convertToPixel(--general-spacing-xs);
+            }
+        }
+    }
+
+    &.kit-select-readonly.ant-select-disabled.ant-select-status-error .ant-select-selector {
+        .ant-select-selection-placeholder, .kit-select-option-label, .ant-select-selection-item {
+            color: #EB0D18; // TODO add ds variable for red color
+        }
     }
 }
