@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Image as AntdImage} from 'antd';
 import cn from 'classnames';
 import {IKitImage, KitImageCompoundedComponent} from './types';

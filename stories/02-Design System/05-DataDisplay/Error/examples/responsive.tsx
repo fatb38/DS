@@ -10,7 +10,7 @@ const _Description: FunctionComponent = () => (
 );
 
 const App = () => (
-    <div style={{width: '300px', margin: '0 auto', backgroundColor: 'var(--general-colors-primary-primary50)'}}>
+    <div style={{width: '300px', margin: '0 auto', backgroundColor: 'var(--general-colors-primary-blue50)'}}>
         <KitError title="Page not found" description={<_Description />} />
     </div>
 );

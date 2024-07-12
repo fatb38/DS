@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react';
+import {forwardRef} from 'react';
 import {Input as AntdInput, InputRef} from 'antd';
 import {IKitTextArea} from './types';
 import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
@@ -22,7 +22,7 @@ const KitTextArea = forwardRef<InputRef, IKitTextArea>(
             infoIcon,
             actions,
             onInfoClick,
-            readonly,
+            readonly = false,
             ...textAreaProps
         },
         ref
@@ -46,7 +46,7 @@ const KitTextArea = forwardRef<InputRef, IKitTextArea>(
                     <KitTypography.Text
                         weight="bold"
                         size="large"
-                        style={{color: textAreaProps.status === 'error' ? '#EB0D18' : undefined}} // TODO add ds variable for red color
+                        color={textAreaProps.status === 'error' ? 'error' : undefined}
                     >
                         {(textAreaProps.value as string) ?? textAreaProps.placeholder}
                     </KitTypography.Text>

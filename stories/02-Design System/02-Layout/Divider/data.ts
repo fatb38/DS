@@ -67,20 +67,6 @@ export const argTypes = {
         },
         defaultValue: false
     },
-    color: {
-        name: 'color',
-        control: {type: 'select'},
-        options: ['default', 'lightGrey'],
-        description: 'Border color can be set to `default` | `lightGrey`',
-        table: {
-            type: {
-                summary: 'string'
-            },
-            defaultValue: {summary: 'center'},
-            category: 'Divider'
-        },
-        defaultValue: 'center'
-    },
     label: {
         name: 'label',
         control: {type: 'text'},

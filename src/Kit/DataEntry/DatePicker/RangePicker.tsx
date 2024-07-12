@@ -4,7 +4,7 @@ import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
 import {DatePicker as AntdDatePicker} from 'antd';
 import cn from 'classnames';
-import React, {ReactNode, forwardRef} from 'react';
+import {ReactNode, forwardRef} from 'react';
 import {IKitRangePicker} from './types';
 
 import styles from './styles.module.scss';
@@ -23,7 +23,7 @@ const KitRangePicker = forwardRef<any, IKitRangePicker>(
             infoIcon,
             actions,
             onInfoClick,
-            readonly,
+            readonly = false,
             ...rangePickerProps
         },
         ref
@@ -37,7 +37,7 @@ const KitRangePicker = forwardRef<any, IKitRangePicker>(
             return <FontAwesomeIcon icon={faCalendar} />;
         };
 
-        const _isRangePickerDisabled = (): boolean => {
+        const _isInputWrapperDisabled = (): boolean => {
             if (rangePickerProps.disabled === undefined) {
                 return false;
             }
@@ -55,7 +55,7 @@ const KitRangePicker = forwardRef<any, IKitRangePicker>(
             <KitInputWrapper
                 label={label}
                 helper={helper}
-                disabled={_isRangePickerDisabled()}
+                disabled={_isInputWrapperDisabled()}
                 status={rangePickerProps.status}
                 required={required}
                 infoIcon={infoIcon}
@@ -67,7 +67,7 @@ const KitRangePicker = forwardRef<any, IKitRangePicker>(
                         {...rangePickerProps}
                         picker={picker}
                         ref={ref}
-                        disabled={readonly ?? _isRangePickerDisabled()}
+                        disabled={readonly || rangePickerProps.disabled}
                         variant={readonly ? 'borderless' : undefined}
                         suffixIcon={suffixIcon ?? _getSuffixIcon()}
                         allowClear={

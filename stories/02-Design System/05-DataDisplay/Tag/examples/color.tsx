@@ -8,12 +8,21 @@ const App = () => {
     const {theme} = useKitTheme();
 
     const secondaryColors = Object.keys(theme.colors.secondary);
+    const tertiaryColors = Object.keys(theme.colors.tertiary);
 
     return (
         <KitSpace direction="vertical">
             <KitTypography.Text style={{fontWeight: 'bold'}}>Default color</KitTypography.Text>
             <KitSpace>
                 <KitTag>Default</KitTag>
+            </KitSpace>
+            <br />
+            <KitTypography.Text style={{fontWeight: 'bold'}}>Primary Color</KitTypography.Text>
+            <KitSpace direction="vertical">
+                <KitTag color="primary">primary</KitTag>
+                <KitTag color="primary" secondaryColorInvert>
+                    primary
+                </KitTag>
             </KitSpace>
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
@@ -24,10 +33,24 @@ const App = () => {
                     </KitTag>
                 ))}
             </KitSpace>
-            <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Inverted Secondary Colors</KitTypography.Text>
             <KitSpace>
                 {secondaryColors.map((color: string) => (
+                    <KitTag color={color} key={color + '_inverted'} secondaryColorInvert>
+                        {color}
+                    </KitTag>
+                ))}
+            </KitSpace>
+            <br />
+            <KitTypography.Text style={{fontWeight: 'bold'}}>Tertiary Colors</KitTypography.Text>
+            <KitSpace>
+                {tertiaryColors.map((color: string) => (
+                    <KitTag color={color} key={color + '_default'}>
+                        {color}
+                    </KitTag>
+                ))}
+            </KitSpace>
+            <KitSpace>
+                {tertiaryColors.map((color: string) => (
                     <KitTag color={color} key={color + '_inverted'} secondaryColorInvert>
                         {color}
                     </KitTag>
@@ -43,7 +66,7 @@ const App = () => {
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>HEX format</KitTypography.Text>
             <KitSpace>
-                <KitTag color="#FunctionComponentba03">Yellow</KitTag>
+                <KitTag color="#fcba03">Yellow</KitTag>
                 <KitTag color="#001d75">Dark blue</KitTag>
                 <KitTag color="#850065">Purple</KitTag>
             </KitSpace>

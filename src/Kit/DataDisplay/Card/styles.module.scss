@@ -3,59 +3,49 @@
 :local(.kit-card) {
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
+    border-radius: convertToPixel(--general-border-radius-s);
     overflow: hidden;
-    background-color: var(
-        --components-Card-colors-background-default,
-        var(--general-colors-neutral-white)
-    );
-    border: 1px solid
-        var(
-             --components-Card-colors-border-default,
-            var(--general-colors-secondary-mediumGrey-mediumGrey200)
-        );
+    background-color: var(--components-Card-colors-background-default, var(--general-utilities-light));
+    border: 1px solid var(--components-Card-colors-border-default, var(--general-utilities-border));
     margin: 2px;
-    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--general-utilities-shadow-shadowLight);
     width: 300px;
 
     &.kit-card-disabled {
         background-color: var(
             --components-Card-colors-background-disabled,
-            var(--general-colors-secondary-mediumGrey-mediumGrey100)
+            var(--general-utilities-neutral-neutralLight)
         );
+
         .brandingBar.kit-card-picture {
-            border-color: var(
-                --components-Card-colors-separator-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey400)
-            );
+            border-color: var(--components-Card-colors-separator-disabled, var(--general-utilities-disabled));
         }
 
         .kit-card-content {
             .kit-card-title {
                 color: var(
                     --components-Card-colors-typography-title-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-utilities-text-textDisabled)
                 );
             }
             .kit-card-description {
                 color: var(
                     --components-Card-colors-typography-description-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-utilities-text-textDisabled)
                 );
             }
             .kit-card-extra {
                 color: var(
                     --components-Card-colors-typography-extra-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-utilities-text-textDisabled)
                 );
             }
         }
     }
 
     &.kit-card-selected {
-        margin: 0;
-        border: 3px solid
-            var(--components-Card-colors-border-selected, var(--general-colors-primary-primary400));
+        margin: convertToPixel(--general-spacing-none);
+        border: 3px solid var(--components-Card-colors-border-selected, var(--general-utilities-main-mainColor));
     }
 
     .kit-card-content {
@@ -67,14 +57,8 @@
 
         .kit-card-title {
             font-size: convertToPixel(--components-Card-typography-title-fontSize, --general-typography-fontSize3);
-            font-weight: var(
-                --components-Card-typography-title-fontWeight,
-                var(--general-typography-boldFontWeight)
-            );
-            color: var(
-                --components-Card-colors-typography-title-default,
-                var(--general-colors-primary-primary400)
-            );
+            font-weight: var(--components-Card-typography-title-fontWeight, var(--general-typography-boldFontWeight));
+            color: var(--components-Card-colors-typography-title-default, var(--general-utilities-text-textBlue));
         }
 
         .kit-card-description {
@@ -88,20 +72,14 @@
             );
             color: var(
                 --components-Card-colors-typography-description-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey600)
+                var(--general-utilities-text-textPrimary)
             );
         }
 
         .kit-card-extra {
             font-size: convertToPixel(--components-Card-typography-extra-fontSize, --general-typography-fontSize4);
-            font-weight: var(
-                --components-Card-typography-extra-fontWeight,
-                var(--general-typography-boldFontWeight)
-            );
-            color: var(
-                 --components-Card-colors-typography-extra-default,
-                var(--general-colors-primary-primary400)
-            );
+            font-weight: var(--components-Card-typography-extra-fontWeight, var(--general-typography-boldFontWeight));
+            color: var(--components-Card-colors-typography-extra-default, var(--general-utilities-text-textBlue));
         }
     }
 
@@ -115,7 +93,7 @@
         border-bottom: 4px solid transparent;
 
         &.brandingBar {
-            border-color: var(--components-Card-colors-separator-default, var(--general-colors-primary-primary400))
+            border-color: var(--components-Card-colors-separator-default, var(--general-utilities-main-mainColor));
         }
         img {
             height: 100%;
@@ -141,23 +119,21 @@
             right: 10px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: convertToPixel(--general-spacing-xs);
         }
     }
 
     &:focus:not(.kit-card-disabled),
     &:focus-visible:not(.kit-card-disabled),
     &:focus-within:not(.kit-card-disabled) {
-        margin: 0;
-        border: 3px solid
-            var(--components-Card-colors-border-focus, var(--general-colors-primary-primary200));
+        margin: convertToPixel(--general-spacing-none);
+        border: 3px solid var(--components-Card-colors-border-focus, var(--general-utilities-focus));
         outline: none;
     }
 
     &:hover:not(.kit-card-disabled) {
-        margin: 0;
-        border: 3px solid
-            var(--components-Card-colors-border-hover, var(--general-colors-primary-primary400));
+        margin: convertToPixel(--general-spacing-none);
+        border: 3px solid var(--components-Card-colors-border-hover, var(--general-utilities-main-mainColor));
 
         .kit-card-picture {
             border-color: transparent;

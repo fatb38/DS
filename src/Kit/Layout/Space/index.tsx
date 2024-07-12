@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useCallback, useMemo} from 'react';
+import {FunctionComponent, useCallback, useMemo} from 'react';
 import {Space as AntdSpace} from 'antd';
 import type {IKitSpace} from './types';
 import {SpaceCompactProps} from 'antd/es/space/Compact';

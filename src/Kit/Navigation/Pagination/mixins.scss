@@ -1,17 +1,14 @@
 @mixin paginationStyles() {
     &.kit-pagination-bordered:not(.ant-pagination-mini) {
         .ant-pagination-item:not(.ant-pagination-item-active) {
-            border-color: var(--components-Pagination-pagination-border-default, var(--general-colors-neutral-black60));
+            border-color: var(--components-Pagination-pagination-border-default, var(--general-utilities-border));
         }
 
         &:not(.ant-pagination-disabled) .ant-pagination-item:hover {
-            border-color: var(
-                --components-Pagination-pagination-border-hover,
-                var(--general-colors-primary-primary400)
-            );
+            border-color: var(--components-Pagination-pagination-border-hover, var(--general-utilities-main-mainColor));
             background-color: var(
                 --components-Pagination-pagination-colors-background-hover,
-                var(--general-colors-neutral-white)
+                var(--general-utilities-light)
             );
         }
 
@@ -41,7 +38,7 @@
         }
 
         a {
-            padding: 0 8px;
+            padding: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-xs);
         }
     }
 
@@ -58,11 +55,11 @@
             &:hover {
                 border-color: var(
                     --components-Pagination-prevNext-colors-border-hover,
-                    var(--general-colors-primary-primary400)
+                    var(--general-utilities-main-mainColor)
                 );
                 color: var(
                     --components-Pagination-prevNext-colors-typography-hover,
-                    var(--general-colors-primary-primary400)
+                    var(--general-utilities-main-mainColor)
                 );
 
                 .ant-pagination-item-link {
@@ -72,7 +69,7 @@
                 button {
                     color: var(
                         --components-Pagination-prevNext-colors-typography-hover,
-                        var(--general-colors-primary-primary400)
+                        var(--general-utilities-main-mainColor)
                     );
                 }
             }
@@ -92,7 +89,7 @@
         .ant-pagination-item-active a {
             color: var(
                 --components-Pagination-pagination-colors-typography-disabledActive,
-                var(--general-colors-neutral-typography-white)
+                var(--general-utilities-text-textLight)
             );
         }
     }
@@ -110,7 +107,7 @@
             height: 24px;
             border-color: var(
                 --components-Pagination-quickJumper-colors-border-default,
-                var(--general-colors-neutral-black60)
+                var(--general-utilities-border)
             );
         }
     }
@@ -120,14 +117,8 @@
 
         .ant-select-selector {
             height: 24px;
-            background: var(
-                --components-Pagination-selector-colors-background-default,
-                var(--general-colors-neutral-white)
-            );
-            border-color: var(
-                --components-Pagination-selector-colors-border-default,
-                var(--general-colors-neutral-black60)
-            );
+            background: var(--components-Pagination-selector-colors-background-default, var(--general-utilities-light));
+            border-color: var(--components-Pagination-selector-colors-border-default, var(--general-utilities-border));
 
             input,
             .ant-select-selection-item {

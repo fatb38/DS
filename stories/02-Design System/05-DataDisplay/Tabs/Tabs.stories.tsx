@@ -31,12 +31,12 @@ export const ChromaticTest: Story = {
             <div style={{display: 'flex', gap: '50px'}}>
                 <div>
                     <BasicTabsTest />
-                    <KitDivider color="lightGrey" />
+                    <KitDivider />
                     <PositionTabsTest />
                 </div>
                 <div>
                     <SizeTabsTest />
-                    <KitDivider color="lightGrey" />
+                    <KitDivider />
                     <ExtraContentTabsTest />
                 </div>
             </div>

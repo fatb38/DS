@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import ReactModal from 'react-modal';
 import {IKitModal} from './types';
 import {KitSpace} from '@kit/Layout/';

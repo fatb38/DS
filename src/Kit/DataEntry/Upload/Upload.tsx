@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react';
+import {forwardRef} from 'react';
 import {KitButton} from '@kit/General';
 import cn from 'classnames';
 import {Upload as AntdUpload} from 'antd';

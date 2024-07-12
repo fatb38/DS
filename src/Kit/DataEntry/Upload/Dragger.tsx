@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Upload as AntdUpload} from 'antd';
 import {IKitDragger} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

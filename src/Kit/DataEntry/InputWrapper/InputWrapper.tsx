@@ -1,4 +1,4 @@
-import React, {FunctionComponent, ReactNode, cloneElement, useMemo} from 'react';
+import {FunctionComponent, ReactNode, cloneElement, useMemo} from 'react';
 import {IKitInputWrapper} from './types';
 import {KitButton, KitTypography} from '@kit/General/';
 import {useKitTheme} from '@theme/useKitTheme';

@@ -1,12 +1,12 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-tag) {
-    padding: 4px 8px;
+    padding: convertToPixel(--general-spacing-xxs) convertToPixel(--general-spacing-xs);
     border: none;
     height: 24px;
 
     > div {
-        padding-left: 0;
+        padding-left: convertToPixel(--general-spacing-none);
     }
 
     &,
@@ -21,33 +21,21 @@
     }
 
     .ant-tag-close-icon {
-        margin-left: 8px;
+        margin-left: convertToPixel(--general-spacing-xs);
         .svg-inline--fa {
             vertical-align: -0.075em;
         }
     }
 
-    background: var(
-        --components-Tag-colors-default-background-default,
-        var(--general-colors-primary-primary100)
-    );
-    color: var(
-        --components-Tag-colors-default-typography-default,
-        var(--general-colors-neutral-typography-black)
-    );
+    background: var(--components-Tag-colors-default-background-default, var(--general-utilities-main-mainLight));
+    color: var(--components-Tag-colors-default-typography-default, var(--general-utilities-text-textPrimary));
 
     .ant-tag-close-icon {
-        color: var(
-            --components-Tag-colors-default-typography-default,
-            var(--general-colors-neutral-typography-black)
-        );
+        color: var(--components-Tag-colors-default-typography-default, var(--general-utilities-text-textPrimary));
         align-self: center;
 
         &:hover {
-            color: var(
-                --components-Tag-colors-default-typography-default,
-                var(--general-colors-neutral-typography-black)
-            );
+            color: var(--components-Tag-colors-default-typography-default, var(--general-utilities-text-textPrimary));
         }
     }
 }

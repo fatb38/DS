@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
-import React, {forwardRef, memo, useContext} from 'react';
+import {forwardRef, memo, useContext} from 'react';
 import {ConfigContext} from 'antd/es/config-provider/';
 import SizeContext from 'antd/es/config-provider/SizeContext';
 import pickAttrs from 'rc-util/es/pickAttrs';

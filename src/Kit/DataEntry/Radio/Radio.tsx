@@ -1,4 +1,4 @@
-import React, {forwardRef, useContext} from 'react';
+import {forwardRef, useContext} from 'react';
 import {Radio, RadioChangeEvent, RadioProps} from 'antd';
 import {KitRadioProps} from './types';
 import RadioGroupContext from './context';

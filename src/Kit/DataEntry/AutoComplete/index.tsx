@@ -1,4 +1,4 @@
-import React, {FocusEvent, Ref, forwardRef, useState} from 'react';
+import {FocusEvent, Ref, forwardRef, useState} from 'react';
 import {AutoComplete as AntdAutoComplete, RefSelectProps} from 'antd';
 import {KitInput} from '@kit/DataEntry/Input';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
@@ -14,7 +14,8 @@ const _getPopupPlacementClasses = (
     className: string | undefined,
     isFocus: boolean,
     status: IKitAutoComplete['status']
-) => cn(className, 'ant-select-dropdown', 'kit-select-dropdown-bottom', {
+) =>
+    cn(className, 'ant-select-dropdown', 'kit-select-dropdown-bottom', {
         'kit-select-dropdown-focus': isFocus,
         'kit-select-dropdown-error': status === 'error',
         'kit-select-dropdown-warning': status === 'warning'

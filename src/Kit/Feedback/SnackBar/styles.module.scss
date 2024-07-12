@@ -2,17 +2,14 @@
 
 :local(.kit-snackbar) {
     display: grid;
-    column-gap: 8px;
+    column-gap: convertToPixel(--general-spacing-xs);
     align-items: center;
     min-height: 24px;
-    padding: 8px 16px;
-    background-color: var(
-        --components-SnackBar-colors-background,
-        var(--general-colors-neutral-grey-grey700)
-    );
-    border: 1px solid var(--components-SnackBar-colors-border, var(--general-colors-neutral-grey-grey700));
-    border-radius: 7px;
-    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.3);
+    padding: convertToPixel(--general-spacing-xs) convertToPixel(--general-spacing-s);
+    background-color: var(--components-SnackBar-colors-background, var(--general-utilities-neutral-neutralDeepDark));
+    border: 1px solid var(--components-SnackBar-colors-border, var(--general-utilities-neutral-neutralDeepDark));
+    border-radius: convertToPixel(--general-border-radius-s);
+    box-shadow: var(--general-utilities-shadow-shadowMedium);
     font-family: var(--components-SnackBar-typography-fontFamily, var(--general-typography-fontFamily));
 
     .kit-snackbar-grid-one {
@@ -34,10 +31,7 @@
 
     .kit-snackbar-grid {
         .kit-snackbar-title {
-            color: var(
-                --components-SnackBar-colors-typography-title,
-                var(--general-colors-neutral-grey-grey400)
-            );
+            color: var(--components-SnackBar-colors-typography-title, var(--general-utilities-text-textLight));
             font-size: convertToPixel(--components-SnackBar-typography-title-fontSize, --general-typography-fontSize5);
             font-weight: var(
                 --components-SnackBar-typography-title-fontWeight,
@@ -49,19 +43,15 @@
             height: 23px;
             line-height: 23px;
             width: fit-content;
-            padding: 0px 12px;
-            border: 0.499px solid
-                var(
-                    --components-SnackBar-colors-cta-border-default,
-                    var(--general-colors-neutral-grey-grey200)
-                );
-            border-radius: 14px;
+            padding: convertToPixel(--general-spacing-none) 12px;
+            border: 0.499px solid var(--components-SnackBar-colors-cta-border-default, var(--general-utilities-border));
+            border-radius: convertToPixel(--general-border-radius-pills);
             cursor: pointer;
 
             .kit-snackbar-cta {
                 color: var(
                     --components-SnackBar-colors-cta-typography-default,
-                    var(--general-colors-neutral-grey-grey200)
+                    var(--general-utilities-neutral-neutralMedium)
                 );
                 font-size: 10px;
                 font-weight: var(
@@ -74,31 +64,25 @@
             &:hover {
                 border-color: var(
                     --components-SnackBar-colors-cta-border-hover,
-                    var(--general-colors-neutral-grey-grey400)
+                    var(--general-utilities-neutral-neutralDark)
                 );
 
                 .kit-snackbar-cta {
                     color: var(
                         --components-SnackBar-colors-cta-typography-hover,
-                        var(--general-colors-neutral-grey-grey400)
+                        var(--general-utilities-neutral-neutralDark)
                     );
                 }
             }
         }
 
         .kit-snackbar-close-container {
-            color: var(
-                --components-SnackBar-colors-closeIcon-default,
-                var(--general-colors-neutral-grey-grey400)
-            );
-            font-size: 12px;
+            color: var(--components-SnackBar-colors-closeIcon-default, var(--general-utilities-text-textLight));
+            font-size: var(--general-typography-fontSize4);
             cursor: pointer;
 
             &:hover {
-                color: var(
-                    --components-SnackBar-colors-closeIcon-hover,
-                    var(--general-colors-neutral-grey-grey500)
-                );
+                color: var(--components-SnackBar-colors-closeIcon-hover, var(--general-utilities-neutral-neutralDark));
             }
         }
     }

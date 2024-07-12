@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Empty as AntdEmpty} from 'antd';
 import {IKitError} from './types';
 import {useKitLocale} from '@translation/useKitLocale.ts';

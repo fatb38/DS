@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useMemo} from 'react';
+import {FunctionComponent, useMemo} from 'react';
 import {Breadcrumb} from 'antd';
 import {IKitBreadcrumb, IKitBreadcrumbItem} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

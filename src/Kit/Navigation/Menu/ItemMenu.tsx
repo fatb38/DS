@@ -1,4 +1,4 @@
-import React, {FunctionComponent, MouseEvent, useState} from 'react';
+import {FunctionComponent, MouseEvent, useState} from 'react';
 import {IKitMenuInfo, IKitItemMenu} from './types';
 import {KitCheckbox} from '@kit/DataEntry/';
 import {KitTypography, KitIcon} from '@kit/General/';
@@ -34,35 +34,32 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
 
     const [showMoreTooltip, setShowMoreTooltip] = useState(false);
 
-    const _getCheckbox = () => (
-            isSelectable && (
-                <div className="kit-item-menu-checkbox">
-                    <KitCheckbox
-                        onClick={e => e.stopPropagation()}
-                        onChange={e => {
-                            onSelectChange && onSelectChange(e);
-                        }}
-                    />
-                </div>
-            )
+    const _getCheckbox = () =>
+        isSelectable && (
+            <div className="kit-item-menu-checkbox">
+                <KitCheckbox
+                    onClick={e => e.stopPropagation()}
+                    onChange={e => {
+                        onSelectChange && onSelectChange(e);
+                    }}
+                />
+            </div>
         );
 
-    const _getIcon = () => (
-            icon && (
-                <div className="kit-item-menu-icon">
-                    <KitIcon icon={icon} on={isSelected} />
-                </div>
-            )
+    const _getIcon = () =>
+        icon && (
+            <div className="kit-item-menu-icon">
+                <KitIcon icon={icon} on={isSelected} />
+            </div>
         );
 
-    const _getTitle = () => (
-            title && (
-                <div className="kit-item-menu-title">
-                    <KitTypography.Text size="large" weight="medium" ellipsis={{tooltip: true}}>
-                        {title}
-                    </KitTypography.Text>
-                </div>
-            )
+    const _getTitle = () =>
+        title && (
+            <div className="kit-item-menu-title">
+                <KitTypography.Text size="large" weight="medium" ellipsis={{tooltip: true}}>
+                    {title}
+                </KitTypography.Text>
+            </div>
         );
 
     const _getActions = () => {
@@ -146,14 +143,13 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
         return dropDownActions;
     };
 
-    const _getValue = () => (
-            value && (
-                <div className="kit-item-menu-value">
-                    <KitTypography.Text size="large" weight="regular" ellipsis={{tooltip: true}}>
-                        {value}
-                    </KitTypography.Text>
-                </div>
-            )
+    const _getValue = () =>
+        value && (
+            <div className="kit-item-menu-value">
+                <KitTypography.Text size="large" weight="regular" ellipsis={{tooltip: true}}>
+                    {value}
+                </KitTypography.Text>
+            </div>
         );
 
     const _handleClickRafter = (e: MouseEvent<HTMLElement>) => {
@@ -163,18 +159,17 @@ const KitItemMenu: FunctionComponent<IKitItemMenu> = ({
 
     const _handleClickRafterSecured = useSecureClick(_handleClickRafter);
 
-    const _getRafter = () => (
-            hasRafter && (
-                <div
-                    className="kit-item-menu-rafter"
-                    onClick={disabledSecureClick ? _handleClickRafter : _handleClickRafterSecured}
-                    aria-label="rafter"
-                    data-name="rafter"
-                    role="img"
-                >
-                    <FontAwesomeIcon icon={faAngleRight} />
-                </div>
-            )
+    const _getRafter = () =>
+        hasRafter && (
+            <div
+                className="kit-item-menu-rafter"
+                onClick={disabledSecureClick ? _handleClickRafter : _handleClickRafterSecured}
+                aria-label="rafter"
+                data-name="rafter"
+                role="img"
+            >
+                <FontAwesomeIcon icon={faAngleRight} />
+            </div>
         );
 
     const _handleClickItemMenu = (e: MouseEvent<HTMLElement>) => {

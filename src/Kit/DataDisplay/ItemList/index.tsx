@@ -1,4 +1,4 @@
-import React, {MouseEvent, useState, KeyboardEvent, forwardRef} from 'react';
+import {MouseEvent, useState, KeyboardEvent, forwardRef} from 'react';
 import {IKitItemList} from './types';
 import {KitCheckbox} from '@kit/DataEntry';
 import {KitIdCard} from '@kit/DataDisplay';

@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {forwardRef, useContext, useEffect, useRef} from 'react';
+import {forwardRef, useContext, useEffect, useRef} from 'react';
 import {Checkbox, CheckboxRef} from 'antd';
 import {IKitCheckbox} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

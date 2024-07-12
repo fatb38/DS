@@ -1,44 +1,49 @@
-
 @import '../../../css/mixins.scss';
 
 :local(.kit-side-menu) {
-    --sideMenu-colors-text: var(--components-SideMenu-colors-text, #00254E); // Should be in global variables ??
-    --sideMenu-shadow: 5px 3px 8px -5px #0000001A;
-    --sideMenu-inset-shadow: inset 5px 3px 8px -5px #0000001A;
+    --sideMenu-colors-text: var(--components-SideMenu-colors-text, var(--general-utilities-text-textPrimary));
+    --sideMenu-shadow: 5px 3px 8px -5px #0000001a;
+    --sideMenu-inset-shadow: inset 5px 3px 8px -5px #0000001a;
     --sideMenu-default-width-close: 64;
     --sideMenu-default-width-open: 248;
 
     position: relative;
-    background-color: var(--components-SideMenu-colors-background, var(--general-colors-neutral-white));
+    background-color: var(--components-SideMenu-colors-background, var(--general-utilities-light));
     color: var(--sideMenu-colors-text);
     box-sizing: border-box;
     width: convertToPixel(--components-SideMenu-width-close, --sideMenu-default-width-close);
     min-width: convertToPixel(--components-SideMenu-width-close, --sideMenu-default-width-close);
-    // max-width: convertToPixel(--components-SideMenu-width-close, --sideMenu-default-width-close);
     height: 100%;
-    padding: convertToPixel(--components-SideMenu-padding-vertical, --general-spacing-s) 0;
-    box-shadow: var(--components-SideMenu-shadow, var(--sideMenu-shadow)); // Default shadow will be a default token soon
+    padding: convertToPixel(--components-SideMenu-padding-vertical, --general-spacing-s)
+        convertToPixel(--general-spacing-none);
+    box-shadow: var(
+        --components-SideMenu-shadow,
+        var(--sideMenu-shadow)
+    ); // Default shadow will be a default token soon
     overflow-y: auto;
     overflow-x: hidden;
-    scrollbar-width: convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s) 0;
+    scrollbar-width: convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s)
+        convertToPixel(--general-spacing-none);
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
     transition-property: width, min-width, max-width;
     font-family: var(--general-typography-fontFamily);
     font-style: var(--general-typography-fontStyle);
 
-    ul, li {
-        padding: 0;
-        margin: 0;
+    ul,
+    li {
+        padding: convertToPixel(--general-spacing-none);
+        margin: convertToPixel(--general-spacing-none);
         list-style-type: none;
     }
 
     .menu-items {
         display: flex;
         flex-direction: column;
-        gap:  convertToPixel(--components-SideMenu-item-spacing, --general-spacing-m);
+        gap: convertToPixel(--components-SideMenu-item-spacing, --general-spacing-m);
         position: relative;
-        padding: 0 convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s);
+        padding: convertToPixel(--general-spacing-none)
+            convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s);
         height: 100%;
         width: 100%;
         box-sizing: border-box;
@@ -56,7 +61,7 @@
             width: convertToPixel(--general-spacing-l);
             min-width: convertToPixel(--general-spacing-l);
             height: convertToPixel(--general-spacing-l);
-            padding: 0;
+            padding: convertToPixel(--general-spacing-none);
             color: var(--sideMenu-colors-text);
             left: 0;
             transition: left 0.5s ease-in-out;
@@ -71,7 +76,7 @@
     }
 
     :local(.kit-side-menu-search-block) {
-        width:100%;
+        width: 100%;
         position: relative;
         height: 40px;
 
@@ -91,7 +96,7 @@
             position: absolute;
             height: 40px;
             width: 32px;
-            padding: 16px;
+            padding: convertToPixel(--general-spacing-s);
             box-sizing: border-box;
             align-items: center;
             justify-content: center;
@@ -99,9 +104,7 @@
             opacity: 1;
             transition: opacity 0.3s ease-in-out;
         }
-
     }
-
 
     &.open {
         width: convertToPixel(--components-SideMenu-width-open, --sideMenu-default-width-open);
@@ -126,10 +129,10 @@
             transition: opacity 0.1s ease-in-out 0.2s;
         }
 
-         :local(.kit-side-menu-search-box) {
+        :local(.kit-side-menu-search-box) {
             opacity: 0;
             transition: opacity 0.1s ease-in-out;
-         }
+        }
     }
 }
 
@@ -160,29 +163,26 @@
         cursor: pointer;
     }
 
-    >.kit-side-menu-item-icon {
-        color: var(--components-SideMenu-item-colors-icon-default, var(--general-colors-primary-primary400));
+    > .kit-side-menu-item-icon {
+        color: var(--components-SideMenu-item-colors-icon-default, var(--general-utilities-main-mainColor));
         height: convertToPixel(--general-spacing-l);
         width: convertToPixel(--general-spacing-l);
         padding: convertToPixel(--general-spacing-xs);
-        box-sizing:border-box;
+        box-sizing: border-box;
         display: flex;
         flex: 0 0 convertToPixel(--general-spacing-l);
         justify-content: center;
         align-items: center;
     }
 
-    >.kit-side-menu-item-title {
+    > .kit-side-menu-item-title {
         font-family: 'Inter';
         font-size: convertToPixel(--general-typography-fontSize5);
         line-height: var(--general-typography-lineHeight5);
-        font-weight: var(
-            --components-Typography-Text-fontWeight-medium,
-            var(--general-typography-mediumfontWeight)
-        );
+        font-weight: var(--components-Typography-Text-fontWeight-medium, var(--general-typography-mediumfontWeight));
         display: flex;
         align-items: center;
-        justify-content:center;
+        justify-content: center;
         overflow: hidden;
 
         > span {
@@ -193,41 +193,53 @@
             overflow: hidden;
         }
 
-        &, & .ant-typography {
+        &,
+        & .ant-typography {
             color: var(--components-SideMenu-item-colors-text-default, var(--sideMenu-colors-text));
         }
     }
 
-    >.kit-side-menu-item-complement {
+    > .kit-side-menu-item-complement {
         padding-left: convertToPixel(--components-SideMenu-item-spacing, --general-spacing-xs);
 
         & :only-child {
-            margin: 0;
+            margin: convertToPixel(--general-spacing-none);
         }
     }
 
-    &.active, &:hover {
+    &.active,
+    &:hover {
         padding-left: convertToPixel(--component-SideMenu-item-activeOffset, --general-spacing-xs);
-        background: var(--components-SideMenu-item-colors-background-hover, var(--general-colors-secondary-mediumGrey-mediumGrey100));
-        transition: padding-left 0.1s ease-in-out, background-color 0s 0.1s;
+        background: var(
+            --components-SideMenu-item-colors-background-hover,
+            var(--general-utilities-neutral-neutralLight)
+        );
+        transition:
+            padding-left 0.1s ease-in-out,
+            background-color 0s 0.1s;
     }
 
-    &.active, &.active:hover {
-        background: var(--components-SideMenu-item-colors-background-active, var(--general-colors-primary-primary400));
+    &.active,
+    &.active:hover {
+        background: var(--components-SideMenu-item-colors-background-active, var(--general-utilities-main-mainColor));
 
-        >.kit-side-menu-item-icon, >.kit-side-menu-item-title, >.kit-side-menu-item-title .ant-typography {
-            color: var(--components-SideMenu-item-colors-text-active, var(--general-colors-neutral-white));
+        > .kit-side-menu-item-icon,
+        > .kit-side-menu-item-title,
+        > .kit-side-menu-item-title .ant-typography {
+            color: var(--components-SideMenu-item-colors-text-active, var(--general-utilities-text-textLight));
         }
     }
 
-    &.disabled  {
-        background-color:  var(--components-SideMenu-item-colors-background-disabled, transparent);
-        border-color: var(--components-SideMenu-item-colors-background-default, var(--general-colors-secondary-mediumGrey-mediumGrey200));
+    &.disabled {
+        background-color: var(--components-SideMenu-item-colors-background-disabled, transparent);
+        border-color: var(--components-SideMenu-item-colors-background-default, var(--general-utilities-border));
         padding-right: convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s);
         pointer-events: none;
 
-        > .kit-side-menu-item-icon, > .kit-side-menu-item-title, > .kit-side-menu-item-title .ant-typography {
-            color: var(--components-SideMenu-item-colors-text-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey400));
+        > .kit-side-menu-item-icon,
+        > .kit-side-menu-item-title,
+        > .kit-side-menu-item-title .ant-typography {
+            color: var(--components-SideMenu-item-colors-text-disabled, var(--general-utilities-neutral-neutralDark));
         }
     }
 }
@@ -235,6 +247,5 @@
 :local(.kit-side-menu-separator) {
     height: 0;
     width: 100%;
-    border-top: 1px solid var(--components-SideMenu-item-colors-separator, var(--general-colors-secondary-mediumGrey-mediumGrey200));
+    border-top: 1px solid var(--components-SideMenu-item-colors-separator, var(--general-utilities-border));
 }
-

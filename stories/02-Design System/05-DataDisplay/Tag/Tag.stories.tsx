@@ -25,6 +25,7 @@ export const Api: Story = {
 };
 
 const secondaryColors = Object.keys(colorsPalette.secondary);
+const tertiaryColors = Object.keys(colorsPalette.tertiary);
 
 const tags: IKitTagConfig[] = [
     {wording: 'Multimédia'},
@@ -44,16 +45,40 @@ export const ChromaticTest: Story = {
             <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
                 <KitTypography.Title level="h3">Secondary Colors</KitTypography.Title>
                 <div style={{display: 'flex', gap: '10px'}}>
+                    <KitTag color="primary">primary</KitTag>
+                </div>
+                <div style={{display: 'flex', gap: '10px'}}>
+                    <KitTag color="primary" secondaryColorInvert>
+                        primary
+                    </KitTag>
+                </div>
+
+                <KitTypography.Title level="h3">Secondary Colors</KitTypography.Title>
+                <div style={{display: 'flex', gap: '10px'}}>
                     {secondaryColors.map((color: string) => (
                         <KitTag key={color} color={color}>
                             {color}
                         </KitTag>
                     ))}
                 </div>
-
-                <KitTypography.Title level="h3">Inverted secondary Colors</KitTypography.Title>
                 <div style={{display: 'flex', gap: '10px'}}>
                     {secondaryColors.map((color: string) => (
+                        <KitTag key={color} color={color} secondaryColorInvert>
+                            {color}
+                        </KitTag>
+                    ))}
+                </div>
+
+                <KitTypography.Title level="h3">Tertiary Colors</KitTypography.Title>
+                <div style={{display: 'flex', gap: '10px'}}>
+                    {tertiaryColors.map((color: string) => (
+                        <KitTag key={color} color={color}>
+                            {color}
+                        </KitTag>
+                    ))}
+                </div>
+                <div style={{display: 'flex', gap: '10px'}}>
+                    {tertiaryColors.map((color: string) => (
                         <KitTag key={color} color={color} secondaryColorInvert>
                             {color}
                         </KitTag>

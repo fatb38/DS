@@ -1,7 +1,6 @@
 import {ForwardRefRenderFunction, createContext, forwardRef, memo, useContext, useEffect, useState} from 'react';
 import cn from 'classnames';
 import omit from 'rc-util/es/omit';
-import React from 'react';
 import {ConfigContext} from 'antd/es/config-provider/';
 import Checkbox from './Checkbox';
 import useStyle from 'antd/es/checkbox/style';

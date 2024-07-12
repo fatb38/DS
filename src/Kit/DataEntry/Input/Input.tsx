@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react';
+import {forwardRef} from 'react';
 import {Input as AntdInput, InputRef} from 'antd';
 import {faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -22,7 +22,7 @@ const KitInput = forwardRef<InputRef, IKitInput>(
             infoIcon,
             actions,
             onInfoClick,
-            readonly,
+            readonly = false,
             ...inputProps
         },
         ref
@@ -46,7 +46,7 @@ const KitInput = forwardRef<InputRef, IKitInput>(
                     <KitTypography.Text
                         weight="bold"
                         size="large"
-                        style={{color: inputProps.status === 'error' ? '#EB0D18' : undefined}} // TODO add ds variable for red color
+                        color={inputProps.status === 'error' ? 'error' : undefined}
                     >
                         {(inputProps.value as string) ?? inputProps.placeholder}
                     </KitTypography.Text>

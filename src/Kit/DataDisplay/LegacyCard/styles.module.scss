@@ -6,30 +6,35 @@
 
     &.ant-card-bordered {
         box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
-        border: 1px solid var(--components-LegacyCard-colors-border-default, var(--general-colors-secondary-mediumGrey-mediumGrey200));
+        border: 1px solid var(--components-LegacyCard-colors-border-default, var(--general-colors-neutral-grey-grey200));
 
         &.disabled {
-            border: 1px solid var(--components-LegacyCard-colors-border-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey200));
+            border: 1px solid
+                var(--components-LegacyCard-colors-border-disabled, var(--general-colors-neutral-grey-grey200));
         }
 
         &:focus,
         &:focus-visible,
         &:focus-within {
-            border: 1px dashed var(--components-LegacyCard-colors-border-focus, var(--general-colors-primary-primary400));
+            border: 1px dashed var(--components-LegacyCard-colors-border-focus, var(--general-colors-primary-blue400));
             box-shadow: 0 0 16px 0
-                var(--components-LegacyCard-colors-shadow-focus, var(--general-colors-primary-primary100));
+                var(--components-LegacyCard-colors-shadow-focus, var(--general-colors-primary-blue100));
             &.disabled {
-                border: 1px dashed var(--components-LegacyCard-colors-border-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey200));
+                border: 1px dashed
+                    var(--components-LegacyCard-colors-border-disabled, var(--general-colors-neutral-grey-grey200));
             }
         }
 
         &:hover {
-            border: 1px solid var(--components-LegacyCard-colors-border-hover, var(--general-colors-primary-primary400));
-            box-shadow: 0 0 24px 0 var(--components-LegacyCard-colors-shadow-hover, var(--general-colors-primary-primary100));
+            border: 1px solid var(--components-LegacyCard-colors-border-hover, var(--general-colors-primary-blue400));
+            box-shadow: 0 0 24px 0
+                var(--components-LegacyCard-colors-shadow-hover, var(--general-colors-primary-blue100));
 
             &.disabled {
-                border: 1px solid var(--components-LegacyCard-colors-border-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey200));
-                box-shadow: 0 0 24px 0 var(--components-LegacyCard-colors-shadow-disabled, var(--general-colors-primary-primary100));
+                border: 1px solid
+                    var(--components-LegacyCard-colors-border-disabled, var(--general-colors-neutral-grey-grey200));
+                box-shadow: 0 0 24px 0
+                    var(--components-LegacyCard-colors-shadow-disabled, var(--general-colors-primary-blue100));
             }
         }
     }
@@ -41,10 +46,13 @@
             background-color: var(--components-LegacyCard-colors-background-default, none);
 
             .ant-card-head-wrapper {
-                gap: 16px;
+                gap: convertToPixel(--general-spacing-s);
 
                 .ant-card-head-title {
-                    color: var(--components-LegacyCard-colors-typography-headerTitle-default, var(--general-colors-primary-primary400));
+                    color: var(
+                        --components-LegacyCard-colors-typography-headerTitle-default,
+                        var(--general-colors-primary-blue400)
+                    );
                     font-size: convertToPixel(
                         --components-LegacyCard-typography-headerTitle-fontSize,
                         --general-typography-fontSize3
@@ -60,10 +68,10 @@
         .ant-card-cover {
             height: 252px;
             overflow: hidden;
-            background-color:var(--components-LegacyCard-colors-background-default, none);
+            background-color: var(--components-LegacyCard-colors-background-default, none);
 
             & img {
-                border-radius: 0;
+                border-radius: convertToPixel(--general-border-radius-square);
             }
         }
 
@@ -73,7 +81,10 @@
         }
 
         .card-content-title {
-            color: var(--components-LegacyCard-colors-typography-contentTitle-default, var(--general-colors-primary-primary400));
+            color: var(
+                --components-LegacyCard-colors-typography-contentTitle-default,
+                var(--general-colors-primary-blue400)
+            );
             font-size: convertToPixel(
                 --components-LegacyCard-typography-contentTitle-fontSize,
                 --general-typography-fontSize2
@@ -86,7 +97,10 @@
         }
 
         .card-content-description {
-            color: var(--components-LegacyCard-colors-typography-description-default, var(--general-colors-neutral-typography-black));
+            color: var(
+                --components-LegacyCard-colors-typography-description-default,
+                var(--general-colors-neutral-typography-black)
+            );
             font-size: convertToPixel(
                 --components-LegacyCard-typography-description-fontSize,
                 --general-typography-fontSize5
@@ -99,9 +113,9 @@
         }
 
         .ant-card-cover {
-            margin-top: 0;
-            margin-inline-start: 0;
-            margin-inline-end: 0;
+            margin-top: convertToPixel(--general-spacing-none);
+            margin-inline-start: convertToPixel(--general-spacing-none);
+            margin-inline-end: convertToPixel(--general-spacing-none);
         }
 
         .ant-card-actions {
@@ -109,15 +123,18 @@
             background-color: var(--components-LegacyCard-colors-background-default, none);
 
             & > li:not(:last-child) {
-                border-color: var(--components-LegacyCard-colors-actions-default, var(--general-colors-secondary-mediumGrey-mediumGrey500));
+                border-color: var(
+                    --components-LegacyCard-colors-actions-default,
+                    var(--general-colors-neutral-grey-grey500)
+                );
             }
 
             & li svg {
-                color: var(--components-LegacyCard-colors-actions-default, var(--general-colors-secondary-mediumGrey-mediumGrey500));
+                color: var(--components-LegacyCard-colors-actions-default, var(--general-colors-neutral-grey-grey500));
 
                 &:hover {
                     cursor: inherit;
-                    color: var(--components-LegacyCard-colors-actions-hover, var(--general-colors-primary-primary400));
+                    color: var(--components-LegacyCard-colors-actions-hover, var(--general-colors-primary-blue400));
                 }
             }
         }
@@ -129,7 +146,10 @@
         }
 
         .kit-card-content-title-icon {
-            color: var(--components-LegacyCard-colors-typography-contentTitle-default, var(--general-colors-primary-primary400));
+            color: var(
+                --components-LegacyCard-colors-typography-contentTitle-default,
+                var(--general-colors-primary-blue400)
+            );
             font-size: convertToPixel(
                 --components-LegacyCard-typography-linkIcon-fontSize,
                 --general-typography-fontSize3
@@ -138,10 +158,13 @@
         }
 
         .kit-card-extra {
-            color: var(--components-LegacyCard-colors-typography-extra-default, var(--general-colors-primary-primary400));
+            color: var(--components-LegacyCard-colors-typography-extra-default, var(--general-colors-primary-blue400));
 
             &:hover {
-                color: var(--components-LegacyCard-colors-typography-extra-hover, var(--general-colors-primary-primary300));
+                color: var(
+                    --components-LegacyCard-colors-typography-extra-hover,
+                    var(--general-colors-primary-blue300)
+                );
                 cursor: cursor;
             }
         }
@@ -149,7 +172,7 @@
         .content-title-container {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: convertToPixel(--general-spacing-xs);
             cursor: inherit;
 
             &.content-title-click {
@@ -159,47 +182,75 @@
     }
 
     &.ant-card.separator .ant-card-head {
-        border-bottom: 1px solid var(--components-LegacyCard-colors-separator-default, var(--general-colors-secondary-mediumGrey-mediumGrey200));
+        border-bottom: 1px solid
+            var(--components-LegacyCard-colors-separator-default, var(--general-colors-neutral-grey-grey200));
     }
 
     &.ant-card.disabled {
         .ant-card-head {
-            background-color: var(--components-LegacyCard-colors-background-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey100));
+            background-color: var(
+                --components-LegacyCard-colors-background-disabled,
+                var(--general-colors-neutral-grey-grey100)
+            );
 
             .ant-card-head-wrapper .ant-card-head-title {
-                color: var(--components-LegacyCard-colors-typography-headerTitle-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey400));
+                color: var(
+                    --components-LegacyCard-colors-typography-headerTitle-disabled,
+                    var(--general-colors-neutral-grey-grey400)
+                );
             }
         }
 
         .ant-card-cover {
-            background-color: var(--components-LegacyCard-colors-background-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey100));
+            background-color: var(
+                --components-LegacyCard-colors-background-disabled,
+                var(--general-colors-neutral-grey-grey100)
+            );
         }
 
         .ant-card-body {
             padding: 24px 16px;
-            background-color: var(--components-LegacyCard-colors-background-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey100));
+            background-color: var(
+                --components-LegacyCard-colors-background-disabled,
+                var(--general-colors-neutral-grey-grey100)
+            );
         }
 
         .card-content-title {
-            color: var(--components-LegacyCard-colors-typography-contentTitle-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey400));
+            color: var(
+                --components-LegacyCard-colors-typography-contentTitle-disabled,
+                var(--general-colors-neutral-grey-grey400)
+            );
         }
 
         .card-content-description {
-            color: var(--components-LegacyCard-colors-typography-description-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey300));
+            color: var(
+                --components-LegacyCard-colors-typography-description-disabled,
+                var(--general-colors-neutral-grey-grey300)
+            );
         }
 
         .ant-card-actions {
-            background-color: var(--components-LegacyCard-colors-background-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey100));
+            background-color: var(
+                --components-LegacyCard-colors-background-disabled,
+                var(--general-colors-neutral-grey-grey100)
+            );
             & > li:not(:last-child) {
-                border-color: var(--components-LegacyCard-colors-actions-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey300));
+                border-color: var(
+                    --components-LegacyCard-colors-actions-disabled,
+                    var(--general-colors-neutral-grey-grey300)
+                );
             }
 
             & li svg {
-                color:var(--components-LegacyCard-colors-actions-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey300));
+                color: var(--components-LegacyCard-colors-actions-disabled, var(--general-colors-neutral-grey-grey300));
 
                 &:hover {
                     cursor: not-allowed;
-                    color: var(--components-LegacyCard-colors-actions-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey300));
+                    color: var(
+                        --components-LegacyCard-colors-actions-disabled,
+                        var(--general-colors-neutral-grey-grey300)
+                    );
                 }
             }
         }
@@ -208,24 +259,32 @@
         }
 
         .kit-card-content-title-icon {
-            color: var(--components-LegacyCard-colors-typography-contentTitle-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey400));
+            color: var(
+                --components-LegacyCard-colors-typography-contentTitle-disabled,
+                var(--general-colors-neutral-grey-grey400)
+            );
         }
 
         .kit-card-extra {
-            color: var(--components-LegacyCard-colors-typography-extra-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey400));
+            color: var(
+                --components-LegacyCard-colors-typography-extra-disabled,
+                var(--general-colors-neutral-grey-grey400)
+            );
 
             &:hover {
-                color: var(--components-LegacyCard-colors-typography-extra-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey400));
-                cursor: not-allowed
+                color: var(
+                    --components-LegacyCard-colors-typography-extra-disabled,
+                    var(--general-colors-neutral-grey-grey400)
+                );
+                cursor: not-allowed;
             }
         }
 
         .content-title-container {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: convertToPixel(--general-spacing-xs);
             cursor: not-allowed;
         }
     }
 }
-

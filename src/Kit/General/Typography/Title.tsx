@@ -1,4 +1,4 @@
-import React, {ForwardRefExoticComponent, forwardRef, useMemo} from 'react';
+import {ForwardRefExoticComponent, forwardRef, useMemo} from 'react';
 import Base from 'antd/es/typography/Base';
 import {IInternalKitTitle, IKitTitle} from './types';
 import {TITLE_LEVEL, getCustomColor} from './commons';

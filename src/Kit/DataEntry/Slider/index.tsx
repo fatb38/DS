@@ -1,6 +1,6 @@
 import {Slider as AntdSlider} from 'antd';
 import cn from 'classnames';
-import React, {forwardRef} from 'react';
+import {forwardRef} from 'react';
 import {IKitSliderRange, IKitSliderSingle} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
 import type {SliderRef} from 'rc-slider/es/Slider';

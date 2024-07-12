@@ -4,3 +4,4 @@ export {tabsKitTokenToAntdToken} from './Tabs';
 export {tableKitTokenToAntdToken} from './Table';
 export {tooltipKitTokenToAntdToken} from './Tooltip';
 export {treeKitTokenToAntdToken} from './Tree';
+export {tagKitTokenToAntdToken} from './Tag';

@@ -1,4 +1,4 @@
-import React, {forwardRef, useState} from 'react';
+import {forwardRef, useState} from 'react';
 import {InputNumber as AntdInputNumber} from 'antd';
 import {KitInputNumberProps} from './types';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';

@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState} from 'react';
+import {FunctionComponent, useState} from 'react';
 import type {MouseEvent} from 'react';
 import {IKitMenuInfo, IKitHeaderExtra, IKitHeaderExtraActions, IKitHeaderExtraMoreActions} from './types';
 import {KitTooltip} from '@kit/DataDisplay/';
@@ -88,10 +88,10 @@ const _getMoreActionsDropDownItems = ({actions}: IKitHeaderExtraMoreActions): Me
 };
 
 export const KitHeaderExtra: FunctionComponent<IKitHeaderExtra> = ({actions, disabled = false}) => (
-        <div className={`${styles['kit-collapse-header-extra']}`}>
-            {actions !== undefined && <HeaderExtraActions actions={actions} disabled={disabled} />}
-        </div>
-    );
+    <div className={`${styles['kit-collapse-header-extra']}`}>
+        {actions !== undefined && <HeaderExtraActions actions={actions} disabled={disabled} />}
+    </div>
+);
 
 KitHeaderExtra.displayName = 'KitHeaderExtra';
 

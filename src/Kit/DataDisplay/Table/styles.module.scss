@@ -11,13 +11,15 @@
     &.ant-table-wrapper .ant-table {
         .ant-table-title {
             padding: convertToPixel(--general-spacing-xs);
-            margin: 0 0 convertToPixel(--general-spacing-s) 0;
+            margin: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-none)
+                convertToPixel(--general-spacing-s) convertToPixel(--general-spacing-none);
         }
 
         .ant-table-footer {
             background-color: unset;
             padding: convertToPixel(--general-spacing-xs);
-            margin: convertToPixel(--general-spacing-s) 0 0 0;
+            margin: convertToPixel(--general-spacing-s) convertToPixel(--general-spacing-none)
+                convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-none);
         }
 
         .ant-table-container {
@@ -38,7 +40,7 @@
             .ant-table-pagination.ant-pagination {
                 @include paginationStyles();
 
-                margin: convertToPixel(--general-spacing-s) 0;
+                margin: convertToPixel(--general-spacing-s) convertToPixel(--general-spacing-none);
             }
 
             .ant-table-header {
@@ -47,16 +49,19 @@
 
             .ant-table-content table > thead.ant-table-thead > tr > th,
             table > thead.ant-table-thead > tr > th {
-                background-color: var(--general-colors-neutral-white);
-                border: 1px solid var(--general-colors-secondary-mediumGrey-mediumGrey200);
+                background-color: var(--general-utilities-light);
+                border: 1px solid var(--general-utilities-border);
                 border-radius: convertToPixel((--general-border-radius-s));
                 padding: convertToPixel(--general-spacing-s);
 
                 &:first-of-type {
-                    padding-left: calc(convertToPixel(--general-spacing-xxs) + convertToPixel(--general-spacing-s) + convertToPixel(--general-spacing-xs));
+                    padding-left: calc(
+                        convertToPixel(--general-spacing-xxs) + convertToPixel(--general-spacing-s) +
+                            convertToPixel(--general-spacing-xs)
+                    );
 
                     &.ant-table-selection-column {
-                        padding-left:  calc(convertToPixel(--general-spacing-s) + convertToPixel(--general-spacing-xs));
+                        padding-left: calc(convertToPixel(--general-spacing-s) + convertToPixel(--general-spacing-xs));
                     }
                 }
 
@@ -64,13 +69,13 @@
                     cursor: pointer;
 
                     &:hover {
-                        background-color: var(--general-colors-secondary-mediumGrey-mediumGrey100);
+                        background-color: var(--general-utilities-neutral-neutralLight);
                     }
                 }
 
                 .ant-table-cell {
-                    color: var(--general-colors-secondary-mediumGrey-mediumGrey600);
-                    background-color: var(--general-colors-neutral-white);
+                    color: var(--general-utilities-text-textPrimary);
+                    background-color: var(--general-utilities-light);
                     font-weight: var(--general-typography-boldFontWeight);
                     border-radius: convertToPixel((--general-border-radius-xs));
                     height: 25px;
@@ -81,38 +86,36 @@
                     }
 
                     &.ant-table-selection-column {
-                        padding-inline-start: 0;
-                        padding-inline-end: 0;
+                        padding-inline-start: convertToPixel(--general-spacing-none);
+                        padding-inline-end: convertToPixel(--general-spacing-none);
                     }
 
                     .ant-table-column-sorters {
                         gap: convertToPixel(--general-spacing-xs);
 
                         .kit-icon {
-                            padding: 0;
-                            --components-Icon-colors-icon-default: var(
-                                --general-colors-secondary-mediumGrey-mediumGrey600
-                            );
+                            padding: convertToPixel(--general-spacing-none);
+                            --components-Icon-colors-icon-default: var(--general-utilities-text-textPrimary);
                         }
                     }
                 }
 
                 &:first-of-type {
                     border-right: none;
-                    border-top-right-radius: 0;
-                    border-bottom-right-radius: 0;
+                    border-top-right-radius: convertToPixel(--general-border-radius-square);
+                    border-bottom-right-radius: convertToPixel(--general-border-radius-square);
                 }
 
                 &:not(:first-of-type):not(:last-of-type) {
                     border-left: none;
                     border-right: none;
-                    border-radius: 0;
+                    border-radius: convertToPixel(--general-border-radius-square);
                 }
 
                 &:last-of-type {
                     border-left: none;
-                    border-top-left-radius: 0;
-                    border-bottom-left-radius: 0;
+                    border-top-left-radius: convertToPixel(--general-border-radius-square);
+                    border-bottom-left-radius: convertToPixel(--general-border-radius-square);
                 }
 
                 &:not(:first-of-type) {
@@ -127,25 +130,26 @@
                 }
 
                 &:focus-visible .ant-table-cell {
-                    color: var(--general-colors-secondary-mediumGrey-mediumGrey600);
-                    outline: var(--general-colors-primary-primary200) solid 3px;
+                    color: var(--general-utilities-text-textPrimary);
+                    outline: var(--general-utilities-focus) solid 3px;
                 }
             }
 
             tbody {
                 &:before {
-                    content:"@";
-                    display:block;
-                    line-height:convertToPixel(--general-spacing-xs);
-                    text-indent:-99999px;
+                    content: '@';
+                    display: block;
+                    line-height: convertToPixel(--general-spacing-xs);
+                    text-indent: -99999px;
                 }
 
                 &.ant-table-tbody {
                     & > tr {
                         & > td {
                             border-bottom: none;
-                            padding: convertToPixel(--general-spacing-xs) 0 0 0;
-                            background-color: var(--kit-table-cells-background-color, var(--general-colors-neutral-white));
+                            padding: convertToPixel(--general-spacing-xs) convertToPixel(--general-spacing-none)
+                                convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-none);
+                            background-color: var(--kit-table-cells-background-color, var(--general-utilities-light));
 
                             &:first-of-type {
                                 padding-left: convertToPixel(--general-spacing-xs);
@@ -166,7 +170,7 @@
                             &:not(:first-of-type):not(:last-of-type) .ant-table-cell {
                                 border-left: none;
                                 border-right: none;
-                                border-radius: 0;
+                                border-radius: convertToPixel(--general-border-radius-square);
                             }
 
                             &:last-of-type {
@@ -174,8 +178,8 @@
 
                                 .ant-table-cell {
                                     border-left: none;
-                                    border-top-left-radius: 0;
-                                    border-bottom-left-radius: 0;
+                                    border-top-left-radius: convertToPixel(--general-border-radius-square);
+                                    border-bottom-left-radius: convertToPixel(--general-border-radius-square);
                                     border-top-right-radius: convertToPixel((--general-border-radius-s));
                                     border-bottom-right-radius: convertToPixel((--general-border-radius-s));
                                     padding-right: convertToPixel(--kit-table-row-side-padding);
@@ -193,7 +197,7 @@
                                 }
 
                                 .ant-form-item {
-                                    margin: 0;
+                                    margin: convertToPixel(--general-spacing-none);
 
                                     &.ant-form-item-has-error {
                                         margin-top: 20px;
@@ -204,7 +208,7 @@
                                         margin-top: convertToPixel(--general-spacing-xxs);
 
                                         .ant-typography {
-                                            color: var(--general-colors-secondary-red-red400);
+                                            color: var(--general-utilities-text-textError);
 
                                             &:focus-visible {
                                                 outline: none;
@@ -222,21 +226,21 @@
                         &:has(.ant-table-cell .ant-form-item-has-error) {
                             .ant-table-cell {
                                 height: calc(var(--kit-table-body-cell-height) + 40px);
-                                background-color: var(--general-colors-secondary-red-red100);
-                                border-color: var(--general-colors-secondary-red-red400);
+                                background-color: var(--general-utilities-error-errorLight);
+                                border-color: var(--general-utilities-error-errorColor);
                             }
                         }
 
                         &:hover {
                             .ant-table-cell {
-                                border: 1px solid var(--general-colors-primary-primary400);
+                                border: 1px solid var(--general-utilities-main-mainColor);
                             }
 
                             &.ant-table-row-selected,
                             &.ant-table-row-level-0:has(+ .ant-table-row-level-1),
                             &.last-expandable-level {
                                 .ant-table-cell {
-                                    border-color: var(--general-colors-primary-primary400);
+                                    border-color: var(--general-utilities-main-mainColor);
                                 }
                             }
                         }
@@ -247,7 +251,7 @@
                             --kit-table-row-focused-cell-selection-padding: calc(var(--general-spacing-xs) + 5);
 
                             .ant-table-cell {
-                                border: 3px solid var(--general-colors-primary-primary200);
+                                border: 3px solid var(--general-utilities-focus);
                             }
 
                             td:first-of-type .ant-table-cell:not(.ant-table-selection-column) {
@@ -266,62 +270,62 @@
                             &.ant-table-row-level-0:has(+ .ant-table-row-level-1),
                             &.last-expandable-level {
                                 .ant-table-cell {
-                                    border-color: var(--general-colors-primary-primary200);
+                                    border-color: var(--general-utilities-focus);
                                 }
                             }
                         }
 
                         &.ant-table-row-level-0:has(+ .ant-table-row-level-1) {
                             td {
-                                border: 1px solid var(--general-colors-primary-primary400);
+                                border: 1px solid var(--general-utilities-main-mainColor);
                                 border-bottom: none;
 
                                 .ant-table-cell {
-                                    background-color: var(--general-colors-primary-primary100);
+                                    background-color: var(--general-utilities-main-mainLight);
                                 }
 
-                                &:not(:first-of-type):not(:last-of-type)  {
+                                &:not(:first-of-type):not(:last-of-type) {
                                     border-left: none;
                                     border-right: none;
-                                    border-radius: 0;
+                                    border-radius: convertToPixel(--general-border-radius-square);
                                 }
 
-                                &:first-of-type  {
+                                &:first-of-type {
                                     border-right: none;
                                     border-top-left-radius: convertToPixel((--general-border-radius-s));
-                                    border-bottom-left-radius: 0;
+                                    border-bottom-left-radius: convertToPixel(--general-border-radius-square);
                                 }
 
                                 &:last-of-type {
                                     border-left: none;
                                     border-top-right-radius: convertToPixel((--general-border-radius-s));
-                                    border-bottom-right-radius: 0;
+                                    border-bottom-right-radius: convertToPixel(--general-border-radius-square);
                                 }
                             }
                         }
 
                         &:not(.ant-table-row-level-0) {
                             td {
-                                border: 1px solid var(--general-colors-primary-primary400);
+                                border: 1px solid var(--general-utilities-main-mainColor);
                                 border-top: none;
                                 border-bottom: none;
 
-                                &:not(:first-of-type):not(:last-of-type)  {
+                                &:not(:first-of-type):not(:last-of-type) {
                                     border-left: none;
                                     border-right: none;
-                                    border-radius: 0;
+                                    border-radius: convertToPixel(--general-border-radius-square);
                                 }
 
-                                &:first-of-type  {
+                                &:first-of-type {
                                     border-right: none;
-                                    border-top-left-radius: 0;
-                                    border-bottom-left-radius: 0;
+                                    border-top-left-radius: convertToPixel(--general-border-radius-square);
+                                    border-bottom-left-radius: convertToPixel(--general-border-radius-square);
                                 }
 
-                                &:last-of-type  {
+                                &:last-of-type {
                                     border-left: none;
-                                    border-top-right-radius: 0;
-                                    border-bottom-right-radius: 0;
+                                    border-top-right-radius: convertToPixel(--general-border-radius-square);
+                                    border-bottom-right-radius: convertToPixel(--general-border-radius-square);
                                 }
                             }
                         }
@@ -329,38 +333,38 @@
                         &:not(.ant-table-row-level-0):has(+ .ant-table-row-level-0),
                         &:not(.ant-table-row-level-0):last-child {
                             td {
-                                border: 1px solid var(--general-colors-primary-primary400);
+                                border: 1px solid var(--general-utilities-main-mainColor);
                                 border-top: none;
                                 padding-bottom: convertToPixel(--general-spacing-xs);
 
-                                &:not(:first-of-type):not(:last-of-type)  {
+                                &:not(:first-of-type):not(:last-of-type) {
                                     border-left: none;
                                     border-right: none;
-                                    border-radius: 0;
+                                    border-radius: convertToPixel(--general-border-radius-square);
                                 }
 
-                                &:first-of-type  {
+                                &:first-of-type {
                                     border-right: none;
-                                    border-top-left-radius: 0;
+                                    border-top-left-radius: convertToPixel(--general-border-radius-square);
                                     border-bottom-left-radius: convertToPixel((--general-border-radius-s));
                                 }
 
-                                &:last-of-type  {
+                                &:last-of-type {
                                     border-left: none;
-                                    border-top-right-radius: 0;
+                                    border-top-right-radius: convertToPixel(--general-border-radius-square);
                                     border-bottom-right-radius: convertToPixel((--general-border-radius-s));
                                 }
                             }
                         }
 
                         &.last-expandable-level .ant-table-cell {
-                            background-color: var(--general-colors-secondary-mediumGrey-mediumGrey100);
-                            border-color: var(--general-colors-secondary-mediumGrey-mediumGrey100);
+                            background-color: var(--general-utilities-neutral-neutralLight);
+                            border-color: var(--general-utilities-neutral-neutralLight);
                         }
 
                         &.ant-table-row-selected .ant-table-cell {
-                            background-color: var(--general-colors-primary-primary100);
-                            border-color: var(--general-colors-primary-primary100);
+                            background-color: var(--general-utilities-main-mainLight);
+                            border-color: var(--general-utilities-main-mainLight);
                         }
                     }
 
@@ -382,7 +386,7 @@
 
     :local(.expand-button) {
         height: initial;
-        padding: 0 12px 0 2px;
+        padding: convertToPixel(--general-spacing-none) 12px convertToPixel(--general-spacing-none) 2px;
         margin-right: convertToPixel(--general-spacing-xxs);
         width: 0;
         min-width: 0;

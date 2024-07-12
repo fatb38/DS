@@ -4,25 +4,18 @@
     border: none;
 
     &#{&}#{&}#{&} > .ant-collapse-item {
-        border: 1px solid
-            var(
-                --components-Collapse-colors-border-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey300)
-            );
-        padding: 0;
+        border: 1px solid var(--components-Collapse-colors-border-default, var(--general-utilities-border));
+        padding: convertToPixel(--general-spacing-none);
 
         &.ant-collapse-item-disabled {
             background-color: var(
                 --components-Collapse-colors-background-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey100)
+                var(--general-utilities-neutral-neutralLight)
             );
 
             .ant-collapse-expand-icon,
             .ant-collapse-header-text {
-                color: var(
-                    --components-Collapse-colors-icon-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
-                );
+                color: var(--components-Collapse-colors-icon-disabled, var(--general-utilities-text-textDisabled));
             }
         }
 
@@ -31,21 +24,17 @@
         &:hover:not(.ant-collapse-item-disabled),
         &:not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
             // TODO: add css variable outline-width: cards-border-stroke
-            border: 1px solid
-                var(--components-Collapse-colors-border-active, var(--general-colors-primary-primary400));
-            padding: 0;
+            border: 1px solid var(--components-Collapse-colors-border-active, var(--general-utilities-main-mainColor));
+            padding: convertToPixel(--general-spacing-none);
 
             &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
-                border-color: var(
-                    --components-Collapse-colors-border-active,
-                    var(--general-colors-primary-primary200)
-                );
+                border-color: var(--components-Collapse-colors-border-active, var(--general-utilities-focus));
             }
 
             & + .ant-collapse-item[data-item-selected='true'],
             & + .ant-collapse-item.ant-collapse-item-active {
                 border-top: none;
-                padding-top: 0;
+                padding-top: convertToPixel(--general-spacing-none);
             }
 
             & + .ant-collapse-item:not([data-item-selected='true']),
@@ -55,7 +44,7 @@
                 &:hover,
                 &:not([data-item-selected='true']):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus),
                 &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
-                    padding-top: 0;
+                    padding-top: convertToPixel(--general-spacing-none);
                 }
             }
         }
@@ -64,18 +53,11 @@
         &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):not(:last-of-type) {
             &:not(.pseudo-hover):hover {
                 border-bottom: 1px solid
-                    var(
-                        --components-Collapse-colors-border-active,
-                        var(--general-colors-primary-primary400)
-                    );
+                    var(--components-Collapse-colors-border-active, var(--general-utilities-main-mainColor));
             }
 
             &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
-                border-bottom: 1px solid
-                    var(
-                        --components-Collapse-colors-border-active,
-                        var(--general-colors-primary-primary200)
-                    );
+                border-bottom: 1px solid var(--components-Collapse-colors-border-active, var(--general-utilities-focus));
             }
         }
 
@@ -108,8 +90,8 @@
             border-top: none;
 
             .ant-collapse-content-box {
-                padding: 0 convertToPixel(--general-spacing-s) convertToPixel(--general-spacing-s)
-                    convertToPixel(--general-spacing-s);
+                padding: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-s)
+                    convertToPixel(--general-spacing-s) convertToPixel(--general-spacing-s);
                 margin-top: convertToPixel(--general-spacing-xxs);
             }
         }

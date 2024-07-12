@@ -1,4 +1,4 @@
-import React, {FunctionComponent, ReactElement, cloneElement} from 'react';
+import {FunctionComponent, ReactElement, cloneElement} from 'react';
 import {Collapse as AntdCollapse} from 'antd';
 import {IKitCollapse} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

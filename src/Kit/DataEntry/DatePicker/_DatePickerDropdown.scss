@@ -1,67 +1,80 @@
 @import '../../../css/mixins.scss';
 
- .ant-picker-dropdown {
-        border-radius: convertToPixel(--components-DatePicker-border-radius, --general-border-radius-s);
-        font-size: convertToPixel(--components-DatePicker-typography-fontSize, --general-typography-fontSize5);
-        ul.ant-picker-ranges {
-            margin-block-start: 0px;
-        }
+.ant-picker-dropdown {
+    border-radius: convertToPixel(--components-DatePicker-border-radius, --general-border-radius-s);
+    font-size: convertToPixel(--components-DatePicker-typography-fontSize, --general-typography-fontSize5);
+    ul.ant-picker-ranges {
+        margin-block-start: convertToPixel(--general-spacing-none);
+    }
 
-        .ant-picker-now .ant-picker-now-btn {
-            color: var(--components-DatePicker-DropDown-colors-button-now-typography-default,var(
-                --general-colors-primary-primary400
-            ));
+    .ant-picker-now .ant-picker-now-btn {
+        color: var(
+            --components-DatePicker-DropDown-colors-button-now-typography-default,
+            var(--general-utilities-main-mainColor)
+        );
 
-            &:hover {
-                color: var(--components-DatePicker-DropDown-colors-button-now-typography-hover,var(
-                    --general-colors-primary-primary500
-                ));
-            }
-        }
-
-        .ant-picker-ok button {
-            border-radius: 20px;
-            padding: 0px 8px;
-            box-shadow: none;
-
-            background-color: var(--components-DatePicker-DropDown-colors-button-ok-background-default,var(
-                --general-colors-primary-primary400
-            ));
-            border-color: var(--components-DatePicker-DropDown-colors-button-ok-border-default,var(
-                --general-colors-primary-primary400
-            ));
-            color: var(--components-DatePicker-DropDown-colors-button-ok-typography-default,var(
-                --general-colors-neutral-typography-white
-            ));
-
-            &:hover:not(.ant-btn-disabled) {
-                background-color: var(--components-DatePicker-DropDown-colors-button-ok-background-hover,var(
-                    --general-colors-primary-primary500
-                ));
-                border-color: var(--components-DatePicker-DropDown-colors-button-ok-border-hover,var(
-                    --general-colors-primary-primary500
-                ));
-            }
-
-            &:active:not(.ant-btn-disabled) {
-                background-color: var(--components-DatePicker-DropDown-colors-button-ok-background-active,var(
-                    --general-colors-primary-primary600
-                ));
-                border-color: var(--components-DatePicker-DropDown-colors-button-ok-border-active,var(
-                    --general-colors-primary-primary600
-                ));
-            }
-
-            &[disabled] {
-                background-color: var(--components-DatePicker-DropDown-colors-button-ok-background-disabled,var(
-                    --general-colors-primary-primary100
-                ));
-                border-color: var(--components-DatePicker-DropDown-colors-button-ok-border-disabled,var(
-                    --general-colors-primary-primary100
-                ));
-                color: var(--components-DatePicker-DropDown-colors-button-ok-typography-disabled,var(
-                    --general-colors-primary-primary200
-                ));
-            }
+        &:hover {
+            color: var(
+                --components-DatePicker-DropDown-colors-button-now-typography-hover,
+                var(--general-utilities-main-mainDark)
+            );
         }
     }
+
+    .ant-picker-ok button {
+        border-radius: convertToPixel(--general-border-radius-l);
+        padding: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-xs);
+        box-shadow: none;
+
+        background-color: var(
+            --components-DatePicker-DropDown-colors-button-ok-background-default,
+            var(--general-utilities-main-mainColor)
+        );
+        border-color: var(
+            --components-DatePicker-DropDown-colors-button-ok-border-default,
+            var(--general-utilities-main-mainColor)
+        );
+        color: var(
+            --components-DatePicker-DropDown-colors-button-ok-typography-default,
+            var(--general-utilities-text-textLight)
+        );
+
+        &:hover:not(.ant-btn-disabled) {
+            background-color: var(
+                --components-DatePicker-DropDown-colors-button-ok-background-hover,
+                var(--general-utilities-main-mainDark)
+            );
+            border-color: var(
+                --components-DatePicker-DropDown-colors-button-ok-border-hover,
+                var(--general-utilities-main-mainDark)
+            );
+        }
+
+        &:active:not(.ant-btn-disabled) {
+            background-color: var(
+                --components-DatePicker-DropDown-colors-button-ok-background-active,
+                var(--general-utilities-main-mainDeepDark)
+            );
+            border-color: var(
+                --components-DatePicker-DropDown-colors-button-ok-border-active,
+                var(--general-utilities-main-mainDeepDark)
+            );
+        }
+
+        &[disabled],
+        &[disabled]:hover {
+            background-color: var(
+                --components-DatePicker-DropDown-colors-button-ok-background-disabled,
+                var(--general-utilities-neutral-neutralLight)
+            );
+            border-color: var(
+                --components-DatePicker-DropDown-colors-button-ok-border-disabled,
+                var(--general-utilities-disabled)
+            );
+            color: var(
+                --components-DatePicker-DropDown-colors-button-ok-typography-disabled,
+                var(--general-utilities-text-textDisabled)
+            );
+        }
+    }
+}

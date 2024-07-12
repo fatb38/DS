@@ -2,25 +2,18 @@
 
 :local(.kit-item-card) {
     display: grid;
-    padding: 16px;
+    padding: convertToPixel(--general-spacing-s);
     font-family: var(--component-ItemCard-card-typography-fontFamily, var(--general-typography-fontFamily));
-    background: var(
-        --component-ItemCard-card-colors-background-default,
-        var(--general-colors-neutral-white)
-    );
+    background: var(--component-ItemCard-card-colors-background-default, var(--general-colors-neutral-white));
     border-radius: convertToPixel(--components-ItemCard-card-border-radius, --general-border-radius-s);
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
     min-width: 248px;
     width: 248px;
     border: 1px solid
-        var(
-            --component-ItemCard-card-colors-border-default,
-            var(--general-colors-secondary-mediumGrey-mediumGrey200)
-        );
+        var(--component-ItemCard-card-colors-border-default, var(--general-colors-secondary-mediumGrey-mediumGrey200));
 
     &:not(.kit-card-disabled):hover {
-        border: 1px solid
-            var(--component-ItemCard-card-colors-border-hover, var(--general-colors-primary-primary400));
+        border: 1px solid var(--component-ItemCard-card-colors-border-hover, var(--general-colors-primary-primary400));
     }
 
     .kit-card-select-button {
@@ -32,14 +25,11 @@
         .kit-card-select-button {
             border-radius: 3.5px;
             font-size: 0.6rem;
-            padding: 0;
+            padding: convertToPixel(--general-spacing-none);
             width: 16px;
             height: 16px;
             min-width: 16px;
-            color: var(
-                --component-ItemCard-select-colors-typography-default,
-                var(--general-colors-primary-primary400)
-            );
+            color: var(--component-ItemCard-select-colors-typography-default, var(--general-colors-primary-primary400));
         }
     }
 
@@ -78,7 +68,7 @@
                 --component-ItemCard-select-colors-background-disabled,
                 var(--general-colors-secondary-mediumGrey-mediumGrey100)
             );
-            padding: 0;
+            padding: convertToPixel(--general-spacing-none);
             width: 16px;
             height: 16px;
             min-width: 16px;
@@ -105,7 +95,7 @@
         .kit-card-image,
         .kit-card-icon,
         .kit-card-colorbar {
-            margin-bottom: 8px;
+            margin-bottom: convertToPixel(--general-spacing-xs);
         }
 
         .kit-card-colorbar {
@@ -121,8 +111,8 @@
 
         .kit-card-select {
             grid-auto-columns: min-content;
-            column-gap: 8px;
-            margin-right: 8px;
+            column-gap: convertToPixel(--general-spacing-xs);
+            margin-right: convertToPixel(--general-spacing-xs);
             display: flex;
             flex-direction: row;
         }
@@ -136,12 +126,12 @@
         .kit-card-image,
         .kit-card-icon,
         .kit-card-colorbar {
-            margin-right: 8px;
+            margin-right: convertToPixel(--general-spacing-xs);
         }
 
         .kit-card-select {
             grid-auto-rows: min-content;
-            row-gap: 8px;
+            row-gap: convertToPixel(--general-spacing-xs);
         }
 
         .kit-card-image,
@@ -180,8 +170,7 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        border: 1px solid
-            var(--component-ItemCard-image-colors-border-default, var(--general-colors-neutral-black60));
+        border: 1px solid var(--component-ItemCard-image-colors-border-default, var(--general-colors-neutral-black60));
 
         .kit-card-image-image {
             display: flex;
@@ -205,8 +194,7 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        border: 1px solid
-            var(--component-ItemCard-icon-colors-border-default, var(--general-colors-neutral-black60));
+        border: 1px solid var(--component-ItemCard-icon-colors-border-default, var(--general-colors-neutral-black60));
 
         &.noBorder {
             border-color: transparent;
@@ -223,7 +211,7 @@
         }
 
         .kit-icon {
-            padding: 0px;
+            padding: convertToPixel(--general-spacing-none);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -258,18 +246,12 @@
         }
 
         .kit-card-title {
-            font-size: convertToPixel(
-                --components-ItemCard-title-typography-fontSize,
-                --general-typography-fontSize6
-            );
+            font-size: convertToPixel(--components-ItemCard-title-typography-fontSize, --general-typography-fontSize6);
             font-weight: var(
                 --component-ItemCard-title-typography-fontWeight,
                 var(--general-typography-boldFontWeight)
             );
-            color: var(
-                --component-ItemCard-title-colors-typography-default,
-                var(--general-colors-primary-primary600)
-            );
+            color: var(--component-ItemCard-title-colors-typography-default, var(--general-colors-primary-primary600));
         }
         .kit-card-desc {
             font-size: convertToPixel(
@@ -290,18 +272,12 @@
             }
         }
         .kit-card-footer {
-            font-size: convertToPixel(
-                --components-ItemCard-footer-typography-fontSize,
-                --general-typography-fontSize5
-            );
+            font-size: convertToPixel(--components-ItemCard-footer-typography-fontSize, --general-typography-fontSize5);
             font-weight: var(
                 --component-ItemCard-footer-typography-fontWeight,
                 var(--general-typography-boldFontWeight)
             );
-            color: var(
-                --component-ItemCard-footer-colors-typography-default,
-                var(--general-colors-primary-primary600)
-            );
+            color: var(--component-ItemCard-footer-colors-typography-default, var(--general-colors-primary-primary600));
         }
 
         .kit-card-description-collexp {

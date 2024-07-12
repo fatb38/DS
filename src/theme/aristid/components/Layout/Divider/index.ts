@@ -7,8 +7,7 @@ export const kitDividerCssTokens = generateCssTokens<IKitDividerCssTokens>('--co
             default: ''
         },
         split: {
-            default: '',
-            lightGrey: ''
+            default: ''
         }
     },
     typography: {

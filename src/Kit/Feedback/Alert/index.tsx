@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Alert as AntdAlert} from 'antd';
 import {IKitAlert} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

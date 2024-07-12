@@ -8,22 +8,22 @@ const App = () => {
     const colorOptions = [
         {
             value: 'not-allowed',
-            color: theme.colors.secondary.red.red400,
+            color: theme.colors.secondary.error.red400,
             label: 'Not allowed'
         },
         {
             value: 'denied',
-            color: theme.colors.secondary.yellow.yellow400,
+            color: theme.colors.tertiary.yellow.yellow400,
             label: 'Denied'
         },
         {
             value: 'todo',
-            color: theme.colors.primary.primary400,
+            color: theme.colors.primary.blue400,
             label: 'Todo by agency'
         },
         {
             value: 'ok',
-            color: theme.colors.secondary.green.green400,
+            color: theme.colors.secondary.success.green400,
             label: 'Ok done by agency'
         }
     ];

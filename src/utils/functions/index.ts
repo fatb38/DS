@@ -5,6 +5,7 @@ import {colorsPalette} from '@theme/aristid/general/colors';
 import {IJSONObject} from '.storybook/components/ThemeEditor/types';
 import {HSL, RGB} from 'color-convert/conversions';
 import isEmpty from 'lodash/isEmpty';
+import {IKitColorsPalette} from '@theme/types/general/colors';
 
 type CssVariablesList = Record<string, string>;
 
@@ -24,7 +25,13 @@ export const toCssVariables = (tokens: IJSONObject, prefix = '-', items = {}): C
     return items;
 };
 
-export const isSecondaryColor = (color: string): boolean => Object.keys(colorsPalette.secondary).includes(color);
+export const isPrimaryColor = (color: string): color is keyof IKitColorsPalette => color === 'primary';
+
+export const isSecondaryColor = (color: string): color is keyof IKitColorsPalette['secondary'] =>
+    Object.keys(colorsPalette.secondary).includes(color);
+
+export const isTertiaryColor = (color: string): color is keyof IKitColorsPalette['tertiary'] =>
+    Object.keys(colorsPalette.tertiary).includes(color);
 
 export const isValidColor = (color: string): boolean => {
     const rgbRegex = /^rgb\(\s*(\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3})\s*\)$/i;
@@ -34,7 +41,9 @@ export const isValidColor = (color: string): boolean => {
     const hslaRegex = /^hsla\(\s*(\d{1,3}\s*,\s*\d{1,3}%\s*,\s*\d{1,3}%\s*,\s*(0?(\.\d+)?|1(\.0+)?)\s*)\)$/i;
 
     return (
+        isPrimaryColor(color) ||
         isSecondaryColor(color) ||
+        isTertiaryColor(color) ||
         rgbRegex.test(color) ||
         rgbaRegex.test(color) ||
         hexRegex.test(color) ||
@@ -43,11 +52,32 @@ export const isValidColor = (color: string): boolean => {
     );
 };
 
+const _getSecondaryColorKey = (color: keyof IKitColorsPalette['secondary']): string => {
+    switch (color) {
+        case 'warning':
+            return 'orange';
+        case 'error':
+            return 'red';
+        case 'success':
+            return 'green';
+        default:
+            return '';
+    }
+};
+
 export const getColor = (color: KitColorProp, isInvert: boolean = false): string => {
     const colorAccent = isInvert ? 100 : 400;
 
+    if (color && isPrimaryColor(color)) {
+        return 'var(--general-colors-' + color + '-blue' + colorAccent + ')';
+    }
+
     if (color && isSecondaryColor(color)) {
-        return 'var(--general-colors-secondary-' + color + '-' + color + colorAccent + ')';
+        return 'var(--general-colors-secondary-' + color + '-' + _getSecondaryColorKey(color) + colorAccent + ')';
+    }
+
+    if (color && isTertiaryColor(color)) {
+        return 'var(--general-colors-tertiary-' + color + '-' + color + colorAccent + ')';
     }
 
     return color as string;
@@ -56,8 +86,16 @@ export const getColor = (color: KitColorProp, isInvert: boolean = false): string
 export const getLighterColor = (color: KitColorProp, isInvert: boolean = false) => {
     const colorAccent = isInvert ? 400 : 100;
 
+    if (color && isPrimaryColor(color)) {
+        return 'var(--general-colors-' + color + '-blue' + colorAccent + ')';
+    }
+
     if (color && isSecondaryColor(color)) {
-        return 'var(--general-colors-secondary-' + color + '-' + color + colorAccent + ')';
+        return 'var(--general-colors-secondary-' + color + '-' + _getSecondaryColorKey(color) + colorAccent + ')';
+    }
+
+    if (color && isTertiaryColor(color)) {
+        return 'var(--general-colors-tertiary-' + color + '-' + color + colorAccent + ')';
     }
 
     return _colorToLightHSL(color);

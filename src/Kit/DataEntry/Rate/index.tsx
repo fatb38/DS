@@ -1,4 +1,4 @@
-import React, {ReactNode, forwardRef, useMemo} from 'react';
+import {ReactNode, forwardRef, useMemo} from 'react';
 import {Rate as AntdRate} from 'antd';
 import {IKitRate} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

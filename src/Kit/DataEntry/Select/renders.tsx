@@ -8,7 +8,8 @@ import type {CustomTagProps} from 'rc-select/es/BaseSelect';
 import {FlattenOptionData} from 'rc-select/lib/interface';
 import {BaseOptionType} from 'antd/es/select';
 
-export const getLabelRender = ({value}: LabelInValueType | CustomTagProps, options: IKitInternalOption[]) => options.filter(option => option.value === value).pop()?.labelToDisplay;
+export const getLabelRender = ({value}: LabelInValueType | CustomTagProps, options: IKitInternalOption[]) =>
+    options.filter(option => option.value === value).pop()?.labelToDisplay;
 
 export const getTagRender = (
     customTag: CustomTagProps,
@@ -45,7 +46,7 @@ export const getMaxTagRender = (
 
 const _getTagColor = (disabled: IKitSelect['disabled'], status: IKitSelect['status']) => {
     if (disabled) {
-        return 'mediumGrey';
+        return 'grey';
     }
 
     if (status === 'error') {

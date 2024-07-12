@@ -45,7 +45,7 @@ const _getPlacementClasses = (
     appId: string,
     className: string | undefined,
     placement: IKitSelect['placement'],
-    readonly?: boolean
+    readonly: boolean
 ) => {
     const isTop = placement && placement.indexOf('top') >= 0;
 
@@ -106,7 +106,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             actions,
             onInfoClick,
             dropdownRender,
-            readonly,
+            readonly = false,
             ...props
         },
         ref?: Ref<RefSelectProps> | undefined

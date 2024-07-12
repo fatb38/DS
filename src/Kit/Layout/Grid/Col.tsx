@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Col as AntdCol} from 'antd';
 import {IKitCol} from './types';
 

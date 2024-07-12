@@ -49,7 +49,7 @@ export const argTypes = {
         table: {
             type: {
                 summary:
-                    '`hexadecimal` | `rgb` | `hsl` | `mediumGrey` | `yellow` | `orange` | `pink` | `red` | `blue` | `green` | `primary` | `black` | `black60` | `white` | `grey`'
+                    '`hexadecimal` | `rgb` | `hsl` | `yellow` | `pink` | `warning` | `error` | `success` | `primary` | `black` | `white` | `grey`'
             },
             defaultValue: {summary: false},
             category: 'Common'

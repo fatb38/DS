@@ -2,120 +2,96 @@
 
 :local(.kit-tree) {
     .ant-tree-treenode {
-        padding: 0;
-        font-weight: var(
-            --components-Tree-treenode-typography-fontWeight,
-            var(--general-typography-regularFontWeight)
-        );
+        padding: convertToPixel(--general-spacing-none);
+        font-weight: var(--components-Tree-treenode-typography-fontWeight, var(--general-typography-regularFontWeight));
+        background-color: var(--general-utilities-colorNone);
 
-        &:hover {
-            background-color: var(
-                --components-Tree-treenode-colors-background-hover,
-                var(--general-colors-primary-primary100)
-            );
-            color: var(
-                --components-Tree-treenode-colors-typography-hover,
-                var(--general-colors-primary-primary400)
-            );
-        }
-
+        &:hover,
         &.ant-tree-treenode-selected {
             background-color: var(
-                --components-Tree-treenode-colors-background-selected,
-                var(--general-colors-primary-primary100)
+                --components-Tree-treenode-colors-background-hover,
+                var(--general-utilities-neutral-neutralLight)
             );
         }
 
         &.ant-tree-treenode-disabled {
             color: var(
                 --components-Tree-treenode-colors-typography-disabled,
-                var(--general-colors-neutral-typography-black60)
+                var(--general-utilities-text-textDisabled)
             );
 
             &:hover:not(.ant-tree-treenode-selected) {
-                background-color: inherit;
+                background-color: var(--general-utilities-colorNone);
             }
 
             .ant-tree-node-content-wrapper {
                 color: var(
                     --components-Tree-treenode-colors-typography-disabled,
-                    var(--general-colors-neutral-typography-black60)
+                    var(--general-utilities-text-textDisabled)
                 );
             }
         }
 
         .ant-tree-indent {
-            background-color: var(
-                --components-Tree-treenode-colors-background-indent,
-                var(--general-colors-neutral-white)
-            );
+            background-color: var(--components-Tree-treenode-colors-background-indent, var(--general-utilities-light));
         }
 
         .ant-tree-switcher {
             min-height: 32px;
             line-height: 32px;
+
+            &:hover {
+                background-color: var(--general-utilities-colorNone);
+            }
         }
 
         .ant-tree-checkbox {
             align-self: center;
-            margin-top: 0px;
-            margin-inline-end: 0px;
+            margin-top: convertToPixel(--general-spacing-none);
+            margin-inline-end: convertToPixel(--general-spacing-none);
 
             .ant-tree-checkbox-inner {
                 background-color: var(
                     --components-Tree-checkbox-colors-background-default,
-                    var(--general-colors-neutral-white)
+                    var(--general-utilities-light)
                 );
-                border: 1px solid
-                    var(
-                        --components-Tree-checkbox-colors-border-default,
-                        var(--general-colors-neutral-black60)
-                    );
+                border: 1px solid var(--components-Tree-checkbox-colors-border-default, var(--general-utilities-border));
             }
 
             .ant-tree-checkbox-inner:after {
-                border-color: var(
-                    --components-Tree-checkbox-colors-icon-default,
-                    var(--general-colors-neutral-black60)
-                );
+                border-color: var(--components-Tree-checkbox-colors-icon-default, var(--general-utilities-border));
             }
 
             &:hover .ant-tree-checkbox-inner {
                 border: 1px solid
-                    var(
-                        --components-Tree-checkbox-colors-border-hover,
-                        var(--general-colors-primary-primary400)
-                    );
+                    var(--components-Tree-checkbox-colors-border-hover, var(--general-utilities-main-mainColor));
             }
 
             &.ant-tree-checkbox-checked {
                 .ant-tree-checkbox-inner:after {
-                    border-color: var(
-                        --components-Tree-checkbox-colors-icon-checked,
-                        var(--general-colors-neutral-white)
-                    );
+                    border-color: var(--components-Tree-checkbox-colors-icon-checked, var(--general-utilities-light));
                 }
 
                 .ant-tree-checkbox-inner {
                     background-color: var(
                         --components-Tree-checkbox-colors-background-checked-default,
-                        var(--general-colors-primary-primary400)
+                        var(--general-utilities-main-mainColor)
                     );
                     border: 1px solid
                         var(
                             --components-Tree-checkbox-colors-border-checked-default,
-                            var(--general-colors-primary-primary400)
+                            var(--general-utilities-main-mainColor)
                         );
                 }
 
                 &:hover .ant-tree-checkbox-inner {
                     background-color: var(
                         --components-Tree-checkbox-colors-background-checked-hover,
-                        var(--general-colors-primary-primary500)
+                        var(--general-utilities-main-mainDark)
                     );
                     border-color: var(
                         --components-Tree-checkbox-colors-border-checked-hover,
-                        var(--general-colors-primary-primary500)
+                        var(--general-utilities-main-mainDark)
                     );
                 }
             }
@@ -125,56 +101,48 @@
                     .ant-tree-checkbox-inner {
                         background-color: var(
                             --components-Tree-checkbox-colors-background-checked-default,
-                            var(--general-colors-primary-primary400)
+                            var(--general-utilities-main-mainColor)
                         );
                         border-color: var(
                             --components-Tree-checkbox-colors-border-checked-default,
-                            var(--general-colors-primary-primary400)
+                            var(--general-utilities-main-mainColor)
                         );
                     }
 
                     &:hover .ant-tree-checkbox-inner {
                         background-color: var(
                             --components-Tree-checkbox-colors-background-checked-hover,
-                            var(--general-colors-primary-primary500)
+                            var(--general-utilities-main-mainDark)
                         );
                         border-color: var(
                             --components-Tree-checkbox-colors-border-checked-hover,
-                            var(--general-colors-primary-primary500)
+                            var(--general-utilities-main-mainDark)
                         );
                     }
 
                     .ant-tree-checkbox-inner:after {
                         width: 8px;
                         height: 0px;
-                        border: 1px solid white;
+                        border: 1px solid var(--general-utilities-light);
                         transform: translate('-4px', '-1px');
                     }
                 }
             }
 
             &.ant-tree-checkbox-disabled {
-                color: var(
-                    --components-Tree-checkbox-colors-icon-disabled,
-                    var(--general-colors-neutral-black60)
-                );
-
                 .ant-tree-checkbox-inner {
                     background-color: var(
                         --components-Tree-checkbox-colors-background-disabled,
-                        var(--general-colors-neutral-white)
+                        var(--general-utilities-light)
                     );
                     border: 1px solid
-                        var(
-                            --components-Tree-checkbox-colors-border-disabled,
-                            var(--general-colors-neutral-black60)
-                        );
+                        var(--components-Tree-checkbox-colors-border-disabled, var(--general-utilities-border));
                 }
 
                 .ant-tree-checkbox-inner:after {
                     border-color: var(
                         --components-Tree-checkbox-colors-icon-disabled,
-                        var(--general-colors-neutral-black60)
+                        var(--general-utilities-disabled)
                     );
                 }
             }
@@ -185,13 +153,14 @@
             background-color: inherit;
             min-height: 32px;
             line-height: 32px;
-            padding: 0 8px;
+            padding: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-xs);
+            color: var(--general-utilities-text-textPrimary);
 
             .ant-tree-iconEle {
                 min-height: 32px;
                 line-height: 32px;
                 margin-inline-end: 10px;
-                font-size: 16px;
+                font-size: convertToPixel(--general-typography-fontSize4);
             }
 
             &:hover,

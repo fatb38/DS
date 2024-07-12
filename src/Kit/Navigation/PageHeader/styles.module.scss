@@ -1,15 +1,15 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-page-header) {
-    padding: 16px 32px;
-    background: var(--components-Headercolors-background-default, var(--general-colors-neutral-white));
+    padding: convertToPixel(--general-spacing-s) convertToPixel(--general-spacing-l);
+    background: var(--components-Headercolors-background-default, var(--general-utilities-light));
     display: grid;
     grid-template-areas:
         'breadcrumb breadcrumb breadcrumb'
         'title search actions';
     grid-template-columns: min-content 1fr max-content;
     grid-template-rows: 1fr min-content;
-    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--general-utilities-shadow-shadowLight);
     min-height: 40px;
 
     .kit-page-header-title {
@@ -18,25 +18,18 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         align-self: center;
-        margin: 0;
-        margin-right: 32px;
+        margin: convertToPixel(--general-spacing-none);
+        margin-right: convertToPixel(--general-spacing-l);
     }
 
     .kit-page-header-search {
         grid-area: search;
         max-width: 422px;
-
-        input::placeholder {
-            color: var(
-                --components-Headercolors-typography-input-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey500)
-            );
-        }
     }
 
     .kit-page-header-breadcrumb {
         grid-area: breadcrumb;
-        padding-top: 8px;
+        padding-top: convertToPixel(--general-spacing-xs);
     }
 
     .kit-page-header-actions {
@@ -45,7 +38,7 @@
         align-items: center;
         justify-content: end;
         display: flex;
-        padding-left: 8px;
+        padding-left: convertToPixel(--general-spacing-xs);
     }
 
     .kit-page-header-plus-button {

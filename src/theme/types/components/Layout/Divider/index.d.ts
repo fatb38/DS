@@ -5,7 +5,6 @@ export interface IKitDividerTheme {
         };
         split: {
             default: string;
-            lightGrey: string;
         };
     };
     typography: {
@@ -22,7 +21,6 @@ export interface IKitDividerCssTokens {
         };
         split: {
             default: string;
-            lightGrey: string;
         };
     };
     typography: {

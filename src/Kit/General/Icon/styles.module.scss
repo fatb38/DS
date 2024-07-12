@@ -1,19 +1,19 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-icon) {
-    padding: 8px;
+    padding: convertToPixel(--general-spacing-xs);
     min-width: 16px;
     min-height: 16px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    color: var(--components-Icon-colors-icon-default, var(--general-colors-neutral-typography-black));
+    color: var(--components-Icon-colors-icon-default, var(--general-utilities-text-textPrimary));
     background-color: var(--components-Icon-colors-background-default, transparent);
     border-radius: convertToPixel(--components-Icon-border-radius-default, --general-border-radius-square);
 
     &.on {
-        color: var(--components-Icon-colors-icon-on, var(--general-colors-primary-primary400));
-        background-color: var(--components-Icon-colors-background-on, var(--general-colors-primary-primary100));
+        color: var(--components-Icon-colors-icon-on, var(--general-utilities-main-mainColor));
+        background-color: var(--components-Icon-colors-background-on, var(--general-utilities-main-mainLight));
         border-radius: convertToPixel(--components-Icon-border-radius-on, --general-border-radius-s);
     }
 

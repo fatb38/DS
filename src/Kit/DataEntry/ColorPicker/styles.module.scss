@@ -7,26 +7,20 @@
     line-height: 40px;
     box-shadow: none;
     font-size: convertToPixel(--components-ColorPicker-typography-fontSize, --general-typography-fontSize5);
+
     &.ant-color-picker-trigger-active {
         border-color: transparent;
         // TODO change to cards-border-stroke when available
-        box-shadow: 0 0 0 3px
-            var(--components-ColorPicker-colors-border-focused, var(--general-colors-primary-primary200));
+        box-shadow: 0 0 0 3px var(--components-ColorPicker-colors-border-focused, var(--general-utilities-focus));
     }
 
     &.ant-color-picker-trigger-disabled {
         &:hover {
-            border-color: var(
-                --components-ColorPicker-colors-border-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey200)
-            );
+            border-color: var(--components-ColorPicker-colors-border-disabled, var(--general-utilities-border));
         }
 
         .ant-color-picker-trigger-text {
-            color: var(
-                --components-ColorPicker-colors-typography-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey400)
-            );
+            color: var(--components-ColorPicker-colors-typography-disabled, var(--general-utilities-text-textDisabled));
         }
     }
 
@@ -36,5 +30,3 @@
         border-radius: convertToPixel(--components-ColorPicker-colorBlock-border-radius, --general-border-radius-xs);
     }
 }
-
-

@@ -1,14 +1,14 @@
 import {kitTabsCssTokens} from '@theme/aristid/components/DataDisplay/Tabs';
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {utilitiesCssTokens} from '@theme/aristid/general/utilities';
 
 export const tabsKitTokenToAntdToken = {
     fontFamily: `var(${kitTabsCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`,
-    cardBg: `var(${kitTabsCssTokens.card.colors.background.default}, var(${kitColorsPaletteCssTokens.neutral.grey.grey100}))`,
-    colorBorderSecondary: `var(${kitTabsCssTokens.card.colors.border.default}, var(${kitColorsPaletteCssTokens.neutral.grey.grey300}))`,
-    inkBarColor: `var(${kitTabsCssTokens.card.colors.border.active}, var(${kitColorsPaletteCssTokens.primary.primary400}))`,
-    colorTextDisabled: `var(${kitTabsCssTokens.typography.colors.disabled}, var(${kitColorsPaletteCssTokens.neutral.grey.grey300}))`,
-    itemActiveColor: `var(${kitTabsCssTokens.typography.colors.active}, var(${kitColorsPaletteCssTokens.primary.primary600}))`,
-    itemHoverColor: `var(${kitTabsCssTokens.typography.colors.hover}, var(${kitColorsPaletteCssTokens.primary.primary400}))`,
-    itemSelectedColor: `var(${kitTabsCssTokens.typography.colors.selected}, var(${kitColorsPaletteCssTokens.primary.primary400}))`
+    cardBg: `var(${kitTabsCssTokens.card.colors.background.default}, var(${utilitiesCssTokens.neutral.neutralLight}))`,
+    colorBorderSecondary: `var(${kitTabsCssTokens.card.colors.border.default}, var(${utilitiesCssTokens.border}))`,
+    inkBarColor: `var(${kitTabsCssTokens.card.colors.border.active}, var(${utilitiesCssTokens.main.mainColor}))`,
+    colorTextDisabled: `var(${kitTabsCssTokens.typography.colors.disabled}, var(${utilitiesCssTokens.text.textDisabled}))`,
+    itemActiveColor: `var(${kitTabsCssTokens.typography.colors.active}, var(${utilitiesCssTokens.main.mainDeepDark}))`,
+    itemHoverColor: `var(${kitTabsCssTokens.typography.colors.hover}, var(${utilitiesCssTokens.main.mainColor}))`,
+    itemSelectedColor: `var(${kitTabsCssTokens.typography.colors.selected}, var(${utilitiesCssTokens.main.mainColor}))`
 };

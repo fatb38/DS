@@ -3,65 +3,45 @@
 .ant-select-dropdown {
     background: transparent;
     overflow: visible;
-    padding: 0;
-    border-radius: 0;
+    padding: convertToPixel(--general-spacing-none);
+    border-radius: convertToPixel(--general-border-radius-square);
     box-shadow: none;
-    font-family: var(
-        --components-Select-DropDowntypography-fontFamily,
-        var(--general-typography-fontFamily)
-    );
+    font-family: var(--components-Select-DropDowntypography-fontFamily, var(--general-typography-fontFamily));
     font-weight: var(
         --components-Select-DropDowntypography-fontWeight-default,
         var(--general-typography-mediumfontWeight)
     );
-    color: var(
-        --components-Select-DropDowncolors-typography-default,
-        var(--general-colors-secondary-mediumGrey-mediumGrey500)
-    );
+    color: var(--components-Select-DropDowncolors-typography-default, var(--general-utilities-text-textPrimary));
 
     &.ant-select-dropdown-placement-bottomLeft.kit-select-dropdown-focus {
         > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
         .kit-select-dropdown-content {
             transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
             z-index: 1000;
-            box-shadow: -2px 2px 0 1px
-                var(
-                    --components-Select-colors-border-focus-default,
-                    var(--general-colors-primary-primary200)
-                ), 2px 2px 0 1px
-                var(
-                    --components-Select-colors-border-focus-default,
-                    var(--general-colors-primary-primary200)
-                );
+            box-shadow:
+                -2px 2px 0 1px var(--components-Select-colors-border-focus-default, var(--general-utilities-focus)),
+                2px 2px 0 1px var(--components-Select-colors-border-focus-default, var(--general-utilities-focus));
         }
 
         &.kit-select-dropdown-error {
             > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
             .kit-select-dropdown-content {
-                box-shadow: -2px 2px 0 1px
-                    var(
-                        --components-Select-colors-border-error,
-                        var(--general-colors-secondary-red-red200)
-                    ), 2px 2px 0 1px
-                    var(
-                        --components-Select-colors-border-error,
-                        var(--general-colors-secondary-red-red200)
-                    );
+                box-shadow:
+                    -2px 2px 0 1px
+                        var(--components-Select-colors-border-error, var(--general-utilities-error-errorMedium)),
+                    2px 2px 0 1px
+                        var(--components-Select-colors-border-error, var(--general-utilities-error-errorMedium));
             }
         }
 
         &.kit-select-dropdown-warning {
             > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
             .kit-select-dropdown-content {
-                box-shadow: -2px 2px 0 1px
-                    var(
-                        --components-Select-colors-border-warning,
-                        var(--general-colors-secondary-orange-orange200)
-                    ), 2px 2px 0 1px
-                    var(
-                        --components-Select-colors-border-warning,
-                        var(--general-colors-secondary-orange-orange200)
-                    );
+                box-shadow:
+                    -2px 2px 0 1px
+                        var(--components-Select-colors-border-warning, var(--general-utilities-warning-warningMedium)),
+                    2px 2px 0 1px
+                        var(--components-Select-colors-border-warning, var(--general-utilities-warning-warningMedium));
             }
         }
     }
@@ -71,143 +51,109 @@
         .kit-select-dropdown-content {
             transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
             z-index: 1000;
-            box-shadow: -2px -2px 0 1px
-                var(
-                    --components-Select-colors-border-focus-default,
-                    var(--general-colors-primary-primary200)
-                ), 2px -2px 0 1px
-                var(
-                    --components-Select-colors-border-focus-default,
-                    var(--general-colors-primary-primary200)
-                );
+            box-shadow:
+                -2px -2px 0 1px var(--components-Select-colors-border-focus-default, var(--general-utilities-focus)),
+                2px -2px 0 1px var(--components-Select-colors-border-focus-default, var(--general-utilities-focus));
         }
 
         &.kit-select-dropdown-error {
             > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
             .kit-select-dropdown-content {
-                box-shadow: -2px -2px 0 1px
-                    var(
-                        --components-Select-colors-border-error,
-                        var(--general-colors-secondary-red-red200)
-                    ), 2px -2px 0 1px
-                    var(
-                        --components-Select-colors-border-error,
-                        var(--general-colors-secondary-red-red200)
-                    );
+                box-shadow:
+                    -2px -2px 0 1px var(--components-Select-colors-border-error, var(--general-utilities-error-errorMedium)),
+                    2px -2px 0 1px var(--components-Select-colors-border-error, var(--general-utilities-error-errorMedium));
             }
         }
 
         &.kit-select-dropdown-warning {
             > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
             .kit-select-dropdown-content {
-                box-shadow: -2px -2px 0 1px
-                    var(
-                        --components-Select-colors-border-warning,
-                        var(--general-colors-secondary-orange-orange200)
-                    ), 2px -2px 0 1px
-                    var(
-                        --components-Select-colors-border-warning,
-                        var(--general-colors-secondary-orange-orange200)
-                    );
+                box-shadow:
+                    -2px -2px 0 1px var(--components-Select-colors-border-warning, var(--general-utilities-warning-warningMedium)),
+                    2px -2px 0 1px var(--components-Select-colors-border-warning, var(--general-utilities-warning-warningMedium));
             }
         }
     }
-    
+
     &.ant-select-dropdown-placement-bottomLeft.kit-select-dropdown-focus .kit-select-dropdown-content {
         transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-        box-shadow: -2px 2px 0 1px
-            var(
-                --components-Select-colors-border-focus-default,
-                var(--general-colors-primary-primary200)
-            ), 2px 2px 0 1px
-            var(
-                --components-Select-colors-border-focus-default,
-                var(--general-colors-primary-primary200)
-            );
+        box-shadow:
+            -2px 2px 0 1px var(--components-Select-colors-border-focus-default, var(--general-utilities-focus)),
+            2px 2px 0 1px var(--components-Select-colors-border-focus-default, var(--general-utilities-focus));
     }
 
     &.ant-select-dropdown-placement-topLeft.kit-select-dropdown-focus .kit-select-dropdown-content {
         transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
         z-index: 1000;
-        box-shadow: -2px -2px 0 1px
-            var(
-                --components-Select-colors-border-focus-default,
-                var(--general-colors-primary-primary200)
-            ), 2px -2px 0 1px
-            var(
-                --components-Select-colors-border-focus-default,
-                var(--general-colors-primary-primary200)
-            );
+        box-shadow:
+            -2px -2px 0 1px var(--components-Select-colors-border-focus-default, var(--general-utilities-focus)),
+            2px -2px 0 1px var(--components-Select-colors-border-focus-default, var(--general-utilities-focus));
     }
 
     &.kit-select-dropdown-bottom {
         .kit-select-dropdown-content {
-            border-radius: 0 0 convertToPixel(
-                --components-Select-DropDownborder-radius,
-                --general-border-radius-s
-            ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s);
+            border-radius: convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square)
+                convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s)
+                convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s);
             transform: translate(0, -4px);
         }
 
         > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
-            border-radius: 0 0 convertToPixel(
-                --components-Select-DropDownborder-radius,
-                --general-border-radius-s
-            ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s);
+            border-radius: convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square)
+                convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s)
+                convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s);
             transform: translate(0px, -4px);
         }
 
-        &.ant-select-dropdown-placement-topLeft, &.ant-select-dropdown-placement-topRight {
+        &.ant-select-dropdown-placement-topLeft,
+        &.ant-select-dropdown-placement-topRight {
             .kit-select-dropdown-content {
                 transform: translate(0, 4px);
-                border-radius: convertToPixel(
-                    --components-Select-DropDownborder-radius,
-                    --general-border-radius-s
-                ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s) 0 0;
+                border-radius: convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s)
+                    convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s)
+                    convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square);
             }
 
             > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
                 transform: translate(0px, 4px);
-                border-radius: convertToPixel(
-                    --components-Select-DropDownborder-radius,
-                    --general-border-radius-s
-                ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s) 0 0;
+                border-radius: convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s)
+                    convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s)
+                    convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square);
             }
         }
     }
 
     &.kit-select-dropdown-top {
         .kit-select-dropdown-content {
-            border-radius: convertToPixel(
-                --components-Select-DropDownborder-radius,
-                --general-border-radius-s
-            ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s) 0 0;
+            border-radius: convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s)
+                convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s)
+                convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square);
             transform: translate(0, 4px);
         }
 
         > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
-            border-radius: convertToPixel(
-                --components-Select-DropDownborder-radius,
-                --general-border-radius-s
-            ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s) 0 0;
+            border-radius: convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s)
+                convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s)
+                convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square);
             transform: translate(0px, 4px);
         }
 
-        &.ant-select-dropdown-placement-bottomLeft, &.ant-select-dropdown-placement-bottomRight {
+        &.ant-select-dropdown-placement-bottomLeft,
+        &.ant-select-dropdown-placement-bottomRight {
             .kit-select-dropdown-content {
                 transform: translate(0, -4px);
-                border-radius: 0 0 convertToPixel(
-                    --components-Select-DropDownborder-radius,
-                    --general-border-radius-s
-                ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s);
+                border-radius: convertToPixel(--general-border-radius-square)
+                    convertToPixel(--general-border-radius-square)
+                    convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s)
+                    convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s);
             }
 
             > div:not(.kit-select-dropdown-content) > .rc-virtual-list {
                 transform: translate(0px, -4px);
-                border-radius: 0 0 convertToPixel(
-                    --components-Select-DropDownborder-radius,
-                    --general-border-radius-s
-                ) convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s);
+                border-radius: convertToPixel(--general-border-radius-square)
+                    convertToPixel(--general-border-radius-square)
+                    convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s)
+                    convertToPixel(--components-Select-DropDownborder-radius, --general-border-radius-s);
             }
         }
     }
@@ -215,14 +161,14 @@
     > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
     .kit-select-dropdown-content {
         display: grid;
-        box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.30);
+        box-shadow: var(--general-utilities-shadow-shadowMedium);
         background-color: var(
             --components-Select-DropDowncolors-background-default,
-            var(--general-colors-secondary-mediumGrey-mediumGrey100)
+            var(--general-utilities-neutral-neutralLight)
         );
         padding: 10px;
         overflow: hidden;
-        border-radius: 7px ;
+        border-radius: convertToPixel(--general-border-radius-s);
 
         .ant-select-item {
             border: none;
@@ -233,7 +179,7 @@
             );
             color: var(
                 --components-Select-DropDowncolors-typography-selected,
-                var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                var(--general-utilities-text-textPrimary)
             );
 
             &:last-of-type {
@@ -241,8 +187,8 @@
             }
 
             &.ant-select-item-option {
-                padding: 0;
-                margin: 0;
+                padding: convertToPixel(--general-spacing-none);
+                margin: convertToPixel(--general-spacing-none);
                 border: none;
                 background: transparent;
 
@@ -255,13 +201,13 @@
                     align-items: center;
                     min-height: 32px;
                     height: 32px;
-                    border-radius: 8px;
-                    padding-left: 8px;
+                    border-radius: convertToPixel(--general-border-radius-s);
+                    padding-left: convertToPixel(--general-spacing-xs);
                 }
 
                 .kit-select-option {
                     display: inline-flex;
-                    gap: 8px;
+                    gap: convertToPixel(--general-spacing-xs);
                     align-items: center;
                     width: 100%;
 
@@ -279,15 +225,18 @@
                         vertical-align: middle;
 
                         div {
-                            margin-left: 4px;
+                            margin-left: convertToPixel(--general-spacing-xxs);
                             width: convertToPixel(--components-Select-ColorBadge-width, 16);
                             height: convertToPixel(--components-Select-ColorBadge-height, 16);
-                            border-radius: convertToPixel(--components-Select-ColorBadge-border-radius, --general-border-radius-xxs);
+                            border-radius: convertToPixel(
+                                --components-Select-ColorBadge-border-radius,
+                                --general-border-radius-xxs
+                            );
                         }
                     }
 
                     .card-info {
-                        gap: 0;
+                        gap: convertToPixel(--general-spacing-none);
                     }
                 }
 
@@ -300,7 +249,7 @@
                 .ant-select-item-option-content {
                     background: var(
                         --components-Select-DropDowncolors-background-selected,
-                        var(--general-colors-primary-primary100)
+                        var(--general-utilities-main-mainLight)
                     );
                     font-weight: var(
                         --components-Select-DropDowntypography-fontWeight-selected,
@@ -308,17 +257,21 @@
                     );
                     color: var(
                         --components-Select-DropDowncolors-typography-selected,
-                        var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                        var(--general-utilities-text-textPrimary)
                     );
-                    border-radius: 8px 0 0 8px;
+                    border-radius: convertToPixel(--general-border-radius-s)
+                        convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square)
+                        convertToPixel(--general-border-radius-s);
                 }
 
                 .ant-select-item-option-state {
                     background: var(
                         --components-Select-DropDowncolors-background-selected,
-                        var(--general-colors-primary-primary100)
+                        var(--general-utilities-main-mainLight)
                     );
-                    border-radius: 0 8px 8px 0;
+                    border-radius: convertToPixel(--general-border-radius-square)
+                        convertToPixel(--general-border-radius-s) convertToPixel(--general-border-radius-s)
+                        convertToPixel(--general-border-radius-square);
                     min-width: 8px;
                     height: 32px;
                 }
@@ -327,7 +280,7 @@
             &.ant-select-item-option-active .ant-select-item-option-content {
                 background: var(
                     --components-Select-DropDowncolors-background-active,
-                    var(--general-colors-primary-primary100)
+                    var(--general-utilities-main-mainLight)
                 );
                 font-weight: var(
                     --components-Select-DropDowntypography-fontWeight-active,
@@ -335,12 +288,12 @@
                 );
                 color: var(
                     --components-Select-DropDowncolors-typography-active,
-                    var(--general-colors-primary-primary400)
+                    var(--general-utilities-main-mainColor)
                 );
             }
 
             &.ant-select-item-option-disabled .ant-select-item-option-content {
-                opacity: .5;
+                opacity: 0.5;
             }
 
             &.ant-select-item-group {
@@ -350,9 +303,9 @@
                 );
                 color: var(
                     --components-Select-DropDowncolors-typography-group,
-                    var(--general-colors-neutral-typography-black)
+                    var(--general-utilities-text-textPrimary)
                 );
-                padding: 8px 0;
+                padding: convertToPixel(--general-spacing-xs) convertToPixel(--general-spacing-none);
             }
         }
     }

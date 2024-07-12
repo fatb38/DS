@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitIcon, KitSpace, KitTypography} from '@kit/index';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload} from '@fortawesome/free-solid-svg-icons';
@@ -8,12 +7,31 @@ const App = () => {
     const {theme} = useKitTheme();
 
     const secondaryColors = Object.keys(theme.colors.secondary);
+    const tertiaryColors = Object.keys(theme.colors.tertiary);
 
     return (
         <KitSpace direction="vertical">
+            <KitTypography.Text style={{fontWeight: 'bold'}}>Primary Color</KitTypography.Text>
+            <KitSpace>
+                <KitSpace direction="vertical">
+                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="primary" />
+                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color="primary" />
+                </KitSpace>
+            </KitSpace>
+            <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
             <KitSpace>
                 {secondaryColors.map((color: string) => (
+                    <KitSpace direction="vertical" key={color}>
+                        <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color={color} />
+                        <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color={color} />
+                    </KitSpace>
+                ))}
+            </KitSpace>
+            <br />
+            <KitTypography.Text style={{fontWeight: 'bold'}}>Tertiary Colors</KitTypography.Text>
+            <KitSpace>
+                {tertiaryColors.map((color: string) => (
                     <KitSpace direction="vertical" key={color}>
                         <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color={color} />
                         <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color={color} />
@@ -40,8 +58,8 @@ const App = () => {
             <KitTypography.Text style={{fontWeight: 'bold'}}>HEX format</KitTypography.Text>
             <KitSpace>
                 <KitSpace direction="vertical">
-                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="#FunctionComponentba03" />
-                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color="#FunctionComponentba03" />
+                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="#fcba03" />
+                    <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on color="#fcba03" />
                 </KitSpace>
                 <KitSpace direction="vertical">
                     <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="#001d75" />

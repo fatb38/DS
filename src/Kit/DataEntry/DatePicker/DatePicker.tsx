@@ -4,7 +4,7 @@ import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';
 import {DatePicker as AntdDatePicker} from 'antd';
 import cn from 'classnames';
-import React, {ReactNode, forwardRef} from 'react';
+import {ReactNode, forwardRef} from 'react';
 import {IKitDatePicker} from './types';
 
 import {IKitInputWrapper} from '../InputWrapper/types';
@@ -25,7 +25,8 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
             infoIcon,
             actions,
             onInfoClick,
-            readonly,
+            readonly = false,
+            disabled,
             ...datePickerProps
         },
         ref
@@ -45,7 +46,7 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
             <KitInputWrapper
                 label={label}
                 helper={helper}
-                disabled={datePickerProps.disabled as boolean}
+                disabled={disabled as boolean}
                 status={datePickerProps.status as IKitInputWrapper['status']}
                 className={wrapperClassName}
                 required={required}
@@ -57,7 +58,7 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
                     <AntdDatePicker
                         {...datePickerProps}
                         picker={picker}
-                        disabled={!!readonly}
+                        disabled={readonly || disabled}
                         variant={readonly ? 'borderless' : undefined}
                         ref={ref}
                         suffixIcon={suffixIcon ?? _getSuffixIcon()}

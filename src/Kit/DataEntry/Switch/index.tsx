@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react';
+import {forwardRef} from 'react';
 import {Switch as AntdSwitch} from 'antd';
 import {IKitSwitch} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

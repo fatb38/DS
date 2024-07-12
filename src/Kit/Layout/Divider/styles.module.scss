@@ -4,16 +4,12 @@
     font-size: convertToPixel(--components-divider-typography-fontSize, --general-typography-fontSize6);
     line-height: var(--components-divider-typography-lineHeight, var(--general-typography-lineHeight6));
     font-weight: var(--components-divider-typography-fontWeight, var(--general-typography-mediumfontWeight));
-    &.ant-divider {
-        &.no-margin {
-            margin: 0px;
-        }
 
-        &.light-grey {
-            border-color: var(
-                --components-divider-colors-split-lightGrey,
-                var(--general-colors-secondary-mediumGrey-mediumGrey100)
-            );
+    &.ant-divider {
+        border-color: var(--general-utilities-border);
+
+        &.no-margin {
+            margin: convertToPixel(--general-spacing-none);
         }
     }
 }

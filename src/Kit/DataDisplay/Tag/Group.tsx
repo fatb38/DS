@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useRef} from 'react';
+import {FunctionComponent, useRef} from 'react';
 import {IKitTagGroup} from './types';
 import {InternalTag} from './Tag';
 import useTagGroup from './useTagGroup';

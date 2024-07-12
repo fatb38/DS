@@ -1,4 +1,3 @@
-import React from 'react';
 import {createRoot} from 'react-dom/client';
 import {ConfigUpdate, IKitConfirmDialog} from './types';
 import ConfirmDialog from './ConfirmDialog';

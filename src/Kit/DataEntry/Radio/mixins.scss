@@ -3,14 +3,12 @@
         font-weight: var(--components-Radio-typography-fontWeight, var(--general-typography-mediumfontWeight));
         font-size: convertToPixel(--components-Radio-typography-fontSize, --general-typography-fontSize5);
         line-height: var(--components-Radio-typography-lineHeight, var(--general-typography-lineHeight5));
+
         // Unchecked
         .ant-radio {
             .ant-radio-inner {
-                border: 1px solid var(--components-Radio-colors-border-default, var(--general-colors-neutral-black60));
-                background-color: var(
-                    --components-Radio-colors-background-default,
-                    var(--general-colors-neutral-white)
-                );
+                border: 1px solid var(--components-Radio-colors-border-default, var(--general-utilities-border));
+                background-color: var(--components-Radio-colors-background-default, var(--general-utilities-light));
             }
 
             .ant-radio-inner:after {
@@ -18,7 +16,7 @@
                 visibility: hidden;
                 background-color: var(
                     --components-Radio-colors-bullet-default,
-                    var(--general-colors-primary-primary400)
+                    var(--general-utilities-main-mainColor)
                 );
             }
         }
@@ -28,34 +26,30 @@
         }
 
         &.ant-radio-wrapper-disabled .ant-radio .ant-radio-inner {
-            border: 1px solid
-                var(--components-Radio-colors-border-disabled, var(--general-colors-secondary-mediumGrey-mediumGrey200));
+            border: 1px solid var(--components-Radio-colors-border-disabled, var(--general-utilities-border));
             background-color: var(
                 --components-Radio-colors-background-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey100)
+                var(--general-utilities-neutral-neutralLight)
             );
 
             &:after {
-                background-color: var(
-                    --components-Radio-colors-bullet-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey200)
-                );
+                background-color: var(--components-Radio-colors-bullet-disabled, var(--general-utilities-disabled));
             }
         }
 
-        &.ant-radio-wrapper-danger .ant-radio {
+        &.ant-radio-wrapper-danger:not(.ant-radio-wrapper-disabled) .ant-radio {
             .ant-radio-inner {
                 border: 1px solid
-                    var(--components-Radio-colors-border-danger-default, var(--general-colors-secondary-red-red400));
+                    var(--components-Radio-colors-border-danger-default, var(--general-utilities-error-errorColor));
                 background-color: var(
                     --components-Radio-colors-background-danger-default,
-                    var(--general-colors-secondary-red-red200)
+                    var(--general-utilities-error-errorLight)
                 );
 
                 &:after {
                     background-color: var(
                         --components-Radio-colors-bullet-danger-default,
-                        var(--general-colors-secondary-red-red400)
+                        var(--general-utilities-error-errorColor)
                     );
                 }
             }
@@ -63,55 +57,40 @@
             .ant-radio-input:hover + .ant-radio-inner {
                 border-color: var(
                     --components-Radio-colors-border-danger-hover,
-                    var(--general-colors-secondary-red-red500)
+                    var(--general-utilities-error-errorDark)
                 );
                 background-color: var(
                     --components-Radio-colors-background-danger-hover,
-                    var(--general-colors-secondary-red-red200)
+                    var(--general-utilities-error-errorLight)
                 );
 
                 &:after {
                     background-color: var(
                         --components-Radio-colors-bullet-danger-hover,
-                        var(--general-colors-secondary-red-red500)
+                        var(--general-utilities-error-errorDark)
                     );
                 }
             }
-        }
 
-        &.ant-radio-wrapper-danger.ant-radio-wrapper-disabled .ant-radio .ant-radio-inner {
-            border: 1px solid
-                var(--components-Radio-colors-border-danger-default, var(--general-colors-secondary-red-red400));
-            background-color: var(
-                --components-Radio-colors-background-danger-default,
-                var(--general-colors-secondary-red-red200)
-            );
-
-            &:after {
-                background-color: var(
-                    --components-Radio-colors-bullet-danger-default,
-                    var(--general-colors-secondary-red-red400)
-                );
+            & + span {
+                color: var(--general-utilities-text-textError);
             }
         }
 
         &:not(.ant-radio-wrapper-danger):not(.ant-radio-wrapper-disabled) {
             .ant-radio-checked .ant-radio-inner {
-                border-color: var(--components-Radio-colors-border-checked, var(--general-colors-primary-primary400));
-                background-color: var(
-                    --components-Radio-colors-background-checked,
-                    var(--general-colors-neutral-white)
-                );
+                border-color: var(--components-Radio-colors-border-checked, var(--general-utilities-main-mainColor));
+                background-color: var(--components-Radio-colors-background-checked, var(--general-utilities-light));
             }
 
             .ant-radio-input:hover + .ant-radio-inner {
-                border-color: var(--components-Radio-colors-border-hover, var(--general-colors-primary-primary500));
-                background-color: var(--components-Radio-colors-background-hover, var(--general-colors-neutral-white));
+                border-color: var(--components-Radio-colors-border-hover, var(--general-utilities-main-mainDark));
+                background-color: var(--components-Radio-colors-background-hover, var(--general-utilities-light));
 
                 &:after {
                     background-color: var(
                         --components-Radio-colors-bullet-hover,
-                        var(--general-colors-primary-primary500)
+                        var(--general-utilities-main-mainDark)
                     );
                 }
             }
@@ -124,7 +103,7 @@
         // Focus
         &:not(.ant-radio-wrapper-disabled) .ant-radio-input:focus + .ant-radio-inner {
             // TODO change to cards-border-stroke when available
-            box-shadow: 0 0 0 2px var(--components-Radio-colors-border-focus, var(--general-colors-primary-primary200));
+            box-shadow: 0 0 0 2px var(--components-Radio-colors-border-focus, var(--general-utilities-focus));
         }
 
         &:not(.ant-radio-wrapper-disabled):not(.ant-radio-wrapper-danger) .ant-radio-input:focus + .ant-radio-inner {
@@ -138,18 +117,12 @@
         // active
         &:not(.ant-radio-wrapper-danger) {
             .ant-radio-disabled + span {
-                color: var(
-                    --components-Radio-colors-typography-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
-                );
+                color: var(--components-Radio-colors-typography-disabled, var(--general-utilities-text-textDisabled));
             }
         }
 
         .ant-radio-disabled {
-            color: var(
-                --components-Radio-colors-typography-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey400)
-            );
+            color: var(--components-Radio-colors-typography-disabled, var(--general-utilities-text-textDisabled));
         }
 
         &.ant-radio-wrapper-danger {
@@ -157,25 +130,22 @@
                 &.ant-radio-disabled + span {
                     color: var(
                         --components-Radio-colors-typography-danger-disabled,
-                        var(--general-colors-secondary-red-red200)
+                        var(--general-utilities-text-textDisabled)
                     );
                 }
             }
 
             .ant-radio-input:hover:focus + .ant-radio-inner {
-                background-color: var(--components-Radio-colors-background-hover, var(--general-colors-neutral-white));
+                background-color: var(--components-Radio-colors-background-hover, var(--general-utilities-light));
                 border-color: transparent;
             }
 
             .ant-radio-input:focus + .ant-radio-inner {
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 2px
-                    var(--components-Radio-colors-border-danger-focus, var(--general-colors-secondary-red-red200));
+                    var(--components-Radio-colors-border-danger-focus, var(--general-utilities-error-errorMediul));
 
-                background-color: var(
-                    --components-Radio-colors-background-default,
-                    var(--general-colors-neutral-white)
-                );
+                background-color: var(--components-Radio-colors-background-default, var(--general-utilities-light));
                 border-color: transparent;
             }
         }

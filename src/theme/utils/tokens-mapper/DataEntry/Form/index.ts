@@ -1,5 +1,5 @@
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {utilitiesCssTokens} from '@theme/aristid/general/utilities';
 
 export const formKitTokenToAntdToken = {
-    colorError: `var(${kitColorsPaletteCssTokens.secondary.red.red400})`
+    colorError: `var(${utilitiesCssTokens.error.errorColor})`
 };

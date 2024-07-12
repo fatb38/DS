@@ -3,11 +3,12 @@
 :local(.kit-select) {
     &.ant-select.ant-select-compact-item {
         &:not(.ant-select-compact-last-item) {
-            margin-inline-end: 0;
+            margin-inline-end: convertToPixel(--general-spacing-none);
         }
 
         &.ant-select-compact-first-item:not(.ant-select-compact-last-item):not(.ant-select-open) {
-            border-radius: convertToPixel(--components-Select-border-radius, --general-border-radius-s) 0 0
+            border-radius: convertToPixel(--components-Select-border-radius, --general-border-radius-s)
+                convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square)
                 convertToPixel(--components-Select-border-radius, --general-border-radius-s);
         }
     }
@@ -20,14 +21,17 @@
     }
 
     &.ant-select-open {
-        &:not(.ant-select-compact-item) {
+        &:not(.ant-select-compact-item):not(.ant-select-borderless) {
             &.ant-select-bottom {
                 border-radius: convertToPixel(--components-Select-border-radius, --general-border-radius-s)
-                    convertToPixel(--components-Select-border-radius, --general-border-radius-s) 0 0;
+                    convertToPixel(--components-Select-border-radius, --general-border-radius-s)
+                    convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square);
             }
 
             &.ant-select-top {
-                border-radius: 0 0 convertToPixel(--components-Select-border-radius, --general-border-radius-s)
+                border-radius: convertToPixel(--general-border-radius-square)
+                    convertToPixel(--general-border-radius-square)
+                    convertToPixel(--components-Select-border-radius, --general-border-radius-s)
                     convertToPixel(--components-Select-border-radius, --general-border-radius-s);
             }
         }
@@ -35,22 +39,29 @@
         &.ant-select-compact-item {
             &.ant-select-bottom {
                 border-radius: convertToPixel(--components-Select-border-raius, --general-border-radius-s)
-                    convertToPixel(--components-Select-border-radius, --general-border-radius-s) 0 0;
+                    convertToPixel(--components-Select-border-radius, --general-border-radius-s)
+                    convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square);
             }
 
             &.ant-select-top {
-                border-radius: 0 0 convertToPixel(--components-Select-border-radius, --general-border-radius-s)
+                border-radius: convertToPixel(--general-border-radius-square)
+                    convertToPixel(--general-border-radius-square)
+                    convertToPixel(--components-Select-border-radius, --general-border-radius-s)
                     convertToPixel(--components-Select-border-radius, --general-border-radius-s);
             }
         }
 
         &.ant-select-compact-item.ant-select-compact-first-item:not(.ant-select-compact-last-item) {
             &.ant-select-bottom {
-                border-radius: convertToPixel(--components-Select-border-radius, --general-border-radius-s) 0 0 0;
+                border-radius: convertToPixel(--components-Select-border-radius, --general-border-radius-s)
+                    convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square)
+                    convertToPixel(--general-border-radius-square);
             }
 
             &.ant-select-top {
-                border-radius: 0 0 0 convertToPixel(--components-Select-border-radius, --general-border-radius-s);
+                border-radius: convertToPixel(--general-border-radius-square)
+                    convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square)
+                    convertToPixel(--components-Select-border-radius, --general-border-radius-s);
             }
         }
     }
@@ -61,19 +72,13 @@
         grid-template-areas: 'input clear arrow';
         grid-template-columns: calc(100% - 60px) 30px 30px;
         position: relative;
-        background-color: var(
-            --components-Select-colors-background-default,
-            var(--general-colors-neutral-white)
-        );
+        background-color: var(--components-Select-colors-background-default, var(--general-utilities-light));
         border-radius: convertToPixel(--components-Select-border-radius, --general-border-radius-s);
         transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
         &:hover {
-            &:not(.ant-select-disabled) .ant-select-selector{
-                border-color: var(
-                    --components-Select-colors-border-hover,
-                    var(--general-colors-primary-primary400)
-                );
+            &:not(.ant-select-disabled):not(.ant-select-focused) .ant-select-selector {
+                border-color: var(--components-Select-colors-border-hover, var(--general-utilities-main-mainColor));
             }
 
             .ant-select-arrow:not(:last-child) {
@@ -82,30 +87,27 @@
         }
 
         &.ant-select-focused {
-            border-color: var(
-                --components-Select-colors-border-focus-default,
-                var(--general-colors-primary-primary400)
-            );
+            border-color: var(--components-Select-colors-border-focus-default, var(--general-utilities-main-mainColor));
         }
 
-        &.ant-select-single  .ant-select-selector {
-            padding-left: 9px;
+        &.ant-select-single .ant-select-selector {
+            padding-left: convertToPixel(--general-spacing-xs);
         }
 
-        .ant-select-selector:has(~ .ant-select-clear)  {
+        .ant-select-selector:has(~ .ant-select-clear) {
             padding-right: 60px;
         }
 
         .ant-select-selector {
             grid-column: 1 / 4;
-            padding: 4px 30px 4px 5px;
+            padding: convertToPixel(--general-spacing-xxs) 30px convertToPixel(--general-spacing-xxs) 5px;
             background-color: inherit;
-            border: 1px solid var(--general-colors-secondary-mediumGrey-mediumGrey200);
+            border: 1px solid var(--general-utilities-border);
             transition: none;
             min-height: 38px;
 
             .ant-select-selection-overflow {
-                gap: 4px 0;
+                gap: convertToPixel(--general-spacing-xxs) convertToPixel(--general-spacing-none);
 
                 .ant-select-selection-overflow-item {
                     max-width: calc(100% - 4px);
@@ -121,9 +123,9 @@
 
                     &.ant-select-selection-overflow-item-rest .ant-select-selection-item {
                         background: none;
-                        margin: 0;
-                        padding-inline-start: 0;
-                        padding-inline-end: 0;
+                        margin: convertToPixel(--general-spacing-none);
+                        padding-inline-start: convertToPixel(--general-spacing-none);
+                        padding-inline-end: convertToPixel(--general-spacing-none);
                     }
                 }
             }
@@ -133,14 +135,14 @@
             }
 
             .ant-select-selection-item {
-                padding-inline-start: 4px;
+                padding-inline-start: convertToPixel(--general-spacing-xxs);
             }
 
             .ant-select-selection-item,
             .ant-select-selection-placeholder {
                 display: flex;
                 align-items: center;
-                padding-inline-end: 0;
+                padding-inline-end: convertToPixel(--general-spacing-none);
             }
 
             .ant-select-selection-item,
@@ -151,7 +153,7 @@
                 );
                 color: var(
                     --components-Select-colors-typography-content-default,
-                    var(--general-colors-primary-primary300)
+                    var(--general-utilities-text-textPrimary)
                 );
             }
 
@@ -162,7 +164,7 @@
                 );
                 color: var(
                     --components-Select-colors-typography-placeholder-default,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                    var(--general-utilities-neutral-neutralDark)
                 );
             }
 
@@ -173,144 +175,123 @@
             .kit-select-option {
                 display: inline-flex;
                 align-items: center;
-                gap: 8px;
+                gap: convertToPixel(--general-spacing-xs);
                 width: 100%;
 
                 .kit-select-option-icon {
-                    padding: 4px;
+                    padding: convertToPixel(--general-spacing-xxs);
                 }
 
                 .card-info {
-                    gap: 0;
+                    gap: convertToPixel(--general-spacing-none);
                 }
             }
         }
 
         .ant-select-arrow {
             grid-column: 3/4;
-            color: var(
-                --components-Select-colors-icon-arrow-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey500)
-            );
+            color: var(--components-Select-colors-icon-arrow-default, var(--general-utilities-text-textPrimary));
         }
 
         .ant-select-clear {
             grid-column: 2/3;
             display: flex;
-            font-size: 12px;
+            font-size: convertToPixel(--general-typography-fontSize7);
             transform: none;
             transition: none;
             opacity: 1;
-            color: var(
-                --components-Select-colors-icon-clear-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey500)
-            );
+            color: var(--components-Select-colors-icon-clear-default, var(--general-utilities-text-textPrimary));
         }
 
         &.ant-select-disabled {
             background-color: var(
                 --components-Select-colors-background-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey100)
+                var(--general-utilities-neutral-neutralLight)
             );
             color: var(
                 --components-Select-colors-typography-content-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                var(--general-utilities-text-textDisabled)
             );
             cursor: not-allowed;
 
             .ant-select-selector {
-                border-color: var(
-                    --components-Select-colors-border-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey200)
-                );
+                border-color: var(--components-Select-colors-border-disabled, var(--general-utilities-border));
             }
 
             .ant-select-selection-item {
                 color: var(
                     --components-Select-colors-typography-content-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-utilities-text-textDisabled)
                 );
             }
 
             .ant-select-selection-placeholder {
                 color: var(
                     --components-Select-colors-typography-placeholder-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-utilities-text-textDisabled)
                 );
             }
 
             .ant-select-arrow {
-                color: var(
-                    --components-Select-colors-icon-arrow-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
-                );
+                color: var(--components-Select-colors-icon-arrow-disabled, var(--general-utilities-text-textDisabled));
             }
 
             .ant-select-clear {
-                color: var(
-                    --components-Select-colors-icon-clear-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
-                );
+                color: var(--components-Select-colors-icon-clear-disabled, var(--general-utilities-text-textDisabled));
             }
         }
 
         &.ant-select-status-warning {
             background-color: var(
                 --components-Select-colors-background-warning,
-                var(--general-colors-secondary-orange-orange100)
+                var(--general-utilities-warning-warningLight)
             );
             color: var(
                 --components-Select-colors-typography-content-warning,
-                var(--general-colors-secondary-orange-orange500)
+                var(--general-utilities-text-textWarning)
             );
 
-            &:hover:not(.ant-select-disabled):not(.ant-select-focused) .ant-select-selector{
+            &:hover:not(.ant-select-disabled):not(.ant-select-focused) .ant-select-selector {
                 border-color: var(
                     --components-Select-colors-border-warning,
-                    var(--general-colors-secondary-orange-orange400)
+                    var(--general-utilities-warning-warningColor)
                 );
             }
 
             .ant-select-selector {
                 border-color: var(
                     --components-Select-colors-border-warning,
-                    var(--general-colors-secondary-orange-orange400)
+                    var(--general-utilities-warning-warningColor)
                 );
             }
 
             .ant-select-selection-item {
                 color: var(
                     --components-Select-colors-typography-content-warning,
-                    var(--general-colors-secondary-orange-orange500)
+                    var(--general-utilities-text-textWarning)
                 );
             }
 
             .ant-select-selection-placeholder {
                 color: var(
                     --components-Select-colors-typography-placeholder-warning,
-                    var(--general-colors-secondary-orange-orange400)
+                    var(--general-utilities-text-textWarning)
                 );
             }
 
             .ant-select-arrow {
-                color: var(
-                    --components-Select-colors-icon-arrow-warning,
-                    var(--general-colors-secondary-orange-orange400)
-                );
+                color: var(--components-Select-colors-icon-arrow-warning, var(--general-utilities-text-textWarning));
                 background-color: var(
                     --components-Select-colors-background-warning,
-                    var(--general-colors-secondary-orange-orange100)
+                    var(--general-utilities-warning-warningLight)
                 );
             }
 
             .ant-select-clear {
-                color: var(
-                    --components-Select-colors-icon-clear-warning,
-                    var(--general-colors-secondary-orange-orange400)
-                );
+                color: var(--components-Select-colors-icon-clear-warning, var(--general-utilities-text-textWarning));
                 background-color: var(
                     --components-Select-colors-background-warning,
-                    var(--general-colors-secondary-orange-orange100)
+                    var(--general-utilities-warning-warningLight)
                 );
             }
 
@@ -318,70 +299,52 @@
                 border-color: transparent;
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 3px
-                    var(
-                        --components-Select-colors-border-focus-warning,
-                        var(--general-colors-secondary-orange-orange200)
-                    );
+                    var(--components-Select-colors-border-focus-warning, var(--general-utilities-warning-warningMedium));
             }
         }
 
         &.ant-select-status-error {
             background-color: var(
                 --components-Select-colors-background-error,
-                var(--general-colors-secondary-red-red100)
+                var(--general-utilities-error-errorLight)
             );
-            color: var(
-                --components-Select-colors-typography-content-error,
-                var(--general-colors-secondary-red-red400)
-            );
+            color: var(--components-Select-colors-typography-content-error, var(--general-utilities-text-textError));
 
-            &:hover:not(.ant-select-disabled):not(.ant-select-focused) .ant-select-selector{
-                border-color: var(
-                    --components-Select-colors-border-error,
-                    var(--general-colors-secondary-red-red400)
-                );
+            &:hover:not(.ant-select-disabled):not(.ant-select-focused) .ant-select-selector {
+                border-color: var(--components-Select-colors-border-error, var(--general-utilities-error-errorColor));
             }
 
             .ant-select-selector {
-                border-color: var(
-                    --components-Select-colors-border-error,
-                    var(--general-colors-secondary-red-red400)
-                );
+                border-color: var(--components-Select-colors-border-error, var(--general-utilities-error-errorColor));
             }
 
             .ant-select-selection-item {
                 color: var(
                     --components-Select-colors-typography-content-error,
-                    var(--general-colors-secondary-red-red400)
+                    var(--general-utilities-text-textError)
                 );
             }
 
             .ant-select-selection-placeholder {
                 color: var(
                     --components-Select-colors-typography-placeholder-error,
-                    var(--general-colors-secondary-red-red400)
+                    var(--general-utilities-text-textError)
                 );
             }
 
             .ant-select-arrow {
-                color: var(
-                    --components-Select-colors-icon-arrow-error,
-                    var(--general-colors-secondary-red-red400)
-                );
+                color: var(--components-Select-colors-icon-arrow-error, var(--general-utilities-text-textError));
                 background-color: var(
                     --components-Select-colors-background-error,
-                    var(--general-colors-secondary-red-red100)
+                    var(--general-utilities-error-errorLight)
                 );
             }
 
             .ant-select-clear {
-                color: var(
-                    --components-Select-colors-icon-clear-error,
-                    var(--general-colors-secondary-red-red400)
-                );
+                color: var(--components-Select-colors-icon-clear-error, var(--general-utilities-text-textError));
                 background-color: var(
                     --components-Select-colors-background-error,
-                    var(--general-colors-secondary-red-red100)
+                    var(--general-utilities-error-errorLight)
                 );
             }
 
@@ -389,21 +352,14 @@
                 border-color: transparent;
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 3px
-                    var(
-                        --components-Select-colors-border-focus-error,
-                        var(--general-colors-secondary-red-red200)
-                    );
+                    var(--components-Select-colors-border-focus-error, var(--general-utilities-error-errorMedium));
             }
         }
 
         &.ant-select-focused:not(.ant-select-customize-input) {
             border-color: transparent;
             // TODO change to cards-border-stroke when available
-            box-shadow: 0 0 0 3px
-                var(
-                    --components-Select-colors-border-focus-default,
-                    var(--general-colors-primary-primary200)
-                );
+            box-shadow: 0 0 0 3px var(--components-Select-colors-border-focus-default, var(--general-utilities-focus));
 
             .ant-select-selector span.ant-select-selection-placeholder {
                 color: transparent;
@@ -416,7 +372,7 @@
         vertical-align: middle;
 
         div {
-            margin-left: 4px;
+            margin-left: convertToPixel(--general-spacing-xxs);
             width: convertToPixel(--components-Select-ColorBadge-width, 16);
             height: convertToPixel(--components-Select-ColorBadge-height, 16);
             border-radius: convertToPixel(--components-Select-ColorBadge-border-radius, --general-border-radius-xxs);
@@ -442,14 +398,16 @@
         }
 
         .ant-select-selector {
-            padding-left: convertToPixel(--general-spacing-none);;
+            padding-left: convertToPixel(--general-spacing-none);
             cursor: default;
 
             input {
                 cursor: inherit;
             }
 
-            .ant-select-selection-placeholder, .kit-select-option-label, .ant-select-selection-item {
+            .ant-select-selection-placeholder,
+            .kit-select-option-label,
+            .ant-select-selection-item {
                 color: var(--general-colors-neutral-typography-default);
                 font-weight: var(--general-typography-boldFontWeight);
             }
@@ -460,9 +418,21 @@
         }
     }
 
-    &.kit-select-readonly.ant-select-disabled.ant-select-status-error .ant-select-selector {
-        .ant-select-selection-placeholder, .kit-select-option-label, .ant-select-selection-item {
-            color: #EB0D18; // TODO add ds variable for red color
+    &.kit-select-readonly.ant-select-disabled {
+        &.ant-select-status-error .ant-select-selector {
+            .ant-select-selection-placeholder,
+            .kit-select-option-label,
+            .ant-select-selection-item {
+                color: var(--general-utilities-text-textError);
+            }
+        }
+
+        .ant-select-selector {
+            .ant-select-selection-placeholder,
+            .kit-select-option-label,
+            .ant-select-selection-item {
+                color: var(--general-utilities-text-textPrimary);
+            }
         }
     }
 }

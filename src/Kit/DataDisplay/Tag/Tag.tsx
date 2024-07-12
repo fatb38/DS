@@ -1,4 +1,4 @@
-import React, {CSSProperties, forwardRef, useMemo} from 'react';
+import {CSSProperties, forwardRef, useMemo} from 'react';
 import {Tag} from 'antd';
 import {IKitTag} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

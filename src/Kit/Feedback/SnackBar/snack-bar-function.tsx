@@ -1,4 +1,3 @@
-import React from 'react';
 import {toast} from 'react-hot-toast';
 import KitSnackBar from './SnackBar';
 import {IKitOpenSnackBar} from './types';

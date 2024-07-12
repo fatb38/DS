@@ -1,41 +1,101 @@
 @use 'sass:map';
 @import '../../../css/mixins.scss';
 
-$sizes: ("xs": 7, "s": 6, "m": 5, "l": 4, "xl": 3);
-$prefix: "kit-btn-";
+$sizes: (
+    'xs': 7,
+    's': 6,
+    'm': 5,
+    'l': 4,
+    'xl': 3
+);
+$prefix: 'kit-btn-';
 
-@mixin secondaryColorTokens($name, $color) {
+@mixin mainColorTokens($category, $name, $colorKey, $color) {
     &.kit-btn-#{$name} {
-        --kit-btn-main-color: var(--general-colors-secondary-#{$color}-#{$color}400);
-        --kit-btn-main-light: var(--general-colors-secondary-#{$color}-#{$color}100);
-        --kit-btn-main-focus: var(--general-colors-secondary-#{$color}-#{$color}200);
-        --kit-btn-main-dark: var(--general-colors-secondary-#{$color}-#{$color}500);
-        --kit-btn-main-dark-deep: var(--general-colors-secondary-#{$color}-#{$color}600);
-        --kit-btn-invert-color: var(--general-colors-neutral-white);
+        --kit-btn-main-color: var(--general-colors-#{$category}-#{$colorKey}-#{$color}400);
+        --kit-btn-main-light: var(--general-colors-#{$category}-#{$colorKey}-#{$color}100);
+        --kit-btn-main-focus: var(--general-colors-#{$category}-#{$colorKey}-#{$color}200);
+        --kit-btn-main-dark: var(--general-colors-#{$category}-#{$colorKey}-#{$color}500);
+        --kit-btn-main-dark-deep: var(--general-colors-#{$category}-#{$colorKey}-#{$color}600);
+        --kit-btn-invert-color: var(--general-utilities-light);
     }
 }
 
 @mixin colorTokens($name, $color, $path) {
     $defaultValues: map.get($defaultColorValues, $color);
     &.#{$name} {
-        --kit-btn-color-default: var(--components-Button-#{$path}-typography-default, #{map.get($defaultValues, "color-default")});
-        --kit-btn-color-hover: var(--components-Button-#{$path}-typography-hover, #{map.get($defaultValues, "color-hover")});
-        --kit-btn-color-focus: var(--components-Button-#{$path}-typography-focus, #{map.get($defaultValues, "color-focus")});
-        --kit-btn-color-active: var(--components-Button-#{$path}-typography-active, #{map.get($defaultValues, "color-active")});
-        --kit-btn-color-disabled: var(--components-Button-#{$path}-typography-disabled, #{map.get($defaultValues, "color-disabled")});
-        --kit-btn-color-ghost: var(--components-Button-#{$path}-typography-disabled, #{map.get($defaultValues, "color-ghost")});
-        --kit-btn-color-background-default: var(--components-Button-#{$path}-background-default, #{map.get($defaultValues, "color-background-default")});
-        --kit-btn-color-background-hover: var(--components-Button-#{$path}-background-hover, #{map.get($defaultValues, "color-background-hover")});
-        --kit-btn-color-background-focus: var(--components-Button-#{$path}-background-focus, #{map.get($defaultValues, "color-background-focus")});
-        --kit-btn-color-background-active: var(--components-Button-#{$path}-background-active, #{map.get($defaultValues, "color-background-active")});
-        --kit-btn-color-background-disabled: var(--components-Button-#{$path}-background-disabled, #{map.get($defaultValues, "color-background-disabled")});
-        --kit-btn-color-background-ghost: var(--components-Button-#{$path}-background-disabled, #{map.get($defaultValues, "color-background-ghost")});
-        --kit-btn-color-border-default: var(--components-Button-#{$path}-border-default, #{map.get($defaultValues, "color-border-default")});
-        --kit-btn-color-border-hover: var(--components-Button-#{$path}-border-hover, #{map.get($defaultValues, "color-border-hover")});
-        --kit-btn-color-border-focus: var(--components-Button-#{$path}-border-focus, #{map.get($defaultValues, "color-border-focus")});
-        --kit-btn-color-border-active: var(--components-Button-#{$path}-border-active, #{map.get($defaultValues, "color-border-active")});
-        --kit-btn-color-border-disabled: var(--components-Button-#{$path}-border-disabled, #{map.get($defaultValues, "color-border-disabled")});
-        --kit-btn-color-border-ghost: var(--components-Button-#{$path}-border-disabled, #{map.get($defaultValues, "color-border-ghost")});
+        --kit-btn-color-default: var(
+            --components-Button-#{$path}-typography-default,
+            #{map.get($defaultValues, 'color-default')}
+        );
+        --kit-btn-color-hover: var(
+            --components-Button-#{$path}-typography-hover,
+            #{map.get($defaultValues, 'color-hover')}
+        );
+        --kit-btn-color-focus: var(
+            --components-Button-#{$path}-typography-focus,
+            #{map.get($defaultValues, 'color-focus')}
+        );
+        --kit-btn-color-active: var(
+            --components-Button-#{$path}-typography-active,
+            #{map.get($defaultValues, 'color-active')}
+        );
+        --kit-btn-color-disabled: var(
+            --components-Button-#{$path}-typography-disabled,
+            #{map.get($defaultValues, 'color-disabled')}
+        );
+        --kit-btn-color-ghost: var(
+            --components-Button-#{$path}-typography-disabled,
+            #{map.get($defaultValues, 'color-ghost')}
+        );
+        --kit-btn-color-background-default: var(
+            --components-Button-#{$path}-background-default,
+            #{map.get($defaultValues, 'color-background-default')}
+        );
+        --kit-btn-color-background-hover: var(
+            --components-Button-#{$path}-background-hover,
+            #{map.get($defaultValues, 'color-background-hover')}
+        );
+        --kit-btn-color-background-focus: var(
+            --components-Button-#{$path}-background-focus,
+            #{map.get($defaultValues, 'color-background-focus')}
+        );
+        --kit-btn-color-background-active: var(
+            --components-Button-#{$path}-background-active,
+            #{map.get($defaultValues, 'color-background-active')}
+        );
+        --kit-btn-color-background-disabled: var(
+            --components-Button-#{$path}-background-disabled,
+            #{map.get($defaultValues, 'color-background-disabled')}
+        );
+        --kit-btn-color-background-ghost: var(
+            --components-Button-#{$path}-background-disabled,
+            #{map.get($defaultValues, 'color-background-ghost')}
+        );
+        --kit-btn-color-border-default: var(
+            --components-Button-#{$path}-border-default,
+            #{map.get($defaultValues, 'color-border-default')}
+        );
+        --kit-btn-color-border-hover: var(
+            --components-Button-#{$path}-border-hover,
+            #{map.get($defaultValues, 'color-border-hover')}
+        );
+        --kit-btn-color-border-focus: var(
+            --components-Button-#{$path}-border-focus,
+            #{map.get($defaultValues, 'color-border-focus')}
+        );
+        --kit-btn-color-border-active: var(
+            --components-Button-#{$path}-border-active,
+            #{map.get($defaultValues, 'color-border-active')}
+        );
+        --kit-btn-color-border-disabled: var(
+            --components-Button-#{$path}-border-disabled,
+            #{map.get($defaultValues, 'color-border-disabled')}
+        );
+        --kit-btn-color-border-ghost: var(
+            --components-Button-#{$path}-border-disabled,
+            #{map.get($defaultValues, 'color-border-ghost')}
+        );
     }
 }
 
@@ -43,33 +103,36 @@ $prefix: "kit-btn-";
     height: 40px;
     min-width: 40px;
     position: relative;
-    padding: 0 convertToPixel(--components-Button-padding, --general-spacing-s);
+    padding: convertToPixel(--general-spacing-none) convertToPixel(--components-Button-padding, --general-spacing-s);
     display: inline-flex;
     align-items: center;
     gap: 8px;
     box-shadow: none;
-    font-family:var(--components-Button-typography-fontFamily, var(--general-typography-fontFamily));
+    font-family: var(--components-Button-typography-fontFamily, var(--general-typography-fontFamily));
     font-weight: var(--components-Button-typography-fontWeight, var(--general-typography-regularFontWeight));
-    font-size:   convertToPixel(--components-Button-typography-fontSize, --general-typography-fontSize5);
+    font-size: convertToPixel(--components-Button-typography-fontSize, --general-typography-fontSize5);
     line-height: var(--components-Button-typography-lineHeight, var(--general-typography-lineHeight5));
     border-radius: convertToPixel(--components-Button-border-radius-default, --general-border-radius-pills);
     cursor: pointer;
 
     @each $size, $default in $sizes {
         &.icon-#{$size} .kit-btn-icon {
-            font-size: convertToPixel(--components-Button-typography-iconSize-#{$size}, --general-typography-fontSize#{$default});
+            font-size: convertToPixel(
+                --components-Button-typography-iconSize-#{$size},
+                --general-typography-fontSize#{$default}
+            );
         }
     }
 
-    --kit-btn-main-color: var(--general-colors-primary-primary400);
-    --kit-btn-main-light: var(--general-colors-primary-primary100);
-    --kit-btn-main-focus: var(--general-colors-primary-primary200);
-    --kit-btn-main-dark: var(--general-colors-primary-primary500);
-    --kit-btn-main-dark-deep: var(--general-colors-primary-primary600);
-    --kit-btn-invert-color: var(--general-colors-neutral-white);
-    --kit-btn-disabled-color: var(--general-colors-secondary-mediumGrey-mediumGrey400);
-    --kit-btn-border-color: var(--general-colors-secondary-mediumGrey-mediumGrey200);
-    --kit-btn-grey-light: var(--general-colors-secondary-mediumGrey-mediumGrey100);
+    --kit-btn-main-color: var(--general-utilities-main-mainColor);
+    --kit-btn-main-light: var(--general-utilities-main-mainLight);
+    --kit-btn-main-focus: var(--general-utilities-focus);
+    --kit-btn-main-dark: var(--general-utilities-main-mainDark);
+    --kit-btn-main-dark-deep: var(--general-utilities-main-mainDeepDark);
+    --kit-btn-invert-color: var(--general-utilities-light);
+    --kit-btn-disabled-color: var(--general-utilities-disabled);
+    --kit-btn-border-color: var(--general-utilities-border);
+    --kit-btn-grey-light: var(--general-utilities-neutral-neutralGrey);
 
     &.kit-btn-block {
         display: flex;
@@ -78,12 +141,15 @@ $prefix: "kit-btn-";
     }
 
     &:focus-visible {
-        outline: rgb(145, 202, 255) solid 4px;
+        outline: var(--general-utilities-focus) solid 4px;
         outline-offset: 1px;
-        transition: outline-offset 0s ease 0s, outline 0s ease 0s;
+        transition:
+            outline-offset 0s ease 0s,
+            outline 0s ease 0s;
     }
 
-    &, &.kit-btn-secondary {
+    &,
+    &.kit-btn-secondary {
         color: var(--kit-btn-main-color);
         background-color: var(--kit-btn-invert-color);
         border: 1px solid var(--kit-btn-border-color);
@@ -98,7 +164,7 @@ $prefix: "kit-btn-";
         }
 
         &:focus {
-             border-color: var(--kit-btn-main-focus);
+            border-color: var(--kit-btn-main-focus);
         }
 
         &:disabled {
@@ -116,7 +182,7 @@ $prefix: "kit-btn-";
 
         &:hover {
             background-color: var(--kit-btn-main-dark);
-            border-color:  var(--kit-btn-main-dark);
+            border-color: var(--kit-btn-main-dark);
         }
 
         &:active {
@@ -125,7 +191,7 @@ $prefix: "kit-btn-";
         }
 
         &:focus {
-             border-color: var(--kit-btn-main-focus);
+            border-color: var(--kit-btn-main-focus);
         }
 
         &:disabled {
@@ -162,10 +228,7 @@ $prefix: "kit-btn-";
     }
 
     &.kit-btn-segmented {
-        border-radius: convertToPixel(
-            --components-Button-border-radius-compact,
-            --general-border-radius-s
-        );
+        border-radius: convertToPixel(--components-Button-border-radius-compact, --general-border-radius-s);
 
         &.kit-btn-segmented-active {
             background-color: var(--kit-btn-main-light);
@@ -184,17 +247,27 @@ $prefix: "kit-btn-";
     }
 
     &.kit-btn-icon-only {
-        padding: 0;
+        padding: convertToPixel(--general-spacing-none);
         justify-content: center;
     }
 
-    &.kit-btn-danger, &.kit-btn-danger-modal {
-        --kit-btn-main-color: var(--general-colors-secondary-red-red500);
-        --kit-btn-main-light: var(--general-colors-secondary-red-red100);
-        --kit-btn-main-focus: var(--general-colors-secondary-red-red500);
-        --kit-btn-main-dark: var(--general-colors-secondary-red-red400);
-        --kit-btn-main-dark-deep: var(--general-colors-secondary-red-red600);
-        --kit-btn-invert-color: var(--general-colors-neutral-white);
+    &.kit-btn-danger,
+    &.kit-btn-danger-modal {
+        --kit-btn-main-color: var(--general-utilities-error-errorColor);
+        --kit-btn-main-light: var(--general-utilities-error-errorLight);
+        --kit-btn-main-focus: var(--general-utilities-error-errorColor);
+        --kit-btn-main-dark: var(--general-utilities-error-errorDark);
+        --kit-btn-main-dark-deep: var(--general-utilities-error-errorDark);
+        --kit-btn-invert-color: var(--general-utilities-light);
+
+        &.kit-btn-primary:not(:disabled) {
+            border-color: var(--kit-btn-main-color);
+        }
+
+        &.kit-btn-secondary:not(:disabled),
+        &.kit-btn-segmented:not(:disabled) {
+            border-color: var(--general-utilities-error-errorMedium);
+        }
 
         &.kit-btn-primary:not(:disabled):hover {
             border-color: var(--kit-btn-main-dark);
@@ -205,69 +278,17 @@ $prefix: "kit-btn-";
         }
     }
 
-
-    @each $color in ("mediumGrey", "yellow", "orange", "pink", "red", "blue", "green") {
-        @include secondaryColorTokens("color-#{$color}", $color);
-    }
-
-    @include secondaryColorTokens("color-grey", "mediumGrey");
-
-    &.kit-btn-color-black {
-        --kit-btn-main-color: var(--general-colors-neutral-black);
-        --kit-btn-main-light: var(--general-colors-neutral-black);
-        --kit-btn-main-focus: var(--general-colors-neutral-black);
-        --kit-btn-main-dark: var(--general-colors-secondary-mediumGrey-mediumGrey500);
-        --kit-btn-main-dark-deep: var(--general-colors-neutral-black);
-        --kit-btn-invert-color: var(--general-colors-neutral-white);
-
-        &, &.kit-btn-secondary,&.kit-btn-tertiary {
-            &:active {
-                background-color: var(--kit-btn-main-dark);
-                color: var(--kit-btn-invert-color);
-            }
-        }
-
-        &.kit-btn-segmented-active {
-            color: var(--kit-btn-invert-color);
-            background-color: var(--kit-btn-main-dark);
-
-            .kit-btn-segmented-actived-icon {
-                color: var(--kit-btn-invert-color);
-            }
-        }
-    }
-
-    &.kit-btn-color-grey {
-        --kit-btn-main-color: var(--general-colors-secondary-mediumGrey-mediumGrey500);
-        --kit-btn-main-light: var(--general-colors-secondary-mediumGrey-mediumGrey100);
-        --kit-btn-main-focus: var(--general-colors-secondary-mediumGrey-mediumGrey500);
-        --kit-btn-main-dark: var(--general-colors-secondary-mediumGrey-mediumGrey400);
-        --kit-btn-main-dark-deep: var(--general-colors-secondary-mediumGrey-mediumGrey600);
-
-        &, &.kit-btn-secondary,&.kit-btn-tertiary {
-            &:active {
-                background-color: var(--kit-btn-main-dark);
-                color: var(--kit-btn-invert-color);
-            }
-        }
-    }
-
-    &.kit-btn-text {
-        background-color:transparent;
-        border-color: transparent;
-
-        &:hover:not(:disabled), &:active {
-            border-color: transparent;
-            background-color: transparent;
-            color: var(--kit-btn-main-color);
-        }
-
-    }
+    @include mainColorTokens('primary', 'color-primary', 'primary', 'blue');
+    @include mainColorTokens('secondary', 'color-warning', 'warning', 'orange');
+    @include mainColorTokens('secondary', 'color-error', 'error', 'red');
+    @include mainColorTokens('secondary', 'color-success', 'success', 'green');
+    @include mainColorTokens('tertiary', 'color-yellow', 'yellow', 'yellow');
+    @include mainColorTokens('tertiary', 'color-pink', 'pink', 'pink');
+    @include mainColorTokens('neutral', 'color-grey', 'grey', 'grey');
 }
 
-
 .ant-space-compact:not(.ant-space-compact-vertical) :local(.kit-btn) {
-    border-radius: 0;
+    border-radius: convertToPixel(--general-border-radius-square);
 
     &:hover {
         z-index: 2;
@@ -278,53 +299,31 @@ $prefix: "kit-btn-";
     }
 
     &:first-child {
-        border-start-start-radius: convertToPixel(
-            --components-Button-border-radius-compact,
-            --general-border-radius-s
-        );
-        border-end-start-radius: convertToPixel(
-            --components-Button-border-radius-compact,
-            --general-border-radius-s
-        );
+        border-start-start-radius: convertToPixel(--components-Button-border-radius-compact, --general-border-radius-s);
+        border-end-start-radius: convertToPixel(--components-Button-border-radius-compact, --general-border-radius-s);
     }
 
     &:last-child {
-        border-start-end-radius: convertToPixel(
-            --components-Button-border-radius-compact,
-            --general-border-radius-s
-        );
-        border-end-end-radius: convertToPixel(
-            --components-Button-border-radius-compact,
-            --general-border-radius-s
-        );
+        border-start-end-radius: convertToPixel(--components-Button-border-radius-compact, --general-border-radius-s);
+        border-end-end-radius: convertToPixel(--components-Button-border-radius-compact, --general-border-radius-s);
         margin-left: -1px;
     }
-
 }
 
 .ant-space-compact-vertical :local(.kit-btn) {
-    border-radius: 0;
+    border-radius: convertToPixel(--general-border-radius-square);
 
     &:not(:last-child) {
         margin-top: -1px;
     }
 
     &:first-child {
-        border-top-left-radius: convertToPixel(
-            --components-Button-border-radius-compact,
-            --general-border-radius-s
-        );
-        border-top-right-radius: convertToPixel(
-            --components-Button-border-radius-compact,
-            --general-border-radius-s
-        );
+        border-top-left-radius: convertToPixel(--components-Button-border-radius-compact, --general-border-radius-s);
+        border-top-right-radius: convertToPixel(--components-Button-border-radius-compact, --general-border-radius-s);
     }
 
     &:last-child {
-        border-bottom-left-radius: convertToPixel(
-            --components-Button-border-radius-compact,
-            --general-border-radius-s
-        );
+        border-bottom-left-radius: convertToPixel(--components-Button-border-radius-compact, --general-border-radius-s);
         border-bottom-right-radius: convertToPixel(
             --components-Button-border-radius-compact,
             --general-border-radius-s

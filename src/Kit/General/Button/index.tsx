@@ -1,4 +1,4 @@
-import React, {
+import {
     ForwardRefRenderFunction,
     LegacyRef,
     ReactElement,
@@ -80,7 +80,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
 
     const clx = cn(appId, styles['kit-btn'], className, {
         [`kit-btn-${type}`]: !dangerModal && type,
-        [`kit-btn-secondary`]: dangerModal,
+        [`kit-btn-secondary`]: dangerModal || type === 'secondary',
         ['kit-btn-danger-modal']: dangerModal,
         ['kit-btn-danger']: danger,
         ['kit-btn-block']: block,

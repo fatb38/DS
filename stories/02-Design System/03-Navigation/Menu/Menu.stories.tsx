@@ -48,7 +48,7 @@ export const ChromaticTest: Story = {
                     primaryInput={<KitInput placeholder="Opération #1" />}
                     secondaryInput={<KitInput placeholder="Description" />}
                 >
-                    <KitDivider noMargin color="lightGrey" />
+                    <KitDivider noMargin />
                     <KitMenu.Item
                         title="Layout"
                         icon={<FontAwesomeIcon icon={faTableColumns} />}
@@ -80,7 +80,7 @@ export const ChromaticTest: Story = {
                         onRafterClick={() => console.log('click rafter')}
                         style={{margin: '2px 0 8px 0'}}
                     />
-                    <KitDivider noMargin color="lightGrey" />
+                    <KitDivider noMargin />
                     <KitMenu.Item
                         title="Save view"
                         icon={<FontAwesomeIcon icon={faFloppyDisk} />}

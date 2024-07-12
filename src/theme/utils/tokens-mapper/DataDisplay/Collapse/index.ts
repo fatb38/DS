@@ -1,7 +1,6 @@
 import {kitCollapseCssTokens} from '@theme/aristid/components/DataDisplay/Collapse';
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
+import {utilitiesCssTokens} from '@theme/aristid/general/utilities';
 
 export const collapseKitTokenToAntdToken = {
-    colorFillAlter: `var(${kitCollapseCssTokens.colors.background.default}, var(${kitColorsPaletteCssTokens.neutral.white}))`,
-    colorBorder: `var(${kitCollapseCssTokens.colors.border.default}, var(${kitColorsPaletteCssTokens.secondary.mediumGrey.mediumGrey200}))`
+    colorFillAlter: `var(${kitCollapseCssTokens.colors.background.default}, var(${utilitiesCssTokens.light}))`
 };

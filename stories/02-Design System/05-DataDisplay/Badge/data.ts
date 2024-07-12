@@ -74,7 +74,7 @@ export const argTypes = {
         table: {
             type: {
                 summary:
-                    '`hexadecimal` | `rgb` | `hsl` | `mediumGrey` | `yellow` | `orange` | `pink` | `red` | `blue` | `green`'
+                    '`hexadecimal` | `rgb` | `hsl` | `yellow` | `pink` | `warning` | `error` | `success` | `primary`'
             },
             category: 'Badge'
         }
