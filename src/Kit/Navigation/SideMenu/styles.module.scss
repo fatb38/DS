@@ -40,7 +40,7 @@
     .menu-items {
         display: flex;
         flex-direction: column;
-        gap: convertToPixel(--components-SideMenu-item-spacing, --general-spacing-m);
+        gap: convertToPixel(--components-SideMenu-item-spacing, --general-spacing-s);
         position: relative;
         padding: convertToPixel(--general-spacing-none)
             convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s);

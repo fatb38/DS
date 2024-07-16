@@ -19,6 +19,11 @@
 -   **Loader**:
     -   add new `Loader`component (@evoiron)
 
+### 🐛 Bug Fixes
+
+-   **SideMenu**:
+    -   fix gap between items (@evoiron)
+
 ### 🎨 Theming
 
 -   **⚠️ Breaking changen - Update tokens and css variables:**
