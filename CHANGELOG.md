@@ -16,6 +16,8 @@
     -   adding new prop `readonly` (@fatb38)
 -   **Select**:
     -   adding new prop `readonly` (@fatb38)
+-   **Loader**:
+    -   add new `Loader`component (@evoiron)
 
 ### 🎨 Theming
 

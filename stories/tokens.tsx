@@ -7688,6 +7688,40 @@ const forms = {
                     "_description": "menu item offset when active"
                 }
             }
+        },
+        "Loader": {
+            "_label": "Loader",
+            "_path": "components.Loader",
+            "linear": {
+                "_label": "linear",
+                "_path": "components.Loader.linear",
+                "border": {
+                    "_label": "border",
+                    "_path": "components.Loader.linear.border",
+                    "radius": {
+                        "_label": "radius",
+                        "_path": "components.Loader.linear.border.radius",
+                        "infinite": {
+                            "_label": "infinite",
+                            "_path": "components.Loader.linear.border.radius.infinite",
+                            "_type": "number",
+                            "_min": 0
+                        },
+                        "default": {
+                            "_label": "default",
+                            "_path": "components.Loader.linear.border.radius.default",
+                            "_type": "number",
+                            "_min": 0
+                        }
+                    }
+                },
+                "height": {
+                    "_label": "height",
+                    "_path": "components.Loader.linear.height",
+                    "_type": "number",
+                    "_min": 0
+                }
+            }
         }
     }
 };
