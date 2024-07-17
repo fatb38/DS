@@ -6,6 +6,10 @@
 
 -   **⚠️ Breaking change - Divider:**
     -   Remove property `color` and update default color (@philippechevieux)
+-   **⚠️ Breaking change - ItemCard:**
+    -   Remove deprecated `KitItemCard` component (@philippechevieux)
+-   **⚠️ Breaking change - LegacyCard:**
+    -   Remove deprecated `KitLegacyCard` component (@philippechevieux)
 -   **Input**:
     -   adding new prop `readonly` (@fatb38)
 -   **InputWrapper**:

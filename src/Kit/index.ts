@@ -2,8 +2,6 @@ export {
     KitAvatar,
     KitBadge,
     KitCard,
-    KitLegacyCard,
-    KitItemCard,
     KitCollapse,
     KitEmpty,
     KitError,

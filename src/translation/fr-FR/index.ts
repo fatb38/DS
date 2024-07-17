@@ -1,5 +1,4 @@
 import {IKitLocale} from '../types';
-import {KitItemCardLocale} from './components/DataDisplay/ItemCard';
 import {KitItemListLocale} from './components/DataDisplay/ItemList';
 import {KitImageLocale} from './components/DataDisplay/Image';
 import {KitCollapseLocale} from './components/DataDisplay/Collapse';
@@ -12,6 +11,5 @@ export const frFR: IKitLocale = {
     Empty: KitEmptyLocale,
     Error: KitErrorLocale,
     Image: KitImageLocale,
-    ItemList: KitItemListLocale,
-    ItemCard: KitItemCardLocale
+    ItemList: KitItemListLocale
 };

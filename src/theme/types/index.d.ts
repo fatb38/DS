@@ -11,7 +11,6 @@ import {IKitSliderTheme} from './components/DataEntry/Slider';
 import {IKitTooltipTheme} from './components/DataDisplay/Tooltip';
 import {IKitAvatarGroupTheme, IKitAvatarTheme} from './components/DataDisplay/Avatar';
 import {IKitBadgeTheme} from './components/DataDisplay/Badge';
-import {IKitItemCardTheme} from './components/DataDisplay/ItemCard';
 import {IKitCollapseTheme} from './components/DataDisplay/Collapse';
 import {IKitImageTheme} from './components/DataDisplay/Image';
 import {IKitItemListTheme} from './components/DataDisplay/ItemList';
@@ -20,7 +19,6 @@ import {IKitTreeTheme} from './components/DataDisplay/Tree';
 import {IKitInputNumberTheme} from './components/DataEntry/InputNumber';
 import {IKitSwitchTheme} from './components/DataEntry/Switch';
 import {IKitSelectTheme} from './components/DataEntry/Select';
-import {IKitLegacyCardTheme} from './components/DataDisplay/LegacyCard';
 import {IKitCheckboxTheme} from './components/DataEntry/Checkbox';
 import {IKitDatePickerTheme} from './components/DataEntry/DatePicker';
 import {IKitUploadTheme} from './components/DataEntry/Upload';
@@ -62,7 +60,6 @@ export interface IKitThemeGeneral {
 
 export interface IKitThemeComponents {
     Button: IKitButtonTheme;
-    LegacyCard: IKitLegacyCardTheme;
     Card: IKitCardTheme;
     Rate: IKitRateTheme;
     Tooltip: IKitTooltipTheme;
@@ -73,7 +70,6 @@ export interface IKitThemeComponents {
     Avatar: IKitAvatarTheme;
     AvatarGroup: IKitAvatarGroupTheme;
     Badge: IKitBadgeTheme;
-    ItemCard: IKitItemCardTheme;
     Slider: IKitSliderTheme;
     Collapse: IKitCollapseTheme;
     Image: IKitImageTheme;
