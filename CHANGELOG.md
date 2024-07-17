@@ -4,7 +4,7 @@
 
 ### ✨ Features
 
--   **⚠️ Breaking changen - Divider:**
+-   **⚠️ Breaking change - Divider:**
     -   Remove property `color` and update default color (@philippechevieux)
 -   **Input**:
     -   adding new prop `readonly` (@fatb38)
@@ -23,10 +23,13 @@
 
 -   **SideMenu**:
     -   fix gap between items (@evoiron)
+-   **InputWrapper**:
+    -   fix wrong button for infoIcon (@fatb38)
+    -   fix gap between label, infoIcon and actions (@fatb38)
 
 ### 🎨 Theming
 
--   **⚠️ Breaking changen - Update tokens and css variables:**
+-   **⚠️ Breaking change - Update tokens and css variables:**
 
     -   Remove the following colors: (@philippechevieux)
         -   `neutral.typography`

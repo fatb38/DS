@@ -5,6 +5,13 @@
         margin-bottom: convertToPixel(--components-InputWrapper-gap-label, --general-spacing-xxs);
         display: flex;
         align-items: center;
+        gap: calc(var(--general-spacing-xxs) * 1px);
+    }
+
+    .kit-input-wrapper-actions {
+        display: flex;
+        align-items: center;
+        gap: calc(var(--general-spacing-xs) * 1px);
     }
 
     .kit-input-wrapper-helper {

@@ -68,7 +68,7 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
                     {onInfoClick && (
                         <KitButton
                             className="kit-input-wrapper-info"
-                            type="text"
+                            type="tertiary"
                             color="black"
                             disabled={disabled}
                             icon={_infoIcon}
