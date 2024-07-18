@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {IEditorTemplate} from '../../../types';
 import {KitCard} from '@kit/DataDisplay';
 import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
@@ -13,10 +13,10 @@ export const EditorTemplate: IEditorTemplate = () => {
     const [activated, setActivated] = useState(false);
 
     const tags: IKitTagConfig[] = [
-        {wording: 'Multimédia'},
-        {wording: 'Promo 2021'},
-        {wording: 'Alimentation'},
-        {wording: 'Fromage'}
+        {idCardProps: {description: 'Multimédia'}},
+        {idCardProps: {description: 'Promo 2021'}},
+        {idCardProps: {description: 'Alimentation'}},
+        {idCardProps: {description: 'Fromage'}}
     ];
 
     const actions: IKitActionButton[] = [

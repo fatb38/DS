@@ -9,7 +9,7 @@ const App = () => {
             value: 'cha-yellow',
             label: 'Chartreuse Jaune',
             idCard: {
-                title: 'Chartreuse Jaune',
+                description: 'Chartreuse Jaune',
                 avatarProps: {
                     size: 'small',
                     shape: 'square',
@@ -23,7 +23,7 @@ const App = () => {
             value: 'cha-vep',
             label: 'Chartreuse VEP',
             idCard: {
-                title: 'Chartreuse VEP',
+                description: 'Chartreuse VEP',
                 avatarProps: {
                     size: 'small',
                     shape: 'square',
@@ -37,7 +37,7 @@ const App = () => {
             value: 'cha-verte',
             label: 'Chartreuse Verte',
             idCard: {
-                title: 'Chartreuse Verte',
+                description: 'Chartreuse Verte',
                 avatarProps: {
                     size: 'small',
                     shape: 'square',
@@ -64,13 +64,13 @@ const App = () => {
                     onSearch={value => console.log(value)}
                     optionFilterProp="label"
                     dropdownRender={menu => (
-                            <>
-                                <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
-                                    Suggestion (3)
-                                </KitTypography.Text>
-                                {menu}
-                            </>
-                        )}
+                        <>
+                            <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
+                                Suggestion (3)
+                            </KitTypography.Text>
+                            {menu}
+                        </>
+                    )}
                 />
                 <KitSpace>
                     <KitSelect
@@ -83,13 +83,13 @@ const App = () => {
                         onSearch={value => console.log(value)}
                         optionFilterProp="label"
                         dropdownRender={menu => (
-                                <>
-                                    <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
-                                        Suggestion (3)
-                                    </KitTypography.Text>
-                                    {menu}
-                                </>
-                            )}
+                            <>
+                                <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
+                                    Suggestion (3)
+                                </KitTypography.Text>
+                                {menu}
+                            </>
+                        )}
                     />
                     <KitSelect
                         placeholder="Select a status"
@@ -101,13 +101,13 @@ const App = () => {
                         onSearch={value => console.log(value)}
                         optionFilterProp="label"
                         dropdownRender={menu => (
-                                <>
-                                    <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
-                                        Suggestion (3)
-                                    </KitTypography.Text>
-                                    {menu}
-                                </>
-                            )}
+                            <>
+                                <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
+                                    Suggestion (3)
+                                </KitTypography.Text>
+                                {menu}
+                            </>
+                        )}
                     />
                     <KitSelect
                         placeholder="Select a status"
@@ -119,13 +119,13 @@ const App = () => {
                         onSearch={value => console.log(value)}
                         optionFilterProp="label"
                         dropdownRender={menu => (
-                                <>
-                                    <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
-                                        Suggestion (3)
-                                    </KitTypography.Text>
-                                    {menu}
-                                </>
-                            )}
+                            <>
+                                <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
+                                    Suggestion (3)
+                                </KitTypography.Text>
+                                {menu}
+                            </>
+                        )}
                     />
                 </KitSpace>
             </KitSpace>
@@ -141,13 +141,13 @@ const App = () => {
                     mode="multiple"
                     oneLineTags
                     dropdownRender={menu => (
-                            <>
-                                <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
-                                    Suggestion (3)
-                                </KitTypography.Text>
-                                {menu}
-                            </>
-                        )}
+                        <>
+                            <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
+                                Suggestion (3)
+                            </KitTypography.Text>
+                            {menu}
+                        </>
+                    )}
                 />
                 <KitSpace>
                     <KitSelect
@@ -162,13 +162,13 @@ const App = () => {
                         mode="multiple"
                         oneLineTags
                         dropdownRender={menu => (
-                                <>
-                                    <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
-                                        Suggestion (3)
-                                    </KitTypography.Text>
-                                    {menu}
-                                </>
-                            )}
+                            <>
+                                <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
+                                    Suggestion (3)
+                                </KitTypography.Text>
+                                {menu}
+                            </>
+                        )}
                     />
                     <KitSelect
                         placeholder="Select a status"
@@ -182,13 +182,13 @@ const App = () => {
                         mode="multiple"
                         oneLineTags
                         dropdownRender={menu => (
-                                <>
-                                    <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
-                                        Suggestion (3)
-                                    </KitTypography.Text>
-                                    {menu}
-                                </>
-                            )}
+                            <>
+                                <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
+                                    Suggestion (3)
+                                </KitTypography.Text>
+                                {menu}
+                            </>
+                        )}
                     />
                     <KitSelect
                         placeholder="Select a status"
@@ -202,13 +202,13 @@ const App = () => {
                         mode="multiple"
                         oneLineTags
                         dropdownRender={menu => (
-                                <>
-                                    <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
-                                        Suggestion (3)
-                                    </KitTypography.Text>
-                                    {menu}
-                                </>
-                            )}
+                            <>
+                                <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
+                                    Suggestion (3)
+                                </KitTypography.Text>
+                                {menu}
+                            </>
+                        )}
                     />
                 </KitSpace>
             </KitSpace>
@@ -223,13 +223,13 @@ const App = () => {
                     optionFilterProp="label"
                     mode="multiple"
                     dropdownRender={menu => (
-                            <>
-                                <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
-                                    Suggestion (3)
-                                </KitTypography.Text>
-                                {menu}
-                            </>
-                        )}
+                        <>
+                            <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
+                                Suggestion (3)
+                            </KitTypography.Text>
+                            {menu}
+                        </>
+                    )}
                 />
                 <KitSpace>
                     <KitSelect
@@ -243,13 +243,13 @@ const App = () => {
                         optionFilterProp="label"
                         mode="multiple"
                         dropdownRender={menu => (
-                                <>
-                                    <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
-                                        Suggestion (3)
-                                    </KitTypography.Text>
-                                    {menu}
-                                </>
-                            )}
+                            <>
+                                <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
+                                    Suggestion (3)
+                                </KitTypography.Text>
+                                {menu}
+                            </>
+                        )}
                     />
                     <KitSelect
                         placeholder="Select a status"
@@ -262,13 +262,13 @@ const App = () => {
                         optionFilterProp="label"
                         mode="multiple"
                         dropdownRender={menu => (
-                                <>
-                                    <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
-                                        Suggestion (3)
-                                    </KitTypography.Text>
-                                    {menu}
-                                </>
-                            )}
+                            <>
+                                <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
+                                    Suggestion (3)
+                                </KitTypography.Text>
+                                {menu}
+                            </>
+                        )}
                     />
                     <KitSelect
                         placeholder="Select a status"
@@ -281,13 +281,13 @@ const App = () => {
                         optionFilterProp="label"
                         mode="multiple"
                         dropdownRender={menu => (
-                                <>
-                                    <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
-                                        Suggestion (3)
-                                    </KitTypography.Text>
-                                    {menu}
-                                </>
-                            )}
+                            <>
+                                <KitTypography.Text weight="bold" style={{padding: '4px 0 16px 0'}}>
+                                    Suggestion (3)
+                                </KitTypography.Text>
+                                {menu}
+                            </>
+                        )}
                     />
                 </KitSpace>
             </KitSpace>

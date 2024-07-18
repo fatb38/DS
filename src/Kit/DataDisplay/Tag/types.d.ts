@@ -1,20 +1,33 @@
 import {TagProps} from 'antd';
 import {KitHTMLAttributes} from '../../../types';
-import {CSSProperties, ReactNode} from 'react';
-import {KitColorProp} from '@utils/functions/types';
+import {CSSProperties} from 'react';
+import {IKitIdCard} from '../IdCard/types';
+import {IKitAvatar} from '../Avatar/types';
 
-export type AntdTagPropsToOmit = 'color' | 'checkableTag' | 'icon' | 'closable';
+export type KitTagType = 'primary' | 'secondary' | 'neutral' | 'error' | 'success';
 
-export interface IKitTag extends Omit<TagProps, AntdTagPropsToOmit>, KitHTMLAttributes<HTMLSpanElement> {
-    color?: KitColorProp;
-    secondaryColorInvert?: boolean;
-    children?: ReactNode[] | ReactNode;
+type AntdTagPropsToOmit = 'color' | 'checkableTag' | 'icon' | 'closable';
+
+type KitHTMLAttributesToOmit = 'color';
+
+type KitIdCardToOmit = 'title' | 'disabled' | 'size' | 'avatarProps';
+
+export interface IKitTag
+    extends Omit<TagProps, AntdTagPropsToOmit>,
+        Omit<KitHTMLAttributes<HTMLSpanElement>, KitHTMLAttributesToOmit> {
+    idCardProps?: Omit<IKitIdCard, KitIdCardToOmit> & {
+        avatarProps?: Omit<IKitAvatar, 'size'>;
+    };
+    type?: KitTagType;
+    disabled?: boolean;
     onClose?: TagProps['onClose'];
+    onClick?: TagProps['onClick'];
 }
 
 export interface IKitTagConfig {
-    wording: string;
-    color?: KitColorProp;
+    idCardProps?: Omit<IKitIdCard, KitIdCardToOmit>;
+    type?: IKitTag['type'];
+    disabled?: IKitTag['disabled'];
 }
 
 export interface IKitTagGroup {

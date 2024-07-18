@@ -97,8 +97,6 @@
 .kit-header-profile-tag {
     &#{&} {
         margin: convertToPixel(--general-spacing-none);
-        background-color: var(--general-utilities-main-mainDeepDark);
-        color: var(--general-utilities-text-textLight);
     }
 
     &:not(:first-child) {

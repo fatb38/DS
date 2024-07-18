@@ -16,7 +16,7 @@ const App = () => {
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 1"
                     description="This is a description 1"
-                    tagContent="sprint #5"
+                    tagProps={{idCardProps: {description: '#Sprint 5'}}}
                     onSwitchChange={checked => console.log(checked)}
                 />
             ),
@@ -29,7 +29,7 @@ const App = () => {
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 2"
                     description="This is a description 2"
-                    tagContent="sprint #6"
+                    tagProps={{idCardProps: {description: '#Sprint 6'}}}
                     onSwitchChange={checked => console.log(checked)}
                 />
             ),
@@ -42,7 +42,7 @@ const App = () => {
                     imageSrc="/public/images/catalog.jpg"
                     title="Title 3"
                     description="This is a description 3"
-                    tagContent="sprint #7"
+                    tagProps={{idCardProps: {description: '#Sprint 7'}}}
                     onSwitchChange={checked => console.log(checked)}
                 />
             ),

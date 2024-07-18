@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -8,10 +8,10 @@ import {IKitActionButton} from '@kit/DataDisplay/types';
 
 export const CompleteCardTest: FunctionComponent = () => {
     const tags: IKitTagConfig[] = [
-        {wording: 'Multimédia'},
-        {wording: 'Promo 2021'},
-        {wording: 'Alimentation'},
-        {wording: 'Fromage'}
+        {idCardProps: {description: 'Multimédia'}},
+        {idCardProps: {description: 'Promo 2021'}},
+        {idCardProps: {description: 'Alimentation'}},
+        {idCardProps: {description: 'Fromage'}}
     ];
 
     const actions: IKitActionButton[] = [

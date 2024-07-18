@@ -9,21 +9,21 @@ const items: IKitSideMenuItemProps[] = [
     {
         key: 'item 1',
         title: 'Home',
-        complement: <KitTag color="primary">Upcoming</KitTag>,
+        complement: <KitTag type="primary">Upcoming</KitTag>,
         icon: <FontAwesomeIcon icon={faHome} />,
         onClick: () => console.log('item 1 clicked')
     },
     {
         key: 'item 2',
         title: 'Very long title that will be truncated',
-        complement: <KitTag color="primary">Upcoming</KitTag>,
+        complement: <KitTag type="primary">Upcoming</KitTag>,
         icon: <FontAwesomeIcon icon={faChartLine} />,
         onClick: () => console.log('item 1 clicked')
     },
     {
         key: 'item 2',
         title: 'Statistics',
-        complement: <KitTag color="primary">Upcoming</KitTag>,
+        complement: <KitTag type="primary">Upcoming</KitTag>,
         disabled: true,
         icon: <FontAwesomeIcon icon={faChartLine} />,
         onClick: () => console.log('item 2 clicked')

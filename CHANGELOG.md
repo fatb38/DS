@@ -4,6 +4,17 @@
 
 ### ✨ Features
 
+-   **⚠️ Breaking change - Tag:**
+
+    -   Remove properties `color` and `secondaryColorInvert` (@philippechevieux)
+    -   Add the following properties: (@philippechevieux)
+        -   `type` _To manage Tag render_
+        -   `idCardProps` _To set Tag content_
+        -   `disabled`
+        -   `onClick`
+    -   > If you use Tag's, you must define its content using the `idCardProps` property.
+        > Also if you use `Select` with `idCard` property please use `description` instead of `title`.
+
 -   **⚠️ Breaking change - Divider:**
     -   Remove property `color` and update default color (@philippechevieux)
 -   **⚠️ Breaking change - ItemCard:**

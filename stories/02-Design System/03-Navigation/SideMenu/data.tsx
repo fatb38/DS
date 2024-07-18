@@ -47,7 +47,7 @@ export const items: IKitSideMenuItemProps[] = [
     {
         key: 'statistics',
         title: 'Statisitques',
-        complement: <KitTag color="primary">A venir</KitTag>,
+        complement: <KitTag type="primary" idCardProps={{description: 'A venir'}} />,
         icon: <FontAwesomeIcon icon={faChartLine} />
     },
     {
@@ -56,9 +56,9 @@ export const items: IKitSideMenuItemProps[] = [
         icon: <FontAwesomeIcon icon={faCube} />
     },
     {
-        key: 'models',
+        key: 'models_with_tag',
         title: 'Titre vraiment très long pour voir comment ça se comporte',
-        complement: <KitTag color="primary">A venir</KitTag>,
+        complement: <KitTag type="primary" idCardProps={{description: 'A venir'}} />,
         icon: <FontAwesomeIcon icon={faCube} />
     },
     {

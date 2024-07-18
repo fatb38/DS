@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -15,22 +15,42 @@ import * as KitTagStories from './Tag.stories';
 Tag for categorizing or markup.
 
 ## Usage
-- It can be used to tag by dimension or property.
 
-- When categorizing.
+-   It can be used to tag by dimension or property.
+
+-   When categorizing.
 
 ## Examples
 
 ##### Basic
+
 Usage of basic Tag, and it could be closable by set closable property. Closable Tag supports onClose events.
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="tag-basic" />
 
-##### Tag Color
+##### IdCard
 
-We preset a series of colorful Badge styles for use in different situations. If the given color is invalid, the default color will be applied.
+Tag is using [`<KitIdCard />`](/docs/design-system-datadisplay-idcard--docs) component to display its contents. You can set `idCardProps.avatarProps` and `idCardProps.description` to the Tag.
 
-<CustomCanvas content={Examples.Color} source={Sources.Color} id="tag-color" />
+<CustomCanvas content={Examples.IdCard} source={Sources.IdCard} id="tag-id-card" />
+
+##### Type
+
+Tag has 5 different types: `primary`, `secondary`, `neutral`, `error` and `success`.
+
+<CustomCanvas content={Examples.Type} source={Sources.Type} id="tag-type" />
+
+##### Disabled
+
+To mark a Tag as disabled, add the `disabled` property to the Tag.
+
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="tag-disabled" />
+
+##### Clickable
+
+Setting `onClick` makes Tag clickable.
+
+<CustomCanvas content={Examples.Clickable} source={Sources.Clickable} id="tag-clickable" />
 
 ##### Tag Group
 
@@ -43,7 +63,6 @@ Tag Group exemple
 <Canvas of={KitTagStories.Api} />
 
 <Controls of={KitTagStories.Api} />
-
 
 ## Design Tokens
 

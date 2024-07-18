@@ -71,7 +71,7 @@ export const userProfileExample = (
     <KitHeader.Profile
         logo="/public/images/logo.png"
         alt="Logo ARiSTiD"
-        tag="Grenoble Centre"
+        tagProps={{type: 'primary', idCardProps: {description: 'Grenoble Centre'}}}
         menu={profileMenuContentExemple}
         userCard={<KitIdCard avatarProps={{src: 'public/images/portrait.png'}} />}
     />

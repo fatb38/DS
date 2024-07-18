@@ -49,7 +49,7 @@ export const utilities: IKitUtilities = {
     shadow: {
         shadowLight: '0px 3px 8px 0px rgba(0, 0, 0, 0.10)',
         shadowMedium: '0px 3px 14px 0px rgba(0, 0, 0, 0.30)',
-        shadowBlue: '0px 3px 8px 0px #97B9FD'
+        shadowBlue: '0px 3px 8px 0px var(--general-colors-primary-blue200)'
     }
 };
 

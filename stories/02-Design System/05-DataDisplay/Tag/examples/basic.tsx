@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {KitTag} from '@kit/DataDisplay/';
 import {KitSpace} from '@kit/Layout/';
 import {KitButton} from '@kit/General/';
@@ -14,8 +14,8 @@ const App = () => {
     return (
         <KitSpace direction="vertical">
             <KitSpace>
-                <KitTag>Tag 1</KitTag>
-                {isTagVisible && <KitTag onClose={log}>Tag 2</KitTag>}
+                <KitTag idCardProps={{description: 'Tag 1'}} />
+                {isTagVisible && <KitTag idCardProps={{description: 'Tag 2'}} onClose={log} />}
             </KitSpace>
             <br />
             <KitSpace>

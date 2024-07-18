@@ -1,18 +1,30 @@
 import Basic from './basic';
-import Color from './color';
+import Clickable from './clickable';
+import Disabled from './disabled';
 import Group from './group';
+import IdCard from './idCard';
+import Type from './type';
 
 import BasicSource from './basic?raw';
-import ColorSource from './color?raw';
+import ClickableSource from './clickable?raw';
+import DisabledSource from './disabled?raw';
 import GroupSource from './group?raw';
+import IdCardSource from './idCard?raw';
+import TypeSource from './type?raw';
 
 export const Sources = {
     Basic: BasicSource,
-    Color: ColorSource,
-    Group: GroupSource
+    Clickable: ClickableSource,
+    Disabled: DisabledSource,
+    Group: GroupSource,
+    IdCard: IdCardSource,
+    Type: TypeSource
 };
 export default {
     Basic,
-    Color,
-    Group
+    Clickable,
+    Disabled,
+    Group,
+    IdCard,
+    Type
 };

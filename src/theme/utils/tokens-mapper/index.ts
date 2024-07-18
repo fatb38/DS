@@ -17,7 +17,6 @@ import {inputNumberKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEnt
 import {radioKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Radio';
 import {rateKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Rate';
 import {selectKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Select';
-import {tagKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataDisplay/Tag';
 import {sliderKitTokenToAntdToken} from '@theme/utils/tokens-mapper/DataEntry/Slider';
 import {checkboxKitTokenToAntdToken} from './DataEntry/Checkbox';
 import {formKitTokenToAntdToken} from './DataEntry/Form';
@@ -42,7 +41,6 @@ export const antdThemeConfig: ThemeConfig = {
         Steps: stepsKitTokenToAntdToken,
         Table: tableKitTokenToAntdToken,
         Tabs: tabsKitTokenToAntdToken,
-        Tag: tagKitTokenToAntdToken,
         Tree: treeKitTokenToAntdToken,
         Tooltip: tooltipKitTokenToAntdToken,
         Form: formKitTokenToAntdToken

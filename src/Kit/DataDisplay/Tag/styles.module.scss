@@ -1,41 +1,145 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-tag) {
-    padding: convertToPixel(--general-spacing-xxs) convertToPixel(--general-spacing-xs);
-    border: none;
-    height: 24px;
+    --kit-tag-real-height: 24;
+    --kit-tag-border-total-width: 2;
 
-    > div {
-        padding-left: convertToPixel(--general-spacing-none);
-    }
+    padding: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-xs);
+    height: convertToPixel(--kit-tag-real-height);
+    border-radius: convertToPixel(--general-border-radius-xxl);
+    color: var(--components-Tag-colors-default-typography-default, var(--general-utilities-text-textPrimary));
 
     &,
     a {
         font-size: convertToPixel(--components-Tag-typography-fontSize, --general-typography-fontSize7);
         font-family: var(--components-Tag-typography-fontFamily, var(--general-typography-fontFamily));
         font-weight: var(--components-Tag-typography-fontWeight, var(--general-typography-regularFontWeight));
-        line-height: 16px;
         box-sizing: border-box;
         display: flex;
-        width: fit-content;
+        width: max-content;
     }
 
-    .ant-tag-close-icon {
-        margin-left: convertToPixel(--general-spacing-xs);
-        .svg-inline--fa {
-            vertical-align: -0.075em;
+    &:focus-visible {
+        box-shadow: 0 0 0 3px var(--general-utilities-focus);
+        outline: none;
+    }
+
+    &.kit-tag-disabled {
+        background: var(--general-utilities-neutral-neutralLight);
+        border-color: var(--general-utilities-border);
+        cursor: not-allowed;
+
+        .ant-tag-close-icon {
+            color: var(--general-utilities-text-textDisabled);
+            cursor: not-allowed;
         }
     }
 
-    background: var(--components-Tag-colors-default-background-default, var(--general-utilities-main-mainLight));
-    color: var(--components-Tag-colors-default-typography-default, var(--general-utilities-text-textPrimary));
+    &:not(.kit-tag-disabled) {
+        &.kit-tag-clickable {
+            cursor: pointer;
+        }
+
+        &.kit-tag-primary {
+            background: var(--general-utilities-main-mainColor);
+            border-color: var(--general-utilities-main-mainColor);
+
+            & > div .ant-typography {
+                color: var(--general-utilities-text-textLight);
+            }
+
+            &.kit-tag-clickable:hover {
+                background: var(--general-utilities-main-mainDark);
+                border-color: var(--general-utilities-main-mainDark);
+            }
+
+            .ant-tag-close-icon {
+                color: var(--general-utilities-text-textLight);
+            }
+        }
+
+        &.kit-tag-secondary {
+            background: var(--general-utilities-main-mainLight);
+            border-color: var(--general-utilities-main-mainMedium);
+
+            &.kit-tag-clickable {
+                &:hover {
+                    border-color: var(--general-utilities-main-mainColor);
+                }
+
+                &:active {
+                    border-color: var(--general-utilities-main-mainDark);
+                }
+            }
+        }
+
+        &.kit-tag-neutral {
+            background: var(--general-utilities-neutral-neutralLight);
+            border-color: var(--general-utilities-neutral-neutralMedium);
+
+            &.kit-tag-clickable {
+                &:hover {
+                    border-color: var(--general-utilities-neutral-neutralDark);
+                }
+
+                &:active {
+                    border-color: var(--general-utilities-neutral-neutralDeepDark);
+                }
+            }
+        }
+
+        &.kit-tag-error {
+            background: var(--general-utilities-error-errorLight);
+            border-color: var(--general-utilities-error-errorMedium);
+
+            &.kit-tag-clickable {
+                &:hover {
+                    border-color: var(--general-utilities-error-errorColor);
+                }
+
+                &:active {
+                    border-color: var(--general-utilities-error-errorDark);
+                }
+            }
+        }
+
+        &.kit-tag-success {
+            background: var(--general-utilities-success-successLight);
+            border-color: var(--general-utilities-success-successMedium);
+
+            &.kit-tag-clickable {
+                &:hover {
+                    border-color: var(--general-utilities-success-successColor);
+                }
+
+                &:active {
+                    border-color: var(--general-utilities-success-successDark);
+                }
+            }
+        }
+
+        .ant-tag-close-icon {
+            color: var(--components-Tag-colors-default-typography-default, var(--general-utilities-text-textPrimary));
+        }
+    }
 
     .ant-tag-close-icon {
-        color: var(--components-Tag-colors-default-typography-default, var(--general-utilities-text-textPrimary));
+        margin-left: convertToPixel(--general-spacing-xxs);
+        padding: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-xxs);
         align-self: center;
+    }
 
-        &:hover {
-            color: var(--components-Tag-colors-default-typography-default, var(--general-utilities-text-textPrimary));
+    > div {
+        height: calc((var(--kit-tag-real-height) - var(--kit-tag-border-total-width)) * 1px);
+        padding-left: convertToPixel(--general-spacing-none);
+
+        .card-avatar {
+            padding-bottom: 1px;
+
+            .ant-avatar {
+                height: 20px;
+                width: 20px;
+            }
         }
     }
 }

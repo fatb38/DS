@@ -2,7 +2,7 @@ import {faArrowsUpDownLeftRight, faPencil, faTrashCan} from '@fortawesome/free-s
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitCard} from '@kit/DataDisplay';
 import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {IKitActionButton} from '@kit/DataDisplay/types';
 
 const App = () => {
@@ -10,10 +10,10 @@ const App = () => {
     const [activated, setActivated] = useState(false);
 
     const tags: IKitTagConfig[] = [
-        {wording: 'Multimédia'},
-        {wording: 'Promo 2021'},
-        {wording: 'Alimentation'},
-        {wording: 'Fromage'}
+        {idCardProps: {description: 'Multimédia'}, disabled: true},
+        {idCardProps: {description: 'Promo 2021'}, disabled: true},
+        {idCardProps: {description: 'Alimentation'}, disabled: true},
+        {idCardProps: {description: 'Fromage'}, disabled: true}
     ];
 
     const actions: IKitActionButton[] = [

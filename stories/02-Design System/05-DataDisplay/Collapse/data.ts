@@ -148,12 +148,12 @@ export const argTypes = {
             category: 'Collapse.Header'
         }
     },
-    headerTagContent: {
-        name: 'tagContent',
+    headerTagProps: {
+        name: 'tagProps',
         description: 'Tag display next to a title and/or a description',
         table: {
             type: {
-                summary: 'ReactNode'
+                summary: 'IKitTag'
             },
             category: 'Collapse.Header'
         }

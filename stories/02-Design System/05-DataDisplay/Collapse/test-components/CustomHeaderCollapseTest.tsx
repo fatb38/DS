@@ -15,7 +15,7 @@ const getItems = () => [
                 imageSrc="/public/images/catalog.jpg"
                 title="Title 2"
                 description="This is a description 2"
-                tagContent="sprint #6"
+                tagProps={{idCardProps: {description: '#Sprint 6'}}}
                 onSwitchChange={checked => console.log(checked)}
             />
         ),
@@ -41,12 +41,12 @@ const getItems = () => [
 ];
 
 export const CustomHeaderCollapseTest: FunctionComponent = () => (
-        <div>
-            <KitTypography.Title level="h3">Custom header collapse</KitTypography.Title>
-            <div style={{width: '100%', display: 'flex', flexDirection: 'column', gap: '20px'}}>
-                <KitCollapse items={getItems()} />
-                <KitCollapse items={getItems()} activeKey="1" />
-                <KitCollapse items={getItems()} collapsible="disabled" />
-            </div>
+    <div>
+        <KitTypography.Title level="h3">Custom header collapse</KitTypography.Title>
+        <div style={{width: '100%', display: 'flex', flexDirection: 'column', gap: '20px'}}>
+            <KitCollapse items={getItems()} />
+            <KitCollapse items={getItems()} activeKey="1" />
+            <KitCollapse items={getItems()} collapsible="disabled" />
         </div>
-    );
+    </div>
+);

@@ -118,7 +118,7 @@ export const idCardOptions: IKitSelect['options'] = [
         value: 'cha-yellow',
         label: 'Chartreuse Jaune',
         idCard: {
-            title: 'Chartreuse Jaune',
+            description: 'Chartreuse Jaune',
             avatarProps: {
                 size: 'small',
                 shape: 'square',
@@ -132,7 +132,7 @@ export const idCardOptions: IKitSelect['options'] = [
         value: 'cha-vep',
         label: 'Chartreuse VEP',
         idCard: {
-            title: 'Chartreuse VEP',
+            description: 'Chartreuse VEP',
             avatarProps: {
                 size: 'small',
                 shape: 'square',
@@ -146,7 +146,7 @@ export const idCardOptions: IKitSelect['options'] = [
         value: 'cha-verte',
         label: 'Chartreuse Verte',
         idCard: {
-            title: 'Chartreuse Verte',
+            description: 'Chartreuse Verte',
             avatarProps: {
                 size: 'small',
                 shape: 'square',

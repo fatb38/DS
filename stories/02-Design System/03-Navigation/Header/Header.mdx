@@ -1,52 +1,89 @@
-import { Meta, Canvas, Source } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
+import {Meta, Canvas, Source} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
-import Examples, { Sources } from './examples';
+import Examples, {Sources} from './examples';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
 import * as KitHeaderStories from './Header.stories';
-import { KitAristidThemeGeneral } from '@theme/aristid/general';
+import {KitAristidThemeGeneral} from '@theme/aristid/general';
 
 <Meta of={KitHeaderStories} />
 
 # Header
+
 Header is displayed in top of the app. It allows a menu and app logo on the left, a lang switch and a user profile on the right. The content in between is free (eg. title, search, breadcrumb, actions, etc.)
 
 ## Usage
 
-- When you need to have a global header, providing shortcuts, informations and actions throughout the app.
+-   When you need to have a global header, providing shortcuts, informations and actions throughout the app.
 
 ## Examples
 
 ##### Basic
+
 The most basic usage, just containing the provided content with no extra information or menus.
 
-<CustomCanvas content={Examples.Basic} source={Sources.Basic} backgroundColor={KitAristidThemeGeneral.colors.primary.blue50} id="header-basic" />
+<CustomCanvas
+    content={Examples.Basic}
+    source={Sources.Basic}
+    backgroundColor={KitAristidThemeGeneral.colors.primary.blue50}
+    id="header-basic"
+/>
 
 ##### Menu
+
 Header can display a menu button on the left. The content of the menu itself is free and not part of the Header component.
 
-<CustomCanvas content={Examples.Menu} source={Sources.Menu} backgroundColor={KitAristidThemeGeneral.colors.primary.blue50} id="header-menu" />
+<CustomCanvas
+    content={Examples.Menu}
+    source={Sources.Menu}
+    backgroundColor={KitAristidThemeGeneral.colors.primary.blue50}
+    id="header-menu"
+/>
 
 ##### Logo
+
 Header can display a logo on the left.
 
-<CustomCanvas content={Examples.Logo} source={Sources.Logo} backgroundColor={KitAristidThemeGeneral.colors.primary.blue50} backgroundColor={KitAristidThemeGeneral.colors.primary.blue50} id="header-logo" />
+<CustomCanvas
+    content={Examples.Logo}
+    source={Sources.Logo}
+    backgroundColor={KitAristidThemeGeneral.colors.primary.blue50}
+    id="header-logo"
+/>
 
 ##### Profile
+
 Header can display information about the user.
 
-<CustomCanvas content={Examples.Profile} source={Sources.Profile} backgroundColor={KitAristidThemeGeneral.colors.primary.blue50} backgroundColor={KitAristidThemeGeneral.colors.primary.blue50} id="header-profile" />
+<CustomCanvas
+    content={Examples.Profile}
+    source={Sources.Profile}
+    backgroundColor={KitAristidThemeGeneral.colors.primary.blue50}
+    id="header-profile"
+/>
 
 ##### Lang
+
 Header can display a language switcher on the right. The switcher itself must be provided by the app.
 
-<CustomCanvas content={Examples.Lang} source={Sources.Lang} backgroundColor={KitAristidThemeGeneral.colors.primary.blue50} backgroundColor={KitAristidThemeGeneral.colors.primary.blue50} id="header-lang" />
+<CustomCanvas
+    content={Examples.Lang}
+    source={Sources.Lang}
+    backgroundColor={KitAristidThemeGeneral.colors.primary.blue50}
+    id="header-lang"
+/>
 
 ##### All
+
 The most complete usage with a menu, a logo, some content, a user profile and a lang switcher.
 
-<CustomCanvas content={Examples.All} source={Sources.All} backgroundColor={KitAristidThemeGeneral.colors.primary.blue50} id="header-all" />
+<CustomCanvas
+    content={Examples.All}
+    source={Sources.All}
+    backgroundColor={KitAristidThemeGeneral.colors.primary.blue50}
+    id="header-all"
+/>
 
 ## API
 
@@ -54,17 +91,16 @@ The most complete usage with a menu, a logo, some content, a user profile and a 
 
 <Controls of={KitHeaderStories.Api} />
 
-
 ### Header.Profile
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| className | The additional css class | string | - |
-| logo | Url of the logo to display (optional) | string | - |
-| alt | This attribute defines the alternative text describing the image (optional) | string | - |
-| tag | tag to display (optional) | string | - |
-| userCard | `KitIdCard` to display (optional). See KitIdCard fo details | `ReactNode` | - |
-| menu | The menu props | `ReactNode` | - |
+| Property  | Description                                                                 | Type        | Default |
+| --------- | --------------------------------------------------------------------------- | ----------- | ------- |
+| className | The additional css class                                                    | string      | -       |
+| logo      | Url of the logo to display (optional)                                       | string      | -       |
+| alt       | This attribute defines the alternative text describing the image (optional) | string      | -       |
+| tagProps  | tag to display (optional)                                                   | IKitTag     | -       |
+| userCard  | `KitIdCard` to display (optional). See KitIdCard fo details                 | `ReactNode` | -       |
+| menu      | The menu props                                                              | `ReactNode` | -       |
 
 ## Design Tokens
 

@@ -115,13 +115,12 @@
                     > span,
                     .ant-tag {
                         max-width: 100%;
-                        height: 30px;
-                        max-height: 30px;
                         align-items: center;
                         margin-inline-end: 2px;
                     }
 
                     &.ant-select-selection-overflow-item-rest .ant-select-selection-item {
+                        height: auto;
                         background: none;
                         margin: convertToPixel(--general-spacing-none);
                         padding-inline-start: convertToPixel(--general-spacing-none);
@@ -377,6 +376,10 @@
             height: convertToPixel(--components-Select-ColorBadge-height, 16);
             border-radius: convertToPixel(--components-Select-ColorBadge-border-radius, --general-border-radius-xxs);
         }
+    }
+
+    .ant-avatar .kit-select-option-badge div {
+        margin-left: convertToPixel(--general-spacing-none);
     }
 
     .kit-select-option-label {
