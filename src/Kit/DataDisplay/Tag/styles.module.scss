@@ -16,7 +16,6 @@
         font-weight: var(--components-Tag-typography-fontWeight, var(--general-typography-regularFontWeight));
         box-sizing: border-box;
         display: flex;
-        width: max-content;
     }
 
     &:focus-visible {
@@ -132,6 +131,7 @@
     > div {
         height: calc((var(--kit-tag-real-height) - var(--kit-tag-border-total-width)) * 1px);
         padding-left: convertToPixel(--general-spacing-none);
+        width: max-content;
 
         .card-avatar {
             padding-bottom: 1px;
