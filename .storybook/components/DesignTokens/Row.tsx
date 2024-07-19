@@ -57,6 +57,15 @@ const StyledColor = styled.div`
     }
 `;
 
+const StyledShadowBox = styled(StyledColor)`
+    .swatch {
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 0;
+        margin-right: 0.5rem;
+    }
+`;
+
 const Row: FunctionComponent<IRow> = ({level, _value, _type, _label, _description, _path, visible}) => {
     const _getFormattedValue = () => {
         switch (_type) {
@@ -66,6 +75,13 @@ const Row: FunctionComponent<IRow> = ({level, _value, _type, _label, _descriptio
                         {_value && <span className="swatch" style={{background: _value}} />}
                         <span className="value">{_value ?? '-'}</span>
                     </StyledColor>
+                );
+            case 'shadow':
+                return (
+                    <StyledShadowBox>
+                        {_value && <span className="swatch" style={{boxShadow: _value.toString()}} />}
+                        <span className="value">{_value ?? '-'}</span>
+                    </StyledShadowBox>
                 );
             default:
                 return _value;
@@ -87,7 +103,7 @@ const Row: FunctionComponent<IRow> = ({level, _value, _type, _label, _descriptio
             </td>
             <td>{_description ?? '-'}</td>
             <td>
-                <Markdown>{`\`${_type}\``}</Markdown>
+                <Markdown>{`\`${_type === 'shadow' ? 'string' : _type}\``}</Markdown>
             </td>
             <td>{_getFormattedValue()}</td>
         </StyledRow>

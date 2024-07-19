@@ -819,20 +819,20 @@ const forms = {
                 "shadowLight": {
                     "_label": "shadowLight",
                     "_path": "general.utilities.shadow.shadowLight",
-                    "_type": "color",
-                    "_description": "Shadow light color"
+                    "_type": "shadow",
+                    "_description": "Shadow light property"
                 },
                 "shadowMedium": {
                     "_label": "shadowMedium",
                     "_path": "general.utilities.shadow.shadowMedium",
-                    "_type": "color",
-                    "_description": "Shadow medium color"
+                    "_type": "shadow",
+                    "_description": "Shadow medium property"
                 },
                 "shadowBlue": {
                     "_label": "shadowBlue",
                     "_path": "general.utilities.shadow.shadowBlue",
-                    "_type": "color",
-                    "_description": "Shadow blue color"
+                    "_type": "shadow",
+                    "_description": "Shadow blue property"
                 }
             }
         }

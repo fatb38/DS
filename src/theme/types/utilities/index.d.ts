@@ -178,18 +178,18 @@ export interface IKitUtilities {
     };
     shadow: {
         /**
-         * Shadow light color
-         * @TJS-type color
+         * Shadow light property
+         * @TJS-type shadow
          */
         shadowLight: string;
         /**
-         * Shadow medium color
-         * @TJS-type color
+         * Shadow medium property
+         * @TJS-type shadow
          */
         shadowMedium: string;
         /**
-         * Shadow blue color
-         * @TJS-type color
+         * Shadow blue property
+         * @TJS-type shadow
          */
         shadowBlue: string;
     };

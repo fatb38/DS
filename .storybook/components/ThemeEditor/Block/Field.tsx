@@ -162,6 +162,15 @@ const StyledColor = styled.div`
     }
 `;
 
+const StyledShadowBox = styled(StyledColor)`
+    .swatch {
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 0;
+        margin-right: 0.5rem;
+    }
+`;
+
 const Field: FunctionComponent<IField> = ({
     _type,
     _path,
@@ -240,6 +249,11 @@ const Field: FunctionComponent<IField> = ({
                             {_value && <span className="swatch" style={{background: _value}} />}
                             <span className="value">{_value ?? '-'}</span>
                         </StyledColor>
+                    ) : _type === 'shadow' ? (
+                        <StyledShadowBox>
+                            {_value && <span className="swatch" style={{boxShadow: _value.toString()}} />}
+                            <span className="value">{_value ?? '-'}</span>
+                        </StyledShadowBox>
                     ) : (
                         _value
                     )}
