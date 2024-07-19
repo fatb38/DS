@@ -34,6 +34,7 @@ export interface IKitTagGroup {
     tags: IKitTagConfig[];
     className?: string;
     style?: CSSProperties;
+    othersTagType?: KitTagType;
 }
 
 export interface IUseTagGroup {

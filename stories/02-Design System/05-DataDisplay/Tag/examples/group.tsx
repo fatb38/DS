@@ -17,6 +17,9 @@ const App = () => {
             <div style={{width: '300px', border: '1px solid black'}}>
                 <KitTag.Group tags={tags} />
             </div>
+            <div style={{width: '300px', border: '1px solid black'}}>
+                <KitTag.Group tags={tags} othersTagType="primary" />
+            </div>
         </div>
     );
 };

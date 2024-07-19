@@ -129,7 +129,7 @@
     }
 
     > div {
-        height: calc((var(--kit-tag-real-height) - var(--kit-tag-border-total-width)) * 1px);
+        height: convertToPixel(--kit-tag-real-height);
         padding-left: convertToPixel(--general-spacing-none);
         width: max-content;
 

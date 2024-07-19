@@ -9,7 +9,7 @@ import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
-const KitTagGroup: FunctionComponent<IKitTagGroup> = ({tags, style, className}) => {
+const KitTagGroup: FunctionComponent<IKitTagGroup> = ({tags, style, className, othersTagType = 'neutral'}) => {
     const {appId} = useKitTheme();
     const {locale} = useKitLocale();
     const containerRef = useRef<HTMLDivElement>(null);
@@ -41,6 +41,7 @@ const KitTagGroup: FunctionComponent<IKitTagGroup> = ({tags, style, className}) 
                     ref={otherRef}
                     style={isOtherTagVisible ? {} : {position: 'absolute', opacity: 0}}
                     idCardProps={{description: `+ ${remainingTags} ` + locale.General?.others}}
+                    type={othersTagType}
                 />
             </KitTooltip>
         </div>
