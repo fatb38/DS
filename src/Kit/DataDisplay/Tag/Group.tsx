@@ -9,7 +9,13 @@ import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
-const KitTagGroup: FunctionComponent<IKitTagGroup> = ({tags, style, className, othersTagType = 'neutral'}) => {
+const KitTagGroup: FunctionComponent<IKitTagGroup> = ({
+    tags,
+    style,
+    className,
+    othersTagType = 'neutral',
+    othersTagDisabled
+}) => {
     const {appId} = useKitTheme();
     const {locale} = useKitLocale();
     const containerRef = useRef<HTMLDivElement>(null);
@@ -36,12 +42,13 @@ const KitTagGroup: FunctionComponent<IKitTagGroup> = ({tags, style, className, o
                     idCardProps={tag.idCardProps}
                 />
             ))}
-            <KitTooltip overlay={_getTooltipOverlay()}>
+            <KitTooltip overlay={isOtherTagVisible ? _getTooltipOverlay() : undefined}>
                 <InternalTag
                     ref={otherRef}
                     style={isOtherTagVisible ? {} : {position: 'absolute', opacity: 0}}
                     idCardProps={{description: `+ ${remainingTags} ` + locale.General?.others}}
                     type={othersTagType}
+                    disabled={othersTagDisabled}
                 />
             </KitTooltip>
         </div>

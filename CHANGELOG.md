@@ -12,6 +12,9 @@
         -   `idCardProps` _To set Tag content_
         -   `disabled`
         -   `onClick`
+    -   Add the following properties for `KitTagGroup` (@philippechevieux)
+        -   `othersTagType`
+        -   `othersTagDisabled`
     -   > If you use Tag's, you must define its content using the `idCardProps` property.
         > Also if you use `Select` with `idCard` property please use `description` instead of `title`.
 

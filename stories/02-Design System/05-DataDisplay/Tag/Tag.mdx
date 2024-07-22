@@ -64,6 +64,16 @@ Tag Group exemple
 
 <Controls of={KitTagStories.Api} />
 
+### TagGroup
+
+| Property          | Description                                                  | Type            | Default |
+| ----------------- | ------------------------------------------------------------ | --------------- | ------- |
+| className         | The additionnal css class                                    | string          | -       |
+| style             | The additionnal style                                        | CSSProperties   | -       |
+| tags              | List of `KitTag` to display                                  | IKitTagConfig[] | -       |
+| othersTagType     | Type of others tag displayed when there is to much tags      | KitTagType      | -       |
+| othersTagDisabled | Disabled the others tag displayed when there is to much tags | ReactNode       | -       |
+
 ## Design Tokens
 
 <DesignTokens path="components.Tag" tokens={fields?.components?.Tag} />
