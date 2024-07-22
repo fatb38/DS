@@ -48,8 +48,7 @@ export const KitTable: FunctionComponent<IKitTable> = ({
         return (
             <KitButton
                 className={styles['expand-button']}
-                type="text"
-                color="black"
+                type="tertiary"
                 onClick={(e: MouseEvent<HTMLButtonElement>) => onExpand(record, e)}
             >
                 <FontAwesomeIcon icon={expanded ? faCaretDown : faCaretRight} />

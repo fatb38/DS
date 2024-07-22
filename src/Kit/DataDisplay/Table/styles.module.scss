@@ -385,11 +385,13 @@
     }
 
     :local(.expand-button) {
-        height: initial;
-        padding: convertToPixel(--general-spacing-none) 12px convertToPixel(--general-spacing-none) 2px;
+        height: 18px;
+        max-height: 18px;
+        padding: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-xxs);
         margin-right: convertToPixel(--general-spacing-xxs);
-        width: 0;
-        min-width: 0;
+        min-width: 18px;
+        width: 18px;
         display: inline;
+        color: var(--general-utilities-text-textPrimary);
     }
 }

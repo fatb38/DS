@@ -132,7 +132,7 @@ $prefix: 'kit-btn-';
     --kit-btn-invert-color: var(--general-utilities-light);
     --kit-btn-disabled-color: var(--general-utilities-disabled);
     --kit-btn-border-color: var(--general-utilities-border);
-    --kit-btn-grey-light: var(--general-utilities-neutral-neutralGrey);
+    --kit-btn-grey-light: var(--general-utilities-neutral-neutralLight);
 
     &.kit-btn-block {
         display: flex;
@@ -140,12 +140,13 @@ $prefix: 'kit-btn-';
         justify-content: center;
     }
 
-    &:focus-visible {
-        outline: var(--general-utilities-focus) solid 4px;
-        outline-offset: 1px;
+    &:focus-visible,
+    &.kit-btn-secondary:focus {
+        outline: var(--general-utilities-focus) solid 3px;
         transition:
             outline-offset 0s ease 0s,
             outline 0s ease 0s;
+        border-color: transparent;
     }
 
     &,
@@ -161,10 +162,6 @@ $prefix: 'kit-btn-';
         &:active {
             border-color: var(--kit-btn-main-color);
             background-color: var(--kit-btn-main-light);
-        }
-
-        &:focus {
-            border-color: var(--kit-btn-main-focus);
         }
 
         &:disabled {
@@ -190,10 +187,6 @@ $prefix: 'kit-btn-';
             border-color: var(--kit-btn-main-dark-deep);
         }
 
-        &:focus {
-            border-color: var(--kit-btn-main-focus);
-        }
-
         &:disabled {
             color: var(--kit-btn-disabled-color);
             background-color: var(--kit-btn-grey-light);
@@ -214,10 +207,6 @@ $prefix: 'kit-btn-';
         &:active {
             border-color: var(--kit-btn-main-light);
             background-color: var(--kit-btn-main-light);
-        }
-
-        &:focus {
-            border-color: var(--kit-btn-main-focus);
         }
 
         &:disabled {
