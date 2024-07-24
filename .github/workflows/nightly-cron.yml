@@ -1,6 +1,7 @@
 name: "Publish nightly Package to npmjs cron task"
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 23 * * *'
 
