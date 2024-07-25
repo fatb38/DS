@@ -1,13 +1,12 @@
-import React from 'react';
 import {KitTag} from '@kit/DataDisplay/';
 import {IKitTagConfig} from '@kit/DataDisplay/Tag/types';
 
 const App = () => {
     const tags: IKitTagConfig[] = [
-        {wording: 'Tag 1'},
-        {wording: 'Tag 2'},
-        {wording: 'Tag 3'},
-        {wording: 'Tag 4 : Very long tag name'}
+        {idCardProps: {description: 'Tag 1'}, type: 'primary'},
+        {idCardProps: {description: 'Tag 2'}, type: 'secondary'},
+        {idCardProps: {description: 'Tag 3'}, type: 'secondary'},
+        {idCardProps: {description: 'Tag 4 : Very long tag name'}}
     ];
 
     return (
@@ -17,6 +16,9 @@ const App = () => {
             </div>
             <div style={{width: '300px', border: '1px solid black'}}>
                 <KitTag.Group tags={tags} />
+            </div>
+            <div style={{width: '300px', border: '1px solid black'}}>
+                <KitTag.Group tags={tags} othersTagType="primary" />
             </div>
         </div>
     );

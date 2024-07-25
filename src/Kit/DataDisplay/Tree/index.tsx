@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Tree as AntdTree} from 'antd';
 import {IKitTree} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

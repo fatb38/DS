@@ -161,7 +161,7 @@ export const argTypes = {
     },
     color: {
         name: 'color',
-        options: ['mediumGrey', 'yellow', 'orange', 'pink', 'red', 'blue', 'green', 'grey', 'black'],
+        options: ['yellow', 'pink', 'warning', 'error', 'success', 'main', 'grey'],
         control: {type: 'select'},
         description: '[Only for segmented type] - Option to display segmented button with an other color',
         table: {

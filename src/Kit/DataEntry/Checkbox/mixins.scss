@@ -13,34 +13,24 @@
             .ant-checkbox-disabled + span {
                 color: var(
                     --components-Checkbox-colors-typography-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-utilities-text-textDisabled)
                 );
             }
         }
 
         .ant-checkbox-disabled {
-            color: var(
-                --components-Checkbox-colors-typography-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey400)
-            );
+            color: var(--components-Checkbox-colors-typography-disabled, var(--general-utilities-disabled));
 
             .ant-checkbox-inner {
                 background-color: var(
                     --components-Checkbox-colors-background-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey100)
+                    var(--general-utilities-neutral-neutralLight)
                 );
-                border: 1px solid
-                    var(
-                        --components-Checkbox-colors-border-disabled,
-                        var(--general-colors-secondary-mediumGrey-mediumGrey200)
-                    );
+                border: 1px solid var(--components-Checkbox-colors-border-disabled, var(--general-utilities-border));
             }
 
             .ant-checkbox-inner:after {
-                border-color: var(
-                    --components-Checkbox-colors-border-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey200)
-                );
+                border-color: var(--components-Checkbox-colors-border-disabled, var(--general-utilities-disabled));
             }
         }
 
@@ -48,51 +38,55 @@
             &:not(.ant-checkbox-disabled) .ant-checkbox-inner {
                 background-color: var(
                     --components-Checkbox-colors-background-check,
-                    var(--general-colors-primary-primary400)
+                    var(--general-utilities-main-mainColor)
                 );
-                border-color: var(--components-Checkbox-colors-border-check, var(--general-colors-primary-primary400));
+                border-color: var(--components-Checkbox-colors-border-check, var(--general-utilities-main-mainColor));
             }
 
             .ant-checkbox-inner:after {
                 width: 8px;
                 height: 0;
-                border: 1px solid white;
+                border: 1px solid var(--general-utilities-light);
             }
 
             &.ant-checkbox-disabled .ant-checkbox-inner:after {
-                border-color: var(
-                    --components-Checkbox-colors-border-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey200)
-                );
+                border-color: var(--components-Checkbox-colors-border-disabled, var(--general-utilities-border));
             }
         }
 
         &.ant-checkbox-wrapper-danger {
             .ant-checkbox {
-                &.ant-checkbox-disabled + span {
+                & + span {
                     color: var(
                         --components-Checkbox-colors-typography-danger-disabled,
-                        var(--general-colors-secondary-red-red200)
+                        var(--general-utilities-text-textError)
                     );
                 }
 
                 .ant-checkbox-inner {
                     background-color: var(
                         --components-Checkbox-colors-background-danger-default,
-                        var(--general-colors-secondary-red-red200)
+                        var(--general-utilities-error-errorLight)
                     );
                     border: 1px solid
                         var(
                             --components-Checkbox-colors-border-danger-default,
-                            var(--general-colors-secondary-red-red400)
+                            var(--general-utilities-error-errorColor)
                         );
+
+                    &:after {
+                        border-color: var(
+                            --components-Checkbox-colors-border-danger-default,
+                            var(--general-utilities-error-errorColor)
+                        );
+                    }
                 }
             }
 
             .ant-checkbox-disabled .ant-checkbox-inner:after {
                 border-color: var(
                     --components-Checkbox-colors-border-danger-default,
-                    var(--general-colors-secondary-red-red400)
+                    var(--general-utilities-error-errorColor)
                 );
             }
         }
@@ -111,7 +105,7 @@
         &:not(.ant-checkbox-wrapper-disabled):hover,
         &:not(.ant-checkbox-wrapper-disabled) .ant-checkbox:hover {
             .ant-checkbox-inner {
-                border-color: var(--components-Checkbox-colors-border-hover, var(--general-colors-primary-primary400));
+                border-color: var(--components-Checkbox-colors-border-hover, var(--general-utilities-main-mainColor));
             }
         }
 
@@ -119,9 +113,9 @@
             .ant-checkbox-inner {
                 background-color: var(
                     --components-Checkbox-colors-background-hover,
-                    var(--general-colors-primary-primary500)
+                    var(--general-utilities-main-mainDark)
                 );
-                border-color: var(--components-Checkbox-colors-border-hover, var(--general-colors-primary-primary400));
+                border-color: var(--components-Checkbox-colors-border-hover, var(--general-utilities-main-mainColor));
             }
         }
 
@@ -131,22 +125,22 @@
             .ant-checkbox-inner {
                 background-color: var(
                     --components-Checkbox-colors-background-danger-hover,
-                    var(--general-colors-secondary-red-red500)
+                    var(--general-utilities-error-errorDark)
                 );
+                border-color: var(--general-utilities-error-errorColor);
             }
         }
 
         &.ant-checkbox-wrapper .ant-checkbox-input:focus + .ant-checkbox-inner {
             // TODO change to cards-border-stroke when available
-            box-shadow: 0 0 0 3px
-                var(--components-Checkbox-colors-border-focus, var(--general-colors-primary-primary200));
+            box-shadow: 0 0 0 3px var(--components-Checkbox-colors-border-focus, var(--general-utilities-focus));
             border-color: transparent;
         }
 
         &.ant-checkbox-wrapper-danger .ant-checkbox-input:focus + .ant-checkbox-inner {
             // TODO change to cards-border-stroke when available
             box-shadow: 0 0 0 3px
-                var(--components-Checkbox-colors-border-danger-focus, var(--general-colors-secondary-red-red200));
+                var(--components-Checkbox-colors-border-danger-focus, var(--general-utilities-error-errorMedium));
         }
 
         // Focus
@@ -155,13 +149,12 @@
             .ant-checkbox:focus-within
             .ant-checkbox-inner {
             // TODO change to cards-border-stroke when available
-            box-shadow: 0 0 0 3px
-                var(--components-Checkbox-colors-border-focus, var(--general-colors-primary-primary200));
+            box-shadow: 0 0 0 3px var(--components-Checkbox-colors-border-focus, var(--general-utilities-focus));
             border-color: transparent;
-            background-color: var(--components-Checkbox-colors-background-focus, var(--general-colors-neutral-white));
+            background-color: var(--components-Checkbox-colors-background-focus, var(--general-utilities-light));
 
             &:after {
-                border-color: var(--components-Checkbox-colors-border-focus, var(--general-colors-primary-primary400));
+                border-color: var(--components-Checkbox-colors-border-focus, var(--general-utilities-main-mainColor));
                 border-top: 0;
                 border-inline-start: 0;
             }
@@ -172,11 +165,11 @@
             .ant-checkbox-inner {
             background-color: var(
                 --components-Checkbox-colors-background-focus,
-                var(--general-colors-primary-primary400)
+                var(--general-utilities-main-mainColor)
             );
 
             &:after {
-                border-color: var(--components-Checkbox-colors-border-focus, var(--general-colors-primary-primary400));
+                border-color: var(--components-Checkbox-colors-border-focus, var(--general-utilities-main-mainColor));
                 border-top: 0;
                 border-inline-start: 0;
             }
@@ -185,10 +178,10 @@
         &.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):not(.ant-checkbox-wrapper-danger)
             .ant-checkbox:focus-within
             .ant-checkbox-inner {
-            background-color: var(--components-Checkbox-colors-background-focus, var(--general-colors-neutral-white));
+            background-color: var(--components-Checkbox-colors-background-focus, var(--general-utilities-light));
 
             &:after {
-                border-color: var(--components-Checkbox-colors-border-focus, var(--general-colors-primary-primary400));
+                border-color: var(--components-Checkbox-colors-border-focus, var(--general-utilities-main-mainColor));
                 border-inline-start: 0;
                 border-width: 2px;
             }
@@ -196,15 +189,12 @@
 
         &.ant-checkbox-wrapper-danger:not(.ant-checkbox-wrapper-disabled) .ant-checkbox:focus-within {
             .ant-checkbox-inner {
-                background-color: var(
-                    --components-Checkbox-colors-background-focus,
-                    var(--general-colors-neutral-white)
-                );
+                background-color: var(--components-Checkbox-colors-background-focus, var(--general-utilities-light));
 
                 &:after {
                     border-color: var(
                         --components-Checkbox-colors-border-danger-focus,
-                        var(--general-colors-secondary-red-red400)
+                        var(--general-utilities-error-errorColor)
                     );
                     border-inline-start: 0;
                     border-width: 2px;

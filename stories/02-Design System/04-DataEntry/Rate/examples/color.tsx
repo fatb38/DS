@@ -8,6 +8,7 @@ const App = () => {
     const {theme} = useKitTheme();
 
     const secondaryColors = Object.keys(theme.colors.secondary);
+    const tertiaryColors = Object.keys(theme.colors.tertiary);
 
     return (
         <KitSpace direction="vertical">
@@ -16,9 +17,21 @@ const App = () => {
                 <KitRate defaultValue={3} />
             </KitSpace>
             <br />
+            <KitTypography.Text style={{fontWeight: 'bold'}}>Primary color</KitTypography.Text>
+            <KitSpace>
+                <KitRate defaultValue={3} color="primary" />
+            </KitSpace>
+            <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
             <KitSpace size="m">
                 {secondaryColors.map((color: string) => (
+                    <KitRate key={color} defaultValue={3} color={color} />
+                ))}
+            </KitSpace>
+            <br />
+            <KitTypography.Text style={{fontWeight: 'bold'}}>Tertiary Colors</KitTypography.Text>
+            <KitSpace size="m">
+                {tertiaryColors.map((color: string) => (
                     <KitRate key={color} defaultValue={3} color={color} />
                 ))}
             </KitSpace>

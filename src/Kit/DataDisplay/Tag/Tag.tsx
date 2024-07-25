@@ -1,48 +1,39 @@
-import React, {CSSProperties, forwardRef, useMemo} from 'react';
+import cn from 'classnames';
+import styles from './styles.module.scss';
+import {forwardRef} from 'react';
 import {Tag} from 'antd';
 import {IKitTag} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
-import {getColor, getLighterColor, isValidColor} from '@utils/functions';
-import {kitTagCssTokens} from '@theme/aristid/components/DataDisplay/Tag';
-import cn from 'classnames';
-
-import styles from './styles.module.scss';
-
-const getCustomColors = (
-    color: IKitTag['color'],
-    secondaryColorInvert: IKitTag['secondaryColorInvert']
-): CSSProperties | null => {
-    if (color && isValidColor(color)) {
-        return {
-            [kitTagCssTokens.colors.default.background.default]: getColor(color, secondaryColorInvert),
-            [kitTagCssTokens.colors.default.typography.default]: getLighterColor(color, secondaryColorInvert)
-        } as CSSProperties;
-    }
-    return null;
-};
+import {KitIdCard} from '../IdCard';
 
 export const InternalTag = forwardRef<HTMLElement, IKitTag>(
-    ({className, closeIcon, color, style, secondaryColorInvert = false, ...tagProps}, ref) => {
+    ({className, closeIcon, type = 'neutral', disabled, onClick, idCardProps, ...tagProps}, ref) => {
         const {appId} = useKitTheme();
 
-        const customStyle = useMemo(
-            () => ({...style, ...getCustomColors(color, secondaryColorInvert)}),
-            [color, secondaryColorInvert, style]
-        );
-
-        const clx = cn(appId, styles['kit-tag'], className);
+        const clx = cn(appId, styles['kit-tag'], className, {
+            [`kit-tag-${type}`]: type,
+            [`kit-tag-disabled`]: disabled,
+            [`kit-tag-clickable`]: onClick
+        });
 
         return (
             <Tag
+                tabIndex={disabled ? -1 : 0}
                 ref={ref}
                 {...tagProps}
-                style={customStyle}
                 className={clx}
                 closeIcon={closeIcon ?? <FontAwesomeIcon icon={faXmark} />}
+                onClick={onClick}
                 closable={!!tagProps.onClose}
-            />
+            >
+                <KitIdCard
+                    disabled={disabled}
+                    avatarProps={idCardProps?.avatarProps ? {...idCardProps?.avatarProps, size: 'small'} : undefined}
+                    description={idCardProps?.description}
+                />
+            </Tag>
         );
     }
 );

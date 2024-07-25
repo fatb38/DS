@@ -2,8 +2,8 @@
 
 :local(.kit-slider) {
     flex-grow: 1;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: convertToPixel(--general-spacing-none);
+    margin-right: convertToPixel(--general-spacing-none);
 
     &.with-start-icon {
         margin-left: 20px;
@@ -18,22 +18,19 @@
             &:hover::after {
                 background-color: var(
                     --components-Slider-handle-colors-background-hover,
-                    var(--general-colors-primary-primary100)
+                    var(--general-utilities-main-mainLight)
                 );
             }
 
             &::after {
                 box-shadow: 0 0 0 2px
-                    var(
-                        --components-Slider-handle-colors-border-default,
-                        var(--general-colors-primary-primary400)
-                    );
+                    var(--components-Slider-handle-colors-border-default, var(--general-utilities-main-mainColor));
             }
 
             &:focus::after {
                 background-color: var(
                     --components-Slider-handle-colors-background-focus,
-                    var(--general-colors-primary-primary400)
+                    var(--general-utilities-main-mainColor)
                 );
             }
         }
@@ -42,16 +39,13 @@
             .ant-slider-dot:not(.ant-slider-dot-active) {
                 border-color: var(
                     --components-Slider-dot-colors-border-default,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey200)
+                    var(--general-utilities-neutral-neutralMedium)
                 );
             }
         }
 
         .ant-slider-mark .ant-slider-mark-text:not(.ant-slider-mark-text-active) {
-            color: var(
-                --components-Slider-dot-colors-border-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey200)
-            );
+            color: var(--components-Slider-dot-colors-border-default, var(--general-utilities-neutral-neutralMedium));
         }
 
         .ant-slider-mark {
@@ -62,10 +56,7 @@
     &.ant-slider-disabled {
         .ant-slider-handle::after {
             box-shadow: 0 0 0 2px
-                var(
-                    --components-Slider-handle-colors-border-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey200)
-                );
+                var(--components-Slider-handle-colors-border-disabled, var(--general-utilities-neutral-neutralMedium));
         }
     }
 }
@@ -76,10 +67,10 @@
     align-items: baseline;
 
     .end-icon {
-        color: var(--components-Slider-endIcon-colors-default, var(--general-colors-neutral-black60));
+        color: var(--components-Slider-endIcon-colors-default, var(--general-utilities-neutral-neutralDark));
     }
 
     .start-icon {
-        color: var(--components-Slider-startIcon-colors-default, var(--general-colors-neutral-black60));
+        color: var(--components-Slider-startIcon-colors-default, var(--general-utilities-neutral-neutralDark));
     }
 }

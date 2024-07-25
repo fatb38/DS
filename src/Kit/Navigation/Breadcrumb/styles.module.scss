@@ -12,14 +12,15 @@
         color: inherit;
     }
 
-    li:not(:last-child) .ant-breadcrumb-link, .ant-breadcrumb-separator,  .ant-breadcrumb-overlay-link{
-        color: var(--general-colors-primary-primary600);
+    li:not(:last-child) .ant-breadcrumb-link,
+    .ant-breadcrumb-separator,
+    .ant-breadcrumb-overlay-link {
+        color: var(--general-utilities-text-textPrimary);
     }
 
-    li:last-child .ant-breadcrumb-link, li:last-child .ant-dropdown-trigger a, li:last-child .ant-dropdown-trigger .anticon {
-            color: var(--general-colors-primary-primary400);
+    li:last-child .ant-breadcrumb-link,
+    li:last-child .ant-dropdown-trigger a,
+    li:last-child .ant-dropdown-trigger .anticon {
+        color: var(--general-utilities-main-mainColor);
     }
-
-
-
 }

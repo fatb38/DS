@@ -1,14 +1,11 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-input) {
-     &.ant-input,
+    &.ant-input,
     .ant-input {
         height: 40px;
-        padding: 0 10px;
-        font-weight: var(
-            --components-input-typography-content-fontWeight,
-            var(--general-typography-mediumfontWeight)
-        );
+        padding: convertToPixel(--general-spacing-none) 10px;
+        font-weight: var(--components-input-typography-content-fontWeight, var(--general-typography-mediumfontWeight));
 
         &::placeholder {
             font-weight: var(
@@ -21,48 +18,26 @@
     &.ant-input-affix-wrapper {
         font-size: convertToPixel(--components-input-typography-fontSize, --general-typography-fontSize5);
         border-radius: convertToPixel(--components-input-border-radius, --general-border-radius-s);
-        padding: 0 12px;
-
-        &:focus-within {
-            border-color: var(
-                --components-input-colors-border-hover,
-                var(--general-colors-primary-primary400)
-            );
-        }
+        padding: convertToPixel(--general-spacing-none) 12px;
 
         .ant-input-prefix {
             margin-inline-end: 10px;
-            color: var(
-                --components-input-colors-prefix-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey600)
-            );
+            color: var(--components-input-colors-prefix-default, var(--general-utilities-text-textPrimary));
         }
 
         .ant-input-suffix {
             margin-inline-start: 10px;
-            color: var(
-                --components-input-colors-suffix-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey600)
-            );
+            color: var(--components-input-colors-suffix-default, var(--general-utilities-text-textPrimary));
 
             .ant-input-clear-icon {
                 display: flex;
-                color: var(
-                    --components-input-colors-clearIcon-default,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey600)
-                );
+                color: var(--components-input-colors-clearIcon-default, var(--general-utilities-text-textPrimary));
             }
         }
 
         .ant-input-suffix .ant-input-show-count-suffix {
-            color: var(
-                --components-input-colors-showCount-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey300)
-            );
-            font-size: convertToPixel(
-                --components-input-typography-showCount-fontSize,
-                --general-typography-fontSize7
-            );
+            color: var(--components-input-colors-showCount-default, var(--general-utilities-neutral-neutralDark));
+            font-size: convertToPixel(--components-input-typography-showCount-fontSize, --general-typography-fontSize7);
             font-weight: var(
                 --components-input-typography-showCount-fontWeight,
                 var(--general-typography-regularFontWeight)
@@ -85,95 +60,26 @@
         }
 
         &.ant-input-affix-wrapper-disabled {
-            border-color: var(
-                --components-input-colors-border-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey200)
-            );
+            border-color: var(--components-input-colors-border-disabled, var(--general-utilities-border));
 
             .ant-input-prefix svg {
-                color: var(
-                    --components-input-colors-prefix-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
-                );
+                color: var(--components-input-colors-prefix-disabled, var(--general-utilities-text-textDisabled));
             }
 
             .ant-input-suffix {
-                color: var(
-                    --components-input-colors-suffix-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
-                );
+                color: var(--components-input-colors-suffix-disabled, var(--general-utilities-text-textDisabled));
 
                 .ant-input-show-count-suffix {
                     color: var(
                         --components-input-colors-showCount-disabled,
-                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                        var(--general-utilities-text-textDisabled)
                     );
                 }
 
                 .ant-input-clear-icon {
                     color: var(
                         --components-input-colors-clearIcon-disabled,
-                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
-                    );
-                }
-            }
-        }
-
-        &.ant-input-affix-wrapper-status-error:not(.ant-input-disabled) {
-            .ant-input-prefix svg {
-                color: var(
-                    --components-input-colors-prefix-error,
-                    var(--general-colors-secondary-red-red400)
-                );
-            }
-
-            .ant-input-suffix {
-                color: var(
-                    --components-input-colors-suffix-error,
-                    var(--general-colors-secondary-red-red400)
-                );
-
-                .ant-input-show-count-suffix {
-                    color: var(
-                        --components-input-colors-showCount-error,
-                        var(--general-colors-secondary-red-red300)
-                    );
-                }
-
-                .ant-input-clear-icon {
-                    color: var(
-                        --components-input-colors-clearIcon-error,
-                        var(--general-colors-secondary-red-red400)
-                    );
-                }
-            }
-        }
-
-        &.ant-input-affix-wrapper-status-warning:not(.ant-input-disabled) {
-            .ant-input-prefix svg {
-                color: var(
-                    --components-input-colors-prefix-warning,
-                    var(--general-colors-secondary-orange-orange400)
-                );
-            }
-
-            .ant-input-suffix {
-                color: var(
-                    --components-input-colors-suffix-warning,
-                    var(--general-colors-secondary-orange-orange400)
-                );
-
-                .ant-input-show-count-suffix {
-                    color: var(
-                        --components-input-colors-showCount-warning,
-                        var(--general-colors-secondary-orange-orange300)
-                    );
-                }
-
-                .ant-input-clear-icon {
-                    color: var(
-                        --components-input-colors-clearIcon-warning,
-                        var(--general-colors-secondary-orange-orange500)
+                        var(--general-utilities-text-textDisabled)
                     );
                 }
             }
@@ -182,26 +88,17 @@
 
     &.ant-input-disabled,
     .ant-input-disabled {
-        border-color: var(
-            --components-input-colors-border-disabled,
-            var(--general-colors-secondary-mediumGrey-mediumGrey200)
-        );
-        color: var(
-            --components-input-colors-typography-content-disabled,
-            var(--general-colors-secondary-mediumGrey-mediumGrey400)
-        );
+        border-color: var(--components-input-colors-border-disabled, var(--general-utilities-border));
+        color: var(--components-input-colors-typography-content-disabled, var(--general-utilities-text-textDisabled));
 
         &:hover {
-            border-color: var(
-                --components-input-colors-border-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey200)
-            );
+            border-color: var(--components-input-colors-border-disabled, var(--general-utilities-border));
         }
 
         &::placeholder {
             color: var(
                 --components-input-colors-typography-placeholder-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                var(--general-utilities-text-textDisabled)
             );
         }
     }
@@ -210,28 +107,17 @@
     &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-error,
     &.ant-input-affix-wrapper.ant-input-affix-wrapper-status-error .ant-input,
     &.ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
-        background-color: var(
-            --components-input-colors-background-error,
-            var(--general-colors-secondary-red-red100)
-        );
-        color: var(
-            --components-input-colors-typography-content-error,
-            var(--general-colors-secondary-red-red400)
-        );
+        background-color: var(--components-input-colors-background-error, var(--general-utilities-error-errorLight));
+        color: var(--components-input-colors-typography-content-error, var(--general-utilities-text-textError));
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
-            border-color: var(
-                --components-input-colors-border-error,
-                var(--general-colors-secondary-red-red400)
-            );
+            border-color: var(--components-input-colors-border-error, var(--general-utilities-error-errorColor));
+
             &.ant-input-affix-wrapper-focused {
                 border-color: transparent;
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 3px
-                    var(
-                        --components-input-colors-border-focus-error,
-                        var(--general-colors-secondary-red-red200)
-                    );
+                    var(--components-input-colors-border-focus-error, var(--general-utilities-error-errorMedium));
 
                 &:hover {
                     border-color: transparent;
@@ -240,10 +126,23 @@
         }
 
         &.ant-input-affix-wrapper .ant-input::placeholder {
-            color: var(
-                --components-input-colors-typography-placeholder-error,
-                var(--general-colors-secondary-red-red400)
-            );
+            color: var(--components-input-colors-typography-placeholder-error, var(--general-utilities-text-textError));
+        }
+
+        .ant-input-prefix svg {
+            color: var(--components-input-colors-prefix-error, var(--general-utilities-text-textError));
+        }
+
+        .ant-input-suffix {
+            color: var(--components-input-colors-prefix-error, var(--general-utilities-text-textError));
+
+            .ant-input-show-count-suffix {
+                color: var(--components-input-colors-showCount-error, var(--general-utilities-text-textError));
+            }
+
+            .ant-input-clear-icon {
+                color: var(--components-input-colors-clearIcon-error, var(--general-utilities-text-textError));
+            }
         }
     }
 
@@ -253,26 +152,17 @@
     &.ant-input-outlined.ant-input-status-warning:not(.ant-input-disabled) {
         background-color: var(
             --components-input-colors-background-warning,
-            var(--general-colors-secondary-orange-orange100)
+            var(--general-utilities-warning-warningLight)
         );
-        color: var(
-            --components-input-colors-typography-content-warning,
-            var(--general-colors-secondary-orange-orange500)
-        );
+        color: var(--components-input-colors-typography-content-warning, var(--general-utilities-text-textWarning));
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
-            border-color: var(
-                --components-input-colors-border-warning,
-                var(--general-colors-secondary-orange-orange400)
-            );
+            border-color: var(--components-input-colors-border-warning, var(--general-utilities-warning-warningColor));
             &.ant-input-affix-wrapper-focused {
                 border-color: transparent;
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 3px
-                    var(
-                        --components-input-colors-border-focus-warning,
-                        var(--general-colors-secondary-orange-orange200)
-                    );
+                    var(--components-input-colors-border-focus-warning, var(--general-utilities-warning-warningMedium));
 
                 &:hover {
                     border-color: transparent;
@@ -283,8 +173,24 @@
         &.ant-input-affix-wrapper .ant-input::placeholder {
             color: var(
                 --components-input-colors-typography-placeholder-warning,
-                var(--general-colors-secondary-orange-orange500)
+                var(--general-utilities-warning-warningColor)
             );
+        }
+
+        .ant-input-prefix svg {
+            color: var(--components-input-colors-prefix-warning, var(--general-utilities-warning-warningColor));
+        }
+
+        .ant-input-suffix {
+            color: var(--components-input-colors-suffix-warning, var(--general-utilities-warning-warningColor));
+
+            .ant-input-show-count-suffix {
+                color: var(--components-input-colors-showCount-warning, var(--general-utilities-warning-warningColor));
+            }
+
+            .ant-input-clear-icon {
+                color: var(--components-input-colors-clearIcon-warning, var(--general-utilities-warning-warningColor));
+            }
         }
     }
 
@@ -292,8 +198,7 @@
     &.ant-input-affix-wrapper.ant-input-affix-wrapper-focused {
         border-color: transparent;
         // TODO change to cards-border-stroke when available
-        box-shadow: 0 0 0 3px
-            var(--components-input-colors-border-focus-default, var(--general-colors-primary-primary200));
+        box-shadow: 0 0 0 3px var(--components-input-colors-border-focus-default, var(--general-utilities-focus));
 
         &.ant-input::placeholder,
         .ant-input::placeholder {
@@ -304,12 +209,13 @@
 
 :local(.kit-password) {
     &.ant-input-affix-wrapper {
-        padding: 0 12px;
+        padding: convertToPixel(--general-spacing-none) 12px;
 
         .ant-input {
             height: 38px;
-            padding: 0 10px 0 0;
-            border-radius: 7px;
+            padding: convertToPixel(--general-spacing-none) 10px convertToPixel(--general-spacing-none)
+                convertToPixel(--general-spacing-none);
+            border-radius: convertToPixel(--general-border-radius-s);
             font-weight: var(
                 --components-Input-Passwordtypography-content-fontWeight,
                 var(--general-typography-mediumfontWeight)
@@ -327,14 +233,14 @@
             .ant-input-password-icon {
                 color: var(
                     --components-Input-Passwordcolors-passwordIcon-default,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                    var(--general-utilities-text-textPrimary)
                 );
             }
 
             .ant-input-show-count-suffix {
                 color: var(
                     --components-Input-Passwordcolors-showCount-default,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey300)
+                    var(--general-utilities-text-textDisabled)
                 );
                 font-size: convertToPixel(
                     --components-Input-Passwordtypography-showCount-fontSize,
@@ -349,7 +255,7 @@
             .ant-input-clear-icon {
                 color: var(
                     --components-Input-Passwordcolors-clearIcon-default,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey500)
+                    var(--general-utilities-text-textPrimary)
                 );
                 display: flex;
             }
@@ -357,28 +263,22 @@
 
         .ant-input-prefix {
             margin-inline-end: 10px;
-            color: var(
-                --components-Input-Passwordcolors-prefix-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey500)
-            );
+            color: var(--components-Input-Passwordcolors-prefix-default, var(--general-utilities-text-textPrimary));
         }
 
         &.ant-input-affix-wrapper-disabled {
-            border-color: var(
-                --components-Input-Passwordcolors-border-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey200)
-            );
+            border-color: var(--components-Input-Passwordcolors-border-disabled, var(--general-utilities-border));
 
             .ant-input {
                 color: var(
                     --components-Input-Passwordcolors-typography-content-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-utilities-text-textDisabled)
                 );
 
                 &::placeholder {
                     color: var(
                         --components-Input-Passwordcolors-typography-placeholder-disabled,
-                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                        var(--general-utilities-text-textDisabled)
                     );
                 }
             }
@@ -386,34 +286,34 @@
             .ant-input-prefix svg {
                 color: var(
                     --components-Input-Passwordcolors-prefix-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-utilities-text-textDisabled)
                 );
             }
 
             .ant-input-suffix {
                 color: var(
                     --components-Input-Passwordcolors-suffix-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-utilities-text-textDisabled)
                 );
 
                 .ant-input-clear-icon {
                     color: var(
                         --components-Input-Passwordcolors-clearIcon-disabled,
-                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                        var(--general-utilities-text-textDisabled)
                     );
                 }
 
                 .ant-input-show-count-suffix {
                     color: var(
                         --components-Input-Passwordcolors-showCount-disabled,
-                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                        var(--general-utilities-text-textDisabled)
                     );
                 }
 
                 .ant-input-password-icon {
                     color: var(
                         --components-Input-Passwordcolors-passwordIcon-disabled,
-                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                        var(--general-utilities-text-textDisabled)
                     );
                 }
             }
@@ -421,28 +321,29 @@
 
         &.ant-input-affix-wrapper-status-error,
         &.ant-input-affix-wrapper-status-error .ant-input,
-        &.ant-input-outlined.ant-input-status-error:not(.ant-input-disabled)  {
+        &.ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
             background-color: var(
                 --components-Input-Passwordcolors-background-error,
-                var(--general-colors-secondary-red-red100)
+                var(--general-utilities-error-errorLight)
             );
             color: var(
                 --components-Input-Passwordcolors-typography-content-error,
-                var(--general-colors-secondary-red-red400)
+                var(--general-utilities-text-textError)
             );
 
             &:not(.ant-input-borderless):not(.ant-input-disabled) {
                 border-color: var(
                     --components-Input-Passwordcolors-border-error,
-                    var(--general-colors-secondary-red-red400)
+                    var(--general-utilities-error-errorColor)
                 );
+
                 &.ant-input-affix-wrapper-focused {
                     border-color: transparent;
                     // TODO change to cards-border-stroke when available
                     box-shadow: 0 0 0 3px
                         var(
                             --components-Input-Passwordcolors-border-focus-error,
-                            var(--general-colors-secondary-red-red200)
+                            var(--general-utilities-error-errorMedium)
                         );
 
                     &:hover {
@@ -454,41 +355,35 @@
             &.ant-input-affix-wrapper .ant-input::placeholder {
                 color: var(
                     --components-Input-Passwordcolors-typography-placeholder-error,
-                    var(--general-colors-secondary-red-red400)
+                    var(--general-utilities-text-textError)
                 );
             }
 
             .ant-input-prefix svg {
-                color: var(
-                    --components-Input-Passwordcolors-prefix-error,
-                    var(--general-colors-secondary-red-red400)
-                );
+                color: var(--components-Input-Passwordcolors-prefix-error, var(--general-utilities-text-textError));
             }
 
             .ant-input-suffix {
-                color: var(
-                    --components-Input-Passwordcolors-suffix-error,
-                    var(--general-colors-secondary-red-red400)
-                );
+                color: var(--components-Input-Passwordcolors-suffix-error, var(--general-utilities-text-textError));
 
                 .ant-input-clear-icon {
                     color: var(
                         --components-Input-Passwordcolors-clearIcon-error,
-                        var(--general-colors-secondary-red-red400)
+                        var(--general-utilities-text-textError)
                     );
                 }
 
                 .ant-input-show-count-suffix {
                     color: var(
                         --components-Input-Passwordcolors-showCount-error,
-                        var(--general-colors-secondary-red-red300)
+                        var(--general-utilities-text-textError)
                     );
                 }
 
                 .ant-input-password-icon {
                     color: var(
                         --components-Input-Passwordcolors-passwordIcon-error,
-                        var(--general-colors-secondary-red-red400)
+                        var(--general-utilities-text-textError)
                     );
                 }
             }
@@ -499,25 +394,26 @@
         &.ant-input-outlined.ant-input-status-warning:not(.ant-input-disabled) {
             background-color: var(
                 --components-Input-Passwordcolors-background-warning,
-                var(--general-colors-secondary-orange-orange100)
+                var(--general-utilities-warning-warningLight)
             );
             color: var(
                 --components-Input-Passwordcolors-typography-content-warning,
-                var(--general-colors-secondary-orange-orange500)
+                var(--general-utilities-text-textWarning)
             );
 
             &:not(.ant-input-borderless):not(.ant-input-disabled) {
                 border-color: var(
                     --components-Input-Passwordcolors-border-warning,
-                    var(--general-colors-secondary-orange-orange400)
+                    var(--general-utilities-warning-warningColor)
                 );
+
                 &.ant-input-affix-wrapper-focused {
                     border-color: transparent;
                     // TODO change to cards-border-stroke when available
                     box-shadow: 0 0 0 3px
                         var(
                             --components-Input-Passwordcolors-border-focus-warning,
-                            var(--general-colors-secondary-orange-orange200)
+                            var(--general-utilities-warning-warningMedium)
                         );
 
                     &:hover {
@@ -529,41 +425,35 @@
             &.ant-input-affix-wrapper .ant-input::placeholder {
                 color: var(
                     --components-Input-Passwordcolors-typography-placeholder-warning,
-                    var(--general-colors-secondary-orange-orange500)
+                    var(--general-utilities-text-textWarning)
                 );
             }
 
             .ant-input-prefix svg {
-                color: var(
-                    --components-Input-Passwordcolors-prefix-warning,
-                    var(--general-colors-secondary-orange-orange400)
-                );
+                color: var(--components-Input-Passwordcolors-prefix-warning, var(--general-utilities-text-textWarning));
             }
 
             .ant-input-suffix {
-                color: var(
-                    --components-Input-Passwordcolors-prefix-warning,
-                    var(--general-colors-secondary-orange-orange400)
-                );
+                color: var(--components-Input-Passwordcolors-prefix-warning, var(--general-utilities-text-textWarning));
 
                 .ant-input-clear-icon {
                     color: var(
                         --components-Input-Passwordcolors-clearIcon-warning,
-                        var(--general-colors-secondary-orange-orange500)
+                        var(--general-utilities-text-textWarning)
                     );
                 }
 
                 .ant-input-show-count-suffix {
                     color: var(
                         --components-Input-Passwordcolors-showCount-warning,
-                        var(--general-colors-secondary-orange-orange300)
+                        var(--general-utilities-text-textWarning)
                     );
                 }
 
                 .ant-input-password-icon {
                     color: var(
                         --components-Input-Passwordcolors-passwordIcon-warning,
-                        var(--general-colors-secondary-orange-orange500)
+                        var(--general-utilities-text-textWarning)
                     );
                 }
             }
@@ -573,10 +463,7 @@
             // TODO change to cards-border-stroke when available
             border-color: transparent;
             box-shadow: 0 0 0 3px
-                var(
-                    --components-Input-Passwordcolors-border-focus-default,
-                    var(--general-colors-primary-primary200)
-                );
+                var(--components-Input-Passwordcolors-border-focus-default, var(--general-utilities-focus));
 
             .ant-input::placeholder {
                 color: transparent;
@@ -586,9 +473,9 @@
 }
 
 :local(.kit-textarea) {
-     &.ant-input,
+    &.ant-input,
     .ant-input {
-        padding: 4px 10px;
+        padding: convertToPixel(--general-spacing-xxs) 10px;
         font-weight: var(
             --components-Input-TextAreatypography-content-fontWeight,
             var(--general-typography-mediumfontWeight)
@@ -604,17 +491,14 @@
 
     .ant-input-suffix {
         .ant-input-clear-icon {
-            color: var(
-                --components-Input-TextAreacolors-clearIcon-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey500)
-            );
+            color: var(--components-Input-TextAreacolors-clearIcon-default, var(--general-utilities-text-textPrimary));
         }
     }
 
     &.ant-input-affix-wrapper {
         &.ant-input-textarea-allow-clear {
             .ant-input {
-                padding-inline-end: 24px;
+                padding-inline-end: convertToPixel(--general-spacing-m);
             }
         }
 
@@ -623,7 +507,7 @@
                 bottom: -23px;
                 color: var(
                     --components-Input-TextAreacolors-showCount-default,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey300)
+                    var(--general-utilities-text-textDisabled)
                 );
                 font-size: convertToPixel(
                     --components-Input-TextAreatypography-showCount-fontSize,
@@ -640,7 +524,7 @@
             .ant-input-data-count {
                 color: var(
                     --components-Input-TextAreacolors-showCount-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-utilities-text-textDisabled)
                 );
             }
 
@@ -648,87 +532,29 @@
                 .ant-input-clear-icon {
                     color: var(
                         --components-Input-TextAreacolors-clearIcon-disabled,
-                        var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                        var(--general-utilities-text-textDisabled)
                     );
                 }
-            }
-        }
-
-        &.ant-input-affix-wrapper-status-error {
-            .ant-input-data-count {
-                color: var(
-                    --components-Input-TextAreacolors-showCount-error,
-                    var(--general-colors-secondary-red-red300)
-                );
-            }
-
-            .ant-input-suffix {
-                .ant-input-clear-icon {
-                    color: var(
-                        --components-Input-TextAreacolors-clearIcon-error,
-                        var(--general-colors-secondary-red-red400)
-                    );
-                }
-            }
-
-            &:hover,
-            &:focus {
-                border-color: var(
-                    --components-Input-TextAreacolors-border-error,
-                    var(--general-colors-secondary-red-red400)
-                );
-            }
-        }
-
-        &.ant-input-affix-wrapper-status-warning {
-            .ant-input-data-count {
-                color: var(
-                    --components-Input-TextAreacolors-showCount-warning,
-                    var(--general-colors-secondary-orange-orange300)
-                );
-            }
-
-            .ant-input-suffix {
-                .ant-input-clear-icon {
-                    color: var(
-                        --components-Input-TextAreacolors-clearIcon-warning,
-                        var(--general-colors-secondary-orange-orange500)
-                    );
-                }
-            }
-
-            &:hover,
-            &:focus {
-                border-color: var(
-                    --components-Input-TextAreacolors-border-warning,
-                    var(--general-colors-secondary-orange-orange400)
-                );
             }
         }
     }
 
     &.ant-input-disabled,
     .ant-input-disabled {
-        border-color: var(
-            --components-Input-TextAreacolors-border-disabled,
-            var(--general-colors-secondary-mediumGrey-mediumGrey200)
-        );
+        border-color: var(--components-Input-TextAreacolors-border-disabled, var(--general-utilities-border));
         color: var(
             --components-Input-TextAreacolors-typography-content-disabled,
-            var(--general-colors-secondary-mediumGrey-mediumGrey400)
+            var(--general-utilities-text-textDisabled)
         );
 
         &:hover {
-            border-color: var(
-                --components-Input-TextAreacolors-border-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey200)
-            );
+            border-color: var(--components-Input-TextAreacolors-border-disabled, var(--general-utilities-border));
         }
 
         &::placeholder {
             color: var(
                 --components-Input-TextAreacolors-typography-placeholder-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                var(--general-utilities-text-textDisabled)
             );
         }
     }
@@ -739,17 +565,14 @@
     &.ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
         background-color: var(
             --components-Input-TextAreacolors-background-error,
-            var(--general-colors-secondary-red-red100)
+            var(--general-utilities-error-errorLight)
         );
-        color: var(
-            --components-Input-TextAreacolors-typography-content-error,
-            var(--general-colors-secondary-red-red400)
-        );
+        color: var(--components-Input-TextAreacolors-typography-content-error, var(--general-utilities-text-textError));
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
             border-color: var(
                 --components-Input-TextAreacolors-border-error,
-                var(--general-colors-secondary-red-red400)
+                var(--general-utilities-error-errorColor)
             );
             &.ant-input-affix-wrapper-focused {
                 border-color: transparent;
@@ -757,7 +580,7 @@
                 box-shadow: 0 0 0 3px
                     var(
                         --components-Input-TextAreacolors-border-focus-error,
-                        var(--general-colors-secondary-red-red200)
+                        var(--general-utilities-error-errorMedium)
                     );
 
                 &:hover {
@@ -770,7 +593,25 @@
         &.ant-input-affix-wrapper .ant-input::placeholder {
             color: var(
                 --components-Input-TextAreacolors-typography-placeholder-error,
-                var(--general-colors-secondary-red-red400)
+                var(--general-utilities-error-errorColor)
+            );
+        }
+
+        .ant-input-data-count {
+            color: var(--components-Input-TextAreacolors-showCount-error, var(--general-utilities-text-textError));
+        }
+
+        .ant-input-suffix {
+            .ant-input-clear-icon {
+                color: var(--components-Input-TextAreacolors-clearIcon-error, var(--general-utilities-text-textError));
+            }
+        }
+
+        &:hover,
+        &:focus {
+            border-color: var(
+                --components-Input-TextAreacolors-border-error,
+                var(--general-utilities-error-errorColor)
             );
         }
     }
@@ -781,25 +622,26 @@
     &.ant-input-outlined.ant-input-status-warning:not(.ant-input-disabled) {
         background-color: var(
             --components-Input-TextAreacolors-background-warning,
-            var(--general-colors-secondary-orange-orange100)
+            var(--general-utilities-warning-warningLight)
         );
         color: var(
             --components-Input-TextAreacolors-typography-content-warning,
-            var(--general-colors-secondary-orange-orange500)
+            var(--general-utilities-text-textWarning)
         );
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
             border-color: var(
                 --components-Input-TextAreacolors-border-warning,
-                var(--general-colors-secondary-orange-orange400)
+                var(--general-utilities-warning-warningColor)
             );
+
             &.ant-input-affix-wrapper-focused {
                 border-color: transparent;
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 3px
                     var(
                         --components-Input-TextAreacolors-border-focus-warning,
-                        var(--general-colors-secondary-orange-orange200)
+                        var(--general-utilities-warning-warningMedium)
                     );
 
                 &:hover {
@@ -812,7 +654,28 @@
         &.ant-input-affix-wrapper .ant-input::placeholder {
             color: var(
                 --components-Input-TextAreacolors-typography-placeholder-warning,
-                var(--general-colors-secondary-orange-orange500)
+                var(--general-utilities-text-textWarning)
+            );
+        }
+
+        .ant-input-data-count {
+            color: var(--components-Input-TextAreacolors-showCount-warning, var(--general-utilities-text-textWarning));
+        }
+
+        .ant-input-suffix {
+            .ant-input-clear-icon {
+                color: var(
+                    --components-Input-TextAreacolors-clearIcon-warning,
+                    var(--general-utilities-text-textWarning)
+                );
+            }
+        }
+
+        &:hover,
+        &:focus {
+            border-color: var(
+                --components-Input-TextAreacolors-border-warning,
+                var(--general-utilities-text-textWarning)
             );
         }
     }
@@ -822,10 +685,7 @@
         border-color: transparent;
         // TODO change to cards-border-stroke when available
         box-shadow: 0 0 0 3px
-            var(
-                --components-Input-TextAreacolors-border-focus-default,
-                var(--general-colors-primary-primary200)
-            );
+            var(--components-Input-TextAreacolors-border-focus-default, var(--general-utilities-focus));
 
         .ant-input::placeholder {
             color: transparent;

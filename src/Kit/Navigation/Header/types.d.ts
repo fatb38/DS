@@ -1,6 +1,7 @@
 import {ReactNode} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {MenuProps} from 'antd';
+import {IKitTag} from '@kit/DataDisplay/Tag/types';
 
 export interface IKitHeader extends KitHTMLAttributes<HTMLDivElement> {
     menu?: ReactNode;
@@ -13,7 +14,7 @@ export interface IKitHeader extends KitHTMLAttributes<HTMLDivElement> {
 export interface IKitHeaderProfile extends KitHTMLAttributes<HTMLDivElement> {
     logo?: string;
     alt?: string;
-    tag?: ReactNode;
+    tagProps?: IKitTag;
     userCard?: ReactNode;
     menu?: ReactNode | MenuProps;
 }

@@ -36,11 +36,7 @@
     &.ant-input-number.kit-input-number-affix-wrapper-focused {
         border-color: transparent;
         // TODO change to cards-border-stroke when available
-        box-shadow: 0 0 0 3px
-            var(
-                --components-InputNumber-colors-border-focus-default,
-                var(--general-colors-primary-primary200)
-            );
+        box-shadow: 0 0 0 3px var(--components-InputNumber-colors-border-focus-default, var(--general-utilities-focus));
 
         &.ant-input::placeholder,
         .ant-input::placeholder {
@@ -58,21 +54,18 @@
 
     &.ant-input-number-disabled,
     &.ant-input-number-affix-wrapper-disabled {
-        border-color: var(
-            --components-InputNumber-colors-border-disabled,
-            var(--general-colors-secondary-mediumGrey-mediumGrey200)
-        );
+        border-color: var(--components-InputNumber-colors-border-disabled, var(--general-utilities-border));
 
         .ant-input-number-input {
             color: var(
                 --components-InputNumber-colors-typography-content-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                var(--general-utilities-text-textDisabled)
             );
 
             &::placeholder {
                 color: var(
                     --components-InputNumber-colors-typography-placeholder-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-utilities-text-textDisabled)
                 );
             }
         }
@@ -81,7 +74,8 @@
     &.ant-input-number-affix-wrapper {
         .ant-input-number-input-wrap {
             .ant-input-number-input {
-                padding: 0px 10px 0px 0px;
+                padding: convertToPixel(--general-spacing-none) 10px convertToPixel(--general-spacing-none)
+                    convertToPixel(--general-spacing-none);
             }
         }
 
@@ -92,38 +86,34 @@
     }
 
     .ant-input-number-input-wrap {
-        border-radius: 0 7px 7px 0;
+        border-radius: convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-s)
+            convertToPixel(--general-border-radius-s) convertToPixel(--general-border-radius-square);
 
         .ant-input-number-input {
-            padding: 0px 10px;
-            border-radius: 0;
+            padding: convertToPixel(--general-spacing-none) 10px;
+            border-radius: convertToPixel(--general-border-radius-square);
         }
     }
 
     &.ant-input-number-status-warning,
     &.ant-input-number-affix-wrapper-status-warning {
-        background-color: var(
-            --components-InputNumber-colors-background-warning,
-            var(--general-colors-secondary-orange-orange100)
-        );
-
         .ant-input-number-input-wrap {
             background-color: var(
                 --components-InputNumber-colors-background-warning,
-                var(--general-colors-secondary-orange-orange100)
+                var(--general-utilities-warning-warningLight)
             );
         }
 
         .ant-input-number-input {
             color: var(
                 --components-InputNumber-colors-typography-content-warning,
-                var(--general-colors-secondary-orange-orange400)
+                var(--general-utilities-text-textWarning)
             );
 
             &::placeholder {
                 color: var(
                     --components-InputNumber-colors-typography-content-warning,
-                    var(--general-colors-secondary-orange-orange400)
+                    var(--general-utilities-text-textWarning)
                 );
             }
         }
@@ -131,7 +121,12 @@
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
             border-color: var(
                 --components-InputNumber-colors-border-warning,
-                var(--general-colors-secondary-orange-orange400)
+                var(--general-utilities-warning-warningColor)
+            );
+
+            background-color: var(
+                --components-InputNumber-colors-background-warning,
+                var(--general-utilities-warning-warningLight)
             );
 
             &.ant-input-number-affix-wrapper.kit-input-number-affix-wrapper-focused,
@@ -141,7 +136,7 @@
                 box-shadow: 0 0 0 3px
                     var(
                         --components-InputNumber-colors-border-focus-warning,
-                        var(--general-colors-secondary-orange-orange200)
+                        var(--general-utilities-warning-warningMedium)
                     );
 
                 &:hover {
@@ -154,37 +149,33 @@
     &.ant-input-number-status-error,
     &.ant-input-number-out-of-range,
     &.ant-input-number-affix-wrapper-status-error {
-        background-color: var(
-            --components-InputNumber-colors-background-error,
-            var(--general-colors-secondary-red-red100)
-        );
-        box-shadow: none;
-
         .ant-input-number-input-wrap {
             background-color: var(
                 --components-InputNumber-colors-background-error,
-                var(--general-colors-secondary-red-red100)
+                var(--general-utilities-error-errorLight)
             );
         }
 
         .ant-input-number-input {
             color: var(
                 --components-InputNumber-colors-typography-content-error,
-                var(--general-colors-secondary-red-red400)
+                var(--general-utilities-text-textError)
             );
 
             &::placeholder {
                 color: var(
                     --components-InputNumber-colors-typography-placeholder-error,
-                    var(--general-colors-secondary-red-red400)
+                    var(--general-utilities-text-textError)
                 );
             }
         }
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
-            border-color: var(
-                --components-InputNumber-colors-border-error,
-                var(--general-colors-secondary-red-red400)
+            border-color: var(--components-InputNumber-colors-border-error, var(--general-utilities-error-errorColor));
+
+            background-color: var(
+                --components-InputNumber-colors-background-error,
+                var(--general-utilities-error-errorLight)
             );
 
             &.ant-input-number-affix-wrapper.kit-input-number-affix-wrapper-focused,
@@ -192,10 +183,7 @@
                 border-color: transparent;
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 3px
-                    var(
-                        --components-InputNumber-colors-border-focus-error,
-                        var(--general-colors-secondary-red-red200)
-                    );
+                    var(--components-InputNumber-colors-border-focus-error, var(--general-utilities-error-errorMedium));
 
                 &:hover {
                     border-color: transparent;

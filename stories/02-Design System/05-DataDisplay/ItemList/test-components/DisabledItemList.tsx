@@ -46,12 +46,12 @@ export const DisabledItemList: FunctionComponent = () => (
             <div
                 style={{
                     width: '300px',
-                    color: 'var(--general-colors-secondary-mediumGrey-mediumGrey400)',
-                    backgroundColor: 'var(--general-colors-secondary-mediumGrey-mediumGrey100)',
+                    color: 'var(--general-colors-neutral-grey-grey400)',
+                    backgroundColor: 'var(--general-colors-neutral-grey-grey100)',
                     padding: '16px 8px',
                     margin: '8px',
                     borderRadius: '8px',
-                    border: '2px dashed var(--general-colors-secondary-mediumGrey-mediumGrey200)',
+                    border: '2px dashed var(--general-colors-neutral-grey-grey200)',
                     fontSize: 'var(--general-typography-fontSize7)'
                 }}
             >

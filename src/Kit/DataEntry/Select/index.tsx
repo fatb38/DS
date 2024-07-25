@@ -8,17 +8,8 @@ import ShortUniqueId from 'short-unique-id';
 import {useDebouncedCallback} from 'use-debounce';
 import {IKitInternalOption, IKitOption, IKitSelect} from './types';
 import styles from './styles.module.scss';
-import flatten from 'lodash/flatten';
 import useIcons from './useIcons';
-import {
-    fixSelectRender,
-    getDropdownRender,
-    getLabelRender,
-    getMaxTagRender,
-    getOptionLabelRender,
-    getOptionRender,
-    getTagRender
-} from './renders';
+import {fixSelectRender, getDropdownRender, getMaxTagRender, getOptionLabelRender, getTagRender} from './renders';
 
 const _parseOptions = (optionList: IKitOption[], labelOnly?: IKitSelect['labelOnly']): IKitInternalOption[] =>
     optionList.map(option => {
@@ -33,7 +24,7 @@ const _parseOptions = (optionList: IKitOption[], labelOnly?: IKitSelect['labelOn
 
         return {
             label: getOptionLabelRender(option, labelOnly),
-            labelToDisplay: getOptionLabelRender(option, labelOnly),
+            labelToDisplay: option,
             rawLabel: option?.label ?? '',
             className,
             disabled,
@@ -41,12 +32,18 @@ const _parseOptions = (optionList: IKitOption[], labelOnly?: IKitSelect['labelOn
         };
     });
 
-const _getPlacementClasses = (appId: string, className: string | undefined, placement: IKitSelect['placement']) => {
+const _getPlacementClasses = (
+    appId: string,
+    className: string | undefined,
+    placement: IKitSelect['placement'],
+    readonly: boolean
+) => {
     const isTop = placement && placement.indexOf('top') >= 0;
 
     return cn(appId, styles['kit-select'], className, {
         'ant-select-top': isTop,
-        'ant-select-bottom': !isTop
+        'ant-select-bottom': !isTop,
+        'kit-select-readonly': readonly
     });
 };
 
@@ -100,6 +97,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             actions,
             onInfoClick,
             dropdownRender,
+            readonly = false,
             ...props
         },
         ref?: Ref<RefSelectProps> | undefined
@@ -135,12 +133,6 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         const internalOptions = useMemo(
             (): IKitInternalOption[] => (options ? _parseOptions(options, labelOnly) : []),
             [options, labelOnly]
-        );
-
-        const flattenInternalOptions = useMemo(
-            (): IKitInternalOption[] =>
-                flatten<IKitInternalOption>(internalOptions.map(option => option.options ?? option)),
-            [internalOptions]
         );
 
         const _handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
@@ -193,23 +185,20 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                 <AntdSelect
                     {...props}
                     id={internalKitSelectRef.current}
-                    className={_getPlacementClasses(appId, className, placement)}
+                    className={_getPlacementClasses(appId, className, placement, readonly)}
                     popupClassName={_getPopupPlacementClasses(appId, popupClassName, placement, isFocus, status)}
                     options={internalOptions}
                     placement={placement}
-                    disabled={disabled}
+                    disabled={disabled || readonly}
+                    variant={readonly ? 'borderless' : undefined}
                     status={status}
                     menuItemSelectedIcon={selectedItemIcon}
                     mode={mode}
                     loading={loading}
                     suffixIcon={suffixIcon}
                     allowClear={clearIcon ? {clearIcon} : false}
-                    optionRender={option => getOptionRender(option, flattenInternalOptions)}
                     dropdownRender={menu => getDropdownRender(menu, dropdownRender)}
-                    labelRender={props => getLabelRender(props, internalOptions)}
-                    tagRender={
-                        mode !== undefined ? props => getTagRender(props, disabled, status, internalOptions) : undefined
-                    }
+                    tagRender={props => getTagRender(props, disabled, status, internalOptions)}
                     maxTagCount={oneLineTags ? 'responsive' : undefined}
                     maxTagPlaceholder={
                         oneLineTags ? omittedValues => getMaxTagRender(omittedValues, disabled, status) : undefined

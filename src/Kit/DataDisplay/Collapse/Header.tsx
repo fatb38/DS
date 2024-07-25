@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {IKitHeader, IKitHeaderContent, IKitHeaderImage, IKitHeaderSwitch} from './types';
 import {KitTypography} from '@kit/General/';
 import {KitTag} from '@kit/DataDisplay/Tag';
@@ -39,24 +39,24 @@ const HeaderImage: FunctionComponent<IKitHeaderImage> = ({imageSrc}) => (
         }
     >
         <KitImage
-                src={imageSrc}
-                style={{height: 'auto', width: 'auto', maxHeight: '90px', maxWidth: '50px'}}
-                preview={{
-                    mask: <FontAwesomeIcon icon={faEye} />
-                }}
-            />
+            src={imageSrc}
+            style={{height: 'auto', width: 'auto', maxHeight: '90px', maxWidth: '50px'}}
+            preview={{
+                mask: <FontAwesomeIcon icon={faEye} />
+            }}
+        />
     </div>
 );
 
-const HeaderContent: FunctionComponent<IKitHeaderContent> = ({title, description, tagContent, disabled}) => {
+const HeaderContent: FunctionComponent<IKitHeaderContent> = ({title, description, tagProps, disabled}) => {
     let classes = 'kit-collapse-header-content';
     classes += title !== undefined && description !== undefined ? ' kit-collapse-header-content-rows' : '';
 
     return (
         <div className={classes}>
-            {tagContent !== undefined && (
+            {tagProps !== undefined && (
                 <div className="kit-collapse-header-tag">
-                    <KitTag>{tagContent}</KitTag>
+                    <KitTag {...tagProps} disabled={disabled ?? tagProps.disabled} />
                 </div>
             )}
             {title !== undefined && (
@@ -90,15 +90,15 @@ export const KitHeader: FunctionComponent<IKitHeader> = ({
     imageSrc,
     title,
     description,
-    tagContent,
+    tagProps,
     disabled = false
 }) => (
-        <div className={`${styles['kit-collapse-header']}`}>
-            {onSwitchChange !== undefined && <HeaderSwitch onSwitchChange={onSwitchChange} disabled={disabled} />}
-            {imageSrc !== undefined && <HeaderImage imageSrc={imageSrc} />}
-            <HeaderContent title={title} description={description} tagContent={tagContent} disabled={disabled} />
-        </div>
-    );
+    <div className={`${styles['kit-collapse-header']}`}>
+        {onSwitchChange !== undefined && <HeaderSwitch onSwitchChange={onSwitchChange} disabled={disabled} />}
+        {imageSrc !== undefined && <HeaderImage imageSrc={imageSrc} />}
+        <HeaderContent title={title} description={description} tagProps={tagProps} disabled={disabled} />
+    </div>
+);
 
 KitHeader.displayName = 'KitHeader';
 

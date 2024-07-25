@@ -27,6 +27,7 @@ export const Api: Story = {
 };
 
 const secondaryColors = Object.keys(colorsPalette.secondary);
+const tertiaryColors = Object.keys(colorsPalette.tertiary);
 
 export const ChromaticTest: Story = {
     render: () => (
@@ -40,7 +41,7 @@ export const ChromaticTest: Story = {
                     </div>
                 </div>
                 <div>
-                    <KitTypography.Title level="h4">Readonly</KitTypography.Title>
+                    <KitTypography.Title level="h4">Read only</KitTypography.Title>
                     <KitRate disabled defaultValue={2} />
                 </div>
                 <div>
@@ -54,9 +55,21 @@ export const ChromaticTest: Story = {
                     />
                 </div>
                 <div>
+                    <KitTypography.Title level="h4">Primary color</KitTypography.Title>
+                    <KitRate defaultValue={3} color="primary" />
+                </div>
+                <div>
                     <KitTypography.Title level="h4">Secondary colors</KitTypography.Title>
                     <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
                         {secondaryColors.map((color: string) => (
+                            <KitRate key={color} defaultValue={3} color={color} />
+                        ))}
+                    </div>
+                </div>
+                <div>
+                    <KitTypography.Title level="h4">Tertiary colors</KitTypography.Title>
+                    <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                        {tertiaryColors.map((color: string) => (
                             <KitRate key={color} defaultValue={3} color={color} />
                         ))}
                     </div>

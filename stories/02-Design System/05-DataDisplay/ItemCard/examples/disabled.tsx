@@ -1,65 +1,120 @@
-import React from 'react';
-import {KitItemCard, KitImage} from '@kit/DataDisplay/';
-import {KitSpace} from '@kit/Layout';
-import {KitButton} from '@kit/General';
+import {faFileDownload, faFolder, faGripLines, faPencil, faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faDownload} from '@fortawesome/free-solid-svg-icons';
-import {faFolderOpen} from '@fortawesome/free-regular-svg-icons';
+import {KitItemCard} from '@kit/DataDisplay';
+import {useState} from 'react';
+import {KitSpace} from '@kit/Layout';
+import {KitButton, KitTypography} from '@kit/General';
+import {IKitItemCard} from '@kit/DataDisplay/ItemCard/types';
 
-const App = () => (
-        <KitSpace direction="vertical">
-            <KitItemCard
-                title="Tondeuse à gazon"
-                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                extrainfo="550.00€"
-                picture={<KitImage src="public/images/tondeuse.png" />}
-                colors={[
-                    {label: 'test', color: '#00D9A9'},
-                    {label: 'toto', color: '#009876'}
-                ]}
-                onSelectChange={e => {
-                    console.log(e);
-                }}
-                onEdit={() => {
-                    console.log('onEdit');
-                }}
-                actions={[
-                    <KitButton onClick={() => console.log('download action')}>
-                        <FontAwesomeIcon icon={faDownload} />
-                    </KitButton>,
-                    <KitButton onClick={() => console.log('open action')}>
-                        <FontAwesomeIcon icon={faFolderOpen} />
-                    </KitButton>
-                ]}
-                disabled
-            />
-            <KitItemCard
-                vertical
-                title="Tondeuse à gazon"
-                description="Tondeuse thermique Auto tractée 70 VL 55 TH"
-                extrainfo="550.00€"
-                picture={<KitImage src="public/images/tondeuse.png" />}
-                colors={[
-                    {label: 'test', color: '#00D9A9'},
-                    {label: 'toto', color: '#009876'}
-                ]}
-                onSelectChange={e => {
-                    console.log(e);
-                }}
-                onEdit={() => {
-                    console.log('onEdit');
-                }}
-                actions={[
-                    <KitButton onClick={() => console.log('download action')}>
-                        <FontAwesomeIcon icon={faDownload} />
-                    </KitButton>,
-                    <KitButton onClick={() => console.log('open action')}>
-                        <FontAwesomeIcon icon={faFolderOpen} />
-                    </KitButton>
-                ]}
-                disabled
-            />
+const App = () => {
+    const [selected, setSelected] = useState(false);
+    const [activated, setActivated] = useState(false);
+
+    const tagGroup: IKitItemCard['tagGroup'] = {
+        tags: [
+            {idCardProps: {description: 'Fromage'}, type: 'primary'},
+            {idCardProps: {description: 'Fromage frais'}, type: 'primary'},
+            {idCardProps: {description: 'Ail et fines herbes'}, type: 'primary'},
+            {idCardProps: {description: 'Boursin'}, type: 'primary'}
+        ],
+        othersTagType: 'primary'
+    };
+
+    const breadcrumbItems: IKitItemCard['breadcrumbItems'] = [
+        {
+            title: (
+                <span>
+                    <FontAwesomeIcon icon={faFolder} /> Produit laitier
+                </span>
+            )
+        },
+        {
+            title: 'Fromage'
+        },
+        {
+            title: 'Fromage frais'
+        },
+        {
+            title: 'Boursin'
+        }
+    ];
+
+    const extraContent: IKitItemCard['extra'] = (
+        <KitTypography.Text color="primary" disabled strong>
+            2,55€
+        </KitTypography.Text>
+    );
+
+    const actions: IKitItemCard['actions'] = [
+        {
+            key: '1',
+            label: 'Download image',
+            icon: <FontAwesomeIcon icon={faFileDownload} />,
+            onClick: () => console.log('Click on download image')
+        },
+        {
+            key: '2',
+            label: 'Edit the content',
+            icon: <FontAwesomeIcon icon={faPencil} />,
+            onClick: () => console.log('Click on edit action')
+        },
+        {
+            key: '3',
+            label: 'Delete this item',
+            icon: <FontAwesomeIcon icon={faTrashCan} />,
+            onClick: () => console.log('Click on delete action')
+        }
+    ];
+
+    const draggableHandler: IKitItemCard['draggableHandler'] = (
+        <KitButton disabled type="tertiary" iconSize="l" icon={<FontAwesomeIcon icon={faGripLines} />} />
+    );
+
+    return (
+        <KitSpace direction="vertical" size="l">
+            <KitSpace direction="vertical">
+                <KitTypography.Text strong>ItemCard (card)</KitTypography.Text>
+                <KitItemCard
+                    disabled
+                    title="Fromage Boursin ail et fines herbes - Format 150g"
+                    description="Retrouvez le goût de Boursin® dans une texture délicieusement onctueuse et légère."
+                    imageSrc="public/images/boursin.jpeg"
+                    imageAlt="Boursin ail et fines herbes - Format 150g"
+                    tagGroup={tagGroup}
+                    breadcrumbItems={breadcrumbItems}
+                    extra={extraContent}
+                    activateLabel="Activé"
+                    activated={activated}
+                    onActivate={() => setActivated(prev => !prev)}
+                    draggableHandler={draggableHandler}
+                    selected={selected}
+                    onSelect={() => setSelected(prev => !prev)}
+                    actions={actions}
+                />
+            </KitSpace>
+            <KitSpace direction="vertical">
+                <KitTypography.Text strong>ItemCard (list)</KitTypography.Text>
+                <KitItemCard
+                    disabled
+                    display="list"
+                    title="Fromage Boursin ail et fines herbes - Format 150g"
+                    description="Retrouvez le goût de Boursin® dans une texture délicieusement onctueuse et légère."
+                    imageSrc="public/images/boursin.jpeg"
+                    imageAlt="Boursin ail et fines herbes - Format 150g"
+                    tagGroup={tagGroup}
+                    breadcrumbItems={breadcrumbItems}
+                    extra={extraContent}
+                    activated={activated}
+                    activateLabel="Activé"
+                    onActivate={() => setActivated(prev => !prev)}
+                    draggableHandler={draggableHandler}
+                    selected={selected}
+                    onSelect={() => setSelected(prev => !prev)}
+                    actions={actions}
+                />
+            </KitSpace>
         </KitSpace>
     );
+};
 
 export default App;

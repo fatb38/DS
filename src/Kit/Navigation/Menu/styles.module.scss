@@ -1,12 +1,8 @@
-
 @import '../../../css/mixins.scss';
 
 :local(.kit-menu) {
-    padding: 16px 19px;
-    background-color: var(
-        --components-Menu-colors-background-default,
-        var(--general-colors-neutral-white)
-    );
+    padding: convertToPixel(--general-spacing-s) 19px;
+    background-color: var(--components-Menu-colors-background-default, var(--general-utilities-light));
 
     display: grid;
     grid-template-areas: 'header' 'content';
@@ -20,7 +16,7 @@
             grid-template-areas: 'title close';
             grid-template-columns: 1fr min-content;
             align-items: center;
-            margin-bottom: 16px;
+            margin-bottom: convertToPixel(--general-spacing-s);
 
             .kit-menu-header-title {
                 grid-area: title;
@@ -35,11 +31,11 @@
             display: grid;
             grid-template-areas: 'button primary-input';
             grid-template-columns: min-content 1fr;
-            margin-bottom: 16px;
+            margin-bottom: convertToPixel(--general-spacing-s);
 
             .kit-menu-header-button {
                 grid-area: button;
-                margin-right: 16px;
+                margin-right: convertToPixel(--general-spacing-s);
             }
 
             .kit-menu-header-primary-input {
@@ -51,7 +47,7 @@
             display: grid;
             grid-template-areas: 'secondary-input';
             grid-template-columns: 1fr;
-            margin-bottom: 16px;
+            margin-bottom: convertToPixel(--general-spacing-s);
 
             .kit-menu-header-primary-input {
                 grid-area: secondary-input;
@@ -69,11 +65,9 @@
     display: grid;
     grid-template: 'select icon title actions value rafter';
     grid-template-columns: min-content min-content minmax(0px, auto) min-content min-content min-content;
-    padding: 4px 8px 4px 0px;
-    background-color: var(
-        --components-Menu-itemMenu-colors-background-default,
-        var(--general-colors-neutral-white)
-    );
+    padding: convertToPixel(--general-spacing-xxs) convertToPixel(--general-spacing-xs)
+        convertToPixel(--general-spacing-xxs) convertToPixel(--general-spacing-none);
+    background-color: var(--components-Menu-itemMenu-colors-background-default, var(--general-utilities-light));
 
     align-items: center;
 
@@ -84,58 +78,49 @@
     &.is-selected {
         background-color: var(
             --components-Menu-itemMenu-colors-background-active,
-            var(--general-colors-primary-primary100)
+            var(--general-utilities-main-mainLight)
         );
         border-right: 3px solid
-            var(
-                --components-Menu-itemMenu-colors-border-active,
-                var(--general-colors-primary-primary400)
-            );
+            var(--components-Menu-itemMenu-colors-border-active, var(--general-utilities-main-mainColor));
         padding-inline-end: 5px;
 
         .kit-item-menu-title span,
         .kit-item-menu-icon span {
-            color: var(
-                --components-Menu-itemMenu-colors-title-default,
-                var(--general-colors-primary-primary400)
-            );
+            color: var(--components-Menu-itemMenu-colors-title-default, var(--general-utilities-text-textBlue));
         }
     }
 
     &:hover {
         background-color: var(
             --components-Menu-itemMenu-colors-background-hover,
-            var(--general-colors-primary-primary100)
+            var(--general-utilities-main-mainLight)
         );
     }
 
     .kit-item-menu-checkbox {
         grid-area: select;
-        margin-left: 8px;
-        margin-right: 8px;
+        margin-left: convertToPixel(--general-spacing-xs);
+        margin-right: convertToPixel(--general-spacing-xs);
     }
 
     .kit-item-menu-icon {
         grid-area: icon;
 
         span {
-            color: var(
-                --components-Menu-itemMenu-colors-icon-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey300)
-            );
+            color: var(--components-Menu-itemMenu-colors-icon-default, var(--general-utilities-text-textPrimary));
         }
     }
 
     .kit-item-menu-title {
         grid-area: title;
-        margin-left: 8px;
+        margin-left: convertToPixel(--general-spacing-xs);
     }
 
     .kit-item-menu-actions {
         grid-area: actions;
         display: grid;
         grid-template-columns: inherit;
-        margin-left: 8px;
+        margin-left: convertToPixel(--general-spacing-xs);
         align-items: center;
 
         .kit-action-more {
@@ -146,67 +131,46 @@
 
     &.cta {
         .kit-item-menu-title span {
-            color: var(
-                --components-Menu-itemMenu-colors-title-default,
-                var(--general-colors-primary-primary400)
-            );
+            color: var(--components-Menu-itemMenu-colors-title-default, var(--general-utilities-text-textBlue));
         }
         .kit-item-menu-icon span {
-            color: var(
-                --components-Menu-itemMenu-colors-icon-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey300)
-            );
+            color: var(--components-Menu-itemMenu-colors-icon-default, var(--general-utilities-text-textBlue));
         }
     }
 
     &.cta-danger {
         .kit-item-menu-title span {
-            color: var(
-                --components-Menu-itemMenu-colors-title-danger,
-                var(--general-colors-secondary-red-red400)
-            );
+            color: var(--components-Menu-itemMenu-colors-title-danger, var(--general-utilities-text-textError));
         }
         .kit-item-menu-icon span {
-            color: var(
-                --components-Menu-itemMenu-colors-icon-danger,
-                var(--general-colors-secondary-red-red400)
-            );
+            color: var(--components-Menu-itemMenu-colors-icon-danger, var(--general-utilities-text-textError));
         }
 
         &:hover {
             background-color: var(
                 --components-Menu-itemMenu-colors-background-danger,
-                var(--general-colors-secondary-red-red100)
+                var(--general-utilities-error-errorLight)
             );
         }
     }
 
     .kit-item-menu-value {
         grid-area: value;
-        margin-left: 8px;
+        margin-left: convertToPixel(--general-spacing-xs);
 
         span {
-            color: var(
-                --components-Menu-itemMenu-colors-value-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey300)
-            );
+            color: var(--components-Menu-itemMenu-colors-value-default, var(--general-utilities-neutral-neutralDark));
         }
     }
 
     .kit-item-menu-rafter {
         grid-area: rafter;
-        color: var(
-            --components-Menu-itemMenu-colors-rafter-default,
-            var(--general-colors-secondary-mediumGrey-mediumGrey300)
-        );
-        font-size: 12px;
-        margin-left: 8px;
+        color: var(--components-Menu-itemMenu-colors-rafter-default, var(--general-utilities-neutral-neutralDark));
+        font-size: convertToPixel(--general-typography-fontSize7);
+        margin-left: convertToPixel(--general-spacing-xs);
 
         &:hover {
-            color: var(
-                --components-Menu-itemMenu-colors-rafter-hover,
-                var(--general-colors-primary-primary400)
-            );
+            color: var(--components-Menu-itemMenu-colors-rafter-hover, var(--general-utilities-text-textBlue));
             cursor: pointer;
         }
     }

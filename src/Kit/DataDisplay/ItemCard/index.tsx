@@ -1,194 +1,155 @@
-import React, {FunctionComponent, ReactElement, ReactNode, cloneElement, useState} from 'react';
+import {forwardRef} from 'react';
+import {IKitItemCard} from './types';
 import cn from 'classnames';
-import IKitItemCard from './types';
-import KitColorbar from './ColorBar';
-import {KitTypography, KitButton} from '@kit/General/';
-import {IKitImage} from '@kit/DataDisplay/Image/types';
-import {IKitIcon} from '@kit/General/Icon/types';
-import {IKitAvatar} from '../Avatar/types';
-import {KitCheckbox} from '@kit/DataEntry';
-import {KitTag} from '@kit/DataDisplay/Tag';
-import type {CheckboxChangeEvent} from 'antd/es/checkbox';
+import {KitTypography} from '@kit/General';
+import {KitCheckbox, KitSwitch} from '@kit/DataEntry';
+import {KitBreadcrumb} from '@kit/Navigation';
 import {useKitTheme} from '@theme/useKitTheme';
-import {useKitLocale} from '@translation/useKitLocale';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faEye} from '@fortawesome/free-regular-svg-icons';
-import {faPencil} from '@fortawesome/free-solid-svg-icons';
-import {IKitButton} from '@kit/General/Button/types';
+import {KitTag} from '@kit/DataDisplay/Tag';
 
 import styles from './styles.module.scss';
+import {ItemCardActions} from './ItemCardActions';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faImage} from '@fortawesome/free-solid-svg-icons';
 
-// TODO Add More /less button to description
-const _getPicture = (picture, fullWidthAvatar) => {
-    if (!picture) {
-        return null;
-    }
+export const KitItemCard = forwardRef<HTMLDivElement, IKitItemCard>(
+    (
+        {
+            className,
+            style,
+            display = 'card',
+            disabled = false,
+            imageAlt = '',
+            imageSrc,
+            icon,
+            tagGroup,
+            breadcrumbItems,
+            title,
+            description,
+            draggableHandler,
+            selected,
+            onSelect,
+            activateLabel,
+            activated,
+            onActivate,
+            extra,
+            actions
+        },
+        ref
+    ) => {
+        const {appId} = useKitTheme();
 
-    const pictureJsx = picture as JSX.Element;
+        const shouldDisplayCheckbox = onSelect !== undefined;
+        const shouldDisplayDraggableHandler = draggableHandler !== undefined;
+        const shouldDisplayImage = imageSrc !== undefined;
+        const shouldDisplayIcon = icon !== undefined;
+        const shouldDisplayTags = tagGroup !== undefined;
+        const shouldDisplayBreadcrumb = breadcrumbItems !== undefined;
+        const shouldDisplayContent = title !== undefined || description !== undefined;
+        const shouldDisplayExtra = extra !== undefined;
+        const shouldDisplaySwitch = onActivate !== undefined;
+        const shouldDisplayActions = actions !== undefined;
 
-    let noBorder = false;
-    let cloneProps = {};
-    let itemProps: IKitImage | IKitAvatar | IKitIcon;
-    let wrapperClassName = 'kit-card-icon';
+        const dataDisplayedOnDifferentRows = [shouldDisplayTags, shouldDisplayBreadcrumb, shouldDisplayExtra];
+        const numberOfDataDisplayedOnDifferentRows = dataDisplayedOnDifferentRows.filter(Boolean).length;
 
-    switch ((pictureJsx.type as FunctionComponent).displayName) {
-        case 'KitImage':
-            itemProps = (picture as ReactElement).props as IKitImage;
-            cloneProps = {
-                preview: {
-                    ...((itemProps.preview as Record<string, unknown>) ?? {}),
-                    mask: <FontAwesomeIcon icon={faEye} />
-                },
-                width: '100%',
-                height: '100%',
-                rootClassName: (itemProps.rootClassName ?? '') + ' kit-card-image-image'
-            };
-            wrapperClassName = 'kit-card-image';
-            break;
-        case 'KitIcon':
-            noBorder = true;
-            cloneProps = {
-                on: true
-            };
-            break;
-        case 'KitAvatar':
-            if (fullWidthAvatar) {
-                itemProps = (picture as ReactElement).props as IKitAvatar;
-                cloneProps = {
-                    className: (itemProps.className || '') + ' avatar-full'
-                };
-            }
-            break;
-        default:
-            return null;
-    }
-    const Component = cloneElement(pictureJsx, cloneProps as IKitImage & IKitIcon & IKitAvatar);
-    return <div className={`${wrapperClassName} ${noBorder ? 'noBorder' : ''}`}>{Component}</div>;
-};
+        const isDisplayedAsList = display === 'list';
+        const isDisplayedAsCard = display === 'card';
 
-const _getActions = (actions: ReactNode[] | undefined, disabled: boolean): ReactNode[] | null => {
-    if (!actions) {
-        return null;
-    }
-
-    return actions.map((button, index) => {
-        const ReactNode: IKitButton = (button as ReactElement).props as IKitButton;
-        return cloneElement(button as ReactElement, {
-            key: index,
-            type: 'default',
-            disabled: disabled,
-            className: `${ReactNode.className ?? ''} kit-card-select-button`
+        const clx = cn(styles['kit-item-card'], className, appId, `kit-item-card-display-${display}`, {
+            [`kit-item-card-display-list-with-${numberOfDataDisplayedOnDifferentRows}-rows`]:
+                isDisplayedAsList && numberOfDataDisplayedOnDifferentRows > 0,
+            'kit-item-card-display-card-checkbox-or-draggable-handler':
+                isDisplayedAsCard && (shouldDisplayCheckbox || shouldDisplayDraggableHandler),
+            'kit-item-card-disabled': disabled,
+            'kit-item-card-selected': selected,
+            'kit-item-card-with-actions': shouldDisplayActions
         });
-    });
-};
 
-const _getWrapperClassName = (appId: string, vertical: boolean | undefined, disabled: boolean, className: string) =>
-    cn(appId, styles['kit-item-card'], 'kit-card-wrapper', className, {
-        'kit-card-vertical': vertical,
-        'kit-card-horizontal': !vertical,
-        'kit-card-disabled': disabled
-    });
+        if (disabled && shouldDisplayTags) {
+            tagGroup.tags = tagGroup.tags.map(tag => ({...tag, disabled}));
+            tagGroup.othersTagDisabled = true;
+        }
 
-export const KitItemCard: FunctionComponent<IKitItemCard> = ({
-    vertical,
-    colors,
-    fullWidthAvatar,
-    picture,
-    title,
-    description,
-    extrainfo,
-    tags,
-    actions,
-    className,
-    onSelectChange,
-    onEdit,
-    disabled = false,
-    ...props
-}) => {
-    const {appId} = useKitTheme();
-    const {locale} = useKitLocale();
-    const [descriptionVisible, setDescriptionVisible] = useState(false);
-    const [isDescriptionEllipsis, setIsDescriptionEllipsis] = useState(false);
+        const kitItemCardCheckbox = (
+            <div className="kit-item-card-checkbox">
+                <KitCheckbox onChange={onSelect} checked={selected} disabled={disabled} />
+            </div>
+        );
 
-    return (
-        <div className={_getWrapperClassName(appId, vertical, disabled, className ?? '')} {...props}>
-            {(onSelectChange || onEdit || actions) && (
-                <div className="kit-card-select">
-                    {onSelectChange && (
-                        <KitCheckbox
-                            onChange={(e: CheckboxChangeEvent) => onSelectChange && onSelectChange(e)}
-                            disabled={disabled}
+        const kitItemCardDraggableHandler = <div className="kit-item-card-draggable-handler">{draggableHandler}</div>;
+
+        return (
+            <div tabIndex={disabled ? -1 : 0} className={clx} style={style} ref={ref}>
+                {isDisplayedAsCard ? (
+                    <>
+                        {shouldDisplayCheckbox && kitItemCardCheckbox}
+                        {shouldDisplayDraggableHandler && kitItemCardDraggableHandler}
+                    </>
+                ) : (
+                    <>
+                        {shouldDisplayDraggableHandler && kitItemCardDraggableHandler}
+                        {shouldDisplayCheckbox && kitItemCardCheckbox}
+                    </>
+                )}
+
+                <div className="kit-item-card-image">
+                    {shouldDisplayImage ? (
+                        <img src={imageSrc} alt={imageAlt} />
+                    ) : (
+                        <div className="kit-item-card-image-placeholder">
+                            {shouldDisplayIcon ? icon : <FontAwesomeIcon icon={faImage} />}
+                        </div>
+                    )}
+                    <div className="kit-item-card-actions-mask" />
+                    {shouldDisplayActions && isDisplayedAsCard && (
+                        <ItemCardActions actions={actions} disabled={disabled} display={display} />
+                    )}
+                </div>
+
+                {shouldDisplayTags && (
+                    <div className="kit-item-card-tags">
+                        <KitTag.Group
+                            tags={tagGroup.tags}
+                            othersTagType={tagGroup.othersTagType}
+                            othersTagDisabled={tagGroup.othersTagDisabled}
                         />
-                    )}
-                    {onEdit && (
-                        <KitButton
-                            className="kit-card-select-button"
-                            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => onEdit && onEdit(e)}
-                            disabled={disabled}
-                        >
-                            <FontAwesomeIcon icon={faPencil} />
-                        </KitButton>
-                    )}
-                    {_getActions(actions, disabled)}
-                </div>
-            )}
-            {_getPicture(picture, fullWidthAvatar)}
-            {colors && <KitColorbar colors={colors} vertical={!vertical} className="kit-card-colorbar" />}
-            <div className="kit-card-data">
-                <KitTypography.Text className="kit-card-title" ellipsis={{tooltip: true}}>
-                    {title}
-                </KitTypography.Text>
-                <div className="kit-card-description-container">
-                    <KitTypography.Paragraph
-                        className="kit-card-desc"
-                        ellipsis={
-                            descriptionVisible
-                                ? false
-                                : {
-                                      rows: 2,
-                                      expandable: true,
-                                      onEllipsis: () => setIsDescriptionEllipsis(true)
-                                  }
-                        }
-                    >
-                        {description}
-                        {descriptionVisible && (
-                            <KitTypography.Link
-                                className="kit-card-description-collexp kit-card-description-collapse"
-                                onClick={e => {
-                                    e.stopPropagation();
-                                    setDescriptionVisible(false);
-                                }}
-                            >
-                                {locale.ItemCard?.less}
-                            </KitTypography.Link>
+                    </div>
+                )}
+                {shouldDisplayBreadcrumb && (
+                    <div className="kit-item-card-breadcrumb">
+                        <KitBreadcrumb items={breadcrumbItems} />
+                    </div>
+                )}
+                {shouldDisplayContent && (
+                    <div className="kit-item-card-content">
+                        {title && (
+                            <KitTypography.Title level="h3" ellipsis={{tooltip: true, rows: 2}} disabled={disabled}>
+                                {title}
+                            </KitTypography.Title>
                         )}
-                    </KitTypography.Paragraph>
-                    {isDescriptionEllipsis && !descriptionVisible && (
-                        <KitTypography.Link
-                            className="kit-card-description-collexp kit-card-description-expand"
-                            onClick={e => {
-                                e.stopPropagation();
-                                setDescriptionVisible(true);
-                            }}
-                        >
-                            {locale.ItemCard?.more}
-                        </KitTypography.Link>
-                    )}
-                </div>
-                <KitTypography.Text className="kit-card-footer">{extrainfo}</KitTypography.Text>
-                {tags && (
-                    <div className="kit-card-tags">
-                        {tags.map(tag => (
-                            <KitTag key={tag as string} color="blue">
-                                {tag}
-                            </KitTag>
-                        ))}
+                        {description && (
+                            <KitTypography.Paragraph ellipsis={{tooltip: true, rows: 2}} disabled={disabled}>
+                                {description}
+                            </KitTypography.Paragraph>
+                        )}
+                    </div>
+                )}
+                {shouldDisplayExtra && <div className="kit-item-card-extra">{extra}</div>}
+                {shouldDisplayActions && isDisplayedAsList && (
+                    <ItemCardActions actions={actions} disabled={disabled} display={display} />
+                )}
+                {shouldDisplaySwitch && (
+                    <div className="kit-item-card-switch">
+                        <KitSwitch onChange={onActivate} checked={activated} disabled={disabled} />
+                        <KitTypography.Text disabled={disabled} ellipsis={{tooltip: true}}>
+                            {activateLabel}
+                        </KitTypography.Text>
                     </div>
                 )}
             </div>
-        </div>
-    );
-};
+        );
+    }
+);
 
 KitItemCard.displayName = 'KitItemCard';

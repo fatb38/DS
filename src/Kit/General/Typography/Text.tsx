@@ -1,4 +1,4 @@
-import React, {forwardRef, useMemo} from 'react';
+import {forwardRef, useMemo} from 'react';
 import {Typography} from 'antd';
 import {IKitText} from './types';
 import {getCustomColor, getWeightClassname} from './commons';

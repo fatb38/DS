@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {KitBadge} from '@kit/DataDisplay/';
 import {KitSwitch} from '@kit/DataEntry';
 import {KitSpace} from '@kit/Layout/';
@@ -21,14 +21,7 @@ const App = () => {
                 <KitBadge count={show ? 25 : 0} />
                 <KitBadge
                     count={
-                        show ? (
-                            <FontAwesomeIcon
-                                icon={faClock}
-                                style={{color: theme.colors.secondary.red.red400}}
-                            />
-                        ) : (
-                            0
-                        )
+                        show ? <FontAwesomeIcon icon={faClock} style={{color: theme.utilities.error.errorDark}} /> : 0
                     }
                 />
             </KitSpace>

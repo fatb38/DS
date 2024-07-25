@@ -38,20 +38,11 @@ export const getCustomColor = (color: string | undefined | null): CSSProperties 
 
     let colorValue = '';
     switch (color) {
-        case 'primary':
-            colorValue = 'var(--general-colors-primary-primary400)';
-            break;
-        case 'grey':
-            colorValue = 'var(--general-colors-neutral-grey-grey400)';
-            break;
         case 'black':
-            colorValue = 'var(--general-colors-neutral-typography-black)';
-            break;
-        case 'black60':
-            colorValue = 'var(--general-colors-neutral-typography-black60)';
+            colorValue = 'var(--general-colors-neutral-black)';
             break;
         case 'white':
-            colorValue = 'var(--general-colors-neutral-typography-white)';
+            colorValue = 'var(--general-colors-neutral-white)';
             break;
         default:
             colorValue = getColor(color);

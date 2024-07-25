@@ -6,17 +6,11 @@
     color: var(--kit-typography-color, 'inherit');
 
     &.ant-typography-regular {
-        font-weight: var(
-            --components-Typography-Link-fontWeight-regular,
-            var(--general-typography-regularFontWeight)
-        );
+        font-weight: var(--components-Typography-Link-fontWeight-regular, var(--general-typography-regularFontWeight));
     }
 
     &.ant-typography-medium {
-        font-weight: var(
-            --components-Typography-Link-fontWeight-medium,
-            var(--general-typography-mediumfontWeight)
-        );
+        font-weight: var(--components-Typography-Link-fontWeight-medium, var(--general-typography-mediumfontWeight));
     }
 
     &.ant-typography-bold {
@@ -44,10 +38,7 @@
     }
 
     &.ant-typography-bold {
-        font-weight: var(
-            --components-Typography-Paragraph-fontWeight-bold,
-            var(--general-typography-boldFontWeight)
-        );
+        font-weight: var(--components-Typography-Paragraph-fontWeight-bold, var(--general-typography-boldFontWeight));
     }
 }
 
@@ -72,17 +63,11 @@
     }
 
     &.ant-typography-regular {
-        font-weight: var(
-            --components-Typography-Text-fontWeight-regular,
-            var(--general-typography-regularFontWeight)
-        );
+        font-weight: var(--components-Typography-Text-fontWeight-regular, var(--general-typography-regularFontWeight));
     }
 
     &.ant-typography-medium {
-        font-weight: var(
-            --components-Typography-Text-fontWeight-medium,
-            var(--general-typography-mediumfontWeight)
-        );
+        font-weight: var(--components-Typography-Text-fontWeight-medium, var(--general-typography-mediumfontWeight));
     }
 
     &.ant-typography-bold {

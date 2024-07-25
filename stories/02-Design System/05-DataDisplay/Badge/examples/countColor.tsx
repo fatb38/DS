@@ -8,6 +8,7 @@ const App = () => {
     const {theme} = useKitTheme();
 
     const secondaryColors = Object.keys(theme.colors.secondary);
+    const tertiaryColors = Object.keys(theme.colors.tertiary);
 
     return (
         <KitSpace direction="vertical">
@@ -18,22 +19,50 @@ const App = () => {
                 </KitBadge>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
-            <KitSpace size="m">
-                {secondaryColors.map((color: string) => (
-                    <KitBadge count={5} color={color} key={color + '_default'}>
-                        <KitAvatar shape="square" size="large" />
-                    </KitBadge>
-                ))}
+            <KitTypography.Text style={{fontWeight: 'bold'}}>Primary Color</KitTypography.Text>
+            <KitSpace direction="vertical" size="m">
+                <KitBadge count={5} color="primary">
+                    <KitAvatar shape="square" size="large" />
+                </KitBadge>
+                <KitBadge count={5} color="primary" secondaryColorInvert>
+                    <KitAvatar shape="square" size="large" />
+                </KitBadge>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Inverted Secondary Colors</KitTypography.Text>
-            <KitSpace size="m">
-                {secondaryColors.map((color: string) => (
-                    <KitBadge count={5} color={color} key={color + '_inverted'} secondaryColorInvert>
-                        <KitAvatar shape="square" size="large" />
-                    </KitBadge>
-                ))}
+            <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
+            <KitSpace direction="vertical" size="m">
+                <KitSpace size="m">
+                    {secondaryColors.map((color: string) => (
+                        <KitBadge count={5} color={color} key={color + '_default'}>
+                            <KitAvatar shape="square" size="large" />
+                        </KitBadge>
+                    ))}
+                </KitSpace>
+                <KitSpace size="m">
+                    {secondaryColors.map((color: string) => (
+                        <KitBadge count={5} color={color} key={color + '_inverted'} secondaryColorInvert>
+                            <KitAvatar shape="square" size="large" />
+                        </KitBadge>
+                    ))}
+                </KitSpace>
+            </KitSpace>
+            <br />
+            <KitTypography.Text style={{fontWeight: 'bold'}}>Tertiary Colors</KitTypography.Text>
+            <KitSpace direction="vertical" size="m">
+                <KitSpace size="m">
+                    {tertiaryColors.map((color: string) => (
+                        <KitBadge count={5} color={color} key={color + '_default'}>
+                            <KitAvatar shape="square" size="large" />
+                        </KitBadge>
+                    ))}
+                </KitSpace>
+                <KitSpace size="m">
+                    {tertiaryColors.map((color: string) => (
+                        <KitBadge count={5} color={color} key={color + '_inverted'} secondaryColorInvert>
+                            <KitAvatar shape="square" size="large" />
+                        </KitBadge>
+                    ))}
+                </KitSpace>
             </KitSpace>
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>RGB(A) format</KitTypography.Text>

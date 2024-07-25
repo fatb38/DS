@@ -1,4 +1,4 @@
-import React, {CSSProperties, PropsWithChildren} from 'react';
+import {CSSProperties, PropsWithChildren} from 'react';
 import {FunctionComponent} from 'react';
 import {IKitSection} from './types';
 import {getColor, isValidColor} from '@utils/functions';
@@ -14,7 +14,7 @@ export const KitSection: FunctionComponent<PropsWithChildren<IKitSection>> = ({
     const getCustomColor = (): CSSProperties | undefined => {
         if (borderColor === 'primary') {
             return {
-                '--section-border-color': 'var(--general-colors-primary-primary400)'
+                '--section-border-color': 'var(--general-utilities-main-mainColor)'
             } as CSSProperties;
         }
 

@@ -1,4 +1,4 @@
-import React, {CSSProperties, FunctionComponent, useMemo} from 'react';
+import {CSSProperties, FunctionComponent, useMemo} from 'react';
 import {Badge as AntdBadge} from 'antd';
 import {IKitBadge} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

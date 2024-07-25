@@ -30,36 +30,36 @@
                 "primary": {
                     "type": "object",
                     "properties": {
-                        "primary100": {
+                        "blue100": {
                             "type": "string"
                         },
-                        "primary200": {
+                        "blue200": {
                             "type": "string"
                         },
-                        "primary300": {
+                        "blue300": {
                             "type": "string"
                         },
-                        "primary400": {
+                        "blue400": {
                             "type": "string"
                         },
-                        "primary500": {
+                        "blue500": {
                             "type": "string"
                         },
-                        "primary600": {
+                        "blue600": {
                             "type": "string"
                         },
-                        "primary700": {
+                        "blue700": {
                             "type": "string"
                         }
                     },
                     "required": [
-                        "primary100",
-                        "primary200",
-                        "primary300",
-                        "primary400",
-                        "primary500",
-                        "primary600",
-                        "primary700"
+                        "blue100",
+                        "blue200",
+                        "blue300",
+                        "blue400",
+                        "blue500",
+                        "blue600",
+                        "blue700"
                     ]
                 },
                 "neutral": {
@@ -136,77 +136,7 @@
                 "secondary": {
                     "type": "object",
                     "properties": {
-                        "mediumGrey": {
-                            "type": "object",
-                            "properties": {
-                                "mediumGrey100": {
-                                    "type": "string"
-                                },
-                                "mediumGrey200": {
-                                    "type": "string"
-                                },
-                                "mediumGrey300": {
-                                    "type": "string"
-                                },
-                                "mediumGrey400": {
-                                    "type": "string"
-                                },
-                                "mediumGrey500": {
-                                    "type": "string"
-                                },
-                                "mediumGrey600": {
-                                    "type": "string"
-                                },
-                                "mediumGrey700": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "mediumGrey100",
-                                "mediumGrey200",
-                                "mediumGrey300",
-                                "mediumGrey400",
-                                "mediumGrey500",
-                                "mediumGrey600",
-                                "mediumGrey700"
-                            ]
-                        },
-                        "yellow": {
-                            "type": "object",
-                            "properties": {
-                                "yellow100": {
-                                    "type": "string"
-                                },
-                                "yellow200": {
-                                    "type": "string"
-                                },
-                                "yellow300": {
-                                    "type": "string"
-                                },
-                                "yellow400": {
-                                    "type": "string"
-                                },
-                                "yellow500": {
-                                    "type": "string"
-                                },
-                                "yellow600": {
-                                    "type": "string"
-                                },
-                                "yellow700": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "yellow100",
-                                "yellow200",
-                                "yellow300",
-                                "yellow400",
-                                "yellow500",
-                                "yellow600",
-                                "yellow700"
-                            ]
-                        },
-                        "orange": {
+                        "warning": {
                             "type": "object",
                             "properties": {
                                 "orange100": {
@@ -241,42 +171,7 @@
                                 "orange700"
                             ]
                         },
-                        "pink": {
-                            "type": "object",
-                            "properties": {
-                                "pink100": {
-                                    "type": "string"
-                                },
-                                "pink200": {
-                                    "type": "string"
-                                },
-                                "pink300": {
-                                    "type": "string"
-                                },
-                                "pink400": {
-                                    "type": "string"
-                                },
-                                "pink500": {
-                                    "type": "string"
-                                },
-                                "pink600": {
-                                    "type": "string"
-                                },
-                                "pink700": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "pink100",
-                                "pink200",
-                                "pink300",
-                                "pink400",
-                                "pink500",
-                                "pink600",
-                                "pink700"
-                            ]
-                        },
-                        "red": {
+                        "error": {
                             "type": "object",
                             "properties": {
                                 "red100": {
@@ -311,42 +206,7 @@
                                 "red700"
                             ]
                         },
-                        "blue": {
-                            "type": "object",
-                            "properties": {
-                                "blue100": {
-                                    "type": "string"
-                                },
-                                "blue200": {
-                                    "type": "string"
-                                },
-                                "blue300": {
-                                    "type": "string"
-                                },
-                                "blue400": {
-                                    "type": "string"
-                                },
-                                "blue500": {
-                                    "type": "string"
-                                },
-                                "blue600": {
-                                    "type": "string"
-                                },
-                                "blue700": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": [
-                                "blue100",
-                                "blue200",
-                                "blue300",
-                                "blue400",
-                                "blue500",
-                                "blue600",
-                                "blue700"
-                            ]
-                        },
-                        "green": {
+                        "success": {
                             "type": "object",
                             "properties": {
                                 "green100": {
@@ -383,13 +243,88 @@
                         }
                     },
                     "required": [
-                        "blue",
-                        "green",
-                        "mediumGrey",
-                        "orange",
-                        "pink",
-                        "red",
-                        "yellow"
+                        "warning",
+                        "error",
+                        "success"
+                    ]
+                },
+                "tertiary": {
+                    "type": "object",
+                    "properties": {
+                        "yellow": {
+                            "type": "object",
+                            "properties": {
+                                "yellow100": {
+                                    "type": "string"
+                                },
+                                "yellow200": {
+                                    "type": "string"
+                                },
+                                "yellow300": {
+                                    "type": "string"
+                                },
+                                "yellow400": {
+                                    "type": "string"
+                                },
+                                "yellow500": {
+                                    "type": "string"
+                                },
+                                "yellow600": {
+                                    "type": "string"
+                                },
+                                "yellow700": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "yellow100",
+                                "yellow200",
+                                "yellow300",
+                                "yellow400",
+                                "yellow500",
+                                "yellow600",
+                                "yellow700"
+                            ]
+                        },
+                        "pink": {
+                            "type": "object",
+                            "properties": {
+                                "pink100": {
+                                    "type": "string"
+                                },
+                                "pink200": {
+                                    "type": "string"
+                                },
+                                "pink300": {
+                                    "type": "string"
+                                },
+                                "pink400": {
+                                    "type": "string"
+                                },
+                                "pink500": {
+                                    "type": "string"
+                                },
+                                "pink600": {
+                                    "type": "string"
+                                },
+                                "pink700": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "pink100",
+                                "pink200",
+                                "pink300",
+                                "pink400",
+                                "pink500",
+                                "pink600",
+                                "pink700"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "yellow",
+                        "pink"
                     ]
                 }
             },
@@ -731,7 +666,7 @@
         "KitColoredSegmentedButtonThemes": {
             "type": "object",
             "properties": {
-                "mediumGrey": {
+                "grey": {
                     "$ref": "#/definitions/IKitButtonThemePropeties"
                 },
                 "yellow": {
@@ -756,7 +691,7 @@
             "required": [
                 "blue",
                 "green",
-                "mediumGrey",
+                "grey",
                 "orange",
                 "pink",
                 "red",

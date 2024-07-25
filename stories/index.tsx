@@ -26,14 +26,14 @@ import {EditorTemplate as Tag} from './02-Design System/05-DataDisplay/Tag/Templ
 import {EditorTemplate as Avatar} from './02-Design System/05-DataDisplay/Avatar/Template';
 import {EditorTemplateGroup as AvatarGroup} from './02-Design System/05-DataDisplay/Avatar/Template';
 import {EditorTemplate as Badge} from './02-Design System/05-DataDisplay/Badge/Template';
-import {EditorTemplate as Card} from './02-Design System/05-DataDisplay/Card/Template';
 import {EditorTemplate as Collapse} from './02-Design System/05-DataDisplay/Collapse/Template';
 import {EditorTemplate as Empty} from './02-Design System/05-DataDisplay/Empty/Template';
 import {EditorTemplate as Error} from './02-Design System/05-DataDisplay/Error/Template';
 import {EditorTemplate as IdCard} from './02-Design System/05-DataDisplay/IdCard/Template';
 import {EditorTemplate as Image} from './02-Design System/05-DataDisplay/Image/Template';
-import {EditorTemplate as ItemCard} from './02-Design System/05-DataDisplay/ItemCard/Template';
 import {EditorTemplate as ItemList} from './02-Design System/05-DataDisplay/ItemList/Template';
+import {EditorTemplate as ItemCard} from './02-Design System/05-DataDisplay/ItemCard/Template';
+import {EditorTemplate as RedirectCard} from './02-Design System/05-DataDisplay/RedirectCard/Template';
 import {EditorTemplate as Table} from './02-Design System/05-DataDisplay/Table/Template';
 import {EditorTemplate as Tabs} from './02-Design System/05-DataDisplay/Tabs/Template';
 import {EditorTemplate as Tooltip} from './02-Design System/05-DataDisplay/Tooltip/Template';
@@ -44,6 +44,7 @@ import {EditorTemplate as Modal} from './02-Design System/06-Feedback/Modal/Temp
 import {EditorTemplate as Notification} from './02-Design System/06-Feedback/Notification/Template';
 import {EditorTemplate as Progress} from './02-Design System/06-Feedback/Progress/Template';
 import {EditorTemplate as SnackBar} from './02-Design System/06-Feedback/SnackBar/Template';
+import {EditorTemplate as Loader} from './02-Design System/06-Feedback/Loader/Template';
 
 export default {
     General: {
@@ -82,14 +83,14 @@ export default {
         Avatar,
         AvatarGroup,
         Badge,
-        Card,
+        ItemCard,
         Collapse,
         Empty,
         Error,
         IdCard,
         Image,
-        ItemCard,
         ItemList,
+        RedirectCard,
         Tabs,
         Table,
         Tag,
@@ -102,6 +103,7 @@ export default {
         Modal,
         Notification,
         Progress,
-        SnackBar
+        SnackBar,
+        Loader
     }
 };

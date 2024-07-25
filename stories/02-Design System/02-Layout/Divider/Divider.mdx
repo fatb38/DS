@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -14,6 +14,7 @@ import * as KitDividerStories from './Divider.stories';
 A divider line separates different content.
 
 ## Usage
+
 -   Divide sections of article.
 -   Divide inline text and links such as the operation column of table.
 
@@ -29,13 +30,11 @@ Divider is `horizontal` by default. You can add text within Divider.
 
 Use `type="vertical"` make it vertical..
 
-
 <CustomCanvas content={Examples.Vertical} source={Sources.Vertical} id="divider-vertical" />
 
 ##### No margin
 
 Use `noMargin` remove top and bottom margin.
-
 
 <CustomCanvas content={Examples.NoMargin} source={Sources.NoMargin} id="divider-nomargin" />
 
@@ -43,23 +42,13 @@ Use `noMargin` remove top and bottom margin.
 
 Divider with inner title, set `orientation="left/right"` to align it.
 
-
 <CustomCanvas content={Examples.WithTitle} source={Sources.WithTitle} id="divider-title" />
-
-##### Color
-
-Use `color` to change border color.
-
-
-<CustomCanvas content={Examples.Color} source={Sources.Color} id="divider-color" />
-
 
 ## Api
 
 <Canvas of={KitDividerStories.Api} />
 
 <Controls of={KitDividerStories.Api} />
-
 
 ## Design Tokens
 

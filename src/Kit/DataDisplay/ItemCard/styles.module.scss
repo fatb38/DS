@@ -2,362 +2,340 @@
 
 :local(.kit-item-card) {
     display: grid;
-    padding: 16px;
-    font-family: var(--component-ItemCard-card-typography-fontFamily, var(--general-typography-fontFamily));
-    background: var(
-        --component-ItemCard-card-colors-background-default,
-        var(--general-colors-neutral-white)
-    );
-    border-radius: convertToPixel(--components-ItemCard-card-border-radius, --general-border-radius-s);
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
-    min-width: 248px;
-    width: 248px;
-    border: 1px solid
-        var(
-            --component-ItemCard-card-colors-border-default,
-            var(--general-colors-secondary-mediumGrey-mediumGrey200)
+    position: relative;
+    background-color: var(--general-utilities-light);
+    box-shadow: var(--general-utilities-shadow-shadowLight);
+    border: 1px solid var(--general-utilities-border);
+    border-radius: convertToPixel(--general-border-radius-s);
+
+    &:hover:not(.kit-item-card-disabled),
+    &.kit-item-card-selected {
+        border-color: var(--general-utilities-main-mainColor);
+    }
+
+    &:focus:not(.kit-item-card-disabled) {
+        outline: none;
+        border: 1px solid transparent;
+        box-shadow: 0 0 0 3px var(--general-utilities-focus);
+    }
+
+    &.kit-item-card-disabled {
+        background-color: var(--general-utilities-neutral-neutralLight);
+
+        .kit-item-card-breadcrumb {
+            .ant-breadcrumb-link,
+            .ant-breadcrumb-separator {
+                color: var(--general-utilities-text-textDisabled);
+            }
+        }
+
+        &.kit-item-card-display-card .kit-item-card-actions-mask {
+            background-color: var(--general-utilities-disabled);
+        }
+    }
+
+    &.kit-item-card-display-card {
+        --kit-item-card-display-card-width: 296;
+        --kit-item-card-image-max-height: 164;
+        --kit-item-card-display-card-image-available-height: calc(
+            (var(--kit-item-card-image-max-height) - (var(--general-spacing-s) * 2)) * 1px
+        );
+        --kit-item-card-display-card-available-width: calc(
+            (var(--kit-item-card-display-card-width) - (var(--general-spacing-s) * 2)) * 1px
         );
 
-    &:not(.kit-card-disabled):hover {
-        border: 1px solid
-            var(--component-ItemCard-card-colors-border-hover, var(--general-colors-primary-primary400));
-    }
+        width: convertToPixel(--kit-item-card-display-card-width);
+        grid-template-areas:
+            'checkbox draggable-handler'
+            'image .'
+            'tags .'
+            'breadcrumb .'
+            'content .'
+            'extra .'
+            'switch .';
 
-    .kit-card-select-button {
-        line-height: 1.2;
-        font-size: 0.6rem;
-    }
-
-    &:not(.kit-card-disabled) {
-        .kit-card-select-button {
-            border-radius: 3.5px;
-            font-size: 0.6rem;
-            padding: 0;
-            width: 16px;
-            height: 16px;
-            min-width: 16px;
-            color: var(
-                --component-ItemCard-select-colors-typography-default,
-                var(--general-colors-primary-primary400)
-            );
+        & > div {
+            grid-column: span 2;
         }
-    }
 
-    &.kit-card-disabled {
-        background: var(
-            --component-ItemCard-card-colors-background-disabled,
-            var(--general-colors-secondary-mediumGrey-mediumGrey100)
-        );
-        pointer-events: none;
+        &:not(.kit-item-card-display-card-checkbox-or-draggable-handler)
+            .kit-item-card-image
+            .kit-item-card-image-placeholder {
+            border-top-left-radius: calc((var(--general-border-radius-s) - 1) * 1px);
+            border-top-right-radius: calc((var(--general-border-radius-s) - 1) * 1px);
+        }
 
-        .kit-card-data {
-            .kit-card-title {
-                color: var(
-                    --component-ItemCard-title-colors-typography-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
-                );
+        &.kit-item-card-with-actions:hover .kit-item-card-image {
+            .kit-item-card-actions-mask {
+                display: block;
+                opacity: 0.5;
             }
-            .kit-card-desc {
-                color: var(
-                    --component-ItemCard-description-colors-typography-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
-                );
-            }
-            .kit-card-footer {
-                color: var(
-                    --component-ItemCard-footer-colors-typography-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
-                );
+
+            .kit-item-card-actions {
+                display: block;
             }
         }
 
-        .kit-card-select-button {
-            border-radius: 3.5px;
-            font-size: 0.6rem;
-            background: var(
-                --component-ItemCard-select-colors-background-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey100)
-            );
-            padding: 0;
-            width: 16px;
-            height: 16px;
-            min-width: 16px;
-            color: var(
-                --component-ItemCard-select-colors-typography-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey400)
-            );
+        & > div:last-of-type {
+            &:first-of-type {
+                padding-bottom: convertToPixel(--general-spacing-xs);
+            }
+
+            &:not(:first-of-type) {
+                padding-bottom: convertToPixel(--general-spacing-s);
+            }
         }
 
-        .kit-card-tags .ant-tag,
-        .kit-card-icon {
-            opacity: 0.4;
+        .kit-item-card-checkbox {
+            grid-row: 1;
+            grid-column: 1;
+            padding: convertToPixel(--general-spacing-s);
+            display: flex;
+        }
+
+        .kit-item-card-draggable-handler {
+            grid-row: 1;
+            grid-column: 2;
+            text-align: end;
+            padding: convertToPixel(--general-spacing-xs);
+
+            button {
+                height: 32px;
+                min-width: 32px;
+            }
+        }
+
+        .kit-item-card-image {
+            position: relative;
+            text-align: center;
+            border-bottom: 1px solid var(--general-utilities-border);
+
+            img,
+            .kit-item-card-image-placeholder {
+                padding: convertToPixel(--general-spacing-s);
+                max-height: var(--kit-item-card-display-card-image-available-height);
+                max-width: var(--kit-item-card-display-card-available-width);
+            }
+
+            .kit-item-card-image-placeholder {
+                height: convertToPixel(--kit-item-card-image-max-height);
+                width: convertToPixel(--kit-item-card-display-card-width);
+            }
+        }
+
+        .kit-item-card-actions-mask {
+            display: none;
+            position: absolute;
+            inset: 0px;
+            opacity: 0;
+            transition: opacity 200ms ease 0s;
+            background-color: var(--general-utilities-main-mainDeepDark);
+        }
+
+        .kit-item-card-actions {
+            display: none;
+            position: absolute;
+            inset: 0px;
+            text-align: center;
+            align-content: center;
+
+            & > button:not(:last-of-type) {
+                margin-right: convertToPixel(--general-spacing-xs);
+            }
+        }
+
+        .kit-item-card-tags,
+        .kit-item-card-breadcrumb,
+        .kit-item-card-content,
+        .kit-item-card-extra,
+        .kit-item-card-switch {
+            padding: convertToPixel(--general-spacing-xs) convertToPixel(--general-spacing-s)
+                convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-s);
+        }
+
+        .kit-item-card-tags {
+            width: var(--kit-item-card-display-card-available-width);
+            padding: convertToPixel(--general-spacing-s) convertToPixel(--general-spacing-s)
+                convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-s);
+        }
+
+        .kit-item-card-content {
+            display: flex;
+            flex-direction: column;
+            max-width: var(--kit-item-card-display-card-available-width);
+        }
+
+        .kit-item-card-switch {
+            justify-self: end;
         }
     }
 
-    &.kit-card-vertical {
-        grid-template:
-            'picto picto'
-            'select colors'
-            'content content';
-        grid-template-columns: max-content 1fr;
+    &.kit-item-card-display-list {
+        width: calc(100% - convertToPixel(--general-spacing-m) * 2);
+        grid-template-areas: 'draggable-handler checkbox image content row-1 actions switch';
+        grid-row-gap: convertToPixel(--general-spacing-xs);
+        grid-template-columns: repeat(3, minmax(0, max-content)) repeat(2, auto) repeat(2, minmax(0, max-content));
+        padding: convertToPixel(--general-spacing-m) convertToPixel(--general-spacing-s)
+            convertToPixel(--general-spacing-m) convertToPixel(--general-spacing-m);
 
-        .kit-card-select,
-        .kit-card-image,
-        .kit-card-icon,
-        .kit-card-colorbar {
-            margin-bottom: 8px;
-        }
-
-        .kit-card-colorbar {
+        & > div {
+            grid-row: 1;
             align-self: center;
+            padding-right: convertToPixel(--general-spacing-s);
         }
 
-        .kit-card-image,
-        .kit-card-icon,
-        .kit-card-icon .kit-icon {
-            width: 100%;
-            height: 80px;
+        &.kit-item-card-display-list-with-2-rows {
+            grid-template-areas:
+                'draggable-handler checkbox image content row-1 actions switch'
+                '. . . . row-2 . .';
+
+            & > div {
+                grid-row: 1 / span 2;
+            }
+
+            &:has(.kit-item-card-tags) {
+                .kit-item-card-tags {
+                    grid-area: row-1;
+                }
+
+                .kit-item-card-breadcrumb,
+                .kit-item-card-extra {
+                    grid-area: row-2;
+                }
+            }
+
+            &:not(:has(.kit-item-card-tags)) {
+                .kit-item-card-breadcrumb {
+                    grid-area: row-1;
+                }
+
+                .kit-item-card-extra {
+                    grid-area: row-2;
+                }
+            }
         }
 
-        .kit-card-select {
-            grid-auto-columns: min-content;
-            column-gap: 8px;
-            margin-right: 8px;
+        &.kit-item-card-display-list-with-3-rows {
+            grid-template-areas:
+                'draggable-handler checkbox image content row-1 actions switch'
+                '. . . . row-2 . .'
+                '. . . . row-3 . .';
+
+            & > div {
+                grid-row: 1 / span 3;
+            }
+
+            .kit-item-card-tags {
+                grid-area: row-1;
+            }
+
+            .kit-item-card-breadcrumb {
+                grid-area: row-2;
+            }
+
+            .kit-item-card-extra {
+                grid-area: row-3;
+            }
+        }
+
+        .kit-item-card-tags,
+        .kit-item-card-breadcrumb,
+        .kit-item-card-extra {
+            grid-area: row-1;
+        }
+
+        .kit-item-card-image {
+            width: 104px;
+            height: 86px;
             display: flex;
-            flex-direction: row;
-        }
-    }
-
-    &.kit-card-horizontal {
-        grid-template: 'select picto colors content';
-        grid-template-columns: min-content min-content min-content 1fr;
-
-        .kit-card-select,
-        .kit-card-image,
-        .kit-card-icon,
-        .kit-card-colorbar {
-            margin-right: 8px;
-        }
-
-        .kit-card-select {
-            grid-auto-rows: min-content;
-            row-gap: 8px;
-        }
-
-        .kit-card-image,
-        .kit-card-icon .kit-icon {
-            width: 64px;
-        }
-
-        .kit-card-icon .kit-icon {
-            height: 64px;
-        }
-
-        .kit-card-colorbar {
-            height: 60px;
-            flex-basis: 1fr;
-        }
-    }
-
-    .kit-card-select,
-    .kit-card-image,
-    .kit-card-picto,
-    .kit-card-colorbar {
-        flex: 0 0 auto;
-    }
-
-    .kit-card-select {
-        grid-area: select;
-        display: grid;
-    }
-
-    .kit-card-image {
-        grid-area: picto;
-        height: 64px;
-        border-radius: convertToPixel(--components-ItemCard-image-border-radius, --general-border-radius-s);
-        opacity: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        border: 1px solid
-            var(--component-ItemCard-image-colors-border-default, var(--general-colors-neutral-black60));
-
-        .kit-card-image-image {
-            display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
 
             img {
-                width: auto;
-                max-width: 100%;
-                max-height: 100%;
+                max-width: 68px;
+            }
+
+            .kit-item-card-image-placeholder {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .kit-item-card-actions {
+            padding-right: convertToPixel(--general-spacing-l);
+            padding-left: convertToPixel(--general-spacing-s);
+            gap: convertToPixel(--general-spacing-s);
+        }
+    }
+
+    .kit-item-card-checkbox {
+        grid-area: checkbox;
+
+        label.ant-checkbox-wrapper {
+            padding: convertToPixel(--general-spacing-none);
+        }
+    }
+
+    .kit-item-card-draggable-handler {
+        grid-area: draggable-handler;
+        color: var(--general-utilities-text-textBlue);
+    }
+
+    .kit-item-card-image {
+        grid-area: image;
+
+        .kit-item-card-image-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--general-utilities-neutral-neutralLight);
+
+            svg {
+                font-size: 37px;
+                color: var(--general-utilities-neutral-neutralDark);
             }
         }
     }
 
-    .kit-card-icon {
-        grid-area: picto;
-        height: 64px;
-        width: 64px;
-        border-radius: convertToPixel(--components-ItemCard-icon-border-radius, --general-border-radius-s);
+    .kit-item-card-tags {
+        grid-area: tags;
+    }
+
+    .kit-item-card-breadcrumb {
+        grid-area: breadcrumb;
+    }
+
+    .kit-item-card-content {
+        grid-area: content;
+
+        & > h3,
+        & > div {
+            margin: convertToPixel(--general-spacing-none);
+        }
+
+        & > h3 + div {
+            margin-top: convertToPixel(--general-spacing-xs);
+        }
+    }
+
+    .kit-item-card-extra {
+        grid-area: extra;
+    }
+
+    .kit-item-card-actions {
+        grid-area: actions;
         display: flex;
         align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        border: 1px solid
-            var(--component-ItemCard-icon-colors-border-default, var(--general-colors-neutral-black60));
-
-        &.noBorder {
-            border-color: transparent;
-        }
-
-        svg {
-            font-size: 2rem;
-            text-align: center;
-            width: 100%;
-            height: 100%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .kit-icon {
-            padding: 0px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-        }
-
-        .avatar-full {
-            width: 100%;
-            height: 100%;
-            border-radius: 0;
-            display: flex;
-            align-items: center;
-        }
     }
 
-    .kit-card-colorbar {
-        grid-area: colors;
-    }
+    .kit-item-card-switch {
+        grid-area: switch;
 
-    .kit-card-data {
-        grid-area: content;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-
-        > :not(:last-child) {
-            margin-bottom: 5px;
+        & > span {
+            margin-left: convertToPixel(--general-spacing-xs);
+            max-width: 100px;
+            vertical-align: middle;
         }
-
-        .kit-card-description-container {
-            position: relative;
-        }
-
-        .kit-card-title {
-            font-size: convertToPixel(
-                --components-ItemCard-title-typography-fontSize,
-                --general-typography-fontSize6
-            );
-            font-weight: var(
-                --component-ItemCard-title-typography-fontWeight,
-                var(--general-typography-boldFontWeight)
-            );
-            color: var(
-                --component-ItemCard-title-colors-typography-default,
-                var(--general-colors-primary-primary600)
-            );
-        }
-        .kit-card-desc {
-            font-size: convertToPixel(
-                --components-ItemCard-description-typography-fontSize,
-                --general-typography-fontSize5
-            );
-            font-weight: var(
-                --component-ItemCard-description-typography-fontWeight,
-                var(--general-typography-regularFontWeight)
-            );
-            color: var(
-                --component-ItemCard-description-colors-typography-default,
-                var(--general-colors-primary-primary600)
-            );
-
-            .ant-typography-expand {
-                visibility: hidden;
-            }
-        }
-        .kit-card-footer {
-            font-size: convertToPixel(
-                --components-ItemCard-footer-typography-fontSize,
-                --general-typography-fontSize5
-            );
-            font-weight: var(
-                --component-ItemCard-footer-typography-fontWeight,
-                var(--general-typography-boldFontWeight)
-            );
-            color: var(
-                --component-ItemCard-footer-colors-typography-default,
-                var(--general-colors-primary-primary600)
-            );
-        }
-
-        .kit-card-description-collexp {
-            color: var(
-                --component-ItemCard-expend-colors-typography-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey400)
-            );
-
-            &:hover {
-                color: var(
-                    --component-ItemCard-expend-colors-typography-hover,
-                    var(--general-colors-primary-primary400)
-                );
-            }
-
-            &.kit-card-description-collapse {
-                float: right;
-            }
-
-            &.kit-card-description-expand {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-            }
-        }
-    }
-
-    &.kit-card-disabled {
-        .kit-card-data .kit-card-description-collexp {
-            color: var(
-                --component-ItemCard-expend-colors-typography-disabled,
-                var(--general-colors-primary-primary600)
-            );
-        }
-
-        &.kit-card-disabled .kit-card-image {
-            opacity: 0.5;
-        }
-    }
-}
-
-:local(.kit-color-bar) {
-    width: auto;
-    height: convertToPixel(--components-ItemCard-colorBar-thickness, 8);
-    border-radius: convertToPixel(--components-ItemCard-colorBar-border-radius, --general-border-radius-s);
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-
-    &.column {
-        width: convertToPixel(--components-ItemCard-colorBar-thickness, 8);
-        height: auto;
-        flex-direction: column;
-    }
-
-    > div {
-        flex: 1 1 auto;
     }
 }

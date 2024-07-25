@@ -7,11 +7,16 @@ import {colorsPalette} from '@theme/aristid/general/colors';
 
 export const ColoredAvatarTest: FunctionComponent = () => {
     const secondaryColors = Object.keys(colorsPalette.secondary);
+    const tertiaryColors = Object.keys(colorsPalette.tertiary);
 
     return (
         <div>
             <KitTypography.Title level="h3">Colored avatar</KitTypography.Title>
             <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                <KitTypography.Title level="h4">primary color</KitTypography.Title>
+                <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} color="primary" />
+                <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} color="primary" secondaryColorInvert />
+
                 <KitTypography.Title level="h4">secondary colors</KitTypography.Title>
                 <div style={{display: 'flex', gap: '10px'}}>
                     {secondaryColors.map((color: string) => (
@@ -20,6 +25,23 @@ export const ColoredAvatarTest: FunctionComponent = () => {
                 </div>
                 <div style={{display: 'flex', gap: '10px'}}>
                     {secondaryColors.map((color: string) => (
+                        <KitAvatar
+                            key={color}
+                            icon={<FontAwesomeIcon icon={faUser} />}
+                            color={color}
+                            secondaryColorInvert
+                        />
+                    ))}
+                </div>
+
+                <KitTypography.Title level="h4">tertiary colors</KitTypography.Title>
+                <div style={{display: 'flex', gap: '10px'}}>
+                    {tertiaryColors.map((color: string) => (
+                        <KitAvatar key={color} icon={<FontAwesomeIcon icon={faUser} />} color={color} />
+                    ))}
+                </div>
+                <div style={{display: 'flex', gap: '10px'}}>
+                    {tertiaryColors.map((color: string) => (
                         <KitAvatar
                             key={color}
                             icon={<FontAwesomeIcon icon={faUser} />}
@@ -41,7 +63,7 @@ export const ColoredAvatarTest: FunctionComponent = () => {
                     <div>
                         <KitTypography.Title level="h4">HEX format</KitTypography.Title>
                         <div style={{display: 'flex', gap: '10px'}}>
-                            <KitAvatar color="#FunctionComponentba03">Y</KitAvatar>
+                            <KitAvatar color="#fcba03">Y</KitAvatar>
                             <KitAvatar color="#001d75">D</KitAvatar>
                             <KitAvatar color="#850065">P</KitAvatar>
                         </div>

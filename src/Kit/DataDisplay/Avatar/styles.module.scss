@@ -1,17 +1,11 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-avatar) {
-    background: var(--general-colors-neutral-typography-white);
+    background: var(--general-utilities-main-mainLight);
 
     &:not(.ant-avatar-image) {
-        background: var(
-            --components-Avatar-colors-background-default,
-            var(--general-colors-neutral-black60)
-        );
-        color: var(
-            --components-Avatar-colors-typography-default,
-            var(--general-colors-neutral-typography-white)
-        );
+        background: var(--components-Avatar-colors-background-default, var(--general-utilities-main-mainLight));
+        color: var(--components-Avatar-colors-typography-default, var(--general-utilities-main-mainMedium));
     }
 
     &.kit-avatar-image-fit-cover {
@@ -31,23 +25,23 @@
             object-fit: fill;
         }
     }
-
 }
 
 :local(.kit-avatar-disabled) {
     --mask-color: #8db1c880;
     &.ant-avatar-icon {
-        color: var(--general-colors-secondary-mediumGrey-mediumGrey400);
-        background-color: var(--general-colors-secondary-mediumGrey-mediumGrey200);
+        color: var(--general-utilities-disabled);
+        background-color: var(--general-utilities-neutral-neutralMedium);
     }
 
-    &.kit-avatar-image-fit-cover, & {
-        color: var(--general-colors-secondary-mediumGrey-mediumGrey400);
-        background-color: var(--general-colors-secondary-mediumGrey-mediumGrey200);
+    &.kit-avatar-image-fit-cover,
+    & {
+        color: var(--general-utilities-disabled);
+        background-color: var(--general-utilities-neutral-neutralMedium);
     }
 
     &.ant-avatar-image::after {
-        content: "";
+        content: '';
         z-index: 0;
         position: absolute;
         top: 0;
@@ -56,32 +50,25 @@
         left: 0;
         background: var(--mask-color);
     }
-
 }
 
 :local(.kit-avatar-group) {
     &.override-last > span:last-child {
-        background: var(
-            --components-AvatarGroup-colors-background-default,
-            var(--general-colors-primary-primary100)
-        );
+        background: var(--components-AvatarGroup-colors-background-default, var(--general-utilities-main-mainLight));
         color: var(
             --components-AvatarGroup-colors-typography-default,
-            var(
-                --components-AvatarGroup-colors-background-default,
-                var(--general-colors-primary-primary200)
-            )
+            var(--components-AvatarGroup-colors-background-default, var(--general-utilities-main-mainMedium))
         );
     }
 
     .ant-avatar {
-        box-shadow:  0px 3px 14px 0px rgba(0, 0, 0, 0.30);
+        box-shadow: var(--general-utilities-shadow-shadowLight);
     }
 }
 
 :local(.kit-avatar-group-disabled) {
     &.override-last > span:last-child {
-        background-color: var(--general-colors-secondary-mediumGrey-mediumGrey200);
-        color: var(--general-colors-secondary-mediumGrey-mediumGrey400);
+        color: var(--general-utilities-disabled);
+        background-color: var(--general-utilities-neutral-neutralMedium);
     }
 }

@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Progress} from 'antd';
 import {IKitProgress} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

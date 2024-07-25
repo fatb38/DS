@@ -1,0 +1,54 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import { Source } from '@storybook/blocks';
+import Examples, { Sources } from './examples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
+import * as KitLoaderStories from './Loader.stories';
+
+<Meta of={KitLoaderStories} />
+
+# Loader
+
+A simple animated loader
+
+## Usage
+
+- When you need to indicate that something is loading.
+- When a skeleton page / element is not appropriate.
+
+## Example
+
+##### Basic
+
+The most basic `Loader` component is a simple animated loader. It takes no specific properties.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="loader-basic" />
+
+##### Linear
+
+You can change the `type` property to `linear` to get a linear loader. By default, linear loader is finite.
+This means that you need to set the `value` property to indicate the progress (value must be between 0 and 100).
+Linear Loader has no margin, and no padding. It takes the width of its parent.
+
+<CustomCanvas content={Examples.Linear} source={Sources.Linear} id="loader-linear" />
+
+##### Infinite
+
+The linear `Loader` can be set to infinite by setting the `infinite` property to `true`. This will make the loader animate infinitely.
+In this case, the `value` property is ignored.
+
+<CustomCanvas content={Examples.Infinite} source={Sources.Infinite} id="loader-infinite" />
+
+
+## Api
+
+<Canvas of={KitLoaderStories.Api} />
+
+<Controls of={KitLoaderStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Loader" tokens={fields?.components?.Loader} />

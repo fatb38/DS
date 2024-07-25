@@ -11,7 +11,6 @@ import {IKitSliderTheme} from './components/DataEntry/Slider';
 import {IKitTooltipTheme} from './components/DataDisplay/Tooltip';
 import {IKitAvatarGroupTheme, IKitAvatarTheme} from './components/DataDisplay/Avatar';
 import {IKitBadgeTheme} from './components/DataDisplay/Badge';
-import {IKitItemCardTheme} from './components/DataDisplay/ItemCard';
 import {IKitCollapseTheme} from './components/DataDisplay/Collapse';
 import {IKitImageTheme} from './components/DataDisplay/Image';
 import {IKitItemListTheme} from './components/DataDisplay/ItemList';
@@ -20,7 +19,6 @@ import {IKitTreeTheme} from './components/DataDisplay/Tree';
 import {IKitInputNumberTheme} from './components/DataEntry/InputNumber';
 import {IKitSwitchTheme} from './components/DataEntry/Switch';
 import {IKitSelectTheme} from './components/DataEntry/Select';
-import {IKitLegacyCardTheme} from './components/DataDisplay/LegacyCard';
 import {IKitCheckboxTheme} from './components/DataEntry/Checkbox';
 import {IKitDatePickerTheme} from './components/DataEntry/DatePicker';
 import {IKitUploadTheme} from './components/DataEntry/Upload';
@@ -41,8 +39,9 @@ import {IKitIconTheme} from './components/General/Icon';
 import {IKitTypographyTheme} from './components/General/Typography';
 import {IKitColorPickerTheme} from './components/DataEntry/ColorPicker';
 import {ThemeConfig} from 'antd';
-import {IKitCardTheme} from './components/DataDisplay/Card';
 import {IKitSideMenuTheme} from './components/Navigation/SideMenu';
+import {IKitUtilities} from './utilities';
+import {IKitLoaderTheme} from './components/Feedback/Loader';
 
 export type DeepPartial<T> = T extends object
     ? {
@@ -55,12 +54,11 @@ export interface IKitThemeGeneral {
     border: IKitBorder;
     spacing: IKitSpacing;
     typography: IKitTypography;
+    utilities: IKitUtilities;
 }
 
 export interface IKitThemeComponents {
     Button: IKitButtonTheme;
-    LegacyCard: IKitLegacyCardTheme;
-    Card: IKitCardTheme;
     Rate: IKitRateTheme;
     Tooltip: IKitTooltipTheme;
     Tag: IKitTagTheme;
@@ -70,7 +68,6 @@ export interface IKitThemeComponents {
     Avatar: IKitAvatarTheme;
     AvatarGroup: IKitAvatarGroupTheme;
     Badge: IKitBadgeTheme;
-    ItemCard: IKitItemCardTheme;
     Slider: IKitSliderTheme;
     Collapse: IKitCollapseTheme;
     Image: IKitImageTheme;
@@ -99,6 +96,7 @@ export interface IKitThemeComponents {
     Typography: IKitTypographyTheme;
     ColorPicker: IKitColorPickerTheme;
     SideMenu: IKitSideMenuTheme;
+    Loader: IKitLoaderTheme;
 }
 
 export interface IKitTheme {

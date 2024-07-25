@@ -9,7 +9,7 @@
     align-items: center;
     height: var(--kit-header-height);
     overflow: hidden;
-    background: var(--general-colors-neutral-white);
+    background: var(--general-utilities-light);
     width: 100%;
     box-sizing: border-box;
 
@@ -18,9 +18,9 @@
         width: var(--kit-header-height);
         flex-grow: 0;
         flex-shrink: 0;
-        background: var(--general-colors-primary-primary400);
+        background: var(--general-utilities-main-mainColor);
         color: var(--kit-header-invert-color);
-        padding: 0;
+        padding: convertToPixel(--general-spacing-none);
         cursor: pointer;
 
         display: flex;
@@ -60,7 +60,7 @@
         grid-area: profile;
         display: flex;
         padding: convertToPixel(--general-spacing-xxs) convertToPixel(--general-spacing-s);
-        background-color: var(--general-colors-primary-primary50);
+        background-color: var(--general-colors-primary-blue50);
         align-items: center;
         border-radius: convertToPixel(--general-spacing-xs);
 
@@ -75,7 +75,6 @@
         .id-card-grid:not(:first-child) {
             margin-left: convertToPixel(--general-spacing-s);
         }
-
     }
 
     .kit-header-lang {
@@ -86,7 +85,7 @@
         }
 
         .flagIcon {
-            border-radius: 100%;
+            border-radius: convertToPixel(--general-border-radius-pills);
         }
 
         .kit-select-option-icon:has(.flagIcon) {
@@ -97,8 +96,7 @@
 
 .kit-header-profile-tag {
     &#{&} {
-        --components-Tag-typography-fontWeight: var(--general-typography-boldFontWeight);
-        margin: 0;
+        margin: convertToPixel(--general-spacing-none);
     }
 
     &:not(:first-child) {

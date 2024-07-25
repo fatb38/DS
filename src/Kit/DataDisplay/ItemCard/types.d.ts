@@ -1,40 +1,37 @@
-import {KitHTMLAttributes} from '../../../types';
-import {IKitTag} from '../Tag/types';
-import {ReactNode, MouseEvent} from 'react';
+import {CSSProperties, ReactNode} from 'react';
+import {IKitTagGroup} from '@kit/DataDisplay/Tag/types';
 import {CheckboxChangeEvent} from 'antd/es/checkbox';
+import {SwitchChangeEventHandler} from 'antd/es/switch';
+import {IKitBreadcrumbItem} from '@kit/Navigation/Breadcrumb/types';
+import {IKitActionButton} from '@kit/DataDisplay/types';
 
-export type CardColor = {
-    label: string;
-    color: string;
+export type IKitItemCard = {
+    title: string;
+    className?: string;
+    style?: CSSProperties;
+    disabled?: boolean;
+    display?: 'card' | 'list';
+    imageAlt?: string;
+    imageSrc?: string;
+    icon?: ReactNode;
+    description?: string;
+    tagGroup?: IKitTagGroup;
+    breadcrumbItems?: IKitBreadcrumbItem[];
+    draggableHandler?: ReactNode;
+    selected?: boolean;
+    onSelect?: (e: CheckboxChangeEvent) => void;
+    activateLabel?: string;
+    activated?: boolean;
+    onActivate?: SwitchChangeEventHandler;
+    extra?: ReactNode;
+    actions?:
+        | [IKitActionButton]
+        | [IKitActionButton, IKitActionButton]
+        | [IKitActionButton, IKitActionButton, IKitActionButton];
 };
 
-export interface IKitColorbar {
-    colors?: CardColor[] | null;
-    vertical?: boolean;
-    className?: string;
-}
-
-export interface IStyledKitColorbar {
-    $column: boolean;
-}
-
-//TODO change title wording and delete omit<title>
-export default interface IKitItemCard extends Omit<KitHTMLAttributes<HTMLDivElement>, 'title'> {
-    vertical?: boolean;
-    disabled?: boolean;
-    colors?: CardColor[] | null;
-    fullWidthAvatar?: boolean;
-    picture?: ReactNode;
-    title?: ReactNode;
-    description?: ReactNode;
-    extrainfo?: ReactNode;
-    tags?: IKitTag[] | string[];
-    actions?: ReactNode[];
-    onSelectChange?: (e: CheckboxChangeEvent) => void;
-    onEdit?: (e: MouseEvent<HTMLElement>) => void;
-}
-
-export interface IStyledKitItemCard {
-    $disabled: boolean;
-    $vertical?: boolean;
-}
+export type IKitItemCardActions = {
+    display: IKitItemCard['display'];
+    disabled: IKitItemCard['disabled'];
+    actions: IKitItemCard['actions'];
+};

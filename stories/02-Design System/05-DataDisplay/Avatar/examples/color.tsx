@@ -10,6 +10,7 @@ const App = () => {
     const {theme} = useKitTheme();
 
     const secondaryColors = Object.keys(theme.colors.secondary);
+    const tertiaryColors = Object.keys(theme.colors.tertiary);
 
     return (
         <KitSpace direction="vertical">
@@ -18,16 +19,35 @@ const App = () => {
                 <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} />
             </KitSpace>
             <br />
+            <KitTypography.Text style={{fontWeight: 'bold'}}>Primary Color</KitTypography.Text>
+            <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} color="primary" />
+            <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} color="primary" secondaryColorInvert />
+            <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
             <KitSpace>
                 {secondaryColors.map((color: string) => (
                     <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} color={color} key={color + '_default'} />
                 ))}
             </KitSpace>
-            <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Inverted Secondary Colors</KitTypography.Text>
             <KitSpace>
                 {secondaryColors.map((color: string) => (
+                    <KitAvatar
+                        icon={<FontAwesomeIcon icon={faUser} />}
+                        color={color}
+                        key={color + '_inverted'}
+                        secondaryColorInvert
+                    />
+                ))}
+            </KitSpace>
+            <br />
+            <KitTypography.Text style={{fontWeight: 'bold'}}>Tertiary Colors</KitTypography.Text>
+            <KitSpace>
+                {tertiaryColors.map((color: string) => (
+                    <KitAvatar icon={<FontAwesomeIcon icon={faUser} />} color={color} key={color + '_default'} />
+                ))}
+            </KitSpace>
+            <KitSpace>
+                {tertiaryColors.map((color: string) => (
                     <KitAvatar
                         icon={<FontAwesomeIcon icon={faUser} />}
                         color={color}
@@ -46,7 +66,7 @@ const App = () => {
             <br />
             <KitTypography.Text style={{fontWeight: 'bold'}}>HEX format</KitTypography.Text>
             <KitSpace>
-                <KitAvatar color="#FunctionComponentba03">Y</KitAvatar>
+                <KitAvatar color="#fcba03">Y</KitAvatar>
                 <KitAvatar color="#001d75">D</KitAvatar>
                 <KitAvatar color="#850065">P</KitAvatar>
             </KitSpace>

@@ -1,11 +1,11 @@
 import {kitTooltipCssToken} from '@theme/aristid/components/DataDisplay/Tooltip';
 import {borderCssTokens} from '@theme/aristid/general/border';
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {utilitiesCssTokens} from '@theme/aristid/general/utilities';
 
 export const tooltipKitTokenToAntdToken = {
-    colorBgSpotlight: `var(${kitTooltipCssToken.colors.background.default}, var(${kitColorsPaletteCssTokens.primary.primary600}))`,
-    colorTextLightSolid: `var(${kitTooltipCssToken.colors.typography.default}, var(${kitColorsPaletteCssTokens.neutral.typography.white}))`,
+    colorBgSpotlight: `var(${kitTooltipCssToken.colors.background.default}, var(${utilitiesCssTokens.main.mainDeepDark}))`,
+    colorTextLightSolid: `var(${kitTooltipCssToken.colors.typography.default}, var(${utilitiesCssTokens.text.textLight}))`,
     borderRadius:
         `calc(var(${kitTooltipCssToken.border.radius}, var(${borderCssTokens.radius.s})) * 1px)` as unknown as number,
     fontSize:

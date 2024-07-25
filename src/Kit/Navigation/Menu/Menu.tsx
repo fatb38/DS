@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {cloneElement, FunctionComponent} from 'react';
 import {IKitMenu} from './types';
 import {KitTypography, KitButton} from '@kit/General';
 import {useKitTheme} from '@theme/useKitTheme';
@@ -24,29 +24,27 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
     const shouldDisplayHeaderPrimary = segmentedButton !== undefined || primaryInput !== undefined;
     const shouldDisplayHeaderSecondary = secondaryInput !== undefined;
 
-    const _getTitle = () => (
-            title && (
-                <div className="kit-menu-header-title">
-                    <KitTypography.Text size="large" weight="medium" ellipsis={{tooltip: true}}>
-                        {title}
-                    </KitTypography.Text>
-                </div>
-            )
+    const _getTitle = () =>
+        title && (
+            <div className="kit-menu-header-title">
+                <KitTypography.Text size="large" weight="medium" ellipsis={{tooltip: true}}>
+                    {title}
+                </KitTypography.Text>
+            </div>
         );
 
-    const _getCloseIcon = () => (
-            isClosable && (
-                <KitButton
-                    className="kit-menu-header-close"
-                    type="text"
-                    color="black"
-                    icon={<FontAwesomeIcon icon={faXmark} />}
-                    onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => onCloseClick(e)}
-                    aria-label="close"
-                    data-name="close"
-                    role="img"
-                />
-            )
+    const _getCloseIcon = () =>
+        isClosable && (
+            <KitButton
+                className="kit-menu-header-close"
+                type="text"
+                color="black"
+                icon={<FontAwesomeIcon icon={faXmark} />}
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => onCloseClick(e)}
+                aria-label="close"
+                data-name="close"
+                role="img"
+            />
         );
 
     const _getSegmentedButton = () => {
@@ -54,7 +52,7 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
 
         return (
             <div className="kit-menu-header-button">
-                {React.cloneElement(segmentedButton, {
+                {cloneElement(segmentedButton, {
                     type: 'segmented'
                 })}
             </div>

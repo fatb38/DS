@@ -4,7 +4,7 @@ const TagArgTypes = {
         control: {
             type: 'text'
         },
-        description: 'label of the tag',
+        description: 'label of the Tag',
         table: {
             type: {
                 summary: 'string'
@@ -15,27 +15,65 @@ const TagArgTypes = {
         },
         defaultValue: 'Label'
     },
-    color: {
-        name: 'color',
-        control: {type: 'color'},
-        description: 'Set a color',
+    showAvatar: {
+        name: 'showAvatar',
+        control: {
+            type: 'boolean'
+        },
+        description: 'weather to show avatar or not',
         table: {
             type: {
-                summary:
-                    '`hexadecimal` | `rgb` | `hsl` | `mediumGrey` | `yellow` | `orange` | `pink` | `red` | `blue` | `green`'
+                summary: 'boolean'
+            },
+            category: 'Tag',
+            subcategory: 'For testing only'
+        },
+        defaultValue: false
+    },
+    type: {
+        name: 'type',
+        options: ['primary', 'secondary', 'neutral', 'error', 'success'],
+        control: {type: 'select'},
+        description: 'Can be set to `primary` | `secondary` | `neutral` | `error` | `success`',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            defaultValue: {summary: 'neutral'},
+            category: 'Tag'
+        },
+        defaultValue: 'default'
+    },
+    disabled: {
+        name: 'disabled',
+        control: {
+            type: 'boolean'
+        },
+        description: 'Disabled state of tag',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            category: 'Tag'
+        },
+        defaultValue: false
+    },
+    idCardProps: {
+        name: 'idCardProps',
+        description: 'Props for the id card',
+        table: {
+            type: {
+                summary: 'IKitIdCard'
             },
             category: 'Tag'
         }
     },
-    secondaryColorInvert: {
-        name: 'secondaryColorInvert',
-        description: 'Allow colors invertion only if color is set with a KitColorKeys',
-        control: {
-            type: 'boolean'
-        },
+    onClick: {
+        name: 'onClick',
+        description: 'Callback executed when tag is clicked',
         table: {
             type: {
-                summary: 'boolean'
+                summary: 'React.MouseEventHandler<HTMLSpanElement>'
             },
             category: 'Tag'
         }
@@ -45,7 +83,7 @@ const TagArgTypes = {
         description: 'Callback executed when tag is closed',
         table: {
             type: {
-                summary: "'(e) => void'"
+                summary: '((e: React.MouseEvent<HTMLElement>) => void)'
             },
             category: 'Tag'
         }

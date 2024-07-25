@@ -60,10 +60,8 @@ const columns: KitTableColumnsType<DataType> = [
         render: (_, {tags}) => (
             <div style={{display: 'inline-flex'}}>
                 {tags.map(tag => (
-                        <KitTag color="blue" key={tag}>
-                            {tag.toUpperCase()}
-                        </KitTag>
-                    ))}
+                    <KitTag type="primary" key={tag} idCardProps={{description: tag.toUpperCase()}} />
+                ))}
             </div>
         )
     },

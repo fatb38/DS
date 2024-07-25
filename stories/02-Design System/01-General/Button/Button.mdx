@@ -1,11 +1,10 @@
-import {Meta, Canvas} from "@storybook/addon-docs";
-import {Controls} from "@storybook/addon-docs";
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
 import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
 import * as KitButtonStories from './Button.stories';
-
 
 <Meta of={KitButtonStories} />
 
@@ -58,7 +57,7 @@ You can use `iconSize` to set the size of icon button. If size is not set, the s
 
 A loading indicator can be added to a button by setting the `loading` property on the `KitButton`.
 
-<CustomCanvas content={Examples.Loading} source={Sources.Loading} id="button-loading"/>
+<CustomCanvas content={Examples.Loading} source={Sources.Loading} id="button-loading" />
 
 ##### Danger Buttons
 
@@ -87,12 +86,6 @@ We preset a series of colorful segmented `KitButton` styles for use in different
 This series is based on the secondary color palette.
 
 <CustomCanvas content={Examples.Colors} source={Sources.Colors} id="button-segmented-colors" />
-
-##### Colored Text Buttons
-
-We preset a series of colored text `KitButton` styles for use in different situations.
-
-<CustomCanvas content={Examples.TextColor} source={Sources.TextColor} id="button-text" />
 
 ## Api
 

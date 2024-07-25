@@ -15,6 +15,7 @@ interface IInternalDatePicker {
     infoIcon?: ReactNode;
     actions?: ReactElement[];
     onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
+    readonly?: boolean;
 }
 
 interface IDatePickerProps extends Omit<DatePickerProps, 'picker'> {
@@ -35,6 +36,7 @@ interface IInternalRangerPicker {
     infoIcon?: ReactNode;
     actions?: ReactElement[];
     onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
+    readonly?: boolean;
 }
 
 export type IKitRangePicker = RangePickerProps & IInternalRangerPicker;

@@ -7,22 +7,22 @@ import {IKitSelect} from '@kit/DataEntry/Select/types';
 export const colorOptions = [
     {
         value: 'not-allowed',
-        color: colorsPalette.secondary.red.red400,
+        color: colorsPalette.secondary.error.red400,
         label: 'Not allowed'
     },
     {
         value: 'denied',
-        color: colorsPalette.secondary.yellow.yellow400,
+        color: colorsPalette.tertiary.yellow.yellow400,
         label: 'Denied'
     },
     {
         value: 'todo',
-        color: colorsPalette.primary.primary400,
+        color: colorsPalette.primary.blue400,
         label: 'Todo by agency'
     },
     {
         value: 'ok',
-        color: colorsPalette.secondary.green.green400,
+        color: colorsPalette.secondary.success.green400,
         label: 'Ok done by agency'
     }
 ];
@@ -53,24 +53,24 @@ export const iconOptions = [
 export const colorDisabledOptions = [
     {
         value: 'not-allowed',
-        color: colorsPalette.secondary.red.red400,
+        color: colorsPalette.secondary.error.red400,
         label: 'Not allowed',
         disabled: true
     },
     {
         value: 'denied',
-        color: colorsPalette.secondary.yellow.yellow400,
+        color: colorsPalette.tertiary.yellow.yellow400,
         label: 'Denied',
         disabled: true
     },
     {
         value: 'todo',
-        color: colorsPalette.primary.primary400,
+        color: colorsPalette.primary.blue400,
         label: 'Todo by agency'
     },
     {
         value: 'ok',
-        color: colorsPalette.secondary.green.green400,
+        color: colorsPalette.secondary.success.green400,
         label: 'Ok done by agency'
     }
 ];
@@ -118,7 +118,7 @@ export const idCardOptions: IKitSelect['options'] = [
         value: 'cha-yellow',
         label: 'Chartreuse Jaune',
         idCard: {
-            title: 'Chartreuse Jaune',
+            description: 'Chartreuse Jaune',
             avatarProps: {
                 size: 'small',
                 shape: 'square',
@@ -132,7 +132,7 @@ export const idCardOptions: IKitSelect['options'] = [
         value: 'cha-vep',
         label: 'Chartreuse VEP',
         idCard: {
-            title: 'Chartreuse VEP',
+            description: 'Chartreuse VEP',
             avatarProps: {
                 size: 'small',
                 shape: 'square',
@@ -146,7 +146,7 @@ export const idCardOptions: IKitSelect['options'] = [
         value: 'cha-verte',
         label: 'Chartreuse Verte',
         idCard: {
-            title: 'Chartreuse Verte',
+            description: 'Chartreuse Verte',
             avatarProps: {
                 size: 'small',
                 shape: 'square',

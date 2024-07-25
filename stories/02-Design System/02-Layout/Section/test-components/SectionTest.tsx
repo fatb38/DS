@@ -14,6 +14,7 @@ export const SectionTest: FunctionComponent = () => {
     const {theme} = useKitTheme();
 
     const secondaryColors = Object.keys(theme.colors.secondary);
+    const tertiaryColors = Object.keys(theme.colors.tertiary);
 
     return (
         <KitSpace direction="vertical" size="xl" style={{width: '100%'}}>
@@ -21,6 +22,11 @@ export const SectionTest: FunctionComponent = () => {
 
             <KitSpace direction="vertical" size="xl" style={{width: '100%'}}>
                 {secondaryColors.map(color => (
+                    <KitSection key={color} style={sectionStyle} borderColor={color}>
+                        {color}
+                    </KitSection>
+                ))}
+                {tertiaryColors.map(color => (
                     <KitSection key={color} style={sectionStyle} borderColor={color}>
                         {color}
                     </KitSection>

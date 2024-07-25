@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import {ReactNode} from 'react';
 import Modal from './Modal';
 import {KitButton, KitIcon} from '@kit/General/';
 import {IKitConfirmDialog, IKitModal} from './types';

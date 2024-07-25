@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react';
+import {forwardRef} from 'react';
 import {Input as AntdInput, InputRef} from 'antd';
 import {IKitPassword} from './types';
 import {faCircleXmark, faEye, faEyeSlash} from '@fortawesome/free-regular-svg-icons';

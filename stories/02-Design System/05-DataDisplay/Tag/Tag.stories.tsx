@@ -1,8 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react';
 
 import {argTypes} from './data';
-import React from 'react';
-import {colorsPalette} from '@theme/aristid/general/colors';
 import {Template} from './Template';
 import {KitTypography} from '@kit/General';
 import {KitTag} from '@kit/DataDisplay';
@@ -24,13 +22,11 @@ export const Api: Story = {
     }
 };
 
-const secondaryColors = Object.keys(colorsPalette.secondary);
-
 const tags: IKitTagConfig[] = [
-    {wording: 'Multimédia'},
-    {wording: 'Promo 2021'},
-    {wording: 'Alimentation'},
-    {wording: 'Fromage'}
+    {type: 'primary', idCardProps: {description: 'Multimédia'}},
+    {type: 'secondary', idCardProps: {description: 'Promo 2021'}},
+    {idCardProps: {description: 'Alimentation'}},
+    {idCardProps: {description: 'Fromage'}}
 ];
 
 export const ChromaticTest: Story = {
@@ -38,48 +34,50 @@ export const ChromaticTest: Story = {
         <>
             <KitTypography.Title level="h3">Basic tag</KitTypography.Title>
             <div style={{display: 'flex', gap: '10px'}}>
-                <KitTag>Tag 1</KitTag>
-                <KitTag onClose={() => console.log()}>Tag 2</KitTag>
+                <KitTag idCardProps={{description: 'Tag 1'}} />
+                <KitTag idCardProps={{description: 'Tag 2'}} onClose={() => console.log()} />
+                <KitTag
+                    idCardProps={{description: 'Tag with avatar', avatarProps: {label: 'Tag with avatar'}}}
+                    onClose={() => console.log()}
+                />
+            </div>
+            <KitTypography.Title level="h3">Type</KitTypography.Title>
+            <div style={{display: 'flex', gap: '10px'}}>
+                <KitTag type="primary" idCardProps={{description: 'Tag primary'}} onClose={() => console.log()} />
+                <KitTag type="secondary" idCardProps={{description: 'Tag secondary'}} onClose={() => console.log()} />
+                <KitTag type="neutral" idCardProps={{description: 'Tag neutral'}} onClose={() => console.log()} />
+                <KitTag type="error" idCardProps={{description: 'Tag error'}} onClose={() => console.log()} />
+                <KitTag type="success" idCardProps={{description: 'Tag success'}} onClose={() => console.log()} />
+            </div>
+            <KitTypography.Title level="h3">Disabled</KitTypography.Title>
+            <div style={{display: 'flex', gap: '10px'}}>
+                <KitTag
+                    type="primary"
+                    idCardProps={{description: 'Tag primary'}}
+                    disabled
+                    onClose={() => console.log()}
+                />
+                <KitTag
+                    type="secondary"
+                    idCardProps={{description: 'Tag secondary'}}
+                    disabled
+                    onClose={() => console.log()}
+                />
+                <KitTag
+                    type="neutral"
+                    idCardProps={{description: 'Tag neutral'}}
+                    disabled
+                    onClose={() => console.log()}
+                />
+                <KitTag type="error" idCardProps={{description: 'Tag error'}} disabled onClose={() => console.log()} />
+                <KitTag
+                    type="success"
+                    idCardProps={{description: 'Tag success'}}
+                    disabled
+                    onClose={() => console.log()}
+                />
             </div>
             <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                <KitTypography.Title level="h3">Secondary Colors</KitTypography.Title>
-                <div style={{display: 'flex', gap: '10px'}}>
-                    {secondaryColors.map((color: string) => (
-                        <KitTag key={color} color={color}>
-                            {color}
-                        </KitTag>
-                    ))}
-                </div>
-
-                <KitTypography.Title level="h3">Inverted secondary Colors</KitTypography.Title>
-                <div style={{display: 'flex', gap: '10px'}}>
-                    {secondaryColors.map((color: string) => (
-                        <KitTag key={color} color={color} secondaryColorInvert>
-                            {color}
-                        </KitTag>
-                    ))}
-                </div>
-
-                <KitTypography.Title level="h3">RGB format</KitTypography.Title>
-                <div style={{display: 'flex', gap: '10px'}}>
-                    <KitTag color="rgba(252, 186, 3)">Yellow</KitTag>
-                    <KitTag color="rgba(0, 29, 117)">Dark blue</KitTag>
-                    <KitTag color="rgba(133, 0, 101)">Purple</KitTag>
-                </div>
-
-                <KitTypography.Title level="h3">HEX format</KitTypography.Title>
-                <div style={{display: 'flex', gap: '10px'}}>
-                    <KitTag color="#fcba03">Yellow</KitTag>
-                    <KitTag color="#001d75">Dark blue</KitTag>
-                    <KitTag color="#850065">Purple</KitTag>
-                </div>
-
-                <KitTypography.Title level="h3">HSL format</KitTypography.Title>
-                <div style={{display: 'flex', gap: '10px'}}>
-                    <KitTag color="hsla(44, 97%, 50%, 1)">Yellow</KitTag>
-                    <KitTag color="hsla(225, 100%, 23%, 1)">Dark blue</KitTag>
-                    <KitTag color="hsla(314, 100%, 26%, 1)">Purple</KitTag>
-                </div>
                 <KitTypography.Title level="h3">Group Tag</KitTypography.Title>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
                     <KitTag.Group tags={tags} style={{width: '500px'}} />

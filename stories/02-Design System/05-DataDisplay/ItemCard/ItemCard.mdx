@@ -1,90 +1,63 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
-import * as KitItemCardStories from './ItemCard.stories';
+import * as KitItemCardStory from './ItemCard.stories';
 
-<Meta of={KitItemCardStories} />
+<Meta of={KitItemCardStory} />
 
 # ItemCard
 
-A component to display product informations
-
-## Usage
-
-The ItemCard is used to display a product identity Card - some basic informations - such as a preview, label colors and so on.
-It's also provides ability to select and / or edit product data
+Component to display information with image and actions.
 
 ## Examples
 
-##### Basic
-The simplest usage.
+### Basic
 
-###### Horizontal layout (default)
+This is a basic ItemCard with a title. ItemCard has two display options: `card` and `list`.
 
-<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="card-basic" />
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="item-card-basic" />
 
-###### Vertical layout
+### With image
 
-<CustomCanvas content={Examples.Vertical} source={Sources.Vertical} id="card-vertical" />
+ItemCard can have an image. Use `imageSrc` property to set image source and `imageAlt` to set image alt text.
 
-##### With icon
-display an icon instead of image
+<CustomCanvas content={Examples.Image} source={Sources.Image} id="item-card-image" />
 
-<CustomCanvas content={Examples.Icon} source={Sources.Icon} id="card-icon" />
+### With icon
 
-##### With Avatar
-display an Avatar
+ItemCard can display an Icon as an image. Use `icon` property to set icon. If `ìmageSrc` is set, it will be displayed instead of the icon.
 
-<CustomCanvas content={Examples.Avatar} source={Sources.Avatar} id="card-avatar" />
+<CustomCanvas content={Examples.Icon} source={Sources.Icon} id="item-card-icon" />
 
-##### With Tags
-add tags in the Card
+### Draggable
 
-<CustomCanvas content={Examples.Tags} source={Sources.Tags} id="card-tags" />
+ItemCard can be dragged and dropped inside a list. To mark an **ItemCard** as draggable, add the `draggableHandler` prop.
 
+Note that an icon appears and cursor changes, but you need to implement your own drag and drop solution in your application.
 
-##### With colors
-show colors bar near image
+<CustomCanvas content={Examples.Draggable} source={Sources.Draggable} id="item-card-draggable" />
 
-<CustomCanvas content={Examples.Colors} source={Sources.Colors} id="card-colors" />
+### With all properties
 
-##### Selectable
-set the card selectable. Simply provide the `onSelectChange` property to enable selection.
+ItemCard has several properties to customize its appearance. Here is example with all properties set.
 
-<CustomCanvas content={Examples.Selectable} source={Sources.Selectable} id="card-selectable" />
+<CustomCanvas content={Examples.Full} source={Sources.Full} id="item-card-full" />
 
-##### Editable
-allow to edit the item assicated to the card. Simply provide the `onEdit` property to enable edition.
+### Disabled ItemCard
 
-<CustomCanvas content={Examples.Editable} source={Sources.Editable} id="card-editable" />
+This is an exemple with `disabled` props `true`.
 
-##### With actions
-add actions near select checkbox.
-
-<CustomCanvas content={Examples.Actions} source={Sources.Actions} id="card-actions" />
-
-##### Disabled
-Card element in disabled state.
-
-<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="card-disabled" />
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="item-card-disabled" />
 
 ## Api
 
-<Canvas of={KitItemCardStories.Api} />
+<Canvas of={KitItemCardStory.Api} />
 
-<Controls of={KitItemCardStories.Api} />
-
+<Controls of={KitItemCardStory.Api} />
 
 ## Design Tokens
 
-<DesignTokens path="components.ItemCard" tokens={fields?.components?.ItemCard} />
-
-## Translation Tokens
-
-|   | en-US | fr-FR |
-|---|-------|-------|
-| more | More | Plus |
-| less | Less | Moins |
+<DesignTokens path="components.Card" tokens={fields?.components?.ItemCard} />

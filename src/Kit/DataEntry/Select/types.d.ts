@@ -50,7 +50,10 @@ export type IKitOption = IdCard & ClassicOption;
 
 export type IKitInternalOption = Omit<IKitOption, 'label' | 'options'> & {
     label: ReactNode;
-    labelToDisplay?: ReactNode;
+    labelToDisplay?: IdCard & {
+        icon?: ReactNode;
+        color?: string;
+    };
     rawLabel?: ReactNode;
     options?: IKitInternalOption[];
 };
@@ -67,4 +70,5 @@ export interface IKitSelect extends Omit<SelectProps, AntdSelectTypesToOmit>, Ki
     infoIcon?: ReactNode;
     actions?: ReactElement[];
     onInfoClick?: (e: MouseEvent<HTMLElement, MouseEvent>) => void;
+    readonly?: boolean;
 }

@@ -1,5 +1,5 @@
 :local(.borderSection) {
-    border-radius: 8px;
+    border-radius: convertToPixel(--general-border-radius-s);
     border: 2px solid var(--section-border-color);
 }
 

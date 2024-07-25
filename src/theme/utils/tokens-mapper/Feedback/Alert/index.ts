@@ -1,16 +1,16 @@
 import {kitAlertCssTokens} from '@theme/aristid/components/Feedback/Alert';
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {utilitiesCssTokens} from '@theme/aristid/general/utilities';
 
 export const alertKitTokenToAntdToken = {
-    colorSuccessBg: `var(${kitAlertCssTokens.colors.background.success}, var(${kitColorsPaletteCssTokens.secondary.green.green100}))`,
-    colorSuccessBorder: `var(${kitAlertCssTokens.colors.border.success}, var(${kitColorsPaletteCssTokens.secondary.green.green300}))`,
-    colorInfoBg: `var(${kitAlertCssTokens.colors.background.info}, var(${kitColorsPaletteCssTokens.secondary.blue.blue100}))`,
-    colorInfoBorder: `var(${kitAlertCssTokens.colors.border.info}, var(${kitColorsPaletteCssTokens.secondary.blue.blue300}))`,
-    colorWarningBg: `var(${kitAlertCssTokens.colors.background.warning}, var(${kitColorsPaletteCssTokens.secondary.yellow.yellow100}))`,
-    colorWarningBorder: `var(${kitAlertCssTokens.colors.border.warning}, var(${kitColorsPaletteCssTokens.secondary.yellow.yellow300}))`,
-    colorErrorBg: `var(${kitAlertCssTokens.colors.background.error}, var(${kitColorsPaletteCssTokens.secondary.red.red100}))`,
-    colorErrorBorder: `var(${kitAlertCssTokens.colors.border.error}, var(${kitColorsPaletteCssTokens.secondary.red.red400}))`,
-    colorText: `var(${kitAlertCssTokens.colors.typography.default}, var(${kitColorsPaletteCssTokens.neutral.typography.black}))`,
+    colorSuccessBg: `var(${kitAlertCssTokens.colors.background.success}, var(${utilitiesCssTokens.success.successLight}))`,
+    colorSuccessBorder: `var(${kitAlertCssTokens.colors.border.success}, var(${utilitiesCssTokens.success.successColor}))`,
+    colorInfoBg: `var(${kitAlertCssTokens.colors.background.info}, var(${utilitiesCssTokens.main.mainLight}))`,
+    colorInfoBorder: `var(${kitAlertCssTokens.colors.border.info}, var(${utilitiesCssTokens.main.mainColor}))`,
+    colorWarningBg: `var(${kitAlertCssTokens.colors.background.warning}, var(${utilitiesCssTokens.warning.warningLight}))`,
+    colorWarningBorder: `var(${kitAlertCssTokens.colors.border.warning}, var(${utilitiesCssTokens.warning.warningColor}))`,
+    colorErrorBg: `var(${kitAlertCssTokens.colors.background.error}, var(${utilitiesCssTokens.error.errorLight}))`,
+    colorErrorBorder: `var(${kitAlertCssTokens.colors.border.error}, var(${utilitiesCssTokens.error.errorColor}))`,
+    colorText: `var(${kitAlertCssTokens.colors.typography.default}, var(${utilitiesCssTokens.text.textPrimary}))`,
     fontFamily: `var(${kitAlertCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`
 };

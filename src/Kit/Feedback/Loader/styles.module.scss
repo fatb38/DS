@@ -1,0 +1,88 @@
+@import '../../../css/mixins.scss';
+
+:local(.loader) {
+    &.animated {
+        width: 48px;
+        height: 48px;
+        display: block;
+        margin: convertToPixel(--general-spacing-s) auto;
+        position: relative;
+        color: var(--general-utilities-neutral-neutralMedium);
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+
+        &::after,
+        &::before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            top: 50%;
+            left: 50%;
+            transform: scale(0.5) translate(0, 0);
+            background-color: var(--general-utilities-neutral-neutralMedium);
+            border-radius: 50%;
+            animation: animloader 1s infinite ease-in-out;
+        }
+
+        &::before {
+            background-color: var(--general-utilities-main-mainColor);
+            transform: scale(0.5) translate(-48px, -48px);
+        }
+    }
+
+    &.linear {
+        display: block;
+        margin: convertToPixel(--general-spacing-none);
+        padding: convertToPixel(--general-spacing-none);
+        height: convertToPixel(--components-Loader-linear-height, --general-spacing-xxs);
+        overflow: hidden;
+        background-color: var(--general-utilities-neutral-neutralMedium);
+        position: relative;
+
+        &:before {
+            content: '';
+            display: block;
+            width: calc(var(--components-Loader-width, 0) * 1%);
+            height: convertToPixel(--components-Loader-linear-height, --general-spacing-xxs);
+            background-color: var(--general-utilities-main-mainColor);
+            border-radius: convertToPixel(--general-border-radius-square);
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: none;
+            transition: width 0.15s ease-in-out;
+        }
+
+        &.infinite:before {
+            width: 180px;
+            animation: animLinear 2s linear infinite;
+            transition: none;
+            border-radius: convertToPixel(--components-Loader-linear-border-radius-infinite, --general-border-radius-s);
+        }
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes animloader {
+    50% {
+        transform: scale(1) translate(-50%, -50%);
+    }
+}
+
+@keyframes animLinear {
+    0% {
+        left: -180px;
+    }
+    100% {
+        left: calc(100%);
+    }
+}

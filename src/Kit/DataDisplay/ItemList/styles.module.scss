@@ -5,49 +5,34 @@
     align-items: center;
     min-height: 40px;
     padding: convertToPixel(--general-spacing-xs);
-    margin: 0px;
-    background-color: var(
-        --components-ItemList-colors-background-default,
-        var(--general-colors-neutral-white)
-    );
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
-    border: 1px solid
-        var(
-            --components-ItemList-colors-border-default,
-            var(--general-colors-secondary-mediumGrey-mediumGrey200)
-        );
+    margin: convertToPixel(--general-spacing-none);
+    background-color: var(--components-ItemList-colors-background-default, var(--general-utilities-light));
+    box-shadow: var(--general-utilities-shadow-shadowLight);
+    border: 1px solid var(--components-ItemList-colors-border-default, var(--general-utilities-border));
     border-radius: convertToPixel(--components-ItemList-border-default, --general-border-radius-s);
 
     &:hover:not(.kit-item-list-disabled) {
-        border: 1px solid
-            var(
-                --components-ItemList-colors-border-hover,
-                var(--general-colors-primary-primary400)
-            );
+        border: 1px solid var(--components-ItemList-colors-border-hover, var(--general-utilities-main-mainColor));
     }
 
     & > .ant-checkbox-wrapper {
-        padding-right: 8px;
+        padding-right: convertToPixel(--general-spacing-xs);
     }
 
-    &:focus-visible:not(.kit-card-disabled) {
+    &:focus-visible:not(.kit-item-list-disabled) {
         border: 1px solid transparent;
-        box-shadow: 0 0 0 3px var(--general-colors-primary-primary200);
+        box-shadow: 0 0 0 3px var(--general-utilities-focus);
         outline: none;
     }
 
     &.kit-item-list-disabled {
-        background-color: var(--general-colors-secondary-mediumGrey-mediumGrey100);
+        background-color: var(--general-utilities-neutral-neutralLight);
         cursor: not-allowed;
     }
 }
 
 :local(.kit-item-list-selected) {
-    border: 1px solid
-        var(
-            --components-ItemList-colors-border-selected,
-            var(--general-colors-primary-primary400)
-    );
+    border: 1px solid var(--components-ItemList-colors-border-selected, var(--general-utilities-main-mainColor));
 }
 
 :local(.kit-item-list-buttons) {
@@ -61,4 +46,3 @@
 :local(.kit-item-list-clickable) {
     cursor: pointer;
 }
-

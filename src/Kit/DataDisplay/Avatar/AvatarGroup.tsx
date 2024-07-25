@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Avatar as AntdAvatar} from 'antd';
 import {IKitAvatarGroup} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

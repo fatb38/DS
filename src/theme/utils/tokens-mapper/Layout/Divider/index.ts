@@ -1,10 +1,9 @@
 import {kitDividerCssTokens} from '@theme/aristid/components/Layout/Divider';
-import {kitColorsPaletteCssTokens} from '@theme/aristid/general/colors';
 import {typographyCssTokens} from '@theme/aristid/general/typography';
+import {utilitiesCssTokens} from '@theme/aristid/general/utilities';
 
 export const dividerKitTokenToAntdToken = {
-    colorText: `var(${kitDividerCssTokens.colors.typography.default}, var(${kitColorsPaletteCssTokens.neutral.typography.black}))`,
-    colorTextHeading: `var(${kitDividerCssTokens.colors.typography.default}, var(${kitColorsPaletteCssTokens.neutral.typography.black}))`,
-    fontFamily: `var(${kitDividerCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`,
-    colorSplit: `var(${kitDividerCssTokens.colors.split.default}, var(${kitColorsPaletteCssTokens.neutral.black60}))`
+    colorText: `var(${kitDividerCssTokens.colors.typography.default}, var(${utilitiesCssTokens.text.textPrimary}))`,
+    colorTextHeading: `var(${kitDividerCssTokens.colors.typography.default}, var(${utilitiesCssTokens.text.textPrimary}))`,
+    fontFamily: `var(${kitDividerCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`
 };

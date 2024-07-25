@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Steps as AntdSteps} from 'antd';
 import {IKitSteps} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

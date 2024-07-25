@@ -6,6 +6,7 @@ import dayjs from 'dayjs';
 import {Template} from './Template';
 import {KitTypography} from '@kit/General';
 import {userEvent, within} from '@storybook/testing-library';
+import {KitDivider, KitSpace} from '@kit/Layout';
 
 const meta: Meta<typeof KitDatePicker> = {
     component: KitDatePicker,
@@ -22,6 +23,8 @@ export const Api: Story = {
         chromatic: {disableSnapshot: true}
     }
 };
+
+const dateFormat = 'YYYY/MM/DD';
 
 export const ChromaticTestBasic: Story = {
     render: () => (
@@ -149,5 +152,51 @@ export const ChromaticTestLabelHelperStatus: Story = {
                 <KitDatePicker.RangePicker helper="Helper" label="Label" status="error" />
             </div>
         </div>
+    )
+};
+export const ChromaticTestReadonly: Story = {
+    render: () => (
+        <>
+            <KitDivider orientation="left">Read only</KitDivider>
+            <KitSpace align="start" size="s" style={{marginBottom: '16px'}}>
+                <KitDatePicker readonly label="Label" />
+                <KitDatePicker
+                    defaultValue={dayjs('2024/06/28', dateFormat)}
+                    format={dateFormat}
+                    readonly
+                    label="Label"
+                />
+            </KitSpace>
+            <KitSpace align="start" size="s">
+                <KitDatePicker.RangePicker readonly label="Label" />
+                <KitDatePicker.RangePicker
+                    defaultValue={[dayjs('2015/01/01', dateFormat), dayjs('2015/01/01', dateFormat)]}
+                    format={dateFormat}
+                    readonly
+                    label="Label"
+                />
+            </KitSpace>
+            <KitDivider orientation="left">Read only error</KitDivider>
+            <KitSpace align="start" size="s" style={{marginBottom: '16px'}}>
+                <KitDatePicker readonly label="Label" status="error" />
+                <KitDatePicker
+                    defaultValue={dayjs('2024/06/28', dateFormat)}
+                    format={dateFormat}
+                    readonly
+                    status="error"
+                    label="Label"
+                />
+            </KitSpace>
+            <KitSpace align="start" size="xl">
+                <KitDatePicker.RangePicker readonly status="error" label="Label" />
+                <KitDatePicker.RangePicker
+                    defaultValue={[dayjs('2015/01/01', dateFormat), dayjs('2015/01/01', dateFormat)]}
+                    format={dateFormat}
+                    readonly
+                    status="error"
+                    label="Label"
+                />
+            </KitSpace>
+        </>
     )
 };

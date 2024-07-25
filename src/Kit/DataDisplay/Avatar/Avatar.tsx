@@ -1,4 +1,4 @@
-import React, {CSSProperties, FunctionComponent, PropsWithChildren, useMemo} from 'react';
+import {CSSProperties, FunctionComponent, PropsWithChildren, useMemo} from 'react';
 import {Avatar as AntdAvatar} from 'antd';
 import {IKitAvatar} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
@@ -7,7 +7,9 @@ import {
     getContrastColor,
     getInitials,
     getLighterColor,
+    isPrimaryColor,
     isSecondaryColor,
+    isTertiaryColor,
     isValidColor
 } from '@utils/functions';
 import {kitAvatarCssTokens} from '@theme/aristid/components/DataDisplay/Avatar';
@@ -25,9 +27,10 @@ const getCustomColors = (
 
     return {
         [kitAvatarCssTokens.colors.background.default]: getColor(color, secondaryColorInvert),
-        [kitAvatarCssTokens.colors.typography.default]: isSecondaryColor(color)
-            ? getLighterColor(color, secondaryColorInvert)
-            : getContrastColor(color)
+        [kitAvatarCssTokens.colors.typography.default]:
+            isPrimaryColor(color) || isSecondaryColor(color) || isTertiaryColor(color)
+                ? getLighterColor(color, secondaryColorInvert)
+                : getContrastColor(color)
     } as CSSProperties;
 };
 

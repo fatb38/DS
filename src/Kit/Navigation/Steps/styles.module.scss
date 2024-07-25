@@ -9,7 +9,7 @@
                         .ant-steps-icon-dot {
                             background: var(
                                 --components-Steps-colors-dot-default,
-                                var(--general-colors-primary-primary300)
+                                var(--general-utilities-main-mainMedium)
                             );
                         }
                     }
@@ -19,14 +19,14 @@
                     .ant-steps-item-title {
                         color: var(
                             --components-Steps-colors-typography-text-active,
-                            var(--general-colors-primary-primary300)
+                            var(--general-utilities-main-mainMedium)
                         );
                     }
 
                     .ant-steps-item-description {
                         color: var(
                             --components-Steps-colors-typography-description-active,
-                            var(--general-colors-primary-primary300)
+                            var(--general-utilities-main-mainMedium)
                         );
                     }
                 }

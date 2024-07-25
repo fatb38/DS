@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Dropdown as AntdDropdown} from 'antd';
 import {IKitDropdown} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

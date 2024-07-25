@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {Tabs as AntTabs} from 'antd';
 import {IKitTabs} from './types';
 import {useKitTheme} from '@theme/useKitTheme';

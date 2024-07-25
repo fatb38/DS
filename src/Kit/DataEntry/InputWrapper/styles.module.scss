@@ -2,41 +2,38 @@
 
 :local(.kit-input-wrapper) {
     .kit-input-wrapper-label {
-        margin-bottom: convertToPixel(--components-InputWrapper-gap-label, --general-spacing-xs);
+        margin-bottom: convertToPixel(--components-InputWrapper-gap-label, --general-spacing-xxs);
         display: flex;
         align-items: center;
+        gap: calc(var(--general-spacing-xxs) * 1px);
+    }
+
+    .kit-input-wrapper-actions {
+        display: flex;
+        align-items: center;
+        gap: calc(var(--general-spacing-xs) * 1px);
     }
 
     .kit-input-wrapper-helper {
         margin-top: convertToPixel(--components-InputWrapper-gap-helper, --general-spacing-xs);
     }
 
-
     .kit-input-wrapper-label,
     .kit-input-wrapper-helper {
         &,
         .ant-typography {
-            color: var(
-                --components-InputWrapper-colors-typography-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey600)
-            );
+            color: var(--components-InputWrapper-colors-typography-default, var(--general-utilities-text-textPrimary));
         }
     }
 
     .kit-input-wrapper-required {
-        color: var(--components-InputWrapper-colors-typography-error,
-            var(--general-colors-secondary-red-red400)
-        );
-        padding-left: 4px;
+        color: var(--components-InputWrapper-colors-typography-error, var(--general-utilities-text-textError));
+        padding-left: convertToPixel(--general-spacing-xxs);
         font-variant-position: super;
     }
 
     &.bordered .kit-input-wrapper-content {
-        border: 1px solid
-            var(
-                --components-InputWrapper-colors-border-default,
-                var(--general-colors-secondary-mediumGrey-mediumGrey200)
-            );
+        border: 1px solid var(--components-InputWrapper-colors-border-default, var(--general-utilities-border));
         border-radius: convertToPixel(--components-InputWrapper-border-radius, --general-border-radius-s);
         padding: 10px;
     }
@@ -46,18 +43,12 @@
         .kit-input-wrapper-helper {
             &,
             .ant-typography {
-                color: var(
-                    --components-InputWrapper-colors-typography-error,
-                    var(--general-colors-secondary-red-red400)
-                );
+                color: var(--components-InputWrapper-colors-typography-error, var(--general-utilities-text-textError));
             }
         }
 
         .kit-input-wrapper-content {
-            border-color: var(
-                --components-InputWrapper-colors-border-error,
-                var(--general-colors-secondary-red-red400)
-            );
+            border-color: var(--components-InputWrapper-colors-border-error, var(--general-utilities-error-errorColor));
         }
     }
 
@@ -68,7 +59,7 @@
             .ant-typography {
                 color: var(
                     --components-InputWrapper-colors-typography-warning,
-                    var(--general-colors-secondary-orange-orange400)
+                    var(--general-utilities-text-textWarning)
                 );
             }
         }
@@ -76,7 +67,7 @@
         .kit-input-wrapper-content {
             border-color: var(
                 --components-InputWrapper-colors-border-warning,
-                var(--general-colors-secondary-orange-orange400)
+                var(--general-utilities-warning-warningColor)
             );
         }
     }
@@ -88,23 +79,20 @@
             .ant-typography {
                 color: var(
                     --components-InputWrapper-colors-typography-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
+                    var(--general-utilities-text-textDisabled)
                 );
             }
         }
 
         .kit-input-wrapper-required {
             color: var(
-                    --components-InputWrapper-colors-typography-disabled,
-                    var(--general-colors-secondary-mediumGrey-mediumGrey400)
-                );
+                --components-InputWrapper-colors-typography-disabled,
+                var(--general-utilities-text-textDisabled)
+            );
         }
 
         .kit-input-wrapper-content {
-            border-color: var(
-                --components-InputWrapper-colors-border-disabled,
-                var(--general-colors-secondary-mediumGrey-mediumGrey200)
-            );
+            border-color: var(--components-InputWrapper-colors-border-disabled, var(--general-utilities-border));
         }
     }
 }

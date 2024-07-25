@@ -1,7 +1,7 @@
 import {IKitTheme} from '../../../src/theme/types';
 import {JSONValue} from './types';
 
-export const getThemeData = (theme: IKitTheme, path: string): JSONValue | undefined => {
+export const getThemeData = (theme: Partial<IKitTheme>, path: string): JSONValue | undefined => {
     const parts = path.split('.');
     const lastElement = parts.slice(-1).toString();
     let val = theme as unknown as JSONValue;

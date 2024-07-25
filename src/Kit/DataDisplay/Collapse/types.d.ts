@@ -2,6 +2,7 @@ import {CollapseProps} from 'antd';
 import {ReactNode, MouseEvent, ReactInstance, KeyboardEvent, FunctionComponent} from 'react';
 import {KitHTMLAttributes} from '../../../types';
 import {SwitchChangeEventHandler} from 'antd/es/switch';
+import {IKitTag} from '../Tag/types';
 
 type AntdCollapseTypesToOmit = 'bordered' | 'expandIconPosition' | 'ghost';
 
@@ -11,7 +12,7 @@ export interface IKitHeader {
     imageSrc?: string;
     title?: string;
     description?: string;
-    tagContent?: ReactNode;
+    tagProps?: IKitTag;
     onSwitchChange?: SwitchChangeEventHandler;
     disabled?: boolean;
 }
@@ -28,7 +29,7 @@ export interface IKitHeaderImage {
 export interface IKitHeaderContent {
     title: IKitHeader['title'];
     description: IKitHeader['description'];
-    tagContent: IKitHeader['tagContent'];
+    tagProps: IKitHeader['tagProps'];
     disabled: IKitHeader['disabled'];
 }
 

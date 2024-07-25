@@ -3,7 +3,7 @@
 :local(.kit-error) {
     @include svgColorsClasses();
 
-    padding: convertToPixel(--general-spacing-veryHuge) 0;
+    padding: convertToPixel(--general-spacing-veryHuge) convertToPixel(--general-spacing-none);
 
     &.ant-empty {
         .ant-empty-image {
@@ -12,8 +12,8 @@
         }
 
         .error-title {
-            margin-block-start: 0;
-            margin-block-end: 0;
+            margin-block-start: convertToPixel(--general-spacing-none);
+            margin-block-end: convertToPixel(--general-spacing-none);
         }
     }
 }

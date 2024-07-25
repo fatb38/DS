@@ -1,23 +1,29 @@
 export const argTypes = {
-    vertical: {
-        name: 'vertical',
-        description: 'Change ItemCard layout to vertical',
-        control: {
-            type: 'boolean'
-        },
+    className: {
+        name: 'className',
+        description: 'Override basic className props',
         table: {
             type: {
-                summary: 'boolean'
+                summary: 'string'
+            },
+            category: 'ItemCard'
+        }
+    },
+    style: {
+        name: 'style',
+        description: 'Override basic style props',
+        table: {
+            type: {
+                summary: 'CSSProperties'
             },
             category: 'ItemCard'
         }
     },
     disabled: {
         name: 'disabled',
-        description: 'Is ItemCard disabled',
-        control: {
-            type: 'boolean'
-        },
+        control: {type: 'boolean'},
+        description:
+            "Disabled the ItemCard if `true`. When disabled, ItemCard cannot be focused and actions don't work",
         table: {
             type: {
                 summary: 'boolean'
@@ -25,141 +31,173 @@ export const argTypes = {
             category: 'ItemCard'
         }
     },
-    picture: {
-        name: 'picture',
-        description: 'Set the picure area content. Can e one of `Image` `Avatar` or `Icon`',
-        options: ['-', 'Image', 'Icon', 'Avatar'],
-        control: {
-            type: 'select'
-        },
+    display: {
+        name: 'display',
+        control: {type: 'select', options: ['card', 'list']},
+        description: 'Display style of the card',
         table: {
             type: {
-                summary: 'ReactElement<IKitAvatar> | ReactElement<IKitIcon> | ReactElement<IKitImage>'
+                summary: 'card | list'
             },
             category: 'ItemCard'
         }
     },
-    fullWidthAvatar: {
-        name: 'fullWidthAvatar',
-        description: 'Sets wether the avatar should fill the entire picture area',
-        control: {
-            type: 'boolean'
-        },
+    imageAlt: {
+        name: 'imageAlt',
+        description: 'Alt text of the image',
+        control: {type: 'text'},
         table: {
             type: {
-                summary: 'boolean'
+                summary: 'string'
             },
             category: 'ItemCard'
         }
     },
-    colors: {
-        name: 'colors',
-        description: 'set list of colors to display. cardColor[]',
-        control: {
-            type: 'boolean'
-        },
+    imageSrc: {
+        name: 'imageSrc',
+        description: 'Source of the image',
+        control: {type: 'text'},
         table: {
             type: {
-                summary: 'boolean'
+                summary: 'string'
+            },
+            category: 'ItemCard'
+        }
+    },
+    icon: {
+        name: 'icon',
+        description: 'Icon display as image',
+        table: {
+            type: {
+                summary: 'ReactNode'
             },
             category: 'ItemCard'
         }
     },
     title: {
         name: 'title',
-        description: 'Sets the ItemCard title',
-        control: {
-            type: 'text'
-        },
+        required: true,
+        control: {type: 'text'},
+        description: 'Title of the ItemCard',
         table: {
             type: {
-                summary: 'string'
+                summary: 'text'
             },
             category: 'ItemCard'
         }
     },
     description: {
         name: 'description',
-        description: 'Sets the ItemCard description',
-        control: {
-            type: 'text'
-        },
+        control: {type: 'text'},
+        description: 'Description of the ItemCard',
         table: {
             type: {
-                summary: 'string'
+                summary: 'text'
             },
             category: 'ItemCard'
         }
     },
-    extrainfo: {
-        name: 'extrainfo',
-        description: 'Sets the ItemCard extrainfo',
-        control: {
-            type: 'text'
-        },
+    tagGroup: {
+        name: 'tagGroup',
+        description: 'Tag group config to display list of tags',
         table: {
             type: {
-                summary: 'string'
+                summary: 'IKitTagGroup'
             },
             category: 'ItemCard'
         }
     },
-    tags: {
-        name: 'tags',
-        description: 'set list of tags to display. string[]',
-        control: {
-            type: 'boolean'
-        },
+    breadcrumbItems: {
+        name: 'breadcrumbItems',
+        description: 'Breadcrumb items to display the path of the ItemCard',
+        table: {
+            type: {
+                summary: 'IKitBreadcrumbItem[]'
+            },
+            category: 'ItemCard'
+        }
+    },
+    draggableHandler: {
+        name: 'draggableHandler',
+        description: 'Draggable handler to drag the ItemCard',
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            category: 'ItemCard'
+        }
+    },
+    selected: {
+        name: 'selected',
+        control: {type: 'boolean'},
+        description: 'If `true` the ItemCard is outlined',
         table: {
             type: {
                 summary: 'boolean'
+            },
+            category: 'ItemCard'
+        }
+    },
+    onSelect: {
+        name: 'onSelect',
+        description: 'Checkbox onChange function',
+        table: {
+            type: {
+                summary: '(e: CheckboxChangeEvent) => void'
+            },
+            category: 'ItemCard'
+        }
+    },
+    activateLabel: {
+        name: 'activateLabel',
+        control: {type: 'text'},
+        description: 'Label of the switch',
+        table: {
+            type: {
+                summary: 'text'
+            },
+            category: 'ItemCard'
+        }
+    },
+    activated: {
+        name: 'activated',
+        control: {type: 'boolean'},
+        description: 'If `true` the switch is checked',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            category: 'ItemCard'
+        }
+    },
+    onActivate: {
+        name: 'onActivate',
+        description: 'Switch onChange function',
+        table: {
+            type: {
+                summary: 'SwitchChangeEventHandler'
+            },
+            category: 'ItemCard'
+        }
+    },
+    extra: {
+        name: 'extra',
+        description: 'Extra content of the ItemCard',
+        table: {
+            type: {
+                summary: 'ReactNode'
             },
             category: 'ItemCard'
         }
     },
     actions: {
         name: 'actions',
-        description: 'set list of actions to add. array of `Button`',
-        control: {
-            type: 'boolean'
-        },
+        description: 'Actions to display on the ItemCard',
         table: {
             type: {
-                summary: 'boolean'
+                summary: '[IKitActionButton | undefined, IKitActionButton | undefined, IKitActionButton | undefined]'
             },
             category: 'ItemCard'
         }
-    },
-    onSelectChange: {
-        name: 'onSelectChange',
-        description:
-            'The callback function that is triggered when the state change. When set makes ItemCard selectable',
-        control: {
-            type: 'boolean'
-        },
-        table: {
-            type: {
-                summary: '(checkedValue: CheckboxValueType[]) => void'
-            },
-            defaultValue: {summary: '-'},
-            category: 'CheCardckbox'
-        },
-        defaultValue: () => {}
-    },
-    onEdit: {
-        name: 'onEdit',
-        description:
-            'The callback function that is triggered when click on the Edit buttone. When set makes the card Editable',
-        control: {
-            type: 'boolean'
-        },
-        table: {
-            type: {
-                summary: '() => void'
-            },
-            defaultValue: {summary: '-'},
-            category: 'Button'
-        },
-        defaultValue: () => {}
     }
 };

@@ -1,124 +1,139 @@
 @import '../../../css/mixins.scss';
 
 .ant-tour-primary {
-    .ant-tour-arrow::after, .ant-tour-arrow::before {
-        background-color: var(--general-colors-primary-primary400);
-    }
+    .ant-tour-arrow::after,
+    .ant-tour-arrow::before,
     .ant-tour-content .ant-tour-inner {
-        background-color: var(--general-colors-primary-primary400);
+        background-color: var(--general-utilities-main-mainColor);
     }
 }
 
-.ant-tour .ant-tour-content .ant-tour-inner {
-    .ant-tour-footer {
-        align-items: center;
+.ant-tour .ant-tour-content .ant-tour-inner .ant-tour-footer {
+    align-items: center;
 
-        .ant-tour-buttons .ant-btn{
+    .ant-tour-buttons .ant-btn {
+        height: 40px;
+        min-width: 40px;
+        box-shadow: none;
+        padding: 6.6px 15px;
+        border-radius: convertToPixel(--components-Button-border-radius, --general-border-radius-pills);
 
-            height: 40px;
-            min-width: 40px;
-            box-shadow: none;
-            padding: 6.6px 15px;
-            border-radius: convertToPixel(--components-Button-border-radius, --general-border-radius-pills);
+        &.ant-btn-primary {
+            color: var(--components-Button-primary-colors-typography-default, var(--general-utilities-text-textLight));
+            background-color: var(
+                --components-Button-primary-colors-background-default,
+                var(--general-utilities-main-mainColor)
+            );
+            font-weight: var(
+                --components-Button-primary-typography-fontWeight,
+                var(--general-typography-regularFontWeight)
+            );
 
-            &.ant-btn-primary {
-                color: var(--components-Button-primary-colors-typography-default, var(
-                    --general-colors-neutral-typography-white
-                ));
-                background-color: var(--components-Button-primary-colors-background-default, var(
-                    --general-colors-primary-primary400
-                ));
-                font-weight: var(--components-Button-primary-typography-fontWeight, var(
-                    --general-typography-regularFontWeight
-                ));
-
-                &:hover {
-                    color: var(--components-Button-primary-colors-typography-hover, var(
-                        --general-colors-neutral-typography-white
-                    ));
-                    background-color: var(--components-Button-primary-colors-background-hover, var(
-                        --general-colors-primary-primary500
-                    ));
-                    border-color: var(--components-Button-primary-colors-border-hover, var(
-                        --general-colors-primary-primary500
-                    ));
-                    border-style: solid;
-                }
-
-                &:focus {
-                    color: var(--components-Button-primary-colors-typography-focus, var(
-                        --general-colors-neutral-typography-white
-                    ));
-                    background-color: var(--components-Button-primary-colors-background-focus, var(
-                        --general-colors-primary-primary400
-                    ));
-                    border-color: var(--components-Button-primary-colors-border-focus, var(
-                        --general-colors-primary-primary400
-                    ));
-                    border-style: dashed;
-                }
-
-                &:active {
-                    color: var(--components-Button-primary-colors-typography-active, var(
-                        --general-colors-neutral-typography-white
-                    ));
-                    background-color: var(--components-Button-primary-colors-background-active, var(
-                        --general-colors-primary-primary600
-                    ));
-                    border-color: var(--components-Button-primary-colors-border-active, var(
-                        --general-colors-primary-primary600
-                    ));
-                    border-style: solid;
-                }
+            &:hover {
+                color: var(
+                    --components-Button-primary-colors-typography-hover,
+                    var(--general-utilities-text-textLight)
+                );
+                background-color: var(
+                    --components-Button-primary-colors-background-hover,
+                    var(--general-utilities-main-mainDark)
+                );
+                border-color: var(
+                    --components-Button-primary-colors-border-hover,
+                    var(--general-utilities-main-mainDark)
+                );
+                border-style: solid;
             }
 
-            &.ant-btn-default {
-                color: var(--components-Button-default-colors-typography-default, var(
-                    --general-colors-primary-primary400
-                ));
-                background-color: var(--components-Button-default-colors-background-default, var(
-                    --general-colors-neutral-white
-                ));;
-                font-weight: convertToPixel(
-                    --components-Button-default-typography-fontWeight,
-                    --general-typography-regularFontWeight
+            &:focus {
+                color: var(
+                    --components-Button-primary-colors-typography-focus,
+                    var(--general-utilities-text-textLight)
                 );
-                &:hover {
-                    color: var(--components-Button-default-colors-typography-hover, var(
-                        --general-colors-primary-primary400
-                    ));
-                    background-color: var(--components-Button-default-colors-background-hover, var(
-                        --general-colors-neutral-white
-                    ));
-                    border-color: var(--components-Button-default-colors-border-hover, var(
-                        --general-colors-primary-primary400
-                    ));;
-                    border-style: solid;
-                }
-                &:focus {
-                    color: var(--components-Button-default-colors-typography-focus, var(
-                        --general-colors-primary-primary400
-                    ));
-                    background-color: var(--components-Button-default-colors-background-focus, var(
-                        --general-colors-neutral-white
-                    ));
-                    border-color: var(--components-Button-default-colors-border-focus, var(
-                        --general-colors-primary-primary400
-                    ));;
-                    border-style: dashed;
-                }
-                &:active {
-                    color: var(--components-Button-default-colors-typography-active, var(
-                        --general-colors-primary-primary400
-                    ));
-                    background-color: var(--components-Button-default-colors-background-active, var(
-                        --general-colors-primary-primary100
-                    ));
-                    border-color: var(--components-Button-default-colors-border-active, var(
-                        --general-colors-primary-primary400
-                    ));
-                    border-style: solid;
-                }
+                background-color: var(
+                    --components-Button-primary-colors-background-focus,
+                    var(--general-utilities-main-mainColor)
+                );
+                border-color: var(
+                    --components-Button-primary-colors-border-focus,
+                    var(--general-utilities-main-mainColor)
+                );
+            }
+
+            &:active {
+                color: var(
+                    --components-Button-primary-colors-typography-active,
+                    var(--general-utilities-text-textLight)
+                );
+                background-color: var(
+                    --components-Button-primary-colors-background-active,
+                    var(--general-utilities-main-mainDeepDark)
+                );
+                border-color: var(
+                    --components-Button-primary-colors-border-active,
+                    var(--general-utilities-main-mainDeepDark)
+                );
+                border-style: solid;
+            }
+        }
+
+        &.ant-btn-default {
+            color: var(--components-Button-default-colors-typography-default, var(--general-utilities-main-mainColor));
+            background-color: var(
+                --components-Button-default-colors-background-default,
+                var(--general-utilities-light)
+            );
+            font-weight: convertToPixel(
+                --components-Button-default-typography-fontWeight,
+                --general-typography-regularFontWeight
+            );
+
+            &:hover {
+                color: var(
+                    --components-Button-default-colors-typography-hover,
+                    var(--general-utilities-main-mainColor)
+                );
+                background-color: var(
+                    --components-Button-default-colors-background-hover,
+                    var(--general-utilities-light)
+                );
+                border-color: var(
+                    --components-Button-default-colors-border-hover,
+                    var(--general-utilities-main-mainColor)
+                );
+                border-style: solid;
+            }
+
+            &:focus {
+                color: var(
+                    --components-Button-default-colors-typography-focus,
+                    var(--general-utilities-main-mainColor)
+                );
+                background-color: var(
+                    --components-Button-default-colors-background-focus,
+                    var(--general-utilities-light)
+                );
+                border-color: var(
+                    --components-Button-default-colors-border-focus,
+                    var(--general-utilities-main-mainColor)
+                );
+                border-style: dashed;
+            }
+
+            &:active {
+                color: var(
+                    --components-Button-default-colors-typography-active,
+                    var(--general-utilities-main-mainColor)
+                );
+                background-color: var(
+                    --components-Button-default-colors-background-active,
+                    var(--general-utilities-main-mainLight)
+                );
+                border-color: var(
+                    --components-Button-default-colors-border-active,
+                    var(--general-utilities-main-mainColor)
+                );
+                border-style: solid;
             }
         }
     }

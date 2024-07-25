@@ -11,6 +11,7 @@ import Status from './status';
 import Wrapper from './wrapper';
 import Customcell from './customcell';
 import Placement from './placement';
+import Readonly from './readonly.tsx';
 
 import BasicSource from './basic?raw';
 import RangepickerSource from './rangepicker?raw';
@@ -25,6 +26,7 @@ import StatusSource from './status?raw';
 import WrapperSource from './wrapper?raw';
 import CustomcellSource from './customcell?raw';
 import PlacementSource from './placement?raw';
+import ReadonlySource from './readonly.tsx?raw';
 
 export const Sources = {
     Basic: BasicSource,
@@ -39,7 +41,8 @@ export const Sources = {
     Status: StatusSource,
     Wrapper: WrapperSource,
     Customcell: CustomcellSource,
-    Placement: PlacementSource
+    Placement: PlacementSource,
+    Readonly: ReadonlySource
 };
 export default {
     Basic,
@@ -54,5 +57,6 @@ export default {
     Status,
     Wrapper,
     Customcell,
-    Placement
+    Placement,
+    Readonly
 };

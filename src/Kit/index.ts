@@ -1,8 +1,6 @@
 export {
     KitAvatar,
     KitBadge,
-    KitCard,
-    KitLegacyCard,
     KitItemCard,
     KitCollapse,
     KitEmpty,
@@ -10,6 +8,7 @@ export {
     KitIdCard,
     KitImage,
     KitItemList,
+    KitRedirectCard,
     KitTable,
     KitTooltip,
     KitTree,
@@ -40,7 +39,8 @@ export {
     openKitSnackBar,
     closeKitSnackBar,
     useKitNotification,
-    KitNotification
+    KitNotification,
+    KitLoader
 } from './Feedback';
 export {KitButton, KitTypography, KitIcon} from './General';
 export {KitDivider, KitGrid, KitSpace, KitSection} from './Layout';

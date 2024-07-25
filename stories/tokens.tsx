@@ -10,51 +10,51 @@ const forms = {
             "primary": {
                 "_label": "primary",
                 "_path": "general.colors.primary",
-                "primary50": {
-                    "_label": "primary50",
-                    "_path": "general.colors.primary.primary50",
+                "blue50": {
+                    "_label": "blue50",
+                    "_path": "general.colors.primary.blue50",
                     "_type": "color",
                     "_description": "Primary 50 color"
                 },
-                "primary100": {
-                    "_label": "primary100",
-                    "_path": "general.colors.primary.primary100",
+                "blue100": {
+                    "_label": "blue100",
+                    "_path": "general.colors.primary.blue100",
                     "_type": "color",
                     "_description": "Primary 100 color"
                 },
-                "primary200": {
-                    "_label": "primary200",
-                    "_path": "general.colors.primary.primary200",
+                "blue200": {
+                    "_label": "blue200",
+                    "_path": "general.colors.primary.blue200",
                     "_type": "color",
                     "_description": "Primary 200 color"
                 },
-                "primary300": {
-                    "_label": "primary300",
-                    "_path": "general.colors.primary.primary300",
+                "blue300": {
+                    "_label": "blue300",
+                    "_path": "general.colors.primary.blue300",
                     "_type": "color",
                     "_description": "Primary 300 color"
                 },
-                "primary400": {
-                    "_label": "primary400",
-                    "_path": "general.colors.primary.primary400",
+                "blue400": {
+                    "_label": "blue400",
+                    "_path": "general.colors.primary.blue400",
                     "_type": "color",
                     "_description": "Primary 400 color"
                 },
-                "primary500": {
-                    "_label": "primary500",
-                    "_path": "general.colors.primary.primary500",
+                "blue500": {
+                    "_label": "blue500",
+                    "_path": "general.colors.primary.blue500",
                     "_type": "color",
                     "_description": "Primary 500 color"
                 },
-                "primary600": {
-                    "_label": "primary600",
-                    "_path": "general.colors.primary.primary600",
+                "blue600": {
+                    "_label": "blue600",
+                    "_path": "general.colors.primary.blue600",
                     "_type": "color",
                     "_description": "Primary 600 color"
                 },
-                "primary700": {
-                    "_label": "primary700",
-                    "_path": "general.colors.primary.primary700",
+                "blue700": {
+                    "_label": "blue700",
+                    "_path": "general.colors.primary.blue700",
                     "_type": "color",
                     "_description": "Primary 700 color"
                 }
@@ -62,86 +62,6 @@ const forms = {
             "neutral": {
                 "_label": "neutral",
                 "_path": "general.colors.neutral",
-                "typography": {
-                    "_label": "typography",
-                    "_path": "general.colors.neutral.typography",
-                    "default": {
-                        "_label": "default",
-                        "_path": "general.colors.neutral.typography.default",
-                        "_type": "color",
-                        "_description": "typography default color"
-                    },
-                    "black": {
-                        "_label": "black",
-                        "_path": "general.colors.neutral.typography.black",
-                        "_type": "color",
-                        "_description": "typography black color"
-                    },
-                    "black60": {
-                        "_label": "black60",
-                        "_path": "general.colors.neutral.typography.black60",
-                        "_type": "color",
-                        "_description": "typography black 60% color"
-                    },
-                    "white": {
-                        "_label": "white",
-                        "_path": "general.colors.neutral.typography.white",
-                        "_type": "color",
-                        "_description": "typography white color"
-                    }
-                },
-                "background": {
-                    "_label": "background",
-                    "_path": "general.colors.neutral.background",
-                    "_type": "color",
-                    "_description": "default background color"
-                },
-                "grey": {
-                    "_label": "grey",
-                    "_path": "general.colors.neutral.grey",
-                    "grey100": {
-                        "_label": "grey100",
-                        "_path": "general.colors.neutral.grey.grey100",
-                        "_type": "color",
-                        "_description": "neutral grey 100 color"
-                    },
-                    "grey200": {
-                        "_label": "grey200",
-                        "_path": "general.colors.neutral.grey.grey200",
-                        "_type": "color",
-                        "_description": "neutral grey 200 color"
-                    },
-                    "grey300": {
-                        "_label": "grey300",
-                        "_path": "general.colors.neutral.grey.grey300",
-                        "_type": "color",
-                        "_description": "neutral grey 300 color"
-                    },
-                    "grey400": {
-                        "_label": "grey400",
-                        "_path": "general.colors.neutral.grey.grey400",
-                        "_type": "color",
-                        "_description": "neutral grey 400 color"
-                    },
-                    "grey500": {
-                        "_label": "grey500",
-                        "_path": "general.colors.neutral.grey.grey500",
-                        "_type": "color",
-                        "_description": "neutral grey 500 color"
-                    },
-                    "grey600": {
-                        "_label": "grey600",
-                        "_path": "general.colors.neutral.grey.grey600",
-                        "_type": "color",
-                        "_description": "neutral grey 600 color"
-                    },
-                    "grey700": {
-                        "_label": "grey700",
-                        "_path": "general.colors.neutral.grey.grey700",
-                        "_type": "color",
-                        "_description": "neutral grey 700 color"
-                    }
-                },
                 "black": {
                     "_label": "black",
                     "_path": "general.colors.neutral.black",
@@ -154,336 +74,288 @@ const forms = {
                     "_type": "color",
                     "_description": "default white color"
                 },
-                "black60": {
-                    "_label": "black60",
-                    "_path": "general.colors.neutral.black60",
-                    "_type": "color",
-                    "_description": "default black 60% color"
+                "grey": {
+                    "_label": "grey",
+                    "_path": "general.colors.neutral.grey",
+                    "grey100": {
+                        "_label": "grey100",
+                        "_path": "general.colors.neutral.grey.grey100",
+                        "_type": "color",
+                        "_description": "secondary grey 100 color"
+                    },
+                    "grey200": {
+                        "_label": "grey200",
+                        "_path": "general.colors.neutral.grey.grey200",
+                        "_type": "color",
+                        "_description": "secondary grey 200 color"
+                    },
+                    "grey300": {
+                        "_label": "grey300",
+                        "_path": "general.colors.neutral.grey.grey300",
+                        "_type": "color",
+                        "_description": "secondary grey 300 color"
+                    },
+                    "grey400": {
+                        "_label": "grey400",
+                        "_path": "general.colors.neutral.grey.grey400",
+                        "_type": "color",
+                        "_description": "secondary grey 400 color"
+                    },
+                    "grey500": {
+                        "_label": "grey500",
+                        "_path": "general.colors.neutral.grey.grey500",
+                        "_type": "color",
+                        "_description": "secondary grey 500 color"
+                    },
+                    "grey600": {
+                        "_label": "grey600",
+                        "_path": "general.colors.neutral.grey.grey600",
+                        "_type": "color",
+                        "_description": "secondary grey 600 color"
+                    },
+                    "grey700": {
+                        "_label": "grey700",
+                        "_path": "general.colors.neutral.grey.grey700",
+                        "_type": "color",
+                        "_description": "secondary grey 700 color"
+                    }
                 }
             },
             "secondary": {
                 "_label": "secondary",
                 "_path": "general.colors.secondary",
-                "mediumGrey": {
-                    "_label": "mediumGrey",
-                    "_path": "general.colors.secondary.mediumGrey",
-                    "mediumGrey100": {
-                        "_label": "mediumGrey100",
-                        "_path": "general.colors.secondary.mediumGrey.mediumGrey100",
-                        "_type": "color",
-                        "_description": "secondary medium grey 100 color"
-                    },
-                    "mediumGrey200": {
-                        "_label": "mediumGrey200",
-                        "_path": "general.colors.secondary.mediumGrey.mediumGrey200",
-                        "_type": "color",
-                        "_description": "secondary medium grey 200 color"
-                    },
-                    "mediumGrey300": {
-                        "_label": "mediumGrey300",
-                        "_path": "general.colors.secondary.mediumGrey.mediumGrey300",
-                        "_type": "color",
-                        "_description": "secondary medium grey 300 color"
-                    },
-                    "mediumGrey400": {
-                        "_label": "mediumGrey400",
-                        "_path": "general.colors.secondary.mediumGrey.mediumGrey400",
-                        "_type": "color",
-                        "_description": "secondary medium grey 400 color"
-                    },
-                    "mediumGrey500": {
-                        "_label": "mediumGrey500",
-                        "_path": "general.colors.secondary.mediumGrey.mediumGrey500",
-                        "_type": "color",
-                        "_description": "secondary medium grey 500 color"
-                    },
-                    "mediumGrey600": {
-                        "_label": "mediumGrey600",
-                        "_path": "general.colors.secondary.mediumGrey.mediumGrey600",
-                        "_type": "color",
-                        "_description": "secondary medium grey 600 color"
-                    },
-                    "mediumGrey700": {
-                        "_label": "mediumGrey700",
-                        "_path": "general.colors.secondary.mediumGrey.mediumGrey700",
-                        "_type": "color",
-                        "_description": "secondary medium grey 700 color"
-                    }
-                },
-                "yellow": {
-                    "_label": "yellow",
-                    "_path": "general.colors.secondary.yellow",
-                    "yellow100": {
-                        "_label": "yellow100",
-                        "_path": "general.colors.secondary.yellow.yellow100",
-                        "_type": "color",
-                        "_description": "secondary yellow 100 color"
-                    },
-                    "yellow200": {
-                        "_label": "yellow200",
-                        "_path": "general.colors.secondary.yellow.yellow200",
-                        "_type": "color",
-                        "_description": "secondary yellow 200 color"
-                    },
-                    "yellow300": {
-                        "_label": "yellow300",
-                        "_path": "general.colors.secondary.yellow.yellow300",
-                        "_type": "color",
-                        "_description": "secondary yellow 300 color"
-                    },
-                    "yellow400": {
-                        "_label": "yellow400",
-                        "_path": "general.colors.secondary.yellow.yellow400",
-                        "_type": "color",
-                        "_description": "secondary yellow 400 color"
-                    },
-                    "yellow500": {
-                        "_label": "yellow500",
-                        "_path": "general.colors.secondary.yellow.yellow500",
-                        "_type": "color",
-                        "_description": "secondary yellow 500 color"
-                    },
-                    "yellow600": {
-                        "_label": "yellow600",
-                        "_path": "general.colors.secondary.yellow.yellow600",
-                        "_type": "color",
-                        "_description": "secondary yellow 600 color"
-                    },
-                    "yellow700": {
-                        "_label": "yellow700",
-                        "_path": "general.colors.secondary.yellow.yellow700",
-                        "_type": "color",
-                        "_description": "secondary yellow 700 color"
-                    }
-                },
-                "orange": {
-                    "_label": "orange",
-                    "_path": "general.colors.secondary.orange",
+                "warning": {
+                    "_label": "warning",
+                    "_path": "general.colors.secondary.warning",
                     "orange100": {
                         "_label": "orange100",
-                        "_path": "general.colors.secondary.orange.orange100",
+                        "_path": "general.colors.secondary.warning.orange100",
                         "_type": "color",
-                        "_description": "secondary orange 100 color"
+                        "_description": "secondary warning 100 color"
                     },
                     "orange200": {
                         "_label": "orange200",
-                        "_path": "general.colors.secondary.orange.orange200",
+                        "_path": "general.colors.secondary.warning.orange200",
                         "_type": "color",
-                        "_description": "secondary orange 200 color"
+                        "_description": "secondary warning 200 color"
                     },
                     "orange300": {
                         "_label": "orange300",
-                        "_path": "general.colors.secondary.orange.orange300",
+                        "_path": "general.colors.secondary.warning.orange300",
                         "_type": "color",
-                        "_description": "secondary orange 300 color"
+                        "_description": "secondary warning 300 color"
                     },
                     "orange400": {
                         "_label": "orange400",
-                        "_path": "general.colors.secondary.orange.orange400",
+                        "_path": "general.colors.secondary.warning.orange400",
                         "_type": "color",
-                        "_description": "secondary orange 400 color"
+                        "_description": "secondary warning 400 color"
                     },
                     "orange500": {
                         "_label": "orange500",
-                        "_path": "general.colors.secondary.orange.orange500",
+                        "_path": "general.colors.secondary.warning.orange500",
                         "_type": "color",
-                        "_description": "secondary orange 500 color"
+                        "_description": "secondary warning 500 color"
                     },
                     "orange600": {
                         "_label": "orange600",
-                        "_path": "general.colors.secondary.orange.orange600",
+                        "_path": "general.colors.secondary.warning.orange600",
                         "_type": "color",
-                        "_description": "secondary orange 600 color"
+                        "_description": "secondary warning 600 color"
                     },
                     "orange700": {
                         "_label": "orange700",
-                        "_path": "general.colors.secondary.orange.orange700",
+                        "_path": "general.colors.secondary.warning.orange700",
                         "_type": "color",
-                        "_description": "secondary orange 700 color"
+                        "_description": "secondary warning 700 color"
+                    }
+                },
+                "error": {
+                    "_label": "error",
+                    "_path": "general.colors.secondary.error",
+                    "red100": {
+                        "_label": "red100",
+                        "_path": "general.colors.secondary.error.red100",
+                        "_type": "color",
+                        "_description": "secondary error 100 color"
+                    },
+                    "red200": {
+                        "_label": "red200",
+                        "_path": "general.colors.secondary.error.red200",
+                        "_type": "color",
+                        "_description": "secondary error 200 color"
+                    },
+                    "red300": {
+                        "_label": "red300",
+                        "_path": "general.colors.secondary.error.red300",
+                        "_type": "color",
+                        "_description": "secondary error 300 color"
+                    },
+                    "red400": {
+                        "_label": "red400",
+                        "_path": "general.colors.secondary.error.red400",
+                        "_type": "color",
+                        "_description": "secondary error 400 color"
+                    },
+                    "red500": {
+                        "_label": "red500",
+                        "_path": "general.colors.secondary.error.red500",
+                        "_type": "color",
+                        "_description": "secondary error 500 color"
+                    },
+                    "red600": {
+                        "_label": "red600",
+                        "_path": "general.colors.secondary.error.red600",
+                        "_type": "color",
+                        "_description": "secondary error 600 color"
+                    },
+                    "red700": {
+                        "_label": "red700",
+                        "_path": "general.colors.secondary.error.red700",
+                        "_type": "color",
+                        "_description": "secondary error 700 color"
+                    }
+                },
+                "success": {
+                    "_label": "success",
+                    "_path": "general.colors.secondary.success",
+                    "green100": {
+                        "_label": "green100",
+                        "_path": "general.colors.secondary.success.green100",
+                        "_type": "color",
+                        "_description": "secondary success 100 color"
+                    },
+                    "green200": {
+                        "_label": "green200",
+                        "_path": "general.colors.secondary.success.green200",
+                        "_type": "color",
+                        "_description": "secondary success 200 color"
+                    },
+                    "green300": {
+                        "_label": "green300",
+                        "_path": "general.colors.secondary.success.green300",
+                        "_type": "color",
+                        "_description": "secondary success 300 color"
+                    },
+                    "green400": {
+                        "_label": "green400",
+                        "_path": "general.colors.secondary.success.green400",
+                        "_type": "color",
+                        "_description": "secondary success 400 color"
+                    },
+                    "green500": {
+                        "_label": "green500",
+                        "_path": "general.colors.secondary.success.green500",
+                        "_type": "color",
+                        "_description": "secondary success 500 color"
+                    },
+                    "green600": {
+                        "_label": "green600",
+                        "_path": "general.colors.secondary.success.green600",
+                        "_type": "color",
+                        "_description": "secondary success 600 color"
+                    },
+                    "green700": {
+                        "_label": "green700",
+                        "_path": "general.colors.secondary.success.green700",
+                        "_type": "color",
+                        "_description": "secondary success 700 color"
+                    }
+                }
+            },
+            "tertiary": {
+                "_label": "tertiary",
+                "_path": "general.colors.tertiary",
+                "yellow": {
+                    "_label": "yellow",
+                    "_path": "general.colors.tertiary.yellow",
+                    "yellow100": {
+                        "_label": "yellow100",
+                        "_path": "general.colors.tertiary.yellow.yellow100",
+                        "_type": "color",
+                        "_description": "tertiary yellow 100 color"
+                    },
+                    "yellow200": {
+                        "_label": "yellow200",
+                        "_path": "general.colors.tertiary.yellow.yellow200",
+                        "_type": "color",
+                        "_description": "tertiary yellow 200 color"
+                    },
+                    "yellow300": {
+                        "_label": "yellow300",
+                        "_path": "general.colors.tertiary.yellow.yellow300",
+                        "_type": "color",
+                        "_description": "tertiary yellow 300 color"
+                    },
+                    "yellow400": {
+                        "_label": "yellow400",
+                        "_path": "general.colors.tertiary.yellow.yellow400",
+                        "_type": "color",
+                        "_description": "tertiary yellow 400 color"
+                    },
+                    "yellow500": {
+                        "_label": "yellow500",
+                        "_path": "general.colors.tertiary.yellow.yellow500",
+                        "_type": "color",
+                        "_description": "tertiary yellow 500 color"
+                    },
+                    "yellow600": {
+                        "_label": "yellow600",
+                        "_path": "general.colors.tertiary.yellow.yellow600",
+                        "_type": "color",
+                        "_description": "tertiary yellow 600 color"
+                    },
+                    "yellow700": {
+                        "_label": "yellow700",
+                        "_path": "general.colors.tertiary.yellow.yellow700",
+                        "_type": "color",
+                        "_description": "tertiary yellow 700 color"
                     }
                 },
                 "pink": {
                     "_label": "pink",
-                    "_path": "general.colors.secondary.pink",
+                    "_path": "general.colors.tertiary.pink",
                     "pink100": {
                         "_label": "pink100",
-                        "_path": "general.colors.secondary.pink.pink100",
+                        "_path": "general.colors.tertiary.pink.pink100",
                         "_type": "color",
-                        "_description": "secondary pink 100 color"
+                        "_description": "tertiary pink 100 color"
                     },
                     "pink200": {
                         "_label": "pink200",
-                        "_path": "general.colors.secondary.pink.pink200",
+                        "_path": "general.colors.tertiary.pink.pink200",
                         "_type": "color",
-                        "_description": "secondary pink 200 color"
+                        "_description": "tertiary pink 200 color"
                     },
                     "pink300": {
                         "_label": "pink300",
-                        "_path": "general.colors.secondary.pink.pink300",
+                        "_path": "general.colors.tertiary.pink.pink300",
                         "_type": "color",
-                        "_description": "secondary pink 300 color"
+                        "_description": "tertiary pink 300 color"
                     },
                     "pink400": {
                         "_label": "pink400",
-                        "_path": "general.colors.secondary.pink.pink400",
+                        "_path": "general.colors.tertiary.pink.pink400",
                         "_type": "color",
-                        "_description": "secondary pink 400 color"
+                        "_description": "tertiary pink 400 color"
                     },
                     "pink500": {
                         "_label": "pink500",
-                        "_path": "general.colors.secondary.pink.pink500",
+                        "_path": "general.colors.tertiary.pink.pink500",
                         "_type": "color",
-                        "_description": "secondary pink 500 color"
+                        "_description": "tertiary pink 500 color"
                     },
                     "pink600": {
                         "_label": "pink600",
-                        "_path": "general.colors.secondary.pink.pink600",
+                        "_path": "general.colors.tertiary.pink.pink600",
                         "_type": "color",
-                        "_description": "secondary pink 600 color"
+                        "_description": "tertiary pink 600 color"
                     },
                     "pink700": {
                         "_label": "pink700",
-                        "_path": "general.colors.secondary.pink.pink700",
+                        "_path": "general.colors.tertiary.pink.pink700",
                         "_type": "color",
-                        "_description": "secondary pink 700 color"
-                    }
-                },
-                "red": {
-                    "_label": "red",
-                    "_path": "general.colors.secondary.red",
-                    "red100": {
-                        "_label": "red100",
-                        "_path": "general.colors.secondary.red.red100",
-                        "_type": "color",
-                        "_description": "secondary red 100 color"
-                    },
-                    "red200": {
-                        "_label": "red200",
-                        "_path": "general.colors.secondary.red.red200",
-                        "_type": "color",
-                        "_description": "secondary red 200 color"
-                    },
-                    "red300": {
-                        "_label": "red300",
-                        "_path": "general.colors.secondary.red.red300",
-                        "_type": "color",
-                        "_description": "secondary red 300 color"
-                    },
-                    "red400": {
-                        "_label": "red400",
-                        "_path": "general.colors.secondary.red.red400",
-                        "_type": "color",
-                        "_description": "secondary red 400 color"
-                    },
-                    "red500": {
-                        "_label": "red500",
-                        "_path": "general.colors.secondary.red.red500",
-                        "_type": "color",
-                        "_description": "secondary red 500 color"
-                    },
-                    "red600": {
-                        "_label": "red600",
-                        "_path": "general.colors.secondary.red.red600",
-                        "_type": "color",
-                        "_description": "secondary red 600 color"
-                    },
-                    "red700": {
-                        "_label": "red700",
-                        "_path": "general.colors.secondary.red.red700",
-                        "_type": "color",
-                        "_description": "secondary red 700 color"
-                    }
-                },
-                "blue": {
-                    "_label": "blue",
-                    "_path": "general.colors.secondary.blue",
-                    "blue100": {
-                        "_label": "blue100",
-                        "_path": "general.colors.secondary.blue.blue100",
-                        "_type": "color",
-                        "_description": "secondary blue 100 color"
-                    },
-                    "blue200": {
-                        "_label": "blue200",
-                        "_path": "general.colors.secondary.blue.blue200",
-                        "_type": "color",
-                        "_description": "secondary blue 200 color"
-                    },
-                    "blue300": {
-                        "_label": "blue300",
-                        "_path": "general.colors.secondary.blue.blue300",
-                        "_type": "color",
-                        "_description": "secondary blue 300 color"
-                    },
-                    "blue400": {
-                        "_label": "blue400",
-                        "_path": "general.colors.secondary.blue.blue400",
-                        "_type": "color",
-                        "_description": "secondary blue 400 color"
-                    },
-                    "blue500": {
-                        "_label": "blue500",
-                        "_path": "general.colors.secondary.blue.blue500",
-                        "_type": "color",
-                        "_description": "secondary blue 500 color"
-                    },
-                    "blue600": {
-                        "_label": "blue600",
-                        "_path": "general.colors.secondary.blue.blue600",
-                        "_type": "color",
-                        "_description": "secondary blue 600 color"
-                    },
-                    "blue700": {
-                        "_label": "blue700",
-                        "_path": "general.colors.secondary.blue.blue700",
-                        "_type": "color",
-                        "_description": "secondary blue 700 color"
-                    }
-                },
-                "green": {
-                    "_label": "green",
-                    "_path": "general.colors.secondary.green",
-                    "green100": {
-                        "_label": "green100",
-                        "_path": "general.colors.secondary.green.green100",
-                        "_type": "color",
-                        "_description": "secondary green 100 color"
-                    },
-                    "green200": {
-                        "_label": "green200",
-                        "_path": "general.colors.secondary.green.green200",
-                        "_type": "color",
-                        "_description": "secondary green 200 color"
-                    },
-                    "green300": {
-                        "_label": "green300",
-                        "_path": "general.colors.secondary.green.green300",
-                        "_type": "color",
-                        "_description": "secondary green 300 color"
-                    },
-                    "green400": {
-                        "_label": "green400",
-                        "_path": "general.colors.secondary.green.green400",
-                        "_type": "color",
-                        "_description": "secondary green 400 color"
-                    },
-                    "green500": {
-                        "_label": "green500",
-                        "_path": "general.colors.secondary.green.green500",
-                        "_type": "color",
-                        "_description": "secondary green 500 color"
-                    },
-                    "green600": {
-                        "_label": "green600",
-                        "_path": "general.colors.secondary.green.green600",
-                        "_type": "color",
-                        "_description": "secondary green 600 color"
-                    },
-                    "green700": {
-                        "_label": "green700",
-                        "_path": "general.colors.secondary.green.green700",
-                        "_type": "color",
-                        "_description": "secondary green 700 color"
+                        "_description": "tertiary pink 700 color"
                     }
                 }
             }
@@ -715,6 +587,254 @@ const forms = {
                 "_path": "general.typography.lineHeight7",
                 "_type": "number"
             }
+        },
+        "utilities": {
+            "_label": "utilities",
+            "_path": "general.utilities",
+            "border": {
+                "_label": "border",
+                "_path": "general.utilities.border",
+                "_type": "color",
+                "_description": "Border color"
+            },
+            "disabled": {
+                "_label": "disabled",
+                "_path": "general.utilities.disabled",
+                "_type": "color",
+                "_description": "Disabled color"
+            },
+            "focus": {
+                "_label": "focus",
+                "_path": "general.utilities.focus",
+                "_type": "color",
+                "_description": "Focus color"
+            },
+            "light": {
+                "_label": "light",
+                "_path": "general.utilities.light",
+                "_type": "color",
+                "_description": "Light color"
+            },
+            "colorNone": {
+                "_label": "colorNone",
+                "_path": "general.utilities.colorNone",
+                "_type": "color",
+                "_description": "Color none color"
+            },
+            "main": {
+                "_label": "main",
+                "_path": "general.utilities.main",
+                "mainLight": {
+                    "_label": "mainLight",
+                    "_path": "general.utilities.main.mainLight",
+                    "_type": "color",
+                    "_description": "Main light color"
+                },
+                "mainMedium": {
+                    "_label": "mainMedium",
+                    "_path": "general.utilities.main.mainMedium",
+                    "_type": "color",
+                    "_description": "Main medium color"
+                },
+                "mainColor": {
+                    "_label": "mainColor",
+                    "_path": "general.utilities.main.mainColor",
+                    "_type": "color",
+                    "_description": "Main color color"
+                },
+                "mainDark": {
+                    "_label": "mainDark",
+                    "_path": "general.utilities.main.mainDark",
+                    "_type": "color",
+                    "_description": "Main dark color"
+                },
+                "mainDeepDark": {
+                    "_label": "mainDeepDark",
+                    "_path": "general.utilities.main.mainDeepDark",
+                    "_type": "color",
+                    "_description": "Main deepdark color"
+                }
+            },
+            "neutral": {
+                "_label": "neutral",
+                "_path": "general.utilities.neutral",
+                "neutralLight": {
+                    "_label": "neutralLight",
+                    "_path": "general.utilities.neutral.neutralLight",
+                    "_type": "color",
+                    "_description": "Neutral light color"
+                },
+                "neutralMedium": {
+                    "_label": "neutralMedium",
+                    "_path": "general.utilities.neutral.neutralMedium",
+                    "_type": "color",
+                    "_description": "Neutral medium color"
+                },
+                "neutralDark": {
+                    "_label": "neutralDark",
+                    "_path": "general.utilities.neutral.neutralDark",
+                    "_type": "color",
+                    "_description": "Neutral dark color"
+                },
+                "neutralDeepDark": {
+                    "_label": "neutralDeepDark",
+                    "_path": "general.utilities.neutral.neutralDeepDark",
+                    "_type": "color",
+                    "_description": "Neutral deepdark color"
+                }
+            },
+            "error": {
+                "_label": "error",
+                "_path": "general.utilities.error",
+                "errorLight": {
+                    "_label": "errorLight",
+                    "_path": "general.utilities.error.errorLight",
+                    "_type": "color",
+                    "_description": "Error light color"
+                },
+                "errorMedium": {
+                    "_label": "errorMedium",
+                    "_path": "general.utilities.error.errorMedium",
+                    "_type": "color",
+                    "_description": "Error medium color"
+                },
+                "errorColor": {
+                    "_label": "errorColor",
+                    "_path": "general.utilities.error.errorColor",
+                    "_type": "color",
+                    "_description": "Error color color"
+                },
+                "errorDark": {
+                    "_label": "errorDark",
+                    "_path": "general.utilities.error.errorDark",
+                    "_type": "color",
+                    "_description": "Error dark color"
+                }
+            },
+            "success": {
+                "_label": "success",
+                "_path": "general.utilities.success",
+                "successLight": {
+                    "_label": "successLight",
+                    "_path": "general.utilities.success.successLight",
+                    "_type": "color",
+                    "_description": "Success light color"
+                },
+                "successMedium": {
+                    "_label": "successMedium",
+                    "_path": "general.utilities.success.successMedium",
+                    "_type": "color",
+                    "_description": "Success mediul color"
+                },
+                "successColor": {
+                    "_label": "successColor",
+                    "_path": "general.utilities.success.successColor",
+                    "_type": "color",
+                    "_description": "Success color color"
+                },
+                "successDark": {
+                    "_label": "successDark",
+                    "_path": "general.utilities.success.successDark",
+                    "_type": "color",
+                    "_description": "Success dark color"
+                }
+            },
+            "warning": {
+                "_label": "warning",
+                "_path": "general.utilities.warning",
+                "warningLight": {
+                    "_label": "warningLight",
+                    "_path": "general.utilities.warning.warningLight",
+                    "_type": "color",
+                    "_description": "Warning light color"
+                },
+                "warningMedium": {
+                    "_label": "warningMedium",
+                    "_path": "general.utilities.warning.warningMedium",
+                    "_type": "color",
+                    "_description": "Warning medium color"
+                },
+                "warningColor": {
+                    "_label": "warningColor",
+                    "_path": "general.utilities.warning.warningColor",
+                    "_type": "color",
+                    "_description": "Warning color color"
+                },
+                "warningDark": {
+                    "_label": "warningDark",
+                    "_path": "general.utilities.warning.warningDark",
+                    "_type": "color",
+                    "_description": "Warning dark color"
+                }
+            },
+            "text": {
+                "_label": "text",
+                "_path": "general.utilities.text",
+                "textLight": {
+                    "_label": "textLight",
+                    "_path": "general.utilities.text.textLight",
+                    "_type": "color",
+                    "_description": "Text light color"
+                },
+                "textPrimary": {
+                    "_label": "textPrimary",
+                    "_path": "general.utilities.text.textPrimary",
+                    "_type": "color",
+                    "_description": "Text primary color"
+                },
+                "textDisabled": {
+                    "_label": "textDisabled",
+                    "_path": "general.utilities.text.textDisabled",
+                    "_type": "color",
+                    "_description": "Text disabled color"
+                },
+                "textBlue": {
+                    "_label": "textBlue",
+                    "_path": "general.utilities.text.textBlue",
+                    "_type": "color",
+                    "_description": "Text blue color"
+                },
+                "textSuccess": {
+                    "_label": "textSuccess",
+                    "_path": "general.utilities.text.textSuccess",
+                    "_type": "color",
+                    "_description": "Text success color"
+                },
+                "textWarning": {
+                    "_label": "textWarning",
+                    "_path": "general.utilities.text.textWarning",
+                    "_type": "color",
+                    "_description": "Text warning color"
+                },
+                "textError": {
+                    "_label": "textError",
+                    "_path": "general.utilities.text.textError",
+                    "_type": "color",
+                    "_description": "Text error color"
+                }
+            },
+            "shadow": {
+                "_label": "shadow",
+                "_path": "general.utilities.shadow",
+                "shadowLight": {
+                    "_label": "shadowLight",
+                    "_path": "general.utilities.shadow.shadowLight",
+                    "_type": "shadow",
+                    "_description": "Shadow light property"
+                },
+                "shadowMedium": {
+                    "_label": "shadowMedium",
+                    "_path": "general.utilities.shadow.shadowMedium",
+                    "_type": "shadow",
+                    "_description": "Shadow medium property"
+                },
+                "shadowBlue": {
+                    "_label": "shadowBlue",
+                    "_path": "general.utilities.shadow.shadowBlue",
+                    "_type": "shadow",
+                    "_description": "Shadow blue property"
+                }
+            }
         }
     },
     "components": {
@@ -786,442 +906,6 @@ const forms = {
                         "_label": "compact",
                         "_path": "components.Button.border.radius.compact",
                         "_type": "number"
-                    }
-                }
-            }
-        },
-        "LegacyCard": {
-            "_label": "LegacyCard",
-            "_path": "components.LegacyCard",
-            "colors": {
-                "_label": "colors",
-                "_path": "components.LegacyCard.colors",
-                "background": {
-                    "_label": "background",
-                    "_path": "components.LegacyCard.colors.background",
-                    "default": {
-                        "_label": "default",
-                        "_path": "components.LegacyCard.colors.background.default",
-                        "_type": "color",
-                        "_description": "default color"
-                    },
-                    "disabled": {
-                        "_label": "disabled",
-                        "_path": "components.LegacyCard.colors.background.disabled",
-                        "_type": "color",
-                        "_description": "disabled color"
-                    }
-                },
-                "typography": {
-                    "_label": "typography",
-                    "_path": "components.LegacyCard.colors.typography",
-                    "headerTitle": {
-                        "_label": "headerTitle",
-                        "_path": "components.LegacyCard.colors.typography.headerTitle",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.LegacyCard.colors.typography.headerTitle.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.LegacyCard.colors.typography.headerTitle.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        }
-                    },
-                    "contentTitle": {
-                        "_label": "contentTitle",
-                        "_path": "components.LegacyCard.colors.typography.contentTitle",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.LegacyCard.colors.typography.contentTitle.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.LegacyCard.colors.typography.contentTitle.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        }
-                    },
-                    "description": {
-                        "_label": "description",
-                        "_path": "components.LegacyCard.colors.typography.description",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.LegacyCard.colors.typography.description.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.LegacyCard.colors.typography.description.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        }
-                    },
-                    "extra": {
-                        "_label": "extra",
-                        "_path": "components.LegacyCard.colors.typography.extra",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.LegacyCard.colors.typography.extra.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.LegacyCard.colors.typography.extra.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.LegacyCard.colors.typography.extra.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        }
-                    }
-                },
-                "border": {
-                    "_label": "border",
-                    "_path": "components.LegacyCard.colors.border",
-                    "default": {
-                        "_label": "default",
-                        "_path": "components.LegacyCard.colors.border.default",
-                        "_type": "color",
-                        "_description": "default color"
-                    },
-                    "focus": {
-                        "_label": "focus",
-                        "_path": "components.LegacyCard.colors.border.focus",
-                        "_type": "color",
-                        "_description": "focus color"
-                    },
-                    "hover": {
-                        "_label": "hover",
-                        "_path": "components.LegacyCard.colors.border.hover",
-                        "_type": "color",
-                        "_description": "hover color"
-                    },
-                    "disabled": {
-                        "_label": "disabled",
-                        "_path": "components.LegacyCard.colors.border.disabled",
-                        "_type": "color",
-                        "_description": "disabled color"
-                    }
-                },
-                "separator": {
-                    "_label": "separator",
-                    "_path": "components.LegacyCard.colors.separator",
-                    "default": {
-                        "_label": "default",
-                        "_path": "components.LegacyCard.colors.separator.default",
-                        "_type": "color",
-                        "_description": "default color"
-                    }
-                },
-                "actions": {
-                    "_label": "actions",
-                    "_path": "components.LegacyCard.colors.actions",
-                    "default": {
-                        "_label": "default",
-                        "_path": "components.LegacyCard.colors.actions.default",
-                        "_type": "color",
-                        "_description": "default color"
-                    },
-                    "disabled": {
-                        "_label": "disabled",
-                        "_path": "components.LegacyCard.colors.actions.disabled",
-                        "_type": "color",
-                        "_description": "disabled color"
-                    },
-                    "hover": {
-                        "_label": "hover",
-                        "_path": "components.LegacyCard.colors.actions.hover",
-                        "_type": "color",
-                        "_description": "hover color"
-                    }
-                },
-                "shadow": {
-                    "_label": "shadow",
-                    "_path": "components.LegacyCard.colors.shadow",
-                    "default": {
-                        "_label": "default",
-                        "_path": "components.LegacyCard.colors.shadow.default",
-                        "_type": "color",
-                        "_description": "default color"
-                    },
-                    "disabled": {
-                        "_label": "disabled",
-                        "_path": "components.LegacyCard.colors.shadow.disabled",
-                        "_type": "color",
-                        "_description": "disabled color"
-                    },
-                    "hover": {
-                        "_label": "hover",
-                        "_path": "components.LegacyCard.colors.shadow.hover",
-                        "_type": "color",
-                        "_description": "hover color"
-                    },
-                    "focus": {
-                        "_label": "focus",
-                        "_path": "components.LegacyCard.colors.shadow.focus",
-                        "_type": "color",
-                        "_description": "focus color"
-                    }
-                }
-            },
-            "typography": {
-                "_label": "typography",
-                "_path": "components.LegacyCard.typography",
-                "fontFamily": {
-                    "_label": "fontFamily",
-                    "_path": "components.LegacyCard.typography.fontFamily",
-                    "_type": "string"
-                },
-                "headerTitle": {
-                    "_label": "headerTitle",
-                    "_path": "components.LegacyCard.typography.headerTitle",
-                    "fontSize": {
-                        "_label": "fontSize",
-                        "_path": "components.LegacyCard.typography.headerTitle.fontSize",
-                        "_type": "number",
-                        "_min": 0
-                    },
-                    "fontWeight": {
-                        "_label": "fontWeight",
-                        "_path": "components.LegacyCard.typography.headerTitle.fontWeight",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                },
-                "contentTitle": {
-                    "_label": "contentTitle",
-                    "_path": "components.LegacyCard.typography.contentTitle",
-                    "fontSize": {
-                        "_label": "fontSize",
-                        "_path": "components.LegacyCard.typography.contentTitle.fontSize",
-                        "_type": "number",
-                        "_min": 0
-                    },
-                    "fontWeight": {
-                        "_label": "fontWeight",
-                        "_path": "components.LegacyCard.typography.contentTitle.fontWeight",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                },
-                "desciption": {
-                    "_label": "desciption",
-                    "_path": "components.LegacyCard.typography.desciption",
-                    "fontSize": {
-                        "_label": "fontSize",
-                        "_path": "components.LegacyCard.typography.desciption.fontSize",
-                        "_type": "number",
-                        "_min": 0
-                    },
-                    "fontWeight": {
-                        "_label": "fontWeight",
-                        "_path": "components.LegacyCard.typography.desciption.fontWeight",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                },
-                "linkIcon": {
-                    "_label": "linkIcon",
-                    "_path": "components.LegacyCard.typography.linkIcon",
-                    "fontSize": {
-                        "_label": "fontSize",
-                        "_path": "components.LegacyCard.typography.linkIcon.fontSize",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                }
-            }
-        },
-        "Card": {
-            "_label": "Card",
-            "_path": "components.Card",
-            "colors": {
-                "_label": "colors",
-                "_path": "components.Card.colors",
-                "background": {
-                    "_label": "background",
-                    "_path": "components.Card.colors.background",
-                    "default": {
-                        "_label": "default",
-                        "_path": "components.Card.colors.background.default",
-                        "_type": "color",
-                        "_description": "default color"
-                    },
-                    "disabled": {
-                        "_label": "disabled",
-                        "_path": "components.Card.colors.background.disabled",
-                        "_type": "color",
-                        "_description": "default color"
-                    }
-                },
-                "typography": {
-                    "_label": "typography",
-                    "_path": "components.Card.colors.typography",
-                    "title": {
-                        "_label": "title",
-                        "_path": "components.Card.colors.typography.title",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Card.colors.typography.title.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.Card.colors.typography.title.disabled",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    },
-                    "description": {
-                        "_label": "description",
-                        "_path": "components.Card.colors.typography.description",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Card.colors.typography.description.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.Card.colors.typography.description.disabled",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    },
-                    "extra": {
-                        "_label": "extra",
-                        "_path": "components.Card.colors.typography.extra",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.Card.colors.typography.extra.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.Card.colors.typography.extra.disabled",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    }
-                },
-                "border": {
-                    "_label": "border",
-                    "_path": "components.Card.colors.border",
-                    "default": {
-                        "_label": "default",
-                        "_path": "components.Card.colors.border.default",
-                        "_type": "color",
-                        "_description": "default color"
-                    },
-                    "focus": {
-                        "_label": "focus",
-                        "_path": "components.Card.colors.border.focus",
-                        "_type": "color",
-                        "_description": "default color"
-                    },
-                    "hover": {
-                        "_label": "hover",
-                        "_path": "components.Card.colors.border.hover",
-                        "_type": "color",
-                        "_description": "default color"
-                    },
-                    "disabled": {
-                        "_label": "disabled",
-                        "_path": "components.Card.colors.border.disabled",
-                        "_type": "color",
-                        "_description": "default color"
-                    },
-                    "selected": {
-                        "_label": "selected",
-                        "_path": "components.Card.colors.border.selected",
-                        "_type": "color",
-                        "_description": "default color"
-                    }
-                },
-                "separator": {
-                    "_label": "separator",
-                    "_path": "components.Card.colors.separator",
-                    "default": {
-                        "_label": "default",
-                        "_path": "components.Card.colors.separator.default",
-                        "_type": "color",
-                        "_description": "default color"
-                    },
-                    "disabled": {
-                        "_label": "disabled",
-                        "_path": "components.Card.colors.separator.disabled",
-                        "_type": "color",
-                        "_description": "default color"
-                    }
-                }
-            },
-            "typography": {
-                "_label": "typography",
-                "_path": "components.Card.typography",
-                "fontFamily": {
-                    "_label": "fontFamily",
-                    "_path": "components.Card.typography.fontFamily",
-                    "_type": "string"
-                },
-                "title": {
-                    "_label": "title",
-                    "_path": "components.Card.typography.title",
-                    "fontSize": {
-                        "_label": "fontSize",
-                        "_path": "components.Card.typography.title.fontSize",
-                        "_type": "number",
-                        "_min": 0
-                    },
-                    "fontWeight": {
-                        "_label": "fontWeight",
-                        "_path": "components.Card.typography.title.fontWeight",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                },
-                "description": {
-                    "_label": "description",
-                    "_path": "components.Card.typography.description",
-                    "fontSize": {
-                        "_label": "fontSize",
-                        "_path": "components.Card.typography.description.fontSize",
-                        "_type": "number",
-                        "_min": 0
-                    },
-                    "fontWeight": {
-                        "_label": "fontWeight",
-                        "_path": "components.Card.typography.description.fontWeight",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                },
-                "extra": {
-                    "_label": "extra",
-                    "_path": "components.Card.typography.extra",
-                    "fontSize": {
-                        "_label": "fontSize",
-                        "_path": "components.Card.typography.extra.fontSize",
-                        "_type": "number",
-                        "_min": 0
-                    },
-                    "fontWeight": {
-                        "_label": "fontWeight",
-                        "_path": "components.Card.typography.extra.fontWeight",
-                        "_type": "number",
-                        "_min": 0
                     }
                 }
             }
@@ -2579,327 +2263,6 @@ const forms = {
                     "_label": "fontFamily",
                     "_path": "components.Badge.typography.fontFamily",
                     "_type": "string"
-                }
-            }
-        },
-        "ItemCard": {
-            "_label": "ItemCard",
-            "_path": "components.ItemCard",
-            "card": {
-                "_label": "card",
-                "_path": "components.ItemCard.card",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.ItemCard.card.colors",
-                    "background": {
-                        "_label": "background",
-                        "_path": "components.ItemCard.card.colors.background",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.ItemCard.card.colors.background.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.ItemCard.card.colors.background.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        }
-                    },
-                    "border": {
-                        "_label": "border",
-                        "_path": "components.ItemCard.card.colors.border",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.ItemCard.card.colors.border.default",
-                            "_type": "string"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.ItemCard.card.colors.border.hover",
-                            "_type": "string"
-                        }
-                    }
-                },
-                "border": {
-                    "_label": "border",
-                    "_path": "components.ItemCard.card.border",
-                    "radius": {
-                        "_label": "radius",
-                        "_path": "components.ItemCard.card.border.radius",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                },
-                "typography": {
-                    "_label": "typography",
-                    "_path": "components.ItemCard.card.typography",
-                    "fontFamily": {
-                        "_label": "fontFamily",
-                        "_path": "components.ItemCard.card.typography.fontFamily",
-                        "_type": "string"
-                    }
-                }
-            },
-            "colorBar": {
-                "_label": "colorBar",
-                "_path": "components.ItemCard.colorBar",
-                "thickness": {
-                    "_label": "thickness",
-                    "_path": "components.ItemCard.colorBar.thickness",
-                    "_type": "number",
-                    "_min": 0
-                },
-                "border": {
-                    "_label": "border",
-                    "_path": "components.ItemCard.colorBar.border",
-                    "radius": {
-                        "_label": "radius",
-                        "_path": "components.ItemCard.colorBar.border.radius",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                }
-            },
-            "select": {
-                "_label": "select",
-                "_path": "components.ItemCard.select",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.ItemCard.select.colors",
-                    "background": {
-                        "_label": "background",
-                        "_path": "components.ItemCard.select.colors.background",
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.ItemCard.select.colors.background.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        }
-                    },
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.ItemCard.select.colors.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.ItemCard.select.colors.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.ItemCard.select.colors.typography.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        }
-                    }
-                }
-            },
-            "expend": {
-                "_label": "expend",
-                "_path": "components.ItemCard.expend",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.ItemCard.expend.colors",
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.ItemCard.expend.colors.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.ItemCard.expend.colors.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "hover": {
-                            "_label": "hover",
-                            "_path": "components.ItemCard.expend.colors.typography.hover",
-                            "_type": "color",
-                            "_description": "hover color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.ItemCard.expend.colors.typography.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        }
-                    }
-                }
-            },
-            "image": {
-                "_label": "image",
-                "_path": "components.ItemCard.image",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.ItemCard.image.colors",
-                    "border": {
-                        "_label": "border",
-                        "_path": "components.ItemCard.image.colors.border",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.ItemCard.image.colors.border.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    }
-                },
-                "border": {
-                    "_label": "border",
-                    "_path": "components.ItemCard.image.border",
-                    "radius": {
-                        "_label": "radius",
-                        "_path": "components.ItemCard.image.border.radius",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                }
-            },
-            "icon": {
-                "_label": "icon",
-                "_path": "components.ItemCard.icon",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.ItemCard.icon.colors",
-                    "border": {
-                        "_label": "border",
-                        "_path": "components.ItemCard.icon.colors.border",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.ItemCard.icon.colors.border.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        }
-                    }
-                },
-                "border": {
-                    "_label": "border",
-                    "_path": "components.ItemCard.icon.border",
-                    "radius": {
-                        "_label": "radius",
-                        "_path": "components.ItemCard.icon.border.radius",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                }
-            },
-            "title": {
-                "_label": "title",
-                "_path": "components.ItemCard.title",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.ItemCard.title.colors",
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.ItemCard.title.colors.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.ItemCard.title.colors.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.ItemCard.title.colors.typography.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        }
-                    }
-                },
-                "typography": {
-                    "_label": "typography",
-                    "_path": "components.ItemCard.title.typography",
-                    "fontSize": {
-                        "_label": "fontSize",
-                        "_path": "components.ItemCard.title.typography.fontSize",
-                        "_type": "number",
-                        "_min": 0
-                    },
-                    "fontWeight": {
-                        "_label": "fontWeight",
-                        "_path": "components.ItemCard.title.typography.fontWeight",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                }
-            },
-            "description": {
-                "_label": "description",
-                "_path": "components.ItemCard.description",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.ItemCard.description.colors",
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.ItemCard.description.colors.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.ItemCard.description.colors.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.ItemCard.description.colors.typography.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        }
-                    }
-                },
-                "typography": {
-                    "_label": "typography",
-                    "_path": "components.ItemCard.description.typography",
-                    "fontSize": {
-                        "_label": "fontSize",
-                        "_path": "components.ItemCard.description.typography.fontSize",
-                        "_type": "number",
-                        "_min": 0
-                    },
-                    "fontWeight": {
-                        "_label": "fontWeight",
-                        "_path": "components.ItemCard.description.typography.fontWeight",
-                        "_type": "number",
-                        "_min": 0
-                    }
-                }
-            },
-            "footer": {
-                "_label": "footer",
-                "_path": "components.ItemCard.footer",
-                "colors": {
-                    "_label": "colors",
-                    "_path": "components.ItemCard.footer.colors",
-                    "typography": {
-                        "_label": "typography",
-                        "_path": "components.ItemCard.footer.colors.typography",
-                        "default": {
-                            "_label": "default",
-                            "_path": "components.ItemCard.footer.colors.typography.default",
-                            "_type": "color",
-                            "_description": "default color"
-                        },
-                        "disabled": {
-                            "_label": "disabled",
-                            "_path": "components.ItemCard.footer.colors.typography.disabled",
-                            "_type": "color",
-                            "_description": "disabled color"
-                        }
-                    }
-                },
-                "typography": {
-                    "_label": "typography",
-                    "_path": "components.ItemCard.footer.typography",
-                    "fontSize": {
-                        "_label": "fontSize",
-                        "_path": "components.ItemCard.footer.typography.fontSize",
-                        "_type": "number",
-                        "_min": 0
-                    },
-                    "fontWeight": {
-                        "_label": "fontWeight",
-                        "_path": "components.ItemCard.footer.typography.fontWeight",
-                        "_type": "number",
-                        "_min": 0
-                    }
                 }
             }
         },
@@ -6108,11 +5471,6 @@ const forms = {
                         "_label": "default",
                         "_path": "components.Divider.colors.split.default",
                         "_type": "string"
-                    },
-                    "lightGrey": {
-                        "_label": "lightGrey",
-                        "_path": "components.Divider.colors.split.lightGrey",
-                        "_type": "string"
                     }
                 }
             },
@@ -7571,6 +6929,40 @@ const forms = {
                     "_path": "components.SideMenu.item.activeOffset",
                     "_type": "number",
                     "_description": "menu item offset when active"
+                }
+            }
+        },
+        "Loader": {
+            "_label": "Loader",
+            "_path": "components.Loader",
+            "linear": {
+                "_label": "linear",
+                "_path": "components.Loader.linear",
+                "border": {
+                    "_label": "border",
+                    "_path": "components.Loader.linear.border",
+                    "radius": {
+                        "_label": "radius",
+                        "_path": "components.Loader.linear.border.radius",
+                        "infinite": {
+                            "_label": "infinite",
+                            "_path": "components.Loader.linear.border.radius.infinite",
+                            "_type": "number",
+                            "_min": 0
+                        },
+                        "default": {
+                            "_label": "default",
+                            "_path": "components.Loader.linear.border.radius.default",
+                            "_type": "number",
+                            "_min": 0
+                        }
+                    }
+                },
+                "height": {
+                    "_label": "height",
+                    "_path": "components.Loader.linear.height",
+                    "_type": "number",
+                    "_min": 0
                 }
             }
         }

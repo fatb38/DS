@@ -1,4 +1,4 @@
-import React, {FunctionComponent, ReactElement, ReactNode, cloneElement, useMemo} from 'react';
+import {FunctionComponent, ReactElement, ReactNode, cloneElement, useMemo} from 'react';
 import {KitTypography, KitButton} from '@kit/General/';
 import {KitSpace} from '@kit/Layout/';
 import {KitInput} from '@kit/DataEntry/';
@@ -20,7 +20,7 @@ const _getActions = (actions?: IKitPageHeader['actions'], onPlusClick?: IKitPage
         ? actions.map<ReactNode>((action, index) => {
               switch (((action as ReactElement).type as FunctionComponent).displayName) {
                   case 'KitButton':
-                      return React.cloneElement(
+                      return cloneElement(
                           action as ReactElement<IKitButton>,
                           {
                               type: 'segmented',

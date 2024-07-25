@@ -4,7 +4,7 @@
     font-family: var(--components-Modal-typography-fontFamily, var(--general-typography-fontFamily));
     font-size: convertToPixel(--components-Modal-typography-fontSize-content, --general-typography-fontSize5);
     font-weight: var(--components-Modal-typography-fontWeight-content, var(--general-typography-regularFontWeight));
-    background: var(--components-Modal-colors-background-default, var(--general-colors-neutral-white));
+    background: var(--components-Modal-colors-background-default, var(--general-utilities-light));
     border-radius: convertToPixel(--components-Modal-border-radius, --general-border-radius-s);
     box-shadow:
         0 6px 16px 0 rgba(0, 0, 0, 0.08),
@@ -21,7 +21,7 @@
     }
 
     .kit-modal-wrapper-fullscreen & {
-        border-radius: 0;
+        border-radius: convertToPixel(--general-border-radius-square);
         width: 100%;
         height: 100%;
         box-sizing: border-box;
@@ -38,7 +38,7 @@
             padding-right: convertToPixel(--general-spacing-s);
 
             h2 {
-                margin: 0;
+                margin: convertToPixel(--general-spacing-none);
             }
         }
 
@@ -52,7 +52,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        padding:  convertToPixel(--general-spacing-s)  convertToPixel(--general-spacing-l);
+        padding: convertToPixel(--general-spacing-s) convertToPixel(--general-spacing-l);
 
         .kit-modal-content {
             flex: 1 1 auto;
@@ -62,19 +62,19 @@
         .kit-modal-vertical-items-spacing {
             display: inline-flex;
             flex-direction: column;
-            gap: 8px;
+            gap: convertToPixel(--general-spacing-xs);
             row-gap: convertToPixel(--components-Modal-spacing-vertical-items, --general-spacing-m);
         }
         .kit-modal-horizontal-items-spacing {
             display: inline-flex;
-            gap: 8px;
+            gap: convertToPixel(--general-spacing-xs);
             align-items: center;
             column-gap: convertToPixel(--components-Modal-spacing-vertical-items, --general-spacing-m);
         }
         .kit-modal-vertical-text-spacing {
             display: inilne-flex;
             flex-direction: column;
-            gap: 25px;
+            gap: convertToPixel(--general-spacing-m);
             row-gap: convertToPixel(--components-Modal-spacing-vertical-items, --general-spacing-xs);
         }
     }
@@ -87,10 +87,7 @@
         box-sizing: border-box;
         padding: convertToPixel(--general-spacing-s);
         padding-left: convertToPixel(--general-spacing-l);
-        border-top: 1px solid var(
-             --components-Card-colors-border-default,
-            var(--general-colors-secondary-mediumGrey-mediumGrey200)
-        );
+        border-top: 1px solid var(--components-Card-colors-border-default, var(--general-utilities-border));
     }
 
     .kit-modal-title {
@@ -108,7 +105,7 @@
     }
 
     .kit-confirm-icon {
-        font-size: 24px;
+        font-size: convertToPixel(--general-typography-fontSize2);
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -118,44 +115,31 @@
         padding: 12px;
 
         &.kit-confirm-icon-info {
-            color: var(--components-Modal-colors-icon-info, var(--general-colors-primary-primary400));
-            background: var(
-                --components-Modal-colors-background-info,
-                var(--general-colors-primary-primary100)
-            );
+            color: var(--components-Modal-colors-icon-info, var(--general-utilities-text-textBlue));
+            background: var(--components-Modal-colors-background-info, var(--general-utilities-main-mainLight));
         }
 
         &.kit-confirm-icon-success {
-            color: var(
-                --components-Modal-colors-icon-success,
-                var(--general-colors-secondary-green-green400)
-            );
+            color: var(--components-Modal-colors-icon-success, var(--general-utilities-text-textSuccess));
             background: var(
                 --components-Modal-colors-background-success,
-                var(--general-colors-secondary-green-green100)
+                var(--general-utilities-success-successLight)
             );
         }
 
         &.kit-confirm-icon-warning {
-            color: var(
-                --components-Modal-colors-icon-warning,
-                var(--general-colors-secondary-orange-orange500)
-            );
+            color: var(--components-Modal-colors-icon-warning, var(--general-utilities-text-textWarning));
             background: var(
                 --components-Modal-colors-background-warning,
-                var(--general-colors-secondary-orange-orange100)
+                var(--general-utilities-warning-warningLight)
             );
         }
 
         &.kit-confirm-icon-error {
-            color: var(--components-Modal-colors-icon-error, var(--general-colors-secondary-red-red400));
-            background: var(
-                --components-Modal-colors-background-error,
-                var(--general-colors-secondary-red-red100)
-            );
+            color: var(--components-Modal-colors-icon-error, var(--general-utilities-text-textError));
+            background: var(--components-Modal-colors-background-error, var(--general-utilities-error-errorLight));
         }
     }
-
 }
 
 .kit-modal-overlay {

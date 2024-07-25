@@ -6,6 +6,7 @@ import {KitSpace} from '@kit/Layout';
 import {Template} from './Template.tsx';
 import {menuContentExample, logoExample, userProfileExample, langSwitcherExample} from './commons.tsx';
 import {KitIdCard} from '@kit/DataDisplay/index.tsx';
+import {IKitHeaderProfile} from '@kit/Navigation/Header/types.js';
 
 const meta: Meta<typeof KitHeader> = {
     component: KitHeader,
@@ -23,9 +24,9 @@ export const Api: Story = {
     }
 };
 
-const userProfileProps = {
+const userProfileProps: IKitHeaderProfile = {
     logo: '/public/images/logo.png',
-    tag: 'grenoble',
+    tagProps: {type: 'primary', idCardProps: {description: 'Grenoble Centre'}},
     userCard: <KitIdCard avatarProps={{src: 'public/images/portrait.png'}} />
 };
 
@@ -46,7 +47,9 @@ export const ChromaticTest: Story = {
                     <KitHeader profile={<KitHeader.Profile logo={userProfileProps.logo} alt="Logo ARiSTiD" />}>
                         {headerContent}
                     </KitHeader>
-                    <KitHeader profile={<KitHeader.Profile tag={userProfileProps.tag} />}>{headerContent}</KitHeader>
+                    <KitHeader profile={<KitHeader.Profile tagProps={userProfileProps.tagProps} />}>
+                        {headerContent}
+                    </KitHeader>
                     <KitHeader profile={<KitHeader.Profile userCard={userProfileProps.userCard} />}>
                         {headerContent}
                     </KitHeader>

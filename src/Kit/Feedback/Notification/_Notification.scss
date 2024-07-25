@@ -1,103 +1,101 @@
 @import '../../../css/mixins.scss';
 
 .ant-notification .ant-notification-notice.ant-notification-notice-info {
-    border-color: var(--components-Notification-colors-typography-message-info, var(
-        --general-colors-primary-primary400
-    ));
+    border-color: var(
+        --components-Notification-colors-typography-message-info,
+        var(--general-utilities-main-mainColor)
+    );
 
     .ant-notification-notice-content .ant-notification-notice-message {
-        color: var(--components-Notification-colors-typography-message-info, var(
-            --general-colors-primary-primary400
-        ));
+        color: var(--components-Notification-colors-typography-message-info, var(--general-utilities-text-textBlue));
     }
 
     .ant-notification-notice-close {
-        color: var(--components-Notification-colors-icon-info, var(
-            --general-colors-primary-primary400
-        ));
+        color: var(--components-Notification-colors-icon-info, var(--general-utilities-text-textBlue));
 
         &:hover {
-            background-color: var(--components-Notification-colors-icon-background-info, var(
-                --general-colors-primary-primary100
-            ));
+            background-color: var(
+                --components-Notification-colors-icon-background-info,
+                var(--general-utilities-main-mainLight)
+            );
         }
     }
 }
 
 .ant-notification .ant-notification-notice.ant-notification-notice-success {
-    border-color: var(--components-Notification-colors-typography-message-success, var(
-        --general-colors-secondary-green-green400
-    ));
+    border-color: var(
+        --components-Notification-colors-typography-message-success,
+        var(--general-utilities-success-successColor)
+    );
 
     .ant-notification-notice-content .ant-notification-notice-message {
-        color: var(--components-Notification-colors-typography-message-success, var(
-            --general-colors-secondary-green-green400
-        ));
+        color: var(
+            --components-Notification-colors-typography-message-success,
+            var(--general-utilities-text-textSuccess)
+        );
     }
 
     .ant-notification-notice-close {
-        color: var(--components-Notification-colors-icon-success, var(
-            --general-colors-secondary-green-green400
-        ));
+        color: var(--components-Notification-colors-icon-success, var(--general-utilities-text-textSuccess));
 
         &:hover {
-            background-color: var(--components-Notification-colors-icon-background-success, var(
-                --general-colors-secondary-green-green100
-            ));
+            background-color: var(
+                --components-Notification-colors-icon-background-success,
+                var(--general-utilities-success-successLight)
+            );
         }
     }
 }
 
 .ant-notification .ant-notification-notice.ant-notification-notice-error {
-    border-color: var(--components-Notification-colors-typography-message-error, var(
-        --general-colors-secondary-red-red400
-    ));
+    border-color: var(
+        --components-Notification-colors-typography-message-error,
+        var(--general-utilities-error-errorColor)
+    );
 
     .ant-notification-notice-content .ant-notification-notice-message {
-        color: var(--components-Notification-colors-typography-message-error, var(
-            --general-colors-secondary-red-red400
-        ));
+        color: var(--components-Notification-colors-typography-message-error, var(--general-utilities-text-textError));
     }
 
     .ant-notification-notice-close {
-        color: var(--components-Notification-colors-icon-error, var(
-            --general-colors-secondary-red-red400
-        ));
+        color: var(--components-Notification-colors-icon-error, var(--general-utilities-text-textError));
 
         &:hover {
-            background-color: var(--components-Notification-colors-icon-background-error, var(
-                --general-colors-secondary-red-red100
-            ));
+            background-color: var(
+                --components-Notification-colors-icon-background-error,
+                var(--general-utilities-error-errorLight)
+            );
         }
     }
 }
 
 .ant-notification .ant-notification-notice.ant-notification-notice-warning {
-    border-color: var(--components-Notification-colors-typography-message-warning, var(
-        --general-colors-secondary-orange-orange400
-    ));
+    border-color: var(
+        --components-Notification-colors-typography-message-warning,
+        var(--general-utilities-warning-warningColor)
+    );
 
     .ant-notification-notice-content .ant-notification-notice-message {
-        color: var(--components-Notification-colors-typography-message-warning, var(
-            --general-colors-secondary-orange-orange400
-        ));
+        color: var(
+            --components-Notification-colors-typography-message-warning,
+            var(--general-utilities-text-textWarning)
+        );
     }
 
     .ant-notification-notice-close {
-        color: var(--components-Notification-colors-icon-warning, var(
-            --general-colors-secondary-orange-orange400
-        ));
+        color: var(--components-Notification-colors-icon-warning, var(--general-utilities-text-textWarning));
 
         &:hover {
-            background-color: var(--components-Notification-colors-icon-background-warning, var(
-                --general-colors-secondary-orange-orange100
-            ));
+            background-color: var(
+                --components-Notification-colors-icon-background-warning,
+                var(--general-utilities-warning-warningLight)
+            );
         }
     }
 }
 
 .ant-notification {
-    .ant-notification-notice-wrapper{
+    .ant-notification-notice-wrapper {
         .ant-notification-notice {
             padding: convertToPixel(--general-spacing-s);
         }
@@ -119,14 +117,15 @@
                     --components-Notification-typography-fontSize-message,
                     --general-typography-fontSize4
                 );
-                font-weight: var(--components-Notification-typography-fontWeight-message, var(
-                    --general-typography-mediumfontWeight
-                ));
-                margin-inline-start: 48px;
-                padding-right: 32px;
+                font-weight: var(
+                    --components-Notification-typography-fontWeight-message,
+                    var(--general-typography-mediumfontWeight)
+                );
+                margin-inline-start: convertToPixel(--general-spacing-xxl);
+                padding-right: convertToPixel(--general-spacing-l);
             }
             .ant-notification-notice-description {
-                margin-inline-start: 48px;
+                margin-inline-start: convertToPixel(--general-spacing-xxl);
                 font-size: convertToPixel(
                     --components-Notification-typography-fontSize-content,
                     --general-typography-fontSize5
@@ -140,19 +139,19 @@
             position: absolute;
             display: flex;
             box-sizing: border-box;
-            font-size: 14px;
+            font-size: convertToPixel(--general-typography-fontSize5);
             height: 20px;
             min-width: 20px;
-            padding: 11px 0;
+            padding: 11px convertToPixel(--general-spacing-none);
             justify-content: center;
             align-items: center;
             top: 20px;
             right: 20px;
-            color: var(--components-Typography-colors-typography-default, var(--general-colors-neutral-typography-black));
+            color: var(--components-Typography-colors-typography-default, var(--general-utilities-text-textPrimary));
             border-radius: convertToPixel(--general-border-radius-s);
 
             &:hover {
-                background-color: var(--general-colors-secondary-mediumGrey-mediumGrey100);
+                background-color: var(--general-utilities-neutral-neutralLight);
                 cursor: pointer;
             }
         }

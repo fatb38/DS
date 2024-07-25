@@ -32,7 +32,7 @@ export const ChromaticTest: Story = {
                 <GroupAndDisabledDropdownTest />
             </div>
             <div style={{marginBottom: '250px'}} />
-            <KitDivider color="lightGrey" />
+            <KitDivider />
             <ArrowAndPlacementTest />
         </div>
     )

@@ -1,4 +1,4 @@
-import React, {Key, createContext} from 'react';
+import {Key, createContext} from 'react';
 import {KitIcon} from '@kit/General/Icon';
 import {NotificationInstance} from 'antd/es/notification/interface';
 import {IKitNotification, IKitNotificationArgs, IKitNotificationContext} from './types';

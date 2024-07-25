@@ -117,14 +117,17 @@ const StyledTable = styled.table`
 
 const TokensList: FunctionComponent<ITokensList> = ({path, tokens}) => {
     const {theme: kitTheme} = useKitTheme();
-    const theme = getThemeData(kitTheme, path);
+    const theme = getThemeData({general: kitTheme}, path);
+    const documentStyles = getComputedStyle(document.documentElement);
 
     const _getItems: getItemsType = (node, nodeName, level, themeValue, childrenOnly) => {
         const properties = Object.keys(node).filter(key => !key.startsWith('_'));
         const value = (themeValue && themeValue[nodeName]) ?? undefined;
 
+        const varValue = documentStyles.getPropertyValue(`--${node._path.replace('.', '-')}`) ?? null;
+
         if (properties.length === 0) {
-            node._value = value;
+            node._value = value ?? varValue;
             return <Row key={`${node._label} ${node._path}`} {...node} level={level} visible={childrenOnly} />;
         }
 

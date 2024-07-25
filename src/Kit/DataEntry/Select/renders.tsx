@@ -5,10 +5,10 @@ import {IKitInternalOption, IKitOption, IKitSelect} from './types';
 import {isIdCardOption} from './guard';
 import {LabelInValueType} from 'rc-select/es/Select';
 import type {CustomTagProps} from 'rc-select/es/BaseSelect';
-import {FlattenOptionData} from 'rc-select/lib/interface';
-import {BaseOptionType} from 'antd/es/select';
+import {IKitTag} from '@kit/DataDisplay/Tag/types';
 
-export const getLabelRender = ({value}: LabelInValueType | CustomTagProps, options: IKitInternalOption[]) => options.filter(option => option.value === value).pop()?.labelToDisplay;
+export const getLabelRender = ({value}: LabelInValueType | CustomTagProps, options: IKitInternalOption[]) =>
+    options.filter(option => option.value === value).pop()?.labelToDisplay;
 
 export const getTagRender = (
     customTag: CustomTagProps,
@@ -21,15 +21,42 @@ export const getTagRender = (
         event.stopPropagation();
     };
 
+    const labelToDisplay = getLabelRender(customTag, options);
+
+    let idCard = labelToDisplay?.idCard;
+
+    if (!idCard) {
+        let icon: ReactNode;
+
+        if (labelToDisplay?.icon) {
+            icon = <KitIcon className="kit-select-option-icon" icon={labelToDisplay.icon} on />;
+        }
+
+        if (labelToDisplay?.color) {
+            icon = (
+                <div className="kit-select-option-badge">
+                    {labelToDisplay.color && <div style={{backgroundColor: labelToDisplay.color}} />}
+                </div>
+            );
+        }
+
+        idCard = {
+            avatarProps: {
+                icon: icon,
+                shape: 'square'
+            },
+            description: labelToDisplay?.label
+        };
+    }
+
     return (
         <KitTag
-            color={_getTagColor(disabled, status)}
-            secondaryColorInvert
+            type={_getTagType(disabled, status)}
             onMouseDown={onPreventMouseDown}
             onClose={!disabled ? customTag.onClose : undefined}
-        >
-            {getLabelRender(customTag, options)}
-        </KitTag>
+            disabled={disabled}
+            idCardProps={{...idCard}}
+        />
     );
 };
 
@@ -38,25 +65,23 @@ export const getMaxTagRender = (
     disabled: IKitSelect['disabled'],
     status: IKitSelect['status']
 ) => (
-    <KitTag color={_getTagColor(disabled, status)} secondaryColorInvert>
-        +{omittedValues.length}
-    </KitTag>
+    <KitTag
+        type={_getTagType(disabled, status)}
+        idCardProps={{description: `+${omittedValues.length}`}}
+        disabled={disabled}
+    />
 );
 
-const _getTagColor = (disabled: IKitSelect['disabled'], status: IKitSelect['status']) => {
-    if (disabled) {
-        return 'mediumGrey';
+const _getTagType = (disabled: IKitSelect['disabled'], status: IKitSelect['status']): IKitTag['type'] => {
+    if (disabled || status === 'warning') {
+        return 'neutral';
     }
 
     if (status === 'error') {
-        return 'red';
+        return 'error';
     }
 
-    if (status === 'warning') {
-        return 'orange';
-    }
-
-    return 'blue';
+    return 'secondary';
 };
 
 export const getDropdownRender = (menu: ReactElement, dropdownRender?: IKitSelect['dropdownRender']) => (
@@ -83,11 +108,6 @@ export const fixSelectRender = (id: string) => {
         }
     }
 };
-
-export const getOptionRender = (
-    {value, label}: FlattenOptionData<BaseOptionType>,
-    flattenInternalOptions: IKitInternalOption[]
-) => flattenInternalOptions.find(option => option.value === value)?.labelToDisplay ?? label;
 
 export const getOptionLabelRender = (selectOption: IKitOption, labelOnly?: IKitSelect['labelOnly']): ReactNode => {
     if (isIdCardOption(selectOption)) {

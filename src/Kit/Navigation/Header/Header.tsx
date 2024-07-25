@@ -9,9 +9,10 @@ import {faBars} from '@fortawesome/free-solid-svg-icons';
 import {getContrastColor} from '@utils/functions';
 import {KitColorProp} from '@utils/functions/types';
 
-const _getCustomColors = (color: KitColorProp): CSSProperties => ({
+const _getCustomColors = (color: KitColorProp): CSSProperties =>
+    ({
         ['--kit-header-invert-color']: getContrastColor(color)
-    } as CSSProperties);
+    }) as CSSProperties;
 
 export const Header: FunctionComponent<IKitHeader> = ({
     className,
@@ -37,7 +38,7 @@ export const Header: FunctionComponent<IKitHeader> = ({
 
     const _renderDropdown = () => menu;
 
-    const customColors = _getCustomColors(theme.colors.primary.primary400);
+    const customColors = _getCustomColors(theme.colors.primary.blue400);
 
     return (
         <div style={customColors} {...props} className={clx}>

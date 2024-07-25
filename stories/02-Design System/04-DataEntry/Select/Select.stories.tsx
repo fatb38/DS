@@ -9,6 +9,7 @@ import {GroupSelectTest} from './test-components/GroupSelectTest.tsx';
 import {StatusAndLabelSelectTest} from './test-components/StatusAndLabelSelectTest.tsx';
 import {MultilinesSelectTest} from './test-components/MultilinesSelectTest.tsx';
 import {WithIdCard} from './test-components/WithIdCardTest.tsx';
+import {ReadonlyTest} from './test-components/ReadonlyTest.tsx';
 
 const meta: Meta<typeof KitSelect> = {
     component: KitSelect,
@@ -38,6 +39,7 @@ export const ChromaticTest: Story = {
             <StatusAndLabelSelectTest />
             <MultilinesSelectTest />
             <WithIdCard />
+            <ReadonlyTest />
         </div>
     )
 };

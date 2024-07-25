@@ -85,7 +85,6 @@ const App = () => {
                                 <Presets />
                             </div>
                             <KitDivider
-                                color="lightGrey"
                                 type="vertical"
                                 style={{
                                     height: 'auto'

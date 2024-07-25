@@ -1,12 +1,12 @@
 {/* Colors.stories.mdx */}
 
-import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs";
-import {KitAristidThemeGeneral} from "@theme/aristid/general/index";
+import {Meta, ColorPalette, ColorItem} from '@storybook/addon-docs';
+import {KitAristidThemeGeneral} from '@theme/aristid/general/index';
 import {useKitTheme} from '@theme/useKitTheme';
 
 <Meta title="Design System/General/Colors" />
 
-# How to use    
+# How to use
 
 ## Import and usage
 
@@ -15,12 +15,38 @@ import {useKitTheme} from 'aristid-ds';
 
 const {theme} = useKitTheme();
 
-const primaryColor = theme.colors.primary.primary100;
+const primaryColor = theme.colors.primary.blue100;
 const backgroundColor = theme.colors.neutral.background;
-const secondaryRedColor = theme.colors.secondary.red.red100;
+const secondaryRedColor = theme.colors.secondary.error.red100;
 ```
 
 # Available Colors
+
+## Neutral Color
+
+<ColorPalette>
+    <ColorItem
+        title="Black & White"
+        subtitle=""
+        colors={{
+            black: KitAristidThemeGeneral.colors.neutral.black,
+            white: KitAristidThemeGeneral.colors.neutral.white
+        }}
+    />
+    <ColorItem
+        title="Grey"
+        subtitle=""
+        colors={{
+            grey100: KitAristidThemeGeneral.colors.neutral.grey.grey100,
+            grey200: KitAristidThemeGeneral.colors.neutral.grey.grey200,
+            grey300: KitAristidThemeGeneral.colors.neutral.grey.grey300,
+            grey400: KitAristidThemeGeneral.colors.neutral.grey.grey400,
+            grey500: KitAristidThemeGeneral.colors.neutral.grey.grey500,
+            grey600: KitAristidThemeGeneral.colors.neutral.grey.grey600,
+            grey700: KitAristidThemeGeneral.colors.neutral.grey.grey700
+        }}
+    />
+</ColorPalette>
 
 ## Primary Color
 
@@ -29,48 +55,13 @@ const secondaryRedColor = theme.colors.secondary.red.red100;
         title="Actions (icons, buttons, ...)"
         subtitle=""
         colors={{
-            "primary100": KitAristidThemeGeneral.colors.primary.primary100,
-            "primary200": KitAristidThemeGeneral.colors.primary.primary200,
-            "primary300": KitAristidThemeGeneral.colors.primary.primary300,
-            "primary400": KitAristidThemeGeneral.colors.primary.primary400,
-            "primary500": KitAristidThemeGeneral.colors.primary.primary500,
-            "primary600": KitAristidThemeGeneral.colors.primary.primary600,
-            "primary700": KitAristidThemeGeneral.colors.primary.primary700,
-        }}
-    />
-</ColorPalette>
-
-
-## Neutral Color
-
-<ColorPalette>
-    <ColorItem
-        title="Typography"
-        subtitle=""
-        colors={{
-            black: KitAristidThemeGeneral.colors.neutral.typography.black,
-            "black60": KitAristidThemeGeneral.colors.neutral.typography.black60,
-            white: KitAristidThemeGeneral.colors.neutral.typography.white,
-        }}
-    />
-    <ColorItem
-        title="Background"
-        subtitle=""
-        colors={{
-            "background": KitAristidThemeGeneral.colors.neutral.background,
-        }}
-    />
-    <ColorItem
-        title="grey"
-        subtitle=""
-        colors={{
-            "grey100": KitAristidThemeGeneral.colors.neutral.grey.grey100,
-            "grey200": KitAristidThemeGeneral.colors.neutral.grey.grey200,
-            "grey300": KitAristidThemeGeneral.colors.neutral.grey.grey300,
-            "grey400": KitAristidThemeGeneral.colors.neutral.grey.grey400,
-            "grey500": KitAristidThemeGeneral.colors.neutral.grey.grey500,
-            "grey600": KitAristidThemeGeneral.colors.neutral.grey.grey600,
-            "grey700": KitAristidThemeGeneral.colors.neutral.grey.grey700,
+            blue100: KitAristidThemeGeneral.colors.primary.blue100,
+            blue200: KitAristidThemeGeneral.colors.primary.blue200,
+            blue300: KitAristidThemeGeneral.colors.primary.blue300,
+            blue400: KitAristidThemeGeneral.colors.primary.blue400,
+            blue500: KitAristidThemeGeneral.colors.primary.blue500,
+            blue600: KitAristidThemeGeneral.colors.primary.blue600,
+            blue700: KitAristidThemeGeneral.colors.primary.blue700
         }}
     />
 </ColorPalette>
@@ -79,48 +70,66 @@ const secondaryRedColor = theme.colors.secondary.red.red100;
 
 <ColorPalette>
     <ColorItem
-        title="Medium grey"
+        title="Success"
         subtitle=""
         colors={{
-            "mediumGrey100": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey100,
-            "mediumGrey200": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey200,
-            "mediumGrey300": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey300,
-            "mediumGrey400": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey400,
-            "mediumGrey500": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey500,
-            "mediumGrey600": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey600,
-            "mediumGrey700": KitAristidThemeGeneral.colors.secondary.mediumGrey.mediumGrey700,
+            green100: KitAristidThemeGeneral.colors.secondary.success.green100,
+            green200: KitAristidThemeGeneral.colors.secondary.success.green200,
+            green300: KitAristidThemeGeneral.colors.secondary.success.green300,
+            green400: KitAristidThemeGeneral.colors.secondary.success.green400,
+            green500: KitAristidThemeGeneral.colors.secondary.success.green500,
+            green600: KitAristidThemeGeneral.colors.secondary.success.green600,
+            green700: KitAristidThemeGeneral.colors.secondary.success.green700
         }}
     />
 </ColorPalette>
+
+<ColorPalette>
+    <ColorItem
+        title="Warning"
+        subtitle=""
+        colors={{
+            orange100: KitAristidThemeGeneral.colors.secondary.warning.orange100,
+            orange200: KitAristidThemeGeneral.colors.secondary.warning.orange200,
+            orange300: KitAristidThemeGeneral.colors.secondary.warning.orange300,
+            orange400: KitAristidThemeGeneral.colors.secondary.warning.orange400,
+            orange500: KitAristidThemeGeneral.colors.secondary.warning.orange500,
+            orange600: KitAristidThemeGeneral.colors.secondary.warning.orange600,
+            orange700: KitAristidThemeGeneral.colors.secondary.warning.orange700
+        }}
+    />
+</ColorPalette>
+
+<ColorPalette>
+    <ColorItem
+        title="Error"
+        subtitle=""
+        colors={{
+            red100: KitAristidThemeGeneral.colors.secondary.error.red100,
+            red200: KitAristidThemeGeneral.colors.secondary.error.red200,
+            red300: KitAristidThemeGeneral.colors.secondary.error.red300,
+            red400: KitAristidThemeGeneral.colors.secondary.error.red400,
+            red500: KitAristidThemeGeneral.colors.secondary.error.red500,
+            red600: KitAristidThemeGeneral.colors.secondary.error.red600,
+            red700: KitAristidThemeGeneral.colors.secondary.error.red700
+        }}
+    />
+</ColorPalette>
+
+## Tertiary Color
 
 <ColorPalette>
     <ColorItem
         title="Yellow"
         subtitle=""
         colors={{
-            "yellow100": KitAristidThemeGeneral.colors.secondary.yellow.yellow100,
-            "yellow200": KitAristidThemeGeneral.colors.secondary.yellow.yellow200,
-            "yellow300": KitAristidThemeGeneral.colors.secondary.yellow.yellow300,
-            "yellow400": KitAristidThemeGeneral.colors.secondary.yellow.yellow400,
-            "yellow500": KitAristidThemeGeneral.colors.secondary.yellow.yellow500,
-            "yellow600": KitAristidThemeGeneral.colors.secondary.yellow.yellow600,
-            "yellow700": KitAristidThemeGeneral.colors.secondary.yellow.yellow700,
-        }}
-    />
-</ColorPalette>
-
-<ColorPalette>
-    <ColorItem
-        title="Orange"
-        subtitle=""
-        colors={{
-            "orange100": KitAristidThemeGeneral.colors.secondary.orange.orange100,
-            "orange200": KitAristidThemeGeneral.colors.secondary.orange.orange200,
-            "orange300": KitAristidThemeGeneral.colors.secondary.orange.orange300,
-            "orange400": KitAristidThemeGeneral.colors.secondary.orange.orange400,
-            "orange500": KitAristidThemeGeneral.colors.secondary.orange.orange500,
-            "orange600": KitAristidThemeGeneral.colors.secondary.orange.orange600,
-            "orange700": KitAristidThemeGeneral.colors.secondary.orange.orange700,
+            yellow100: KitAristidThemeGeneral.colors.tertiary.yellow.yellow100,
+            yellow200: KitAristidThemeGeneral.colors.tertiary.yellow.yellow200,
+            yellow300: KitAristidThemeGeneral.colors.tertiary.yellow.yellow300,
+            yellow400: KitAristidThemeGeneral.colors.tertiary.yellow.yellow400,
+            yellow500: KitAristidThemeGeneral.colors.tertiary.yellow.yellow500,
+            yellow600: KitAristidThemeGeneral.colors.tertiary.yellow.yellow600,
+            yellow700: KitAristidThemeGeneral.colors.tertiary.yellow.yellow700
         }}
     />
 </ColorPalette>
@@ -130,62 +139,158 @@ const secondaryRedColor = theme.colors.secondary.red.red100;
         title="Pink"
         subtitle=""
         colors={{
-            "pink100": KitAristidThemeGeneral.colors.secondary.pink.pink100,
-            "pink200": KitAristidThemeGeneral.colors.secondary.pink.pink200,
-            "pink300": KitAristidThemeGeneral.colors.secondary.pink.pink300,
-            "pink400": KitAristidThemeGeneral.colors.secondary.pink.pink400,
-            "pink500": KitAristidThemeGeneral.colors.secondary.pink.pink500,
-            "pink600": KitAristidThemeGeneral.colors.secondary.pink.pink600,
-            "pink700": KitAristidThemeGeneral.colors.secondary.pink.pink700,
+            pink100: KitAristidThemeGeneral.colors.tertiary.pink.pink100,
+            pink200: KitAristidThemeGeneral.colors.tertiary.pink.pink200,
+            pink300: KitAristidThemeGeneral.colors.tertiary.pink.pink300,
+            pink400: KitAristidThemeGeneral.colors.tertiary.pink.pink400,
+            pink500: KitAristidThemeGeneral.colors.tertiary.pink.pink500,
+            pink600: KitAristidThemeGeneral.colors.tertiary.pink.pink600,
+            pink700: KitAristidThemeGeneral.colors.tertiary.pink.pink700
         }}
     />
 </ColorPalette>
+
+# utilities Colors
+
+## Global Colors
 
 <ColorPalette>
     <ColorItem
-        title="Red"
+        title="border"
         subtitle=""
         colors={{
-            "red100": KitAristidThemeGeneral.colors.secondary.red.red100,
-            "red200": KitAristidThemeGeneral.colors.secondary.red.red200,
-            "red300": KitAristidThemeGeneral.colors.secondary.red.red300,
-            "red400": KitAristidThemeGeneral.colors.secondary.red.red400,
-            "red500": KitAristidThemeGeneral.colors.secondary.red.red500,
-            "red600": KitAristidThemeGeneral.colors.secondary.red.red600,
-            "red700": KitAristidThemeGeneral.colors.secondary.red.red700,
+            border: KitAristidThemeGeneral.utilities.border
+        }}
+    />
+    <ColorItem
+        title="disabled"
+        subtitle=""
+        colors={{
+            border: KitAristidThemeGeneral.utilities.disabled
+        }}
+    />
+    <ColorItem
+        title="focus"
+        subtitle=""
+        colors={{
+            border: KitAristidThemeGeneral.utilities.focus
+        }}
+    />
+    <ColorItem
+        title="light"
+        subtitle=""
+        colors={{
+            border: KitAristidThemeGeneral.utilities.light
         }}
     />
 </ColorPalette>
+
+## Grouped Colors
 
 <ColorPalette>
     <ColorItem
-        title="Blue"
+        title="Main"
         subtitle=""
         colors={{
-            "blue100": KitAristidThemeGeneral.colors.secondary.blue.blue100,
-            "blue200": KitAristidThemeGeneral.colors.secondary.blue.blue200,
-            "blue300": KitAristidThemeGeneral.colors.secondary.blue.blue300,
-            "blue400": KitAristidThemeGeneral.colors.secondary.blue.blue400,
-            "blue500": KitAristidThemeGeneral.colors.secondary.blue.blue500,
-            "blue600": KitAristidThemeGeneral.colors.secondary.blue.blue600,
-            "blue700": KitAristidThemeGeneral.colors.secondary.blue.blue700,
+            mainLight: KitAristidThemeGeneral.utilities.main.mainLight,
+            mainMedium: KitAristidThemeGeneral.utilities.main.mainMedium,
+            mainColor: KitAristidThemeGeneral.utilities.main.mainColor,
+            mainDark: KitAristidThemeGeneral.utilities.main.mainDark,
+            mainDeepDark: KitAristidThemeGeneral.utilities.main.mainDeepDark
+        }}
+    />
+    <ColorItem
+        title="Neutral"
+        subtitle=""
+        colors={{
+            neutralLight: KitAristidThemeGeneral.utilities.neutral.neutralLight,
+            neutralMedium: KitAristidThemeGeneral.utilities.neutral.neutralMedium,
+            neutralDark: KitAristidThemeGeneral.utilities.neutral.neutralDark,
+            neutralDeepDark: KitAristidThemeGeneral.utilities.neutral.neutralDeepDark
+        }}
+    />
+    <ColorItem
+        title="Error"
+        subtitle=""
+        colors={{
+            errorLight: KitAristidThemeGeneral.utilities.error.errorLight,
+            errorMedium: KitAristidThemeGeneral.utilities.error.errorMedium,
+            errorColor: KitAristidThemeGeneral.utilities.error.errorColor,
+            errorDark: KitAristidThemeGeneral.utilities.error.errorDark
+        }}
+    />
+    <ColorItem
+        title="Warning"
+        subtitle=""
+        colors={{
+            warningLight: KitAristidThemeGeneral.utilities.warning.warningLight,
+            warningMedium: KitAristidThemeGeneral.utilities.warning.warningMedium,
+            warningColor: KitAristidThemeGeneral.utilities.warning.warningColor,
+            warningDark: KitAristidThemeGeneral.utilities.warning.warningDark
+        }}
+    />
+    <ColorItem
+        title="Success"
+        subtitle=""
+        colors={{
+            successLight: KitAristidThemeGeneral.utilities.success.successLight,
+            successMedium: KitAristidThemeGeneral.utilities.success.successMedium,
+            successColor: KitAristidThemeGeneral.utilities.success.successColor,
+            successDark: KitAristidThemeGeneral.utilities.success.successDark
         }}
     />
 </ColorPalette>
+
+## Text Colors
 
 <ColorPalette>
     <ColorItem
-        title="Green"
+        title="Text light"
         subtitle=""
         colors={{
-            "green100": KitAristidThemeGeneral.colors.secondary.green.green100,
-            "green200": KitAristidThemeGeneral.colors.secondary.green.green200,
-            "green300": KitAristidThemeGeneral.colors.secondary.green.green300,
-            "green400": KitAristidThemeGeneral.colors.secondary.green.green400,
-            "green500": KitAristidThemeGeneral.colors.secondary.green.green500,
-            "green600": KitAristidThemeGeneral.colors.secondary.green.green600,
-            "green700": KitAristidThemeGeneral.colors.secondary.green.green700,
+            textLight: KitAristidThemeGeneral.utilities.text.textLight
+        }}
+    />
+    <ColorItem
+        title="Text primary"
+        subtitle=""
+        colors={{
+            textPrimary: KitAristidThemeGeneral.utilities.text.textPrimary
+        }}
+    />
+    <ColorItem
+        title="Text disabled"
+        subtitle=""
+        colors={{
+            textDisabled: KitAristidThemeGeneral.utilities.text.textDisabled
+        }}
+    />
+    <ColorItem
+        title="Text blue"
+        subtitle=""
+        colors={{
+            textBlue: KitAristidThemeGeneral.utilities.text.textBlue
+        }}
+    />
+    <ColorItem
+        title="Text success"
+        subtitle=""
+        colors={{
+            textSuccess: KitAristidThemeGeneral.utilities.text.textSuccess
+        }}
+    />
+    <ColorItem
+        title="Text warning"
+        subtitle=""
+        colors={{
+            textWarning: KitAristidThemeGeneral.utilities.text.textWarning
+        }}
+    />
+    <ColorItem
+        title="Text error"
+        subtitle=""
+        colors={{
+            textError: KitAristidThemeGeneral.utilities.text.textError
         }}
     />
 </ColorPalette>
-

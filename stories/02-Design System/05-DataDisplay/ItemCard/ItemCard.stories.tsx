@@ -1,14 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {KitItemCard} from '@kit/DataDisplay';
-import {argTypes} from './data';
-import React from 'react';
 import {Template} from './Template';
-import {BasicItemCardTest} from './test-components/BasicItemCardTest.tsx';
-import {DisabledItemCardTest} from './test-components/DisabledItemCardTest.tsx';
+import {argTypes} from './data';
+import {KitItemCard} from '@kit/DataDisplay';
+import {ItemCardTest} from './test-components/ItemCardTest';
 
 const meta: Meta<typeof KitItemCard> = {
     component: KitItemCard,
-    title: 'Deprecated/DataDisplay/ItemCard',
+    title: 'Design System/DataDisplay/ItemCard',
     argTypes: argTypes
 };
 
@@ -23,10 +21,5 @@ export const Api: Story = {
 };
 
 export const ChromaticTest: Story = {
-    render: () => (
-        <div>
-            <BasicItemCardTest />
-            <DisabledItemCardTest />
-        </div>
-    )
+    render: () => <ItemCardTest />
 };
