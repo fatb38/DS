@@ -5,7 +5,6 @@
 ### ✨ Features
 
 -   **⚠️ Breaking change - Tag:**
-
     -   Remove properties `color` and `secondaryColorInvert` (@philippechevieux)
     -   Add the following properties: (@philippechevieux)
         -   `type` _To manage Tag render_
@@ -17,33 +16,37 @@
         -   `othersTagDisabled`
     -   > If you use Tag's, you must define its content using the `idCardProps` property.
         > Also if you use `Select` with `idCard` property please use `description` instead of `title`.
-
 -   **⚠️ Breaking change - Divider:**
     -   Remove property `color` and update default color (@philippechevieux)
 -   **⚠️ Breaking change - ItemCard:**
     -   Remove deprecated `KitItemCard` component (@philippechevieux)
 -   **⚠️ Breaking change - LegacyCard:**
     -   Remove deprecated `KitLegacyCard` component (@philippechevieux)
+-   **⚠️ Breaking change - Card becomes ItemCard:**
+    -   Rename `Card` to `ItemCard` and update its render (@philippechevieux)
+    -   > If you use `Card`, you now must import `ItemCard` and update the given properties
+-   **RedirectCard:**
+    -   Add new component `KitRedirectCard` (@philippechevieux)
 -   **Input**:
-    -   adding new prop `readonly` (@fatb38)
+    -   Adding new prop `readonly` (@fatb38)
 -   **InputWrapper**:
-    -   update info icon (@fatb38)
-    -   adding warning and error icon (@fatb38)
-    -   adding ellipsis for too long helper label (@fatb38)
+    -   Update info icon (@fatb38)
+    -   Adding warning and error icon (@fatb38)
+    -   Adding ellipsis for too long helper label (@fatb38)
 -   **TextArea**:
-    -   adding new prop `readonly` (@fatb38)
+    -   Adding new prop `readonly` (@fatb38)
 -   **Select**:
-    -   adding new prop `readonly` (@fatb38)
+    -   Adding new prop `readonly` (@fatb38)
 -   **Loader**:
-    -   add new `Loader`component (@evoiron)
+    -   Add new `Loader`component (@evoiron)
 
 ### 🐛 Bug Fixes
 
 -   **SideMenu**:
-    -   fix gap between items (@evoiron)
+    -   Fix gap between items (@evoiron)
 -   **InputWrapper**:
-    -   fix wrong button for infoIcon (@fatb38)
-    -   fix gap between label, infoIcon and actions (@fatb38)
+    -   Fix wrong button for infoIcon (@fatb38)
+    -   Fix gap between label, infoIcon and actions (@fatb38)
 
 ### 🎨 Theming
 
@@ -69,30 +72,30 @@
 ### 🐛 Bug Fixes
 
 -   **ItemList**:
-    -   fix border (@evoiron)
+    -   Fix border (@evoiron)
 -   **Input**:
-    -   fix `required`prop not passed to input element
-    -   enabled `type`property
+    -   Fix `required`prop not passed to input element
+    -   Enabled `type`property
 -   **Select**:
-    -   fix select not closing automatically when selecting value in simple mode
+    -   Fix select not closing automatically when selecting value in simple mode
 
 ## [7.1.0](https://www.npmjs.com/package/aristid-ds/v/7.1.0) (2024-06-14)
 
 ### 🐛 Bug Fixes
 
 -   **Table:**
-    -   fix last children rows indentaion of first data column (@evoiron)
-    -   fix last row bottom truncated when its not a filrst level row (@evoiron)
+    -   Fix last children rows indentaion of first data column (@evoiron)
+    -   Fix last row bottom truncated when its not a filrst level row (@evoiron)
 -   **ItemList et Card**:
-    -   add `disabled`to actions (@evoiron)
+    -   Add `disabled`to actions (@evoiron)
 
 ## [7.0.0](https://www.npmjs.com/package/aristid-ds/v/X7.0.0) (2024-06-12)
 
 ### 🐛 Bug Fixes
 
 -   **SideMenu:**
-    -   fix css strange behavior (@evoiron)
-    -   expose `complement`prop to SideMenuItem (@evoiron)
+    -   Fix css strange behavior (@evoiron)
+    -   Expose `complement`prop to SideMenuItem (@evoiron)
 
 ### ✨ Features
 

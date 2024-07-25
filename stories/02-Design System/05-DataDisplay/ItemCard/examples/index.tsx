@@ -1,22 +1,30 @@
 import Basic from './basic';
 import Full from './full';
 import Disabled from './disabled';
-import NoPreview from './noPreview';
+import Draggable from './draggable';
+import Icon from './icon';
+import Image from './image';
 
 import BasicSource from './basic?raw';
 import FullSource from './full?raw';
 import DisabledSource from './disabled?raw';
-import NoPreviewSource from './noPreview?raw';
+import DraggableSource from './draggable?raw';
+import IconSource from './icon?raw';
+import ImageSource from './image?raw';
 
 export const Sources = {
     Basic: BasicSource,
     Full: FullSource,
     Disabled: DisabledSource,
-    NoPreview: NoPreviewSource
+    Draggable: DraggableSource,
+    Icon: IconSource,
+    Image: ImageSource
 };
 export default {
     Basic,
     Full,
     Disabled,
-    NoPreview
+    Draggable,
+    Icon,
+    Image
 };

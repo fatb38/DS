@@ -47,8 +47,8 @@ const KitTagGroup: FunctionComponent<IKitTagGroup> = ({
                     ref={otherRef}
                     style={isOtherTagVisible ? {} : {position: 'absolute', opacity: 0}}
                     idCardProps={{description: `+ ${remainingTags} ` + locale.General?.others}}
-                    type={othersTagType}
                     disabled={othersTagDisabled}
+                    type={othersTagType}
                 />
             </KitTooltip>
         </div>

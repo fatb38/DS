@@ -1,0 +1,45 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
+import * as KitRedirectCardStory from './RedirectCard.stories';
+
+<Meta of={KitRedirectCardStory} />
+
+# RedirectCard
+
+Component to display informations and redirect user (redirection is managed outside of Design System).
+
+## Examples
+
+### Basic
+
+This is a basic redirect card with a title and a description.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="redirect-card-basic" />
+
+### With Icon
+
+You can display the redirect card with an icon. To do this, you need to pass the icon to the `icon` property. If `imageSrc` is set, it will be displayed instead of the icon.
+
+<CustomCanvas content={Examples.Icon} source={Sources.Icon} id="redirect-card-icon" />
+
+### With Image
+
+You can display the redirect card with an image. To do this, you need to pass the image to the `imageSrc` property.
+
+<CustomCanvas content={Examples.Image} source={Sources.Image} id="redirect-card-image" />
+
+### Disabled
+
+RedirectCard can be disabled by passing the `disabled` property.
+
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="redirect-card-disabled" />
+
+## API
+
+<Canvas of={KitRedirectCardStory.Api} />
+
+<Controls of={KitRedirectCardStory.Api} />

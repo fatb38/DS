@@ -1,18 +1,17 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {Template} from './Template';
 import {argTypes} from './data';
-import {KitCard} from '@kit/DataDisplay';
-import React from 'react';
-import {CompleteCardTest} from './test-components/CompleteCardTest';
+import {KitItemCard} from '@kit/DataDisplay';
+import {ItemCardTest} from './test-components/ItemCardTest';
 
-const meta: Meta<typeof KitCard> = {
-    component: KitCard,
-    title: 'Design System/DataDisplay/Card',
+const meta: Meta<typeof KitItemCard> = {
+    component: KitItemCard,
+    title: 'Design System/DataDisplay/ItemCard',
     argTypes: argTypes
 };
 
 export default meta;
-type Story = StoryObj<typeof KitCard>;
+type Story = StoryObj<typeof KitItemCard>;
 
 export const Api: Story = {
     render: Template,
@@ -22,5 +21,5 @@ export const Api: Story = {
 };
 
 export const ChromaticTest: Story = {
-    render: () => <CompleteCardTest />
+    render: () => <ItemCardTest />
 };

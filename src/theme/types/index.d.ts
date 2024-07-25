@@ -39,7 +39,6 @@ import {IKitIconTheme} from './components/General/Icon';
 import {IKitTypographyTheme} from './components/General/Typography';
 import {IKitColorPickerTheme} from './components/DataEntry/ColorPicker';
 import {ThemeConfig} from 'antd';
-import {IKitCardTheme} from './components/DataDisplay/Card';
 import {IKitSideMenuTheme} from './components/Navigation/SideMenu';
 import {IKitUtilities} from './utilities';
 import {IKitLoaderTheme} from './components/Feedback/Loader';
@@ -60,7 +59,6 @@ export interface IKitThemeGeneral {
 
 export interface IKitThemeComponents {
     Button: IKitButtonTheme;
-    Card: IKitCardTheme;
     Rate: IKitRateTheme;
     Tooltip: IKitTooltipTheme;
     Tag: IKitTagTheme;

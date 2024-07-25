@@ -1,6 +1,6 @@
 export {KitAvatar} from './Avatar';
 export {KitBadge} from './Badge';
-export {KitCard} from './Card';
+export {KitItemCard} from './ItemCard';
 export {KitCollapse} from './Collapse';
 export {KitEmpty} from './Empty';
 export {KitError} from './Error';
@@ -13,3 +13,4 @@ export {KitTabs} from './Tabs';
 export {KitTree} from './Tree';
 export {KitTooltip} from './Tooltip';
 export {KitTour} from './Tour';
+export {KitRedirectCard} from './RedirectCard';

@@ -1,0 +1,63 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import fields from '../../../tokens';
+import * as KitItemCardStory from './ItemCard.stories';
+
+<Meta of={KitItemCardStory} />
+
+# ItemCard
+
+Component to display information with image and actions.
+
+## Examples
+
+### Basic
+
+This is a basic ItemCard with a title. ItemCard has two display options: `card` and `list`.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="item-card-basic" />
+
+### With image
+
+ItemCard can have an image. Use `imageSrc` property to set image source and `imageAlt` to set image alt text.
+
+<CustomCanvas content={Examples.Image} source={Sources.Image} id="item-card-image" />
+
+### With icon
+
+ItemCard can display an Icon as an image. Use `icon` property to set icon. If `ìmageSrc` is set, it will be displayed instead of the icon.
+
+<CustomCanvas content={Examples.Icon} source={Sources.Icon} id="item-card-icon" />
+
+### Draggable
+
+ItemCard can be dragged and dropped inside a list. To mark an **ItemCard** as draggable, add the `draggableHandler` prop.
+
+Note that an icon appears and cursor changes, but you need to implement your own drag and drop solution in your application.
+
+<CustomCanvas content={Examples.Draggable} source={Sources.Draggable} id="item-card-draggable" />
+
+### With all properties
+
+ItemCard has several properties to customize its appearance. Here is example with all properties set.
+
+<CustomCanvas content={Examples.Full} source={Sources.Full} id="item-card-full" />
+
+### Disabled ItemCard
+
+This is an exemple with `disabled` props `true`.
+
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="item-card-disabled" />
+
+## Api
+
+<Canvas of={KitItemCardStory.Api} />
+
+<Controls of={KitItemCardStory.Api} />
+
+## Design Tokens
+
+<DesignTokens path="components.Card" tokens={fields?.components?.ItemCard} />

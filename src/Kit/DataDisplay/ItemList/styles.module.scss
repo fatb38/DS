@@ -19,7 +19,7 @@
         padding-right: convertToPixel(--general-spacing-xs);
     }
 
-    &:focus-visible:not(.kit-card-disabled) {
+    &:focus-visible:not(.kit-item-list-disabled) {
         border: 1px solid transparent;
         box-shadow: 0 0 0 3px var(--general-utilities-focus);
         outline: none;

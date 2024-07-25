@@ -1,0 +1,341 @@
+@import '../../../css/mixins.scss';
+
+:local(.kit-item-card) {
+    display: grid;
+    position: relative;
+    background-color: var(--general-utilities-light);
+    box-shadow: var(--general-utilities-shadow-shadowLight);
+    border: 1px solid var(--general-utilities-border);
+    border-radius: convertToPixel(--general-border-radius-s);
+
+    &:hover:not(.kit-item-card-disabled),
+    &.kit-item-card-selected {
+        border-color: var(--general-utilities-main-mainColor);
+    }
+
+    &:focus:not(.kit-item-card-disabled) {
+        outline: none;
+        border: 1px solid transparent;
+        box-shadow: 0 0 0 3px var(--general-utilities-focus);
+    }
+
+    &.kit-item-card-disabled {
+        background-color: var(--general-utilities-neutral-neutralLight);
+
+        .kit-item-card-breadcrumb {
+            .ant-breadcrumb-link,
+            .ant-breadcrumb-separator {
+                color: var(--general-utilities-text-textDisabled);
+            }
+        }
+
+        &.kit-item-card-display-card .kit-item-card-actions-mask {
+            background-color: var(--general-utilities-disabled);
+        }
+    }
+
+    &.kit-item-card-display-card {
+        --kit-item-card-display-card-width: 296;
+        --kit-item-card-image-max-height: 164;
+        --kit-item-card-display-card-image-available-height: calc(
+            (var(--kit-item-card-image-max-height) - (var(--general-spacing-s) * 2)) * 1px
+        );
+        --kit-item-card-display-card-available-width: calc(
+            (var(--kit-item-card-display-card-width) - (var(--general-spacing-s) * 2)) * 1px
+        );
+
+        width: convertToPixel(--kit-item-card-display-card-width);
+        grid-template-areas:
+            'checkbox draggable-handler'
+            'image .'
+            'tags .'
+            'breadcrumb .'
+            'content .'
+            'extra .'
+            'switch .';
+
+        & > div {
+            grid-column: span 2;
+        }
+
+        &:not(.kit-item-card-display-card-checkbox-or-draggable-handler)
+            .kit-item-card-image
+            .kit-item-card-image-placeholder {
+            border-top-left-radius: calc((var(--general-border-radius-s) - 1) * 1px);
+            border-top-right-radius: calc((var(--general-border-radius-s) - 1) * 1px);
+        }
+
+        &.kit-item-card-with-actions:hover .kit-item-card-image {
+            .kit-item-card-actions-mask {
+                display: block;
+                opacity: 0.5;
+            }
+
+            .kit-item-card-actions {
+                display: block;
+            }
+        }
+
+        & > div:last-of-type {
+            &:first-of-type {
+                padding-bottom: convertToPixel(--general-spacing-xs);
+            }
+
+            &:not(:first-of-type) {
+                padding-bottom: convertToPixel(--general-spacing-s);
+            }
+        }
+
+        .kit-item-card-checkbox {
+            grid-row: 1;
+            grid-column: 1;
+            padding: convertToPixel(--general-spacing-s);
+            display: flex;
+        }
+
+        .kit-item-card-draggable-handler {
+            grid-row: 1;
+            grid-column: 2;
+            text-align: end;
+            padding: convertToPixel(--general-spacing-xs);
+
+            button {
+                height: 32px;
+                min-width: 32px;
+            }
+        }
+
+        .kit-item-card-image {
+            position: relative;
+            text-align: center;
+            border-bottom: 1px solid var(--general-utilities-border);
+
+            img,
+            .kit-item-card-image-placeholder {
+                padding: convertToPixel(--general-spacing-s);
+                max-height: var(--kit-item-card-display-card-image-available-height);
+                max-width: var(--kit-item-card-display-card-available-width);
+            }
+
+            .kit-item-card-image-placeholder {
+                height: convertToPixel(--kit-item-card-image-max-height);
+                width: convertToPixel(--kit-item-card-display-card-width);
+            }
+        }
+
+        .kit-item-card-actions-mask {
+            display: none;
+            position: absolute;
+            inset: 0px;
+            opacity: 0;
+            transition: opacity 200ms ease 0s;
+            background-color: var(--general-utilities-main-mainDeepDark);
+        }
+
+        .kit-item-card-actions {
+            display: none;
+            position: absolute;
+            inset: 0px;
+            text-align: center;
+            align-content: center;
+
+            & > button:not(:last-of-type) {
+                margin-right: convertToPixel(--general-spacing-xs);
+            }
+        }
+
+        .kit-item-card-tags,
+        .kit-item-card-breadcrumb,
+        .kit-item-card-content,
+        .kit-item-card-extra,
+        .kit-item-card-switch {
+            padding: convertToPixel(--general-spacing-xs) convertToPixel(--general-spacing-s)
+                convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-s);
+        }
+
+        .kit-item-card-tags {
+            width: var(--kit-item-card-display-card-available-width);
+            padding: convertToPixel(--general-spacing-s) convertToPixel(--general-spacing-s)
+                convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-s);
+        }
+
+        .kit-item-card-content {
+            display: flex;
+            flex-direction: column;
+            max-width: var(--kit-item-card-display-card-available-width);
+        }
+
+        .kit-item-card-switch {
+            justify-self: end;
+        }
+    }
+
+    &.kit-item-card-display-list {
+        width: calc(100% - convertToPixel(--general-spacing-m) * 2);
+        grid-template-areas: 'draggable-handler checkbox image content row-1 actions switch';
+        grid-row-gap: convertToPixel(--general-spacing-xs);
+        grid-template-columns: repeat(3, minmax(0, max-content)) repeat(2, auto) repeat(2, minmax(0, max-content));
+        padding: convertToPixel(--general-spacing-m) convertToPixel(--general-spacing-s)
+            convertToPixel(--general-spacing-m) convertToPixel(--general-spacing-m);
+
+        & > div {
+            grid-row: 1;
+            align-self: center;
+            padding-right: convertToPixel(--general-spacing-s);
+        }
+
+        &.kit-item-card-display-list-with-2-rows {
+            grid-template-areas:
+                'draggable-handler checkbox image content row-1 actions switch'
+                '. . . . row-2 . .';
+
+            & > div {
+                grid-row: 1 / span 2;
+            }
+
+            &:has(.kit-item-card-tags) {
+                .kit-item-card-tags {
+                    grid-area: row-1;
+                }
+
+                .kit-item-card-breadcrumb,
+                .kit-item-card-extra {
+                    grid-area: row-2;
+                }
+            }
+
+            &:not(:has(.kit-item-card-tags)) {
+                .kit-item-card-breadcrumb {
+                    grid-area: row-1;
+                }
+
+                .kit-item-card-extra {
+                    grid-area: row-2;
+                }
+            }
+        }
+
+        &.kit-item-card-display-list-with-3-rows {
+            grid-template-areas:
+                'draggable-handler checkbox image content row-1 actions switch'
+                '. . . . row-2 . .'
+                '. . . . row-3 . .';
+
+            & > div {
+                grid-row: 1 / span 3;
+            }
+
+            .kit-item-card-tags {
+                grid-area: row-1;
+            }
+
+            .kit-item-card-breadcrumb {
+                grid-area: row-2;
+            }
+
+            .kit-item-card-extra {
+                grid-area: row-3;
+            }
+        }
+
+        .kit-item-card-tags,
+        .kit-item-card-breadcrumb,
+        .kit-item-card-extra {
+            grid-area: row-1;
+        }
+
+        .kit-item-card-image {
+            width: 104px;
+            height: 86px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                max-width: 68px;
+            }
+
+            .kit-item-card-image-placeholder {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .kit-item-card-actions {
+            padding-right: convertToPixel(--general-spacing-l);
+            padding-left: convertToPixel(--general-spacing-s);
+            gap: convertToPixel(--general-spacing-s);
+        }
+    }
+
+    .kit-item-card-checkbox {
+        grid-area: checkbox;
+
+        label.ant-checkbox-wrapper {
+            padding: convertToPixel(--general-spacing-none);
+        }
+    }
+
+    .kit-item-card-draggable-handler {
+        grid-area: draggable-handler;
+        color: var(--general-utilities-text-textBlue);
+    }
+
+    .kit-item-card-image {
+        grid-area: image;
+
+        .kit-item-card-image-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--general-utilities-neutral-neutralLight);
+
+            svg {
+                font-size: 37px;
+                color: var(--general-utilities-neutral-neutralDark);
+            }
+        }
+    }
+
+    .kit-item-card-tags {
+        grid-area: tags;
+    }
+
+    .kit-item-card-breadcrumb {
+        grid-area: breadcrumb;
+    }
+
+    .kit-item-card-content {
+        grid-area: content;
+
+        & > h3,
+        & > div {
+            margin: convertToPixel(--general-spacing-none);
+        }
+
+        & > h3 + div {
+            margin-top: convertToPixel(--general-spacing-xs);
+        }
+    }
+
+    .kit-item-card-extra {
+        grid-area: extra;
+    }
+
+    .kit-item-card-actions {
+        grid-area: actions;
+        display: flex;
+        align-items: center;
+    }
+
+    .kit-item-card-switch {
+        grid-area: switch;
+
+        & > span {
+            margin-left: convertToPixel(--general-spacing-xs);
+            max-width: 100px;
+            vertical-align: middle;
+        }
+    }
+}
