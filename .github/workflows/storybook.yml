@@ -4,8 +4,12 @@
 name: "Storybook"
 
 on:
-  workflow_dispatch:
   workflow_call:
+  workflow_dispatch:
+    secrets:
+      WEBHOOK_URL:
+        description: 'webhook url'
+        required: false
 
 env:
   name: ${{ github.ref_name == 'develop' && 'storybook-dev' || 'storybook-main' }}
@@ -29,3 +33,12 @@ jobs:
         with:
           name: ${{ env.name }}
           path: ./storybook-static
+  deploy-storybook:
+    name: call webhook
+    needs: build-storybook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use webhook action to ping webhook
+        uses: joelwmale/webhook-action@2.4.1
+        with:
+          url: ${{ secrets.WEBHOOK_URL }}
