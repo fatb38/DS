@@ -4,7 +4,7 @@ import {KitButton, KitTypography} from '@kit/General';
 import {genericDropdownItems} from '../commons.tsx';
 
 export const ArrowAndPlacementTest: FunctionComponent = () => (
-    <>
+    <div>
         <KitTypography.Title level="h3" style={{marginBottom: '16px'}}>
             Arrow and placement dropdown
         </KitTypography.Title>
@@ -32,5 +32,5 @@ export const ArrowAndPlacementTest: FunctionComponent = () => (
                 </KitDropDown>
             </div>
         </div>
-    </>
+    </div>
 );

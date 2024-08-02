@@ -139,11 +139,6 @@ export interface IKitDropDownTheme {
                 };
                 typography: {
                     /**
-                     * default color
-                     * @TJS-type color
-                     */
-                    default: string;
-                    /**
                      * active color
                      * @TJS-type color
                      */
@@ -271,7 +266,6 @@ export interface IKitDropDownCssTokens {
                     disabled: string;
                 };
                 typography: {
-                    default: string;
                     active: string;
                     disabled: string;
                 };
