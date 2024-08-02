@@ -1,8 +1,5 @@
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
 import React from 'react';
-import {KitIdCard} from '@kit/DataDisplay/IdCard';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faEdit, faTrash} from '@fortawesome/free-solid-svg-icons';
 
 export const genericDropdownItems: IKitDropdownMenu['items'] = [
     {
@@ -20,32 +17,6 @@ export const genericDropdownItems: IKitDropdownMenu['items'] = [
     {
         key: '3',
         label: '3rd menu item'
-    }
-];
-
-export const customDropdownItems: IKitDropdownMenu['items'] = [
-    {
-        key: '1',
-        label: <KitIdCard avatarProps={{src: 'public/images/portrait.png'}} title="title" description="description" />
-    },
-    {
-        key: '2',
-        label: (
-            <KitIdCard avatarProps={{src: 'public/images/catalog.png'}} title="Other title" description="description" />
-        )
-    },
-    {
-        type: 'divider'
-    },
-    {
-        key: '3',
-        label: 'Edit',
-        icon: <FontAwesomeIcon icon={faEdit} />
-    },
-    {
-        key: '4',
-        label: 'Delete',
-        icon: <FontAwesomeIcon icon={faTrash} />
     }
 ];
 

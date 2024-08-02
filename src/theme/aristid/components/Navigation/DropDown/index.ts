@@ -73,6 +73,7 @@ export const kitDropDownCssTokens = generateCssTokens<IKitDropDownCssTokens>('--
                     disabled: ''
                 },
                 typography: {
+                    default: '',
                     active: '',
                     disabled: ''
                 }

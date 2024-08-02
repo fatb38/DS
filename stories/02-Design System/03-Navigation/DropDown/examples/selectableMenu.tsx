@@ -9,23 +9,7 @@ import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 const items: IKitDropdownMenu['items'] = [
     {
         key: '1',
-        label: 'sub menu',
-        children: [
-            {
-                key: '1-1',
-                label: '1rd menu item',
-                children: [
-                    {
-                        key: '1-1-1',
-                        label: '1.1 menu item'
-                    },
-                    {
-                        key: '1-1-2',
-                        label: '1.2 menu item'
-                    }
-                ]
-            }
-        ]
+        label: '1st menu item link'
     },
     {
         key: '2',
@@ -38,13 +22,13 @@ const items: IKitDropdownMenu['items'] = [
 ];
 
 const App = () => (
-    <KitSpace>
-        <KitDropDown menu={{items, selectable: true}}>
-            <KitTypography.Link>
-                Hover me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-            </KitTypography.Link>
-        </KitDropDown>
-    </KitSpace>
-);
+        <KitSpace>
+            <KitDropDown menu={{items, selectable: true}}>
+                <KitTypography.Link>
+                    Hover me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
+                </KitTypography.Link>
+            </KitDropDown>
+        </KitSpace>
+    );
 
 export default App;

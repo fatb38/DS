@@ -6151,6 +6151,12 @@ const forms = {
                         "typography": {
                             "_label": "typography",
                             "_path": "components.DropDown.subMenu.title.colors.typography",
+                            "default": {
+                                "_label": "default",
+                                "_path": "components.DropDown.subMenu.title.colors.typography.default",
+                                "_type": "color",
+                                "_description": "default color"
+                            },
                             "active": {
                                 "_label": "active",
                                 "_path": "components.DropDown.subMenu.title.colors.typography.active",

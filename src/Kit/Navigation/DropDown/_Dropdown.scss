@@ -2,11 +2,14 @@
 
 .ant-dropdown,
 .ant-dropdown-menu.ant-dropdown-menu-submenu {
-    padding: convertToPixel(--general-spacing-xs);
+    padding: 10px;
     border-radius: convertToPixel(--general-border-radius-s);
     font-family: var(--components-DropDown-typography-fontFamily, var(--general-typography-fontFamily));
     font-weight: var(--components-DropDown-typography-fontWeight, var(--general-typography-mediumfontWeight));
-    background-color: var(--components-DropDown-colors-background-default, var(--general-utilities-light));
+    background-color: var(
+        --components-DropDown-colors-background-default,
+        var(--general-utilities-neutral-neutralLight)
+    );
     color: var(--components-DropDown-colors-typography-default, var(--general-utilities-text-textPrimary));
     box-shadow: var(--general-utilities-shadow-shadowMedium);
 
@@ -15,7 +18,7 @@
         &::after {
             background-color: var(
                 --components-DropDown-subMenu-expIcon-colors-background-default,
-                var(--general-utilities-light)
+                var(--general-utilities-neutral-neutralLight)
             );
             box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.15);
         }
@@ -24,14 +27,11 @@
     .ant-dropdown-menu {
         overflow: visible;
         padding: convertToPixel(--general-spacing-none);
-        background-color: var(--components-DropDown-menu-colors-background-default, var(--general-utilities-light));
+        background-color: var(
+            --components-DropDown-menu-colors-background-default,
+            var(--general-utilities-neutral-neutralLight)
+        );
         box-shadow: none;
-
-        .ant-dropdown-check {
-            display: none;
-            color: var(--general-utilities-main-mainColor);
-            margin-left: convertToPixel(--general-spacing-xs);
-        }
 
         .ant-dropdown-menu-item-group:first-of-type .ant-dropdown-menu-item-group-title {
             padding-top: convertToPixel(--general-spacing-none);
@@ -61,7 +61,7 @@
         .ant-dropdown-menu-item,
         .ant-dropdown-menu-submenu {
             border-radius: convertToPixel(--general-border-radius-s);
-            border: 1px solid transparent;
+            border: none;
             min-height: 32px;
             font-weight: var(
                 --components-DropDown-menuItem-typography-fontWeight,
@@ -71,7 +71,7 @@
                 --components-DropDown-menuItem-colors-typography-default,
                 var(--general-utilities-text-textPrimary)
             );
-            padding: convertToPixel(--general-spacing-xs) 0;
+            padding: convertToPixel(--general-spacing-none);
 
             & > svg {
                 padding-left: 10px;
@@ -82,10 +82,13 @@
             }
 
             &.ant-dropdown-menu-item-active {
-                border-color: var(--general-utilities-main-mainColor);
                 background-color: var(
                     --components-DropDown-menuItem-colors-background-active,
-                    var(--general-utilities-light)
+                    var(--general-utilities-main-mainLight)
+                );
+                color: var(
+                    --components-DropDown-menuItem-colors-typography-active,
+                    var(--general-utilities-text-textBlue)
                 );
             }
 
@@ -94,16 +97,12 @@
                     --components-DropDown-menuItem-colors-background-selected,
                     var(--general-utilities-main-mainLight)
                 );
-
-                .ant-dropdown-check {
-                    display: block;
-                }
             }
 
             &.ant-dropdown-menu-item-disabled {
                 background-color: var(
                     --components-DropDown-menuItem-colors-background-disabled,
-                    var(--general-utilities-light)
+                    var(--general-utilities-neutral-neutralLight)
                 );
                 color: var(
                     --components-DropDown-menuItem-colors-typography-disabled,
@@ -115,9 +114,6 @@
 
         .ant-dropdown-menu-item > .ant-dropdown-menu-title-content {
             padding: convertToPixel(--general-spacing-none) 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .ant-dropdown-menu-submenu {
@@ -130,6 +126,10 @@
                 font-weight: var(
                     --components-DropDown-subMenu-title-typography-fontWeight,
                     var(--general-typography-mediumfontWeight)
+                );
+                color: var(
+                    --components-DropDown-subMenu-title-colors-typography-default,
+                    var(--general-utilities-text-textPrimary)
                 );
                 width: 100%;
 
@@ -151,30 +151,27 @@
             }
 
             &.ant-dropdown-menu-submenu-active {
-                border-color: var(--components-DropDown-colors-border-active, var(--general-utilities-main-mainColor));
+                background-color: var(
+                    --components-DropDown-subMenu-colors-background-active,
+                    var(--general-utilities-main-mainLight)
+                );
                 color: var(
                     --components-DropDown-subMenu-colors-typography-active,
-                    var(--general-utilities-text-textPrimary)
+                    var(--general-utilities-text-textBlue)
                 );
 
                 .ant-dropdown-menu-submenu-title {
                     color: var(
                         --components-DropDown-subMenu-title-colors-typography-active,
-                        var(--general-utilities-text-textPrimary)
+                        var(--general-utilities-text-textBlue)
                     );
                 }
 
                 .ant-dropdown-menu-submenu-expand-icon svg {
                     color: var(
                         --components-DropDown-subMenu-expIcon-colors-typography-active,
-                        var(--general-utilities-text-textPrimary)
+                        var(--general-utilities-text-textBlue)
                     );
-                }
-            }
-
-            &.ant-dropdown-menu-submenu-selected {
-                .ant-dropdown-menu-submenu-title {
-                    color: var(--general-utilities-text-textPrimary);
                 }
             }
 
@@ -182,7 +179,7 @@
                 .ant-dropdown-menu-submenu-title {
                     background-color: var(
                         --components-DropDown-subMenu-title-colors-background-disabled,
-                        var(--general-utilities-light)
+                        var(--general-utilities-neutral-neutralLight)
                     );
                     color: var(
                         --components-DropDown-subMenu-title-colors-typography-disabled,
@@ -193,7 +190,7 @@
                     .ant-dropdown-menu-submenu-expand-icon svg {
                         background-color: var(
                             --components-DropDown-subMenu-expIcon-colors-background-disabled,
-                            var(--general-utilities-light)
+                            var(--general-utilities-neutral-neutralLight)
                         );
                         color: var(
                             --components-DropDown-subMenu-expIcon-colors-typography-disabled,
