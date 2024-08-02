@@ -1,0 +1,19 @@
+import React, {FunctionComponent} from 'react';
+import {KitTypography} from '@kit/General';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
+import {KitDropDown} from '@kit/Navigation';
+import {customDropdownItems} from '../commons.tsx';
+
+export const CustomItemsDropdownTest: FunctionComponent = () => (
+    <div>
+        <KitTypography.Title level="h3" style={{marginBottom: '16px'}}>
+            Custom items dropdown
+        </KitTypography.Title>
+        <KitDropDown open menu={{items: customDropdownItems}}>
+            <KitTypography.Link id="hover">
+                Hover me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
+            </KitTypography.Link>
+        </KitDropDown>
+    </div>
+);

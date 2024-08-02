@@ -7,6 +7,7 @@ import {BasicDropdownTest} from './test-components/BasicDropdownTest.tsx';
 import {ArrowAndPlacementTest} from './test-components/ArrowAndPlacementTest.tsx';
 import {KitDivider} from '@kit/Layout';
 import {GroupAndDisabledDropdownTest} from './test-components/GroupAndDisabledDropdownTest.tsx';
+import {CustomItemsDropdownTest} from './test-components/CustomItemsDropdownTest.tsx';
 
 const meta: Meta<typeof KitDropDown> = {
     component: KitDropDown,
@@ -33,7 +34,10 @@ export const ChromaticTest: Story = {
             </div>
             <div style={{marginBottom: '250px'}} />
             <KitDivider />
-            <ArrowAndPlacementTest />
+            <div style={{display: 'flex', gap: '100px'}}>
+                <ArrowAndPlacementTest />
+                <CustomItemsDropdownTest />
+            </div>
         </div>
     )
 };

@@ -1,5 +1,13 @@
 # Changelog
 
+## [x.x.x](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-07-31)
+
+### ✨ Features
+
+-   **Dropdown:**
+    -   Update border, active & selected styles (@renaudAmsellem)
+    -   Add new example with custom items (@renaudAmsellem)
+
 ## [8.0.0](https://www.npmjs.com/package/aristid-ds/v/8.0.0) (2024-07-25)
 
 ### ✨ Features

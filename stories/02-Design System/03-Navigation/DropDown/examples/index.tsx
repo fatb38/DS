@@ -5,6 +5,7 @@ import ArrowCenter from './arrowCenter';
 import Disabled from './disabled';
 import Trigger from './trigger';
 import Custom from './custom';
+import CustomLabel from './customLabel';
 import CascadingMenu from './cascadingMenu';
 import ContextMenu from './contextMenu';
 import SelectableMenu from './selectableMenu';
@@ -18,6 +19,7 @@ import ArrowCenterSource from './arrowCenter?raw';
 import DisabledSource from './disabled?raw';
 import TriggerSource from './trigger?raw';
 import CustomSource from './custom?raw';
+import CustomLabelSource from './customLabel?raw';
 import CascadingMenuSource from './cascadingMenu?raw';
 import ContextMenuSource from './contextMenu?raw';
 import SelectableMenuSource from './selectableMenu?raw';
@@ -32,6 +34,7 @@ export const Sources = {
     Disabled: DisabledSource,
     Trigger: TriggerSource,
     Custom: CustomSource,
+    CustomLabel: CustomLabelSource,
     CascadingMenu: CascadingMenuSource,
     ContextMenu: ContextMenuSource,
     SelectableMenu: SelectableMenuSource,
@@ -47,6 +50,7 @@ export default {
     Disabled,
     Trigger,
     Custom,
+    CustomLabel,
     CascadingMenu,
     ContextMenu,
     SelectableMenu,
