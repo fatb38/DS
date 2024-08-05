@@ -7,6 +7,9 @@
 -   **Dropdown:**
     -   Update border, active & selected styles (@renaudAmsellem)
     -   Add new example with custom items (@renaudAmsellem)
+-   **DatePicker:**
+    -   Update font used for icons (@philippechevieux)
+    -   Update icons used as separator (@philippechevieux)
 
 ## [8.0.0](https://www.npmjs.com/package/aristid-ds/v/8.0.0) (2024-07-25)
 

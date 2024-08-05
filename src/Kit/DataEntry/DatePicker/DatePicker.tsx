@@ -1,4 +1,4 @@
-import {faCalendar, faCircleXmark, faClock} from '@fortawesome/free-regular-svg-icons';
+import {faCalendar, faClock, faCircleXmark} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {KitInputWrapper} from '@kit/DataEntry/InputWrapper';
 import {useKitTheme} from '@theme/useKitTheme';

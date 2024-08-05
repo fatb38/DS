@@ -258,11 +258,13 @@
         .ant-picker-range-separator {
             grid-area: separator;
 
-            .ant-picker-separator {
+            svg {
                 color: var(
                     --components-DatePicker-RangePicker-colors-separator-default,
                     var(--general-utilities-text-textPrimary)
                 );
+
+                font-size: convertToPixel(--general-typography-fontSize7);
             }
         }
 
@@ -355,7 +357,7 @@
                 }
             }
 
-            .ant-picker-range-separator .ant-picker-separator {
+            .ant-picker-range-separator svg {
                 color: var(
                     --components-DatePicker-RangePicker-colors-separator-disabled,
                     var(--general-utilities-text-textDisabled)
@@ -429,7 +431,7 @@
                 }
             }
 
-            .ant-picker-range-separator .ant-picker-separator {
+            .ant-picker-range-separator svg {
                 color: var(
                     --components-DatePicker-RangePicker-colors-separator-warning,
                     var(--general-utilities-text-textWarning)
@@ -500,7 +502,7 @@
                 }
             }
 
-            .ant-picker-range-separator .ant-picker-separator {
+            .ant-picker-range-separator svg {
                 color: var(
                     --components-DatePicker-RangePicker-colors-separator-error,
                     var(--general-utilities-text-textError)
