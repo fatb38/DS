@@ -2,39 +2,97 @@
 
 :local(.kit-steps) {
     .ant-steps-item {
-        &:not(.ant-steps-item-active) {
-            .ant-steps-item-container[role='button']:hover {
-                .ant-steps-item-icon {
-                    .ant-steps-icon {
-                        .ant-steps-icon-dot {
-                            background: var(
-                                --components-Steps-colors-dot-default,
-                                var(--general-utilities-main-mainMedium)
-                            );
-                        }
-                    }
-                }
+        &.ant-steps-item-finish {
+            .ant-steps-item-icon {
+                background: var(--general-utilities-main-mainColor);
+                border: 1px solid var(--general-utilities-main-mainColor);
+                border-radius: convertToPixel(--general-border-radius-l);
+                width: 24px;
+                height: 24px;
 
-                .ant-steps-item-content {
-                    .ant-steps-item-title {
-                        color: var(
-                            --components-Steps-colors-typography-text-active,
-                            var(--general-utilities-main-mainMedium)
-                        );
-                    }
-
-                    .ant-steps-item-description {
-                        color: var(
-                            --components-Steps-colors-typography-description-active,
-                            var(--general-utilities-main-mainMedium)
-                        );
+                > .ant-steps-icon {
+                    svg {
+                        color: var(--general-utilities-light);
+                        width: 8px;
+                        height: 8px;
                     }
                 }
             }
         }
 
-        .ant-steps-item-container .ant-steps-item-tail {
-            width: 100%;
+        &.ant-steps-item-process {
+            .ant-steps-item-icon {
+                background: var(--general-utilities-light);
+
+                > .ant-steps-icon {
+                    color: var(--general-utilities-main-mainColor);
+                }
+            }
+
+            .ant-steps-item-container > .ant-steps-item-content {
+                .ant-steps-item-title,
+                .ant-steps-item-description {
+                    color: var(--general-utilities-main-mainColor);
+                }
+            }
         }
+
+        &.ant-steps-item-wait {
+            .ant-steps-item-icon {
+                background: var(--general-utilities-light);
+                border: 1px solid var(--general-colors-neutral-grey-grey200);
+
+                .ant-steps-icon {
+                    color: var(--general-utilities-text-textDisabled);
+                }
+            }
+
+            .ant-steps-item-container > .ant-steps-item-content {
+                .ant-steps-item-title,
+                .ant-steps-item-description {
+                    color: var(--general-utilities-text-textDisabled);
+                }
+            }
+        }
+
+        .ant-steps-item-container .ant-steps-item-icon .ant-steps-icon {
+            position: static;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 23px;
+            width: 22px;
+        }
+    }
+
+    &.ant-steps-label-vertical {
+        .ant-steps-item-tail {
+            padding: convertToPixel(--general-spacing-xxs) 12px;
+        }
+
+        .ant-steps-item-content {
+            margin-top: convertToPixel(--general-spacing-xs);
+
+            .ant-steps-item-title {
+                line-height: var(--general-typography-lineHeight1);
+            }
+        }
+    }
+
+    &.ant-steps-vertical {
+        .ant-steps-item {
+            .ant-steps-item-container > .ant-steps-item-tail {
+                padding: convertToPixel(--general-spacing-m) 0 0;
+            }
+        }
+
+        .ant-steps-item-content {
+            margin-left: convertToPixel(--general-spacing-xs);
+        }
+    }
+
+    .ant-steps-item-title,
+    .ant-steps-item-description {
+        font-weight: var(--general-typography-mediumfontWeight);
     }
 }

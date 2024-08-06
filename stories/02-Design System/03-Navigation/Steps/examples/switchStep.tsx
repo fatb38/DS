@@ -8,7 +8,7 @@ const steps = [
         title: 'First',
         content: (
             <KitTypography.Paragraph size="medium" weight="regular">
-                First-content
+                Doing First
             </KitTypography.Paragraph>
         )
     },
@@ -16,7 +16,7 @@ const steps = [
         title: 'Second',
         content: (
             <KitTypography.Paragraph size="medium" weight="regular">
-                Second-content
+                Doing Second
             </KitTypography.Paragraph>
         )
     },
@@ -24,11 +24,17 @@ const steps = [
         title: 'Last',
         content: (
             <KitTypography.Paragraph size="medium" weight="regular">
-                Last-content
+                Doing Third
             </KitTypography.Paragraph>
         )
     }
 ];
+
+const done = (
+    <KitTypography.Paragraph size="medium" weight="regular">
+        Done
+    </KitTypography.Paragraph>
+);
 
 const App = () => {
     const [current, setCurrent] = useState(0);
@@ -54,15 +60,14 @@ const App = () => {
                     paddingTop: '50px'
                 }}
             >
-                {steps[current].content}
+                {current < steps.length ? steps[current].content : done}
             </div>
             <KitSpace style={{marginTop: 24}}>
-                {current < steps.length - 1 && (
+                {current < steps.length && (
                     <KitButton type="primary" onClick={() => next()}>
                         Next
                     </KitButton>
                 )}
-                {current === steps.length - 1 && <KitButton type="primary">Done</KitButton>}
                 {current > 0 && (
                     <KitButton style={{margin: '0 8px'}} onClick={() => prev()}>
                         Previous
