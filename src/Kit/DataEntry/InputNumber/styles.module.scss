@@ -59,13 +59,13 @@
         .ant-input-number-input {
             color: var(
                 --components-InputNumber-colors-typography-content-disabled,
-                var(--general-utilities-text-textDisabled)
+                var(--general-utilities-text-disabled)
             );
 
             &::placeholder {
                 color: var(
                     --components-InputNumber-colors-typography-placeholder-disabled,
-                    var(--general-utilities-text-textDisabled)
+                    var(--general-utilities-text-disabled)
                 );
             }
         }
@@ -100,33 +100,30 @@
         .ant-input-number-input-wrap {
             background-color: var(
                 --components-InputNumber-colors-background-warning,
-                var(--general-utilities-warning-warningLight)
+                var(--general-utilities-warning-light)
             );
         }
 
         .ant-input-number-input {
             color: var(
                 --components-InputNumber-colors-typography-content-warning,
-                var(--general-utilities-text-textWarning)
+                var(--general-utilities-text-warning)
             );
 
             &::placeholder {
                 color: var(
                     --components-InputNumber-colors-typography-content-warning,
-                    var(--general-utilities-text-textWarning)
+                    var(--general-utilities-text-warning)
                 );
             }
         }
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
-            border-color: var(
-                --components-InputNumber-colors-border-warning,
-                var(--general-utilities-warning-warningColor)
-            );
+            border-color: var(--components-InputNumber-colors-border-warning, var(--general-utilities-warning-default));
 
             background-color: var(
                 --components-InputNumber-colors-background-warning,
-                var(--general-utilities-warning-warningLight)
+                var(--general-utilities-warning-light)
             );
 
             &.ant-input-number-affix-wrapper.kit-input-number-affix-wrapper-focused,
@@ -134,10 +131,7 @@
                 border-color: transparent;
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 3px
-                    var(
-                        --components-InputNumber-colors-border-focus-warning,
-                        var(--general-utilities-warning-warningMedium)
-                    );
+                    var(--components-InputNumber-colors-border-focus-warning, var(--general-utilities-warning-medium));
 
                 &:hover {
                     border-color: transparent;
@@ -152,30 +146,27 @@
         .ant-input-number-input-wrap {
             background-color: var(
                 --components-InputNumber-colors-background-error,
-                var(--general-utilities-error-errorLight)
+                var(--general-utilities-error-light)
             );
         }
 
         .ant-input-number-input {
-            color: var(
-                --components-InputNumber-colors-typography-content-error,
-                var(--general-utilities-text-textError)
-            );
+            color: var(--components-InputNumber-colors-typography-content-error, var(--general-utilities-text-error));
 
             &::placeholder {
                 color: var(
                     --components-InputNumber-colors-typography-placeholder-error,
-                    var(--general-utilities-text-textError)
+                    var(--general-utilities-text-error)
                 );
             }
         }
 
         &:not(.ant-input-borderless):not(.ant-input-disabled) {
-            border-color: var(--components-InputNumber-colors-border-error, var(--general-utilities-error-errorColor));
+            border-color: var(--components-InputNumber-colors-border-error, var(--general-utilities-error-default));
 
             background-color: var(
                 --components-InputNumber-colors-background-error,
-                var(--general-utilities-error-errorLight)
+                var(--general-utilities-error-light)
             );
 
             &.ant-input-number-affix-wrapper.kit-input-number-affix-wrapper-focused,
@@ -183,7 +174,7 @@
                 border-color: transparent;
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 3px
-                    var(--components-InputNumber-colors-border-focus-error, var(--general-utilities-error-errorMedium));
+                    var(--components-InputNumber-colors-border-focus-error, var(--general-utilities-error-medium));
 
                 &:hover {
                     border-color: transparent;

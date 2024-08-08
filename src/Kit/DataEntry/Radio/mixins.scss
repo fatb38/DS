@@ -14,10 +14,7 @@
             .ant-radio-inner:after {
                 transform: scale(0.6);
                 visibility: hidden;
-                background-color: var(
-                    --components-Radio-colors-bullet-default,
-                    var(--general-utilities-main-mainColor)
-                );
+                background-color: var(--components-Radio-colors-bullet-default, var(--general-utilities-main-default));
             }
         }
 
@@ -29,7 +26,7 @@
             border: 1px solid var(--components-Radio-colors-border-disabled, var(--general-utilities-border));
             background-color: var(
                 --components-Radio-colors-background-disabled,
-                var(--general-utilities-neutral-neutralLight)
+                var(--general-utilities-neutral-light)
             );
 
             &:after {
@@ -40,58 +37,52 @@
         &.ant-radio-wrapper-danger:not(.ant-radio-wrapper-disabled) .ant-radio {
             .ant-radio-inner {
                 border: 1px solid
-                    var(--components-Radio-colors-border-danger-default, var(--general-utilities-error-errorColor));
+                    var(--components-Radio-colors-border-danger-default, var(--general-utilities-error-default));
                 background-color: var(
                     --components-Radio-colors-background-danger-default,
-                    var(--general-utilities-error-errorLight)
+                    var(--general-utilities-error-light)
                 );
 
                 &:after {
                     background-color: var(
                         --components-Radio-colors-bullet-danger-default,
-                        var(--general-utilities-error-errorColor)
+                        var(--general-utilities-error-default)
                     );
                 }
             }
 
             .ant-radio-input:hover + .ant-radio-inner {
-                border-color: var(
-                    --components-Radio-colors-border-danger-hover,
-                    var(--general-utilities-error-errorDark)
-                );
+                border-color: var(--components-Radio-colors-border-danger-hover, var(--general-utilities-error-dark));
                 background-color: var(
                     --components-Radio-colors-background-danger-hover,
-                    var(--general-utilities-error-errorLight)
+                    var(--general-utilities-error-light)
                 );
 
                 &:after {
                     background-color: var(
                         --components-Radio-colors-bullet-danger-hover,
-                        var(--general-utilities-error-errorDark)
+                        var(--general-utilities-error-dark)
                     );
                 }
             }
 
             & + span {
-                color: var(--general-utilities-text-textError);
+                color: var(--general-utilities-text-error);
             }
         }
 
         &:not(.ant-radio-wrapper-danger):not(.ant-radio-wrapper-disabled) {
             .ant-radio-checked .ant-radio-inner {
-                border-color: var(--components-Radio-colors-border-checked, var(--general-utilities-main-mainColor));
+                border-color: var(--components-Radio-colors-border-checked, var(--general-utilities-main-default));
                 background-color: var(--components-Radio-colors-background-checked, var(--general-utilities-light));
             }
 
             .ant-radio-input:hover + .ant-radio-inner {
-                border-color: var(--components-Radio-colors-border-hover, var(--general-utilities-main-mainDark));
+                border-color: var(--components-Radio-colors-border-hover, var(--general-utilities-main-dark));
                 background-color: var(--components-Radio-colors-background-hover, var(--general-utilities-light));
 
                 &:after {
-                    background-color: var(
-                        --components-Radio-colors-bullet-hover,
-                        var(--general-utilities-main-mainDark)
-                    );
+                    background-color: var(--components-Radio-colors-bullet-hover, var(--general-utilities-main-dark));
                 }
             }
         }
@@ -117,12 +108,12 @@
         // active
         &:not(.ant-radio-wrapper-danger) {
             .ant-radio-disabled + span {
-                color: var(--components-Radio-colors-typography-disabled, var(--general-utilities-text-textDisabled));
+                color: var(--components-Radio-colors-typography-disabled, var(--general-utilities-text-disabled));
             }
         }
 
         .ant-radio-disabled {
-            color: var(--components-Radio-colors-typography-disabled, var(--general-utilities-text-textDisabled));
+            color: var(--components-Radio-colors-typography-disabled, var(--general-utilities-text-disabled));
         }
 
         &.ant-radio-wrapper-danger {
@@ -130,7 +121,7 @@
                 &.ant-radio-disabled + span {
                     color: var(
                         --components-Radio-colors-typography-danger-disabled,
-                        var(--general-utilities-text-textDisabled)
+                        var(--general-utilities-text-disabled)
                     );
                 }
             }

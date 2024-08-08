@@ -1,30 +1,30 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-rate) {
-    color: var(--components-Rate-colors-star-default, var(--general-colors-tertiary-yellow-yellow400));
+    color: var(--components-Rate-colors-star-default, var(--general-colors-tertiary-yellow-400));
 
     &.ant-rate .ant-rate-star {
         &:not(.ant-rate-star-half):not(.ant-rate-star-full) {
             .ant-rate-star-first {
-                color: var(--components-Rate-colors-star-default, var(--general-colors-tertiary-yellow-yellow400));
+                color: var(--components-Rate-colors-star-default, var(--general-colors-tertiary-yellow-400));
             }
         }
 
         &:not(.ant-rate-star-full) {
             .ant-rate-star-second {
-                color: var(--components-Rate-colors-star-default, var(--general-colors-tertiary-yellow-yellow400));
+                color: var(--components-Rate-colors-star-default, var(--general-colors-tertiary-yellow-400));
             }
         }
     }
 
     &.ant-rate-disabled .ant-rate-star {
         cursor: not-allowed;
-        color: var(--components-Rate-colors-star-disabled, var(--general-utilities-neutral-neutralDark));
+        color: var(--components-Rate-colors-star-disabled, var(--general-utilities-neutral-dark));
 
         &:not(.ant-rate-star-half):not(.ant-rate-star-full) {
             .ant-rate-star-first,
             .ant-rate-star-second {
-                color: var(--components-Rate-colors-star-disabled, var(--general-utilities-neutral-neutralDark));
+                color: var(--components-Rate-colors-star-disabled, var(--general-utilities-neutral-dark));
             }
         }
     }

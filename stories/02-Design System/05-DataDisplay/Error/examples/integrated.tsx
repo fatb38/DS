@@ -25,7 +25,7 @@ const App = () => (
         >
             <KitInput placeholder="Search..." prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
         </KitHeader>
-        <AntLayout.Content style={{backgroundColor: 'var(--general-colors-primary-blue50)'}}>
+        <AntLayout.Content style={{backgroundColor: 'var(--general-colors-primary-50)'}}>
             <KitError title="Page not found" description={<_Description />} />
         </AntLayout.Content>
     </AntLayout>

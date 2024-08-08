@@ -7,7 +7,7 @@
     font-size: convertToPixel(--general-typography-fontSize7);
 
     &.ant-badge .ant-badge-count {
-        background: var(--components-Badge-colors-background-default, var(--general-utilities-error-errorDark));
+        background: var(--components-Badge-colors-background-default, var(--general-utilities-error-dark));
         color: var(--components-Badge-colors-typography-default, var(--general-utilities-light));
     }
 

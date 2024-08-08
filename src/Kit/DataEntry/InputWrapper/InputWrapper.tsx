@@ -42,18 +42,18 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
 
     const _infoIcon: ReactNode = infoIcon ?? <FontAwesomeIcon icon={getFontAwesomeIcon()} />;
 
-    const _actions = useMemo(() => {
-        if (!disabled) {
-            return actions;
-        }
-        return actions
-            ? actions.map(action =>
-                  cloneElement(action, {
-                      disabled: true
-                  })
-              )
-            : null;
-    }, [disabled, actions]);
+    const _actions = useMemo(
+        () =>
+            actions
+                ? actions.map((action, index) =>
+                      cloneElement(action, {
+                          disabled: disabled,
+                          key: action.key ?? index
+                      })
+                  )
+                : null,
+        [disabled, actions]
+    );
 
     const shouldRenderWrapperHeader = Boolean(label || required || onInfoClick || _actions);
 

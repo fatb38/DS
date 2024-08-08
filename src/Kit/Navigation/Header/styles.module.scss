@@ -18,7 +18,7 @@
         width: var(--kit-header-height);
         flex-grow: 0;
         flex-shrink: 0;
-        background: var(--general-utilities-main-mainColor);
+        background: var(--general-utilities-main-default);
         color: var(--kit-header-invert-color);
         padding: convertToPixel(--general-spacing-none);
         cursor: pointer;
@@ -60,7 +60,7 @@
         grid-area: profile;
         display: flex;
         padding: convertToPixel(--general-spacing-xxs) convertToPixel(--general-spacing-s);
-        background-color: var(--general-colors-primary-blue50);
+        background-color: var(--general-colors-primary-50);
         align-items: center;
         border-radius: convertToPixel(--general-spacing-xs);
 

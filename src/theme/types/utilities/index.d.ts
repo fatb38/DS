@@ -29,169 +29,169 @@ export interface IKitUtilities {
          * Main light color
          * @TJS-type color
          */
-        mainLight: string;
+        light: string;
         /**
          * Main medium color
          * @TJS-type color
          */
-        mainMedium: string;
+        medium: string;
         /**
          * Main color color
          * @TJS-type color
          */
-        mainColor: string;
+        default: string;
         /**
          * Main dark color
          * @TJS-type color
          */
-        mainDark: string;
+        dark: string;
         /**
          * Main deepdark color
          * @TJS-type color
          */
-        mainDeepDark: string;
+        deepDark: string;
     };
     neutral: {
         /**
          * Neutral light color
          * @TJS-type color
          */
-        neutralLight: string;
+        light: string;
         /**
          * Neutral medium color
          * @TJS-type color
          */
-        neutralMedium: string;
+        medium: string;
         /**
          * Neutral dark color
          * @TJS-type color
          */
-        neutralDark: string;
+        dark: string;
         /**
          * Neutral deepdark color
          * @TJS-type color
          */
-        neutralDeepDark: string;
+        deepDark: string;
     };
     error: {
         /**
          * Error light color
          * @TJS-type color
          */
-        errorLight: string;
+        light: string;
         /**
          * Error medium color
          * @TJS-type color
          */
-        errorMedium: string;
+        medium: string;
         /**
          * Error color color
          * @TJS-type color
          */
-        errorColor: string;
+        default: string;
         /**
          * Error dark color
          * @TJS-type color
          */
-        errorDark: string;
+        dark: string;
     };
     success: {
         /**
          * Success light color
          * @TJS-type color
          */
-        successLight: string;
+        light: string;
         /**
          * Success mediul color
          * @TJS-type color
          */
-        successMedium: string;
+        medium: string;
         /**
          * Success color color
          * @TJS-type color
          */
-        successColor: string;
+        default: string;
         /**
          * Success dark color
          * @TJS-type color
          */
-        successDark: string;
+        dark: string;
     };
     warning: {
         /**
          * Warning light color
          * @TJS-type color
          */
-        warningLight: string;
+        light: string;
         /**
          * Warning medium color
          * @TJS-type color
          */
-        warningMedium: string;
+        medium: string;
         /**
          * Warning color color
          * @TJS-type color
          */
-        warningColor: string;
+        default: string;
         /**
          * Warning dark color
          * @TJS-type color
          */
-        warningDark: string;
+        dark: string;
     };
     text: {
         /**
          * Text light color
          * @TJS-type color
          */
-        textLight: string;
+        light: string;
         /**
          * Text primary color
          * @TJS-type color
          */
-        textPrimary: string;
+        primary: string;
         /**
          * Text disabled color
          * @TJS-type color
          */
-        textDisabled: string;
+        disabled: string;
         /**
          * Text blue color
          * @TJS-type color
          */
-        textBlue: string;
+        blue: string;
         /**
          * Text success color
          * @TJS-type color
          */
-        textSuccess: string;
+        success: string;
         /**
          * Text warning color
          * @TJS-type color
          */
-        textWarning: string;
+        warning: string;
         /**
          * Text error color
          * @TJS-type color
          */
-        textError: string;
+        error: string;
     };
     shadow: {
         /**
          * Shadow light property
          * @TJS-type shadow
          */
-        shadowLight: string;
+        light: string;
         /**
          * Shadow medium property
          * @TJS-type shadow
          */
-        shadowMedium: string;
+        medium: string;
         /**
          * Shadow blue property
          * @TJS-type shadow
          */
-        shadowBlue: string;
+        blue: string;
     };
 }
 
@@ -202,48 +202,48 @@ export interface IKitUtilitiesCssTokens {
     light: string;
     colorNone: string;
     main: {
-        mainLight: string;
-        mainMedium: string;
-        mainColor: string;
-        mainDark: string;
-        mainDeepDark: string;
+        light: string;
+        medium: string;
+        default: string;
+        dark: string;
+        deepDark: string;
     };
     neutral: {
-        neutralLight: string;
-        neutralMedium: string;
-        neutralDark: string;
-        neutralDeepDark: string;
+        light: string;
+        medium: string;
+        dark: string;
+        deepDark: string;
     };
     error: {
-        errorLight: string;
-        errorMedium: string;
-        errorColor: string;
-        errorDark: string;
+        light: string;
+        medium: string;
+        default: string;
+        dark: string;
     };
     success: {
-        successLight: string;
-        successMedium: string;
-        successColor: string;
-        successDark: string;
+        light: string;
+        medium: string;
+        default: string;
+        dark: string;
     };
     warning: {
-        warningLight: string;
-        warningMedium: string;
-        warningColor: string;
-        warningDark: string;
+        light: string;
+        medium: string;
+        default: string;
+        dark: string;
     };
     text: {
-        textLight: string;
-        textPrimary: string;
-        textDisabled: string;
-        textBlue: string;
-        textSuccess: string;
-        textWarning: string;
-        textError: string;
+        light: string;
+        primary: string;
+        disabled: string;
+        blue: string;
+        success: string;
+        warning: string;
+        error: string;
     };
     shadow: {
-        shadowLight: string;
-        shadowMedium: string;
-        shadowBlue: string;
+        light: string;
+        medium: string;
+        blue: string;
     };
 }

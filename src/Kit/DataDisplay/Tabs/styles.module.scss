@@ -42,7 +42,7 @@
         padding: convertToPixel(--components-Tabs-extraContent-padding-vertical, --general-spacing-xxs)
             convertToPixel(--components-Tabs-extraContent-padding-horizontal, --general-spacing-s);
         height: 34px;
-        color: var(--components-Tabs-extraContent-colors-typography-default, var(--general-utilities-text-textPrimary));
+        color: var(--components-Tabs-extraContent-colors-typography-default, var(--general-utilities-text-primary));
     }
 
     &.ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab {

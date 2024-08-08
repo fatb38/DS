@@ -10,7 +10,7 @@
             .ant-select-selection-item {
                 color: var(
                     --components-ColorPicker-panel-select-colors-typography-default,
-                    var(--general-utilities-text-textBlue)
+                    var(--general-utilities-text-blue)
                 );
                 font-weight: var(
                     --components-ColorPicker-panel-select-typography-fontWeight,
@@ -21,7 +21,7 @@
             .ant-select-arrow {
                 color: var(
                     --components-ColorPicker-panel-select-colors-rafter-default,
-                    var(--general-utilities-text-textBlue)
+                    var(--general-utilities-text-blue)
                 );
             }
         }
@@ -51,7 +51,7 @@
         .ant-collapse-arrow svg {
             color: var(
                 --components-ColorPicker-panel-preset-colors-rafter-default,
-                var(--general-utilities-text-textPrimary)
+                var(--general-utilities-text-primary)
             );
         }
 
@@ -62,14 +62,14 @@
             );
             color: var(
                 --components-ColorPicker-panel-preset-colors-rafter-default,
-                var(--general-utilities-text-textPrimary)
+                var(--general-utilities-text-primary)
             );
         }
 
         .ant-color-picker-presets-empty {
             color: var(
                 --components-ColorPicker-panel-preset-colors-empty-default,
-                var(--general-utilities-text-textPrimary)
+                var(--general-utilities-text-primary)
             );
         }
 

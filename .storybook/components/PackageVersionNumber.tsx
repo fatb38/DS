@@ -8,7 +8,7 @@ const Tag = styled.div`
     margin: 10px 10px 0 0;
     padding: 4px 8px;
     line-height: 16px;
-    background-color: var(--general-colors-primary-blue400);
+    background-color: var(--general-colors-primary-400);
     color: var(--general-colors-neutral-white);
     font-size: calc(var(--general-typography-fontSize7) * 1px);
     font-family: var(--general-typography-fontFamily);

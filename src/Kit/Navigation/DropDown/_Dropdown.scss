@@ -7,8 +7,8 @@
     font-family: var(--components-DropDown-typography-fontFamily, var(--general-typography-fontFamily));
     font-weight: var(--components-DropDown-typography-fontWeight, var(--general-typography-mediumfontWeight));
     background-color: var(--components-DropDown-colors-background-default, var(--general-utilities-light));
-    color: var(--components-DropDown-colors-typography-default, var(--general-utilities-text-textPrimary));
-    box-shadow: var(--general-utilities-shadow-shadowMedium);
+    color: var(--components-DropDown-colors-typography-default, var(--general-utilities-text-primary));
+    box-shadow: var(--general-utilities-shadow-medium);
 
     .ant-dropdown-arrow {
         &::before,
@@ -29,7 +29,7 @@
 
         .ant-dropdown-check {
             display: none;
-            color: var(--general-utilities-main-mainColor);
+            color: var(--general-utilities-main-default);
             margin-left: convertToPixel(--general-spacing-xs);
         }
 
@@ -41,7 +41,7 @@
             padding: convertToPixel(--general-spacing-xs) convertToPixel(--general-spacing-none);
             color: var(
                 --components-DropDown-menuItemGroup-title-colors-typography-default,
-                var(--general-utilities-text-textPrimary)
+                var(--general-utilities-text-primary)
             );
             font-size: convertToPixel(
                 --components-DropDown-menuItemGroup-title-typography-fontSize,
@@ -67,10 +67,7 @@
                 --components-DropDown-menuItem-typography-fontWeight,
                 var(--general-typography-mediumfontWeight)
             );
-            color: var(
-                --components-DropDown-menuItem-colors-typography-default,
-                var(--general-utilities-text-textPrimary)
-            );
+            color: var(--components-DropDown-menuItem-colors-typography-default, var(--general-utilities-text-primary));
             padding: convertToPixel(--general-spacing-xs) 0;
 
             & > svg {
@@ -82,7 +79,7 @@
             }
 
             &.ant-dropdown-menu-item-active {
-                border-color: var(--general-utilities-main-mainColor);
+                border-color: var(--general-utilities-main-default);
                 background-color: var(
                     --components-DropDown-menuItem-colors-background-active,
                     var(--general-utilities-light)
@@ -92,7 +89,7 @@
             &.ant-dropdown-menu-item-selected {
                 background-color: var(
                     --components-DropDown-menuItem-colors-background-selected,
-                    var(--general-utilities-main-mainLight)
+                    var(--general-utilities-main-light)
                 );
 
                 .ant-dropdown-check {
@@ -107,7 +104,7 @@
                 );
                 color: var(
                     --components-DropDown-menuItem-colors-typography-disabled,
-                    var(--general-utilities-text-textDisabled)
+                    var(--general-utilities-text-disabled)
                 );
                 cursor: not-allowed;
             }
@@ -144,37 +141,37 @@
                     svg {
                         color: var(
                             --components-DropDown-subMenu-expIcon-colors-typography-default,
-                            var(--general-utilities-text-textPrimary)
+                            var(--general-utilities-text-primary)
                         );
                     }
                 }
             }
 
             &.ant-dropdown-menu-submenu-active {
-                border-color: var(--components-DropDown-colors-border-active, var(--general-utilities-main-mainColor));
+                border-color: var(--components-DropDown-colors-border-active, var(--general-utilities-main-default));
                 color: var(
                     --components-DropDown-subMenu-colors-typography-active,
-                    var(--general-utilities-text-textPrimary)
+                    var(--general-utilities-text-primary)
                 );
 
                 .ant-dropdown-menu-submenu-title {
                     color: var(
                         --components-DropDown-subMenu-title-colors-typography-active,
-                        var(--general-utilities-text-textPrimary)
+                        var(--general-utilities-text-primary)
                     );
                 }
 
                 .ant-dropdown-menu-submenu-expand-icon svg {
                     color: var(
                         --components-DropDown-subMenu-expIcon-colors-typography-active,
-                        var(--general-utilities-text-textPrimary)
+                        var(--general-utilities-text-primary)
                     );
                 }
             }
 
             &.ant-dropdown-menu-submenu-selected {
                 .ant-dropdown-menu-submenu-title {
-                    color: var(--general-utilities-text-textPrimary);
+                    color: var(--general-utilities-text-primary);
                 }
             }
 
@@ -186,7 +183,7 @@
                     );
                     color: var(
                         --components-DropDown-subMenu-title-colors-typography-disabled,
-                        var(--general-utilities-text-textDisabled)
+                        var(--general-utilities-text-disabled)
                     );
                     cursor: not-allowed;
 
@@ -197,7 +194,7 @@
                         );
                         color: var(
                             --components-DropDown-subMenu-expIcon-colors-typography-disabled,
-                            var(--general-utilities-text-textDisabled)
+                            var(--general-utilities-text-disabled)
                         );
                     }
                 }

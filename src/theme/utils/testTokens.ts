@@ -2,13 +2,13 @@ export const testTokens = {
     general: {
         colors: {
             primary: {
-                blue100: '#E7EDFF',
-                blue200: '#97B9FD',
-                blue300: '#5784FC',
-                blue400: '#0141EC',
-                blue500: '#0B37AF',
-                blue600: '#062064',
-                blue700: '#010819'
+                100: '#E7EDFF',
+                200: '#97B9FD',
+                300: '#5784FC',
+                400: '#0141EC',
+                500: '#0B37AF',
+                600: '#062064',
+                700: '#010819'
             },
             neutral: {
                 typography: {
@@ -18,13 +18,13 @@ export const testTokens = {
                 },
                 background: '#F7F7F7',
                 grey: {
-                    grey100: '#F3F7F9',
-                    grey200: '#D1DFE9',
-                    grey300: '#AFC9D9',
-                    grey400: '#8DB1C8',
-                    grey500: '#637C8D',
-                    grey600: '#00254E',
-                    grey700: '#0E1214'
+                    100: '#F3F7F9',
+                    200: '#D1DFE9',
+                    300: '#AFC9D9',
+                    400: '#8DB1C8',
+                    500: '#637C8D',
+                    600: '#00254E',
+                    700: '#0E1214'
                 },
                 black: '#000000',
                 white: '#FFFFFF',
@@ -32,51 +32,51 @@ export const testTokens = {
             },
             secondary: {
                 warning: {
-                    orange100: '#FFF4E6',
-                    orange200: '#FFD8A8',
-                    orange300: '#FFA94D',
-                    orange400: '#FF922B',
-                    orange500: '#FD7E14',
-                    orange600: '#F76707',
-                    orange700: '#360F00'
+                    100: '#FFF4E6',
+                    200: '#FFD8A8',
+                    300: '#FFA94D',
+                    400: '#FF922B',
+                    500: '#FD7E14',
+                    600: '#F76707',
+                    700: '#360F00'
                 },
                 error: {
-                    red100: '#FFEDEB',
-                    red200: '#FFB7AF',
-                    red300: '#FF8072',
-                    red400: '#FF412D',
-                    red500: '#C22D20',
-                    red600: '#6F1B14',
-                    red700: '#1C0705'
+                    100: '#FFEDEB',
+                    200: '#FFB7AF',
+                    300: '#FF8072',
+                    400: '#FF412D',
+                    500: '#C22D20',
+                    600: '#6F1B14',
+                    700: '#1C0705'
                 },
                 success: {
-                    green100: '#ECFBF7',
-                    green200: '#AFF1DD',
-                    green300: '#6CE5C3',
-                    green400: '#00D9A9',
-                    green500: '#009876',
-                    green600: '#025744',
-                    green700: '#051511'
+                    100: '#ECFBF7',
+                    200: '#AFF1DD',
+                    300: '#6CE5C3',
+                    400: '#00D9A9',
+                    500: '#009876',
+                    600: '#025744',
+                    700: '#051511'
                 }
             },
             tertiary: {
                 yellow: {
-                    yellow100: '#FFF9EC',
-                    yellow200: '#FEE7B1',
-                    yellow300: '#FDD671',
-                    yellow400: '#FFC100',
-                    yellow500: '#B08919',
-                    yellow600: '#654E11',
-                    yellow700: '#191405'
+                    100: '#FFF9EC',
+                    200: '#FEE7B1',
+                    300: '#FDD671',
+                    400: '#FFC100',
+                    500: '#B08919',
+                    600: '#654E11',
+                    700: '#191405'
                 },
                 pink: {
-                    pink100: '#FDF0F7',
-                    pink200: '#F8C0DF',
-                    pink300: '#F08FC6',
-                    pink400: '#E75DAD',
-                    pink500: '#A34179',
-                    pink600: '#5D2645',
-                    pink700: '#170911'
+                    100: '#FDF0F7',
+                    200: '#F8C0DF',
+                    300: '#F08FC6',
+                    400: '#E75DAD',
+                    500: '#A34179',
+                    600: '#5D2645',
+                    700: '#170911'
                 }
             }
         },

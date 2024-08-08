@@ -4,7 +4,7 @@
     .ant-tour-arrow::after,
     .ant-tour-arrow::before,
     .ant-tour-content .ant-tour-inner {
-        background-color: var(--general-utilities-main-mainColor);
+        background-color: var(--general-utilities-main-default);
     }
 }
 
@@ -19,10 +19,10 @@
         border-radius: convertToPixel(--components-Button-border-radius, --general-border-radius-pills);
 
         &.ant-btn-primary {
-            color: var(--components-Button-primary-colors-typography-default, var(--general-utilities-text-textLight));
+            color: var(--components-Button-primary-colors-typography-default, var(--general-utilities-text-light));
             background-color: var(
                 --components-Button-primary-colors-background-default,
-                var(--general-utilities-main-mainColor)
+                var(--general-utilities-main-default)
             );
             font-weight: var(
                 --components-Button-primary-typography-fontWeight,
@@ -30,55 +30,43 @@
             );
 
             &:hover {
-                color: var(
-                    --components-Button-primary-colors-typography-hover,
-                    var(--general-utilities-text-textLight)
-                );
+                color: var(--components-Button-primary-colors-typography-hover, var(--general-utilities-text-light));
                 background-color: var(
                     --components-Button-primary-colors-background-hover,
-                    var(--general-utilities-main-mainDark)
+                    var(--general-utilities-main-dark)
                 );
-                border-color: var(
-                    --components-Button-primary-colors-border-hover,
-                    var(--general-utilities-main-mainDark)
-                );
+                border-color: var(--components-Button-primary-colors-border-hover, var(--general-utilities-main-dark));
                 border-style: solid;
             }
 
             &:focus {
-                color: var(
-                    --components-Button-primary-colors-typography-focus,
-                    var(--general-utilities-text-textLight)
-                );
+                color: var(--components-Button-primary-colors-typography-focus, var(--general-utilities-text-light));
                 background-color: var(
                     --components-Button-primary-colors-background-focus,
-                    var(--general-utilities-main-mainColor)
+                    var(--general-utilities-main-default)
                 );
                 border-color: var(
                     --components-Button-primary-colors-border-focus,
-                    var(--general-utilities-main-mainColor)
+                    var(--general-utilities-main-default)
                 );
             }
 
             &:active {
-                color: var(
-                    --components-Button-primary-colors-typography-active,
-                    var(--general-utilities-text-textLight)
-                );
+                color: var(--components-Button-primary-colors-typography-active, var(--general-utilities-text-light));
                 background-color: var(
                     --components-Button-primary-colors-background-active,
-                    var(--general-utilities-main-mainDeepDark)
+                    var(--general-utilities-main-deepDark)
                 );
                 border-color: var(
                     --components-Button-primary-colors-border-active,
-                    var(--general-utilities-main-mainDeepDark)
+                    var(--general-utilities-main-deepDark)
                 );
                 border-style: solid;
             }
         }
 
         &.ant-btn-default {
-            color: var(--components-Button-default-colors-typography-default, var(--general-utilities-main-mainColor));
+            color: var(--components-Button-default-colors-typography-default, var(--general-utilities-main-default));
             background-color: var(
                 --components-Button-default-colors-background-default,
                 var(--general-utilities-light)
@@ -89,49 +77,40 @@
             );
 
             &:hover {
-                color: var(
-                    --components-Button-default-colors-typography-hover,
-                    var(--general-utilities-main-mainColor)
-                );
+                color: var(--components-Button-default-colors-typography-hover, var(--general-utilities-main-default));
                 background-color: var(
                     --components-Button-default-colors-background-hover,
                     var(--general-utilities-light)
                 );
                 border-color: var(
                     --components-Button-default-colors-border-hover,
-                    var(--general-utilities-main-mainColor)
+                    var(--general-utilities-main-default)
                 );
                 border-style: solid;
             }
 
             &:focus {
-                color: var(
-                    --components-Button-default-colors-typography-focus,
-                    var(--general-utilities-main-mainColor)
-                );
+                color: var(--components-Button-default-colors-typography-focus, var(--general-utilities-main-default));
                 background-color: var(
                     --components-Button-default-colors-background-focus,
                     var(--general-utilities-light)
                 );
                 border-color: var(
                     --components-Button-default-colors-border-focus,
-                    var(--general-utilities-main-mainColor)
+                    var(--general-utilities-main-default)
                 );
                 border-style: dashed;
             }
 
             &:active {
-                color: var(
-                    --components-Button-default-colors-typography-active,
-                    var(--general-utilities-main-mainColor)
-                );
+                color: var(--components-Button-default-colors-typography-active, var(--general-utilities-main-default));
                 background-color: var(
                     --components-Button-default-colors-background-active,
-                    var(--general-utilities-main-mainLight)
+                    var(--general-utilities-main-light)
                 );
                 border-color: var(
                     --components-Button-default-colors-border-active,
-                    var(--general-utilities-main-mainColor)
+                    var(--general-utilities-main-default)
                 );
                 border-style: solid;
             }

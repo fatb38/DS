@@ -7,22 +7,22 @@ import {IKitSelect} from '@kit/DataEntry/Select/types';
 export const colorOptions = [
     {
         value: 'not-allowed',
-        color: colorsPalette.secondary.error.red400,
+        color: colorsPalette.secondary.error['400'],
         label: 'Not allowed'
     },
     {
         value: 'denied',
-        color: colorsPalette.tertiary.yellow.yellow400,
+        color: colorsPalette.tertiary.yellow['400'],
         label: 'Denied'
     },
     {
         value: 'todo',
-        color: colorsPalette.primary.blue400,
+        color: colorsPalette.primary['400'],
         label: 'Todo by agency'
     },
     {
         value: 'ok',
-        color: colorsPalette.secondary.success.green400,
+        color: colorsPalette.secondary.success['400'],
         label: 'Ok done by agency'
     }
 ];
@@ -53,24 +53,24 @@ export const iconOptions = [
 export const colorDisabledOptions = [
     {
         value: 'not-allowed',
-        color: colorsPalette.secondary.error.red400,
+        color: colorsPalette.secondary.error['400'],
         label: 'Not allowed',
         disabled: true
     },
     {
         value: 'denied',
-        color: colorsPalette.tertiary.yellow.yellow400,
+        color: colorsPalette.tertiary.yellow['400'],
         label: 'Denied',
         disabled: true
     },
     {
         value: 'todo',
-        color: colorsPalette.primary.blue400,
+        color: colorsPalette.primary['400'],
         label: 'Todo by agency'
     },
     {
         value: 'ok',
-        color: colorsPalette.secondary.success.green400,
+        color: colorsPalette.secondary.success['400'],
         label: 'Ok done by agency'
     }
 ];

@@ -10,13 +10,13 @@ $sizes: (
 );
 $prefix: 'kit-btn-';
 
-@mixin mainColorTokens($category, $name, $colorKey, $color) {
+@mixin defaultTokens($category, $name, $colorKey, $color) {
     &.kit-btn-#{$name} {
-        --kit-btn-main-color: var(--general-colors-#{$category}-#{$colorKey}-#{$color}400);
-        --kit-btn-main-light: var(--general-colors-#{$category}-#{$colorKey}-#{$color}100);
-        --kit-btn-main-focus: var(--general-colors-#{$category}-#{$colorKey}-#{$color}200);
-        --kit-btn-main-dark: var(--general-colors-#{$category}-#{$colorKey}-#{$color}500);
-        --kit-btn-main-dark-deep: var(--general-colors-#{$category}-#{$colorKey}-#{$color}600);
+        --kit-btn-main-color: var(--general-colors-#{$category}-#{$colorKey}-400);
+        --kit-btn-main-light: var(--general-colors-#{$category}-#{$colorKey}-100);
+        --kit-btn-main-focus: var(--general-colors-#{$category}-#{$colorKey}-200);
+        --kit-btn-main-dark: var(--general-colors-#{$category}-#{$colorKey}-500);
+        --kit-btn-main-dark-deep: var(--general-colors-#{$category}-#{$colorKey}-600);
         --kit-btn-invert-color: var(--general-utilities-light);
     }
 }
@@ -124,15 +124,15 @@ $prefix: 'kit-btn-';
         }
     }
 
-    --kit-btn-main-color: var(--general-utilities-main-mainColor);
-    --kit-btn-main-light: var(--general-utilities-main-mainLight);
+    --kit-btn-main-color: var(--general-utilities-main-default);
+    --kit-btn-main-light: var(--general-utilities-main-light);
     --kit-btn-main-focus: var(--general-utilities-focus);
-    --kit-btn-main-dark: var(--general-utilities-main-mainDark);
-    --kit-btn-main-dark-deep: var(--general-utilities-main-mainDeepDark);
+    --kit-btn-main-dark: var(--general-utilities-main-dark);
+    --kit-btn-main-dark-deep: var(--general-utilities-main-deepDark);
     --kit-btn-invert-color: var(--general-utilities-light);
     --kit-btn-disabled-color: var(--general-utilities-disabled);
     --kit-btn-border-color: var(--general-utilities-border);
-    --kit-btn-grey-light: var(--general-utilities-neutral-neutralLight);
+    --kit-btn-grey-light: var(--general-utilities-neutral-light);
 
     &.kit-btn-block {
         display: flex;
@@ -242,11 +242,11 @@ $prefix: 'kit-btn-';
 
     &.kit-btn-danger,
     &.kit-btn-danger-modal {
-        --kit-btn-main-color: var(--general-utilities-error-errorColor);
-        --kit-btn-main-light: var(--general-utilities-error-errorLight);
-        --kit-btn-main-focus: var(--general-utilities-error-errorColor);
-        --kit-btn-main-dark: var(--general-utilities-error-errorDark);
-        --kit-btn-main-dark-deep: var(--general-utilities-error-errorDark);
+        --kit-btn-main-color: var(--general-utilities-error-default);
+        --kit-btn-main-light: var(--general-utilities-error-light);
+        --kit-btn-main-focus: var(--general-utilities-error-default);
+        --kit-btn-main-dark: var(--general-utilities-error-dark);
+        --kit-btn-main-dark-deep: var(--general-utilities-error-dark);
         --kit-btn-invert-color: var(--general-utilities-light);
 
         &.kit-btn-primary:not(:disabled) {
@@ -255,7 +255,7 @@ $prefix: 'kit-btn-';
 
         &.kit-btn-secondary:not(:disabled),
         &.kit-btn-segmented:not(:disabled) {
-            border-color: var(--general-utilities-error-errorMedium);
+            border-color: var(--general-utilities-error-medium);
         }
 
         &.kit-btn-primary:not(:disabled):hover {
@@ -267,13 +267,13 @@ $prefix: 'kit-btn-';
         }
     }
 
-    @include mainColorTokens('primary', 'color-primary', 'primary', 'blue');
-    @include mainColorTokens('secondary', 'color-warning', 'warning', 'orange');
-    @include mainColorTokens('secondary', 'color-error', 'error', 'red');
-    @include mainColorTokens('secondary', 'color-success', 'success', 'green');
-    @include mainColorTokens('tertiary', 'color-yellow', 'yellow', 'yellow');
-    @include mainColorTokens('tertiary', 'color-pink', 'pink', 'pink');
-    @include mainColorTokens('neutral', 'color-grey', 'grey', 'grey');
+    @include defaultTokens('primary', 'color-primary', 'primary', 'blue');
+    @include defaultTokens('secondary', 'color-warning', 'warning', 'orange');
+    @include defaultTokens('secondary', 'color-error', 'error', 'red');
+    @include defaultTokens('secondary', 'color-success', 'success', 'green');
+    @include defaultTokens('tertiary', 'color-yellow', 'yellow', 'yellow');
+    @include defaultTokens('tertiary', 'color-pink', 'pink', 'pink');
+    @include defaultTokens('neutral', 'color-grey', 'grey', 'grey');
 }
 
 .ant-space-compact:not(.ant-space-compact-vertical) :local(.kit-btn) {

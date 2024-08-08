@@ -8,56 +8,56 @@ const forms = {
             "_label": "colors",
             "_path": "general.colors",
             "primary": {
-                "_label": "primary",
-                "_path": "general.colors.primary",
-                "blue50": {
-                    "_label": "blue50",
-                    "_path": "general.colors.primary.blue50",
+                "50": {
+                    "_label": "50",
+                    "_path": "general.colors.primary.50",
                     "_type": "color",
                     "_description": "Primary 50 color"
                 },
-                "blue100": {
-                    "_label": "blue100",
-                    "_path": "general.colors.primary.blue100",
+                "100": {
+                    "_label": "100",
+                    "_path": "general.colors.primary.100",
                     "_type": "color",
                     "_description": "Primary 100 color"
                 },
-                "blue200": {
-                    "_label": "blue200",
-                    "_path": "general.colors.primary.blue200",
+                "200": {
+                    "_label": "200",
+                    "_path": "general.colors.primary.200",
                     "_type": "color",
                     "_description": "Primary 200 color"
                 },
-                "blue300": {
-                    "_label": "blue300",
-                    "_path": "general.colors.primary.blue300",
+                "300": {
+                    "_label": "300",
+                    "_path": "general.colors.primary.300",
                     "_type": "color",
                     "_description": "Primary 300 color"
                 },
-                "blue400": {
-                    "_label": "blue400",
-                    "_path": "general.colors.primary.blue400",
+                "400": {
+                    "_label": "400",
+                    "_path": "general.colors.primary.400",
                     "_type": "color",
                     "_description": "Primary 400 color"
                 },
-                "blue500": {
-                    "_label": "blue500",
-                    "_path": "general.colors.primary.blue500",
+                "500": {
+                    "_label": "500",
+                    "_path": "general.colors.primary.500",
                     "_type": "color",
                     "_description": "Primary 500 color"
                 },
-                "blue600": {
-                    "_label": "blue600",
-                    "_path": "general.colors.primary.blue600",
+                "600": {
+                    "_label": "600",
+                    "_path": "general.colors.primary.600",
                     "_type": "color",
                     "_description": "Primary 600 color"
                 },
-                "blue700": {
-                    "_label": "blue700",
-                    "_path": "general.colors.primary.blue700",
+                "700": {
+                    "_label": "700",
+                    "_path": "general.colors.primary.700",
                     "_type": "color",
                     "_description": "Primary 700 color"
-                }
+                },
+                "_label": "primary",
+                "_path": "general.colors.primary"
             },
             "neutral": {
                 "_label": "neutral",
@@ -75,288 +75,288 @@ const forms = {
                     "_description": "default white color"
                 },
                 "grey": {
-                    "_label": "grey",
-                    "_path": "general.colors.neutral.grey",
-                    "grey100": {
-                        "_label": "grey100",
-                        "_path": "general.colors.neutral.grey.grey100",
+                    "100": {
+                        "_label": "100",
+                        "_path": "general.colors.neutral.grey.100",
                         "_type": "color",
                         "_description": "secondary grey 100 color"
                     },
-                    "grey200": {
-                        "_label": "grey200",
-                        "_path": "general.colors.neutral.grey.grey200",
+                    "200": {
+                        "_label": "200",
+                        "_path": "general.colors.neutral.grey.200",
                         "_type": "color",
                         "_description": "secondary grey 200 color"
                     },
-                    "grey300": {
-                        "_label": "grey300",
-                        "_path": "general.colors.neutral.grey.grey300",
+                    "300": {
+                        "_label": "300",
+                        "_path": "general.colors.neutral.grey.300",
                         "_type": "color",
                         "_description": "secondary grey 300 color"
                     },
-                    "grey400": {
-                        "_label": "grey400",
-                        "_path": "general.colors.neutral.grey.grey400",
+                    "400": {
+                        "_label": "400",
+                        "_path": "general.colors.neutral.grey.400",
                         "_type": "color",
                         "_description": "secondary grey 400 color"
                     },
-                    "grey500": {
-                        "_label": "grey500",
-                        "_path": "general.colors.neutral.grey.grey500",
+                    "500": {
+                        "_label": "500",
+                        "_path": "general.colors.neutral.grey.500",
                         "_type": "color",
                         "_description": "secondary grey 500 color"
                     },
-                    "grey600": {
-                        "_label": "grey600",
-                        "_path": "general.colors.neutral.grey.grey600",
+                    "600": {
+                        "_label": "600",
+                        "_path": "general.colors.neutral.grey.600",
                         "_type": "color",
                         "_description": "secondary grey 600 color"
                     },
-                    "grey700": {
-                        "_label": "grey700",
-                        "_path": "general.colors.neutral.grey.grey700",
+                    "700": {
+                        "_label": "700",
+                        "_path": "general.colors.neutral.grey.700",
                         "_type": "color",
                         "_description": "secondary grey 700 color"
-                    }
+                    },
+                    "_label": "grey",
+                    "_path": "general.colors.neutral.grey"
                 }
             },
             "secondary": {
                 "_label": "secondary",
                 "_path": "general.colors.secondary",
                 "warning": {
-                    "_label": "warning",
-                    "_path": "general.colors.secondary.warning",
-                    "orange100": {
-                        "_label": "orange100",
-                        "_path": "general.colors.secondary.warning.orange100",
+                    "100": {
+                        "_label": "100",
+                        "_path": "general.colors.secondary.warning.100",
                         "_type": "color",
                         "_description": "secondary warning 100 color"
                     },
-                    "orange200": {
-                        "_label": "orange200",
-                        "_path": "general.colors.secondary.warning.orange200",
+                    "200": {
+                        "_label": "200",
+                        "_path": "general.colors.secondary.warning.200",
                         "_type": "color",
                         "_description": "secondary warning 200 color"
                     },
-                    "orange300": {
-                        "_label": "orange300",
-                        "_path": "general.colors.secondary.warning.orange300",
+                    "300": {
+                        "_label": "300",
+                        "_path": "general.colors.secondary.warning.300",
                         "_type": "color",
                         "_description": "secondary warning 300 color"
                     },
-                    "orange400": {
-                        "_label": "orange400",
-                        "_path": "general.colors.secondary.warning.orange400",
+                    "400": {
+                        "_label": "400",
+                        "_path": "general.colors.secondary.warning.400",
                         "_type": "color",
                         "_description": "secondary warning 400 color"
                     },
-                    "orange500": {
-                        "_label": "orange500",
-                        "_path": "general.colors.secondary.warning.orange500",
+                    "500": {
+                        "_label": "500",
+                        "_path": "general.colors.secondary.warning.500",
                         "_type": "color",
                         "_description": "secondary warning 500 color"
                     },
-                    "orange600": {
-                        "_label": "orange600",
-                        "_path": "general.colors.secondary.warning.orange600",
+                    "600": {
+                        "_label": "600",
+                        "_path": "general.colors.secondary.warning.600",
                         "_type": "color",
                         "_description": "secondary warning 600 color"
                     },
-                    "orange700": {
-                        "_label": "orange700",
-                        "_path": "general.colors.secondary.warning.orange700",
+                    "700": {
+                        "_label": "700",
+                        "_path": "general.colors.secondary.warning.700",
                         "_type": "color",
                         "_description": "secondary warning 700 color"
-                    }
+                    },
+                    "_label": "warning",
+                    "_path": "general.colors.secondary.warning"
                 },
                 "error": {
-                    "_label": "error",
-                    "_path": "general.colors.secondary.error",
-                    "red100": {
-                        "_label": "red100",
-                        "_path": "general.colors.secondary.error.red100",
+                    "100": {
+                        "_label": "100",
+                        "_path": "general.colors.secondary.error.100",
                         "_type": "color",
                         "_description": "secondary error 100 color"
                     },
-                    "red200": {
-                        "_label": "red200",
-                        "_path": "general.colors.secondary.error.red200",
+                    "200": {
+                        "_label": "200",
+                        "_path": "general.colors.secondary.error.200",
                         "_type": "color",
                         "_description": "secondary error 200 color"
                     },
-                    "red300": {
-                        "_label": "red300",
-                        "_path": "general.colors.secondary.error.red300",
+                    "300": {
+                        "_label": "300",
+                        "_path": "general.colors.secondary.error.300",
                         "_type": "color",
                         "_description": "secondary error 300 color"
                     },
-                    "red400": {
-                        "_label": "red400",
-                        "_path": "general.colors.secondary.error.red400",
+                    "400": {
+                        "_label": "400",
+                        "_path": "general.colors.secondary.error.400",
                         "_type": "color",
                         "_description": "secondary error 400 color"
                     },
-                    "red500": {
-                        "_label": "red500",
-                        "_path": "general.colors.secondary.error.red500",
+                    "500": {
+                        "_label": "500",
+                        "_path": "general.colors.secondary.error.500",
                         "_type": "color",
                         "_description": "secondary error 500 color"
                     },
-                    "red600": {
-                        "_label": "red600",
-                        "_path": "general.colors.secondary.error.red600",
+                    "600": {
+                        "_label": "600",
+                        "_path": "general.colors.secondary.error.600",
                         "_type": "color",
                         "_description": "secondary error 600 color"
                     },
-                    "red700": {
-                        "_label": "red700",
-                        "_path": "general.colors.secondary.error.red700",
+                    "700": {
+                        "_label": "700",
+                        "_path": "general.colors.secondary.error.700",
                         "_type": "color",
                         "_description": "secondary error 700 color"
-                    }
+                    },
+                    "_label": "error",
+                    "_path": "general.colors.secondary.error"
                 },
                 "success": {
-                    "_label": "success",
-                    "_path": "general.colors.secondary.success",
-                    "green100": {
-                        "_label": "green100",
-                        "_path": "general.colors.secondary.success.green100",
+                    "100": {
+                        "_label": "100",
+                        "_path": "general.colors.secondary.success.100",
                         "_type": "color",
                         "_description": "secondary success 100 color"
                     },
-                    "green200": {
-                        "_label": "green200",
-                        "_path": "general.colors.secondary.success.green200",
+                    "200": {
+                        "_label": "200",
+                        "_path": "general.colors.secondary.success.200",
                         "_type": "color",
                         "_description": "secondary success 200 color"
                     },
-                    "green300": {
-                        "_label": "green300",
-                        "_path": "general.colors.secondary.success.green300",
+                    "300": {
+                        "_label": "300",
+                        "_path": "general.colors.secondary.success.300",
                         "_type": "color",
                         "_description": "secondary success 300 color"
                     },
-                    "green400": {
-                        "_label": "green400",
-                        "_path": "general.colors.secondary.success.green400",
+                    "400": {
+                        "_label": "400",
+                        "_path": "general.colors.secondary.success.400",
                         "_type": "color",
                         "_description": "secondary success 400 color"
                     },
-                    "green500": {
-                        "_label": "green500",
-                        "_path": "general.colors.secondary.success.green500",
+                    "500": {
+                        "_label": "500",
+                        "_path": "general.colors.secondary.success.500",
                         "_type": "color",
                         "_description": "secondary success 500 color"
                     },
-                    "green600": {
-                        "_label": "green600",
-                        "_path": "general.colors.secondary.success.green600",
+                    "600": {
+                        "_label": "600",
+                        "_path": "general.colors.secondary.success.600",
                         "_type": "color",
                         "_description": "secondary success 600 color"
                     },
-                    "green700": {
-                        "_label": "green700",
-                        "_path": "general.colors.secondary.success.green700",
+                    "700": {
+                        "_label": "700",
+                        "_path": "general.colors.secondary.success.700",
                         "_type": "color",
                         "_description": "secondary success 700 color"
-                    }
+                    },
+                    "_label": "success",
+                    "_path": "general.colors.secondary.success"
                 }
             },
             "tertiary": {
                 "_label": "tertiary",
                 "_path": "general.colors.tertiary",
                 "yellow": {
-                    "_label": "yellow",
-                    "_path": "general.colors.tertiary.yellow",
-                    "yellow100": {
-                        "_label": "yellow100",
-                        "_path": "general.colors.tertiary.yellow.yellow100",
+                    "100": {
+                        "_label": "100",
+                        "_path": "general.colors.tertiary.yellow.100",
                         "_type": "color",
                         "_description": "tertiary yellow 100 color"
                     },
-                    "yellow200": {
-                        "_label": "yellow200",
-                        "_path": "general.colors.tertiary.yellow.yellow200",
+                    "200": {
+                        "_label": "200",
+                        "_path": "general.colors.tertiary.yellow.200",
                         "_type": "color",
                         "_description": "tertiary yellow 200 color"
                     },
-                    "yellow300": {
-                        "_label": "yellow300",
-                        "_path": "general.colors.tertiary.yellow.yellow300",
+                    "300": {
+                        "_label": "300",
+                        "_path": "general.colors.tertiary.yellow.300",
                         "_type": "color",
                         "_description": "tertiary yellow 300 color"
                     },
-                    "yellow400": {
-                        "_label": "yellow400",
-                        "_path": "general.colors.tertiary.yellow.yellow400",
+                    "400": {
+                        "_label": "400",
+                        "_path": "general.colors.tertiary.yellow.400",
                         "_type": "color",
                         "_description": "tertiary yellow 400 color"
                     },
-                    "yellow500": {
-                        "_label": "yellow500",
-                        "_path": "general.colors.tertiary.yellow.yellow500",
+                    "500": {
+                        "_label": "500",
+                        "_path": "general.colors.tertiary.yellow.500",
                         "_type": "color",
                         "_description": "tertiary yellow 500 color"
                     },
-                    "yellow600": {
-                        "_label": "yellow600",
-                        "_path": "general.colors.tertiary.yellow.yellow600",
+                    "600": {
+                        "_label": "600",
+                        "_path": "general.colors.tertiary.yellow.600",
                         "_type": "color",
                         "_description": "tertiary yellow 600 color"
                     },
-                    "yellow700": {
-                        "_label": "yellow700",
-                        "_path": "general.colors.tertiary.yellow.yellow700",
+                    "700": {
+                        "_label": "700",
+                        "_path": "general.colors.tertiary.yellow.700",
                         "_type": "color",
                         "_description": "tertiary yellow 700 color"
-                    }
+                    },
+                    "_label": "yellow",
+                    "_path": "general.colors.tertiary.yellow"
                 },
                 "pink": {
-                    "_label": "pink",
-                    "_path": "general.colors.tertiary.pink",
-                    "pink100": {
-                        "_label": "pink100",
-                        "_path": "general.colors.tertiary.pink.pink100",
+                    "100": {
+                        "_label": "100",
+                        "_path": "general.colors.tertiary.pink.100",
                         "_type": "color",
                         "_description": "tertiary pink 100 color"
                     },
-                    "pink200": {
-                        "_label": "pink200",
-                        "_path": "general.colors.tertiary.pink.pink200",
+                    "200": {
+                        "_label": "200",
+                        "_path": "general.colors.tertiary.pink.200",
                         "_type": "color",
                         "_description": "tertiary pink 200 color"
                     },
-                    "pink300": {
-                        "_label": "pink300",
-                        "_path": "general.colors.tertiary.pink.pink300",
+                    "300": {
+                        "_label": "300",
+                        "_path": "general.colors.tertiary.pink.300",
                         "_type": "color",
                         "_description": "tertiary pink 300 color"
                     },
-                    "pink400": {
-                        "_label": "pink400",
-                        "_path": "general.colors.tertiary.pink.pink400",
+                    "400": {
+                        "_label": "400",
+                        "_path": "general.colors.tertiary.pink.400",
                         "_type": "color",
                         "_description": "tertiary pink 400 color"
                     },
-                    "pink500": {
-                        "_label": "pink500",
-                        "_path": "general.colors.tertiary.pink.pink500",
+                    "500": {
+                        "_label": "500",
+                        "_path": "general.colors.tertiary.pink.500",
                         "_type": "color",
                         "_description": "tertiary pink 500 color"
                     },
-                    "pink600": {
-                        "_label": "pink600",
-                        "_path": "general.colors.tertiary.pink.pink600",
+                    "600": {
+                        "_label": "600",
+                        "_path": "general.colors.tertiary.pink.600",
                         "_type": "color",
                         "_description": "tertiary pink 600 color"
                     },
-                    "pink700": {
-                        "_label": "pink700",
-                        "_path": "general.colors.tertiary.pink.pink700",
+                    "700": {
+                        "_label": "700",
+                        "_path": "general.colors.tertiary.pink.700",
                         "_type": "color",
                         "_description": "tertiary pink 700 color"
-                    }
+                    },
+                    "_label": "pink",
+                    "_path": "general.colors.tertiary.pink"
                 }
             }
         },
@@ -624,33 +624,33 @@ const forms = {
             "main": {
                 "_label": "main",
                 "_path": "general.utilities.main",
-                "mainLight": {
-                    "_label": "mainLight",
-                    "_path": "general.utilities.main.mainLight",
+                "light": {
+                    "_label": "light",
+                    "_path": "general.utilities.main.light",
                     "_type": "color",
                     "_description": "Main light color"
                 },
-                "mainMedium": {
-                    "_label": "mainMedium",
-                    "_path": "general.utilities.main.mainMedium",
+                "medium": {
+                    "_label": "medium",
+                    "_path": "general.utilities.main.medium",
                     "_type": "color",
                     "_description": "Main medium color"
                 },
-                "mainColor": {
-                    "_label": "mainColor",
-                    "_path": "general.utilities.main.mainColor",
+                "default": {
+                    "_label": "default",
+                    "_path": "general.utilities.main.default",
                     "_type": "color",
                     "_description": "Main color color"
                 },
-                "mainDark": {
-                    "_label": "mainDark",
-                    "_path": "general.utilities.main.mainDark",
+                "dark": {
+                    "_label": "dark",
+                    "_path": "general.utilities.main.dark",
                     "_type": "color",
                     "_description": "Main dark color"
                 },
-                "mainDeepDark": {
-                    "_label": "mainDeepDark",
-                    "_path": "general.utilities.main.mainDeepDark",
+                "deepDark": {
+                    "_label": "deepDark",
+                    "_path": "general.utilities.main.deepDark",
                     "_type": "color",
                     "_description": "Main deepdark color"
                 }
@@ -658,27 +658,27 @@ const forms = {
             "neutral": {
                 "_label": "neutral",
                 "_path": "general.utilities.neutral",
-                "neutralLight": {
-                    "_label": "neutralLight",
-                    "_path": "general.utilities.neutral.neutralLight",
+                "light": {
+                    "_label": "light",
+                    "_path": "general.utilities.neutral.light",
                     "_type": "color",
                     "_description": "Neutral light color"
                 },
-                "neutralMedium": {
-                    "_label": "neutralMedium",
-                    "_path": "general.utilities.neutral.neutralMedium",
+                "medium": {
+                    "_label": "medium",
+                    "_path": "general.utilities.neutral.medium",
                     "_type": "color",
                     "_description": "Neutral medium color"
                 },
-                "neutralDark": {
-                    "_label": "neutralDark",
-                    "_path": "general.utilities.neutral.neutralDark",
+                "dark": {
+                    "_label": "dark",
+                    "_path": "general.utilities.neutral.dark",
                     "_type": "color",
                     "_description": "Neutral dark color"
                 },
-                "neutralDeepDark": {
-                    "_label": "neutralDeepDark",
-                    "_path": "general.utilities.neutral.neutralDeepDark",
+                "deepDark": {
+                    "_label": "deepDark",
+                    "_path": "general.utilities.neutral.deepDark",
                     "_type": "color",
                     "_description": "Neutral deepdark color"
                 }
@@ -686,27 +686,27 @@ const forms = {
             "error": {
                 "_label": "error",
                 "_path": "general.utilities.error",
-                "errorLight": {
-                    "_label": "errorLight",
-                    "_path": "general.utilities.error.errorLight",
+                "light": {
+                    "_label": "light",
+                    "_path": "general.utilities.error.light",
                     "_type": "color",
                     "_description": "Error light color"
                 },
-                "errorMedium": {
-                    "_label": "errorMedium",
-                    "_path": "general.utilities.error.errorMedium",
+                "medium": {
+                    "_label": "medium",
+                    "_path": "general.utilities.error.medium",
                     "_type": "color",
                     "_description": "Error medium color"
                 },
-                "errorColor": {
-                    "_label": "errorColor",
-                    "_path": "general.utilities.error.errorColor",
+                "default": {
+                    "_label": "default",
+                    "_path": "general.utilities.error.default",
                     "_type": "color",
                     "_description": "Error color color"
                 },
-                "errorDark": {
-                    "_label": "errorDark",
-                    "_path": "general.utilities.error.errorDark",
+                "dark": {
+                    "_label": "dark",
+                    "_path": "general.utilities.error.dark",
                     "_type": "color",
                     "_description": "Error dark color"
                 }
@@ -714,27 +714,27 @@ const forms = {
             "success": {
                 "_label": "success",
                 "_path": "general.utilities.success",
-                "successLight": {
-                    "_label": "successLight",
-                    "_path": "general.utilities.success.successLight",
+                "light": {
+                    "_label": "light",
+                    "_path": "general.utilities.success.light",
                     "_type": "color",
                     "_description": "Success light color"
                 },
-                "successMedium": {
-                    "_label": "successMedium",
-                    "_path": "general.utilities.success.successMedium",
+                "medium": {
+                    "_label": "medium",
+                    "_path": "general.utilities.success.medium",
                     "_type": "color",
                     "_description": "Success mediul color"
                 },
-                "successColor": {
-                    "_label": "successColor",
-                    "_path": "general.utilities.success.successColor",
+                "default": {
+                    "_label": "default",
+                    "_path": "general.utilities.success.default",
                     "_type": "color",
                     "_description": "Success color color"
                 },
-                "successDark": {
-                    "_label": "successDark",
-                    "_path": "general.utilities.success.successDark",
+                "dark": {
+                    "_label": "dark",
+                    "_path": "general.utilities.success.dark",
                     "_type": "color",
                     "_description": "Success dark color"
                 }
@@ -742,27 +742,27 @@ const forms = {
             "warning": {
                 "_label": "warning",
                 "_path": "general.utilities.warning",
-                "warningLight": {
-                    "_label": "warningLight",
-                    "_path": "general.utilities.warning.warningLight",
+                "light": {
+                    "_label": "light",
+                    "_path": "general.utilities.warning.light",
                     "_type": "color",
                     "_description": "Warning light color"
                 },
-                "warningMedium": {
-                    "_label": "warningMedium",
-                    "_path": "general.utilities.warning.warningMedium",
+                "medium": {
+                    "_label": "medium",
+                    "_path": "general.utilities.warning.medium",
                     "_type": "color",
                     "_description": "Warning medium color"
                 },
-                "warningColor": {
-                    "_label": "warningColor",
-                    "_path": "general.utilities.warning.warningColor",
+                "default": {
+                    "_label": "default",
+                    "_path": "general.utilities.warning.default",
                     "_type": "color",
                     "_description": "Warning color color"
                 },
-                "warningDark": {
-                    "_label": "warningDark",
-                    "_path": "general.utilities.warning.warningDark",
+                "dark": {
+                    "_label": "dark",
+                    "_path": "general.utilities.warning.dark",
                     "_type": "color",
                     "_description": "Warning dark color"
                 }
@@ -770,45 +770,45 @@ const forms = {
             "text": {
                 "_label": "text",
                 "_path": "general.utilities.text",
-                "textLight": {
-                    "_label": "textLight",
-                    "_path": "general.utilities.text.textLight",
+                "light": {
+                    "_label": "light",
+                    "_path": "general.utilities.text.light",
                     "_type": "color",
                     "_description": "Text light color"
                 },
-                "textPrimary": {
-                    "_label": "textPrimary",
-                    "_path": "general.utilities.text.textPrimary",
+                "primary": {
+                    "_label": "primary",
+                    "_path": "general.utilities.text.primary",
                     "_type": "color",
                     "_description": "Text primary color"
                 },
-                "textDisabled": {
-                    "_label": "textDisabled",
-                    "_path": "general.utilities.text.textDisabled",
+                "disabled": {
+                    "_label": "disabled",
+                    "_path": "general.utilities.text.disabled",
                     "_type": "color",
                     "_description": "Text disabled color"
                 },
-                "textBlue": {
-                    "_label": "textBlue",
-                    "_path": "general.utilities.text.textBlue",
+                "blue": {
+                    "_label": "blue",
+                    "_path": "general.utilities.text.blue",
                     "_type": "color",
                     "_description": "Text blue color"
                 },
-                "textSuccess": {
-                    "_label": "textSuccess",
-                    "_path": "general.utilities.text.textSuccess",
+                "success": {
+                    "_label": "success",
+                    "_path": "general.utilities.text.success",
                     "_type": "color",
                     "_description": "Text success color"
                 },
-                "textWarning": {
-                    "_label": "textWarning",
-                    "_path": "general.utilities.text.textWarning",
+                "warning": {
+                    "_label": "warning",
+                    "_path": "general.utilities.text.warning",
                     "_type": "color",
                     "_description": "Text warning color"
                 },
-                "textError": {
-                    "_label": "textError",
-                    "_path": "general.utilities.text.textError",
+                "error": {
+                    "_label": "error",
+                    "_path": "general.utilities.text.error",
                     "_type": "color",
                     "_description": "Text error color"
                 }
@@ -816,21 +816,21 @@ const forms = {
             "shadow": {
                 "_label": "shadow",
                 "_path": "general.utilities.shadow",
-                "shadowLight": {
-                    "_label": "shadowLight",
-                    "_path": "general.utilities.shadow.shadowLight",
+                "light": {
+                    "_label": "light",
+                    "_path": "general.utilities.shadow.light",
                     "_type": "shadow",
                     "_description": "Shadow light property"
                 },
-                "shadowMedium": {
-                    "_label": "shadowMedium",
-                    "_path": "general.utilities.shadow.shadowMedium",
+                "medium": {
+                    "_label": "medium",
+                    "_path": "general.utilities.shadow.medium",
                     "_type": "shadow",
                     "_description": "Shadow medium property"
                 },
-                "shadowBlue": {
-                    "_label": "shadowBlue",
-                    "_path": "general.utilities.shadow.shadowBlue",
+                "blue": {
+                    "_label": "blue",
+                    "_path": "general.utilities.shadow.blue",
                     "_type": "shadow",
                     "_description": "Shadow blue property"
                 }

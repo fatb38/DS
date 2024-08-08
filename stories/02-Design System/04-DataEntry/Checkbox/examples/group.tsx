@@ -56,7 +56,7 @@ const App = () => {
             <KitTypography.Title level="h4">Bordered groups</KitTypography.Title>
             <KitSpace wrap size={24}>
                 <KitCheckbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} bordered />
-                <KitCheckbox.Group options={options} defaultValue={['Pear']} onChange={onChange} bordered />
+                <KitCheckbox.Group options={options} defaultValue={['Pear']} onChange={onChange} bordered={true} />
                 <KitCheckbox.Group
                     options={optionsWithDisabled}
                     disabled

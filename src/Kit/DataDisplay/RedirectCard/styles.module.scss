@@ -47,12 +47,12 @@
     }
 
     &.kit-redirect-card-disabled {
-        background-color: var(--general-utilities-neutral-neutralLight);
+        background-color: var(--general-utilities-neutral-light);
         cursor: not-allowed;
 
         .kit-icon.kit-redirect-card-icon,
         .kit-icon.kit-redirect-card-redirect-icon {
-            color: var(--general-utilities-text-textDisabled);
+            color: var(--general-utilities-text-disabled);
         }
 
         &.kit-redirect-card-image .ant-divider {
@@ -63,12 +63,12 @@
     &:not(.kit-redirect-card-disabled) {
         &:hover {
             cursor: pointer;
-            box-shadow: var(--general-utilities-shadow-shadowLight);
-            border-color: var(--general-utilities-main-mainColor);
+            box-shadow: var(--general-utilities-shadow-light);
+            border-color: var(--general-utilities-main-default);
 
             .kit-redirect-card-redirect-icon {
                 transform: rotateZ(-45deg);
-                color: var(--general-utilities-text-textBlue);
+                color: var(--general-utilities-text-blue);
             }
         }
 
@@ -77,7 +77,7 @@
 
             .kit-redirect-card-redirect-icon {
                 transform: rotateZ(-45deg);
-                color: var(--general-utilities-text-textBlue);
+                color: var(--general-utilities-text-blue);
             }
         }
     }
@@ -110,14 +110,14 @@
         padding: convertToPixel(--general-spacing-none);
 
         &.kit-redirect-card-icon {
-            color: var(--general-utilities-text-textBlue);
+            color: var(--general-utilities-text-blue);
             font-size: 48px;
             padding-bottom: convertToPixel(--general-spacing-s);
             align-self: start;
         }
 
         &.kit-redirect-card-redirect-icon {
-            color: var(--general-utilities-text-textPrimary);
+            color: var(--general-utilities-text-primary);
             transition: var(--kit-redirect-card-transition);
             font-size: convertToPixel(--general-typography-fontSize2);
             align-self: end;

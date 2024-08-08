@@ -10,13 +10,13 @@
     .ant-picker-now .ant-picker-now-btn {
         color: var(
             --components-DatePicker-DropDown-colors-button-now-typography-default,
-            var(--general-utilities-main-mainColor)
+            var(--general-utilities-main-default)
         );
 
         &:hover {
             color: var(
                 --components-DatePicker-DropDown-colors-button-now-typography-hover,
-                var(--general-utilities-main-mainDark)
+                var(--general-utilities-main-dark)
             );
         }
     }
@@ -28,36 +28,36 @@
 
         background-color: var(
             --components-DatePicker-DropDown-colors-button-ok-background-default,
-            var(--general-utilities-main-mainColor)
+            var(--general-utilities-main-default)
         );
         border-color: var(
             --components-DatePicker-DropDown-colors-button-ok-border-default,
-            var(--general-utilities-main-mainColor)
+            var(--general-utilities-main-default)
         );
         color: var(
             --components-DatePicker-DropDown-colors-button-ok-typography-default,
-            var(--general-utilities-text-textLight)
+            var(--general-utilities-text-light)
         );
 
         &:hover:not(.ant-btn-disabled) {
             background-color: var(
                 --components-DatePicker-DropDown-colors-button-ok-background-hover,
-                var(--general-utilities-main-mainDark)
+                var(--general-utilities-main-dark)
             );
             border-color: var(
                 --components-DatePicker-DropDown-colors-button-ok-border-hover,
-                var(--general-utilities-main-mainDark)
+                var(--general-utilities-main-dark)
             );
         }
 
         &:active:not(.ant-btn-disabled) {
             background-color: var(
                 --components-DatePicker-DropDown-colors-button-ok-background-active,
-                var(--general-utilities-main-mainDeepDark)
+                var(--general-utilities-main-deepDark)
             );
             border-color: var(
                 --components-DatePicker-DropDown-colors-button-ok-border-active,
-                var(--general-utilities-main-mainDeepDark)
+                var(--general-utilities-main-deepDark)
             );
         }
 
@@ -65,7 +65,7 @@
         &[disabled]:hover {
             background-color: var(
                 --components-DatePicker-DropDown-colors-button-ok-background-disabled,
-                var(--general-utilities-neutral-neutralLight)
+                var(--general-utilities-neutral-light)
             );
             border-color: var(
                 --components-DatePicker-DropDown-colors-button-ok-border-disabled,
@@ -73,7 +73,7 @@
             );
             color: var(
                 --components-DatePicker-DropDown-colors-button-ok-typography-disabled,
-                var(--general-utilities-text-textDisabled)
+                var(--general-utilities-text-disabled)
             );
         }
     }

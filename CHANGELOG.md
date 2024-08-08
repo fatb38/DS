@@ -2,6 +2,23 @@
 
 ## [x.x.x](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (2024-07-31)
 
+### 🎨 Theming
+
+-   **⚠️ Breaking change - Update tokens and CSS variables:**
+
+    -   Rename last part of color tokens. The color name does not appear anymore. Exemple:
+        `primary.blue100` is now `primary.100`. This applies to all colors. (@evoiron)
+    -   Rename utilities colors tokens: (@evoiron)
+        -   Same as color tokens. Exemple:  `main.mainLight` is now `main.light`(@evoiron)
+        -   Rename `main.mainColor` as `main.default` (@evoiron)
+        -   Rename `error.errorColor` as `error.default` (@evoiron)
+        -   Rename `success.successColor` as `success.default` (@evoiron)
+        -   Rename `warning.warningColor` as `warning.default` (@evoiron)
+        -   Rename `shadow.shadowLight` as `shadow.light`, `shadow.shadowMedium` as `shadow.medium`,
+            `shadow.shadowBlue` as `shadow.blue` (@evoiron)
+
+    > If you use tokens or css variables in your application, we strongly recommend that you update them and prefer to use utilities.
+
 ### ✨ Features
 
 -   **Dropdown:**

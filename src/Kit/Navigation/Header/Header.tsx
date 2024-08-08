@@ -38,7 +38,7 @@ export const Header: FunctionComponent<IKitHeader> = ({
 
     const _renderDropdown = () => menu;
 
-    const customColors = _getCustomColors(theme.colors.primary.blue400);
+    const customColors = _getCustomColors(theme.colors.primary['400']);
 
     return (
         <div style={customColors} {...props} className={clx}>

@@ -7,13 +7,13 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    color: var(--components-Icon-colors-icon-default, var(--general-utilities-text-textPrimary));
+    color: var(--components-Icon-colors-icon-default, var(--general-utilities-text-primary));
     background-color: var(--components-Icon-colors-background-default, transparent);
     border-radius: convertToPixel(--components-Icon-border-radius-default, --general-border-radius-square);
 
     &.on {
-        color: var(--components-Icon-colors-icon-on, var(--general-utilities-main-mainColor));
-        background-color: var(--components-Icon-colors-background-on, var(--general-utilities-main-mainLight));
+        color: var(--components-Icon-colors-icon-on, var(--general-utilities-main-default));
+        background-color: var(--components-Icon-colors-background-on, var(--general-utilities-main-light));
         border-radius: convertToPixel(--components-Icon-border-radius-on, --general-border-radius-s);
     }
 

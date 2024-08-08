@@ -12,7 +12,8 @@ import {KitAristidThemeGeneral} from '@theme/aristid/general';
 
 const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: string}>`
   .${props => props.id} {
-    ${props => toCssVariables(props.customTheme)};
+      ${props => toCssVariables(props.customTheme)};
+
   }
 `;
 
@@ -44,7 +45,12 @@ export const KitThemeProvider: FunctionComponent<PropsWithChildren<{customTheme?
                             }
                         `}
                     </Style>
-                    {customTheme && <CustomVariables id={appId} customTheme={customTheme} />}
+                    {customTheme && (
+                        <CustomVariables
+                            id={appId}
+                            customTheme={merge({general: {utilities: KitAristidThemeGeneral.utilities}}, customTheme)}
+                        />
+                    )}
                     {children}
                 </>
             )}

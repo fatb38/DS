@@ -37,7 +37,7 @@
             .ant-picker-suffix {
                 grid-area: icon;
                 opacity: 1;
-                color: var(--components-DatePicker-colors-icon-default, var(--general-utilities-text-textPrimary));
+                color: var(--components-DatePicker-colors-icon-default, var(--general-utilities-text-primary));
             }
 
             .ant-picker-clear {
@@ -49,7 +49,7 @@
                 transform: none;
                 transition: none;
                 opacity: 1;
-                color: var(--components-DatePicker-colors-clearIcon-default, var(--general-utilities-text-textPrimary));
+                color: var(--components-DatePicker-colors-clearIcon-default, var(--general-utilities-text-primary));
             }
         }
 
@@ -60,28 +60,25 @@
                 input {
                     color: var(
                         --components-DatePicker-colors-typography-content-disabled,
-                        var(--general-utilities-text-textDisabled)
+                        var(--general-utilities-text-disabled)
                     );
 
                     &::placeholder {
                         color: var(
                             --components-DatePicker-colors-typography-placeholder-disabled,
-                            var(--general-utilities-text-textDisabled)
+                            var(--general-utilities-text-disabled)
                         );
                     }
                 }
 
                 .ant-picker-suffix {
-                    color: var(
-                        --components-DatePicker-colors-icon-disabled,
-                        var(--general-utilities-text-textDisabled)
-                    );
+                    color: var(--components-DatePicker-colors-icon-disabled, var(--general-utilities-text-disabled));
                 }
 
                 .ant-picker-clear {
                     color: var(
                         --components-DatePicker-colors-clearIcon-disabled,
-                        var(--general-utilities-text-textDisabled)
+                        var(--general-utilities-text-disabled)
                     );
                 }
             }
@@ -90,22 +87,16 @@
         &.ant-picker-status-warning:not(.ant-picker-disabled) {
             background-color: var(
                 --components-DatePicker-colors-background-warning,
-                var(--general-utilities-warning-warningLight)
+                var(--general-utilities-warning-light)
             );
-            border-color: var(
-                --components-DatePicker-colors-border-warning,
-                var(--general-utilities-warning-warningColor)
-            );
+            border-color: var(--components-DatePicker-colors-border-warning, var(--general-utilities-warning-default));
             box-shadow: none;
 
             &.ant-picker-focused {
                 border-color: transparent;
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 3px
-                    var(
-                        --components-DatePicker-colors-border-focus-warning,
-                        var(--general-utilities-warning-warningMedium)
-                    );
+                    var(--components-DatePicker-colors-border-focus-warning, var(--general-utilities-warning-medium));
 
                 &:hover {
                     border-color: transparent;
@@ -115,11 +106,11 @@
             &:hover {
                 background-color: var(
                     --components-DatePicker-colors-background-warning,
-                    var(--general-utilities-warning-warningLight)
+                    var(--general-utilities-warning-light)
                 );
                 border-color: var(
                     --components-DatePicker-colors-border-warning,
-                    var(--general-utilities-warning-warningColor)
+                    var(--general-utilities-warning-default)
                 );
             }
 
@@ -127,26 +118,23 @@
                 input {
                     color: var(
                         --components-DatePicker-colors-typography-content-warning,
-                        var(--general-utilities-text-textWarning)
+                        var(--general-utilities-text-warning)
                     );
 
                     &::placeholder {
                         color: var(
                             --components-DatePicker-colors-typography-placeholder-warning,
-                            var(--general-utilities-text-textWarning)
+                            var(--general-utilities-text-warning)
                         );
                     }
                 }
 
                 .ant-picker-suffix {
-                    color: var(--components-DatePicker-colors-icon-warning, var(--general-utilities-text-textWarning));
+                    color: var(--components-DatePicker-colors-icon-warning, var(--general-utilities-text-warning));
                 }
 
                 .ant-picker-clear {
-                    color: var(
-                        --components-DatePicker-colors-clearIcon-warning,
-                        var(--general-utilities-text-textWarning)
-                    );
+                    color: var(--components-DatePicker-colors-clearIcon-warning, var(--general-utilities-text-warning));
                 }
             }
         }
@@ -154,16 +142,16 @@
         &.ant-picker-status-error:not(.ant-picker-disabled) {
             background-color: var(
                 --components-DatePicker-colors-background-error,
-                var(--general-utilities-error-errorLight)
+                var(--general-utilities-error-light)
             );
-            border-color: var(--components-DatePicker-colors-border-error, var(--general-utilities-error-errorColor));
+            border-color: var(--components-DatePicker-colors-border-error, var(--general-utilities-error-default));
             box-shadow: none;
 
             &.ant-picker-focused {
                 border-color: transparent;
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 3px
-                    var(--components-DatePicker-colors-border-focus-error, var(--general-utilities-error-errorMedium));
+                    var(--components-DatePicker-colors-border-focus-error, var(--general-utilities-error-medium));
 
                 &:hover {
                     border-color: transparent;
@@ -173,35 +161,32 @@
             &:hover {
                 background-color: var(
                     --components-DatePicker-colors-background-error,
-                    var(--general-utilities-error-errorLight)
+                    var(--general-utilities-error-light)
                 );
-                border-color: var(
-                    --components-DatePicker-colors-border-error,
-                    var(--general-utilities-error-errorColor)
-                );
+                border-color: var(--components-DatePicker-colors-border-error, var(--general-utilities-error-default));
             }
 
             .ant-picker-input {
                 input {
                     color: var(
                         --components-DatePicker-colors-typography-content-error,
-                        var(--general-utilities-text-textError)
+                        var(--general-utilities-text-error)
                     );
 
                     &::placeholder {
                         color: var(
                             --components-DatePicker-colors-typography-placeholder-error,
-                            var(--general-utilities-text-textError)
+                            var(--general-utilities-text-error)
                         );
                     }
                 }
 
                 .ant-picker-suffix {
-                    color: var(--components-DatePicker-colors-icon-error, var(--general-utilities-text-textError));
+                    color: var(--components-DatePicker-colors-icon-error, var(--general-utilities-text-error));
                 }
 
                 .ant-picker-clear {
-                    color: var(--components-DatePicker-colors-clearIcon-error, var(--general-utilities-text-textError));
+                    color: var(--components-DatePicker-colors-clearIcon-error, var(--general-utilities-text-error));
                 }
             }
         }
@@ -224,7 +209,7 @@
             .ant-picker-input input::placeholder,
             .ant-picker-input .ant-picker-suffix {
                 font-weight: var(--general-typography-boldFontWeight);
-                color: var(--general-utilities-text-textPrimary);
+                color: var(--general-utilities-text-primary);
                 cursor: default;
             }
 
@@ -232,7 +217,7 @@
                 input,
                 input::placeholder,
                 .ant-picker-suffix {
-                    color: var(--general-utilities-text-textError);
+                    color: var(--general-utilities-text-error);
                 }
             }
         }
@@ -261,7 +246,7 @@
             svg {
                 color: var(
                     --components-DatePicker-RangePicker-colors-separator-default,
-                    var(--general-utilities-text-textPrimary)
+                    var(--general-utilities-text-primary)
                 );
 
                 font-size: convertToPixel(--general-typography-fontSize7);
@@ -305,10 +290,7 @@
         .ant-picker-suffix {
             grid-area: icon;
             opacity: 1;
-            color: var(
-                --components-DatePicker-RangePicker-colors-icon-default,
-                var(--general-utilities-text-textPrimary)
-            );
+            color: var(--components-DatePicker-RangePicker-colors-icon-default, var(--general-utilities-text-primary));
         }
 
         .ant-picker-clear {
@@ -322,7 +304,7 @@
             opacity: 1;
             color: var(
                 --components-DatePicker-RangePicker-colors-clearIcon-default,
-                var(--general-utilities-text-textPrimary)
+                var(--general-utilities-text-primary)
             );
         }
 
@@ -330,7 +312,7 @@
             input[disabled] {
                 color: var(
                     --components-DatePicker-RangePicker-colors-typography-content-disabled,
-                    var(--general-utilities-text-textDisabled)
+                    var(--general-utilities-text-disabled)
                 );
             }
         }
@@ -345,13 +327,13 @@
                 input {
                     color: var(
                         --components-DatePicker-RangePicker-colors-typography-content-disabled,
-                        var(--general-utilities-text-textDisabled)
+                        var(--general-utilities-text-disabled)
                     );
 
                     &::placeholder {
                         color: var(
                             --components-DatePicker-RangePicker-colors-typography-placeholder-disabled,
-                            var(--general-utilities-text-textDisabled)
+                            var(--general-utilities-text-disabled)
                         );
                     }
                 }
@@ -360,21 +342,21 @@
             .ant-picker-range-separator svg {
                 color: var(
                     --components-DatePicker-RangePicker-colors-separator-disabled,
-                    var(--general-utilities-text-textDisabled)
+                    var(--general-utilities-text-disabled)
                 );
             }
 
             .ant-picker-suffix {
                 color: var(
                     --components-DatePicker-RangePicker-colors-icon-disabled,
-                    var(--general-utilities-text-textDisabled)
+                    var(--general-utilities-text-disabled)
                 );
             }
 
             .ant-picker-clear {
                 color: var(
                     --components-DatePicker-RangePicker-colors-clearIcon-disabled,
-                    var(--general-utilities-text-textDisabled)
+                    var(--general-utilities-text-disabled)
                 );
             }
         }
@@ -382,11 +364,11 @@
         &.ant-picker-status-warning:not(.ant-picker-disabled) {
             background-color: var(
                 --components-DatePicker-RangePicker-colors-background-warning,
-                var(--general-utilities-warning-warningLight)
+                var(--general-utilities-warning-light)
             );
             border-color: var(
                 --components-DatePicker-RangePicker-colors-border-warning,
-                var(--general-utilities-warning-warningColor)
+                var(--general-utilities-warning-default)
             );
             box-shadow: none;
 
@@ -394,10 +376,7 @@
                 border-color: transparent;
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 3px
-                    var(
-                        --components-DatePicker-colors-border-focus-warning,
-                        var(--general-utilities-warning-warningMedium)
-                    );
+                    var(--components-DatePicker-colors-border-focus-warning, var(--general-utilities-warning-medium));
 
                 &:hover {
                     border-color: transparent;
@@ -407,11 +386,11 @@
             &:hover {
                 background-color: var(
                     --components-DatePicker-RangePicker-colors-background-warning,
-                    var(--general-utilities-warning-warningLight)
+                    var(--general-utilities-warning-light)
                 );
                 border-color: var(
                     --components-DatePicker-RangePicker-colors-border-warning,
-                    var(--general-utilities-warning-warningColor)
+                    var(--general-utilities-warning-default)
                 );
             }
 
@@ -419,13 +398,13 @@
                 input {
                     color: var(
                         --components-DatePicker-RangePicker-colors-typography-content-warning,
-                        var(--general-utilities-text-textWarning)
+                        var(--general-utilities-text-warning)
                     );
 
                     &::placeholder {
                         color: var(
                             --components-DatePicker-RangePicker-colors-typography-placeholder-warning,
-                            var(--general-utilities-text-textWarning)
+                            var(--general-utilities-text-warning)
                         );
                     }
                 }
@@ -434,21 +413,21 @@
             .ant-picker-range-separator svg {
                 color: var(
                     --components-DatePicker-RangePicker-colors-separator-warning,
-                    var(--general-utilities-text-textWarning)
+                    var(--general-utilities-text-warning)
                 );
             }
 
             .ant-picker-suffix {
                 color: var(
                     --components-DatePicker-RangePicker-colors-icon-warning,
-                    var(--general-utilities-text-textWarning)
+                    var(--general-utilities-text-warning)
                 );
             }
 
             .ant-picker-clear {
                 color: var(
                     --components-DatePicker-RangePicker-colors-clearIcon-warning,
-                    var(--general-utilities-text-textWarning)
+                    var(--general-utilities-text-warning)
                 );
             }
         }
@@ -456,11 +435,11 @@
         &.ant-picker-status-error:not(.ant-picker-disabled) {
             background-color: var(
                 --components-DatePicker-RangePicker-colors-background-error,
-                var(--general-utilities-error-errorLight)
+                var(--general-utilities-error-light)
             );
             border-color: var(
                 --components-DatePicker-RangePicker-colors-border-error,
-                var(--general-utilities-error-errorColor)
+                var(--general-utilities-error-default)
             );
             box-shadow: none;
 
@@ -468,7 +447,7 @@
                 border-color: transparent;
                 // TODO change to cards-border-stroke when available
                 box-shadow: 0 0 0 3px
-                    var(--components-DatePicker-colors-border-focus-error, var(--general-utilities-error-errorMedium));
+                    var(--components-DatePicker-colors-border-focus-error, var(--general-utilities-error-medium));
 
                 &:hover {
                     border-color: transparent;
@@ -478,11 +457,11 @@
             &:hover {
                 background-color: var(
                     --components-DatePicker-RangePicker-colors-background-error,
-                    var(--general-utilities-error-errorLight)
+                    var(--general-utilities-error-light)
                 );
                 border-color: var(
                     --components-DatePicker-RangePicker-colors-border-error,
-                    var(--general-utilities-error-errorColor)
+                    var(--general-utilities-error-default)
                 );
             }
 
@@ -490,13 +469,13 @@
                 input {
                     color: var(
                         --components-DatePicker-RangePicker-colors-typography-content-error,
-                        var(--general-utilities-text-textError)
+                        var(--general-utilities-text-error)
                     );
 
                     &::placeholder {
                         color: var(
                             --components-DatePicker-RangePicker-colors-typography-placeholder-error,
-                            var(--general-utilities-text-textError)
+                            var(--general-utilities-text-error)
                         );
                     }
                 }
@@ -505,21 +484,18 @@
             .ant-picker-range-separator svg {
                 color: var(
                     --components-DatePicker-RangePicker-colors-separator-error,
-                    var(--general-utilities-text-textError)
+                    var(--general-utilities-text-error)
                 );
             }
 
             .ant-picker-suffix {
-                color: var(
-                    --components-DatePicker-RangePicker-colors-icon-error,
-                    var(--general-utilities-text-textError)
-                );
+                color: var(--components-DatePicker-RangePicker-colors-icon-error, var(--general-utilities-text-error));
             }
 
             .ant-picker-clear {
                 color: var(
                     --components-DatePicker-RangePicker-colors-clearIcon-error,
-                    var(--general-utilities-text-textError)
+                    var(--general-utilities-text-error)
                 );
             }
         }
@@ -543,19 +519,19 @@
             .ant-picker-range-separator .ant-picker-separator,
             .ant-picker-suffix {
                 font-weight: var(--general-typography-boldFontWeight);
-                color: var(--general-utilities-text-textPrimary);
+                color: var(--general-utilities-text-primary);
                 cursor: default;
             }
 
             &.ant-picker-status-error {
                 input::placeholder {
-                    color: var(--general-utilities-text-textError);
+                    color: var(--general-utilities-text-error);
                 }
 
                 input,
                 .ant-picker-suffix,
                 svg {
-                    color: var(--general-utilities-text-textError);
+                    color: var(--general-utilities-text-error);
                 }
             }
         }

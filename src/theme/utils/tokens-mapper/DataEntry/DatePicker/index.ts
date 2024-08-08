@@ -5,16 +5,16 @@ import {utilitiesCssTokens} from '@theme/aristid/general/utilities';
 
 export const datePickerKitTokenToAntdToken = {
     colorBgContainer: `var(${kitDatePickerCssTokens.colors.background.default}, var(${utilitiesCssTokens.light}))`,
-    colorBgContainerDisabled: `var(${kitDatePickerCssTokens.colors.background.disabled}, var(${utilitiesCssTokens.neutral.neutralLight}))`,
+    colorBgContainerDisabled: `var(${kitDatePickerCssTokens.colors.background.disabled}, var(${utilitiesCssTokens.neutral.light}))`,
     colorBorder: `var(${kitDatePickerCssTokens.colors.border.default}, var(${utilitiesCssTokens.border}))`,
-    colorPrimary: `var(${kitDatePickerCssTokens.colors.border.active}, var(${utilitiesCssTokens.main.mainColor}))`,
-    colorPrimaryHover: `var(${kitDatePickerCssTokens.colors.border.hover}, var(${utilitiesCssTokens.main.mainColor}))`,
-    colorLink: `var(${kitDatePickerCssTokens.colors.link.default}, var(${utilitiesCssTokens.main.mainColor}))`,
-    colorLinkHover: `var(${kitDatePickerCssTokens.colors.link.hover}, var(${utilitiesCssTokens.main.mainDark}))`,
-    controlItemBgHover: `var(${kitDatePickerCssTokens.colors.item.hover}, var(${utilitiesCssTokens.neutral.neutralMedium}))`,
-    controlItemBgActive: `var(${kitDatePickerCssTokens.colors.item.active}, var(${utilitiesCssTokens.main.mainLight}))`,
-    colorTextPlaceholder: `var(${kitDatePickerCssTokens.colors.typography.placeholder.default}, var(${utilitiesCssTokens.text.textDisabled}))`,
-    colorText: `var(${kitDatePickerCssTokens.colors.typography.content.default}, var(${utilitiesCssTokens.text.textPrimary}))`,
+    colorPrimary: `var(${kitDatePickerCssTokens.colors.border.active}, var(${utilitiesCssTokens.main.default}))`,
+    colorPrimaryHover: `var(${kitDatePickerCssTokens.colors.border.hover}, var(${utilitiesCssTokens.main.default}))`,
+    colorLink: `var(${kitDatePickerCssTokens.colors.link.default}, var(${utilitiesCssTokens.main.default}))`,
+    colorLinkHover: `var(${kitDatePickerCssTokens.colors.link.hover}, var(${utilitiesCssTokens.main.dark}))`,
+    controlItemBgHover: `var(${kitDatePickerCssTokens.colors.item.hover}, var(${utilitiesCssTokens.neutral.medium}))`,
+    controlItemBgActive: `var(${kitDatePickerCssTokens.colors.item.active}, var(${utilitiesCssTokens.main.light}))`,
+    colorTextPlaceholder: `var(${kitDatePickerCssTokens.colors.typography.placeholder.default}, var(${utilitiesCssTokens.text.disabled}))`,
+    colorText: `var(${kitDatePickerCssTokens.colors.typography.content.default}, var(${utilitiesCssTokens.text.primary}))`,
     borderRadiusSM: KitAristidThemeGeneral.border.radius.xxs,
     fontFamily: `var(${kitDatePickerCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`
 };

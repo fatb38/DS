@@ -4,8 +4,8 @@
     .ant-steps-item {
         &.ant-steps-item-finish {
             .ant-steps-item-icon {
-                background: var(--general-utilities-main-mainColor);
-                border: 1px solid var(--general-utilities-main-mainColor);
+                background: var(--general-utilities-main-default);
+                border: 1px solid var(--general-utilities-main-default);
                 border-radius: convertToPixel(--general-border-radius-l);
                 width: 24px;
                 height: 24px;

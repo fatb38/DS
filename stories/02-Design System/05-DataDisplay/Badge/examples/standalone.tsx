@@ -20,9 +20,7 @@ const App = () => {
                 <KitBadge count={show ? 11 : 0} showZero />
                 <KitBadge count={show ? 25 : 0} />
                 <KitBadge
-                    count={
-                        show ? <FontAwesomeIcon icon={faClock} style={{color: theme.utilities.error.errorDark}} /> : 0
-                    }
+                    count={show ? <FontAwesomeIcon icon={faClock} style={{color: theme.utilities.error.dark}} /> : 0}
                 />
             </KitSpace>
         </KitSpace>

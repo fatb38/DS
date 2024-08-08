@@ -115,29 +115,23 @@
         padding: 12px;
 
         &.kit-confirm-icon-info {
-            color: var(--components-Modal-colors-icon-info, var(--general-utilities-text-textBlue));
-            background: var(--components-Modal-colors-background-info, var(--general-utilities-main-mainLight));
+            color: var(--components-Modal-colors-icon-info, var(--general-utilities-text-blue));
+            background: var(--components-Modal-colors-background-info, var(--general-utilities-main-light));
         }
 
         &.kit-confirm-icon-success {
-            color: var(--components-Modal-colors-icon-success, var(--general-utilities-text-textSuccess));
-            background: var(
-                --components-Modal-colors-background-success,
-                var(--general-utilities-success-successLight)
-            );
+            color: var(--components-Modal-colors-icon-success, var(--general-utilities-text-success));
+            background: var(--components-Modal-colors-background-success, var(--general-utilities-success-light));
         }
 
         &.kit-confirm-icon-warning {
-            color: var(--components-Modal-colors-icon-warning, var(--general-utilities-text-textWarning));
-            background: var(
-                --components-Modal-colors-background-warning,
-                var(--general-utilities-warning-warningLight)
-            );
+            color: var(--components-Modal-colors-icon-warning, var(--general-utilities-text-warning));
+            background: var(--components-Modal-colors-background-warning, var(--general-utilities-warning-light));
         }
 
         &.kit-confirm-icon-error {
-            color: var(--components-Modal-colors-icon-error, var(--general-utilities-text-textError));
-            background: var(--components-Modal-colors-background-error, var(--general-utilities-error-errorLight));
+            color: var(--components-Modal-colors-icon-error, var(--general-utilities-text-error));
+            background: var(--components-Modal-colors-background-error, var(--general-utilities-error-light));
         }
     }
 }

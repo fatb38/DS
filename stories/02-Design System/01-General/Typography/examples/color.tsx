@@ -19,12 +19,12 @@ const App = () => {
                 Aristid Design Paragraph-L medium
             </KitTypography.Paragraph>
             {secondaryColors.map((color: string) => (
-                <KitTypography.Paragraph size="large" weight="medium" color={color}>
+                <KitTypography.Paragraph size="large" weight="medium" color={color} key={color}>
                     Aristid Design Paragraph-L medium
                 </KitTypography.Paragraph>
             ))}
             {tertiaryColors.map((color: string) => (
-                <KitTypography.Paragraph size="large" weight="medium" color={color}>
+                <KitTypography.Paragraph size="large" weight="medium" color={color} key={color}>
                     Aristid Design Paragraph-L medium
                 </KitTypography.Paragraph>
             ))}

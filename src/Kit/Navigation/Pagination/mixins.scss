@@ -5,7 +5,7 @@
         }
 
         &:not(.ant-pagination-disabled) .ant-pagination-item:hover {
-            border-color: var(--components-Pagination-pagination-border-hover, var(--general-utilities-main-mainColor));
+            border-color: var(--components-Pagination-pagination-border-hover, var(--general-utilities-main-default));
             background-color: var(
                 --components-Pagination-pagination-colors-background-hover,
                 var(--general-utilities-light)
@@ -55,11 +55,11 @@
             &:hover {
                 border-color: var(
                     --components-Pagination-prevNext-colors-border-hover,
-                    var(--general-utilities-main-mainColor)
+                    var(--general-utilities-main-default)
                 );
                 color: var(
                     --components-Pagination-prevNext-colors-typography-hover,
-                    var(--general-utilities-main-mainColor)
+                    var(--general-utilities-main-default)
                 );
 
                 .ant-pagination-item-link {
@@ -69,7 +69,7 @@
                 button {
                     color: var(
                         --components-Pagination-prevNext-colors-typography-hover,
-                        var(--general-utilities-main-mainColor)
+                        var(--general-utilities-main-default)
                     );
                 }
             }
@@ -89,7 +89,7 @@
         .ant-pagination-item-active a {
             color: var(
                 --components-Pagination-pagination-colors-typography-disabledActive,
-                var(--general-utilities-text-textLight)
+                var(--general-utilities-text-light)
             );
         }
     }
