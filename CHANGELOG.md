@@ -21,6 +21,11 @@
 
 ### ✨ Features
 
+-   **⚠️ Breaking change - Header Component:**
+    - Rename `menuCard` prop of `Header.Profile` to `profileCardProps` and change its type from `ReactNode` to `IKitIdCard` (@evoiron)
+    - Add `profileMenuCardProps` in `Header.Profile` as `IKitIdCard` (@evoiron)
+    - Add `complement` in `Header.Profile` as `ReactNode` (@evoiron)
+
 -   **Dropdown:**
     -   Update border, active & selected styles (@renaudAmsellem)
     -   Add new example with custom items (@renaudAmsellem)

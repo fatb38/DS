@@ -35,7 +35,7 @@ const items: IKitDropdownMenu['items'] = [
 
 const App = () => (
     <KitSpace>
-        <KitDropDown menu={{items}}>
+        <KitDropDown menu={{items}} open>
             <KitTypography.Link>
                 Hover me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
             </KitTypography.Link>

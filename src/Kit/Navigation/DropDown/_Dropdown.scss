@@ -75,7 +75,7 @@
             }
 
             &:not(:last-child) {
-                margin-bottom: convertToPixel(--general-spacing-xxs);
+                margin-bottom: convertToPixel(--general-spacing-xs);
             }
 
             &.ant-dropdown-menu-item-active {
@@ -206,6 +206,7 @@
                 --components-DropDown-menuItem-divider-colors-background-default,
                 var(--general-utilities-border)
             );
+            margin: convertToPixel(--general-spacing-xs) 0;
         }
 
         a {

@@ -25,6 +25,10 @@
             object-fit: fill;
         }
     }
+
+    &.ant-avatar-square {
+        border-radius: convertToPixel(--general-border-radius-s);
+    }
 }
 
 :local(.kit-avatar-disabled) {

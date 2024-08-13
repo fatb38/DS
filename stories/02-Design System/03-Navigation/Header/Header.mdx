@@ -63,6 +63,15 @@ Header can display information about the user.
     id="header-profile"
 />
 
+You can also display a complementary content on the right of the profile block. Just provide it as a `complement` prop.
+
+<CustomCanvas
+    content={Examples.ProfileComplement}
+    source={Sources.ProfileComplement}
+    backgroundColor={KitAristidThemeGeneral.colors.primary['50']}
+    id="header-profile"
+/>
+
 ##### Lang
 
 Header can display a language switcher on the right. The switcher itself must be provided by the app.
@@ -93,14 +102,22 @@ The most complete usage with a menu, a logo, some content, a user profile and a 
 
 ### Header.Profile
 
-| Property  | Description                                                                 | Type        | Default |
-| --------- | --------------------------------------------------------------------------- | ----------- | ------- |
-| className | The additional css class                                                    | string      | -       |
-| logo      | Url of the logo to display (optional)                                       | string      | -       |
-| alt       | This attribute defines the alternative text describing the image (optional) | string      | -       |
-| tagProps  | tag to display (optional)                                                   | IKitTag     | -       |
-| userCard  | `KitIdCard` to display (optional). See KitIdCard fo details                 | `ReactNode` | -       |
-| menu      | The menu props                                                              | `ReactNode` | -       |
+| Property               | Description                                                                   | Type              | Default |
+| ---------------------- | ----------------------------------------------------------------------------- | -------------     | ------- |
+| className              | The additional css class                                                      | string            | -       |
+| logo                   | Url of the logo to display (optional)                                         | string            | -       |
+| alt                    | This attribute defines the alternative text describing the image (optional)   | string            | -       |
+| tagProps               | tag to display (optional)                                                     | `IKitTag`         | -       |
+| profileMenuCardProps   | `KitHeaderIdCard` to display inside menu (optional). See KitIdCard fo details | `KitHeaderIdCard` | -       |
+| profileCardProps       | `KitIdCard` to display (optional). See KitIdCard fo details                   | `IKitIdCard`      | -       |
+| complement             | Complementary element to display on the right of profile block (optional)     | `ReactNode`       | -       |
+| menu                   | The menu props                                                                | `ReactNode`       | -       |
+
+
+```typescript
+type KitHeaderIdCard = IKitIdCard & {onClick?: () => void};
+```
+
 
 ## Design Tokens
 
