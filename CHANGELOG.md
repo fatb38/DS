@@ -9,7 +9,7 @@
     -   Rename last part of color tokens. The color name does not appear anymore. Exemple:
         `primary.blue100` is now `primary.100`. This applies to all colors. (@evoiron)
     -   Rename utilities colors tokens: (@evoiron)
-        -   Same as color tokens. Exemple:  `main.mainLight` is now `main.light`(@evoiron)
+        -   Same as color tokens. Exemple: `main.mainLight` is now `main.light`(@evoiron)
         -   Rename `main.mainColor` as `main.default` (@evoiron)
         -   Rename `error.errorColor` as `error.default` (@evoiron)
         -   Rename `success.successColor` as `success.default` (@evoiron)
@@ -29,6 +29,9 @@
     -   Update icons used as separator (@philippechevieux)
 -   **Steps:**
     -   Update overall styles (@renaudAmsellem)
+-   **Menu (Deprecated):**
+    -   Deprecate Menu component
+    -   Move Menu documentation to deprecated folder
 
 ## [8.0.0](https://www.npmjs.com/package/aristid-ds/v/8.0.0) (2024-07-25)
 
