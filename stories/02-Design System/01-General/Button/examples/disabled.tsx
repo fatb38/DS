@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitButton, KitSpace} from '@kit/index';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {faMagnifyingGlass, faWineBottle} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => (
     <KitSpace direction="vertical">
@@ -47,6 +47,34 @@ const App = () => (
             </KitButton>
             <KitButton type="text" danger disabled>
                 Text danger(disabled)
+            </KitButton>
+        </KitSpace>
+        <KitSpace>
+            <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                Link
+            </KitButton>
+            <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} disabled>
+                Link(disabled)
+            </KitButton>
+            <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger>
+                Link danger
+            </KitButton>
+            <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger disabled>
+                Link danger(disabled)
+            </KitButton>
+        </KitSpace>
+        <KitSpace>
+            <KitButton type="redirect" icon={<FontAwesomeIcon icon={faWineBottle} />}>
+                Redirect
+            </KitButton>
+            <KitButton type="redirect" icon={<FontAwesomeIcon icon={faWineBottle} />} disabled>
+                Redirect(disabled)
+            </KitButton>
+            <KitButton type="redirect" icon={<FontAwesomeIcon icon={faWineBottle} />} danger>
+                Redirect danger
+            </KitButton>
+            <KitButton type="redirect" icon={<FontAwesomeIcon icon={faWineBottle} />} danger disabled>
+                Redirect danger(disabled)
             </KitButton>
         </KitSpace>
         <KitSpace>

@@ -4,6 +4,8 @@ import {KitButton} from '@kit/General/';
 import {argTypes} from './data';
 import {Template} from './Template';
 import {PrimaryButtonTest} from './test-components/PrimaryButtonTest.tsx';
+import {LinkButtonTest} from './test-components/LinkButtonTest.tsx';
+import {RedirectButtonTest} from './test-components/RedirectButtonTest.tsx';
 import {DefaultButtonTest} from './test-components/DefaultButtonTest.tsx';
 import {TertiaryButtonTest} from './test-components/TertiaryButtonTest.tsx';
 import {DangerButtonTest} from './test-components/DangerButtonTest.tsx';
@@ -35,6 +37,8 @@ export const ChromaticTest: Story = {
             <PrimaryButtonTest />
             <DefaultButtonTest />
             <TertiaryButtonTest />
+            <LinkButtonTest />
+            <RedirectButtonTest />
             <DangerButtonTest />
             <TextButtonTest />
             <SegmentedButtonTest />

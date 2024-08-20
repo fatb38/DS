@@ -13,7 +13,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import type {IKitButton, KitButtonCompoundedComponent, loadingConfig, loadingType} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleCheck} from '@fortawesome/free-solid-svg-icons';
+import {faArrowRight, faCircleCheck} from '@fortawesome/free-solid-svg-icons';
 import useSecureClick from '@hooks/useSecureClick';
 import cn from 'classnames';
 
@@ -55,6 +55,8 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
         htmlType = 'button',
         checked,
         active,
+        href,
+        target,
         loading: internalLoading = false,
         icon,
         danger,
@@ -81,6 +83,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
     const clx = cn(appId, styles['kit-btn'], className, {
         [`kit-btn-${type}`]: !dangerModal && type,
         [`kit-btn-secondary`]: dangerModal || type === 'secondary',
+        ['kit-btn-disabled']: disabled,
         ['kit-btn-danger-modal']: dangerModal,
         ['kit-btn-danger']: danger,
         ['kit-btn-block']: block,
@@ -114,21 +117,30 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
         return cleanupTimer;
     }, [internalLoading, loadingOrDelay]);
 
+    const Component = type === 'link' || type === 'redirect' ? 'a' : 'button';
+    const linkProps = {
+        href: type === 'link' || type === 'redirect' ? href : undefined,
+        target: type === 'link' || type === 'redirect' ? target : undefined,
+        tabIndex: 0
+    };
+
     return (
-        <button
+        <Component
             onClick={disableSecureClick ? onClick : secureClick}
             disabled={disabled}
-            ref={ref as LegacyRef<HTMLButtonElement>}
+            {...linkProps}
+            ref={ref as LegacyRef<HTMLButtonElement & HTMLAnchorElement>}
             type={htmlType}
             {...props}
             className={clx}
         >
             {loading ? <LoadingOutlined className="kit-btn-icon" /> : BtnIcon}
             {children}
+            {type === 'redirect' && <FontAwesomeIcon icon={faArrowRight} className="kit-btn-icon-redirect" />}
             {type === 'segmented' && checked && (
                 <FontAwesomeIcon icon={faCircleCheck} className="kit-btn-segmented-actived-icon" />
             )}
-        </button>
+        </Component>
     );
 };
 

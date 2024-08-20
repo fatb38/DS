@@ -1,7 +1,7 @@
 import React from 'react';
 import {KitButton, KitSpace} from '@kit/index';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {faMagnifyingGlass, faWineBottle} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => (
     <KitSpace wrap>
@@ -14,6 +14,12 @@ const App = () => (
         </KitButton>
         <KitButton type="text" danger>
             Text
+        </KitButton>
+        <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger>
+            Link
+        </KitButton>
+        <KitButton type="redirect" icon={<FontAwesomeIcon icon={faWineBottle} />} danger>
+            Redirect
         </KitButton>
         <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} danger />
     </KitSpace>

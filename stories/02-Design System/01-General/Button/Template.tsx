@@ -1,7 +1,13 @@
 import React from 'react';
 import {KitButton} from '@kit/General/';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faDownload, faMagnifyingGlass, faPowerOff, faRotateRight} from '@fortawesome/free-solid-svg-icons';
+import {
+    faDownload,
+    faMagnifyingGlass,
+    faPowerOff,
+    faRotateRight,
+    faWineBottle
+} from '@fortawesome/free-solid-svg-icons';
 import {faCircleCheck} from '@fortawesome/free-regular-svg-icons';
 import {KitSpace} from '@kit/Layout';
 import {IEditorTemplate} from '../../../types';
@@ -49,35 +55,51 @@ export const EditorTemplate: IEditorTemplate = () => (
             </KitButton>
         </KitSpace>
         <KitSpace>
-            <KitButton>Default</KitButton>
-            <KitButton disabled>Default(disabled)</KitButton>
-            <KitButton danger>Danger Default</KitButton>
+            <KitButton>Secondary</KitButton>
+            <KitButton disabled>Secondary(disabled)</KitButton>
+            <KitButton danger>Danger Secondary</KitButton>
             <KitButton danger disabled>
-                Danger Default(disabled)
+                Danger Secondary(disabled)
             </KitButton>
         </KitSpace>
         <KitSpace>
-            <KitButton type="tertiary">Default</KitButton>
+            <KitButton type="tertiary">Tertiary</KitButton>
             <KitButton type="tertiary" disabled>
-                Default(disabled)
+                Tertiary(disabled)
             </KitButton>
             <KitButton type="tertiary" danger>
-                Danger Default
+                Danger Tertiary
             </KitButton>
             <KitButton type="tertiary" danger disabled>
-                Danger Default(disabled)
+                Tertiary(disabled)
             </KitButton>
         </KitSpace>
         <KitSpace>
-            <KitButton type="text">Text</KitButton>
-            <KitButton type="text" disabled>
-                Text(disabled)
+            <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                Link
             </KitButton>
-            <KitButton type="text" danger>
-                Text danger
+            <KitButton type="link" disabled icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                Link(disabled)
             </KitButton>
-            <KitButton type="text" danger disabled>
-                Text danger(disabled)
+            <KitButton type="link" danger icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                Link danger
+            </KitButton>
+            <KitButton type="link" danger disabled icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                Link danger(disabled)
+            </KitButton>
+        </KitSpace>
+        <KitSpace>
+            <KitButton type="redirect" icon={<FontAwesomeIcon icon={faWineBottle} />}>
+                Redirect
+            </KitButton>
+            <KitButton type="redirect" disabled icon={<FontAwesomeIcon icon={faWineBottle} />}>
+                Redirect(disabled)
+            </KitButton>
+            <KitButton type="redirect" danger icon={<FontAwesomeIcon icon={faWineBottle} />}>
+                Redirect danger
+            </KitButton>
+            <KitButton type="redirect" danger disabled icon={<FontAwesomeIcon icon={faWineBottle} />}>
+                Redirect danger(disabled)
             </KitButton>
         </KitSpace>
         <KitSpace>
