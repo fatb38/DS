@@ -30,9 +30,6 @@ const App = () => {
                         Loading
                     </KitButton>
                     <KitButton loading>Loading</KitButton>
-                    <KitButton type="text" loading>
-                        Loading
-                    </KitButton>
                     <KitButton type="link" loading icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                         Loading
                     </KitButton>
@@ -53,7 +50,20 @@ const App = () => {
                     >
                         Click me!
                     </KitButton>
-                    <KitButton type="text" loading={loadings[2]} onClick={() => enterLoading(2)}>
+                    <KitButton
+                        type="link"
+                        icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
+                        loading={loadings[2]}
+                        onClick={() => enterLoading(2)}
+                    >
+                        Click me!
+                    </KitButton>
+                    <KitButton
+                        type="redirect"
+                        icon={<FontAwesomeIcon icon={faWineBottle} />}
+                        loading={loadings[2]}
+                        onClick={() => enterLoading(2)}
+                    >
                         Click me!
                     </KitButton>
                     <KitButton

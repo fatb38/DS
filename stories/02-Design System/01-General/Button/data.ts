@@ -95,9 +95,9 @@ export const argTypes = {
     },
     type: {
         name: 'type',
-        options: ['primary', 'secondary', 'tertiary', 'text', 'segmented', 'link', 'redirect'],
+        options: ['primary', 'secondary', 'tertiary', 'segmented', 'link', 'redirect'],
         control: {type: 'select'},
-        description: 'Can be set to `primary` | `secondary` | `tertiary` | `text` | `segmented` | `link` | `redirect`',
+        description: 'Can be set to `primary` | `secondary` | `tertiary` | `segmented` | `link` | `redirect`',
         table: {
             type: {
                 summary: 'string'

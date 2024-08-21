@@ -39,6 +39,7 @@
     -   Move Menu documentation to deprecated folder
 -   **Button**
     - Add `link` and `redirect` Button types (@evoiron)
+    - Deprecate `text' Button type (@evoiron)
 
 ## [8.0.0](https://www.npmjs.com/package/aristid-ds/v/8.0.0) (2024-07-25)
 

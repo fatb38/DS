@@ -17,7 +17,7 @@ export const ButtonsNotificationTest: FunctionComponent = () => (
                 description={description}
                 btn={
                     <>
-                        <KitButton type="text">Cancel</KitButton>
+                        <KitButton type="tertiary">Cancel</KitButton>
                         <KitButton>Ok</KitButton>
                     </>
                 }
@@ -28,7 +28,7 @@ export const ButtonsNotificationTest: FunctionComponent = () => (
                 description={description}
                 btn={
                     <>
-                        <KitButton type="text">Cancel</KitButton>
+                        <KitButton type="tertiary">Cancel</KitButton>
                         <KitButton>Ok</KitButton>
                     </>
                 }
@@ -39,7 +39,7 @@ export const ButtonsNotificationTest: FunctionComponent = () => (
                 description={description}
                 btn={
                     <>
-                        <KitButton type="text">Cancel</KitButton>
+                        <KitButton type="tertiary">Cancel</KitButton>
                         <KitButton>Ok</KitButton>
                     </>
                 }
@@ -50,7 +50,7 @@ export const ButtonsNotificationTest: FunctionComponent = () => (
                 description={description}
                 btn={
                     <>
-                        <KitButton type="text">Cancel</KitButton>
+                        <KitButton type="tertiary">Cancel</KitButton>
                         <KitButton>Ok</KitButton>
                     </>
                 }
@@ -60,7 +60,7 @@ export const ButtonsNotificationTest: FunctionComponent = () => (
                 description={description}
                 btn={
                     <>
-                        <KitButton type="text">Cancel</KitButton>
+                        <KitButton type="tertiary">Cancel</KitButton>
                         <KitButton>Ok</KitButton>
                     </>
                 }
@@ -70,7 +70,7 @@ export const ButtonsNotificationTest: FunctionComponent = () => (
                 description={description}
                 btn={
                     <>
-                        <KitButton type="text">Cancel</KitButton>
+                        <KitButton type="tertiary">Cancel</KitButton>
                         <KitButton>Ok</KitButton>
                     </>
                 }

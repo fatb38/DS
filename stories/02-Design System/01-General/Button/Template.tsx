@@ -103,6 +103,34 @@ export const EditorTemplate: IEditorTemplate = () => (
             </KitButton>
         </KitSpace>
         <KitSpace>
+            <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                Link
+            </KitButton>
+            <KitButton type="link" disabled icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                Link(disabled)
+            </KitButton>
+            <KitButton type="link" danger icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                Link danger
+            </KitButton>
+            <KitButton type="link" danger disabled icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                Link danger(disabled)
+            </KitButton>
+        </KitSpace>
+        <KitSpace>
+            <KitButton type="redirect" icon={<FontAwesomeIcon icon={faWineBottle} />}>
+                Redirect
+            </KitButton>
+            <KitButton type="redirect" disabled icon={<FontAwesomeIcon icon={faWineBottle} />}>
+                Redirect(disabled)
+            </KitButton>
+            <KitButton type="redirect" danger icon={<FontAwesomeIcon icon={faWineBottle} />}>
+                Redirect danger
+            </KitButton>
+            <KitButton type="redirect" danger disabled icon={<FontAwesomeIcon icon={faWineBottle} />}>
+                Redirect danger(disabled)
+            </KitButton>
+        </KitSpace>
+        <KitSpace>
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                 Search

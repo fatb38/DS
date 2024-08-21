@@ -16,10 +16,6 @@ const App = () => (
             <KitButton type="tertiary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                 Search
             </KitButton>
-            <KitButton type="text" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
-            <KitButton type="text" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
-                Search
-            </KitButton>
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faFilter} />} />
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faFilter} />}>
                 Filter

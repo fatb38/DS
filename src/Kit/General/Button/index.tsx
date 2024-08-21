@@ -80,6 +80,11 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement | HTMLAnchorElement, IK
 
     const iconOnly = !children && icon;
 
+    // TODO: Remove in the next major version  (v10.0.0). Do not forget to remove the type in KitButtonType
+    if (type === 'text') {
+        console.warn('Button type `text` is deprecated, please use `tertiary` instead');
+    }
+
     const clx = cn(appId, styles['kit-btn'], className, {
         [`kit-btn-${type}`]: !dangerModal && type,
         [`kit-btn-secondary`]: dangerModal || type === 'secondary',

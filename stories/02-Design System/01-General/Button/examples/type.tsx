@@ -8,7 +8,6 @@ const App = () => (
         <KitButton type="primary">Primary Button</KitButton>
         <KitButton type="secondary">Secondary Button</KitButton>
         <KitButton type="tertiary">Tertiary Button</KitButton>
-        <KitButton type="text">Text Button</KitButton>
         <KitButton type="segmented" icon={<FontAwesomeIcon icon={faRotateRight} />} />
         <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} href="#">
             Link button

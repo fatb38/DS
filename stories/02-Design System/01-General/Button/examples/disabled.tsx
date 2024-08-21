@@ -38,18 +38,6 @@ const App = () => (
             </KitButton>
         </KitSpace>
         <KitSpace>
-            <KitButton type="text">Text</KitButton>
-            <KitButton type="text" disabled>
-                Text(disabled)
-            </KitButton>
-            <KitButton type="text" danger>
-                Text danger
-            </KitButton>
-            <KitButton type="text" danger disabled>
-                Text danger(disabled)
-            </KitButton>
-        </KitSpace>
-        <KitSpace>
             <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                 Link
             </KitButton>

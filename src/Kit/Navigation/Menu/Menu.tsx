@@ -37,7 +37,7 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
         isClosable && (
             <KitButton
                 className="kit-menu-header-close"
-                type="text"
+                type="tertiary"
                 color="black"
                 icon={<FontAwesomeIcon icon={faXmark} />}
                 onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => onCloseClick(e)}
