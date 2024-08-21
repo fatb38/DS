@@ -307,6 +307,7 @@ $prefix: 'kit-btn-';
 
         &:active:not(:disabled):not(.kit-btn-disabled) {
             background-color: var(--general-utilities-main-light);
+            color: var(--general-utilities-main-default);
         }
 
         &:disabled,
