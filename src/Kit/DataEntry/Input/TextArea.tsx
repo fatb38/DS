@@ -45,7 +45,7 @@ const KitTextArea = forwardRef<InputRef, IKitTextArea>(
                 {readonly ? (
                     <KitTypography.Text
                         weight="bold"
-                        size="large"
+                        size="fontSize5"
                         color={textAreaProps.status === 'error' ? 'error' : undefined}
                     >
                         {(textAreaProps.value as string) ?? textAreaProps.placeholder}

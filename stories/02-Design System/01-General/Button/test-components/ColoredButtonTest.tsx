@@ -14,14 +14,14 @@ export const ColoredButtonTest: FunctionComponent = () => {
     return (
         <KitSpace direction="vertical">
             <KitTypography.Title level="h3">Colored button</KitTypography.Title>
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Primary Color</KitTypography.Text>
+            <KitTypography.Text weight="bold">Primary Color</KitTypography.Text>
             <KitSpace wrap>
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} color="blue" />
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} color="blue" active />
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} color="blue" active checked />
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
+            <KitTypography.Text weight="bold">Secondary Colors</KitTypography.Text>
             {secondaryColors.map((color: string) => (
                 <KitSpace wrap key={color}>
                     <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} color={color} />
@@ -36,7 +36,7 @@ export const ColoredButtonTest: FunctionComponent = () => {
                 </KitSpace>
             ))}
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Tertiary Colors</KitTypography.Text>
+            <KitTypography.Text weight="bold">Tertiary Colors</KitTypography.Text>
             {tertiaryColors.map((color: string) => (
                 <KitSpace wrap key={color}>
                     <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} color={color} />
@@ -51,7 +51,7 @@ export const ColoredButtonTest: FunctionComponent = () => {
                 </KitSpace>
             ))}
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Neutral Colors</KitTypography.Text>
+            <KitTypography.Text weight="bold">Neutral Colors</KitTypography.Text>
             <KitSpace wrap>
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} color="grey" />
                 <KitButton type="segmented" icon={<FontAwesomeIcon icon={faPowerOff} />} color="grey" active />

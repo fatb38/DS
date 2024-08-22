@@ -61,7 +61,7 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
         <div className={_wrapperClassName}>
             {shouldRenderWrapperHeader && (
                 <div className="kit-input-wrapper-label">
-                    <KitTypography.Text size="large" weight="medium">
+                    <KitTypography.Text size="fontSize5" weight="medium">
                         {label}
                     </KitTypography.Text>
                     {required && <span className="kit-input-wrapper-required">*</span>}
@@ -81,7 +81,7 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
             <div className="kit-input-wrapper-content">{children}</div>
             {helper && (
                 <div className="kit-input-wrapper-helper">
-                    <KitTypography.Text size="small" weight="regular" ellipsis={{tooltip: true}}>
+                    <KitTypography.Text size="fontSize7" ellipsis={{tooltip: true}}>
                         {_infoIcon} {helper}
                     </KitTypography.Text>
                 </div>

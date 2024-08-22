@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitDivider, KitGrid, KitSpace} from '@kit/Layout/';
 import {IEditorTemplate} from '../../../types';
 import {KitTypography} from '@kit/General';
@@ -14,31 +13,31 @@ export const Template = (args: IKitDivider) => {
 };
 
 export const EditorTemplate: IEditorTemplate = () => (
-        <KitGrid.Row>
-            <KitGrid.Col span={24}>
+    <KitGrid.Row>
+        <KitGrid.Col span={24}>
+            <KitSpace direction="vertical">
                 <KitSpace direction="vertical">
-                    <KitSpace direction="vertical">
-                        <KitTypography.Paragraph size="medium" weight="regular">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
-                            ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-                        </KitTypography.Paragraph>
-                        <KitDivider>Label</KitDivider>
-                        <KitTypography.Paragraph size="medium" weight="regular">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
-                            ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-                        </KitTypography.Paragraph>
-                    </KitSpace>
-                    <KitDivider />
-                    <KitSpace align="center" style={{justifyContent: 'center'}}>
-                        <KitTypography.Text>Lorem</KitTypography.Text>
-                        <KitDivider type="vertical" />
-                        <KitTypography.Text>ipsum</KitTypography.Text>
-                        <KitDivider type="vertical" />
-                        <KitTypography.Text>dolor</KitTypography.Text>
-                    </KitSpace>
+                    <KitTypography.Paragraph>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
+                        probare, quae sunt a te dicta? Refert tamen, quo modo.
+                    </KitTypography.Paragraph>
+                    <KitDivider>Label</KitDivider>
+                    <KitTypography.Paragraph>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
+                        probare, quae sunt a te dicta? Refert tamen, quo modo.
+                    </KitTypography.Paragraph>
                 </KitSpace>
-            </KitGrid.Col>
-        </KitGrid.Row>
-    );
+                <KitDivider />
+                <KitSpace align="center" style={{justifyContent: 'center'}}>
+                    <KitTypography.Text>Lorem</KitTypography.Text>
+                    <KitDivider type="vertical" />
+                    <KitTypography.Text>ipsum</KitTypography.Text>
+                    <KitDivider type="vertical" />
+                    <KitTypography.Text>dolor</KitTypography.Text>
+                </KitSpace>
+            </KitSpace>
+        </KitGrid.Col>
+    </KitGrid.Row>
+);
 EditorTemplate.path = 'components.Divider';
 EditorTemplate.title = 'Divider';

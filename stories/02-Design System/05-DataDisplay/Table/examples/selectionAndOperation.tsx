@@ -103,7 +103,7 @@ const App = () => {
 
     const tableTitle = () => (
         <AntFlex justify="space-between">
-            <KitTypography.Text weight="medium" size="large" disabled>
+            <KitTypography.Text weight="medium" size="fontSize5" disabled>
                 ({selectedRowKeys.length} selected)
             </KitTypography.Text>
             <KitButton onClick={onDelete} icon={<FontAwesomeIcon icon={faTrash} />} loading={loading} danger>

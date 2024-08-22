@@ -22,9 +22,15 @@
 ### ✨ Features
 
 -   **⚠️ Breaking change - Header Component:**
-    - Rename `menuCard` prop of `Header.Profile` to `profileCardProps` and change its type from `ReactNode` to `IKitIdCard` (@evoiron)
-    - Add `profileMenuCardProps` in `Header.Profile` as `IKitIdCard` (@evoiron)
-    - Add `complement` in `Header.Profile` as `ReactNode` (@evoiron)
+
+    -   Rename `menuCard` prop of `Header.Profile` to `profileCardProps` and change its type from `ReactNode` to `IKitIdCard` (@evoiron)
+    -   Add `profileMenuCardProps` in `Header.Profile` as `IKitIdCard` (@evoiron)
+    -   Add `complement` in `Header.Profile` as `ReactNode` (@evoiron)
+
+-   **⚠️ Breaking change - Typography:**
+
+    -   Change expected value of `size` prop. `small`, `medium` and `large` are replaced by fontSize from `fontSize1` to `fontSize7` (@philippechevieux)
+    -   Remove `type` prop because it is not used anymore and has been replaced by `color` (@philippechevieux)
 
 -   **Dropdown:**
     -   Update border, active & selected styles (@renaudAmsellem)

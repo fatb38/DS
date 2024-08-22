@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {KitSteps} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 import {KitButton, KitTypography} from '@kit/General';
@@ -6,35 +6,19 @@ import {KitButton, KitTypography} from '@kit/General';
 const steps = [
     {
         title: 'First',
-        content: (
-            <KitTypography.Paragraph size="medium" weight="regular">
-                Doing First
-            </KitTypography.Paragraph>
-        )
+        content: <KitTypography.Paragraph>Doing First</KitTypography.Paragraph>
     },
     {
         title: 'Second',
-        content: (
-            <KitTypography.Paragraph size="medium" weight="regular">
-                Doing Second
-            </KitTypography.Paragraph>
-        )
+        content: <KitTypography.Paragraph>Doing Second</KitTypography.Paragraph>
     },
     {
         title: 'Last',
-        content: (
-            <KitTypography.Paragraph size="medium" weight="regular">
-                Doing Third
-            </KitTypography.Paragraph>
-        )
+        content: <KitTypography.Paragraph>Doing Third</KitTypography.Paragraph>
     }
 ];
 
-const done = (
-    <KitTypography.Paragraph size="medium" weight="regular">
-        Done
-    </KitTypography.Paragraph>
-);
+const done = <KitTypography.Paragraph>Done</KitTypography.Paragraph>;
 
 const App = () => {
     const [current, setCurrent] = useState(0);

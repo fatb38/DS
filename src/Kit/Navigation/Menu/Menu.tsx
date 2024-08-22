@@ -27,7 +27,7 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
     const _getTitle = () =>
         title && (
             <div className="kit-menu-header-title">
-                <KitTypography.Text size="large" weight="medium" ellipsis={{tooltip: true}}>
+                <KitTypography.Text size="fontSize5" weight="medium" ellipsis={{tooltip: true}}>
                     {title}
                 </KitTypography.Text>
             </div>

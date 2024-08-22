@@ -11,7 +11,7 @@ const App = () => {
 
     return (
         <KitSpace direction="vertical">
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Primary Color</KitTypography.Text>
+            <KitTypography.Text weight="bold">Primary Color</KitTypography.Text>
             <KitSpace>
                 <KitSpace direction="vertical">
                     <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="primary" />
@@ -19,7 +19,7 @@ const App = () => {
                 </KitSpace>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
+            <KitTypography.Text weight="bold">Secondary Colors</KitTypography.Text>
             <KitSpace>
                 {secondaryColors.map((color: string) => (
                     <KitSpace direction="vertical" key={color}>
@@ -29,7 +29,7 @@ const App = () => {
                 ))}
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Tertiary Colors</KitTypography.Text>
+            <KitTypography.Text weight="bold">Tertiary Colors</KitTypography.Text>
             <KitSpace>
                 {tertiaryColors.map((color: string) => (
                     <KitSpace direction="vertical" key={color}>
@@ -39,7 +39,7 @@ const App = () => {
                 ))}
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>RGB(A) format</KitTypography.Text>
+            <KitTypography.Text weight="bold">RGB(A) format</KitTypography.Text>
             <KitSpace>
                 <KitSpace direction="vertical">
                     <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="rgb(252, 186, 3)" />
@@ -55,7 +55,7 @@ const App = () => {
                 </KitSpace>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>HEX format</KitTypography.Text>
+            <KitTypography.Text weight="bold">HEX format</KitTypography.Text>
             <KitSpace>
                 <KitSpace direction="vertical">
                     <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="#fcba03" />
@@ -71,7 +71,7 @@ const App = () => {
                 </KitSpace>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>HSL(A) format</KitTypography.Text>
+            <KitTypography.Text weight="bold">HSL(A) format</KitTypography.Text>
             <KitSpace>
                 <KitSpace direction="vertical">
                     <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} color="hsl(44, 97%, 50%)" />

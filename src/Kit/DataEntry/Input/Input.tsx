@@ -45,7 +45,7 @@ const KitInput = forwardRef<InputRef, IKitInput>(
                 {readonly ? (
                     <KitTypography.Text
                         weight="bold"
-                        size="large"
+                        size="fontSize5"
                         color={inputProps.status === 'error' ? 'error' : undefined}
                     >
                         {(inputProps.value as string) ?? inputProps.placeholder}

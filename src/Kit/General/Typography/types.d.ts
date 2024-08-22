@@ -12,7 +12,7 @@ export interface IInternalKitTitle extends Base {
 
 type antdTitleTypesToOmit = 'type' | 'editable' | 'code' | 'italic' | 'keyboard' | 'mark' | 'underline';
 
-type kitTextSize = 'small' | 'medium' | 'large';
+type kitTextSize = 'fontSize1' | 'fontSize2' | 'fontSize3' | 'fontSize4' | 'fontSize5' | 'fontSize6' | 'fontSize7';
 
 type kitTextWeight = 'bold' | 'medium' | 'regular';
 
@@ -31,8 +31,8 @@ export interface IKitTitle
 }
 
 export interface IKitText
-    extends BlockProps<'span'>,
-        Omit<KitHTMLAttributes<HTMLSpanElement>, 'type' | keyof BlockProps<'span'>> {
+    extends Omit<BlockProps<'span'>, 'type'>,
+        Omit<KitHTMLAttributes<HTMLSpanElement>, keyof BlockProps<'span'>> {
     ellipsis?: boolean | Omit<EllipsisConfig, 'onExpand'>;
     size?: kitTextSize;
     weight?: kitTextWeight;
@@ -41,25 +41,13 @@ export interface IKitText
 }
 
 export interface IKitLink
-    extends BlockProps<'a'>,
-        Omit<AllHTMLAttributes<HTMLAnchorElement>, 'type' | 'size' | keyof BlockProps<'a'>> {
+    extends Omit<BlockProps<'a'>, 'type' | 'size'>,
+        Omit<AllHTMLAttributes<HTMLAnchorElement>, keyof BlockProps<'a'>> {
     ellipsis?: boolean;
     size?: kitTextSize;
     weight?: kitTextWeight;
     color?: string;
     style?: CSSProperties;
-}
-
-export interface IStyledKitLink {
-    size: kitTextSize;
-}
-
-export interface IStyledKitParagraph {
-    size: kitTextSize;
-}
-
-export interface IStyledKitText {
-    size: kitTextSize;
 }
 
 export type TitleLevel = Record<TitleLevelKeys, string>;
