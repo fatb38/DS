@@ -31,6 +31,7 @@
 :local(.kit-skeleton) {
     border-radius: convertToPixel(--general-border-radius-s);
     background-color: var(--general-colors-neutral-grey-200);
+    opacity: 0.3;
 }
 
 :local(.kit-skeleton-active) {
