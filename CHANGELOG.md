@@ -21,6 +21,10 @@
 
 ### ✨ Features
 
+-   **Skeleton:**
+
+    -   Add a new component `KitSkeleton` (@Delmotte-Vincent)
+
 -   **⚠️ Breaking change - Header Component:**
 
     -   Rename `menuCard` prop of `Header.Profile` to `profileCardProps` and change its type from `ReactNode` to `IKitIdCard` (@evoiron)
@@ -44,8 +48,8 @@
     -   Deprecate Menu component
     -   Move Menu documentation to deprecated folder
 -   **Button**
-    - Add `link` and `redirect` Button types (@evoiron)
-    - Deprecate `text' Button type (@evoiron)
+    -   Add `link` and `redirect` Button types (@evoiron)
+    -   Deprecate `text' Button type (@evoiron)
 
 ## [8.0.0](https://www.npmjs.com/package/aristid-ds/v/8.0.0) (2024-07-25)
 
