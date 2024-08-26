@@ -7,25 +7,36 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
 import {KitIcon, KitTypography} from '@kit/General';
 import {KitDivider} from '@kit/Layout';
+import {RedirectCardActions} from './RedirectCardActions';
 
 export const KitRedirectCard = forwardRef<HTMLDivElement, IKitRedirectCard>(
-    ({className, style, title, description, icon, imageAlt = '', imageSrc, disabled, onClick}, ref) => {
+    ({className, style, title, description, icon, coverSrc, disabled, actions, onClick, coverAlt = ''}, ref) => {
+        const shouldDisplayIcon = icon !== undefined && coverSrc === undefined;
+        const shouldDisplayCover = coverSrc !== undefined;
+        const shouldDisplayActions = actions !== undefined;
+        const descriptionMaxLines = 2;
+
         const {appId} = useKitTheme();
+
         const clx = cn(styles['kit-redirect-card'], className, appId, {
             'kit-redirect-card-disabled': disabled,
-            'kit-redirect-card-image': imageSrc
+            'kit-redirect-card-with-cover': shouldDisplayCover,
+            'kit-redirect-card-with-actions': shouldDisplayActions
         });
-
-        const shouldDisplayIcon = icon && !imageSrc;
-        const shouldDisplayImage = imageSrc;
-        const descriptionMaxLines = 2;
 
         return (
             <div className={clx} tabIndex={disabled ? -1 : 0} style={style} onClick={onClick} ref={ref}>
+                {shouldDisplayActions && shouldDisplayIcon && (
+                    <RedirectCardActions actions={actions} disabled={disabled} />
+                )}
                 {shouldDisplayIcon && <KitIcon className="kit-redirect-card-icon" icon={icon} />}
-                {shouldDisplayImage && (
+                {shouldDisplayCover && (
                     <>
-                        <img alt={imageAlt} src={imageSrc} />
+                        <div className="kit-redirect-card-cover">
+                            <img alt={coverAlt} src={coverSrc} />
+                            <div className="kit-redirect-card-actions-mask" />
+                            {shouldDisplayActions && <RedirectCardActions actions={actions} disabled={disabled} />}
+                        </div>
                         <KitDivider noMargin />
                     </>
                 )}

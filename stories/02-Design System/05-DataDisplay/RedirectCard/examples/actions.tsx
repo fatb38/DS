@@ -26,20 +26,24 @@ const actions: IKitRedirectCard['actions'] = [
 ];
 
 const App = () => (
-    <KitSpace direction="horizontal">
+    <KitSpace size="l">
         <KitRedirectCard
             title="This is a title"
             description="This is a short description"
             icon={<FontAwesomeIcon icon={faCheese} />}
             actions={actions}
-            disabled
+        />
+        <KitRedirectCard
+            title="This is a title"
+            description="This is a short description"
+            icon={<img src="public/images/pim-logo.svg" alt="Pim logo" />}
+            actions={actions}
         />
         <KitRedirectCard
             title="This is a title"
             description="This is a short description"
             coverSrc="public/images/free-copyright.jpeg"
             actions={actions}
-            disabled
         />
     </KitSpace>
 );

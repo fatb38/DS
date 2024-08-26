@@ -1,4 +1,5 @@
 import {CSSProperties, ReactNode} from 'react';
+import {IKitActionButton} from '../types';
 
 export interface IKitRedirectCard {
     title: string;
@@ -6,8 +7,17 @@ export interface IKitRedirectCard {
     style?: CSSProperties;
     description?: string;
     icon?: ReactNode;
-    imageAlt?: string;
-    imageSrc?: string;
+    coverAlt?: string;
+    coverSrc?: string;
     disabled?: boolean;
     onClick?: (e: MouseEvent<HTMLElement>) => void;
+    actions?:
+        | [IKitActionButton]
+        | [IKitActionButton, IKitActionButton]
+        | [IKitActionButton, IKitActionButton, IKitActionButton];
 }
+
+export type IKitRedirectCardActions = {
+    disabled: IKitRedirectCard['disabled'];
+    actions: IKitRedirectCard['actions'];
+};

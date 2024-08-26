@@ -21,21 +21,17 @@
 
 ### ✨ Features
 
--   **Skeleton:**
-
-    -   Add a new component `KitSkeleton` (@Delmotte-Vincent)
-
 -   **⚠️ Breaking change - Header Component:**
-
     -   Rename `menuCard` prop of `Header.Profile` to `profileCardProps` and change its type from `ReactNode` to `IKitIdCard` (@evoiron)
     -   Add `profileMenuCardProps` in `Header.Profile` as `IKitIdCard` (@evoiron)
     -   Add `complement` in `Header.Profile` as `ReactNode` (@evoiron)
-
 -   **⚠️ Breaking change - Typography:**
-
     -   Change expected value of `size` prop. `small`, `medium` and `large` are replaced by fontSize from `fontSize1` to `fontSize7` (@philippechevieux)
     -   Remove `type` prop because it is not used anymore and has been replaced by `color` (@philippechevieux)
-
+-   **⚠️ Breaking change - RedirectCard:**
+    -   Rename `imageSrc` as `coverSrc` and `imageAlt` as `coverAlt` (@philippechevieux)
+    -   Add `actions` prop to display between 1 and 3 buttons (@philippechevieux)
+    -   Fix cover divider render on hover (@philippechevieux)
 -   **Dropdown:**
     -   Update border, active & selected styles (@renaudAmsellem)
     -   Add new example with custom items (@renaudAmsellem)
@@ -50,6 +46,8 @@
 -   **Button**
     -   Add `link` and `redirect` Button types (@evoiron)
     -   Deprecate `text' Button type (@evoiron)
+-   **Skeleton:**
+    -   Add a new component `KitSkeleton` (@Delmotte-Vincent)
 
 ## [8.0.0](https://www.npmjs.com/package/aristid-ds/v/8.0.0) (2024-07-25)
 
