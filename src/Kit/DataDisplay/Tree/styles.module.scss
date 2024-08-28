@@ -10,15 +10,12 @@
         &.ant-tree-treenode-selected {
             background-color: var(
                 --components-Tree-treenode-colors-background-hover,
-                var(--general-utilities-neutral-neutralLight)
+                var(--general-utilities-neutral-light)
             );
         }
 
         &.ant-tree-treenode-disabled {
-            color: var(
-                --components-Tree-treenode-colors-typography-disabled,
-                var(--general-utilities-text-textDisabled)
-            );
+            color: var(--components-Tree-treenode-colors-typography-disabled, var(--general-utilities-text-disabled));
 
             &:hover:not(.ant-tree-treenode-selected) {
                 background-color: var(--general-utilities-colorNone);
@@ -27,7 +24,7 @@
             .ant-tree-node-content-wrapper {
                 color: var(
                     --components-Tree-treenode-colors-typography-disabled,
-                    var(--general-utilities-text-textDisabled)
+                    var(--general-utilities-text-disabled)
                 );
             }
         }
@@ -64,7 +61,7 @@
 
             &:hover .ant-tree-checkbox-inner {
                 border: 1px solid
-                    var(--components-Tree-checkbox-colors-border-hover, var(--general-utilities-main-mainColor));
+                    var(--components-Tree-checkbox-colors-border-hover, var(--general-utilities-main-default));
             }
 
             &.ant-tree-checkbox-checked {
@@ -75,23 +72,23 @@
                 .ant-tree-checkbox-inner {
                     background-color: var(
                         --components-Tree-checkbox-colors-background-checked-default,
-                        var(--general-utilities-main-mainColor)
+                        var(--general-utilities-main-default)
                     );
                     border: 1px solid
                         var(
                             --components-Tree-checkbox-colors-border-checked-default,
-                            var(--general-utilities-main-mainColor)
+                            var(--general-utilities-main-default)
                         );
                 }
 
                 &:hover .ant-tree-checkbox-inner {
                     background-color: var(
                         --components-Tree-checkbox-colors-background-checked-hover,
-                        var(--general-utilities-main-mainDark)
+                        var(--general-utilities-main-dark)
                     );
                     border-color: var(
                         --components-Tree-checkbox-colors-border-checked-hover,
-                        var(--general-utilities-main-mainDark)
+                        var(--general-utilities-main-dark)
                     );
                 }
             }
@@ -101,22 +98,22 @@
                     .ant-tree-checkbox-inner {
                         background-color: var(
                             --components-Tree-checkbox-colors-background-checked-default,
-                            var(--general-utilities-main-mainColor)
+                            var(--general-utilities-main-default)
                         );
                         border-color: var(
                             --components-Tree-checkbox-colors-border-checked-default,
-                            var(--general-utilities-main-mainColor)
+                            var(--general-utilities-main-default)
                         );
                     }
 
                     &:hover .ant-tree-checkbox-inner {
                         background-color: var(
                             --components-Tree-checkbox-colors-background-checked-hover,
-                            var(--general-utilities-main-mainDark)
+                            var(--general-utilities-main-dark)
                         );
                         border-color: var(
                             --components-Tree-checkbox-colors-border-checked-hover,
-                            var(--general-utilities-main-mainDark)
+                            var(--general-utilities-main-dark)
                         );
                     }
 
@@ -154,7 +151,7 @@
             min-height: 32px;
             line-height: 32px;
             padding: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-xs);
-            color: var(--general-utilities-text-textPrimary);
+            color: var(--general-utilities-text-primary);
 
             .ant-tree-iconEle {
                 min-height: 32px;

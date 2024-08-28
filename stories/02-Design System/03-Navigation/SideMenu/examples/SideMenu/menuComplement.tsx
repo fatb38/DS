@@ -21,7 +21,7 @@ const items: IKitSideMenuItemProps[] = [
         onClick: () => console.log('item 1 clicked')
     },
     {
-        key: 'item 2',
+        key: 'item 3',
         title: 'Statistics',
         complement: <KitTag type="primary">Upcoming</KitTag>,
         disabled: true,

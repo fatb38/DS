@@ -1,185 +1,269 @@
 export const argTypes = {
-    align: {
-        name: 'align',
-        description: 'Vertical alignement',
-        table: {
-            type: {
-                summary:
-                    "top | middle | bottom | stretch | {[key in 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl']: 'top' | 'middle' | 'bottom' | 'stretch'}"
-            },
-            defaultValue: {summary: 'top'},
-            category: 'Row'
-        },
-        defaultValue: 'top'
-    },
-    justify: {
-        name: 'justify',
-        description: 'Horizontal alignement',
-        table: {
-            type: {
-                summary:
-                    "start | end | center | {[key in 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl']: 'start' | 'end' | 'center'}"
-            },
-            defaultValue: {summary: 'start'},
-            category: 'Row'
-        },
-        defaultValue: 'start'
-    },
-    wrap: {
-        name: 'wrap',
-        description: 'Auto wrap line',
+    gridMenuOpen: {
+        name: 'menuOpen',
+        description: 'Wether to display the menuOpen cols configration or not',
         table: {
             type: {
                 summary: 'boolean'
             },
-            defaultValue: {summary: true},
-            category: 'Row'
-        },
-        defaultValue: true
-    },
-    flex: {
-        name: 'flex',
-        description: 'Flex layout style	',
-        table: {
-            type: {
-                summary: 'string | number'
-            },
             defaultValue: {summary: '-'},
-            category: 'Col'
+            category: 'Grid'
         },
         defaultValue: '-'
     },
-    offset: {
-        name: 'offset',
-        description: 'The number of cells to offset Col from the left',
+    sideMenuProps: {
+        name: 'sideMenuProps',
+        description: 'Props to display a SideMenu',
         table: {
             type: {
-                summary: 'number'
+                summary: 'IKitSideMenu'
             },
-            defaultValue: {summary: 0},
-            category: 'Col'
+            defaultValue: {summary: '-'},
+            category: 'Grid'
         },
-        defaultValue: 0
+        defaultValue: '-'
     },
-    order: {
-        name: 'order',
-        description: 'Raster order',
+    gridRowGap: {
+        name: 'rowGap',
+        description: 'gap beetween row element. Optinal. Defaults to --general-spacing-xs',
         table: {
             type: {
                 summary: 'number'
             },
-            defaultValue: {summary: 0},
-            category: 'Col'
+            defaultValue: {summary: '-'},
+            category: 'Grid'
         },
-        defaultValue: 0
+        defaultValue: '-'
     },
-    pull: {
-        name: 'pull',
-        description: 'The number of cells that raster is moved to the left',
+    gridBreakpoint: {
+        name: 'breakpoint',
+        description: 'which breakpoint to use. Default is auto (use mediaQueries to automatically set the breakpoint)',
+        options: ['auto', 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxl'],
         table: {
             type: {
-                summary: 'number'
+                summary: 'string'
             },
-            defaultValue: {summary: 0},
-            category: 'Col'
+            defaultValue: {summary: 'auto'},
+            category: 'Grid'
         },
-        defaultValue: 0
+        defaultValue: 'auto'
     },
-    push: {
-        name: 'push',
-        description: 'The number of cells that raster is moved to the right',
+    gridClassName: {
+        name: 'className',
+        description: 'Additional class name',
+        control: false,
+        table: {
+            disable: true,
+            category: 'Grid'
+        }
+    },
+    gridChildren: {
+        name: 'children',
+        description: 'Additional class name',
+        control: false,
+        table: {
+            disable: true,
+            category: 'Grid'
+        }
+    },
+    gridStyle: {
+        name: 'style',
+        description: 'Additional class name',
+        control: false,
+        table: {
+            disable: true,
+            category: 'Grid'
+        }
+    },
+    menuOpen: {
+        name: 'menuOpen',
+        description: 'Wether to display the menuOpen cols configration or not',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: '-'},
+            category: 'Row'
+        },
+        defaultValue: '-'
+    },
+    breakpoint: {
+        name: 'breakpoint',
+        description: 'which breakpoint to use. Default is auto (use mediaQueries to automatically set the breakpoint)',
+        options: ['auto', 'xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxl'],
+        table: {
+            type: {
+                summary: 'string'
+            },
+            defaultValue: {summary: 'auto'},
+            category: 'Row'
+        },
+        defaultValue: 'auto'
+    },
+    rowGap: {
+        name: 'gap',
+        description: 'veretical gap between Col elements when wrapped. Optinal. Defaults to --general-spacing-xs',
         table: {
             type: {
                 summary: 'number'
             },
-            defaultValue: {summary: 0},
-            category: 'Col'
+            defaultValue: {summary: '-'},
+            category: 'Row'
         },
-        defaultValue: 0
+        defaultValue: '-'
+    },
+    align: {
+        name: 'align',
+        description: 'Vertical alignement of all `Col` children',
+        options: ['start', 'center', 'end'],
+        table: {
+            type: {
+                summary: 'string'
+            },
+            defaultValue: {summary: '-'},
+            category: 'Row'
+        },
+        defaultValue: '-'
+    },
+    className: {
+        name: 'className',
+        description: 'Additional class name',
+        control: false,
+        table: {
+            disable: true,
+            category: 'Row'
+        }
+    },
+    children: {
+        name: 'children',
+        description: 'Additional class name',
+        control: false,
+        table: {
+            disable: true,
+            category: 'Row'
+        }
+    },
+    style: {
+        name: 'style',
+        description: 'Additional class name',
+        control: false,
+        table: {
+            disable: true,
+            category: 'Row'
+        }
     },
     span: {
         name: 'span',
-        description: 'Raster number of cells to occupy, 0 corresponds to `display: none`',
+        description: 'Specify how many columns the component should span. Default is auto',
         table: {
             type: {
-                summary: 'number'
+                summary: 'string'
             },
-            defaultValue: {summary: 'none'},
+            defaultValue: {summary: 'auto'},
             category: 'Col'
         },
-        defaultValue: 'none'
+        defaultValue: 'auto'
     },
-    xs: {
-        name: 'xs',
-        description:
-            '`screen < 576px` and also default setting, could be a `span` value or an object containing above props',
+    col: {
+        name: 'col',
+        description: 'Specify which column the component should be attached to. Default is auto',
         table: {
             type: {
-                summary: 'number | object'
+                summary: 'string'
+            },
+            defaultValue: {summary: 'auto'},
+            category: 'Col'
+        },
+        defaultValue: 'auto'
+    },
+    fullWidth: {
+        name: 'fullWidth',
+        description: 'when set to `true`, the component will span the full width of the grid',
+        table: {
+            type: {
+                summary: 'boolean'
+            },
+            defaultValue: {summary: 'auto'},
+            category: 'Col'
+        },
+        defaultValue: 'false'
+    },
+    alignSelf: {
+        name: 'alignSelf',
+        description: 'Vertical alignement the component',
+        options: ['start', 'center', 'end'],
+        table: {
+            type: {
+                summary: 'string'
             },
             defaultValue: {summary: '-'},
             category: 'Col'
         },
         defaultValue: '-'
     },
-    sm: {
-        name: 'sm',
-        description: '`screen ≥ 576px`, could be a `span` value or an object containing above props',
+    flex: {
+        name: 'flex',
+        description: 'Wether the component should be a flex container or not',
         table: {
             type: {
-                summary: 'number | object'
+                summary: 'boolean'
             },
             defaultValue: {summary: '-'},
             category: 'Col'
         },
         defaultValue: '-'
     },
-    md: {
-        name: 'md',
-        description: '`screen ≥ 768px`, could be a `span` value or an object containing above props',
+    ColAlign: {
+        name: 'align',
+        description: "Vertical alignment of the component's content. `flex` option must be `true`",
+        options: ['start', 'center', 'end'],
         table: {
             type: {
-                summary: 'number | object'
+                summary: 'string'
             },
             defaultValue: {summary: '-'},
             category: 'Col'
         },
         defaultValue: '-'
     },
-    lg: {
-        name: 'lg',
-        description: '`screen ≥ 992px`, could be a `span` value or an object containing above props',
+    justify: {
+        name: 'justify',
+        description: "Horizontal alignment of the component's content. `flex` option must be `true`",
+        options: ['start', 'center', 'end'],
         table: {
             type: {
-                summary: 'number | object'
+                summary: 'string'
             },
             defaultValue: {summary: '-'},
             category: 'Col'
         },
         defaultValue: '-'
     },
-    xl: {
-        name: 'xl',
-        description: '`screen ≥ 1200px`, could be a `span` value or an object containing above props',
+    colClassName: {
+        name: 'className',
+        description: 'Additional class name',
+        control: false,
         table: {
-            type: {
-                summary: 'number | object'
-            },
-            defaultValue: {summary: '-'},
+            disable: true,
             category: 'Col'
-        },
-        defaultValue: '-'
+        }
     },
-    xxl: {
-        name: 'xxl',
-        description: '`screen ≥ 1600px`, could be a `span` value or an object containing above props',
+    colChildren: {
+        name: 'children',
+        description: 'Additional class name',
+        control: false,
         table: {
-            type: {
-                summary: 'number | object'
-            },
-            defaultValue: {summary: '-'},
+            disable: true,
             category: 'Col'
-        },
-        defaultValue: '-'
+        }
+    },
+    colStyle: {
+        name: 'style',
+        description: 'Additional class name',
+        control: false,
+        table: {
+            disable: true,
+            category: 'Col'
+        }
     }
 };

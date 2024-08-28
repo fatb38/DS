@@ -3,7 +3,7 @@
 .ant-typography {
     --kit-typography-color: var(
         --components-Typography-colors-typography-default,
-        var(--general-utilities-text-textPrimary)
+        var(--general-utilities-text-primary)
     );
     font-family: 'Inter';
     line-height: var(--components-Typography-typography-lineHeight, var(--general-typography-lineHeight1));
@@ -11,14 +11,49 @@
     color: var(--kit-typography-color);
 
     &.ant-typography-disabled {
-        color: var(--components-Typography-colors-typography-disabled, var(--general-utilities-text-textDisabled));
+        color: var(--components-Typography-colors-typography-disabled, var(--general-utilities-text-disabled));
+    }
+
+    &.kit-typography-fontSize1 {
+        font-size: convertToPixel(--general-typography-fontSize1);
+        line-height: var(--general-typography-lineHeight1);
+    }
+
+    &.kit-typography-fontSize2 {
+        font-size: convertToPixel(--general-typography-fontSize2);
+        line-height: var(--general-typography-lineHeight2);
+    }
+
+    &.kit-typography-fontSize3 {
+        font-size: convertToPixel(--general-typography-fontSize3);
+        line-height: var(--general-typography-lineHeight3);
+    }
+
+    &.kit-typography-fontSize4 {
+        font-size: convertToPixel(--general-typography-fontSize4);
+        line-height: var(--general-typography-lineHeight4);
+    }
+
+    &.kit-typography-fontSize5 {
+        font-size: convertToPixel(--general-typography-fontSize5);
+        line-height: var(--general-typography-lineHeight5);
+    }
+
+    &.kit-typography-fontSize6 {
+        font-size: convertToPixel(--general-typography-fontSize6);
+        line-height: var(--general-typography-lineHeight6);
+    }
+
+    &.kit-typography-fontSize7 {
+        font-size: convertToPixel(--general-typography-fontSize7);
+        line-height: var(--general-typography-lineHeight7);
     }
 }
 
 a.ant-typography {
-    color: var(--components-Typography-Link-colors-typography-default, var(--general-utilities-text-textBlue));
+    color: var(--components-Typography-Link-colors-typography-default, var(--general-utilities-text-blue));
     &:hover {
-        color: var(--components-Typography-Link-colors-typography-hover, var(--general-utilities-main-mainMedium));
+        color: var(--components-Typography-Link-colors-typography-hover, var(--general-utilities-main-medium));
     }
 }
 

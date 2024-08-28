@@ -4,8 +4,8 @@ import {typographyCssTokens} from '@theme/aristid/general/typography';
 import {utilitiesCssTokens} from '@theme/aristid/general/utilities';
 
 export const tooltipKitTokenToAntdToken = {
-    colorBgSpotlight: `var(${kitTooltipCssToken.colors.background.default}, var(${utilitiesCssTokens.main.mainDeepDark}))`,
-    colorTextLightSolid: `var(${kitTooltipCssToken.colors.typography.default}, var(${utilitiesCssTokens.text.textLight}))`,
+    colorBgSpotlight: `var(${kitTooltipCssToken.colors.background.default}, var(${utilitiesCssTokens.main.deepDark}))`,
+    colorlightSolid: `var(${kitTooltipCssToken.colors.typography.default}, var(${utilitiesCssTokens.text.light}))`,
     borderRadius:
         `calc(var(${kitTooltipCssToken.border.radius}, var(${borderCssTokens.radius.s})) * 1px)` as unknown as number,
     fontSize:

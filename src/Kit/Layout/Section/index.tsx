@@ -14,7 +14,7 @@ export const KitSection: FunctionComponent<PropsWithChildren<IKitSection>> = ({
     const getCustomColor = (): CSSProperties | undefined => {
         if (borderColor === 'primary') {
             return {
-                '--section-border-color': 'var(--general-utilities-main-mainColor)'
+                '--section-border-color': 'var(--general-utilities-main-default)'
             } as CSSProperties;
         }
 

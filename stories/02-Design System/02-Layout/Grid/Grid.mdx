@@ -7,7 +7,7 @@ import * as KitGridStories from './Grid.stories';
 
 <style>
 {`
-    .ant-row .col-demo {
+    .col-demo {
         background: #1677ff;
         min-height: 40px;
         line-height: 40px;
@@ -24,103 +24,81 @@ import * as KitGridStories from './Grid.stories';
         min-height: 60px;
         line-height: 60px;
     }
+    .hiddenCanvas {
+        display: none;
+    }
+
 `}
 </style>
 
 # Grid
 
-24 Grids System.
+Variable grid system for layout.
 
 ## Design concept
 
-In most business situations, Ant Design needs to solve a lot of information storage problems within the design area, so based on 12 Grids System, we divided the design area into 24 sections.
+In most business situations, Aristid DS needs to solve a lot of information storage problems within the design area. We divided area in variable column numbers based on the screen size.
 
-We name the divided area 'box'. We suggest four boxes for horizontal arrangement at most, one at least. Boxes are proportional to the entire screen as shown in the picture above. To ensure a high level of visual comfort, we customize the typography inside of the box based on the box unit.
 
 ## Outline
 
-In the grid system, we define the frame outside the information area based on `row` and `column`, to ensure that every area can have stable arrangement.
+In the grid system, we define the frame outside the information area based on  `grid`, `row` and `column`, to ensure that every area can have stable arrangement.
 
 Following is a brief look at how it works:
 
 - Establish a set of `column` in the horizontal space defined by `row` (abbreviated col).
 - Your content elements should be placed directly in the `col`, and only `col` should be placed directly in `row`.
-- The column grid system is a value of 1-24 to represent its range spans. For example, three columns of equal width can be created by `<KitGrid.Col span={8} />`.
-- If the sum of `col` spans in a `row` are more than 24, then the overflowing `col` as a whole will start a new line arrangement.
+- The column grid system is a value of 4-12 to represent its range spans.
 
-Our grid systems base on Flex layout to allow the elements within the parent to be aligned horizontally - left, center, right, wide arrangement, and decentralized arrangement. The Grid system also supports vertical alignment - top aligned, vertically centered, bottom-aligned. You can also define the order of elements by using `order`.
+Our grid systems base on Grid layout to allow the elements within the parent to be aligned horizontally. The Grid system also supports vertical alignment.
 
-Layout uses a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
+The grid system manages a SideMenu open state. When menu is open, columns are pushed to the right and resized if necessary.
 
 ## Examples
 
-##### Basic Grid
+### Basic Grid
 
 From the stack to the horizontal arrangement.
 
-You can create a basic grid system by using a single set of `Row` and `Col` grid assembly, all of the columns (Col) must be placed in `Row`.
+You can create a basic grid system by using a single set of `Row` and `Col` grid assembly, all of the columns `Col` must be placed in `Row`.
 
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="grid-basic"/>
 
-##### Column offset
+### Grid
+The `Grid` component is an optional wrapper for Row Elements. It allows to display a `SideMenu`and handles its open/close state automatically and passes it to Its `Row` children.
+If `SideMenuProps`is not defined, the `Grid` component will only render Rows.
 
-`offset` can set the column to the right side. For example, using `offset = {4}` can set the element shifted to the right four columns width.
+***Note:*** you can set its `menuOpen` prop to `true` to open the `SideMenu` if set or to symply pass it to its `Row` elements.
 
+<CustomCanvas content={Examples.Grid} source={Sources.Grid} id="grid-grid" />
 
-<CustomCanvas content={Examples.ColOffset} source={Sources.ColOffset} id="grid-offset"/>
+###### Grid with SideMenu
 
-##### Grid sort
+<CustomCanvas content={Examples.GridMenu} source={Sources.GridMenu} id="grid-grid-menu" />
 
-By using `push` and `pull` class you can easily change column order.
-
-
-<CustomCanvas content={Examples.GridSort} source={Sources.GridSort} id="grid-sort"/>
-
-##### Typesetting
-
-Child elements depending on the value of the `start`, `center`, `end`, which are defined in its parent node typesetting mode.
+### Row
+`Row`is the main component of the Grid system. It defines the number and size of columns. By default, the number of columns is set automatically according to the window size.
+You can however set its `breakpoint` property to specify  which breakpoint to use to set the number of columns. Like `Grid` component, it accepts a `menuOpen` property.
 
 
-<CustomCanvas content={Examples.Typesetting} source={Sources.Typesetting} id="grid-typesetting"/>
+<CustomCanvas content={Examples.Row} source={Sources.Row} id="grid-row" />
 
-##### Alignment
+### Col
 
-Child elements vertically aligned.
+Every `Row` element should contain only `Col` elements, and `Col`element should only be used inside a `Row` element. `Col` element wraps content to be displayed in a column.
+It can be aligned veretically with `alignself` property.
 
+* You can use it as a flex container by setting its `flex` property to `true` and use its `align` and `justify` properties to align its children.
+* You can also set its position and span by setting `col` and `span` properties.
+* You can set `fullWidth` to `true` to make the column span the full width of the row.
 
-<CustomCanvas content={Examples.Alignment} source={Sources.Alignment} id="grid-alignment"/>
+**Note:** if you set `span` to -1, the column will span the remaining space.
 
-##### Order
-
-To change the element sort by `order`.
-
-
-<CustomCanvas content={Examples.Order} source={Sources.Order} id="grid-order"/>
-
-##### Flex stretch
-
-Col provides `flex` prop to support fill rest.
-
-
-<CustomCanvas content={Examples.Stretch} source={Sources.Stretch} id="grid-stretch"/>
-
-##### Responsive
-
-Referring to the Bootstrap responsive design, here preset six dimensions: `xs` `sm` `md` `lg` `xl` `xxl`.
-
-
-<CustomCanvas content={Examples.Responsive} source={Sources.Responsive} id="grid-responsive"/>
-
-##### More responsive
-
-`span` `pull` `push` `offset` `order` property can be embedded into `xs` `sm` `md` `lg` `xl` `xxl` properties to use, where `xs={6}` is equivalent to `xs={{span: 6}}`.
-
-
-<CustomCanvas content={Examples.MoreResponsive} source={Sources.MoreResponsive} id="grid-more-responsive"/>
+<CustomCanvas content={Examples.Col} source={Sources.Col} id="grid-col" />
 
 ## Api
 
-<Canvas of={KitGridStories.Api} />
+<Canvas of={KitGridStories.Api} className="hiddenCanvas" />
 
 <Controls of={KitGridStories.Api} />

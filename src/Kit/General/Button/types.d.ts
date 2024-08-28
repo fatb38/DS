@@ -2,7 +2,10 @@ import {KitHTMLAttributes} from '../../../types';
 import {CSSProperties, ForwardRefExoticComponent, RefAttributes} from 'react';
 import {IKitButtonPropetiesCssTokens} from '@theme/types/components/General/Button';
 
-export type KitButtonType = 'primary' | 'secondary' | 'tertiary' | 'text' | 'segmented';
+/**
+ * @deprecated The 'text' type is deprecated and will be removed in a future version.
+ */
+export type KitButtonType = 'primary' | 'secondary' | 'tertiary' | 'text' | 'segmented' | 'link' | 'redirect';
 
 type KitButtonHtmlType = 'submit' | 'button' | 'reset';
 
@@ -22,6 +25,8 @@ export type loadingConfig = {
 export interface IKitButton extends KitHTMLAttributes<HTMLDivElement> {
     type?: KitButtonType;
     htmlType?: KitButtonHtmlType;
+    href?: string;
+    target?: string;
     form?: string | undefined;
     iconSize?: KitButtonIconSize;
     disableSecureClick?: boolean;

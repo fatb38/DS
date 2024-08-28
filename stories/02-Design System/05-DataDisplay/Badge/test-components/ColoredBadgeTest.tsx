@@ -11,7 +11,7 @@ export const ColoredBadgeTest: FunctionComponent = () => {
         <div>
             <KitTypography.Title level="h3">Colored badge</KitTypography.Title>
             <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                <KitTypography.Text size="large">Primary color</KitTypography.Text>
+                <KitTypography.Text size="fontSize5">Primary color</KitTypography.Text>
                 <div style={{display: 'flex', gap: '20px', marginBottom: '30px'}}>
                     <KitBadge count={5} color="primary">
                         <KitAvatar shape="square" size="large" />
@@ -23,7 +23,7 @@ export const ColoredBadgeTest: FunctionComponent = () => {
                     </KitBadge>
                 </div>
 
-                <KitTypography.Text size="large">Secondary colors</KitTypography.Text>
+                <KitTypography.Text size="fontSize5">Secondary colors</KitTypography.Text>
                 <div style={{display: 'flex', gap: '20px', marginBottom: '30px'}}>
                     {secondaryColors.map((color: string) => (
                         <KitBadge key={color} count={5} color={color}>
@@ -39,7 +39,7 @@ export const ColoredBadgeTest: FunctionComponent = () => {
                     ))}
                 </div>
 
-                <KitTypography.Text size="large">Tertiary colors</KitTypography.Text>
+                <KitTypography.Text size="fontSize5">Tertiary colors</KitTypography.Text>
                 <div style={{display: 'flex', gap: '20px', marginBottom: '30px'}}>
                     {tertiaryColors.map((color: string) => (
                         <KitBadge key={color} count={5} color={color}>
@@ -55,7 +55,7 @@ export const ColoredBadgeTest: FunctionComponent = () => {
                     ))}
                 </div>
 
-                <KitTypography.Text size="large">RGB format</KitTypography.Text>
+                <KitTypography.Text size="fontSize5">RGB format</KitTypography.Text>
                 <div style={{display: 'flex', gap: '20px', marginBottom: '30px'}}>
                     <KitBadge count={5} color="rgb(252, 186, 3)">
                         <KitAvatar shape="square" size="large" />
@@ -68,7 +68,7 @@ export const ColoredBadgeTest: FunctionComponent = () => {
                     </KitBadge>
                 </div>
 
-                <KitTypography.Text size="large">HEX format</KitTypography.Text>
+                <KitTypography.Text size="fontSize5">HEX format</KitTypography.Text>
                 <div style={{display: 'flex', gap: '20px', marginBottom: '30px'}}>
                     <KitBadge count={5} color="#fcba03">
                         <KitAvatar shape="square" size="large" />
@@ -81,7 +81,7 @@ export const ColoredBadgeTest: FunctionComponent = () => {
                     </KitBadge>
                 </div>
 
-                <KitTypography.Text size="large">HSL format</KitTypography.Text>
+                <KitTypography.Text size="fontSize5">HSL format</KitTypography.Text>
                 <div style={{display: 'flex', gap: '20px', marginBottom: '30px'}}>
                     <KitBadge count={5} color="hsla(44, 97%, 50%, 1)">
                         <KitAvatar shape="square" size="large" />
@@ -94,7 +94,7 @@ export const ColoredBadgeTest: FunctionComponent = () => {
                     </KitBadge>
                 </div>
 
-                <KitTypography.Text size="large">Status</KitTypography.Text>
+                <KitTypography.Text size="fontSize5">Status</KitTypography.Text>
                 <div style={{display: 'flex', gap: '20px'}}>
                     <KitBadge dot status="success">
                         Success

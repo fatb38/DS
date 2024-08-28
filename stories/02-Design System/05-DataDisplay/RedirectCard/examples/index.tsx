@@ -1,23 +1,27 @@
+import Actions from './actions';
 import Basic from './basic';
 import Disabled from './disabled';
 import Icon from './icon';
-import Image from './image';
+import Cover from './cover';
 
+import ActionsSource from './actions?raw';
 import BasicSource from './basic?raw';
 import DisabledSource from './disabled?raw';
 import IconSource from './icon?raw';
-import ImageSource from './image?raw';
+import CoverSource from './cover?raw';
 
 export const Sources = {
+    Actions: ActionsSource,
     Basic: BasicSource,
     Disabled: DisabledSource,
     Icon: IconSource,
-    Image: ImageSource
+    Cover: CoverSource
 };
 
 export default {
+    Actions,
     Basic,
     Disabled,
     Icon,
-    Image
+    Cover
 };

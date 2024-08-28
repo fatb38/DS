@@ -21,7 +21,7 @@ import {Template} from './Template';
 
 const meta: Meta<typeof KitMenu> = {
     component: KitMenu,
-    title: 'Design System/Navigation/Menu',
+    title: 'Design System/Deprecated/Menu',
     argTypes: argTypes
 };
 

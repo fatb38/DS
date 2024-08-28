@@ -6,10 +6,10 @@
     align-items: center;
     min-height: 24px;
     padding: convertToPixel(--general-spacing-xs) convertToPixel(--general-spacing-s);
-    background-color: var(--components-SnackBar-colors-background, var(--general-utilities-neutral-neutralDeepDark));
-    border: 1px solid var(--components-SnackBar-colors-border, var(--general-utilities-neutral-neutralDeepDark));
+    background-color: var(--components-SnackBar-colors-background, var(--general-utilities-neutral-deepDark));
+    border: 1px solid var(--components-SnackBar-colors-border, var(--general-utilities-neutral-deepDark));
     border-radius: convertToPixel(--general-border-radius-s);
-    box-shadow: var(--general-utilities-shadow-shadowMedium);
+    box-shadow: var(--general-utilities-shadow-medium);
     font-family: var(--components-SnackBar-typography-fontFamily, var(--general-typography-fontFamily));
 
     .kit-snackbar-grid-one {
@@ -31,7 +31,7 @@
 
     .kit-snackbar-grid {
         .kit-snackbar-title {
-            color: var(--components-SnackBar-colors-typography-title, var(--general-utilities-text-textLight));
+            color: var(--components-SnackBar-colors-typography-title, var(--general-utilities-text-light));
             font-size: convertToPixel(--components-SnackBar-typography-title-fontSize, --general-typography-fontSize5);
             font-weight: var(
                 --components-SnackBar-typography-title-fontWeight,
@@ -51,7 +51,7 @@
             .kit-snackbar-cta {
                 color: var(
                     --components-SnackBar-colors-cta-typography-default,
-                    var(--general-utilities-neutral-neutralMedium)
+                    var(--general-utilities-neutral-medium)
                 );
                 font-size: 10px;
                 font-weight: var(
@@ -62,27 +62,24 @@
             }
 
             &:hover {
-                border-color: var(
-                    --components-SnackBar-colors-cta-border-hover,
-                    var(--general-utilities-neutral-neutralDark)
-                );
+                border-color: var(--components-SnackBar-colors-cta-border-hover, var(--general-utilities-neutral-dark));
 
                 .kit-snackbar-cta {
                     color: var(
                         --components-SnackBar-colors-cta-typography-hover,
-                        var(--general-utilities-neutral-neutralDark)
+                        var(--general-utilities-neutral-dark)
                     );
                 }
             }
         }
 
         .kit-snackbar-close-container {
-            color: var(--components-SnackBar-colors-closeIcon-default, var(--general-utilities-text-textLight));
+            color: var(--components-SnackBar-colors-closeIcon-default, var(--general-utilities-text-light));
             font-size: var(--general-typography-fontSize4);
             cursor: pointer;
 
             &:hover {
-                color: var(--components-SnackBar-colors-closeIcon-hover, var(--general-utilities-neutral-neutralDark));
+                color: var(--components-SnackBar-colors-closeIcon-hover, var(--general-utilities-neutral-dark));
             }
         }
     }

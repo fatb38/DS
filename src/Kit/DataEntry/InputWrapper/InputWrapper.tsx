@@ -42,18 +42,18 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
 
     const _infoIcon: ReactNode = infoIcon ?? <FontAwesomeIcon icon={getFontAwesomeIcon()} />;
 
-    const _actions = useMemo(() => {
-        if (!disabled) {
-            return actions;
-        }
-        return actions
-            ? actions.map(action =>
-                  cloneElement(action, {
-                      disabled: true
-                  })
-              )
-            : null;
-    }, [disabled, actions]);
+    const _actions = useMemo(
+        () =>
+            actions
+                ? actions.map((action, index) =>
+                      cloneElement(action, {
+                          disabled: disabled,
+                          key: action.key ?? index
+                      })
+                  )
+                : null,
+        [disabled, actions]
+    );
 
     const shouldRenderWrapperHeader = Boolean(label || required || onInfoClick || _actions);
 
@@ -61,7 +61,7 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
         <div className={_wrapperClassName}>
             {shouldRenderWrapperHeader && (
                 <div className="kit-input-wrapper-label">
-                    <KitTypography.Text size="large" weight="medium">
+                    <KitTypography.Text size="fontSize5" weight="medium">
                         {label}
                     </KitTypography.Text>
                     {required && <span className="kit-input-wrapper-required">*</span>}
@@ -81,7 +81,7 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
             <div className="kit-input-wrapper-content">{children}</div>
             {helper && (
                 <div className="kit-input-wrapper-helper">
-                    <KitTypography.Text size="small" weight="regular" ellipsis={{tooltip: true}}>
+                    <KitTypography.Text size="fontSize7" ellipsis={{tooltip: true}}>
                         {_infoIcon} {helper}
                     </KitTypography.Text>
                 </div>

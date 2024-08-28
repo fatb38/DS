@@ -110,23 +110,6 @@ export const argTypes = {
         },
         defaultValue: () => {}
     },
-    type: {
-        name: 'type',
-        description: 'Content Type',
-        options: ['', 'secondary', 'success', 'warning', 'danger'],
-        control: {
-            type: 'select',
-            required: false
-        },
-        table: {
-            type: {
-                summary: 'string'
-            },
-            defaultValue: '-',
-            category: 'Typography.Text, Typography.Paragraph, Typography.Link'
-        },
-        defaultValue: '-'
-    },
     weight: {
         name: 'weight',
         description: 'Font weight',
@@ -137,9 +120,9 @@ export const argTypes = {
         },
         table: {
             type: {
-                summary: 'string'
+                summary: 'kitTextWeight'
             },
-            defaultValue: 'medium',
+            defaultValue: {summary: 'medium'},
             category: 'Typography.Text, Typography.Paragraph, Typography.Link'
         },
         defaultValue: 'medium'
@@ -147,16 +130,16 @@ export const argTypes = {
     size: {
         name: 'size',
         description: 'Content Size',
-        options: ['', 'large', 'medium', 'small'],
+        options: ['', 'fontSize1', 'fontSize2', 'fontSize3', 'fontSize4', 'fontSize5', 'fontSize6', 'fontSize7'],
         control: {
             type: 'select',
             required: false
         },
         table: {
             type: {
-                summary: 'string'
+                summary: 'kitTextSize'
             },
-            defaultValue: 'medium',
+            defaultValue: {summary: 'fontSize6'},
             category: 'Typography.Text, Typography.Paragraph, Typography.Link'
         },
         defaultValue: 'medium'

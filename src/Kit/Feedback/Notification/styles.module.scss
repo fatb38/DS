@@ -29,23 +29,20 @@
     &.kit-notification-info {
         border-color: var(
             --components-Notification-colors-typography-message-info,
-            var(--general-utilities-main-mainColor)
+            var(--general-utilities-main-default)
         );
 
         .kit-notification-content .kit-notification-title {
-            color: var(
-                --components-Notification-colors-typography-message-info,
-                var(--general-utilities-text-textBlue)
-            );
+            color: var(--components-Notification-colors-typography-message-info, var(--general-utilities-text-blue));
         }
 
         .kit-notification-close {
-            color: var(--components-Notification-colors-icon-info, var(--general-utilities-text-textBlue));
+            color: var(--components-Notification-colors-icon-info, var(--general-utilities-text-blue));
 
             &:hover {
                 background-color: var(
                     --components-Notification-colors-icon-background-info,
-                    var(--general-utilities-main-mainLight)
+                    var(--general-utilities-main-light)
                 );
             }
         }
@@ -54,23 +51,23 @@
     &.kit-notification-success {
         border-color: var(
             --components-Notification-colors-typography-message-success,
-            var(--general-utilities-success-successColor)
+            var(--general-utilities-success-default)
         );
 
         .kit-notification-content .kit-notification-title {
             color: var(
                 --components-Notification-colors-typography-message-success,
-                var(--general-utilities-text-textSuccess)
+                var(--general-utilities-text-success)
             );
         }
 
         .kit-notification-close {
-            color: var(--components-Notification-colors-icon-success, var(--general-utilities-text-textSuccess));
+            color: var(--components-Notification-colors-icon-success, var(--general-utilities-text-success));
 
             &:hover {
                 background-color: var(
                     --components-Notification-colors-icon-background-success,
-                    var(--general-utilities-success-successLight)
+                    var(--general-utilities-success-light)
                 );
             }
         }
@@ -79,23 +76,20 @@
     &.kit-notification-error {
         border-color: var(
             --components-Notification-colors-typography-message-error,
-            var(--general-utilities-error-errorColor)
+            var(--general-utilities-error-default)
         );
 
         .kit-notification-content .kit-notification-title {
-            color: var(
-                --components-Notification-colors-typography-message-error,
-                var(--general-utilities-text-textError)
-            );
+            color: var(--components-Notification-colors-typography-message-error, var(--general-utilities-text-error));
         }
 
         .kit-notification-close {
-            color: var(--components-Notification-colors-icon-error, var(--general-utilities-text-textError));
+            color: var(--components-Notification-colors-icon-error, var(--general-utilities-text-error));
 
             &:hover {
                 background-color: var(
                     --components-Notification-colors-icon-background-error,
-                    var(--general-utilities-error-errorLight)
+                    var(--general-utilities-error-light)
                 );
             }
         }
@@ -104,23 +98,23 @@
     &.kit-notification-warning {
         border-color: var(
             --components-Notification-colors-typography-message-warning,
-            var(--general-utilities-warning-warningColor)
+            var(--general-utilities-warning-default)
         );
 
         .kit-notification-content .kit-notification-title {
             color: var(
                 --components-Notification-colors-typography-message-warning,
-                var(--general-utilities-text-textWarning)
+                var(--general-utilities-text-warning)
             );
         }
 
         .kit-notification-close {
-            color: var(--components-Notification-colors-icon-warning, var(--general-utilities-text-textWarning));
+            color: var(--components-Notification-colors-icon-warning, var(--general-utilities-text-warning));
 
             &:hover {
                 background-color: var(
                     --components-Notification-colors-icon-background-warning,
-                    var(--general-utilities-warning-warningLight)
+                    var(--general-utilities-warning-light)
                 );
             }
         }
@@ -149,7 +143,7 @@
     .kit-notification-subtitle {
         grid-area: subtitle;
         line-height: var(--general-typography-lineHeight7);
-        color: var(--components-Notification-colors-typography-subtitle, --general-utilities-text-textPrimary);
+        color: var(--components-Notification-colors-typography-subtitle, --general-utilities-text-primary);
         font-size: convertToPixel(
             --components-Notification-typography-fontSize-content,
             --general-typography-fontSize7
@@ -185,11 +179,11 @@
         align-items: center;
         top: 20px;
         right: 20px;
-        color: var(--components-Notification-colors-typography-subtitle, --general-utilities-text-textPrimary);
+        color: var(--components-Notification-colors-typography-subtitle, --general-utilities-text-primary);
         border-radius: convertToPixel(--general-border-radius-s);
 
         &:hover {
-            background-color: var(--general-utilities-neutral-neutralLight);
+            background-color: var(--general-utilities-neutral-light);
             cursor: pointer;
         }
     }

@@ -95,9 +95,9 @@ export const argTypes = {
     },
     type: {
         name: 'type',
-        options: ['primary', 'secondary', 'tertiary', 'text', 'segmented'],
+        options: ['primary', 'secondary', 'tertiary', 'segmented', 'link', 'redirect'],
         control: {type: 'select'},
-        description: 'Can be set to `primary` | `secondary` | `tertiary` | `text` | `segmented`',
+        description: 'Can be set to `primary` | `secondary` | `tertiary` | `segmented` | `link` | `redirect`',
         table: {
             type: {
                 summary: 'string'
@@ -117,6 +117,32 @@ export const argTypes = {
                 summary: 'string'
             },
             defaultValue: {summary: 'default'},
+            category: 'Button'
+        },
+        defaultValue: 'default'
+    },
+    href: {
+        name: 'href',
+        control: {type: 'text'},
+        description: 'sets the href attribute on the button. Works only if type is `link` or `redirect`',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            defaultValue: {summary: '-'},
+            category: 'Button'
+        },
+        defaultValue: 'default'
+    },
+    target: {
+        name: 'target',
+        control: {type: 'text'},
+        description: 'sets the target attribute on the button. Works only if type is `link` or `redirect`',
+        table: {
+            type: {
+                summary: 'string'
+            },
+            defaultValue: {summary: '-'},
             category: 'Button'
         },
         defaultValue: 'default'

@@ -19,7 +19,7 @@ export const FullNotificationTest: FunctionComponent = () => (
                 messageExtra="Il y a 5 jours・17:34"
                 btn={
                     <>
-                        <KitButton type="text">Cancel</KitButton>
+                        <KitButton type="tertiary">Cancel</KitButton>
                         <KitButton>Ok</KitButton>
                     </>
                 }
@@ -32,7 +32,7 @@ export const FullNotificationTest: FunctionComponent = () => (
                 messageExtra="Il y a 5 jours・17:34"
                 btn={
                     <>
-                        <KitButton type="text">Cancel</KitButton>
+                        <KitButton type="tertiary">Cancel</KitButton>
                         <KitButton>Ok</KitButton>
                     </>
                 }
@@ -45,7 +45,7 @@ export const FullNotificationTest: FunctionComponent = () => (
                 messageExtra="Il y a 5 jours・17:34"
                 btn={
                     <>
-                        <KitButton type="text">Cancel</KitButton>
+                        <KitButton type="tertiary">Cancel</KitButton>
                         <KitButton>Ok</KitButton>
                     </>
                 }
@@ -58,7 +58,7 @@ export const FullNotificationTest: FunctionComponent = () => (
                 messageExtra="Il y a 5 jours・17:34"
                 btn={
                     <>
-                        <KitButton type="text">Cancel</KitButton>
+                        <KitButton type="tertiary">Cancel</KitButton>
                         <KitButton>Ok</KitButton>
                     </>
                 }
@@ -70,7 +70,7 @@ export const FullNotificationTest: FunctionComponent = () => (
                 messageExtra="Il y a 5 jours・17:34"
                 btn={
                     <>
-                        <KitButton type="text">Cancel</KitButton>
+                        <KitButton type="tertiary">Cancel</KitButton>
                         <KitButton>Ok</KitButton>
                     </>
                 }
@@ -82,7 +82,7 @@ export const FullNotificationTest: FunctionComponent = () => (
                 messageExtra="Il y a 5 jours・17:34"
                 btn={
                     <>
-                        <KitButton type="text">Cancel</KitButton>
+                        <KitButton type="tertiary">Cancel</KitButton>
                         <KitButton>Ok</KitButton>
                     </>
                 }

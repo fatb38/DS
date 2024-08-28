@@ -1,0 +1,57 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import { Controls } from "@storybook/addon-docs";
+import Examples, { Sources } from './examples';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens';
+import * as KitSkeletonStories from './Skeleton.stories';
+import fields from '../../../tokens';
+
+<Meta of={KitSkeletonStories} />
+
+# Skeleton
+
+Provide a placeholder while you wait for content to load, or to visualize content that doesn't exist yet.
+
+## Example
+
+### Custom Skeleton
+
+Custom Skeleton to define the size you need.
+
+<CustomCanvas content={Examples.Custom} source={Sources.Custom} id="skeleton-custom"/>
+
+### Avatar Skeleton
+
+Skeleton for Avatar component. There is two variant for `circle` display and `square` shape.
+
+<CustomCanvas content={Examples.Avatar} source={Sources.Avatar} id="skeleton-avatar"/>
+
+### Input Skeleton
+
+Skeleton for Input component.
+
+<CustomCanvas content={Examples.Input} source={Sources.Input} id="skeleton-input"/>
+
+### Item Card Skeleton
+
+Skeleton for ItemCard component. There is two variant for `card` display and `list` display.
+
+<CustomCanvas content={Examples.ItemCard} source={Sources.ItemCard} id="skeleton-item-card"/>
+
+
+### Item List Skeleton
+
+Skeleton for ItemList component.
+
+<CustomCanvas content={Examples.ItemList} source={Sources.ItemList} id="skeleton-item-list"/>
+
+## Api
+
+<Canvas of={KitSkeletonStories.Api} />
+
+<Controls of={KitSkeletonStories.Api} />
+
+
+## Design Tokens
+
+<DesignTokens path="components.Skeleton" tokens={fields?.components?.Skeleton} />

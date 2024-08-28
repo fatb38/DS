@@ -1,8 +1,6 @@
 import React, {useMemo, useState} from 'react';
 import {KitColorPicker} from '@kit/DataEntry/';
 import {KitColor, KitColorPickerProps} from '@kit/DataEntry/ColorPicker/types';
-import KitRow from '@kit/Layout/Grid/Row';
-import KitCol from '@kit/Layout/Grid/Col';
 import {KitSpace} from '@kit/Layout';
 
 const App = () => {
@@ -21,51 +19,45 @@ const App = () => {
 
     return (
         <KitSpace direction="vertical">
-            <KitRow align="middle">
+            <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
                 <KitSpace>
-                    <KitCol>
-                        <KitColorPicker
-                            format={formatHex}
-                            value={colorHex}
-                            onChange={setColorHex}
-                            onFormatChange={setFormatHex}
-                        />
-                    </KitCol>
-                    <KitCol>
+                    <KitColorPicker
+                        format={formatHex}
+                        value={colorHex}
+                        onChange={setColorHex}
+                        onFormatChange={setFormatHex}
+                    />
+                    <div>
                         HEX: <span>{hexString}</span>
-                    </KitCol>
+                    </div>
                 </KitSpace>
-            </KitRow>
-            <KitRow align="middle">
+            </div>
+            <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
                 <KitSpace>
-                    <KitCol>
-                        <KitColorPicker
-                            format={formatHsb}
-                            value={colorHsb}
-                            onChange={setColorHsb}
-                            onFormatChange={setFormatHsb}
-                        />
-                    </KitCol>
-                    <KitCol>
+                    <KitColorPicker
+                        format={formatHsb}
+                        value={colorHsb}
+                        onChange={setColorHsb}
+                        onFormatChange={setFormatHsb}
+                    />
+                    <div>
                         HSB: <span>{hsbString}</span>
-                    </KitCol>
+                    </div>
                 </KitSpace>
-            </KitRow>
-            <KitRow align="middle">
+            </div>
+            <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
                 <KitSpace>
-                    <KitCol>
-                        <KitColorPicker
-                            format={formatRgb}
-                            value={colorRgb}
-                            onChange={setColorRgb}
-                            onFormatChange={setFormatRgb}
-                        />
-                    </KitCol>
-                    <KitCol>
+                    <KitColorPicker
+                        format={formatRgb}
+                        value={colorRgb}
+                        onChange={setColorRgb}
+                        onFormatChange={setFormatRgb}
+                    />
+                    <div>
                         RGB: <span>{rgbString}</span>
-                    </KitCol>
+                    </div>
                 </KitSpace>
-            </KitRow>
+            </div>
         </KitSpace>
     );
 };

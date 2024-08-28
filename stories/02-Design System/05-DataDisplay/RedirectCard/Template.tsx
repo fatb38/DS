@@ -27,12 +27,12 @@ export const EditorTemplate: IEditorTemplate = () => (
             <KitRedirectCard
                 title="This is a title"
                 description="This is a short description"
-                imageSrc="public/images/free-copyright.jpeg"
+                coverSrc="public/images/free-copyright.jpeg"
             />
             <KitRedirectCard
                 title="This is a title"
                 description="This is a short description"
-                imageSrc="public/images/free-copyright.jpeg"
+                coverSrc="public/images/free-copyright.jpeg"
                 disabled
             />
         </KitSpace>

@@ -7,12 +7,12 @@
     padding: convertToPixel(--general-spacing-xs);
     margin: convertToPixel(--general-spacing-none);
     background-color: var(--components-ItemList-colors-background-default, var(--general-utilities-light));
-    box-shadow: var(--general-utilities-shadow-shadowLight);
+    box-shadow: var(--general-utilities-shadow-light);
     border: 1px solid var(--components-ItemList-colors-border-default, var(--general-utilities-border));
     border-radius: convertToPixel(--components-ItemList-border-default, --general-border-radius-s);
 
     &:hover:not(.kit-item-list-disabled) {
-        border: 1px solid var(--components-ItemList-colors-border-hover, var(--general-utilities-main-mainColor));
+        border: 1px solid var(--components-ItemList-colors-border-hover, var(--general-utilities-main-default));
     }
 
     & > .ant-checkbox-wrapper {
@@ -26,13 +26,13 @@
     }
 
     &.kit-item-list-disabled {
-        background-color: var(--general-utilities-neutral-neutralLight);
+        background-color: var(--general-utilities-neutral-light);
         cursor: not-allowed;
     }
 }
 
 :local(.kit-item-list-selected) {
-    border: 1px solid var(--components-ItemList-colors-border-selected, var(--general-utilities-main-mainColor));
+    border: 1px solid var(--components-ItemList-colors-border-selected, var(--general-utilities-main-default));
 }
 
 :local(.kit-item-list-buttons) {

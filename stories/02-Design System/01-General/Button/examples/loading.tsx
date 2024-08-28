@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {KitButton, KitSpace} from '@kit/index';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faPowerOff} from '@fortawesome/free-solid-svg-icons';
+import {faMagnifyingGlass, faPowerOff, faWineBottle} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
     const [loadings, setLoadings] = useState<boolean[]>([]);
@@ -30,7 +30,10 @@ const App = () => {
                         Loading
                     </KitButton>
                     <KitButton loading>Loading</KitButton>
-                    <KitButton type="text" loading>
+                    <KitButton type="link" loading icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                        Loading
+                    </KitButton>
+                    <KitButton type="redirect" loading icon={<FontAwesomeIcon icon={faWineBottle} />}>
                         Loading
                     </KitButton>
                     <KitButton type="primary" icon={<FontAwesomeIcon icon={faPowerOff} />} loading />
@@ -47,20 +50,49 @@ const App = () => {
                     >
                         Click me!
                     </KitButton>
-                    <KitButton type="text" loading={loadings[2]} onClick={() => enterLoading(2)}>
+                    <KitButton
+                        type="link"
+                        icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
+                        loading={loadings[2]}
+                        onClick={() => enterLoading(2)}
+                    >
+                        Click me!
+                    </KitButton>
+                    <KitButton
+                        type="redirect"
+                        icon={<FontAwesomeIcon icon={faWineBottle} />}
+                        loading={loadings[2]}
+                        onClick={() => enterLoading(2)}
+                    >
+                        Click me!
+                    </KitButton>
+                    <KitButton
+                        type="link"
+                        icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
+                        loading={loadings[3]}
+                        onClick={() => enterLoading(3)}
+                    >
+                        Click me!
+                    </KitButton>
+                    <KitButton
+                        type="redirect"
+                        icon={<FontAwesomeIcon icon={faWineBottle} />}
+                        loading={loadings[4]}
+                        onClick={() => enterLoading(4)}
+                    >
                         Click me!
                     </KitButton>
                     <KitButton
                         type="primary"
                         icon={<FontAwesomeIcon icon={faPowerOff} />}
-                        loading={loadings[3]}
-                        onClick={() => enterLoading(3)}
+                        loading={loadings[5]}
+                        onClick={() => enterLoading(5)}
                     />
                     <KitButton
                         type="segmented"
                         icon={<FontAwesomeIcon icon={faPowerOff} />}
-                        loading={loadings[4]}
-                        onClick={() => enterLoading(4)}
+                        loading={loadings[6]}
+                        onClick={() => enterLoading(6)}
                     />
                 </KitSpace>
             </KitSpace>

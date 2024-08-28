@@ -7,7 +7,7 @@
     padding: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-xs);
     height: convertToPixel(--kit-tag-real-height);
     border-radius: convertToPixel(--general-border-radius-xxl);
-    color: var(--components-Tag-colors-default-typography-default, var(--general-utilities-text-textPrimary));
+    color: var(--components-Tag-colors-default-typography-default, var(--general-utilities-text-primary));
 
     &,
     a {
@@ -25,12 +25,12 @@
     }
 
     &.kit-tag-disabled {
-        background: var(--general-utilities-neutral-neutralLight);
+        background: var(--general-utilities-neutral-light);
         border-color: var(--general-utilities-border);
         cursor: not-allowed;
 
         .ant-tag-close-icon {
-            color: var(--general-utilities-text-textDisabled);
+            color: var(--general-utilities-text-disabled);
             cursor: not-allowed;
         }
     }
@@ -41,85 +41,85 @@
         }
 
         &.kit-tag-primary {
-            background: var(--general-utilities-main-mainColor);
-            border-color: var(--general-utilities-main-mainColor);
+            background: var(--general-utilities-main-default);
+            border-color: var(--general-utilities-main-default);
 
             & > div .ant-typography {
-                color: var(--general-utilities-text-textLight);
+                color: var(--general-utilities-text-light);
             }
 
             &.kit-tag-clickable:hover {
-                background: var(--general-utilities-main-mainDark);
-                border-color: var(--general-utilities-main-mainDark);
+                background: var(--general-utilities-main-dark);
+                border-color: var(--general-utilities-main-dark);
             }
 
             .ant-tag-close-icon {
-                color: var(--general-utilities-text-textLight);
+                color: var(--general-utilities-text-light);
             }
         }
 
         &.kit-tag-secondary {
-            background: var(--general-utilities-main-mainLight);
-            border-color: var(--general-utilities-main-mainMedium);
+            background: var(--general-utilities-main-light);
+            border-color: var(--general-utilities-main-medium);
 
             &.kit-tag-clickable {
                 &:hover {
-                    border-color: var(--general-utilities-main-mainColor);
+                    border-color: var(--general-utilities-main-default);
                 }
 
                 &:active {
-                    border-color: var(--general-utilities-main-mainDark);
+                    border-color: var(--general-utilities-main-dark);
                 }
             }
         }
 
         &.kit-tag-neutral {
-            background: var(--general-utilities-neutral-neutralLight);
-            border-color: var(--general-utilities-neutral-neutralMedium);
+            background: var(--general-utilities-neutral-light);
+            border-color: var(--general-utilities-neutral-medium);
 
             &.kit-tag-clickable {
                 &:hover {
-                    border-color: var(--general-utilities-neutral-neutralDark);
+                    border-color: var(--general-utilities-neutral-dark);
                 }
 
                 &:active {
-                    border-color: var(--general-utilities-neutral-neutralDeepDark);
+                    border-color: var(--general-utilities-neutral-deepDark);
                 }
             }
         }
 
         &.kit-tag-error {
-            background: var(--general-utilities-error-errorLight);
-            border-color: var(--general-utilities-error-errorMedium);
+            background: var(--general-utilities-error-light);
+            border-color: var(--general-utilities-error-medium);
 
             &.kit-tag-clickable {
                 &:hover {
-                    border-color: var(--general-utilities-error-errorColor);
+                    border-color: var(--general-utilities-error-default);
                 }
 
                 &:active {
-                    border-color: var(--general-utilities-error-errorDark);
+                    border-color: var(--general-utilities-error-dark);
                 }
             }
         }
 
         &.kit-tag-success {
-            background: var(--general-utilities-success-successLight);
-            border-color: var(--general-utilities-success-successMedium);
+            background: var(--general-utilities-success-light);
+            border-color: var(--general-utilities-success-medium);
 
             &.kit-tag-clickable {
                 &:hover {
-                    border-color: var(--general-utilities-success-successColor);
+                    border-color: var(--general-utilities-success-default);
                 }
 
                 &:active {
-                    border-color: var(--general-utilities-success-successDark);
+                    border-color: var(--general-utilities-success-dark);
                 }
             }
         }
 
         .ant-tag-close-icon {
-            color: var(--components-Tag-colors-default-typography-default, var(--general-utilities-text-textPrimary));
+            color: var(--components-Tag-colors-default-typography-default, var(--general-utilities-text-primary));
         }
     }
 

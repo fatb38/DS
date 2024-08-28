@@ -7,7 +7,7 @@
         display: block;
         margin: convertToPixel(--general-spacing-s) auto;
         position: relative;
-        color: var(--general-utilities-neutral-neutralMedium);
+        color: var(--general-utilities-neutral-medium);
         box-sizing: border-box;
         animation: rotation 1s linear infinite;
 
@@ -21,13 +21,13 @@
             top: 50%;
             left: 50%;
             transform: scale(0.5) translate(0, 0);
-            background-color: var(--general-utilities-neutral-neutralMedium);
+            background-color: var(--general-utilities-neutral-medium);
             border-radius: 50%;
             animation: animloader 1s infinite ease-in-out;
         }
 
         &::before {
-            background-color: var(--general-utilities-main-mainColor);
+            background-color: var(--general-utilities-main-default);
             transform: scale(0.5) translate(-48px, -48px);
         }
     }
@@ -38,7 +38,7 @@
         padding: convertToPixel(--general-spacing-none);
         height: convertToPixel(--components-Loader-linear-height, --general-spacing-xxs);
         overflow: hidden;
-        background-color: var(--general-utilities-neutral-neutralMedium);
+        background-color: var(--general-utilities-neutral-medium);
         position: relative;
 
         &:before {
@@ -46,7 +46,7 @@
             display: block;
             width: calc(var(--components-Loader-width, 0) * 1%);
             height: convertToPixel(--components-Loader-linear-height, --general-spacing-xxs);
-            background-color: var(--general-utilities-main-mainColor);
+            background-color: var(--general-utilities-main-default);
             border-radius: convertToPixel(--general-border-radius-square);
             position: absolute;
             top: 0;

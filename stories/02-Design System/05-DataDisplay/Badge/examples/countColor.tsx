@@ -12,14 +12,14 @@ const App = () => {
 
     return (
         <KitSpace direction="vertical">
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Default color</KitTypography.Text>
+            <KitTypography.Text weight="bold">Default color</KitTypography.Text>
             <KitSpace size="m">
                 <KitBadge count={5}>
                     <KitAvatar shape="square" size="large" />
                 </KitBadge>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Primary Color</KitTypography.Text>
+            <KitTypography.Text weight="bold">Primary Color</KitTypography.Text>
             <KitSpace direction="vertical" size="m">
                 <KitBadge count={5} color="primary">
                     <KitAvatar shape="square" size="large" />
@@ -29,7 +29,7 @@ const App = () => {
                 </KitBadge>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Secondary Colors</KitTypography.Text>
+            <KitTypography.Text weight="bold">Secondary Colors</KitTypography.Text>
             <KitSpace direction="vertical" size="m">
                 <KitSpace size="m">
                     {secondaryColors.map((color: string) => (
@@ -47,7 +47,7 @@ const App = () => {
                 </KitSpace>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>Tertiary Colors</KitTypography.Text>
+            <KitTypography.Text weight="bold">Tertiary Colors</KitTypography.Text>
             <KitSpace direction="vertical" size="m">
                 <KitSpace size="m">
                     {tertiaryColors.map((color: string) => (
@@ -65,7 +65,7 @@ const App = () => {
                 </KitSpace>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>RGB(A) format</KitTypography.Text>
+            <KitTypography.Text weight="bold">RGB(A) format</KitTypography.Text>
             <KitSpace size="m">
                 <KitBadge count={5} color="rgb(252, 186, 3)">
                     <KitAvatar shape="square" size="large" />
@@ -78,7 +78,7 @@ const App = () => {
                 </KitBadge>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>HEX format</KitTypography.Text>
+            <KitTypography.Text weight="bold">HEX format</KitTypography.Text>
             <KitSpace size="m">
                 <KitBadge count={5} color="#FunctionComponentba03">
                     <KitAvatar shape="square" size="large" />
@@ -91,7 +91,7 @@ const App = () => {
                 </KitBadge>
             </KitSpace>
             <br />
-            <KitTypography.Text style={{fontWeight: 'bold'}}>HSL(A) format</KitTypography.Text>
+            <KitTypography.Text weight="bold">HSL(A) format</KitTypography.Text>
             <KitSpace size="m">
                 <KitBadge count={5} color="hsl(44, 97%, 50%)">
                     <KitAvatar shape="square" size="large" />

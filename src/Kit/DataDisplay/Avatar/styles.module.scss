@@ -1,11 +1,11 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-avatar) {
-    background: var(--general-utilities-main-mainLight);
+    background: var(--general-utilities-main-light);
 
     &:not(.ant-avatar-image) {
-        background: var(--components-Avatar-colors-background-default, var(--general-utilities-main-mainLight));
-        color: var(--components-Avatar-colors-typography-default, var(--general-utilities-main-mainMedium));
+        background: var(--components-Avatar-colors-background-default, var(--general-utilities-main-light));
+        color: var(--components-Avatar-colors-typography-default, var(--general-utilities-main-medium));
     }
 
     &.kit-avatar-image-fit-cover {
@@ -25,19 +25,23 @@
             object-fit: fill;
         }
     }
+
+    &.ant-avatar-square {
+        border-radius: convertToPixel(--general-border-radius-s);
+    }
 }
 
 :local(.kit-avatar-disabled) {
     --mask-color: #8db1c880;
     &.ant-avatar-icon {
         color: var(--general-utilities-disabled);
-        background-color: var(--general-utilities-neutral-neutralMedium);
+        background-color: var(--general-utilities-neutral-medium);
     }
 
     &.kit-avatar-image-fit-cover,
     & {
         color: var(--general-utilities-disabled);
-        background-color: var(--general-utilities-neutral-neutralMedium);
+        background-color: var(--general-utilities-neutral-medium);
     }
 
     &.ant-avatar-image::after {
@@ -54,21 +58,21 @@
 
 :local(.kit-avatar-group) {
     &.override-last > span:last-child {
-        background: var(--components-AvatarGroup-colors-background-default, var(--general-utilities-main-mainLight));
+        background: var(--components-AvatarGroup-colors-background-default, var(--general-utilities-main-light));
         color: var(
             --components-AvatarGroup-colors-typography-default,
-            var(--components-AvatarGroup-colors-background-default, var(--general-utilities-main-mainMedium))
+            var(--components-AvatarGroup-colors-background-default, var(--general-utilities-main-medium))
         );
     }
 
     .ant-avatar {
-        box-shadow: var(--general-utilities-shadow-shadowLight);
+        box-shadow: var(--general-utilities-shadow-light);
     }
 }
 
 :local(.kit-avatar-group-disabled) {
     &.override-last > span:last-child {
         color: var(--general-utilities-disabled);
-        background-color: var(--general-utilities-neutral-neutralMedium);
+        background-color: var(--general-utilities-neutral-medium);
     }
 }

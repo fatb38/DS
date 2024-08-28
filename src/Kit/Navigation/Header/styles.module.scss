@@ -18,7 +18,7 @@
         width: var(--kit-header-height);
         flex-grow: 0;
         flex-shrink: 0;
-        background: var(--general-utilities-main-mainColor);
+        background: var(--general-utilities-main-default);
         color: var(--kit-header-invert-color);
         padding: convertToPixel(--general-spacing-none);
         cursor: pointer;
@@ -26,6 +26,19 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        &:active {
+            background: var(--general-utilities-main-dark);
+        }
+
+        &:hover:not(:active) {
+            background: var(--general-utilities-main-light);
+            color: var(--general-utilities-main-default);
+        }
+
+        &:focus {
+            box-shadow: inset 0 0 0 3px var(--general-utilities-focus);
+        }
     }
 
     .kit-header-logo {
@@ -59,10 +72,29 @@
     .kit-header-profile {
         grid-area: profile;
         display: flex;
+        gap: convertToPixel(--general-spacing-xs);
         padding: convertToPixel(--general-spacing-xxs) convertToPixel(--general-spacing-s);
-        background-color: var(--general-colors-primary-blue50);
+        background-color: var(--general-colors-primary-50);
         align-items: center;
         border-radius: convertToPixel(--general-spacing-xs);
+        border: 1px solid var(--general-colors-primary-50);
+
+        &:active {
+            background-color: var(--general-utilities-main-light);
+            border: 1px solid var(--general-utilities-main-default);
+        }
+
+        &:hover,
+        &.open {
+            border: 1px solid var(--general-utilities-main-default);
+        }
+
+        &:focus,
+        &:focus-visible {
+            border-color: transparent;
+            outline: none;
+            box-shadow: 0 0 0 3px var(--general-utilities-focus);
+        }
 
         &.with-menu {
             cursor: pointer;
@@ -72,8 +104,11 @@
             height: 32px;
         }
 
-        .id-card-grid:not(:first-child) {
-            margin-left: convertToPixel(--general-spacing-s);
+        .kit-header-profile-complement {
+            &:only-child {
+                margin-left: 0;
+                height: auto;
+            }
         }
     }
 
@@ -106,4 +141,23 @@
 
 .kit-select-option-icon:has(.flagIcon) {
     background-color: transparent;
+}
+
+.kit-header-menu-wrapper {
+    padding: convertToPixel(--general-spacing-xs);
+}
+
+.kit-header-profile-menu-card {
+    border: 1px solid var(--general-utilities-border);
+    border-radius: convertToPixel(--general-border-radius-s);
+    padding: convertToPixel(--general-spacing-xs);
+    margin-bottom: convertToPixel(--general-spacing-xs);
+
+    &.clickable {
+        cursor: pointer;
+
+        &:hover {
+            border-color: var(--general-utilities-main-default);
+        }
+    }
 }

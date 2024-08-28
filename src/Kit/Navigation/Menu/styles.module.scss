@@ -76,25 +76,19 @@
     }
 
     &.is-selected {
-        background-color: var(
-            --components-Menu-itemMenu-colors-background-active,
-            var(--general-utilities-main-mainLight)
-        );
+        background-color: var(--components-Menu-itemMenu-colors-background-active, var(--general-utilities-main-light));
         border-right: 3px solid
-            var(--components-Menu-itemMenu-colors-border-active, var(--general-utilities-main-mainColor));
+            var(--components-Menu-itemMenu-colors-border-active, var(--general-utilities-main-default));
         padding-inline-end: 5px;
 
         .kit-item-menu-title span,
         .kit-item-menu-icon span {
-            color: var(--components-Menu-itemMenu-colors-title-default, var(--general-utilities-text-textBlue));
+            color: var(--components-Menu-itemMenu-colors-title-default, var(--general-utilities-text-blue));
         }
     }
 
     &:hover {
-        background-color: var(
-            --components-Menu-itemMenu-colors-background-hover,
-            var(--general-utilities-main-mainLight)
-        );
+        background-color: var(--components-Menu-itemMenu-colors-background-hover, var(--general-utilities-main-light));
     }
 
     .kit-item-menu-checkbox {
@@ -107,7 +101,7 @@
         grid-area: icon;
 
         span {
-            color: var(--components-Menu-itemMenu-colors-icon-default, var(--general-utilities-text-textPrimary));
+            color: var(--components-Menu-itemMenu-colors-icon-default, var(--general-utilities-text-primary));
         }
     }
 
@@ -131,25 +125,25 @@
 
     &.cta {
         .kit-item-menu-title span {
-            color: var(--components-Menu-itemMenu-colors-title-default, var(--general-utilities-text-textBlue));
+            color: var(--components-Menu-itemMenu-colors-title-default, var(--general-utilities-text-blue));
         }
         .kit-item-menu-icon span {
-            color: var(--components-Menu-itemMenu-colors-icon-default, var(--general-utilities-text-textBlue));
+            color: var(--components-Menu-itemMenu-colors-icon-default, var(--general-utilities-text-blue));
         }
     }
 
     &.cta-danger {
         .kit-item-menu-title span {
-            color: var(--components-Menu-itemMenu-colors-title-danger, var(--general-utilities-text-textError));
+            color: var(--components-Menu-itemMenu-colors-title-danger, var(--general-utilities-text-error));
         }
         .kit-item-menu-icon span {
-            color: var(--components-Menu-itemMenu-colors-icon-danger, var(--general-utilities-text-textError));
+            color: var(--components-Menu-itemMenu-colors-icon-danger, var(--general-utilities-text-error));
         }
 
         &:hover {
             background-color: var(
                 --components-Menu-itemMenu-colors-background-danger,
-                var(--general-utilities-error-errorLight)
+                var(--general-utilities-error-light)
             );
         }
     }
@@ -159,18 +153,18 @@
         margin-left: convertToPixel(--general-spacing-xs);
 
         span {
-            color: var(--components-Menu-itemMenu-colors-value-default, var(--general-utilities-neutral-neutralDark));
+            color: var(--components-Menu-itemMenu-colors-value-default, var(--general-utilities-neutral-dark));
         }
     }
 
     .kit-item-menu-rafter {
         grid-area: rafter;
-        color: var(--components-Menu-itemMenu-colors-rafter-default, var(--general-utilities-neutral-neutralDark));
+        color: var(--components-Menu-itemMenu-colors-rafter-default, var(--general-utilities-neutral-dark));
         font-size: convertToPixel(--general-typography-fontSize7);
         margin-left: convertToPixel(--general-spacing-xs);
 
         &:hover {
-            color: var(--components-Menu-itemMenu-colors-rafter-hover, var(--general-utilities-text-textBlue));
+            color: var(--components-Menu-itemMenu-colors-rafter-hover, var(--general-utilities-text-blue));
             cursor: pointer;
         }
     }

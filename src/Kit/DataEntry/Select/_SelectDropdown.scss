@@ -11,7 +11,7 @@
         --components-Select-DropDowntypography-fontWeight-default,
         var(--general-typography-mediumfontWeight)
     );
-    color: var(--components-Select-DropDowncolors-typography-default, var(--general-utilities-text-textPrimary));
+    color: var(--components-Select-DropDowncolors-typography-default, var(--general-utilities-text-primary));
 
     &.ant-select-dropdown-placement-bottomLeft.kit-select-dropdown-focus {
         > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
@@ -27,10 +27,8 @@
             > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
             .kit-select-dropdown-content {
                 box-shadow:
-                    -2px 2px 0 1px
-                        var(--components-Select-colors-border-error, var(--general-utilities-error-errorMedium)),
-                    2px 2px 0 1px
-                        var(--components-Select-colors-border-error, var(--general-utilities-error-errorMedium));
+                    -2px 2px 0 1px var(--components-Select-colors-border-error, var(--general-utilities-error-medium)),
+                    2px 2px 0 1px var(--components-Select-colors-border-error, var(--general-utilities-error-medium));
             }
         }
 
@@ -39,9 +37,9 @@
             .kit-select-dropdown-content {
                 box-shadow:
                     -2px 2px 0 1px
-                        var(--components-Select-colors-border-warning, var(--general-utilities-warning-warningMedium)),
+                        var(--components-Select-colors-border-warning, var(--general-utilities-warning-medium)),
                     2px 2px 0 1px
-                        var(--components-Select-colors-border-warning, var(--general-utilities-warning-warningMedium));
+                        var(--components-Select-colors-border-warning, var(--general-utilities-warning-medium));
             }
         }
     }
@@ -60,8 +58,8 @@
             > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
             .kit-select-dropdown-content {
                 box-shadow:
-                    -2px -2px 0 1px var(--components-Select-colors-border-error, var(--general-utilities-error-errorMedium)),
-                    2px -2px 0 1px var(--components-Select-colors-border-error, var(--general-utilities-error-errorMedium));
+                    -2px -2px 0 1px var(--components-Select-colors-border-error, var(--general-utilities-error-medium)),
+                    2px -2px 0 1px var(--components-Select-colors-border-error, var(--general-utilities-error-medium));
             }
         }
 
@@ -69,8 +67,8 @@
             > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
             .kit-select-dropdown-content {
                 box-shadow:
-                    -2px -2px 0 1px var(--components-Select-colors-border-warning, var(--general-utilities-warning-warningMedium)),
-                    2px -2px 0 1px var(--components-Select-colors-border-warning, var(--general-utilities-warning-warningMedium));
+                    -2px -2px 0 1px var(--components-Select-colors-border-warning, var(--general-utilities-warning-medium)),
+                    2px -2px 0 1px var(--components-Select-colors-border-warning, var(--general-utilities-warning-medium));
             }
         }
     }
@@ -161,10 +159,10 @@
     > div:not(.kit-select-dropdown-content) > .rc-virtual-list,
     .kit-select-dropdown-content {
         display: grid;
-        box-shadow: var(--general-utilities-shadow-shadowMedium);
+        box-shadow: var(--general-utilities-shadow-medium);
         background-color: var(
             --components-Select-DropDowncolors-background-default,
-            var(--general-utilities-neutral-neutralLight)
+            var(--general-utilities-neutral-light)
         );
         padding: 10px;
         overflow: hidden;
@@ -177,10 +175,7 @@
                 --components-Select-DropDowntypography-fontWeight-selected,
                 var(--general-typography-mediumfontWeight)
             );
-            color: var(
-                --components-Select-DropDowncolors-typography-selected,
-                var(--general-utilities-text-textPrimary)
-            );
+            color: var(--components-Select-DropDowncolors-typography-selected, var(--general-utilities-text-primary));
 
             &:last-of-type {
                 min-height: 32px;
@@ -249,7 +244,7 @@
                 .ant-select-item-option-content {
                     background: var(
                         --components-Select-DropDowncolors-background-selected,
-                        var(--general-utilities-main-mainLight)
+                        var(--general-utilities-main-light)
                     );
                     font-weight: var(
                         --components-Select-DropDowntypography-fontWeight-selected,
@@ -257,7 +252,7 @@
                     );
                     color: var(
                         --components-Select-DropDowncolors-typography-selected,
-                        var(--general-utilities-text-textPrimary)
+                        var(--general-utilities-text-primary)
                     );
                     border-radius: convertToPixel(--general-border-radius-s)
                         convertToPixel(--general-border-radius-square) convertToPixel(--general-border-radius-square)
@@ -267,7 +262,7 @@
                 .ant-select-item-option-state {
                     background: var(
                         --components-Select-DropDowncolors-background-selected,
-                        var(--general-utilities-main-mainLight)
+                        var(--general-utilities-main-light)
                     );
                     border-radius: convertToPixel(--general-border-radius-square)
                         convertToPixel(--general-border-radius-s) convertToPixel(--general-border-radius-s)
@@ -280,16 +275,13 @@
             &.ant-select-item-option-active .ant-select-item-option-content {
                 background: var(
                     --components-Select-DropDowncolors-background-active,
-                    var(--general-utilities-main-mainLight)
+                    var(--general-utilities-main-light)
                 );
                 font-weight: var(
                     --components-Select-DropDowntypography-fontWeight-active,
                     var(--general-typography-mediumfontWeight)
                 );
-                color: var(
-                    --components-Select-DropDowncolors-typography-active,
-                    var(--general-utilities-main-mainColor)
-                );
+                color: var(--components-Select-DropDowncolors-typography-active, var(--general-utilities-main-default));
             }
 
             &.ant-select-item-option-disabled .ant-select-item-option-content {
@@ -301,10 +293,7 @@
                     --components-Select-DropDowntypography-fontWeight-group,
                     var(--general-typography-boldFontWeight)
                 );
-                color: var(
-                    --components-Select-DropDowncolors-typography-group,
-                    var(--general-utilities-text-textPrimary)
-                );
+                color: var(--components-Select-DropDowncolors-typography-group, var(--general-utilities-text-primary));
                 padding: convertToPixel(--general-spacing-xs) convertToPixel(--general-spacing-none);
             }
         }

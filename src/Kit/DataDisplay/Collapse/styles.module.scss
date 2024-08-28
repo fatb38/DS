@@ -10,12 +10,12 @@
         &.ant-collapse-item-disabled {
             background-color: var(
                 --components-Collapse-colors-background-disabled,
-                var(--general-utilities-neutral-neutralLight)
+                var(--general-utilities-neutral-light)
             );
 
             .ant-collapse-expand-icon,
             .ant-collapse-header-text {
-                color: var(--components-Collapse-colors-icon-disabled, var(--general-utilities-text-textDisabled));
+                color: var(--components-Collapse-colors-icon-disabled, var(--general-utilities-text-disabled));
             }
         }
 
@@ -24,7 +24,7 @@
         &:hover:not(.ant-collapse-item-disabled),
         &:not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
             // TODO: add css variable outline-width: cards-border-stroke
-            border: 1px solid var(--components-Collapse-colors-border-active, var(--general-utilities-main-mainColor));
+            border: 1px solid var(--components-Collapse-colors-border-active, var(--general-utilities-main-default));
             padding: convertToPixel(--general-spacing-none);
 
             &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {
@@ -53,7 +53,7 @@
         &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):not(:last-of-type) {
             &:not(.pseudo-hover):hover {
                 border-bottom: 1px solid
-                    var(--components-Collapse-colors-border-active, var(--general-utilities-main-mainColor));
+                    var(--components-Collapse-colors-border-active, var(--general-utilities-main-default));
             }
 
             &:not(.ant-collapse-item-active):not(.ant-collapse-item-disabled):has(.ant-collapse-header:focus) {

@@ -12,14 +12,14 @@ export const IconsTest: FunctionComponent = () => {
     return (
         <>
             <div>
-                <KitTypography.Text style={{fontWeight: 'bold'}}>Icons basic colors</KitTypography.Text>
+                <KitTypography.Text weight="bold">Icons basic colors</KitTypography.Text>
             </div>
             <div style={{display: 'inline-flex', gap: '8px', margin: '8px 0 16px'}}>
                 <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} />
                 <KitIcon icon={<FontAwesomeIcon icon={faDownload} />} on />
             </div>
             <div>
-                <KitTypography.Text style={{fontWeight: 'bold'}}>Icons secondary colors</KitTypography.Text>
+                <KitTypography.Text weight="bold">Icons secondary colors</KitTypography.Text>
             </div>
             <div style={{display: 'flex', gap: '8px', margin: '8px 0 16px'}}>
                 {secondaryColors.map((color: string) => (
@@ -30,7 +30,7 @@ export const IconsTest: FunctionComponent = () => {
                 ))}
             </div>
             <div>
-                <KitTypography.Text style={{fontWeight: 'bold'}}>Icons tertiary colors</KitTypography.Text>
+                <KitTypography.Text weight="bold">Icons tertiary colors</KitTypography.Text>
             </div>
             <div style={{display: 'flex', gap: '8px', margin: '8px 0 16px'}}>
                 {tertiaryColors.map((color: string) => (

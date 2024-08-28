@@ -9,20 +9,20 @@ import {Style} from 'react-style-tag';
 import {KitThemeContext} from './useKitTheme';
 import {IJSONObject} from '../../.storybook/components/ThemeEditor/types';
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
+import GridStyle from '@kit/Layout/Grid/GridStyle';
 
 const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: string}>`
   .${props => props.id} {
-    ${props => toCssVariables(props.customTheme)};
+      ${props => toCssVariables(props.customTheme as IJSONObject)};
+
   }
 `;
 
 const globalStyleId = 'aristid-ds-global';
 
-export const KitThemeProvider: FunctionComponent<PropsWithChildren<{customTheme?: IKitCustomTheme; id?: string}>> = ({
-    children,
-    customTheme,
-    id
-}) => {
+export const KitThemeProvider: FunctionComponent<
+    PropsWithChildren<{customTheme?: IKitCustomTheme; id?: string; useMediaQueries?: boolean}>
+> = ({children, customTheme, id, useMediaQueries = true}) => {
     const [cssTokens, setCssTokens] = useState<Record<string, string> | null>(null);
     const {theme, appId, spacing} = useKitThemeProvider(id, customTheme);
 
@@ -44,7 +44,15 @@ export const KitThemeProvider: FunctionComponent<PropsWithChildren<{customTheme?
                             }
                         `}
                     </Style>
-                    {customTheme && <CustomVariables id={appId} customTheme={customTheme} />}
+                    {customTheme && (
+                        <CustomVariables
+                            id={appId}
+                            customTheme={merge({general: {utilities: KitAristidThemeGeneral.utilities}}, customTheme)}
+                        />
+                    )}
+                    {useMediaQueries && (
+                        <GridStyle theme={KitAristidThemeGeneral} customTheme={customTheme} id={appId} />
+                    )}
                     {children}
                 </>
             )}
@@ -58,5 +66,14 @@ const useKitThemeProvider = (id?: string, customTheme?: IKitCustomTheme) => {
     // We can't use css variables for the Spacing component, so we need to pass this object
     const mergeSpacing = merge(KitAristidThemeGeneral.spacing, customTheme?.general?.spacing);
 
-    return {theme: KitAristidThemeGeneral, appId: internalId.current, spacing: mergeSpacing};
+    const mergeBreakpoints = merge(KitAristidThemeGeneral.breakpoints, customTheme?.general?.breakpoints);
+    const mergedGrid = merge(KitAristidThemeGeneral.grid, customTheme?.general?.grid);
+
+    return {
+        theme: KitAristidThemeGeneral,
+        appId: internalId.current,
+        spacing: mergeSpacing,
+        breakpoints: mergeBreakpoints,
+        grid: mergedGrid
+    };
 };

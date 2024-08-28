@@ -4,11 +4,11 @@ import {utilitiesCssTokens} from '@theme/aristid/general/utilities';
 
 export const tabsKitTokenToAntdToken = {
     fontFamily: `var(${kitTabsCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`,
-    cardBg: `var(${kitTabsCssTokens.card.colors.background.default}, var(${utilitiesCssTokens.neutral.neutralLight}))`,
+    cardBg: `var(${kitTabsCssTokens.card.colors.background.default}, var(${utilitiesCssTokens.neutral.light}))`,
     colorBorderSecondary: `var(${kitTabsCssTokens.card.colors.border.default}, var(${utilitiesCssTokens.border}))`,
-    inkBarColor: `var(${kitTabsCssTokens.card.colors.border.active}, var(${utilitiesCssTokens.main.mainColor}))`,
-    colorTextDisabled: `var(${kitTabsCssTokens.typography.colors.disabled}, var(${utilitiesCssTokens.text.textDisabled}))`,
-    itemActiveColor: `var(${kitTabsCssTokens.typography.colors.active}, var(${utilitiesCssTokens.main.mainDeepDark}))`,
-    itemHoverColor: `var(${kitTabsCssTokens.typography.colors.hover}, var(${utilitiesCssTokens.main.mainColor}))`,
-    itemSelectedColor: `var(${kitTabsCssTokens.typography.colors.selected}, var(${utilitiesCssTokens.main.mainColor}))`
+    inkBarColor: `var(${kitTabsCssTokens.card.colors.border.active}, var(${utilitiesCssTokens.main.default}))`,
+    colorTextDisabled: `var(${kitTabsCssTokens.typography.colors.disabled}, var(${utilitiesCssTokens.text.disabled}))`,
+    itemActiveColor: `var(${kitTabsCssTokens.typography.colors.active}, var(${utilitiesCssTokens.main.deepDark}))`,
+    itemHoverColor: `var(${kitTabsCssTokens.typography.colors.hover}, var(${utilitiesCssTokens.main.default}))`,
+    itemSelectedColor: `var(${kitTabsCssTokens.typography.colors.selected}, var(${utilitiesCssTokens.main.default}))`
 };

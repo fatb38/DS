@@ -8,18 +8,27 @@ export const ActionsInputWrapperTest: FunctionComponent = () => (
         <div style={{display: 'flex', gap: '24px', alignItems: 'center'}}>
             <KitInputWrapper
                 label="actions"
-                actions={[<KitButton type="text">action</KitButton>, <KitButton type="text">action 2</KitButton>]}
+                actions={[
+                    <KitButton type="tertiary">action</KitButton>,
+                    <KitButton type="tertiary">action 2</KitButton>
+                ]}
             >
                 <KitTypography.Text>Component to wrap with actions</KitTypography.Text>
             </KitInputWrapper>
             <KitInputWrapper
-                actions={[<KitButton type="text">action</KitButton>, <KitButton type="text">action 2</KitButton>]}
+                actions={[
+                    <KitButton type="tertiary">action</KitButton>,
+                    <KitButton type="tertiary">action 2</KitButton>
+                ]}
             >
                 <KitTypography.Text>Component to wrap with actions</KitTypography.Text>
             </KitInputWrapper>
             <KitInputWrapper
                 disabled
-                actions={[<KitButton type="text">action</KitButton>, <KitButton type="text">action 2</KitButton>]}
+                actions={[
+                    <KitButton type="tertiary">action</KitButton>,
+                    <KitButton type="tertiary">action 2</KitButton>
+                ]}
             >
                 <KitTypography.Text>Disabled Component to wrap with actions</KitTypography.Text>
             </KitInputWrapper>

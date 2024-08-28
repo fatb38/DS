@@ -45,6 +45,7 @@ import {EditorTemplate as Notification} from './02-Design System/06-Feedback/Not
 import {EditorTemplate as Progress} from './02-Design System/06-Feedback/Progress/Template';
 import {EditorTemplate as SnackBar} from './02-Design System/06-Feedback/SnackBar/Template';
 import {EditorTemplate as Loader} from './02-Design System/06-Feedback/Loader/Template';
+import {EditorTemplate as Skeleton} from './02-Design System/06-Feedback/Skeleton/Template';
 
 export default {
     General: {
@@ -104,6 +105,7 @@ export default {
         Notification,
         Progress,
         SnackBar,
-        Loader
+        Loader,
+        Skeleton
     }
 };

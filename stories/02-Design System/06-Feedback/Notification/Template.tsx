@@ -11,7 +11,8 @@ import {KitAristidThemeGeneral} from '@theme/aristid/general';
 
 export const FakeNotification: React.FunctionComponent<IKitNotificationArgs> = () => null;
 
-const checkRequiredField = (args: IKitNotificationArgs, requiredFields: string[]) => !requiredFields.some((field: string) => args[field] === undefined || args[field] === '');
+const checkRequiredField = (args: IKitNotificationArgs, requiredFields: string[]) =>
+    !requiredFields.some((field: string) => args[field] === undefined || args[field] === '');
 
 const getIcon = icon => {
     switch (icon) {
@@ -157,7 +158,7 @@ export const EditorTemplate: IEditorTemplate = () => {
                     messageExtra="Il y a 5 jours・17:34"
                     btn={
                         <>
-                            <KitButton type="text">Cancel</KitButton>
+                            <KitButton type="tertiary">Cancel</KitButton>
                             <KitButton>Ok</KitButton>
                         </>
                     }

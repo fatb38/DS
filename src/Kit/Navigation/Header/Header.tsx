@@ -5,7 +5,7 @@ import cn from 'classnames';
 import styles from './styles.module.scss';
 import {KitDropDown} from '../DropDown';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faBars} from '@fortawesome/free-solid-svg-icons';
+import {faGrip} from '@fortawesome/free-solid-svg-icons';
 import {getContrastColor} from '@utils/functions';
 import {KitColorProp} from '@utils/functions/types';
 
@@ -36,16 +36,16 @@ export const Header: FunctionComponent<IKitHeader> = ({
         className
     );
 
-    const _renderDropdown = () => menu;
+    const _renderDropdown = () => <div className="kit-header-menu-wrapper">{menu}</div>;
 
-    const customColors = _getCustomColors(theme.colors.primary.blue400);
+    const customColors = _getCustomColors(theme.colors.primary['400']);
 
     return (
         <div style={customColors} {...props} className={clx}>
             {menu && (
                 <KitDropDown dropdownRender={_renderDropdown}>
-                    <div className="kit-header-menu">
-                        <FontAwesomeIcon icon={faBars} />
+                    <div className="kit-header-menu" tabIndex={0}>
+                        <FontAwesomeIcon icon={faGrip} />
                     </div>
                 </KitDropDown>
             )}

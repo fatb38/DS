@@ -6,18 +6,15 @@
     border-radius: convertToPixel(--general-border-radius-s);
     font-family: var(--components-Tabs-DropDown-typography-fontFamily, var(--general-typography-fontFamily));
     font-weight: var(--components-Tabs-DropDown-typography-fontWeight, var(--general-typography-mediumfontWeight));
-    background-color: var(
-        --components-Tabs-DropDown-colors-background-default,
-        var(--general-utilities-neutral-neutralLight)
-    );
-    color: var(--components-Tabs-DropDown-colors-typography-default, var(--general-utilities-text-textPrimary));
-    box-shadow: var(--general-utilities-shadow-shadowMedium);
+    background-color: var(--components-Tabs-DropDown-colors-background-default, var(--general-utilities-neutral-light));
+    color: var(--components-Tabs-DropDown-colors-typography-default, var(--general-utilities-text-primary));
+    box-shadow: var(--general-utilities-shadow-medium);
 
     .ant-tabs-dropdown-menu {
         padding: convertToPixel(--general-spacing-none);
         background-color: var(
             --components-Tabs-DropDown-menu-colors-background-default,
-            var(--general-utilities-neutral-neutralLight)
+            var(--general-utilities-neutral-light)
         );
         box-shadow: none;
 
@@ -32,7 +29,7 @@
             );
             color: var(
                 --components-Tabs-DropDown-menuItem-colors-typography-default,
-                var(--general-utilities-text-textPrimary)
+                var(--general-utilities-text-primary)
             );
             padding: convertToPixel(--general-spacing-none) 10px;
 
@@ -43,29 +40,29 @@
             &.ant-tabs-dropdown-menu-item-active {
                 background-color: var(
                     --components-Tabs-DropDown-menuItem-colors-background-active,
-                    var(--general-utilities-main-mainLight)
+                    var(--general-utilities-main-light)
                 );
                 color: var(
                     --components-Tabs-DropDown-menuItem-colors-typography-active,
-                    var(--general-utilities-main-mainColor)
+                    var(--general-utilities-main-default)
                 );
             }
 
             &.ant-tabs-dropdown-menu-item-selected {
                 background-color: var(
                     --components-Tabs-DropDown-menuItem-colors-background-selected,
-                    var(--general-utilities-main-mainLight)
+                    var(--general-utilities-main-light)
                 );
             }
 
             &.ant-tabs-dropdown-menu-item-disabled {
                 background-color: var(
                     --components-Tabs-DropDown-menuItem-colors-background-disabled,
-                    var(--general-utilities-neutral-neutralLight)
+                    var(--general-utilities-neutral-light)
                 );
                 color: var(
                     --components-Tabs-DropDown-menuItem-colors-typography-disabled,
-                    var(--general-utilities-text-textDisabled)
+                    var(--general-utilities-text-disabled)
                 );
                 cursor: not-allowed;
             }

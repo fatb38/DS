@@ -10,14 +10,20 @@ const _getTitle = (title: IKitIdCard['title'], cardSize: IKitIdCard['size'], dis
     const clx = cn({'kit-id-card-title-large': cardSize === 'large'});
 
     return (
-        <KitTypography.Text className={clx} size="large" weight="bold" ellipsis={{tooltip: true}} disabled={disabled}>
+        <KitTypography.Text
+            className={clx}
+            size="fontSize5"
+            weight="bold"
+            ellipsis={{tooltip: true}}
+            disabled={disabled}
+        >
             {title}
         </KitTypography.Text>
     );
 };
 
 const _getDescription = (description: IKitIdCard['description'], cardSize: IKitIdCard['size'], disabled: boolean) => {
-    const textSize = cardSize === 'medium' ? 'small' : 'large';
+    const textSize = cardSize === 'medium' ? 'fontSize7' : 'fontSize5';
 
     return (
         <KitTypography.Text size={textSize} ellipsis={{tooltip: true}} disabled={disabled}>

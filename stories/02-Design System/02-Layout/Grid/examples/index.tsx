@@ -1,43 +1,27 @@
-import Alignment from './alignment';
 import Basic from './basic';
-import ColOffset from './colOffset';
-import GridSort from './gridSort';
-import MoreResponsive from './moreResponsive';
-import Order from './order';
-import Responsive from './responsive';
-import Stretch from './stretch';
-import Typesetting from './typesetting';
+import Row from './row';
+import Col from './col';
+import Grid from './grid';
+import GridMenu from './gridMenu';
 
-import AlignmentSource from './alignment?raw';
 import BasicSource from './basic?raw';
-import ColOffsetSource from './colOffset?raw';
-import GridSortSource from './gridSort?raw';
-import MoreResponsiveSource from './moreResponsive?raw';
-import OrderSource from './order?raw';
-import ResponsiveSource from './responsive?raw';
-import StretchSource from './stretch?raw';
-import TypesettingSource from './typesetting?raw';
+import RowSource from './row?raw';
+import ColSource from './col?raw';
+import GridSource from './grid?raw';
+import GridMenuSource from './gridMenu?raw';
 
 export const Sources = {
-    Alignment: AlignmentSource,
     Basic: BasicSource,
-    ColOffset: ColOffsetSource,
-    GridSort: GridSortSource,
-    MoreResponsive: MoreResponsiveSource,
-    Order: OrderSource,
-    Responsive: ResponsiveSource,
-    Stretch: StretchSource,
-    Typesetting: TypesettingSource
+    Row: RowSource,
+    Col: ColSource,
+    Grid: GridSource,
+    GridMenu: GridMenuSource
 };
 
 export default {
-    Alignment,
     Basic,
-    ColOffset,
-    GridSort,
-    MoreResponsive,
-    Order,
-    Responsive,
-    Stretch,
-    Typesetting
+    Row,
+    Col,
+    Grid,
+    GridMenu
 };

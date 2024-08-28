@@ -1,7 +1,7 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-side-menu) {
-    --sideMenu-colors-text: var(--components-SideMenu-colors-text, var(--general-utilities-text-textPrimary));
+    --sideMenu-colors-text: var(--components-SideMenu-colors-text, var(--general-utilities-text-primary));
     --sideMenu-shadow: 5px 3px 8px -5px #0000001a;
     --sideMenu-inset-shadow: inset 5px 3px 8px -5px #0000001a;
     --sideMenu-default-width-close: 64;
@@ -164,7 +164,7 @@
     }
 
     > .kit-side-menu-item-icon {
-        color: var(--components-SideMenu-item-colors-icon-default, var(--general-utilities-main-mainColor));
+        color: var(--components-SideMenu-item-colors-icon-default, var(--general-utilities-main-default));
         height: convertToPixel(--general-spacing-l);
         width: convertToPixel(--general-spacing-l);
         padding: convertToPixel(--general-spacing-xs);
@@ -210,10 +210,7 @@
     &.active,
     &:hover {
         padding-left: convertToPixel(--component-SideMenu-item-activeOffset, --general-spacing-xs);
-        background: var(
-            --components-SideMenu-item-colors-background-hover,
-            var(--general-utilities-neutral-neutralLight)
-        );
+        background: var(--components-SideMenu-item-colors-background-hover, var(--general-utilities-neutral-light));
         transition:
             padding-left 0.1s ease-in-out,
             background-color 0s 0.1s;
@@ -221,12 +218,12 @@
 
     &.active,
     &.active:hover {
-        background: var(--components-SideMenu-item-colors-background-active, var(--general-utilities-main-mainColor));
+        background: var(--components-SideMenu-item-colors-background-active, var(--general-utilities-main-default));
 
         > .kit-side-menu-item-icon,
         > .kit-side-menu-item-title,
         > .kit-side-menu-item-title .ant-typography {
-            color: var(--components-SideMenu-item-colors-text-active, var(--general-utilities-text-textLight));
+            color: var(--components-SideMenu-item-colors-text-active, var(--general-utilities-text-light));
         }
     }
 
@@ -239,7 +236,7 @@
         > .kit-side-menu-item-icon,
         > .kit-side-menu-item-title,
         > .kit-side-menu-item-title .ant-typography {
-            color: var(--components-SideMenu-item-colors-text-disabled, var(--general-utilities-neutral-neutralDark));
+            color: var(--components-SideMenu-item-colors-text-disabled, var(--general-utilities-neutral-dark));
         }
     }
 }

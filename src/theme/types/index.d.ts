@@ -42,6 +42,7 @@ import {ThemeConfig} from 'antd';
 import {IKitSideMenuTheme} from './components/Navigation/SideMenu';
 import {IKitUtilities} from './utilities';
 import {IKitLoaderTheme} from './components/Feedback/Loader';
+import {IKitGridConfig} from './general/grid';
 
 export type DeepPartial<T> = T extends object
     ? {
@@ -54,6 +55,8 @@ export interface IKitThemeGeneral {
     border: IKitBorder;
     spacing: IKitSpacing;
     typography: IKitTypography;
+    breakpoints: string[];
+    grid: IKitGridConfig;
     utilities: IKitUtilities;
 }
 

@@ -36,25 +36,25 @@
 
     &.ant-alert-success {
         svg {
-            color: var(--components-Alert-colors-icon-alert-success, var(--general-utilities-success-successColor));
+            color: var(--components-Alert-colors-icon-alert-success, var(--general-utilities-success-default));
         }
     }
 
     &.ant-alert-info {
         svg {
-            color: var(--components-Alert-colors-icon-alert-info, var(--general-utilities-main-mainColor));
+            color: var(--components-Alert-colors-icon-alert-info, var(--general-utilities-main-default));
         }
     }
 
     &.ant-alert-warning {
         svg {
-            color: var(--components-Alert-colors-icon-alert-warning, var(--general-utilities-warning-warningColor));
+            color: var(--components-Alert-colors-icon-alert-warning, var(--general-utilities-warning-default));
         }
     }
 
     &.ant-alert-error {
         svg {
-            color: var(--components-Alert-colors-icon-alert-error, var(--general-utilities-error-errorColor));
+            color: var(--components-Alert-colors-icon-alert-error, var(--general-utilities-error-default));
         }
     }
 }

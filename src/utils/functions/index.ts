@@ -52,32 +52,19 @@ export const isValidColor = (color: string): boolean => {
     );
 };
 
-const _getSecondaryColorKey = (color: keyof IKitColorsPalette['secondary']): string => {
-    switch (color) {
-        case 'warning':
-            return 'orange';
-        case 'error':
-            return 'red';
-        case 'success':
-            return 'green';
-        default:
-            return '';
-    }
-};
-
 export const getColor = (color: KitColorProp, isInvert: boolean = false): string => {
     const colorAccent = isInvert ? 100 : 400;
 
     if (color && isPrimaryColor(color)) {
-        return 'var(--general-colors-' + color + '-blue' + colorAccent + ')';
+        return 'var(--general-colors-' + color + '-' + colorAccent + ')';
     }
 
     if (color && isSecondaryColor(color)) {
-        return 'var(--general-colors-secondary-' + color + '-' + _getSecondaryColorKey(color) + colorAccent + ')';
+        return 'var(--general-colors-secondary-' + color + '-' + colorAccent + ')';
     }
 
     if (color && isTertiaryColor(color)) {
-        return 'var(--general-colors-tertiary-' + color + '-' + color + colorAccent + ')';
+        return 'var(--general-colors-tertiary-' + color + '-' + colorAccent + ')';
     }
 
     return color as string;
@@ -87,15 +74,15 @@ export const getLighterColor = (color: KitColorProp, isInvert: boolean = false) 
     const colorAccent = isInvert ? 400 : 100;
 
     if (color && isPrimaryColor(color)) {
-        return 'var(--general-colors-' + color + '-blue' + colorAccent + ')';
+        return 'var(--general-colors-' + color + '-' + colorAccent + ')';
     }
 
     if (color && isSecondaryColor(color)) {
-        return 'var(--general-colors-secondary-' + color + '-' + _getSecondaryColorKey(color) + colorAccent + ')';
+        return 'var(--general-colors-secondary-' + color + '-' + colorAccent + ')';
     }
 
     if (color && isTertiaryColor(color)) {
-        return 'var(--general-colors-tertiary-' + color + '-' + color + colorAccent + ')';
+        return 'var(--general-colors-tertiary-' + color + '-' + colorAccent + ')';
     }
 
     return _colorToLightHSL(color);

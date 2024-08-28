@@ -89,7 +89,7 @@ export const InternalCheckboxGroup: ForwardRefRenderFunction<HTMLDivElement, ICh
 
     const [wrapSSR, hashId] = useStyle(prefixCls);
 
-    const domProps = omit(restProps, ['value', 'disabled']);
+    const domProps = omit(restProps, ['value', 'disabled', 'bordered']);
 
     if (options && options.length > 0) {
         children = _getOptions().map(option => (

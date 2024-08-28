@@ -18,10 +18,7 @@ const App = () => {
             </KitBadge>
             <KitBadge
                 count={
-                    <KitIcon
-                        icon={<FontAwesomeIcon icon={faClock} />}
-                        style={{color: theme.utilities.error.errorDark}}
-                    />
+                    <KitIcon icon={<FontAwesomeIcon icon={faClock} />} style={{color: theme.utilities.error.dark}} />
                 }
             >
                 <KitAvatar shape="square" size="large" />

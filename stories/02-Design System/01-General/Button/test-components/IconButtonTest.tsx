@@ -17,9 +17,13 @@ export const IconButtonTest: FunctionComponent = () => (
             <KitButton type="tertiary" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
                 Tertiary
             </KitButton>
-            <KitButton type="text" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
-            <KitButton type="text" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
-                Text
+            <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+            <KitButton type="link" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                Link
+            </KitButton>
+            <KitButton type="redirect" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
+            <KitButton type="redirect" icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}>
+                Link
             </KitButton>
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faFilter} />} />
             <KitButton type="segmented" icon={<FontAwesomeIcon icon={faFilter} />}>

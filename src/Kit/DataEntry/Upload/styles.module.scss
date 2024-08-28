@@ -9,11 +9,11 @@
                 border-radius: var(--general-border-radius-xxs);
                 border-color: var(
                     --components-Upload-colors-card-border-default,
-                    var(--general-utilities-main-mainColor)
+                    var(--general-utilities-main-default)
                 );
                 background-color: var(
                     --components-Upload-colors-card-background-default,
-                    var(--general-utilities-neutral-neutralLight)
+                    var(--general-utilities-neutral-light)
                 );
             }
 
@@ -31,10 +31,7 @@
 
                     &.ant-upload-list-item-uploading {
                         border: 1px dashed
-                            var(
-                                --components-Upload-colors-list-border-uploading,
-                                var(--general-utilities-main-mainColor)
-                            );
+                            var(--components-Upload-colors-list-border-uploading, var(--general-utilities-main-default));
                     }
                 }
                 .ant-upload-list-item-container {
@@ -48,12 +45,9 @@
                 .ant-upload-list-item-error {
                     border-color: var(
                         --components-Upload-colors-list-border-error,
-                        var(--general-utilities-error-errorColor)
+                        var(--general-utilities-error-default)
                     );
-                    color: var(
-                        --components-Upload-colors-list-typography-error,
-                        var(--general-utilities-text-textError)
-                    );
+                    color: var(--components-Upload-colors-list-typography-error, var(--general-utilities-text-error));
                 }
             }
             .ant-upload-list-picture {
@@ -72,10 +66,7 @@
 
         .ant-upload-list-item-uploading {
             .ant-upload-list-item-name {
-                color: var(
-                    --components-Upload-colors-list-typography-uploading,
-                    var(--general-utilities-main-mainColor)
-                );
+                color: var(--components-Upload-colors-list-typography-uploading, var(--general-utilities-main-default));
             }
         }
 
@@ -86,12 +77,12 @@
         .ant-upload-list-item-done {
             border-color: var(--components-Upload-colors-list-border-default, var(--general-utilities-border));
             .ant-upload-list-item-name {
-                color: var(--components-Upload-colors-list-typography-done, var(--general-utilities-text-textBlue));
+                color: var(--components-Upload-colors-list-typography-done, var(--general-utilities-text-blue));
             }
         }
 
         .ant-upload-list-item-error {
-            color: var(--components-Upload-colors-list-typography-error, var(--general-utilities-text-textError));
+            color: var(--components-Upload-colors-list-typography-error, var(--general-utilities-text-error));
         }
 
         &.list-type-text {
@@ -116,21 +107,18 @@
             &:hover {
                 border-color: var(
                     --components-Upload-Dragger-colors-border-hover,
-                    var(--general-utilities-main-mainColor)
+                    var(--general-utilities-main-default)
                 );
             }
 
             .ant-upload-btn {
                 background-color: var(
                     --components-Upload-Dragger-colors-background-default,
-                    var(--general-utilities-neutral-neutralLight)
+                    var(--general-utilities-neutral-light)
                 );
             }
             .ant-upload-text {
-                color: var(
-                    --components-Upload-Dragger-colors-typography-text,
-                    var(--general-utilities-text-textPrimary)
-                );
+                color: var(--components-Upload-Dragger-colors-typography-text, var(--general-utilities-text-primary));
                 font-size: convertToPixel(
                     --components-Upload-Dragger-typography-fontSize,
                     --general-typography-fontSize4
@@ -145,10 +133,7 @@
                 );
             }
             .ant-upload-hint {
-                color: var(
-                    --components-Upload-Dragger-colors-typography-hint,
-                    var(--general-utilities-neutral-neutralDark)
-                );
+                color: var(--components-Upload-Dragger-colors-typography-hint, var(--general-utilities-neutral-dark));
                 margin-top: var(--general-spacing-xs);
                 margin-bottom: var(--general-spacing-none);
             }
@@ -160,7 +145,7 @@
                     font-size: convertToPixel(--general-typography-fontSize1);
                     color: var(
                         --components-Upload-Dragger-colors-dragIcon-default,
-                        var(--general-utilities-main-mainColor)
+                        var(--general-utilities-main-default)
                     );
                 }
             }
@@ -168,6 +153,6 @@
     }
 
     .ant-upload-list-item-name {
-        color: var(--components-Upload-Dragger-colors-typography-item, var(--general-utilities-main-mainColor));
+        color: var(--components-Upload-Dragger-colors-typography-item, var(--general-utilities-main-default));
     }
 }

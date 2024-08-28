@@ -1,5 +1,4 @@
-import React from 'react';
-import {KitDivider, KitGrid, KitSpace} from '@kit/Layout/';
+import {KitDivider, KitSpace} from '@kit/Layout/';
 import {IEditorTemplate} from '../../../types';
 import {KitTypography} from '@kit/General';
 import {IKitDivider} from '@kit/Layout/Divider/types';
@@ -14,31 +13,27 @@ export const Template = (args: IKitDivider) => {
 };
 
 export const EditorTemplate: IEditorTemplate = () => (
-        <KitGrid.Row>
-            <KitGrid.Col span={24}>
-                <KitSpace direction="vertical">
-                    <KitSpace direction="vertical">
-                        <KitTypography.Paragraph size="medium" weight="regular">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
-                            ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-                        </KitTypography.Paragraph>
-                        <KitDivider>Label</KitDivider>
-                        <KitTypography.Paragraph size="medium" weight="regular">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
-                            ista probare, quae sunt a te dicta? Refert tamen, quo modo.
-                        </KitTypography.Paragraph>
-                    </KitSpace>
-                    <KitDivider />
-                    <KitSpace align="center" style={{justifyContent: 'center'}}>
-                        <KitTypography.Text>Lorem</KitTypography.Text>
-                        <KitDivider type="vertical" />
-                        <KitTypography.Text>ipsum</KitTypography.Text>
-                        <KitDivider type="vertical" />
-                        <KitTypography.Text>dolor</KitTypography.Text>
-                    </KitSpace>
-                </KitSpace>
-            </KitGrid.Col>
-        </KitGrid.Row>
-    );
+    <KitSpace direction="vertical">
+        <KitSpace direction="vertical">
+            <KitTypography.Paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare,
+                quae sunt a te dicta? Refert tamen, quo modo.
+            </KitTypography.Paragraph>
+            <KitDivider>Label</KitDivider>
+            <KitTypography.Paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare,
+                quae sunt a te dicta? Refert tamen, quo modo.
+            </KitTypography.Paragraph>
+        </KitSpace>
+        <KitDivider />
+        <KitSpace align="center" style={{justifyContent: 'center'}}>
+            <KitTypography.Text>Lorem</KitTypography.Text>
+            <KitDivider type="vertical" />
+            <KitTypography.Text>ipsum</KitTypography.Text>
+            <KitDivider type="vertical" />
+            <KitTypography.Text>dolor</KitTypography.Text>
+        </KitSpace>
+    </KitSpace>
+);
 EditorTemplate.path = 'components.Divider';
 EditorTemplate.title = 'Divider';

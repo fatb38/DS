@@ -18,19 +18,19 @@
             &:hover::after {
                 background-color: var(
                     --components-Slider-handle-colors-background-hover,
-                    var(--general-utilities-main-mainLight)
+                    var(--general-utilities-main-light)
                 );
             }
 
             &::after {
                 box-shadow: 0 0 0 2px
-                    var(--components-Slider-handle-colors-border-default, var(--general-utilities-main-mainColor));
+                    var(--components-Slider-handle-colors-border-default, var(--general-utilities-main-default));
             }
 
             &:focus::after {
                 background-color: var(
                     --components-Slider-handle-colors-background-focus,
-                    var(--general-utilities-main-mainColor)
+                    var(--general-utilities-main-default)
                 );
             }
         }
@@ -39,13 +39,13 @@
             .ant-slider-dot:not(.ant-slider-dot-active) {
                 border-color: var(
                     --components-Slider-dot-colors-border-default,
-                    var(--general-utilities-neutral-neutralMedium)
+                    var(--general-utilities-neutral-medium)
                 );
             }
         }
 
         .ant-slider-mark .ant-slider-mark-text:not(.ant-slider-mark-text-active) {
-            color: var(--components-Slider-dot-colors-border-default, var(--general-utilities-neutral-neutralMedium));
+            color: var(--components-Slider-dot-colors-border-default, var(--general-utilities-neutral-medium));
         }
 
         .ant-slider-mark {
@@ -56,7 +56,7 @@
     &.ant-slider-disabled {
         .ant-slider-handle::after {
             box-shadow: 0 0 0 2px
-                var(--components-Slider-handle-colors-border-disabled, var(--general-utilities-neutral-neutralMedium));
+                var(--components-Slider-handle-colors-border-disabled, var(--general-utilities-neutral-medium));
         }
     }
 }
@@ -67,10 +67,10 @@
     align-items: baseline;
 
     .end-icon {
-        color: var(--components-Slider-endIcon-colors-default, var(--general-utilities-neutral-neutralDark));
+        color: var(--components-Slider-endIcon-colors-default, var(--general-utilities-neutral-dark));
     }
 
     .start-icon {
-        color: var(--components-Slider-startIcon-colors-default, var(--general-utilities-neutral-neutralDark));
+        color: var(--components-Slider-startIcon-colors-default, var(--general-utilities-neutral-dark));
     }
 }

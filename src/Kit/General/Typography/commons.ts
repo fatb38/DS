@@ -3,18 +3,14 @@ import {TitleLevel, TypographyWeight, TypographyWeightKeys} from './types';
 import {CSSProperties} from 'react';
 import {getColor, isValidColor} from '@utils/functions';
 
-export const getWeightClassname = ({
-    className = '',
-    weight = 'regular'
-}: {
-    className?: string;
-    weight?: TypographyWeightKeys;
-}) =>
-    cn(className, {
+export const getWeightClassName = (weight: TypographyWeightKeys = 'regular') =>
+    cn({
         'ant-typography-regular': weight === TYPOGRAPHY_WEIGHT['regular'],
         'ant-typography-medium': weight === TYPOGRAPHY_WEIGHT['medium'],
         'ant-typography-bold': weight === TYPOGRAPHY_WEIGHT['bold']
     });
+
+export const getFontSizeClassName = (size: string) => cn({[`kit-typography-${size}`]: size});
 
 export const TYPOGRAPHY_WEIGHT: TypographyWeight = {
     regular: 'regular',

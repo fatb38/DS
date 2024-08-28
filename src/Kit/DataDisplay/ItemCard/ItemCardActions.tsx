@@ -10,10 +10,9 @@ export const ItemCardActions: FunctionComponent<IKitItemCardActions> = ({
 }) => (
     <div className="kit-item-card-actions">
         {actions?.map(action => (
-            <KitTooltip title={action.label}>
+            <KitTooltip title={action.label} key={action.key}>
                 <KitButton
                     type={display === 'list' ? 'tertiary' : 'secondary'}
-                    key={action.key}
                     icon={action.icon}
                     onClick={action.onClick}
                     disabled={action.disabled || disabled}

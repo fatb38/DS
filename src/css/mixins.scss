@@ -1,24 +1,24 @@
 @use '@sass-fairy/string';
 
-@function convertToPixel($cssToken, $fallback:null) {
-  @if $fallback == null {
-    @return calc(var($cssToken) * 1px)
-  }
+@function convertToPixel($cssToken, $fallback: null) {
+    @if $fallback == null {
+        @return calc(var($cssToken) * 1px);
+    }
 
-  @if string.starts-with(#{$fallback}, '--') {
-    @return calc(var($cssToken, var($fallback)) * 1px)
-  }
+    @if string.starts-with(#{$fallback}, '--') {
+        @return calc(var($cssToken, var($fallback)) * 1px);
+    }
 
-  @return calc(var($cssToken, $fallback) * 1px)
+    @return calc(var($cssToken, $fallback) * 1px);
 }
 
 @mixin svgColorsClasses() {
-  @for $i from 1 through 7 {
-    .fill-#{$i}00 {
-      fill: var(--general-colors-primary-blue#{$i}00);
+    @for $i from 1 through 7 {
+        .fill-#{$i}00 {
+            fill: var(--general-colors-primary-#{$i}00);
+        }
+        .stroke-#{$i}00 {
+            stroke: var(--general-colors-primary-#{$i}00);
+        }
     }
-    .stroke-#{$i}00 {
-      stroke: var(--general-colors-primary-blue#{$i}00);
-    }
-  }
 }

@@ -1,55 +1,55 @@
 import {IKitUtilities, IKitUtilitiesCssTokens} from '@theme/types/utilities';
 
 export const utilities: IKitUtilities = {
-    border: 'var(--general-colors-neutral-grey-grey200)',
-    disabled: 'var(--general-colors-neutral-grey-grey400)',
-    focus: 'var(--general-colors-primary-blue200)',
+    border: 'var(--general-colors-neutral-grey-200)',
+    disabled: 'var(--general-colors-neutral-grey-400)',
+    focus: 'var(--general-colors-primary-200)',
     light: 'var(--general-colors-neutral-white)',
     colorNone: 'rgba(255, 255, 255, 0.00)',
     main: {
-        mainLight: 'var(--general-colors-primary-blue100)',
-        mainMedium: 'var(--general-colors-primary-blue200)',
-        mainColor: 'var(--general-colors-primary-blue400)',
-        mainDark: 'var(--general-colors-primary-blue500)',
-        mainDeepDark: 'var(--general-colors-primary-blue600)'
+        light: 'var(--general-colors-primary-100)',
+        medium: 'var(--general-colors-primary-200)',
+        default: 'var(--general-colors-primary-400)',
+        dark: 'var(--general-colors-primary-500)',
+        deepDark: 'var(--general-colors-primary-600)'
     },
     neutral: {
-        neutralLight: 'var(--general-colors-neutral-grey-grey100)',
-        neutralMedium: 'var(--general-colors-neutral-grey-grey200)',
-        neutralDark: 'var(--general-colors-neutral-grey-grey400)',
-        neutralDeepDark: 'var(--general-colors-neutral-grey-grey600)'
+        light: 'var(--general-colors-neutral-grey-100)',
+        medium: 'var(--general-colors-neutral-grey-200)',
+        dark: 'var(--general-colors-neutral-grey-400)',
+        deepDark: 'var(--general-colors-neutral-grey-600)'
     },
     error: {
-        errorLight: 'var(--general-colors-secondary-error-red100)',
-        errorMedium: 'var(--general-colors-secondary-error-red200)',
-        errorColor: 'var(--general-colors-secondary-error-red400)',
-        errorDark: 'var(--general-colors-secondary-error-red500)'
+        light: 'var(--general-colors-secondary-error-100)',
+        medium: 'var(--general-colors-secondary-error-200)',
+        default: 'var(--general-colors-secondary-error-400)',
+        dark: 'var(--general-colors-secondary-error-500)'
     },
     success: {
-        successLight: 'var(--general-colors-secondary-success-green100)',
-        successMedium: 'var(--general-colors-secondary-success-green200)',
-        successColor: 'var(--general-colors-secondary-success-green400)',
-        successDark: 'var(--general-colors-secondary-success-green600)'
+        light: 'var(--general-colors-secondary-success-100)',
+        medium: 'var(--general-colors-secondary-success-200)',
+        default: 'var(--general-colors-secondary-success-400)',
+        dark: 'var(--general-colors-secondary-success-600)'
     },
     warning: {
-        warningLight: 'var(--general-colors-secondary-warning-orange100)',
-        warningMedium: 'var(--general-colors-secondary-warning-orange200)',
-        warningColor: 'var(--general-colors-secondary-warning-orange400)',
-        warningDark: 'var(--general-colors-secondary-warning-orange600)'
+        light: 'var(--general-colors-secondary-warning-100)',
+        medium: 'var(--general-colors-secondary-warning-200)',
+        default: 'var(--general-colors-secondary-warning-400)',
+        dark: 'var(--general-colors-secondary-warning-600)'
     },
     text: {
-        textLight: 'var(--general-utilities-light)',
-        textPrimary: 'var(--general-utilities-neutral-neutralDeepDark)',
-        textDisabled: 'var(--general-utilities-disabled)',
-        textBlue: 'var(--general-utilities-main-mainColor)',
-        textSuccess: 'var(--general-utilities-success-successColor)',
-        textWarning: 'var(--general-utilities-warning-warningColor)',
-        textError: 'var(--general-utilities-error-errorColor)'
+        light: 'var(--general-utilities-light)',
+        primary: 'var(--general-utilities-neutral-deepDark)',
+        disabled: 'var(--general-utilities-disabled)',
+        blue: 'var(--general-utilities-main-default)',
+        success: 'var(--general-utilities-success-default)',
+        warning: 'var(--general-utilities-warning-default)',
+        error: 'var(--general-utilities-error-default)'
     },
     shadow: {
-        shadowLight: '0px 3px 8px 0px rgba(0, 0, 0, 0.10)',
-        shadowMedium: '0px 3px 14px 0px rgba(0, 0, 0, 0.30)',
-        shadowBlue: '0px 3px 8px 0px var(--general-colors-primary-blue200)'
+        light: '0px 3px 8px 0px rgba(0, 0, 0, 0.10)',
+        medium: '0px 3px 14px 0px rgba(0, 0, 0, 0.30)',
+        blue: '0px 3px 8px 0px var(--general-colors-primary-200)'
     }
 };
 
@@ -62,48 +62,48 @@ export const utilitiesCssTokens: IKitUtilitiesCssTokens = {
     light: `${base}-light`,
     colorNone: `${base}-colorNone`,
     main: {
-        mainLight: `${base}-main-mainLight`,
-        mainMedium: `${base}-main-mainMedium`,
-        mainColor: `${base}-main-mainColor`,
-        mainDark: `${base}-main-mainDark`,
-        mainDeepDark: `${base}-main-mainDeepDark`
+        light: `${base}-main-light`,
+        medium: `${base}-main-medium`,
+        default: `${base}-main-default`,
+        dark: `${base}-main-dark`,
+        deepDark: `${base}-main-deepDark`
     },
     neutral: {
-        neutralLight: `${base}-neutral-neutralLight`,
-        neutralMedium: `${base}-neutral-neutralMedium`,
-        neutralDark: `${base}-neutral-neutralDark`,
-        neutralDeepDark: `${base}-neutral-neutralDeepDark`
+        light: `${base}-neutral-light`,
+        medium: `${base}-neutral-medium`,
+        dark: `${base}-neutral-dark`,
+        deepDark: `${base}-neutral-deepDark`
     },
     error: {
-        errorLight: `${base}-error-errorLight`,
-        errorMedium: `${base}-error-errorMedium`,
-        errorColor: `${base}-error-errorColor`,
-        errorDark: `${base}-error-errorDark`
+        light: `${base}-error-light`,
+        medium: `${base}-error-medium`,
+        default: `${base}-error-default`,
+        dark: `${base}-error-dark`
     },
     success: {
-        successLight: `${base}-success-successLight`,
-        successMedium: `${base}-success-successMedium`,
-        successColor: `${base}-success-successColor`,
-        successDark: `${base}-success-successDark`
+        light: `${base}-success-light`,
+        medium: `${base}-success-medium`,
+        default: `${base}-success-default`,
+        dark: `${base}-success-dark`
     },
     warning: {
-        warningLight: `${base}-warning-warningLight`,
-        warningMedium: `${base}-warning-warningMedium`,
-        warningColor: `${base}-warning-warningColor`,
-        warningDark: `${base}-warning-warningDark`
+        light: `${base}-warning-light`,
+        medium: `${base}-warning-medium`,
+        default: `${base}-warning-default`,
+        dark: `${base}-warning-dark`
     },
     text: {
-        textLight: `${base}-text-textLight`,
-        textPrimary: `${base}-text-textPrimary`,
-        textDisabled: `${base}-text-textDisabled`,
-        textBlue: `${base}-text-textBlue`,
-        textSuccess: `${base}-text-textSuccess`,
-        textWarning: `${base}-text-textWarning`,
-        textError: `${base}-text-textError`
+        light: `${base}-text-light`,
+        primary: `${base}-text-primary`,
+        disabled: `${base}-text-disabled`,
+        blue: `${base}-text-blue`,
+        success: `${base}-text-success`,
+        warning: `${base}-text-warning`,
+        error: `${base}-text-error`
     },
     shadow: {
-        shadowLight: `${base}-shadow-shadowLight`,
-        shadowMedium: `${base}-shadow-shadowMedium`,
-        shadowBlue: `${base}-shadow-shadowBlue`
+        light: `${base}-shadow-light`,
+        medium: `${base}-shadow-medium`,
+        blue: `${base}-shadow-blue`
     }
 };

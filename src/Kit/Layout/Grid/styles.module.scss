@@ -1,0 +1,80 @@
+@use 'sass:list';
+@use 'sass:map';
+@import '../../../css/mixins.scss';
+
+:local(.kit-grid) {
+    overflow: hidden;
+
+    &.withMenu {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        row-gap: var(--kit-Grid-rowGap);
+    }
+}
+
+.kit-row {
+    display: flex;
+
+    .kit-row-inner {
+        display: grid;
+        margin: convertToPixel(--general-spacing-none) auto;
+        grid-template-rows: auto;
+        row-gap: var(--kit-Grid-rowGap, convertToPixel(--general-spacing-none));
+        height: 100%;
+        flex-wrap: wrap;
+    }
+
+    &.kit-row-align-start {
+        align-items: flex-start;
+    }
+
+    &.kit-row-align-center {
+        align-items: center;
+    }
+
+    &.kit-row-align-end {
+        align-items: flex-end;
+    }
+}
+
+:local(.kit-col) {
+    &.kit-col-flex {
+        display: flex;
+    }
+
+    &.kit-col-align-start {
+        align-items: flex-start;
+    }
+
+    &.kit-col-align-center {
+        align-items: center;
+    }
+
+    &.kit-col-align-end {
+        align-items: flex-end;
+    }
+
+    &.kit-col-justify-start {
+        justify-content: flex-start;
+    }
+
+    &.kit-col-justify-center {
+        justify-content: center;
+    }
+
+    &.kit-col-justify-end {
+        justify-content: flex-end;
+    }
+
+    &.kit-col-align-self-start {
+        align-self: flex-start;
+    }
+
+    &.kit-col-align-self-center {
+        align-self: center;
+    }
+
+    &.kit-col-align-self-end {
+        align-self: flex-end;
+    }
+}

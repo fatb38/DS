@@ -10,13 +10,13 @@ $sizes: (
 );
 $prefix: 'kit-btn-';
 
-@mixin mainColorTokens($category, $name, $colorKey, $color) {
+@mixin defaultTokens($category, $name, $colorKey, $color) {
     &.kit-btn-#{$name} {
-        --kit-btn-main-color: var(--general-colors-#{$category}-#{$colorKey}-#{$color}400);
-        --kit-btn-main-light: var(--general-colors-#{$category}-#{$colorKey}-#{$color}100);
-        --kit-btn-main-focus: var(--general-colors-#{$category}-#{$colorKey}-#{$color}200);
-        --kit-btn-main-dark: var(--general-colors-#{$category}-#{$colorKey}-#{$color}500);
-        --kit-btn-main-dark-deep: var(--general-colors-#{$category}-#{$colorKey}-#{$color}600);
+        --kit-btn-main-color: var(--general-colors-#{$category}-#{$colorKey}-400);
+        --kit-btn-main-light: var(--general-colors-#{$category}-#{$colorKey}-100);
+        --kit-btn-main-focus: var(--general-colors-#{$category}-#{$colorKey}-200);
+        --kit-btn-main-dark: var(--general-colors-#{$category}-#{$colorKey}-500);
+        --kit-btn-main-dark-deep: var(--general-colors-#{$category}-#{$colorKey}-600);
         --kit-btn-invert-color: var(--general-utilities-light);
     }
 }
@@ -124,15 +124,15 @@ $prefix: 'kit-btn-';
         }
     }
 
-    --kit-btn-main-color: var(--general-utilities-main-mainColor);
-    --kit-btn-main-light: var(--general-utilities-main-mainLight);
+    --kit-btn-main-color: var(--general-utilities-main-default);
+    --kit-btn-main-light: var(--general-utilities-main-light);
     --kit-btn-main-focus: var(--general-utilities-focus);
-    --kit-btn-main-dark: var(--general-utilities-main-mainDark);
-    --kit-btn-main-dark-deep: var(--general-utilities-main-mainDeepDark);
+    --kit-btn-main-dark: var(--general-utilities-main-dark);
+    --kit-btn-main-dark-deep: var(--general-utilities-main-deepDark);
     --kit-btn-invert-color: var(--general-utilities-light);
     --kit-btn-disabled-color: var(--general-utilities-disabled);
     --kit-btn-border-color: var(--general-utilities-border);
-    --kit-btn-grey-light: var(--general-utilities-neutral-neutralLight);
+    --kit-btn-grey-light: var(--general-utilities-neutral-light);
 
     &.kit-btn-block {
         display: flex;
@@ -141,7 +141,9 @@ $prefix: 'kit-btn-';
     }
 
     &:focus-visible,
-    &.kit-btn-secondary:focus {
+    &.kit-btn-secondary:focus,
+    &.kit-btn-link:focus,
+    &.kit-btn-redirect:focus {
         outline: var(--general-utilities-focus) solid 3px;
         transition:
             outline-offset 0s ease 0s,
@@ -164,7 +166,8 @@ $prefix: 'kit-btn-';
             background-color: var(--kit-btn-main-light);
         }
 
-        &:disabled {
+        &:disabled,
+        &.kit-btn-disabled {
             color: var(--kit-btn-disabled-color);
             background-color: var(--kit-btn-grey-light);
             border-color: var(--kit-btn-border-color);
@@ -187,7 +190,8 @@ $prefix: 'kit-btn-';
             border-color: var(--kit-btn-main-dark-deep);
         }
 
-        &:disabled {
+        &:disabled,
+        &.kit-btn-disabled {
             color: var(--kit-btn-disabled-color);
             background-color: var(--kit-btn-grey-light);
             border-color: var(--kit-btn-border-color);
@@ -209,10 +213,115 @@ $prefix: 'kit-btn-';
             background-color: var(--kit-btn-main-light);
         }
 
-        &:disabled {
+        &:disabled,
+        &.kit-btn-disabled {
             color: var(--kit-btn-disabled-color);
             background-color: transparent;
             border-color: transparent;
+        }
+    }
+
+    &.kit-btn-link {
+        background: transparent;
+        border-color: transparent;
+        border: none;
+        border-bottom: 1px solid transparent;
+        padding: convertToPixel(--general-spacing-xxs);
+        border-radius: convertToPixel(--general-border-radius-xs);
+        height: auto;
+        display: flex;
+        align-items: center;
+        gap: convertToPixel(--general-spacing-xxs);
+        color: var(--general-utilities-main-default);
+
+        &:before {
+            position: absolute;
+            width: 100%;
+            height: 0px;
+            border-bottom: 1px solid var(--general-utilities-main-dark);
+            bottom: -1px;
+            left: 0;
+        }
+
+        &:hover:not(:disabled):not(.kit-btn-disabled) {
+            color: var(--general-utilities-main-dark);
+
+            &:before {
+                content: '';
+            }
+        }
+
+        &:active:not(:disabled):not(.kit-btn-disabled) {
+            color: var(--general-utilities-main-deepDark);
+
+            &:before {
+                content: '';
+            }
+        }
+
+        &:disabled,
+        &.kit-btn-disabled {
+            color: var(--kit-btn-disabled-color);
+            background-color: transparent;
+            border-color: transparent;
+            cursor: not-allowed;
+        }
+    }
+
+    &.kit-btn-redirect {
+        background: transparent;
+        border-color: transparent;
+        border: none;
+        border-bottom: 1px solid transparent;
+        padding: convertToPixel(--general-spacing-xs);
+        border-radius: convertToPixel(--general-border-radius-xs);
+        height: auto;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        justify-items: start;
+        gap: convertToPixel(--general-spacing-xs);
+        color: var(--general-utilities-main-deepDark);
+
+        .kit-btn-icon-redirect {
+            transition: transform 0.3s;
+            margin-left: convertToPixel(--general-spacing-xs);
+        }
+
+        &:hover:not(:disabled):not(.kit-btn-disabled) {
+            background-color: var(--general-utilities-main-light);
+        }
+
+        &:focus:not(:disabled):not(.kit-btn-disabled) {
+            background: var(--general-utilities-white);
+        }
+
+        &:hover:not(:disabled):not(.kit-btn-disabled),
+        &:focus:not(:disabled):not(.kit-btn-disabled) {
+            .kit-btn-icon-redirect {
+                transform: rotate(-45deg);
+                transition: transform 0.3s;
+                color: var(--general-utilities-main-default);
+            }
+        }
+
+        &:active:not(:disabled):not(.kit-btn-disabled) {
+            background-color: var(--general-utilities-main-light);
+            color: var(--general-utilities-main-default);
+        }
+
+        &:disabled,
+        &:disabled .kit-btn-icon,
+        &.kit-btn-disabled,
+        &.kit-btn-disabled .kit-btn-icon {
+            color: var(--kit-btn-disabled-color);
+            background-color: transparent;
+            border-color: transparent;
+            cursor: not-allowed;
+        }
+
+        .kit-btn-icon {
+            color: var(--general-utilities-main-default);
         }
     }
 
@@ -235,31 +344,74 @@ $prefix: 'kit-btn-';
         font-size: convertToPixel(--general-typography-fontSize7);
     }
 
-    &.kit-btn-icon-only {
+    &.kit-btn-icon-only:not(.kit-btn-link):not(.kit-btn-redirect) {
         padding: convertToPixel(--general-spacing-none);
         justify-content: center;
     }
 
+    &.kit-btn-icon-only.kit-btn-link {
+        min-width: auto;
+    }
+
     &.kit-btn-danger,
     &.kit-btn-danger-modal {
-        --kit-btn-main-color: var(--general-utilities-error-errorColor);
-        --kit-btn-main-light: var(--general-utilities-error-errorLight);
-        --kit-btn-main-focus: var(--general-utilities-error-errorColor);
-        --kit-btn-main-dark: var(--general-utilities-error-errorDark);
-        --kit-btn-main-dark-deep: var(--general-utilities-error-errorDark);
+        --kit-btn-main-color: var(--general-utilities-error-default);
+        --kit-btn-main-light: var(--general-utilities-error-light);
+        --kit-btn-main-focus: var(--general-utilities-error-default);
+        --kit-btn-main-dark: var(--general-utilities-error-dark);
+        --kit-btn-main-dark-deep: var(--general-utilities-error-dark);
         --kit-btn-invert-color: var(--general-utilities-light);
 
-        &.kit-btn-primary:not(:disabled) {
+        &.kit-btn-primary:not(:disabled):not(.kit-btn-disabled) {
             border-color: var(--kit-btn-main-color);
         }
 
-        &.kit-btn-secondary:not(:disabled),
-        &.kit-btn-segmented:not(:disabled) {
-            border-color: var(--general-utilities-error-errorMedium);
+        &.kit-btn-secondary:not(:disabled):not(.kit-btn-disabled),
+        &.kit-btn-segmented:not(:disabled):not(.kit-btn-disabled) {
+            border-color: var(--general-utilities-error-medium);
         }
 
-        &.kit-btn-primary:not(:disabled):hover {
+        &.kit-btn-primary:not(:disabled):not(.kit-btn-disabled):hover {
             border-color: var(--kit-btn-main-dark);
+        }
+
+        &.kit-btn-secondary:not(:disabled):not(.kit-btn-disabled):hover {
+            border-color: var(--kit-btn-main-color);
+        }
+
+        &.kit-btn-link:not(:disabled):not(.kit-btn-disabled) {
+            color: var(--kit-btn-main-color);
+
+            &:hover {
+                color: var(--kit-btn-main-dark);
+                border-color: var(--kit-btn-main-dark);
+            }
+        }
+
+        &.kit-btn-redirect:not(:disabled):not(.kit-btn-disabled) {
+            color: var(--kit-btn-main-color);
+
+            .kit-btn-icon,
+            .kit-btn-icon-redirect {
+                color: var(--kit-btn-main-color);
+            }
+
+            &:hover,
+            &:active {
+                background: var(--kit-btn-main-light);
+            }
+
+            &:hover,
+            &:hover .kit-btn-icon,
+            &:hover .kit-btn-icon-redirect {
+                color: var(--kit-btn-main-dark);
+            }
+
+            &:active,
+            &:active .kit-btn-icon,
+            &:active .kit-btn-icon-redirect {
+                color: var(--kit-btn-main-color);
+            }
         }
 
         &.kit-btn-danger-modal {
@@ -267,13 +419,13 @@ $prefix: 'kit-btn-';
         }
     }
 
-    @include mainColorTokens('primary', 'color-primary', 'primary', 'blue');
-    @include mainColorTokens('secondary', 'color-warning', 'warning', 'orange');
-    @include mainColorTokens('secondary', 'color-error', 'error', 'red');
-    @include mainColorTokens('secondary', 'color-success', 'success', 'green');
-    @include mainColorTokens('tertiary', 'color-yellow', 'yellow', 'yellow');
-    @include mainColorTokens('tertiary', 'color-pink', 'pink', 'pink');
-    @include mainColorTokens('neutral', 'color-grey', 'grey', 'grey');
+    @include defaultTokens('primary', 'color-primary', 'primary', 'blue');
+    @include defaultTokens('secondary', 'color-warning', 'warning', 'orange');
+    @include defaultTokens('secondary', 'color-error', 'error', 'red');
+    @include defaultTokens('secondary', 'color-success', 'success', 'green');
+    @include defaultTokens('tertiary', 'color-yellow', 'yellow', 'yellow');
+    @include defaultTokens('tertiary', 'color-pink', 'pink', 'pink');
+    @include defaultTokens('neutral', 'color-grey', 'grey', 'grey');
 }
 
 .ant-space-compact:not(.ant-space-compact-vertical) :local(.kit-btn) {

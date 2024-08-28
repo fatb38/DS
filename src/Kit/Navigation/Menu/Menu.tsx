@@ -27,7 +27,7 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
     const _getTitle = () =>
         title && (
             <div className="kit-menu-header-title">
-                <KitTypography.Text size="large" weight="medium" ellipsis={{tooltip: true}}>
+                <KitTypography.Text size="fontSize5" weight="medium" ellipsis={{tooltip: true}}>
                     {title}
                 </KitTypography.Text>
             </div>
@@ -37,7 +37,7 @@ const KitMenu: FunctionComponent<IKitMenu> = ({
         isClosable && (
             <KitButton
                 className="kit-menu-header-close"
-                type="text"
+                type="tertiary"
                 color="black"
                 icon={<FontAwesomeIcon icon={faXmark} />}
                 onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => onCloseClick(e)}

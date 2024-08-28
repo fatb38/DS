@@ -4,10 +4,10 @@ import {utilitiesCssTokens} from '@theme/aristid/general/utilities';
 
 export const inputKitTokenToAntdToken = {
     colorBgContainer: `var(${kitInputCssTokens.colors.background.default}, var(${utilitiesCssTokens.light}))`,
-    colorBgContainerDisabled: `var(${kitInputCssTokens.colors.background.disabled}, var(${utilitiesCssTokens.neutral.neutralLight}))`,
+    colorBgContainerDisabled: `var(${kitInputCssTokens.colors.background.disabled}, var(${utilitiesCssTokens.neutral.light}))`,
     colorBorder: `var(${kitInputCssTokens.colors.border.default}, var(${utilitiesCssTokens.border}))`,
-    colorPrimaryHover: `var(${kitInputCssTokens.colors.border.hover}, var(${utilitiesCssTokens.main.mainColor}))`,
-    colorTextPlaceholder: `var(${kitInputCssTokens.colors.typography.placeholder.default}, var(${utilitiesCssTokens.text.textDisabled}))`,
-    colorText: `var(${kitInputCssTokens.colors.typography.content.default}, var(${utilitiesCssTokens.text.textPrimary}))`,
+    colorPrimaryHover: `var(${kitInputCssTokens.colors.border.hover}, var(${utilitiesCssTokens.main.default}))`,
+    colorTextPlaceholder: `var(${kitInputCssTokens.colors.typography.placeholder.default}, var(${utilitiesCssTokens.text.disabled}))`,
+    colorText: `var(${kitInputCssTokens.colors.typography.content.default}, var(${utilitiesCssTokens.text.primary}))`,
     fontFamily: `var(${kitInputCssTokens.typography.fontFamily}, var(${typographyCssTokens.fontFamily}))`
 };

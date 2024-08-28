@@ -9,23 +9,28 @@ const App = () => {
 
     return (
         <>
-            <KitTypography.Paragraph size="large" weight="medium" color="black">
-                Aristid Design Paragraph-L medium
+            <KitTypography.Paragraph size="fontSize4" weight="medium" color="black">
+                Aristid Design Paragraph - fontSize4 medium
             </KitTypography.Paragraph>
-            <KitTypography.Paragraph size="large" weight="medium" color="white" style={{backgroundColor: 'darkblue'}}>
-                Aristid Design Paragraph-L medium
+            <KitTypography.Paragraph
+                size="fontSize4"
+                weight="medium"
+                color="white"
+                style={{backgroundColor: 'darkblue'}}
+            >
+                Aristid Design Paragraph - fontSize4 medium
             </KitTypography.Paragraph>
-            <KitTypography.Paragraph size="large" weight="medium" color="primary">
-                Aristid Design Paragraph-L medium
+            <KitTypography.Paragraph size="fontSize4" weight="medium" color="primary">
+                Aristid Design Paragraph - fontSize4 medium
             </KitTypography.Paragraph>
             {secondaryColors.map((color: string) => (
-                <KitTypography.Paragraph size="large" weight="medium" color={color}>
-                    Aristid Design Paragraph-L medium
+                <KitTypography.Paragraph size="fontSize4" weight="medium" color={color} key={color}>
+                    Aristid Design Paragraph - fontSize4 medium
                 </KitTypography.Paragraph>
             ))}
             {tertiaryColors.map((color: string) => (
-                <KitTypography.Paragraph size="large" weight="medium" color={color}>
-                    Aristid Design Paragraph-L medium
+                <KitTypography.Paragraph size="fontSize4" weight="medium" color={color} key={color}>
+                    Aristid Design Paragraph - fontSize4 medium
                 </KitTypography.Paragraph>
             ))}
         </>

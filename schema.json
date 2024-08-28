@@ -8,10 +8,7 @@
             "$ref": "#/definitions/IKitThemeComponents"
         }
     },
-    "required": [
-        "components",
-        "general"
-    ],
+    "required": ["components", "general"],
     "definitions": {
         "IKitThemeGeneral": {
             "type": "object",
@@ -20,9 +17,7 @@
                     "$ref": "#/definitions/IKitColorsPalette"
                 }
             },
-            "required": [
-                "colors"
-            ]
+            "required": ["colors"]
         },
         "IKitColorsPalette": {
             "type": "object",
@@ -30,37 +25,29 @@
                 "primary": {
                     "type": "object",
                     "properties": {
-                        "blue100": {
+                        "100": {
                             "type": "string"
                         },
-                        "blue200": {
+                        "200": {
                             "type": "string"
                         },
-                        "blue300": {
+                        "300": {
                             "type": "string"
                         },
-                        "blue400": {
+                        "400": {
                             "type": "string"
                         },
-                        "blue500": {
+                        "500": {
                             "type": "string"
                         },
-                        "blue600": {
+                        "600": {
                             "type": "string"
                         },
-                        "blue700": {
+                        "700": {
                             "type": "string"
                         }
                     },
-                    "required": [
-                        "blue100",
-                        "blue200",
-                        "blue300",
-                        "blue400",
-                        "blue500",
-                        "blue600",
-                        "blue700"
-                    ]
+                    "required": ["100", "200", "300", "400", "500", "600", "700"]
                 },
                 "neutral": {
                     "type": "object",
@@ -78,11 +65,7 @@
                                     "type": "string"
                                 }
                             },
-                            "required": [
-                                "black",
-                                "black60",
-                                "white"
-                            ]
+                            "required": ["black", "black60", "white"]
                         },
                         "background": {
                             "type": "string"
@@ -93,45 +76,32 @@
                         "grey": {
                             "type": "object",
                             "properties": {
-                                "grey100": {
+                                "100": {
                                     "type": "string"
                                 },
-                                "grey200": {
+                                "200": {
                                     "type": "string"
                                 },
-                                "grey300": {
+                                "300": {
                                     "type": "string"
                                 },
-                                "grey400": {
+                                "400": {
                                     "type": "string"
                                 },
-                                "grey500": {
+                                "500": {
                                     "type": "string"
                                 },
-                                "grey600": {
+                                "600": {
                                     "type": "string"
                                 },
-                                "grey700": {
+                                "700": {
                                     "type": "string"
                                 }
                             },
-                            "required": [
-                                "grey100",
-                                "grey200",
-                                "grey300",
-                                "grey400",
-                                "grey500",
-                                "grey600",
-                                "grey700"
-                            ]
+                            "required": ["100", "200", "300", "400", "500", "600", "700"]
                         }
                     },
-                    "required": [
-                        "background",
-                        "border",
-                        "grey",
-                        "typography"
-                    ]
+                    "required": ["background", "border", "grey", "typography"]
                 },
                 "secondary": {
                     "type": "object",
@@ -139,114 +109,86 @@
                         "warning": {
                             "type": "object",
                             "properties": {
-                                "orange100": {
+                                "100": {
                                     "type": "string"
                                 },
-                                "orange200": {
+                                "200": {
                                     "type": "string"
                                 },
-                                "orange300": {
+                                "300": {
                                     "type": "string"
                                 },
-                                "orange400": {
+                                "400": {
                                     "type": "string"
                                 },
-                                "orange500": {
+                                "500": {
                                     "type": "string"
                                 },
-                                "orange600": {
+                                "600": {
                                     "type": "string"
                                 },
-                                "orange700": {
+                                "700": {
                                     "type": "string"
                                 }
                             },
-                            "required": [
-                                "orange100",
-                                "orange200",
-                                "orange300",
-                                "orange400",
-                                "orange500",
-                                "orange600",
-                                "orange700"
-                            ]
+                            "required": ["100", "200", "300", "400", "500", "600", "700"]
                         },
                         "error": {
                             "type": "object",
                             "properties": {
-                                "red100": {
+                                "100": {
                                     "type": "string"
                                 },
-                                "red200": {
+                                "200": {
                                     "type": "string"
                                 },
-                                "red300": {
+                                "300": {
                                     "type": "string"
                                 },
-                                "red400": {
+                                "400": {
                                     "type": "string"
                                 },
-                                "red500": {
+                                "500": {
                                     "type": "string"
                                 },
-                                "red600": {
+                                "600": {
                                     "type": "string"
                                 },
-                                "red700": {
+                                "700": {
                                     "type": "string"
                                 }
                             },
-                            "required": [
-                                "red100",
-                                "red200",
-                                "red300",
-                                "red400",
-                                "red500",
-                                "red600",
-                                "red700"
-                            ]
+                            "required": ["100", "200", "300", "400", "500", "600", "700"]
                         },
                         "success": {
                             "type": "object",
                             "properties": {
-                                "green100": {
+                                "100": {
                                     "type": "string"
                                 },
-                                "green200": {
+                                "200": {
                                     "type": "string"
                                 },
-                                "green300": {
+                                "300": {
                                     "type": "string"
                                 },
-                                "green400": {
+                                "400": {
                                     "type": "string"
                                 },
-                                "green500": {
+                                "500": {
                                     "type": "string"
                                 },
-                                "green600": {
+                                "600": {
                                     "type": "string"
                                 },
-                                "green700": {
+                                "700": {
                                     "type": "string"
                                 }
                             },
-                            "required": [
-                                "green100",
-                                "green200",
-                                "green300",
-                                "green400",
-                                "green500",
-                                "green600",
-                                "green700"
-                            ]
+                            "required": ["100", "200", "300", "400", "500", "600", "700"]
                         }
                     },
-                    "required": [
-                        "warning",
-                        "error",
-                        "success"
-                    ]
+                    "required": ["warning", "error", "success"]
                 },
                 "tertiary": {
                     "type": "object",
@@ -254,85 +196,62 @@
                         "yellow": {
                             "type": "object",
                             "properties": {
-                                "yellow100": {
+                                "100": {
                                     "type": "string"
                                 },
-                                "yellow200": {
+                                "200": {
                                     "type": "string"
                                 },
-                                "yellow300": {
+                                "300": {
                                     "type": "string"
                                 },
-                                "yellow400": {
+                                "400": {
                                     "type": "string"
                                 },
-                                "yellow500": {
+                                "500": {
                                     "type": "string"
                                 },
-                                "yellow600": {
+                                "600": {
                                     "type": "string"
                                 },
-                                "yellow700": {
+                                "700": {
                                     "type": "string"
                                 }
                             },
-                            "required": [
-                                "yellow100",
-                                "yellow200",
-                                "yellow300",
-                                "yellow400",
-                                "yellow500",
-                                "yellow600",
-                                "yellow700"
-                            ]
+                            "required": ["100", "200", "300", "400", "500", "600", "700"]
                         },
                         "pink": {
                             "type": "object",
                             "properties": {
-                                "pink100": {
+                                "100": {
                                     "type": "string"
                                 },
-                                "pink200": {
+                                "200": {
                                     "type": "string"
                                 },
-                                "pink300": {
+                                "300": {
                                     "type": "string"
                                 },
-                                "pink400": {
+                                "400": {
                                     "type": "string"
                                 },
-                                "pink500": {
+                                "500": {
                                     "type": "string"
                                 },
-                                "pink600": {
+                                "600": {
                                     "type": "string"
                                 },
-                                "pink700": {
+                                "700": {
                                     "type": "string"
                                 }
                             },
-                            "required": [
-                                "pink100",
-                                "pink200",
-                                "pink300",
-                                "pink400",
-                                "pink500",
-                                "pink600",
-                                "pink700"
-                            ]
+                            "required": ["100", "200", "300", "400", "500", "600", "700"]
                         }
                     },
-                    "required": [
-                        "yellow",
-                        "pink"
-                    ]
+                    "required": ["yellow", "pink"]
                 }
             },
-            "required": [
-                "neutral",
-                "primary",
-                "secondary"
-            ]
+            "required": ["neutral", "primary", "secondary"]
         },
         "IKitThemeComponents": {
             "type": "object",
@@ -341,9 +260,7 @@
                     "$ref": "#/definitions/IKitButtonTheme"
                 }
             },
-            "required": [
-                "Button"
-            ]
+            "required": ["Button"]
         },
         "IKitButtonTheme": {
             "type": "object",
@@ -361,11 +278,7 @@
                             "type": "number"
                         }
                     },
-                    "required": [
-                        "fontFamily",
-                        "fontSize",
-                        "lineHeight"
-                    ]
+                    "required": ["fontFamily", "fontSize", "lineHeight"]
                 },
                 "border": {
                     "type": "object",
@@ -374,9 +287,7 @@
                             "type": "number"
                         }
                     },
-                    "required": [
-                        "radius"
-                    ]
+                    "required": ["radius"]
                 },
                 "primary": {
                     "$ref": "#/definitions/IKitButtonThemePropeties"
@@ -399,9 +310,7 @@
                                     "$ref": "#/definitions/IKitButtonThemePropeties"
                                 }
                             },
-                            "required": [
-                                "default"
-                            ]
+                            "required": ["default"]
                         },
                         {
                             "$ref": "#/definitions/KitColoredSegmentedButtonThemes"
@@ -409,15 +318,7 @@
                     ]
                 }
             },
-            "required": [
-                "border",
-                "default",
-                "link",
-                "primary",
-                "segmented",
-                "text",
-                "typography"
-            ]
+            "required": ["border", "default", "link", "primary", "segmented", "text", "typography"]
         },
         "IKitButtonThemePropeties": {
             "type": "object",
@@ -437,9 +338,7 @@
                                             "$ref": "#/definitions/Omit<{default:string;hover:string;active:string;focus:string;disabled:string;},\"active\"|\"focus\"|\"hover\">"
                                         }
                                     },
-                                    "required": [
-                                        "danger"
-                                    ]
+                                    "required": ["danger"]
                                 },
                                 {
                                     "type": "object",
@@ -473,11 +372,7 @@
                             "$ref": "#/definitions/IKitButtonThemeStateColor"
                         }
                     },
-                    "required": [
-                        "background",
-                        "border",
-                        "typography"
-                    ]
+                    "required": ["background", "border", "typography"]
                 },
                 "typography": {
                     "type": "object",
@@ -510,19 +405,10 @@
                                     "type": "integer"
                                 }
                             },
-                            "required": [
-                                "l",
-                                "m",
-                                "s",
-                                "xl",
-                                "xs"
-                            ]
+                            "required": ["l", "m", "s", "xl", "xs"]
                         }
                     },
-                    "required": [
-                        "fontWeight",
-                        "iconSize"
-                    ]
+                    "required": ["fontWeight", "iconSize"]
                 },
                 "compact": {
                     "type": "object",
@@ -535,21 +421,13 @@
                                     "type": "integer"
                                 }
                             },
-                            "required": [
-                                "radius"
-                            ]
+                            "required": ["radius"]
                         }
                     },
-                    "required": [
-                        "border"
-                    ]
+                    "required": ["border"]
                 }
             },
-            "required": [
-                "colors",
-                "compact",
-                "typography"
-            ]
+            "required": ["colors", "compact", "typography"]
         },
         "Omit<IKitButtonThemeStateColor,\"danger\">": {
             "type": "object",
@@ -574,13 +452,7 @@
                     "type": "color"
                 }
             },
-            "required": [
-                "active",
-                "default",
-                "disabled",
-                "focus",
-                "hover"
-            ]
+            "required": ["active", "default", "disabled", "focus", "hover"]
         },
         "Omit<{default:string;hover:string;active:string;focus:string;disabled:string;},\"active\"|\"focus\"|\"hover\">": {
             "type": "object",
@@ -594,10 +466,7 @@
                     "type": "color"
                 }
             },
-            "required": [
-                "default",
-                "disabled"
-            ]
+            "required": ["default", "disabled"]
         },
         "IKitButtonThemeStateColor": {
             "type": "object",
@@ -645,23 +514,10 @@
                             "type": "color"
                         }
                     },
-                    "required": [
-                        "active",
-                        "default",
-                        "disabled",
-                        "focus",
-                        "hover"
-                    ]
+                    "required": ["active", "default", "disabled", "focus", "hover"]
                 }
             },
-            "required": [
-                "active",
-                "danger",
-                "default",
-                "disabled",
-                "focus",
-                "hover"
-            ]
+            "required": ["active", "danger", "default", "disabled", "focus", "hover"]
         },
         "KitColoredSegmentedButtonThemes": {
             "type": "object",
@@ -688,15 +544,7 @@
                     "$ref": "#/definitions/IKitButtonThemePropeties"
                 }
             },
-            "required": [
-                "blue",
-                "green",
-                "grey",
-                "orange",
-                "pink",
-                "red",
-                "yellow"
-            ]
+            "required": ["blue", "green", "grey", "orange", "pink", "red", "yellow"]
         }
     },
     "$schema": "http://json-schema.org/draft-07/schema#"

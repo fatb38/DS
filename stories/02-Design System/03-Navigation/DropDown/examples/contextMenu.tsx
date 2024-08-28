@@ -31,7 +31,7 @@ const App = () => {
             <KitDropDown menu={{items}} trigger={['contextMenu']}>
                 <div
                     style={{
-                        background: theme.utilities.neutral.neutralLight,
+                        background: theme.utilities.neutral.light,
                         height: 200,
                         width: 600,
                         textAlign: 'center',

@@ -69,12 +69,12 @@
                     cursor: pointer;
 
                     &:hover {
-                        background-color: var(--general-utilities-neutral-neutralLight);
+                        background-color: var(--general-utilities-neutral-light);
                     }
                 }
 
                 .ant-table-cell {
-                    color: var(--general-utilities-text-textPrimary);
+                    color: var(--general-utilities-text-primary);
                     background-color: var(--general-utilities-light);
                     font-weight: var(--general-typography-boldFontWeight);
                     border-radius: convertToPixel((--general-border-radius-xs));
@@ -95,7 +95,7 @@
 
                         .kit-icon {
                             padding: convertToPixel(--general-spacing-none);
-                            --components-Icon-colors-icon-default: var(--general-utilities-text-textPrimary);
+                            --components-Icon-colors-icon-default: var(--general-utilities-text-primary);
                         }
                     }
                 }
@@ -130,7 +130,7 @@
                 }
 
                 &:focus-visible .ant-table-cell {
-                    color: var(--general-utilities-text-textPrimary);
+                    color: var(--general-utilities-text-primary);
                     outline: var(--general-utilities-focus) solid 3px;
                 }
             }
@@ -208,7 +208,7 @@
                                         margin-top: convertToPixel(--general-spacing-xxs);
 
                                         .ant-typography {
-                                            color: var(--general-utilities-text-textError);
+                                            color: var(--general-utilities-text-error);
 
                                             &:focus-visible {
                                                 outline: none;
@@ -226,21 +226,21 @@
                         &:has(.ant-table-cell .ant-form-item-has-error) {
                             .ant-table-cell {
                                 height: calc(var(--kit-table-body-cell-height) + 40px);
-                                background-color: var(--general-utilities-error-errorLight);
-                                border-color: var(--general-utilities-error-errorColor);
+                                background-color: var(--general-utilities-error-light);
+                                border-color: var(--general-utilities-error-default);
                             }
                         }
 
                         &:hover {
                             .ant-table-cell {
-                                border: 1px solid var(--general-utilities-main-mainColor);
+                                border: 1px solid var(--general-utilities-main-default);
                             }
 
                             &.ant-table-row-selected,
                             &.ant-table-row-level-0:has(+ .ant-table-row-level-1),
                             &.last-expandable-level {
                                 .ant-table-cell {
-                                    border-color: var(--general-utilities-main-mainColor);
+                                    border-color: var(--general-utilities-main-default);
                                 }
                             }
                         }
@@ -277,11 +277,11 @@
 
                         &.ant-table-row-level-0:has(+ .ant-table-row-level-1) {
                             td {
-                                border: 1px solid var(--general-utilities-main-mainColor);
+                                border: 1px solid var(--general-utilities-main-default);
                                 border-bottom: none;
 
                                 .ant-table-cell {
-                                    background-color: var(--general-utilities-main-mainLight);
+                                    background-color: var(--general-utilities-main-light);
                                 }
 
                                 &:not(:first-of-type):not(:last-of-type) {
@@ -306,7 +306,7 @@
 
                         &:not(.ant-table-row-level-0) {
                             td {
-                                border: 1px solid var(--general-utilities-main-mainColor);
+                                border: 1px solid var(--general-utilities-main-default);
                                 border-top: none;
                                 border-bottom: none;
 
@@ -333,7 +333,7 @@
                         &:not(.ant-table-row-level-0):has(+ .ant-table-row-level-0),
                         &:not(.ant-table-row-level-0):last-child {
                             td {
-                                border: 1px solid var(--general-utilities-main-mainColor);
+                                border: 1px solid var(--general-utilities-main-default);
                                 border-top: none;
                                 padding-bottom: convertToPixel(--general-spacing-xs);
 
@@ -358,13 +358,13 @@
                         }
 
                         &.last-expandable-level .ant-table-cell {
-                            background-color: var(--general-utilities-neutral-neutralLight);
-                            border-color: var(--general-utilities-neutral-neutralLight);
+                            background-color: var(--general-utilities-neutral-light);
+                            border-color: var(--general-utilities-neutral-light);
                         }
 
                         &.ant-table-row-selected .ant-table-cell {
-                            background-color: var(--general-utilities-main-mainLight);
-                            border-color: var(--general-utilities-main-mainLight);
+                            background-color: var(--general-utilities-main-light);
+                            border-color: var(--general-utilities-main-light);
                         }
                     }
 
@@ -392,6 +392,6 @@
         min-width: 18px;
         width: 18px;
         display: inline;
-        color: var(--general-utilities-text-textPrimary);
+        color: var(--general-utilities-text-primary);
     }
 }

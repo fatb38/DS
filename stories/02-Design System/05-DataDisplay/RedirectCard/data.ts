@@ -52,7 +52,7 @@ export const argTypes = {
         }
     },
     imageAlt: {
-        name: 'imageAlt',
+        name: 'coverAlt',
         description: 'Alt text of the image',
         control: {type: 'text'},
         table: {
@@ -63,7 +63,7 @@ export const argTypes = {
         }
     },
     imageSrc: {
-        name: 'imageSrc',
+        name: 'coverSrc',
         description: 'Source of the image',
         control: {type: 'text'},
         table: {
@@ -89,6 +89,16 @@ export const argTypes = {
         table: {
             type: {
                 summary: '(e: MouseEvent<HTMLElement>) => void'
+            },
+            category: 'RedirectCard'
+        }
+    },
+    actions: {
+        name: 'actions',
+        description: 'Actions to display on the RedirectCard (max 3)',
+        table: {
+            type: {
+                summary: '[IKitActionButton | undefined, IKitActionButton | undefined, IKitActionButton | undefined]'
             },
             category: 'RedirectCard'
         }

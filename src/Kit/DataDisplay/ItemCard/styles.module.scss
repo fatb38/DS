@@ -4,13 +4,13 @@
     display: grid;
     position: relative;
     background-color: var(--general-utilities-light);
-    box-shadow: var(--general-utilities-shadow-shadowLight);
+    box-shadow: var(--general-utilities-shadow-light);
     border: 1px solid var(--general-utilities-border);
     border-radius: convertToPixel(--general-border-radius-s);
 
     &:hover:not(.kit-item-card-disabled),
     &.kit-item-card-selected {
-        border-color: var(--general-utilities-main-mainColor);
+        border-color: var(--general-utilities-main-default);
     }
 
     &:focus:not(.kit-item-card-disabled) {
@@ -20,12 +20,12 @@
     }
 
     &.kit-item-card-disabled {
-        background-color: var(--general-utilities-neutral-neutralLight);
+        background-color: var(--general-utilities-neutral-light);
 
         .kit-item-card-breadcrumb {
             .ant-breadcrumb-link,
             .ant-breadcrumb-separator {
-                color: var(--general-utilities-text-textDisabled);
+                color: var(--general-utilities-text-disabled);
             }
         }
 
@@ -129,7 +129,7 @@
             inset: 0px;
             opacity: 0;
             transition: opacity 200ms ease 0s;
-            background-color: var(--general-utilities-main-mainDeepDark);
+            background-color: var(--general-utilities-main-deepDark);
         }
 
         .kit-item-card-actions {
@@ -279,7 +279,7 @@
 
     .kit-item-card-draggable-handler {
         grid-area: draggable-handler;
-        color: var(--general-utilities-text-textBlue);
+        color: var(--general-utilities-text-blue);
     }
 
     .kit-item-card-image {
@@ -289,11 +289,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--general-utilities-neutral-neutralLight);
+            background-color: var(--general-utilities-neutral-light);
 
             svg {
                 font-size: 37px;
-                color: var(--general-utilities-neutral-neutralDark);
+                color: var(--general-utilities-neutral-dark);
             }
         }
     }

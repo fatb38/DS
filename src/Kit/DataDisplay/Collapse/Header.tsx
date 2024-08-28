@@ -62,7 +62,7 @@ const HeaderContent: FunctionComponent<IKitHeaderContent> = ({title, description
             {title !== undefined && (
                 <KitTypography.Text
                     className="kit-collapse-header-content-title"
-                    size="large"
+                    size="fontSize5"
                     weight="bold"
                     ellipsis={{tooltip: true}}
                     disabled={disabled}
@@ -73,8 +73,7 @@ const HeaderContent: FunctionComponent<IKitHeaderContent> = ({title, description
             {description !== undefined && (
                 <KitTypography.Text
                     className="kit-collapse-header-content-description"
-                    size="large"
-                    weight="regular"
+                    size="fontSize5"
                     ellipsis={{tooltip: true}}
                     disabled={disabled}
                 >

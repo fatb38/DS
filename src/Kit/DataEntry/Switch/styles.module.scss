@@ -4,7 +4,7 @@
     & {
         background: var(--components-Switch-colors-background-default-off, var(--general-utilities-light));
         border: 1.3px solid
-            var(--components-Switch-colors-handle-border-default-off, var(--general-utilities-neutral-neutralDark));
+            var(--components-Switch-colors-handle-border-default-off, var(--general-utilities-neutral-dark));
         height: 20px;
         width: 32px;
         min-width: 32px;
@@ -13,7 +13,7 @@
 
     &.ant-switch-checked {
         border: 1.3px solid
-            var(--components-Switch-colors-handle-border-default-on, var(--general-utilities-main-mainColor));
+            var(--components-Switch-colors-handle-border-default-on, var(--general-utilities-main-default));
     }
 
     &.ant-switch:hover {
@@ -42,10 +42,10 @@
 
     .ant-switch-handle::before {
         border: 1.3px solid
-            var(--components-Switch-colors-handle-border-default-off, var(--general-utilities-neutral-neutralDark));
+            var(--components-Switch-colors-handle-border-default-off, var(--general-utilities-neutral-dark));
         background-color: var(
             --components-Switch-colors-handle-background-default-off,
-            var(--general-utilities-neutral-neutralDark)
+            var(--general-utilities-neutral-dark)
         );
         box-shadow: none;
         border-radius: convertToPixel(--general-border-radius-pills);
@@ -53,13 +53,13 @@
 
     &.ant-switch-checked .ant-switch-handle::before {
         border: 1.3px solid
-            var(--components-Switch-colors-handle-border-default-on, var(--general-utilities-main-mainColor));
+            var(--components-Switch-colors-handle-border-default-on, var(--general-utilities-main-default));
         background-color: var(--components-Switch-colors-handle-background-default-on, var(--general-utilities-light));
     }
 
     &.ant-switch-disabled,
     &.ant-switch-checked.ant-switch-disabled {
-        background: var(--components-Switch-colors-background-disabled, var(--general-utilities-neutral-neutralLight));
+        background: var(--components-Switch-colors-background-disabled, var(--general-utilities-neutral-light));
         border-color: var(--components-Switch-colors-handle-border-disabled, var(--general-utilities-border));
 
         .ant-switch-handle::before {
@@ -70,12 +70,12 @@
     }
 
     &.ant-switch.ant-switch-checked:not(.ant-switch-disabled) {
-        background: var(--components-Switch-colors-background-default-on, var(--general-utilities-main-mainColor));
+        background: var(--components-Switch-colors-background-default-on, var(--general-utilities-main-default));
 
         .ant-switch-handle::before {
             border-color: var(
                 --components-Switch-colors-handle-border-default-on,
-                var(--general-utilities-main-mainColor)
+                var(--general-utilities-main-default)
             );
             box-shadow: none;
         }
@@ -102,7 +102,7 @@
             );
             border-color: var(
                 --components-Switch-colors-handle-border-default-on,
-                var(--general-utilities-main-mainColor)
+                var(--general-utilities-main-default)
             );
         }
     }

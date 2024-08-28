@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {KitError} from '@kit/DataDisplay';
 import {KitTypography} from '@kit/General';
 import {AntLayout} from '@kit/Ant';
@@ -7,12 +7,13 @@ import {langSwitcherExample, menuContentExample, userProfileExample} from '../..
 import {KitInput} from '@kit/DataEntry';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {KitSpace} from '@kit/Layout';
 
 const _Description: FunctionComponent = () => (
-    <>
+    <KitSpace direction="vertical" size="s">
         <KitTypography.Paragraph>This page seems to be or is become unreachable.</KitTypography.Paragraph>
         <KitTypography.Paragraph>You can continue to navigate by go back to home page.</KitTypography.Paragraph>
-    </>
+    </KitSpace>
 );
 
 const App = () => (
@@ -25,7 +26,7 @@ const App = () => (
         >
             <KitInput placeholder="Search..." prefix={<FontAwesomeIcon icon={faMagnifyingGlass} />} />
         </KitHeader>
-        <AntLayout.Content style={{backgroundColor: 'var(--general-colors-primary-blue50)'}}>
+        <AntLayout.Content style={{backgroundColor: 'var(--general-colors-primary-50)'}}>
             <KitError title="Page not found" description={<_Description />} />
         </AntLayout.Content>
     </AntLayout>
