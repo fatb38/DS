@@ -588,6 +588,15 @@ const forms = {
                 "_type": "number"
             }
         },
+        "breakpoints": {
+            "_label": "breakpoints",
+            "_path": "general.breakpoints",
+            "_type": "array"
+        },
+        "grid": {
+            "_label": "grid",
+            "_path": "general.grid"
+        },
         "utilities": {
             "_label": "utilities",
             "_path": "general.utilities",

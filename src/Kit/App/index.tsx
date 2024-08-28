@@ -12,19 +12,23 @@ import {KitNotificationProvider} from '@kit/Feedback/Notification/notification-p
 
 import './styles.scss';
 import {KitEmpty} from '@kit/DataDisplay';
+import {KitGridProvider} from '@kit/Layout/Grid/GridContext';
 
 export const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;
     locale?: IKitLocale;
     children?: ReactNode;
     id?: string;
-}> = ({children, locale, customTheme, id}) => (
-        <KitThemeProvider customTheme={customTheme} id={id}>
-            <KitLocaleProvider>
-                <KitAppConfig locale={locale}>{children}</KitAppConfig>
-            </KitLocaleProvider>
-        </KitThemeProvider>
-    );
+    useMediaQueries?: boolean;
+}> = ({children, locale, customTheme, id, useMediaQueries}) => (
+    <KitThemeProvider customTheme={customTheme} id={id} useMediaQueries={useMediaQueries}>
+        <KitLocaleProvider>
+            <KitAppConfig locale={locale}>
+                <KitGridProvider>{children}</KitGridProvider>
+            </KitAppConfig>
+        </KitLocaleProvider>
+    </KitThemeProvider>
+);
 
 const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale}>> = ({children, locale}) => {
     const {locale: kitLocal, setKitLocale} = useKitLocale();
@@ -39,11 +43,7 @@ const KitAppConfig: FunctionComponent<PropsWithChildren<{locale?: IKitLocale}>> 
             theme={antdThemeConfig}
             locale={mapKitLocaleToAntdLocale(locale)}
             renderEmpty={() => (
-                <KitEmpty
-                    className="default-render"
-                    image={KitEmpty.ASSET_LIST}
-                    description={kitLocal.Empty?.noData}
-                />
+                <KitEmpty className="default-render" image={KitEmpty.ASSET_LIST} description={kitLocal.Empty?.noData} />
             )}
         >
             <KitNotificationProvider>

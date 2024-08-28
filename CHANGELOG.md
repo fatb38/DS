@@ -32,6 +32,10 @@
     -   Rename `imageSrc` as `coverSrc` and `imageAlt` as `coverAlt` (@philippechevieux)
     -   Add `actions` prop to display between 1 and 3 buttons (@philippechevieux)
     -   Fix cover divider render on hover (@philippechevieux)
+
+-   **⚠️ Breaking change - Grid Component:**
+    - Update `Grid` internal code. We have moved from the Antd Grid component to a home-made component. Please refer to the documentation for use.
+
 -   **Dropdown:**
     -   Update border, active & selected styles (@renaudAmsellem)
     -   Add new example with custom items (@renaudAmsellem)

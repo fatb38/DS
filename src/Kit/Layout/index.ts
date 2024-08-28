@@ -1,4 +1,4 @@
 export {KitDivider} from './Divider';
-export {KitGrid} from './Grid';
 export {KitSpace} from './Space';
 export {KitSection} from './Section';
+export {KitGrid} from './Grid';

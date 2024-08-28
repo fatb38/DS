@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {RefAttributes} from 'react';
 import type {Preview} from '@storybook/react';
 import {KitApp} from '../src';
 import {DocsContainer} from '@storybook/blocks';

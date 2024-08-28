@@ -1,17 +1,10 @@
-import InternalRow from './Row';
+import {Grid} from './Grid';
 import InternalCol from './Col';
-import {IKitCol, IKitRow} from './types';
-import {FunctionComponent} from 'react';
+import InternalRow from './Row';
+import {KitGridCompoundedComponent} from './types';
 
-type CompoundedComponent = {
-    Row: FunctionComponent<IKitRow>;
-    Col: FunctionComponent<IKitCol>;
-    displayName?: string;
-};
-
-export const KitGrid = {
-    Row: InternalRow,
-    Col: InternalCol
-} as unknown as CompoundedComponent;
+export const KitGrid = Grid as KitGridCompoundedComponent;
+KitGrid.Row = InternalRow;
+KitGrid.Col = InternalCol;
 
 KitGrid.displayName = 'KitGrid';
