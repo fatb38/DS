@@ -14,6 +14,10 @@
         -   `InputNumber`
         -   `Select`
 
+### 📚 Documentation
+
+-   Fix design tokens page that crashed every time it was consulted (@philippechevieux)
+
 ## [9.0.0](https://www.npmjs.com/package/aristid-ds/v/9.0.0) (2024-08-28)
 
 ### 🎨 Theming
