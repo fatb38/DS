@@ -16,6 +16,7 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
         {
             label,
             helper,
+            htmlFor,
             suffixIcon,
             className,
             wrapperClassName,
@@ -46,6 +47,7 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
             <KitInputWrapper
                 label={label}
                 helper={helper}
+                htmlFor={htmlFor}
                 disabled={disabled as boolean}
                 status={datePickerProps.status as IKitInputWrapper['status']}
                 className={wrapperClassName}
@@ -57,6 +59,7 @@ const KitDatePicker = forwardRef<any, IKitDatePicker>(
                 <div>
                     <AntdDatePicker
                         {...datePickerProps}
+                        id={datePickerProps.id ?? htmlFor}
                         picker={picker}
                         disabled={readonly || disabled}
                         variant={readonly ? 'borderless' : undefined}

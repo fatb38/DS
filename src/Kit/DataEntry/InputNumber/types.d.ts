@@ -9,6 +9,7 @@ export interface KitInputNumberProps
         KitHTMLAttributes<HTMLSpanElement | HTMLInputElement> {
     label?: string;
     helper?: string;
+    htmlFor?: string;
     wrapperClassName?: string;
     required?: boolean;
     infoIcon?: ReactNode;

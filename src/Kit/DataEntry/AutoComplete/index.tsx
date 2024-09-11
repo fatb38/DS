@@ -27,6 +27,7 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
             allowClear,
             label,
             helper,
+            htmlFor,
             autoFocus,
             defaultValue,
             disabled,
@@ -67,6 +68,7 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
             <KitInputWrapper
                 label={label}
                 helper={helper}
+                htmlFor={htmlFor}
                 disabled={disabled}
                 status={status}
                 className={wrapperClassName}
@@ -77,6 +79,7 @@ export const KitAutoComplete = forwardRef<RefSelectProps, IKitAutoComplete>(
             >
                 <AntdAutoComplete
                     {...props}
+                    id={props.id ?? htmlFor}
                     disabled={disabled}
                     ref={ref}
                     className={styles['kit-autocomplete']}

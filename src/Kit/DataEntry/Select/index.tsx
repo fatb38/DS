@@ -3,7 +3,7 @@ import {useKitTheme} from '@theme/useKitTheme';
 import type {RefSelectProps} from 'antd';
 import {Select as AntdSelect} from 'antd';
 import cn from 'classnames';
-import {FocusEvent, MouseEvent, Ref, RefObject, forwardRef, useEffect, useMemo, useRef, useState} from 'react';
+import {FocusEvent, MouseEvent, Ref, RefObject, forwardRef, useEffect, useMemo, useState} from 'react';
 import ShortUniqueId from 'short-unique-id';
 import {useDebouncedCallback} from 'use-debounce';
 import {IKitInternalOption, IKitOption, IKitSelect} from './types';
@@ -78,6 +78,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             mode,
             label,
             helper,
+            htmlFor,
             placement,
             open,
             onChange,
@@ -105,7 +106,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         const {appId} = useKitTheme();
         const [isOpen, setIsOpen] = useState(false);
         const [isFocus, setIsFocus] = useState(false);
-        const internalKitSelectRef = useRef(id ?? uid.rnd());
+        const internalId = id ?? htmlFor ?? uid.rnd();
 
         const {clearIcon, suffixIcon, selectedItemIcon} = useIcons({
             allowClear,
@@ -113,13 +114,13 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
         });
 
         const _handleDocumentScroll = useDebouncedCallback(() => {
-            fixSelectRender(internalKitSelectRef.current);
+            fixSelectRender(internalId);
         }, 15);
 
         useEffect(() => {
             if (isOpen) {
                 requestAnimationFrame(() => {
-                    fixSelectRender(internalKitSelectRef.current);
+                    fixSelectRender(internalId);
                 });
 
                 document.addEventListener('scroll', _handleDocumentScroll);
@@ -128,7 +129,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             return () => {
                 document.removeEventListener('scroll', _handleDocumentScroll);
             };
-        }, [_handleDocumentScroll, isOpen]);
+        }, [_handleDocumentScroll, isOpen, internalId]);
 
         const internalOptions = useMemo(
             (): IKitInternalOption[] => (options ? _parseOptions(options, labelOnly) : []),
@@ -175,6 +176,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
                 label={label}
                 actions={actions}
                 helper={helper}
+                htmlFor={htmlFor}
                 disabled={disabled}
                 status={status}
                 className={wrapperClassName}
@@ -184,7 +186,7 @@ export const KitSelect = forwardRef<RefSelectProps, IKitSelect>(
             >
                 <AntdSelect
                     {...props}
-                    id={internalKitSelectRef.current}
+                    id={internalId}
                     className={_getPlacementClasses(appId, className, placement, readonly)}
                     popupClassName={_getPopupPlacementClasses(appId, popupClassName, placement, isFocus, status)}
                     options={internalOptions}

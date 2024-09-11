@@ -9,7 +9,18 @@ import styles from './styles.module.scss';
 
 export const KitInputNumber = forwardRef<HTMLInputElement, KitInputNumberProps>(
     (
-        {label, helper, wrapperClassName, className, required, infoIcon, actions, onInfoClick, ...inputNumberProps},
+        {
+            label,
+            helper,
+            htmlFor,
+            wrapperClassName,
+            className,
+            required,
+            infoIcon,
+            actions,
+            onInfoClick,
+            ...inputNumberProps
+        },
         ref
     ) => {
         const {appId} = useKitTheme();
@@ -23,6 +34,7 @@ export const KitInputNumber = forwardRef<HTMLInputElement, KitInputNumberProps>(
             <KitInputWrapper
                 label={label}
                 helper={helper}
+                htmlFor={htmlFor}
                 disabled={inputNumberProps.disabled}
                 status={inputNumberProps.status}
                 className={wrapperClassName}
@@ -33,6 +45,7 @@ export const KitInputNumber = forwardRef<HTMLInputElement, KitInputNumberProps>(
             >
                 <AntdInputNumber
                     ref={ref}
+                    id={inputNumberProps.id ?? htmlFor}
                     onFocus={() => setHasFocus(true)}
                     onBlur={() => setHasFocus(false)}
                     className={clx}

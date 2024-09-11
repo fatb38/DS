@@ -5,8 +5,14 @@
 ### ✨ Features
 
 -   **InputWrapper:**
-    -   Add `hoverable` to change border color when `bordered` is set to `true`(@philippechevieux)
+    -   Add `hoverable` to change border color when `bordered` is set to `true` (@philippechevieux)
     -   Add `onFocus` to trigger a given function when content is focused. Also if `bordered` is set to `true` it will change the border render (@philippechevieux)
+    -   Add `htmlFor` property to link the label to the wrapped content. This property is also available for: (@philippechevieux)
+        -   `AutoComplete`
+        -   `DatePicker` and `RangePicker`
+        -   `Input`, `Password` and `TextArea`
+        -   `InputNumber`
+        -   `Select`
 
 ## [9.0.0](https://www.npmjs.com/package/aristid-ds/v/9.0.0) (2024-08-28)
 

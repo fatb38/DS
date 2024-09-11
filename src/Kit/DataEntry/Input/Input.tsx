@@ -16,6 +16,7 @@ const KitInput = forwardRef<InputRef, IKitInput>(
             label,
             className,
             helper,
+            htmlFor,
             wrapperClassName,
             allowClear = true,
             required,
@@ -34,6 +35,7 @@ const KitInput = forwardRef<InputRef, IKitInput>(
             <KitInputWrapper
                 label={label}
                 helper={helper}
+                htmlFor={htmlFor}
                 disabled={inputProps.disabled}
                 status={inputProps.status}
                 className={wrapperClassName}
@@ -56,6 +58,7 @@ const KitInput = forwardRef<InputRef, IKitInput>(
                         required={required}
                         ref={ref}
                         className={clx}
+                        id={inputProps.id ?? htmlFor}
                         allowClear={
                             allowClear
                                 ? {clearIcon: <FontAwesomeIcon aria-label="clear" icon={faCircleXmark} />}

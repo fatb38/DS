@@ -3,6 +3,7 @@ import {ReactNode, ReactElement, MouseEvent} from 'react';
 
 export interface IKitInputWrapper extends KitHTMLAttributes<HTMLDivElement> {
     label?: string;
+    htmlFor?: string;
     helper?: string;
     disabled?: boolean;
     status?: '' | 'warning' | 'error';

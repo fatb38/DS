@@ -15,6 +15,7 @@ const KitPassword = forwardRef<InputRef, IKitPassword>(
             label,
             className,
             helper,
+            htmlFor,
             iconRender,
             wrapperClassName,
             allowClear = true,
@@ -40,6 +41,7 @@ const KitPassword = forwardRef<InputRef, IKitPassword>(
             <KitInputWrapper
                 label={label}
                 helper={helper}
+                htmlFor={htmlFor}
                 disabled={passwordProps.disabled}
                 status={passwordProps.status}
                 className={wrapperClassName}
@@ -51,6 +53,7 @@ const KitPassword = forwardRef<InputRef, IKitPassword>(
                 <AntdInput.Password
                     {...passwordProps}
                     className={clx}
+                    id={passwordProps.id ?? htmlFor}
                     ref={ref}
                     allowClear={
                         allowClear

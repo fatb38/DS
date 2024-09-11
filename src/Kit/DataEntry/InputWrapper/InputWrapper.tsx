@@ -10,6 +10,7 @@ import styles from './styles.module.scss';
 
 const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
     label,
+    htmlFor,
     helper,
     disabled,
     status,
@@ -68,9 +69,11 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
         <div className={_wrapperClassName}>
             {shouldRenderWrapperHeader && (
                 <div className="kit-input-wrapper-label">
-                    <KitTypography.Text size="fontSize5" weight="medium">
-                        {label}
-                    </KitTypography.Text>
+                    <label htmlFor={htmlFor}>
+                        <KitTypography.Text size="fontSize5" weight="medium">
+                            {label}
+                        </KitTypography.Text>
+                    </label>
                     {required && <span className="kit-input-wrapper-required">*</span>}
                     {onInfoClick && (
                         <KitButton

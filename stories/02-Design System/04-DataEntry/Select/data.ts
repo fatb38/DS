@@ -21,6 +21,18 @@ const SelectArgTypes = {
             category: 'Select'
         }
     },
+    htmlFor: {
+        name: 'htmlFor',
+        description:
+            'Indicates the form element that the label describes. If you set the `id` prop, you should set the same `id` on the `htmlFor` prop',
+        control: {type: 'text'},
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Select'
+        }
+    },
     required: {
         name: 'required',
         description: 'Whether the input is mandatory',

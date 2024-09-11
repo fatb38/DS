@@ -10,6 +10,7 @@ export interface IKitInput
         KitHTMLAttributes<HTMLSpanElement | HTMLInputElement> {
     label?: string;
     helper?: string;
+    htmlFor?: string;
     allowClear?: boolean;
     wrapperClassName?: string;
     required?: boolean;
@@ -24,6 +25,7 @@ export interface IKitTextArea
         KitHTMLAttributes<HTMLSpanElement | HTMLInputElement> {
     label?: string;
     helper?: string;
+    htmlFor?: string;
     allowClear?: boolean;
     wrapperClassName?: string;
     required?: boolean;
@@ -38,6 +40,7 @@ export interface IKitPassword
         KitHTMLAttributes<HTMLSpanElement | HTMLInputElement> {
     label?: string;
     helper?: string;
+    htmlFor?: string;
     allowClear?: boolean;
     wrapperClassName?: string;
     required?: boolean;
