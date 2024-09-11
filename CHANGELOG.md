@@ -1,5 +1,13 @@
 # Changelog
 
+## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (202X-XX-XX)
+
+### ✨ Features
+
+-   **InputWrapper:**
+    -   Add `hoverable` to change border color when `bordered` is set to `true`(@philippechevieux)
+    -   Add `onFocus` to trigger a given function when content is focused. Also if `bordered` is set to `true` it will change the border render (@philippechevieux)
+
 ## [9.0.0](https://www.npmjs.com/package/aristid-ds/v/9.0.0) (2024-08-28)
 
 ### 🎨 Theming
@@ -29,12 +37,14 @@
     -   Change expected value of `size` prop. `small`, `medium` and `large` are replaced by fontSize from `fontSize1` to `fontSize7` (@philippechevieux)
     -   Remove `type` prop because it is not used anymore and has been replaced by `color` (@philippechevieux)
 -   **⚠️ Breaking change - RedirectCard:**
+
     -   Rename `imageSrc` as `coverSrc` and `imageAlt` as `coverAlt` (@philippechevieux)
     -   Add `actions` prop to display between 1 and 3 buttons (@philippechevieux)
     -   Fix cover divider render on hover (@philippechevieux)
 
 -   **⚠️ Breaking change - Grid Component:**
-    - Update `Grid` internal code. We have moved from the Antd Grid component to a home-made component. Please refer to the documentation for use.
+
+    -   Update `Grid` internal code. We have moved from the Antd Grid component to a home-made component. Please refer to the documentation for use.
 
 -   **Dropdown:**
     -   Update border, active & selected styles (@renaudAmsellem)

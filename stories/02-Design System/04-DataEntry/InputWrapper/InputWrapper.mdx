@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -18,49 +18,59 @@ Use the `InputWrapper` when you need to add a label and/or a helper to a compone
 
 ## Examples
 
-##### Label and Helper
+### Label and Helper
 
 Add `label` and/or `helper` properties to give field context.
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="input-basic" />
 
-
-##### Bordered
+### Bordered
 
 Add `bordered` property to add a border around the wrapped component
 
 <CustomCanvas content={Examples.Border} source={Sources.Border} id="input-wrapper-border" />
 
-##### Status
+### Status
 
 Set `status` property to set status. available values are `''`, `error` and `warning`
 
 <CustomCanvas content={Examples.Status} source={Sources.Status} id="input-wrapper-status" />
 
-##### Disabled
+### Hoverable
+
+Set `bordered` and `hoverable` property to change border color on hover.
+
+<CustomCanvas content={Examples.Hoverable} source={Sources.Hoverable} id="input-wrapper-hoverable" />
+
+### Focusable
+
+Set `onFocus` or `onBlur` to trigger a given function when the content receives or loses focus. If you are not using `bordered` property, you will have to manage the focus render yourself.
+
+<CustomCanvas content={Examples.Focusable} source={Sources.Focusable} id="input-wrapper-focusable" />
+
+### Disabled
 
 Set `disabled` property to show the wrapper in disabled state.
 
 <CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="input-wrapper-disabled" />
 
-
-##### Required
+### Required
 
 Set `required` property to show a red asterisk.
 
 <CustomCanvas content={Examples.Required} source={Sources.Required} id="input-wrapper-required" />
 
-##### Infos
+### Infos
 
 Set `onInfoClick` property to show a a clickable info Icon. You can also set the `infoIcon` with a custom to override the default info icon
 
 <CustomCanvas content={Examples.Infos} source={Sources.Infos} id="input-wrapper-infos" />
 
-##### Actions
+### Actions
 
 Set `actions` property to show actions on the right of label.
 
-***Note*** If the `disabled` prop is set to `true`, `disabled={true}` is passed to each action. If you pass an action that does not handle this prop, it's up to you to manage its state correctly.
+**_Note_** If the `disabled` prop is set to `true`, `disabled={true}` is passed to each action. If you pass an action that does not handle this prop, it's up to you to manage its state correctly.
 
 <CustomCanvas content={Examples.Actions} source={Sources.Actions} id="input-wrapper-actions" />
 
@@ -69,7 +79,6 @@ Set `actions` property to show actions on the right of label.
 <Canvas of={KitInputWrapperStories.Api} />
 
 <Controls of={KitInputWrapperStories.Api} />
-
 
 ## Design Tokens
 

@@ -54,13 +54,15 @@ export const EditorTemplate: IEditorTemplate = () => {
         helper: 'Helper'
     };
 
+    const _onFocus = () => console.log('focus');
+
     return (
         <KitSpace size="m" direction="vertical">
             <KitSpace direction="horizontal" size="m">
                 <KitInputWrapper {...wrapperProps}>
                     <KitTypography.Text>Wrapped component</KitTypography.Text>
                 </KitInputWrapper>
-                <KitInputWrapper {...wrapperProps} bordered>
+                <KitInputWrapper {...wrapperProps} hoverable onFocus={_onFocus} bordered>
                     <KitTypography.Text>Wrapped component</KitTypography.Text>
                 </KitInputWrapper>
                 <KitInputWrapper {...wrapperProps} disabled bordered>

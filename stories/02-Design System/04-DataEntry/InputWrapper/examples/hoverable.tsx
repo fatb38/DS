@@ -3,8 +3,8 @@ import {KitInputWrapper} from '@kit/DataEntry/';
 import {KitTypography} from '@kit/General';
 
 const App = () => (
-    <KitSpace direction="vertical">
-        <KitInputWrapper bordered label="label" helper="helper">
+    <KitSpace direction="vertical" size="l">
+        <KitInputWrapper bordered hoverable label="label" helper="helper">
             <KitTypography.Text>Bordered Component to wrap</KitTypography.Text>
         </KitInputWrapper>
     </KitSpace>

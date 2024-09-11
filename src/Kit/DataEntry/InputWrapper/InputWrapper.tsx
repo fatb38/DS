@@ -14,18 +14,25 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
     disabled,
     status,
     bordered,
+    hoverable,
     required,
     infoIcon,
     onInfoClick,
+    onFocus,
+    onBlur,
     actions,
     className,
     children
 }) => {
     const {appId} = useKitTheme();
 
+    const focusable = !disabled && (onFocus !== undefined || onBlur !== undefined);
+
     const _wrapperClassName = cn(styles['kit-input-wrapper'], appId, className ?? '', {
         disabled,
         bordered,
+        hoverable,
+        focusable,
         error: status === 'error',
         warning: status === 'warning'
     });
@@ -78,7 +85,14 @@ const KitInputWrapper: FunctionComponent<IKitInputWrapper> = ({
                     <div className="kit-input-wrapper-actions">{_actions}</div>
                 </div>
             )}
-            <div className="kit-input-wrapper-content">{children}</div>
+            <div
+                className="kit-input-wrapper-content"
+                tabIndex={focusable ? 0 : -1}
+                onFocus={onFocus ?? undefined}
+                onBlur={onBlur ?? undefined}
+            >
+                {children}
+            </div>
             {helper && (
                 <div className="kit-input-wrapper-helper">
                     <KitTypography.Text size="fontSize7" ellipsis={{tooltip: true}}>
