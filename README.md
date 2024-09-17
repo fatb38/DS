@@ -59,7 +59,7 @@ mkdir DESIGN-SYSTEM
 2. Clone the repo
 
 ```sh dark
-git clone https://gitlab.aristid.com/dev/design-system.git
+git clone git@github.com:aristid-dev/design-system.git
 ```
 
 3. Install requiered packages
