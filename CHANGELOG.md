@@ -4,6 +4,10 @@
 
 ### ✨ Features
 
+-   **ItemList:**
+    -   Make `idCardProps` property optional (@philippechevieux)
+    -   Add `idCardSubstitute` to display a custom component (@philippechevieux)
+    -   Add `checkboxAriaLabel` property because the `aria-label` of the checkbox was only based on `idCardProps` (@philippechevieux)
 -   **InputWrapper:**
     -   Add `hoverable` to change border color when `bordered` is set to `true` (@philippechevieux)
     -   Add `onFocus` to trigger a given function when content is focused. Also if `bordered` is set to `true` it will change the border render (@philippechevieux)

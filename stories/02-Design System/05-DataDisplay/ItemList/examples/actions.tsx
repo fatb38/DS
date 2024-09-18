@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitSpace} from '@kit/Layout';
 import {KitItemList} from '@kit/DataDisplay';
 import {faCartPlus, faStar, faBullhorn} from '@fortawesome/free-solid-svg-icons';

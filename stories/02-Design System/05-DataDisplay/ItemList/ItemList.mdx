@@ -1,5 +1,5 @@
-import {Meta, Canvas} from "@storybook/addon-docs";
-import {Controls} from "@storybook/addon-docs";
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
 import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
@@ -18,13 +18,13 @@ Use the **ItemList** to display a repeated piece of information from an unordere
 
 ## Examples
 
-##### Basic
+### Basic
 
-A basic **ItemList** should contain a [`<KitIdCard />`](/docs/design-system-datadisplay-idcard--docs). You should provide mandatory props `idCardProps`.
+A basic **ItemList** should contain a [`<KitIdCard />`](/docs/design-system-datadisplay-idcard--docs). You should provide `idCardProps`.
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="itemlist-basic" />
 
-##### Selectable
+### Selectable
 
 Each **ItemList** could be selectable if props `onSelect` is set.
 When `onClick` props is also set, the select behavior is applied only on the checkbox.
@@ -33,22 +33,28 @@ When `onClick` props is also set, the select behavior is applied only on the che
 
 <CustomCanvas content={Examples.Selectable} source={Sources.Selectable} id="itemlist-selectable" />
 
-##### Content
+### Content
 
 **ItemList** support extra content. The [`<KitIdCard />`](/docs/design-system-datadisplay-idcard--docs) will grow and the `content` props will fit to the content.
 
 <CustomCanvas content={Examples.Content} source={Sources.Content} id="itemlist-content" />
 
-##### Actions
+### IdCardSubstitute
+
+If needed, you can provide a custom card component via the `idCardSubstitute` property to replace the default `IdCard`.
+
+<CustomCanvas content={Examples.IdCardSubstitute} source={Sources.IdCardSubstitute} id="itemlist-idcard-substitute" />
+
+### Actions
 
 **ItemList** can have many behaviors.
 
-* You can provide a method via props `onClick` that will be called when user click on it.
-* You can provide a list of actions buttons (`actions` props) that will be stacked on the right of the component.
+-   You can provide a method via props `onClick` that will be called when user click on it.
+-   You can provide a list of actions buttons (`actions` props) that will be stacked on the right of the component.
 
 <CustomCanvas content={Examples.Actions} source={Sources.Actions} id="itemlist-actions" />
 
-##### Draggable
+### Draggable
 
 **ItemList** can be dragged and dropped inside the list. To mark an **ItemList** as draggable, add the `draggable` props.
 
@@ -56,13 +62,13 @@ Note that an icon appears and cursor changes, but you need to implement your own
 
 <CustomCanvas content={Examples.Draggable} source={Sources.Draggable} id="itemlist-draggable" />
 
-##### All
+### All
 
 You can combine all props together.
 
 <CustomCanvas content={Examples.All} source={Sources.All} id="itemlist-all" />
 
-##### Disabled
+### Disabled
 
 You can disable `ItemList` to prevent all actions by setting the `disabled`.\
 ⚠️ ItemList doesn't apply `disabled` on the `content` and the `draggableHandler` props, you have to manage it by yourself.
@@ -74,4 +80,3 @@ You can disable `ItemList` to prevent all actions by setting the `disabled`.\
 <Canvas of={KitItemListStories.Api} />
 
 <Controls of={KitItemListStories.Api} />
-
