@@ -23,17 +23,21 @@ const Modal: FunctionComponent<IKitModal> = ({
     const styles: IKitModal['style'] = {
         ...style,
         content: {
-            width: width,
-            height: height as string,
             ...style?.content,
             ...(fullscreen
                 ? {
-                      width: '100%',
-                      height: '100%'
+                      width: '100%'
                   }
                 : {})
         }
     };
+
+    const modalStyle = fullscreen
+        ? {}
+        : {
+              width: width,
+              height: height as string
+          };
 
     const _onOverlayClick = () => {
         props.showCloseIcon && props.close?.([true]);
@@ -60,7 +64,7 @@ const Modal: FunctionComponent<IKitModal> = ({
 
     return (
         <ReactModal {...mergedProps} shouldCloseOnOverlayClick={props.showCloseIcon} onRequestClose={_onOverlayClick}>
-            <div className={ModalStyles['kit-modal']}>
+            <div className={ModalStyles['kit-modal']} style={modalStyle}>
                 <div className="kit-modal-header">
                     <div className="kit-modal-title">
                         <KitTypography.Title level="h2">{title}</KitTypography.Title>
@@ -75,7 +79,7 @@ const Modal: FunctionComponent<IKitModal> = ({
                         ></KitButton>
                     )}
                 </div>
-                <div className="kit-modal-content-wrapper">
+                <div className={cn('kit-modal-content-wrapper', {'kit-modal-content-wrapper-max-height': !fullscreen})}>
                     <div className="kit-modal-content">{props.children}</div>
                 </div>
                 {props.footer && (

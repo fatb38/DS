@@ -22,6 +22,8 @@
         -   `Input`, `Password` and `TextArea`
         -   `InputNumber`
         -   `Select`
+-   **Modal:**
+    -   Handle `maxHeight` in modal with a scrollbar if there is too much content. (@renaudamsellem)
 
 ### 📚 Documentation
 
