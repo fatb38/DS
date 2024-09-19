@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
+import {Meta, Story, Canvas, Source} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
-import Examples, { Sources } from './examples';
+import Examples, {Sources} from './examples';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
 import * as KitSideMenuStories from './SideMenu.stories';
@@ -20,38 +20,43 @@ Navigation is an important part of any website, as a good navigation setup allow
 
 ### SideMenu
 
-##### Basic
+### Basic
 
 A basic SideMenu is just a container.
 
 <CustomCanvas content={Examples.menuBasic} source={Sources.menuBasic} id="sidemenu-basic" />
 
-##### Active Item
+### Active Item
 
 You can set active item programmatically by setting the `defaultActiveItemKey` prop.
 
 <CustomCanvas content={Examples.menuActive} source={Sources.menuActive} id="sidemenu-active" />
 
-##### Separator
+### Separator
 
 SideMenu can display separators between items. Just set the `type` prop to `separator`.
 
 <CustomCanvas content={Examples.menuSeparator} source={Sources.menuSeparator} id="sidemenu-separator" />
 
-##### With Search/Autocomplete Field
+### With Search/Autocomplete Field
 
 A basic Menu with serach field. Just set `showSearch` prop and set `autoCompleteOptions` property.
 
 <CustomCanvas content={Examples.menuSearch} source={Sources.menuSearch} id="sidemenu-search" />
 
+### With customContent
 
-##### With complement
+You can set `customContent` to display a custom content inside the menu. This prop will recieve the `open` state of the menu.
 
-just pass the `complement`prop on an item to display a complement next to title, when menu is open
+<CustomCanvas content={Examples.menuCustomContent} source={Sources.menuCustomContent} id="sidemenu-custom-content" />
+
+### With complement
+
+Just pass the `complement` prop on an item to display a complement next to title, when menu is open
 
 <CustomCanvas content={Examples.menuComplement} source={Sources.menuComplement} id="sidemenu-complement" />
 
-##### With disabled item
+### With disabled item
 
 Just set the `disabled` prop on an item to disable it
 
@@ -63,21 +68,20 @@ Just set the `disabled` prop on an item to disable it
 
 <Controls of={KitSideMenuStories.Api} />
 
-
 ### SideMeuItemProps
+
 SideMenuItem also accepts `data_*` and `aria-*` attributes
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| key | The item key (used to identify active item) | string | - |
-| type | The type of item (`default` \| `separator`) | string | `default` |
-| title | Title of item | `ReactNode` | - |
-| complement |Complement element to display after the titel when menu is open | `ReactNode` | - |
-| icon | Icon to associate to item | `ReactNode` | - |
-| disabled | whether the item is isabled | boolean | - |
-| disabledSecureClick | whether to disable secure click on this particular item | boolean | - |
-| onClick | Set the handler to handle click event (hthe `key`param is the key prop of the item|  (key: string) => void | - |
-
+| Property            | Description                                                                         | Type                  | Default   |
+| ------------------- | ----------------------------------------------------------------------------------- | --------------------- | --------- |
+| key                 | The item key (used to identify active item)                                         | string                | -         |
+| type                | The type of item (`default` \| `separator`)                                         | string                | `default` |
+| title               | Title of item                                                                       | `ReactNode`           | -         |
+| complement          | Complement element to display after the title when menu is open                     | `ReactNode`           | -         |
+| icon                | Icon representing item on menu closed                                               | `ReactNode`           | -         |
+| disabled            | whether the item is disabled                                                        | boolean               | -         |
+| disabledSecureClick | whether to disable secure click on this particular item                             | boolean               | -         |
+| onClick             | Set the handler to handle click event (the `key` param is the key prop of the item) | (key: string) => void | -         |
 
 ## Design Tokens
 

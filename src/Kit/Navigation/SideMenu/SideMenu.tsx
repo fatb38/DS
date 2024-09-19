@@ -2,7 +2,6 @@ import {FunctionComponent, ReactNode, useEffect, useRef, useState} from 'react';
 import {IKitSideMenu, IKitSideMenuItemProps} from './types';
 import {useKitTheme} from '@theme/useKitTheme';
 import cn from 'classnames';
-
 import styles from './styles.module.scss';
 import {KitButton} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -15,6 +14,7 @@ const KitSideMenu: FunctionComponent<IKitSideMenu> = ({
     open = false,
     showSearch,
     autoCompleteOptions,
+    customContent,
     items = [],
     onMenuClick,
     onOpenChanged,
@@ -82,6 +82,9 @@ const KitSideMenu: FunctionComponent<IKitSideMenu> = ({
         );
     };
 
+    const _getCustomContent = () =>
+        customContent && <div className="kit-side-menu-custom-content">{customContent(isOpen)}</div>;
+
     const _getOption = (itemProps: IKitSideMenuItemProps, index: number): ReactNode => {
         const formattedKey = itemProps.key ?? index.toString();
         if (itemProps.type === 'separator') {
@@ -103,13 +106,16 @@ const KitSideMenu: FunctionComponent<IKitSideMenu> = ({
 
     return (
         <nav className={clx} {...props}>
-            <ul className="menu-items">
-                <li className="header">
-                    <KitButton icon={<FontAwesomeIcon icon={faChevronRight} />} onClick={_toggleOpen} />
-                    {_getSearchBox()}
-                </li>
-                {items.map((item, index) => _getOption(item, index))}
-            </ul>
+            <div className="header">
+                <KitButton
+                    className="kit-side-menu-toggle"
+                    icon={<FontAwesomeIcon icon={faChevronRight} />}
+                    onClick={_toggleOpen}
+                />
+                {_getSearchBox()}
+                {_getCustomContent()}
+            </div>
+            <ul className="menu-items">{items.map((item, index) => _getOption(item, index))}</ul>
         </nav>
     );
 };

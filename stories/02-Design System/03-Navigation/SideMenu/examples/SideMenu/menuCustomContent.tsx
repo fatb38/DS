@@ -3,6 +3,7 @@ import {KitSideMenu} from '@kit/Navigation';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faChartLine, faHome} from '@fortawesome/free-solid-svg-icons';
 import {IKitSideMenuItemProps} from '@kit/Navigation/SideMenu/types';
+import {KitIdCard} from '@kit/DataDisplay';
 
 const items: IKitSideMenuItemProps[] = [
     {
@@ -21,9 +22,20 @@ const items: IKitSideMenuItemProps[] = [
 
 const App = () => {
     const [activeItem, setActiveItem] = useState<string | undefined>(undefined);
+
     const _handleOnMenuClick = (key: string) => {
         setActiveItem(key);
     };
+
+    const _displayCustomContent = (open: boolean) => (
+        <KitIdCard
+            avatarProps={{
+                src: 'public/images/portrait.png'
+            }}
+            title={open ? 'Nina' : undefined}
+            description={open ? 'Responsable Marketing' : undefined}
+        />
+    );
 
     return (
         <div
@@ -37,7 +49,7 @@ const App = () => {
             <KitSideMenu
                 showSearch
                 open
-                autoCompleteOptions={{placeholder: 'Rechercher...', allowClear: true}}
+                customContent={_displayCustomContent}
                 items={items}
                 defaultActiveItemKey={activeItem}
                 onMenuClick={_handleOnMenuClick}

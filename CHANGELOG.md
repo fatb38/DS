@@ -4,6 +4,8 @@
 
 ### ✨ Features
 
+-   **SideMenu:**
+    -   Add `customContent` property to display a custom component depending on `open` side menu state (@philippechevieux)
 -   **ItemList:**
     -   Make `idCardProps` property optional (@philippechevieux)
     -   Add `idCardSubstitute` to display a custom component (@philippechevieux)

@@ -7,6 +7,7 @@ export interface IKitSideMenu extends KitHTMLAttributes<HTMLDivElement> {
     showSearch?: boolean;
     autoCompleteOptions?: IKitAutoComplete;
     items?: IKitSideMenuItemProps[];
+    customContent?: (open: boolean) => ReactNode;
     onMenuClick?: (key: string) => void;
     onOpenChanged?: (open: boolean) => void;
     defaultActiveItemKey?: string;
