@@ -58,6 +58,11 @@ export interface IKitThemeGeneral {
     breakpoints: string[];
     grid: IKitGridConfig;
     utilities: IKitUtilities;
+    header: IKitHeader;
+}
+
+interface IKitHeader {
+    height: string;
 }
 
 export interface IKitThemeComponents {

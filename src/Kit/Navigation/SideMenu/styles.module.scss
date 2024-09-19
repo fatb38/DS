@@ -44,7 +44,7 @@
         position: relative;
         padding: convertToPixel(--general-spacing-none)
             convertToPixel(--components-SideMenu-padding-horizontal, --general-spacing-s);
-        height: 100%;
+        height: auto;
         width: 100%;
         box-sizing: border-box;
     }

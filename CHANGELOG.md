@@ -4,6 +4,9 @@
 
 ### ✨ Features
 
+-   **New - PageLayout:**
+    -   Add PageLayout component (@Delmotte-Vincent)
+
 -   **SideMenu:**
     -   Add `customContent` property to display a custom component depending on `open` side menu state (@philippechevieux)
 -   **ItemList:**

@@ -1,21 +1,21 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-header) {
-    --kit-header-height: 64px;
+    --general-header-height: 64px;
 
     display: flex;
     gap: convertToPixel(--general-spacing-s);
     padding-right: convertToPixel(--general-spacing-s);
     align-items: center;
-    height: var(--kit-header-height);
+    height: var(--general-header-height);
     overflow: hidden;
     background: var(--general-utilities-light);
     width: 100%;
     box-sizing: border-box;
 
     .kit-header-menu {
-        height: var(--kit-header-height);
-        width: var(--kit-header-height);
+        height: var(--general-header-height);
+        width: var(--general-header-height);
         flex-grow: 0;
         flex-shrink: 0;
         background: var(--general-utilities-main-default);
@@ -48,7 +48,7 @@
         justify-content: center;
 
         img {
-            height: calc(var(--kit-header-height) - (2 * (convertToPixel(--general-spacing-xs))));
+            height: calc(var(--general-header-height) - (2 * (convertToPixel(--general-spacing-xs))));
         }
     }
 
