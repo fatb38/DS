@@ -12,6 +12,7 @@ export const argTypes = {
     idCardSubstitute: {
         name: 'idCardSubstitute',
         description: '',
+        control: false,
         table: {
             category: 'ItemList',
             type: {
