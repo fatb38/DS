@@ -22,6 +22,8 @@
         -   `Input`, `Password` and `TextArea`
         -   `InputNumber`
         -   `Select`
+-   **Error**
+    -   Add `httpErrorCode` property to choose which error to display (@fatb38 / @renaudamsellem)
 -   **Modal:**
     -   Handle `maxHeight` in modal with a scrollbar if there is too much content. (@renaudamsellem)
 

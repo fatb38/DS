@@ -20,6 +20,18 @@ const TemplateArgTypes = {
             },
             category: 'Error'
         }
+    },
+    httpErrorCode: {
+        name: 'httpErrorCode',
+        description: 'Choose the error code you need',
+        control: {type: 'select'},
+        options: ['401', '403', '404', '500', '502', '503', '-'],
+        table: {
+            type: {
+                summary: 'string'
+            },
+            category: 'Error'
+        }
     }
 };
 

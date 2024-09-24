@@ -1,4 +1,4 @@
-import {Meta, Canvas, Controls} from "@storybook/addon-docs";
+import {Meta, Canvas, Controls} from '@storybook/addon-docs';
 import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import * as KitErrorStories from './Error.stories';
@@ -11,8 +11,8 @@ Error state placeholder.
 
 ## Usage
 
-- When there is a navigation error.
-- When there is a ressource not found.
+-   When there is a navigation error.
+-   When there is a ressource not found.
 
 ## Examples
 
@@ -38,6 +38,12 @@ When the error is for navigation, you probably have a header above.
 
 <CustomCanvas content={Examples.Integrated} source={Sources.Integrated} id="component-error-integrated" />
 
+### Error Type
+
+You can choose the error type you want to display. Default error is common error.
+
+<CustomCanvas content={Examples.HttpErrorCode} source={Sources.HttpErrorCode} id="component-error-http-error-code" />
+
 ## Api
 
 <Canvas of={KitErrorStories.Api} />
@@ -46,6 +52,6 @@ When the error is for navigation, you probably have a header above.
 
 ## Translation Tokens
 
-|          | en-US           | fr-FR               |
-|----------|-----------------|---------------------|
-| error404 | Error type: 404 | Type d’erreur : 404 |
+|            | en-US        | fr-FR            |
+| ---------- | ------------ | ---------------- |
+| error_type | Error type:  | Type d’erreur :  |

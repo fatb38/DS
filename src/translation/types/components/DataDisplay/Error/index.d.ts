@@ -1,3 +1,3 @@
 export interface IKitErrorLocale {
-    error404?: string;
+    error_type?: string;
 }
