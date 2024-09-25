@@ -5,6 +5,7 @@
 ### ✨ Features
 
 -   **New - PageLayout:**
+
     -   Add PageLayout component (@Delmotte-Vincent)
 
 -   **SideMenu:**
@@ -26,6 +27,11 @@
     -   Add `httpErrorCode` property to choose which error to display (@fatb38 / @renaudamsellem)
 -   **Modal:**
     -   Handle `maxHeight` in modal with a scrollbar if there is too much content. (@renaudamsellem)
+
+### 🐛 Bug Fixes
+
+-   **Table**:
+    -   Fix checkbox hidden when ellipsis is true (@renaudamsellem)
 
 ### 📚 Documentation
 

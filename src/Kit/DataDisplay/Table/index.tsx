@@ -59,6 +59,8 @@ export const KitTable: FunctionComponent<IKitTable> = ({
     const _handleRowClassName: RowClassName<DefaultRecordType> = (record, _, indent) =>
         indent > 0 && (!Array.isArray(record?.children) || !record?.children?.length) ? 'last-expandable-level' : '';
 
+    const rowSelection = {...tableProps?.rowSelection};
+
     return (
         <AntdTable
             className={clx}
@@ -74,6 +76,10 @@ export const KitTable: FunctionComponent<IKitTable> = ({
                 indentSize: theme.spacing.m
             }}
             {...tableProps}
+            rowSelection={{
+                ...rowSelection,
+                columnWidth: 'var(--kit-table-checkbox-width)'
+            }}
         />
     );
 };

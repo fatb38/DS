@@ -7,6 +7,7 @@
 :local(.kit-table) {
     --kit-table-row-side-padding: calc(var(--general-spacing-xs) + var(--general-spacing-s));
     --kit-table-body-cell-height: 56px;
+    --kit-table-checkbox-width: 48px;
 
     &.ant-table-wrapper .ant-table {
         .ant-table-title {
