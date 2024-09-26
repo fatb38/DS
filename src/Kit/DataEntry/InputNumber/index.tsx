@@ -19,6 +19,8 @@ export const KitInputNumber = forwardRef<HTMLInputElement, KitInputNumberProps>(
             infoIcon,
             actions,
             onInfoClick,
+            onFocus,
+            onBlur,
             ...inputNumberProps
         },
         ref
@@ -46,8 +48,14 @@ export const KitInputNumber = forwardRef<HTMLInputElement, KitInputNumberProps>(
                 <AntdInputNumber
                     ref={ref}
                     id={inputNumberProps.id ?? htmlFor}
-                    onFocus={() => setHasFocus(true)}
-                    onBlur={() => setHasFocus(false)}
+                    onFocus={event => {
+                        onFocus?.(event);
+                        setHasFocus(true);
+                    }}
+                    onBlur={event => {
+                        onBlur?.(event);
+                        setHasFocus(false);
+                    }}
                     className={clx}
                     {...inputNumberProps}
                 />

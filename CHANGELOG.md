@@ -34,6 +34,8 @@
 
 -   **Table**:
     -   Fix checkbox hidden when ellipsis is true (@renaudamsellem)
+-   **Input Number**:
+    -   Fix make onBlur and onFocus method overridable (@renaudamsellem)
 
 ### 📚 Documentation
 
