@@ -1,11 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitGrid} from '@kit/Layout';
 import {argTypes} from './data';
-import {Template, FakeGrid} from './Template';
-import GridTest from './test-components/gridTest';
+import {LgGridTest, MdGridTest, SmGridTest, XlGridTest, XsGridTest, XxlGridTest} from './test-components';
 
-const meta: Meta<typeof FakeGrid> = {
-    component: FakeGrid,
+const {KitRow} = KitGrid;
+
+const meta: Meta<typeof KitRow> = {
+    component: KitRow,
     title: 'Design System/Layout/Grid',
     argTypes: argTypes
 };
@@ -14,12 +15,20 @@ export default meta;
 type Story = StoryObj<typeof KitGrid>;
 
 export const Api: Story = {
-    render: Template,
     parameters: {
         chromatic: {disableSnapshot: true}
     }
 };
 
 export const ChromaticTest: Story = {
-    render: () => <GridTest />
+    render: () => (
+        <div style={{display: 'flex', flexDirection: 'column', gap: '16px'}}>
+            <XsGridTest />
+            <SmGridTest />
+            <MdGridTest />
+            <LgGridTest />
+            <XlGridTest />
+            <XxlGridTest />
+        </div>
+    )
 };

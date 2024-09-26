@@ -3,6 +3,8 @@
 ## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (202X-XX-XX)
 
 ### ✨ Features
+-   **⚠️ Breaking change - Grid:**
+    - Update KitRow and KitCol to use antd API (@Delmotte-Vincent)
 
 -   **New - PageLayout:**
 

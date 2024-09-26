@@ -9,7 +9,6 @@ import {Style} from 'react-style-tag';
 import {KitThemeContext} from './useKitTheme';
 import {IJSONObject} from '../../.storybook/components/ThemeEditor/types';
 import {KitAristidThemeGeneral} from '@theme/aristid/general';
-import GridStyle from '@kit/Layout/Grid/GridStyle';
 
 const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: string}>`
   .${props => props.id} {
@@ -20,9 +19,11 @@ const CustomVariables = createGlobalStyle<{customTheme: IKitCustomTheme; id: str
 
 const globalStyleId = 'aristid-ds-global';
 
-export const KitThemeProvider: FunctionComponent<
-    PropsWithChildren<{customTheme?: IKitCustomTheme; id?: string; useMediaQueries?: boolean}>
-> = ({children, customTheme, id, useMediaQueries = true}) => {
+export const KitThemeProvider: FunctionComponent<PropsWithChildren<{customTheme?: IKitCustomTheme; id?: string}>> = ({
+    children,
+    customTheme,
+    id
+}) => {
     const [cssTokens, setCssTokens] = useState<Record<string, string> | null>(null);
     const {theme, appId, spacing} = useKitThemeProvider(id, customTheme);
 
@@ -49,9 +50,6 @@ export const KitThemeProvider: FunctionComponent<
                             id={appId}
                             customTheme={merge({general: {utilities: KitAristidThemeGeneral.utilities}}, customTheme)}
                         />
-                    )}
-                    {useMediaQueries && (
-                        <GridStyle theme={KitAristidThemeGeneral} customTheme={customTheme} id={appId} />
                     )}
                     {children}
                 </>
