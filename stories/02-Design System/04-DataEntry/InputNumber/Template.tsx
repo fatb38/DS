@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitInputNumber} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import {IEditorTemplate} from '../../../types';
@@ -48,12 +47,12 @@ export const Template = (args: KitInputNumberProps) => {
 };
 
 export const EditorTemplate: IEditorTemplate = () => (
-        <KitSpace size="m">
-            <KitInputNumber placeholder="10" />
-            <KitInputNumber disabled placeholder="10" />
-            <KitInputNumber status="warning" placeholder="10" />
-            <KitInputNumber status="error" placeholder="10" />
-        </KitSpace>
-    );
+    <KitSpace size="m">
+        <KitInputNumber placeholder="10" />
+        <KitInputNumber disabled placeholder="10" />
+        <KitInputNumber status="warning" placeholder="10" />
+        <KitInputNumber status="error" placeholder="10" />
+    </KitSpace>
+);
 EditorTemplate.path = 'components.InputNumber';
 EditorTemplate.title = 'InputNumber';

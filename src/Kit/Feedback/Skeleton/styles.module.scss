@@ -16,7 +16,7 @@
 }
 
 :local(.kit-avatar-square) {
-    border-radius: convertToPixel(--general-border-radius-s)
+    border-radius: convertToPixel(--general-border-radius-s);
 }
 
 :local(.kit-skeleton.kit-avatar-circle) {
@@ -35,7 +35,14 @@
 }
 
 :local(.kit-skeleton-active) {
-    background: linear-gradient(135deg, var(--general-colors-neutral-grey-200) 0%, var(--general-colors-neutral-grey-200) 45%, var(--general-colors-neutral-grey-100) 50%, var(--general-colors-neutral-grey-200) 55%, var(--general-colors-neutral-grey-200) 100%);
+    background: linear-gradient(
+        135deg,
+        var(--general-colors-neutral-grey-200) 0%,
+        var(--general-colors-neutral-grey-200) 45%,
+        var(--general-colors-neutral-grey-100) 50%,
+        var(--general-colors-neutral-grey-200) 55%,
+        var(--general-colors-neutral-grey-200) 100%
+    );
     background-size: 400% 200%;
     animation-name: skeleton-loading;
     animation-duration: 3s;

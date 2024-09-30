@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useEffect, useMemo, useState} from 'react';
+import {ChangeEvent, useEffect, useMemo, useState} from 'react';
 import {Card, Empty} from 'antd';
 import * as FaSolidIcons from '@fortawesome/free-solid-svg-icons';
 import * as FaRegularIcons from '@fortawesome/free-regular-svg-icons';
@@ -43,7 +43,8 @@ const convertToFontAwesomeIconName = (inputString: string): string => {
 const filterIcons = (key: string) => key !== 'fas' && key !== 'prefix';
 const sortIconByAlphabetically = (a: IconDefinition, b: IconDefinition) => a.iconName.localeCompare(b.iconName);
 
-const removeDuplicateIcons = (icons: IconDefinition[]) => icons.reduce<IconDefinition[]>((accumulator, current) => {
+const removeDuplicateIcons = (icons: IconDefinition[]) =>
+    icons.reduce<IconDefinition[]>((accumulator, current) => {
         if (!accumulator.some(icon => icon.iconName === current.iconName)) {
             accumulator.push(current);
         }
@@ -192,10 +193,10 @@ const Gallery = () => {
 export default Gallery;
 
 export const EditorTemplate: IEditorTemplate = () => (
-        <KitSpace>
-            <KitIcon icon={<FontAwesomeIcon icon={FaSolidIcons.faDownload} />} />
-            <KitIcon icon={<FontAwesomeIcon icon={FaSolidIcons.faDownload} />} on />
-        </KitSpace>
-    );
+    <KitSpace>
+        <KitIcon icon={<FontAwesomeIcon icon={FaSolidIcons.faDownload} />} />
+        <KitIcon icon={<FontAwesomeIcon icon={FaSolidIcons.faDownload} />} on />
+    </KitSpace>
+);
 EditorTemplate.path = 'components.Icon';
 EditorTemplate.title = 'Icon';

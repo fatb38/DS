@@ -25,7 +25,6 @@ import StepsSource from './steps?raw';
 import StrokeSource from './stroke?raw';
 import SuccessSegmentSource from './successSegment?raw';
 
-
 export const Sources = {
     Bar: BarSource,
     Circular: CircularSource,
@@ -57,23 +56,3 @@ export default {
     Stroke,
     SuccessSegment
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

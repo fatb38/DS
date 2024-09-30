@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {useState} from 'react';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import * as KitSpaceStories from './Space.stories';
 
@@ -34,56 +34,64 @@ Set components spacing.
 
 ## When To Use
 
-- Avoid components clinging together and set a unified space.
-- Use Space.Compact when child form components are compactly connected and the border is collapsed (After version `antd@4.24.0` Supported).
+-   Avoid components clinging together and set a unified space.
+-   Use Space.Compact when child form components are compactly connected and the border is collapsed (After version `antd@4.24.0` Supported).
 
 ## Examples
 
-
 ##### Basic
+
 Crowded components horizontal spacing.
 
-<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="space-basic"/>
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="space-basic" />
 
 ##### Vertical Space
+
 Crowded components vertical spacing.
 
-<CustomCanvas content={Examples.Vertical} source={Sources.Vertical} id="space-vertical"/>
+<CustomCanvas content={Examples.Vertical} source={Sources.Vertical} id="space-vertical" />
 
 ##### Space Size
+
 Preset sizes based on `KitSpacing`. It is recommanded to use these keys rather than hardcoded values. If size is not set, the default spacing is `xs`.
 
-<CustomCanvas content={Examples.Size} source={Sources.Size} id="space-size"/>
+<CustomCanvas content={Examples.Size} source={Sources.Size} id="space-size" />
 
 ##### Align
+
 Config item align.
 
-<CustomCanvas content={Examples.Align} source={Sources.Align} id="space-align"/>
+<CustomCanvas content={Examples.Align} source={Sources.Align} id="space-align" />
 
 ##### Customize size
+
 Custom spacing size.
 
-<CustomCanvas content={Examples.CustomSize} source={Sources.CustomSize} id="space-custom-size"/>
+<CustomCanvas content={Examples.CustomSize} source={Sources.CustomSize} id="space-custom-size" />
 
 ##### Wrap
+
 Auto wrap line.
 
-<CustomCanvas content={Examples.Wrap} source={Sources.Wrap} id="space-wrap"/>
+<CustomCanvas content={Examples.Wrap} source={Sources.Wrap} id="space-wrap" />
 
 ##### Split
+
 Crowded components split.
 
-<CustomCanvas content={Examples.Split} source={Sources.Split} id="space-split"/>
+<CustomCanvas content={Examples.Split} source={Sources.Split} id="space-split" />
 
 ##### Button Compact Mode
+
 Button component compact example.
 
-<CustomCanvas content={Examples.CompactButton} source={Sources.CompactButton} id="space-compact"/>
+<CustomCanvas content={Examples.CompactButton} source={Sources.CompactButton} id="space-compact" />
 
 ##### Vertical Compact Mode
+
 Vertical Mode for Space.Compact, support Button only.
 
-<CustomCanvas content={Examples.VerticalCompact} source={Sources.Horizontal} id="space-vertical-compact"/>
+<CustomCanvas content={Examples.VerticalCompact} source={Sources.Horizontal} id="space-vertical-compact" />
 
 ## API
 
@@ -94,17 +102,17 @@ Vertical Mode for Space.Compact, support Button only.
 
 Use Space.Compact when child form components are compactly connected and the border is collapsed. The supported components are：
 
-- Button
-- AutoComplete
-- Cascader
-- DatePicker
-- Input/Input.Search
-- Select
-- TimePicker
-- TreeSelect
+-   Button
+-   AutoComplete
+-   Cascader
+-   DatePicker
+-   Input/Input.Search
+-   Select
+-   TimePicker
+-   TreeSelect
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| block | Option to fit width to its parent\'s width | boolean | false |
-| direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` |
-| size | Set child component size | `large` \| `middle` \| `small` | `middle` |
+| Property  | Description                                | Type                           | Default      | Version |
+| --------- | ------------------------------------------ | ------------------------------ | ------------ | ------- |
+| block     | Option to fit width to its parent\'s width | boolean                        | false        |
+| direction | Set direction of layout                    | `vertical` \| `horizontal`     | `horizontal` |
+| size      | Set child component size                   | `large` \| `middle` \| `small` | `middle`     |

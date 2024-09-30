@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import {Image} from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -40,7 +39,7 @@ export const StyledImagePreview = styled.div`
     }
 
     &.center {
-       margin: 0 auto;
+        margin: 0 auto;
     }
 
     & + & {

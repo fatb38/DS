@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitUpload} from '@kit/DataEntry';
 import {UploadProps} from 'antd';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -42,12 +41,12 @@ const showUploadList = {
 };
 
 const App = () => (
-        <KitUpload
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            fileList={defaultFileList}
-            onChange={onChange}
-            showUploadList={showUploadList}
-        />
-    );
+    <KitUpload
+        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        fileList={defaultFileList}
+        onChange={onChange}
+        showUploadList={showUploadList}
+    />
+);
 
 export default App;

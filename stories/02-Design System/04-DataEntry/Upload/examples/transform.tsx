@@ -1,8 +1,8 @@
-import React from 'react';
 import {KitUpload} from '@kit/DataEntry';
 import {UploadProps} from 'antd';
 
-const beforeUpload: UploadProps['beforeUpload'] = file => new Promise(resolve => {
+const beforeUpload: UploadProps['beforeUpload'] = file =>
+    new Promise(resolve => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {

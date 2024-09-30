@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -14,48 +14,56 @@ Select component to select value from options.
 
 ## Usage
 
-- A dropdown menu for displaying choices - an elegant alternative to the native `<select>` element.
-- Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
+-   A dropdown menu for displaying choices - an elegant alternative to the native `<select>` element.
+-   Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
 
 ## Examples
 
 ##### Basic
+
 Basic Usage.
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="select-basic" />
 
 ##### Disabled
+
 Disabled state.
 
 <CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="select-disabled" />
 
 ##### With Downlad Icon
+
 Code sample to display with a downlad icon.
 
 <CustomCanvas content={Examples.Download} source={Sources.Download} id="select-download-icon" />
 
 ##### Option Group
+
 Using `OptGroup` to group the options.
 
 <CustomCanvas content={Examples.Group} source={Sources.Group} id="select-group" />
 
 ##### Search
+
 Search for options with `showSearch` property.
 
 <CustomCanvas content={Examples.Search} source={Sources.Search} id="select-search" />
 
 ##### Mode
-- `multiple` : selecting from existing items.
-- `tags`: selecting from existing items and transform input to tag.
+
+-   `multiple` : selecting from existing items.
+-   `tags`: selecting from existing items and transform input to tag.
 
 <CustomCanvas content={Examples.Multipleandtags} source={Sources.Multipleandtags} id="select-multiple-tags" />
 
 ##### Status
+
 Add status to KitSelect with `status`, which could be `error` or `warning`.
 
 <CustomCanvas content={Examples.Status} source={Sources.Status} id="select-status" />
 
 ##### With a custom render
+
 Add `idCardProps` to display a [`<KitIdCard />`](/docs/design-system-datadisplay-idcard--docs) as an option instead of the label. You can also use `dropdownRender` to customize the dropdown menu.
 
 <CustomCanvas content={Examples.CustomRender} source={Sources.CustomRender} id="select-custom-render" />
@@ -91,15 +99,15 @@ Add `label` and/or `helper` properties to give field context.
 
 ### Option props
 
-| Property  | Description                                   | Type             | Default | Version |
-| --------- | --------------------------------------------- | ---------------- | ------- | ------- |
-| className | The additional class to option                | string           | -       |         |
-| disabled  | Disable this option                           | boolean          | false   |         |
-| title     | `title` attribute of Select Option            | string           | -       |         |
-| icon      | `icon` display next to the label              | ReactNode        | -       |         |
-| color     | Color `badge` display next to the label       | string           | -       |         |
-| idCard    | `KitIdCard` to display instead of the label   | string           | -       |         |
-| value     | Default to filter with this property          | string \| number | -       |         |
+| Property  | Description                                 | Type             | Default | Version |
+| --------- | ------------------------------------------- | ---------------- | ------- | ------- |
+| className | The additional class to option              | string           | -       |         |
+| disabled  | Disable this option                         | boolean          | false   |         |
+| title     | `title` attribute of Select Option          | string           | -       |         |
+| icon      | `icon` display next to the label            | ReactNode        | -       |         |
+| color     | Color `badge` display next to the label     | string           | -       |         |
+| idCard    | `KitIdCard` to display instead of the label | string           | -       |         |
+| value     | Default to filter with this property        | string \| number | -       |         |
 
 ### OptGroup props
 
@@ -107,7 +115,6 @@ Add `label` and/or `helper` properties to give field context.
 | -------- | ----------- | ----------------------- | ------- | ------- |
 | key      | Group key   | string                  | -       |         |
 | label    | Group label | string \| React.Element | -       |         |
-
 
 ## Design Tokens
 

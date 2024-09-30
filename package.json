@@ -24,7 +24,7 @@
         "commit": "cz",
         "generate-tokens": "node tokens-generator.cjs",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
+        "pretty": "prettier . --write",
         "preview": "vite preview",
         "storybook": "storybook dev -p 6006",
         "test-build": "yarn lint && yarn build"

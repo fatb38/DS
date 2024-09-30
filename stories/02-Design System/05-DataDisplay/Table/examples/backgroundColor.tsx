@@ -88,15 +88,15 @@ const columns: KitTableColumnsType<DataType> = [
 ];
 
 const App = () => (
-        <div style={{backgroundColor: '#F4F7FF'}}>
-            <KitTable
-                dataSource={dataSource}
-                columns={columns}
-                cellsBackgroundColor="#F4F7FF"
-                pagination={{pageSize: 10}}
-                scroll={{x: 1500, y: 300}}
-            />
-        </div>
-    );
+    <div style={{backgroundColor: '#F4F7FF'}}>
+        <KitTable
+            dataSource={dataSource}
+            columns={columns}
+            cellsBackgroundColor="#F4F7FF"
+            pagination={{pageSize: 10}}
+            scroll={{x: 1500, y: 300}}
+        />
+    </div>
+);
 
 export default App;

@@ -1,30 +1,30 @@
-name: "Design system workflow"
+name: 'Design system workflow'
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - 'develop'
-      - 'main'
-    tags:
-      - '*'
-  pull_request:
-    branches:
-      - '*'
-    types: [opened, synchronize]
+    workflow_dispatch:
+    push:
+        branches:
+            - 'develop'
+            - 'main'
+        tags:
+            - '*'
+    pull_request:
+        branches:
+            - '*'
+        types: [opened, synchronize]
 
 jobs:
-  lint:
-    uses: ./.github/workflows/lint.yml
-  build:
-    uses: ./.github/workflows/build.yml
-    needs: lint
-  npm:
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
-    needs: build
-    uses: ./.github/workflows/npm.yml
-    secrets: inherit
-  storybook:
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
-    needs: npm
-    uses: ./.github/workflows/storybook.yml
+    lint:
+        uses: ./.github/workflows/lint.yml
+    build:
+        uses: ./.github/workflows/build.yml
+        needs: lint
+    npm:
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+        needs: build
+        uses: ./.github/workflows/npm.yml
+        secrets: inherit
+    storybook:
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+        needs: npm
+        uses: ./.github/workflows/storybook.yml

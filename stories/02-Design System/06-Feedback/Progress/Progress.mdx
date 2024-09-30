@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -16,75 +16,89 @@ Display the current progress of an operation flow.
 
 If it will take a long time to complete an operation, you can use `Progress` to show the current progress and status.
 
-- When an operation will interrupt the current interface, or it needs to run in the background for more than 2 seconds.
-- When you need to display the completion percentage of an operation.
-
+-   When an operation will interrupt the current interface, or it needs to run in the background for more than 2 seconds.
+-   When you need to display the completion percentage of an operation.
 
 ## Examples
 
 ##### Progres bar
-A standard progress bar.
 
+A standard progress bar.
 
 <CustomCanvas content={Examples.Bar} source={Sources.Bar} id="progress-bar" />
 
 ##### Circular Progress bar
+
 A circular progress bar.
 
 <CustomCanvas content={Examples.Circular} source={Sources.Circular} id="progress-circular" />
 
 ##### Mini size progress bar
+
 Appropriate for a narrow area.
 
 <CustomCanvas content={Examples.Minibar} source={Sources.Minibar} id="progress-minibar" />
 
 ##### Responsive circular progress bar
+
 Responsive circular progress bar. When `width` is smaller than 20, progress information will be displayed in Tooltip.
 
-<CustomCanvas content={Examples.ResponsiveCircular} source={Sources.ResponsiveCircular} id="progress-responsive-circular" />
+<CustomCanvas
+    content={Examples.ResponsiveCircular}
+    source={Sources.ResponsiveCircular}
+    id="progress-responsive-circular"
+/>
 
 ##### Mini size circular progress bar
+
 A smaller circular progress bar.
 
 <CustomCanvas content={Examples.MiniCircular} source={Sources.MiniCircular} id="progress-mini-circular" />
 
 ##### Dynamic
+
 A dynamic progress bar is better.
 
 <CustomCanvas content={Examples.Dynamic} source={Sources.Dynamic} id="progress-dynamic" />
 
 ##### Dynamic circular progress bar
+
 A dynamic progress bar is better.
 
 <CustomCanvas content={Examples.DynamicCircular} source={Sources.DynamicCircular} id="progress-dynamic-circular" />
 
 ##### Custom text format
+
 You can set a custom text by setting the `format` prop.
 
 <CustomCanvas content={Examples.CustomText} source={Sources.CustomText} id="progress-custom-text" />
 
-
 ##### Dashboard
+
 By setting `type=dashboard`, you can get a dashboard style of progress easily. Modify `gapDegree` to set the degree of gap.
 
 <CustomCanvas content={Examples.Dashboard} source={Sources.Dashboard} id="progress-dashboard" />
 
 ##### Progress bar with success segment
+
 Show several parts of progress with different status.
 
 <CustomCanvas content={Examples.SuccessSegment} source={Sources.SuccessSegment} id="progress-success-segment" />
 
 ##### Stroke Linecap
+
 By setting `strokeLinecap="butt"`, you can change the linecaps from `round` to `butt`, see stroke-linecap for more information.
 
 <CustomCanvas content={Examples.Stroke} source={Sources.Stroke} id="progress-stroke" />
 
 ##### Progress bar with steps
+
 A progress bar with steps.
 
 <CustomCanvas content={Examples.Steps} source={Sources.Steps} id="progress-steps" />
 
 ##### Progress size
+
 The size of progress.
 
 <CustomCanvas content={Examples.Size} source={Sources.Size} id="progress-size" />

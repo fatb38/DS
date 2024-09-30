@@ -27,13 +27,13 @@ const items: IKitDropdownMenu['items'] = [
 
 const App = () => {
     const customRender = (menu: React.ReactNode) => (
-            <>
-                {menu}
-                <KitButton type="primary" block style={{marginTop: '15px'}}>
-                    CTA Action
-                </KitButton>
-            </>
-        );
+        <>
+            {menu}
+            <KitButton type="primary" block style={{marginTop: '15px'}}>
+                CTA Action
+            </KitButton>
+        </>
+    );
 
     return (
         <KitSpace>

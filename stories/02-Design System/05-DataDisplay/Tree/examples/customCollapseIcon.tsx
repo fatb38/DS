@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitTree} from '@kit/DataDisplay';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFile, faFolder} from '@fortawesome/free-regular-svg-icons';
@@ -32,15 +31,15 @@ const treeData = [
 ];
 
 const App = () => (
-        <div style={{width: '300px'}}>
-            <KitTree
-                checkable
-                showIcon
-                switcherIcon={<FontAwesomeIcon icon={faAngleDown} />}
-                treeData={treeData}
-                defaultExpandAll
-            />
-        </div>
-    );
+    <div style={{width: '300px'}}>
+        <KitTree
+            checkable
+            showIcon
+            switcherIcon={<FontAwesomeIcon icon={faAngleDown} />}
+            treeData={treeData}
+            defaultExpandAll
+        />
+    </div>
+);
 
 export default App;

@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitAvatar} from '@kit/DataDisplay';
 import {KitDivider, KitSpace} from '@kit/Layout';
 import {IEditorTemplate} from '../../../types';
@@ -38,26 +37,26 @@ export const Template = (args: IKitAvatar) => {
 };
 
 export const EditorTemplate: IEditorTemplate = () => (
-        <KitSpace>
-            <KitAvatar shape="circle" size="small">
-                A
-            </KitAvatar>
-            <KitAvatar shape="circle">A</KitAvatar>
-            <KitAvatar shape="circle" size="large">
-                A
-            </KitAvatar>
-            <KitAvatar shape="square" size="small">
-                V
-            </KitAvatar>
-            <KitAvatar shape="square">V</KitAvatar>
-            <KitAvatar shape="square" size="large">
-                V
-            </KitAvatar>
-            <KitAvatar disabled shape="square" size="large">
-                V
-            </KitAvatar>
-        </KitSpace>
-    );
+    <KitSpace>
+        <KitAvatar shape="circle" size="small">
+            A
+        </KitAvatar>
+        <KitAvatar shape="circle">A</KitAvatar>
+        <KitAvatar shape="circle" size="large">
+            A
+        </KitAvatar>
+        <KitAvatar shape="square" size="small">
+            V
+        </KitAvatar>
+        <KitAvatar shape="square">V</KitAvatar>
+        <KitAvatar shape="square" size="large">
+            V
+        </KitAvatar>
+        <KitAvatar disabled shape="square" size="large">
+            V
+        </KitAvatar>
+    </KitSpace>
+);
 EditorTemplate.path = 'components.Avatar';
 EditorTemplate.title = 'Avatar';
 

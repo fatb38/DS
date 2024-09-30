@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
@@ -26,15 +25,15 @@ const items: IKitDropdownMenu['items'] = [
 ];
 
 const App = () => (
-        <KitSpace>
-            <KitDropDown menu={{items}} trigger={['click']}>
-                <a onClick={e => e.preventDefault()}>
-                    <KitTypography.Link>
-                        Click me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-                    </KitTypography.Link>
-                </a>
-            </KitDropDown>
-        </KitSpace>
-    );
+    <KitSpace>
+        <KitDropDown menu={{items}} trigger={['click']}>
+            <a onClick={e => e.preventDefault()}>
+                <KitTypography.Link>
+                    Click me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
+                </KitTypography.Link>
+            </a>
+        </KitDropDown>
+    </KitSpace>
+);
 
 export default App;

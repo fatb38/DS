@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -40,7 +40,11 @@ You can customize icons for different nodes.
 
 customize collapse/expand icon of tree node
 
-<CustomCanvas content={Examples.CustomCollapseIcon} source={Sources.CustomCollapseIcon} id="tree-custom-collapse-icon" />
+<CustomCanvas
+    content={Examples.CustomCollapseIcon}
+    source={Sources.CustomCollapseIcon}
+    id="tree-custom-collapse-icon"
+/>
 
 ##### Tree with line
 
@@ -53,7 +57,6 @@ Tree with connected line between nodes, turn on by `showLine`, customize the pre
 <Canvas of={KitTreeStories.Api} />
 
 <Controls of={KitTreeStories.Api} />
-
 
 ## Design Tokens
 

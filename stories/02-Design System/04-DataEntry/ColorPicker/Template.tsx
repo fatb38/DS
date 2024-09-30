@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitColorPicker} from '@kit/DataEntry/';
 import {KitSpace} from '@kit/Layout/';
 import {IEditorTemplate} from '../../../types';
@@ -48,16 +47,16 @@ export const Template = (args: KitColorPickerProps) => {
 };
 
 export const EditorTemplate: IEditorTemplate = () => (
-        <KitSpace direction="vertical">
-            <KitSpace size="m">
-                <KitColorPicker />
-                <KitColorPicker showText />
-            </KitSpace>
-            <KitSpace size="m">
-                <KitColorPicker disabled />
-                <KitColorPicker disabled showText />
-            </KitSpace>
+    <KitSpace direction="vertical">
+        <KitSpace size="m">
+            <KitColorPicker />
+            <KitColorPicker showText />
         </KitSpace>
-    );
+        <KitSpace size="m">
+            <KitColorPicker disabled />
+            <KitColorPicker disabled showText />
+        </KitSpace>
+    </KitSpace>
+);
 EditorTemplate.path = 'components.ColorPicker';
 EditorTemplate.title = 'ColorPicker';

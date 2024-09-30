@@ -18,7 +18,9 @@
         font-style: normal;
         font-weight: 100 900;
         font-display: swap;
-        src: local('Inter'), url('public/font-files/Inter-roman.var.woff2') format('woff2');
+        src:
+            local('Inter'),
+            url('public/font-files/Inter-roman.var.woff2') format('woff2');
         font-named-instance: 'Regular';
     }
 
@@ -27,12 +29,14 @@
         font-style: italic;
         font-weight: 100 900;
         font-display: swap;
-        src: local('Inter'), url('public/font-files/Inter-italic.var.woff2') format('woff2');
+        src:
+            local('Inter'),
+            url('public/font-files/Inter-italic.var.woff2') format('woff2');
         font-named-instance: 'Italic';
     }
 
     #docs-root .sbdocs {
-         padding-top: .5rem;
+        padding-top: 0.5rem;
     }
 
     #docs-root .docblock-argstable-body {
@@ -51,7 +55,9 @@
     }
 
     #docs-root .docblock-argstable {
-        box-shadow: rgba(0, 0, 0, 0.10) 0 1px 3px 1px, rgba(0,0,0,0.065) 0 0 0 1px;
+        box-shadow:
+            rgba(0, 0, 0, 0.1) 0 1px 3px 1px,
+            rgba(0, 0, 0, 0.065) 0 0 0 1px;
     }
 
     .sbdocs.sbdocs-content {
@@ -65,7 +71,7 @@
     }
 
     .sbdocs.sbdocs-toc {
-        --toc-color: rgba(0,0,0,.45);
+        --toc-color: rgba(0, 0, 0, 0.45);
         --toc-background: #fff;
         --toc-indicator-color: #efefef;
         --toc-indicator-color--active: #1677ff;
@@ -75,7 +81,17 @@
         left: unset;
         right: 0;
         font-size: 13px;
-        font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family:
+            'Nunito Sans',
+            -apple-system,
+            '.SFNSText-Regular',
+            'San Francisco',
+            BlinkMacSystemFont,
+            'Segoe UI',
+            'Helvetica Neue',
+            Helvetica,
+            Arial,
+            sans-serif;
     }
 
     .sbdocs.sbdocs-toc__header {
@@ -84,7 +100,17 @@
 
     .sbdocs.sbdocs-top {
         font-size: 13px;
-        font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family:
+            'Nunito Sans',
+            -apple-system,
+            '.SFNSText-Regular',
+            'San Francisco',
+            BlinkMacSystemFont,
+            'Segoe UI',
+            'Helvetica Neue',
+            Helvetica,
+            Arial,
+            sans-serif;
         left: unset;
         right: 0;
         width: 180px;
@@ -106,7 +132,7 @@
     }
 
     @media (max-width: 1180px) {
-        .sbdocs.sbdocs-toc{
+        .sbdocs.sbdocs-toc {
             display: none;
         }
     }

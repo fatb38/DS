@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -22,7 +22,6 @@ Basic text writing, including headings, body text, lists, and more.
 ##### Title Component
 
 Display title in different level.
-
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="typography-basic" />
 
@@ -79,7 +78,6 @@ You can ellipsis content from middle by customize `ellipsis={{ suffix: ... }}`.
 | tooltip    | Show tooltip when ellipsis                | boolean \| ReactNode \| [TooltipProps](/components/tooltip/#api) | -        |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis)                                               | -        |
 | onExpand   | Called when expand content                | function(event)                                                  | -        |
-
 
 ## Design Tokens
 

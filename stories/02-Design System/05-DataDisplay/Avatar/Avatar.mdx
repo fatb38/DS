@@ -1,10 +1,10 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
-import *  as KitAvatarStories from './Avatar.stories';
+import * as KitAvatarStories from './Avatar.stories';
 
 <Meta of={KitAvatarStories} />
 
@@ -68,7 +68,6 @@ Avatar can be in disabled mode.
 
 <CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="avatar-disabled" />
 
-
 ##### Responsive Size
 
 Avatar size can be automatically adjusted based on the screen size.
@@ -81,13 +80,11 @@ Avatar size can be automatically adjusted based on the screen size.
 
 <Controls of={KitAvatarStories.Api} />
 
-
 ## Design Tokens
 
 ### Avatar
 
 <DesignTokens path="components.Avatar" tokens={fields?.components?.Avatar} />
-
 
 ### AvatarGroup
 

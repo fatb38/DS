@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
@@ -127,19 +126,19 @@ const itemsGroups = [
 ];
 
 const App = () => (
-        <KitSpace size="m">
-            <KitDropDown menu={{items}}>
-                <KitTypography.Link>
-                    Cascading <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-                </KitTypography.Link>
-            </KitDropDown>
-            <KitDropDown menu={{items: itemsGroups}}>
-                <KitTypography.Link>
-                    Cascading with groups
-                    <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-                </KitTypography.Link>
-            </KitDropDown>
-        </KitSpace>
-    );
+    <KitSpace size="m">
+        <KitDropDown menu={{items}}>
+            <KitTypography.Link>
+                Cascading <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
+            </KitTypography.Link>
+        </KitDropDown>
+        <KitDropDown menu={{items: itemsGroups}}>
+            <KitTypography.Link>
+                Cascading with groups
+                <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
+            </KitTypography.Link>
+        </KitDropDown>
+    </KitSpace>
+);
 
 export default App;

@@ -1,10 +1,11 @@
-import React, {ReactNode, useState} from 'react';
+import {ReactNode, useState} from 'react';
 import {KitAutoComplete} from '@kit/DataEntry';
 
 const App = () => {
-    const getRandomInt = (max, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
+    const getRandomInt = (max: number, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-    const searchResult = query => new Array(getRandomInt(5))
+    const searchResult = query =>
+        new Array(getRandomInt(5))
             .join('.')
             .split('.')
             .map((_, idx) => {

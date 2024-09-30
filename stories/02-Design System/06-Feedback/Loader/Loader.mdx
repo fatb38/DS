@@ -1,7 +1,7 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import { Source } from '@storybook/blocks';
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import {Source} from '@storybook/blocks';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -15,8 +15,8 @@ A simple animated loader
 
 ## Usage
 
-- When you need to indicate that something is loading.
-- When a skeleton page / element is not appropriate.
+-   When you need to indicate that something is loading.
+-   When a skeleton page / element is not appropriate.
 
 ## Example
 
@@ -41,13 +41,11 @@ In this case, the `value` property is ignored.
 
 <CustomCanvas content={Examples.Infinite} source={Sources.Infinite} id="loader-infinite" />
 
-
 ## Api
 
 <Canvas of={KitLoaderStories.Api} />
 
 <Controls of={KitLoaderStories.Api} />
-
 
 ## Design Tokens
 

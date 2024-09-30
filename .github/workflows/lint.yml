@@ -1,22 +1,22 @@
 # .github/workflows/lint.yml
 
 # Workflow name
-name: "lint"
+name: 'lint'
 
 on:
-  workflow_dispatch:
-  workflow_call:
+    workflow_dispatch:
+    workflow_call:
 
 jobs:
-  eslint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'yarn'
-      - name: install dependencies
-        run: yarn
-      - name: lint
-        run: yarn lint
+    eslint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: 'yarn'
+            - name: install dependencies
+              run: yarn
+            - name: lint
+              run: yarn lint

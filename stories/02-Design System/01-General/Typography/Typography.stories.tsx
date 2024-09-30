@@ -1,4 +1,3 @@
-import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitTypography} from '@kit/General/';
 import {argTypes} from './data';
@@ -37,4 +36,4 @@ export const ChromaticTest: Story = {
             <EllipsisTypographyTest />
         </>
     )
-}
+};

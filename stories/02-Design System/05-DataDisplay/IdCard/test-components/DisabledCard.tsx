@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitIdCard} from '@kit/DataDisplay';
 import {IKitAvatar} from '@kit/DataDisplay/Avatar/types';
@@ -21,25 +21,25 @@ const avatar3: IKitAvatar = {
 };
 
 export const DisabledIdCardTest: FunctionComponent = () => (
-        <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
-            <KitTypography.Title level="h3">Disabled IdCard</KitTypography.Title>
-            <KitIdCard
-                disabled={true}
-                avatarProps={avatar1}
-                title="John Doe"
-                description="A talented software developer."
-            />
-            <KitIdCard
-                disabled={true}
-                avatarProps={avatar2}
-                title="John Doe"
-                description="A talented software developer."
-            />
-            <KitIdCard
-                disabled={true}
-                avatarProps={avatar3}
-                title="John Doe"
-                description="A talented software developer."
-            />
-        </div>
-    );
+    <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+        <KitTypography.Title level="h3">Disabled IdCard</KitTypography.Title>
+        <KitIdCard
+            disabled={true}
+            avatarProps={avatar1}
+            title="John Doe"
+            description="A talented software developer."
+        />
+        <KitIdCard
+            disabled={true}
+            avatarProps={avatar2}
+            title="John Doe"
+            description="A talented software developer."
+        />
+        <KitIdCard
+            disabled={true}
+            avatarProps={avatar3}
+            title="John Doe"
+            description="A talented software developer."
+        />
+    </div>
+);

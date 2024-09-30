@@ -61,9 +61,9 @@ const columns: KitTableColumnsType<DataType> = [
 ];
 
 const App = () => (
-        <KitSpace size="l" direction="vertical">
-            <KitTable dataSource={dataSource} columns={columns} pagination={false} />
-        </KitSpace>
-    );
+    <KitSpace size="l" direction="vertical">
+        <KitTable dataSource={dataSource} columns={columns} pagination={false} />
+    </KitSpace>
+);
 
 export default App;

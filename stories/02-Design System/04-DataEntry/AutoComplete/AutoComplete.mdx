@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import * as KitAutoCompleteStories from './AutoComplete.stories';
 
@@ -31,19 +31,20 @@ import * as KitAutoCompleteStories from './AutoComplete.stories';
         }
     `}
 </style>
+
 # AutoComplete
 
 Autocomplete function of input field.
 
 ## When To Use
 
-- When you need an input box instead of a selector.
-- When you need input suggestions or helping text.
+-   When you need an input box instead of a selector.
+-   When you need input suggestions or helping text.
 
 The differences with Select are:
 
-- AutoComplete is an input box with text hints, and users can type freely. The keyword is aiding **input**.
-- Select is selecting among given choices. The keyword is **select**.
+-   AutoComplete is an input box with text hints, and users can type freely. The keyword is aiding **input**.
+-   Select is selecting among given choices. The keyword is **select**.
 
 ## Examples
 
@@ -54,26 +55,39 @@ Basic Usage, set data source of autocomplete with `options` property.
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="autocomplete-basic" />
 
 ##### Customized
+
 You could set custom `Option` label
 
-<CustomCanvas content={Examples.Customized} source={Sources.Customized}id="autocomplete-customized" />
+<CustomCanvas content={Examples.Customized} source={Sources.Customized} id="autocomplete-customized" />
 
 ##### Non-case-sensitive AutoComplete
+
 A non-case-sensitive AutoComplete
 
-<CustomCanvas content={Examples.Noncasesensitive} source={Sources.Noncasesensitive} id="autocomplete-non-cassensitive" />
+<CustomCanvas
+    content={Examples.Noncasesensitive}
+    source={Sources.Noncasesensitive}
+    id="autocomplete-non-cassensitive"
+/>
 
 ##### Lookup-Patterns - Certain Category
+
 Demonstration of Lookup Patterns: Certain Category. Basic Usage, set options of autocomplete with options property.
 
 <CustomCanvas content={Examples.Certaincategory} source={Sources.Certaincategory} id="autocomplete-certaincategory" />
 
 ##### Lookup-Patterns - Uncertain Category
+
 Demonstration of Lookup Patterns: Uncertain Category.
 
-<CustomCanvas content={Examples.Unertaincategory} source={Sources.Unertaincategory} id="autocomplete-uncertainCategory" />
+<CustomCanvas
+    content={Examples.Unertaincategory}
+    source={Sources.Unertaincategory}
+    id="autocomplete-uncertainCategory"
+/>
 
 ##### Status
+
 Add status to AutoComplete with `status`, which could be `error` or `warning`.
 
 <CustomCanvas content={Examples.Status} source={Sources.Status} id="autocomplete-status" />

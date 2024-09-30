@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -11,6 +11,7 @@ import * as KitRadioStories from './Radio.stories';
 # Radio
 
 ## Usage
+
 -   Used to select a single state from multiple options.
 -   The difference from Select is that Radio is visible to the user and can facilitate the comparison of choice, which means there shouldn't be too many of them.
 
@@ -52,7 +53,6 @@ Passing the name property to all input[type="radio"] that are in the same Radio.
 
 <CustomCanvas content={Examples.NamedGroup} source={Sources.NamedGroup} id="radio-named-group" />
 
-
 ##### Label and Helper
 
 Add `label` and/or `helper` properties to give field context. Only available for `Radio.Group` component.
@@ -73,7 +73,6 @@ Add `label` and/or `helper` properties to give field context. Only available for
 | ------- | ------------ |
 | blur()  | Remove focus |
 | focus() | Get focus    |
-
 
 ## Design Tokens
 

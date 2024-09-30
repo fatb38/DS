@@ -20,11 +20,11 @@ export const Sources = {
     Icon: IconSource,
     Types: TypesSource
 };
- export default {
+export default {
     Basic,
     Banner,
     Closable,
     Description,
     Icon,
     Types
- };
+};

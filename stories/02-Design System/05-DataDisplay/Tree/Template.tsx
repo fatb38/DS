@@ -1,5 +1,4 @@
 import {KitTree} from '@kit/DataDisplay';
-import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCalendarCheck, faFile, faFolder, faPenToSquare} from '@fortawesome/free-regular-svg-icons';
 import {IEditorTemplate} from '../../../types';
@@ -281,9 +280,9 @@ const treeData = [
 ];
 
 export const EditorTemplate: IEditorTemplate = () => (
-        <div style={{width: '300px'}}>
-            <KitTree showLine={true} defaultExpandAll treeData={treeData} />
-        </div>
-    );
+    <div style={{width: '300px'}}>
+        <KitTree showLine={true} defaultExpandAll treeData={treeData} />
+    </div>
+);
 EditorTemplate.path = 'components.Tree';
 EditorTemplate.title = 'Tree';

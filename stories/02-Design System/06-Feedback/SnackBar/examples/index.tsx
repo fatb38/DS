@@ -8,7 +8,7 @@ import ClosableSource from './closable?raw';
 export const Sources = {
     Basic: BasicSource,
     CallToAction: CallToActionSource,
-    Closable: ClosableSource,
+    Closable: ClosableSource
 };
 
 export default {

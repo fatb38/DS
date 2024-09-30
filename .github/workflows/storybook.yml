@@ -1,44 +1,44 @@
 # .github/workflows/storybook.yml
 
 # Workflow name
-name: "Storybook"
+name: 'Storybook'
 
 on:
-  workflow_call:
-  workflow_dispatch:
-    secrets:
-      WEBHOOK_URL:
-        description: 'webhook url'
-        required: false
+    workflow_call:
+    workflow_dispatch:
+        secrets:
+            WEBHOOK_URL:
+                description: 'webhook url'
+                required: false
 
 env:
-  name: ${{ github.ref_name == 'develop' && 'storybook-dev' || 'storybook-main' }}
+    name: ${{ github.ref_name == 'develop' && 'storybook-dev' || 'storybook-main' }}
 
 jobs:
-  build-storybook:
-    runs-on: ubuntu-latest
-    if:  startsWith(github.ref, 'refs/tags/') || github.ref_name == 'develop' || github.ref_name == 'main'
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'yarn'
-      - name: install dependencies
-        run: yarn
-      - name: build-storybook
-        run: STORYBOOK_DEPLOY=true yarn build-storybook
-      - name: upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ env.name }}
-          path: ./storybook-static
-  deploy-storybook:
-    name: call webhook
-    needs: build-storybook
-    runs-on: ubuntu-latest
-    steps:
-      - name: Use webhook action to ping webhook
-        uses: joelwmale/webhook-action@2.4.1
-        with:
-          url: ${{ secrets.WEBHOOK_URL }}
+    build-storybook:
+        runs-on: ubuntu-latest
+        if: startsWith(github.ref, 'refs/tags/') || github.ref_name == 'develop' || github.ref_name == 'main'
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: 'yarn'
+            - name: install dependencies
+              run: yarn
+            - name: build-storybook
+              run: STORYBOOK_DEPLOY=true yarn build-storybook
+            - name: upload artifact
+              uses: actions/upload-artifact@v3
+              with:
+                  name: ${{ env.name }}
+                  path: ./storybook-static
+    deploy-storybook:
+        name: call webhook
+        needs: build-storybook
+        runs-on: ubuntu-latest
+        steps:
+            - name: Use webhook action to ping webhook
+              uses: joelwmale/webhook-action@2.4.1
+              with:
+                  url: ${{ secrets.WEBHOOK_URL }}

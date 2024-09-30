@@ -1,6 +1,6 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -14,36 +14,41 @@ Empty state placeholder.
 
 ## Usage
 
-- When there is no data provided, display for friendly tips.
+-   When there is no data provided, display for friendly tips.
 
-- User tutorial to create something in fresh new situation.
+-   User tutorial to create something in fresh new situation.
 
 ## Examples
 
 ##### Basic
+
 Simplest Usage.
 
-<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="component-empty"/>
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="component-empty" />
 
 ##### Choose image
+
 You can choose another style of `image` by setting image property.
 
-<CustomCanvas content={Examples.ChooseImage} source={Sources.ChooseImage} id="component-choose-image"/>
+<CustomCanvas content={Examples.ChooseImage} source={Sources.ChooseImage} id="component-choose-image" />
 
 ##### Set title and description
+
 You can set `title` and `description` to give more information.
 
-<CustomCanvas content={Examples.TitleDescription} source={Sources.TitleDescription} id="component-title-description"/>
+<CustomCanvas content={Examples.TitleDescription} source={Sources.TitleDescription} id="component-title-description" />
 
 ##### Add button
+
 You can add a `button` to guide user to do something.
 
-<CustomCanvas content={Examples.Button} source={Sources.Button} id="component-button"/>
+<CustomCanvas content={Examples.Button} source={Sources.Button} id="component-button" />
 
 ##### Customize
+
 You can fully customize the component as all props accept a ReactNode.
 
-<CustomCanvas content={Examples.Custom} source={Sources.Custom} id="component-custom"/>
+<CustomCanvas content={Examples.Custom} source={Sources.Custom} id="component-custom" />
 
 ## Api
 
@@ -53,6 +58,6 @@ You can fully customize the component as all props accept a ReactNode.
 
 ## Translation Tokens
 
-|   | en-US | fr-FR |
-|---|-------|-------|
+|        | en-US   | fr-FR       |
+| ------ | ------- | ----------- |
 | noData | No Data | Aucune data |

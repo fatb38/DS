@@ -5,5 +5,4 @@ export const kitTagCssTokens = generateCssTokens<IKitTagCssTokens>('--components
     border: {radius: ''},
     colors: {default: {background: {default: ''}, typography: {default: ''}}},
     typography: {fontFamily: '', fontSize: '', fontWeight: ''}
-
-})
+});
