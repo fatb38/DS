@@ -6,6 +6,7 @@ import {KitEmptyLocale} from './components/DataDisplay/Empty';
 import {KitErrorLocale} from './components/DataDisplay/Error';
 import {KitGeneralLocale} from './general';
 import {KitAlertLocale} from '@translation/en-US/components/Alert';
+import {KitRichTextLocale} from './components/DataEntry/RichText';
 
 export const frFR: IKitLocale = {
     locale: 'frFR',
@@ -15,5 +16,6 @@ export const frFR: IKitLocale = {
     Empty: KitEmptyLocale,
     Error: KitErrorLocale,
     Image: KitImageLocale,
-    ItemList: KitItemListLocale
+    ItemList: KitItemListLocale,
+    RichText: KitRichTextLocale
 };

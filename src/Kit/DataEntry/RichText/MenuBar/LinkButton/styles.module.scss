@@ -1,0 +1,27 @@
+@import '../../../../../css/mixins.scss';
+
+:local(.kit-rich-text-link-modal) {
+    div.kit-modal-header {
+        padding: convertToPixel(--general-spacing-m) convertToPixel(--general-spacing-m)
+            convertToPixel(--general-spacing-s) convertToPixel(--general-spacing-m);
+    }
+
+    div.kit-modal-content-wrapper {
+        padding: 0 convertToPixel(--general-spacing-m) convertToPixel(--general-spacing-m)
+            convertToPixel(--general-spacing-m);
+
+        .kit-modal-content {
+            .ant-form-item {
+                margin-bottom: convertToPixel(--general-spacing-s);
+            }
+
+            .link-modal-footer {
+                float: right;
+
+                .ant-form-item {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

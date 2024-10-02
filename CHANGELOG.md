@@ -9,10 +9,12 @@
 -   **⚠️ Breaking change - Grid:**
     - Update KitRow and KitCol to use antd API (@Delmotte-Vincent)
 
+-   **⚠️ Breaking change - Grid:**
+    -   Update KitRow and KitCol to use antd API (@Delmotte-Vincent)
 -   **New - PageLayout:**
-
     -   Add PageLayout component (@Delmotte-Vincent)
-
+-   **New - RichText:**
+    -   Add RichText component based on `Tiptap` editor (@philippechevieux)
 -   **SideMenu:**
     -   Add `customContent` property to display a custom component depending on `open` side menu state (@philippechevieux)
 -   **ItemList:**

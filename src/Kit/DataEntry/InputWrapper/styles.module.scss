@@ -107,6 +107,10 @@
 
         .kit-input-wrapper-content {
             border-color: var(--components-InputWrapper-colors-border-disabled, var(--general-utilities-border));
+
+            &:focus-visible {
+                outline: none;
+            }
         }
     }
 }

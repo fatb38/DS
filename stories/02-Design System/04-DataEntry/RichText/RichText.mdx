@@ -1,0 +1,97 @@
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples/index.tsx';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import DesignTokens from '../../../../.storybook/components/DesignTokens/index';
+import fields from '../../../tokens';
+import * as KitRichTextStories from './RichText.stories';
+
+<Meta of={KitRichTextStories} />
+
+# RichText
+
+This components is based on [Tiptap Editor](https://tiptap.dev/docs/editor/getting-started/overview).
+
+## Usage
+
+When user needs to format text, add links, and more.
+
+## Examples
+
+### Basic
+
+Basic usage example. Set `defaultValue` property to provide the initial content for the editor.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="richtext-basic" />
+
+### Disabled
+
+Set to disabled state.
+
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="richtext-disabled" />
+
+### Set Value
+
+Set `value` to provide the content for the editor (this value can be dynamic). You can also retrieve the value from the editor using `onChange` property.
+
+<CustomCanvas content={Examples.SetValue} source={Sources.SetValue} id="richtext-set-value" />
+
+### With character counting
+
+Show character counting with `showCount` property. You can also set the maximum number of characters with `maxCount` property.
+
+<CustomCanvas content={Examples.CharacterCount} source={Sources.CharacterCount} id="richtext-character-count" />
+
+### Status
+
+Add status to RichText with `status`, which could be `error` or `warning`.
+
+<CustomCanvas content={Examples.Status} source={Sources.Status} id="richtext-status" />
+
+### Label and Helper
+
+Add `label` and/or `helper` properties to give context.
+
+<CustomCanvas content={Examples.Wrapper} source={Sources.Wrapper} id="richtext-wrapper" />
+
+### Read Only
+
+Set to read only state.
+
+<CustomCanvas content={Examples.ReadOnly} source={Sources.ReadOnly} id="richtext-read-only" />
+
+## Api
+
+<Canvas of={KitRichTextStories.Api} />
+
+<Controls of={KitRichTextStories.Api} />
+
+## Translation Tokens
+
+|                                 | en-US                           | fr-FR                                     |
+| ------------------------------- | ------------------------------- | ----------------------------------------- |
+| undo                            | Undo                            | Annuler                                   |
+| redo                            | Redo                            | Rétablir                                  |
+| bold                            | Bold                            | Gras                                      |
+| italic                          | Italic                          | Italique                                  |
+| underline                       | Underline                       | Souligner                                 |
+| alignLeft                       | Align left                      | Aligner à gauche                          |
+| alignCenter                     | Align center                    | Aligner au centre                         |
+| alignRight                      | Align right                     | Aligner à droite                          |
+| justify                         | Justify                         | Justifier                                 |
+| insert link                     | Insert link                     | Insérer un lien                           |
+| bullet list                     | Bullet list                     | Liste à puces                             |
+| ordered list                    | Ordered list                    | Liste ordonnée                            |
+| indent                          | Indent                          | Augmenter le retrait                      |
+| outdent                         | Outdent                         | Réduire le retrait                        |
+| heading 1                       | Heading 1                       | En-tête 1                                 |
+| heading 2                       | Heading 2                       | En-tête 2                                 |
+| heading 3                       | Heading 3                       | En-tête 3                                 |
+| heading 4                       | Heading 4                       | En-tête 4                                 |
+| normal                          | Normal                          | Normal                                    |
+| text to display                 | Text to display                 | Texte à afficher                          |
+| URL                             | URL                             | URL                                       |
+| link to document or webpage     | Link to document or webpage     | Lien vers un document ou une page web     |
+| invalid URL                     | Invalid URL                     | URL invalide                              |
+| text to display cannot be empty | Text to display cannot be empty | Le texte à afficher ne peut pas être vide |
+| url cannot be empty             | URL cannot be empty             | L'URL ne peut pas être vide               |

@@ -1,0 +1,23 @@
+@import '../../../../css/mixins.scss';
+
+:local(.kit-rich-text-editor-content-character-count) {
+    --kit-rich-text-min-width: 668px;
+
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    min-width: var(--kit-rich-text-min-width);
+    margin-top: convertToPixel(--general-spacing-xxs);
+    color: var(--general-utilities-text-disabled);
+    font-family: var(--general-typography-fontFamily);
+    font-size: convertToPixel(--general-typography-fontSize7);
+    font-weight: var(--general-typography-regularFontWeight);
+
+    &.kit-rich-text-editor-content-character-count-error {
+        color: var(--general-utilities-text-error);
+    }
+
+    &.kit-rich-text-editor-content-character-count-warning {
+        color: var(--general-utilities-text-warning);
+    }
+}
