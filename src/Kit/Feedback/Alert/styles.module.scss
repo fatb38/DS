@@ -1,60 +1,131 @@
 @import '../../../css/mixins.scss';
 
 :local(.kit-alert) {
-    &.ant-alert-with-description {
-        padding-inline: convertToPixel(--general-spacing-none);
-        padding-block: convertToPixel(--general-spacing-none);
-        padding: convertToPixel(--general-spacing-xs) convertToPixel(--general-spacing-s);
+    --kit-alert-background-color: var(--general-utilities-warning-light);
+    --kit-alert-border-color: var(--general-utilities-warning-default);
+    --kit-alert-divider-color: var(--general-utilitis-warning-medium);
+    --kit-alert-toast-max-width: 400;
 
-        .ant-alert-message {
-            margin-bottom: 6px;
+    padding: convertToPixel(--general-spacing-s) 0;
+    border: 1px solid var(--kit-alert-border-color);
+    background: var(--kit-alert-background-color);
+    border-radius: convertToPixel(--general-border-radius-m);
+    font-family: var(--general-typography-fontFamily);
+    font-style: var(--general-typography-fontStyle);
+    font-weight: var(--general-typography-defaultFontWeight);
+    margin-bottom: convertToPixel(--general-spacing-s);
+
+    position: relative;
+
+    &.toast-alert {
+        max-width: convertToPixel(--kit-alert-toast-max-width);
+    }
+
+    &.success {
+        --kit-alert-background-color: var(--general-utilities-success-light);
+        --kit-alert-border-color: var(--general-utilities-success-default);
+        --kit-alert-divider-color: var(--general-utilities-success-medium);
+    }
+
+    &.info {
+        --kit-alert-background-color: var(--general-colors-primary-50);
+        --kit-alert-border-color: var(--general-utilities-main-default);
+        --kit-alert-divider-color: var(--general-utilities-main-medium);
+    }
+
+    &.warning {
+        --kit-alert-background-color: var(--general-utilities-warning-light);
+        --kit-alert-border-color: var(--general-utilities-warning-default);
+        --kit-alert-divider-color: var(--general-utilities-warning-medium);
+    }
+
+    &.error {
+        --kit-alert-background-color: var(--general-utilities-error-light);
+        --kit-alert-border-color: var(--general-utilities-error-default);
+        --kit-alert-divider-color: var(--general-utilities-error-medium);
+    }
+
+    .kit-alert-main-content {
+        padding: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-s);
+        display: grid;
+        grid-template-areas: 'icon message close' 'icon desc desc';
+        grid-template-columns: auto 1fr auto;
+
+        .icon {
+            color: var(--kit-alert-border-color);
+            grid-area: icon;
+            margin-right: convertToPixel(--general-spacing-s);
+            font-size: convertToPixel(--general-typography-fontSize2);
+        }
+
+        .message {
+            grid-area: message;
+        }
+
+        .close {
+            grid-area: close;
+            top: convertToPixel(--general-spacing-s);
+            right: convertToPixel(--general-spacing-s);
+            color: var(--kit-alert-border-color);
+            background: transparent;
+            border: none;
+            padding-right: convertToPixel(--general-spacing-none);
+            cursor: pointer;
+        }
+
+        .description {
+            grid-area: desc;
+
+            &:not(:first-child) {
+                margin-top: convertToPixel(--general-spacing-xs);
+            }
         }
     }
 
-    &:not(.ant-alert-banner) {
-        border-radius: convertToPixel(--components-Alert-border-radius, --general-border-radius-s);
+    .divider {
+        margin-top: convertToPixel(--general-spacing-s);
+        border-top: 1px solid var(--kit-alert-divider-color);
     }
 
-    padding: convertToPixel(--general-spacing-xs) convertToPixel(--general-spacing-s);
-
-    .ant-alert-message {
-        font-size: convertToPixel(--components-Alert-typography-fontSize-message, --general-typography-fontSize5);
+    .custom-placeholder {
+        padding: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-s);
+        grid-area: actions;
+        margin-top: convertToPixel(--general-spacing-xs);
     }
 
-    .ant-alert-description {
-        font-size: convertToPixel(--components-Alert-typography-fontSize-description, --general-typography-fontSize7);
-    }
+    details {
+        padding: convertToPixel(--general-spacing-none) convertToPixel(--general-spacing-s);
+        grid-area: details;
+        margin-top: convertToPixel(--general-spacing-xs);
 
-    .fa-icon {
-        font-size: convertToPixel(--components-Alert-icon-alert-size, --general-typography-fontSize4);
-        margin-inline-end: convertToPixel(--general-spacing-xs);
-    }
-
-    &.ant-alert-with-description .fa-icon {
-        margin-top: 3px;
-    }
-
-    &.ant-alert-success {
-        svg {
-            color: var(--components-Alert-colors-icon-alert-success, var(--general-utilities-success-default));
+        &:not([open]) .alert-details-caret-down {
+            display: none;
         }
-    }
 
-    &.ant-alert-info {
-        svg {
-            color: var(--components-Alert-colors-icon-alert-info, var(--general-utilities-main-default));
+        &[open] .alert-details-caret-right {
+            display: none;
         }
-    }
 
-    &.ant-alert-warning {
-        svg {
-            color: var(--components-Alert-colors-icon-alert-warning, var(--general-utilities-warning-default));
-        }
-    }
+        summary {
+            display: flex;
+            align-items: center;
+            margin-bottom: convertToPixel(--general-spacing-xs);
+            height: convertToPixel(--general-spacing-l);
+            position: relative;
+            cursor: pointer;
 
-    &.ant-alert-error {
-        svg {
-            color: var(--components-Alert-colors-icon-alert-error, var(--general-utilities-error-default));
+            svg {
+                width: convertToPixel(--general-spacing-s);
+                text-align: left;
+            }
+
+            span {
+                padding-left: convertToPixel(--general-spacing-xs);
+            }
+
+            &::marker {
+                display: none;
+            }
         }
     }
 }

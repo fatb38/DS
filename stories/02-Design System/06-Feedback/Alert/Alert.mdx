@@ -10,7 +10,9 @@ import * as KitAlertStories from './Alert.stories';
 
 # Alert
 
-`Alert` component for feedback.
+`Alert` component for feedback. It's an invasive component, which takes place in content flow or can be overlayed and cannot be closed until the problem is fixed. 
+It provides actions to help fix the problem.
+e.g : Error in a form, or confirmation of an action that must be resolved by the user.
 
 ## Usage
 
@@ -20,41 +22,59 @@ import * as KitAlertStories from './Alert.stories';
 
 ## Examples
 
-##### Basic
+### Basic
 
 The simplest usage for short messages.
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="alert-basic" />
 
-##### More types
+### More types
 
 There are 4 types of Alert: `success`, `info`, `warning`, `error`.
 
 <CustomCanvas content={Examples.Types} source={Sources.Types} id="alert-types" />
 
-##### Closable
+### Closable
 
 To show close button.
 
 <CustomCanvas content={Examples.Closable} source={Sources.Closable} id="alert-closable" />
 
-##### Description
+### Description
 
 Additional description for alert message.
 
 <CustomCanvas content={Examples.Description} source={Sources.Description} id="alert-description" />
 
-##### Icon
+### Icon
 
 A relevant icon will make information clearer and more friendly.
 
 <CustomCanvas content={Examples.Icon} source={Sources.Icon} id="alert-icon" />
 
-##### Banner
+### Details
 
-Display Alert as a banner at top of page.
+You can add a details section to the alert by setting the `details` prop.
 
-<CustomCanvas content={Examples.Banner} source={Sources.Banner} id="alert-banner" />
+<CustomCanvas content={Examples.Details} source={Sources.Details} id="alert-details" />
+
+### Custom content
+
+Custom content can be passed to the alert by setting the `customContent` prop.
+
+<CustomCanvas content={Examples.CustomContent} source={Sources.CustomContent} id="alert-customContent" />
+
+### Toastable
+
+Alerts can be toasted by using one of the provided methods : `KitAlert.success`, `KitAlert.info`, `KitAlert.warning`, `KitAlert.error`.
+
+These methods take all KitAlert props as arguments, plus 3 specific and optional ones:
+- `duration`: optional - duration to show the alert before automtically close it. If not set, the alert will be persistent.
+- `position`:  optional - position of the alert on screen. defaults to `top-center`.
+- `toastId`: optional - id to pass to the toast. Usefull to close it programmatically later.
+
+
+<CustomCanvas content={Examples.Toastable} source={Sources.Toastable} id="alert-toast" />
 
 ## Api
 
@@ -62,6 +82,21 @@ Display Alert as a banner at top of page.
 
 <Controls of={KitAlertStories.Api} />
 
-## Design Tokens
+### Toastable functions
 
-<DesignTokens path="components.Alert" tokens={fields?.components?.Alert} />
+When calling a toastable function, it returns a string representing the id of the toast. This id can be used to close the toast programmatically.
+To close an alert programmatically, you can use the `toast.dismiss(toastId)`method.
+
+```typescript
+export type Alertfunc = (props: ToastedAlertProps) => string;
+```
+
+### ToastedAlertProps
+Toastable functions take all KitAlert props as arguments, plus 3 specific and optional ones:
+
+| Property              | Description                                      | Type                                                                             | Default      |
+| --------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------- | ------------ |
+| **duration**          | Time during witch the alert is displayed         | number                                                                           | `Infinity`    |
+| **position**          | Where to display the alert                       | `top-left` `top-center` `top-right` `bottom-left` `bottom-center` `bottom-right` | `top-center` |
+| **toastId**           | You can force the toast id for programmatic use  | string                                                                           |              |
+
