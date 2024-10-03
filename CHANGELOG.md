@@ -1,14 +1,13 @@
 # Changelog
 
-## [X.X.X](https://www.npmjs.com/package/aristid-ds/v/X.X.X) (202X-XX-XX)
+## [10.0.0](https://www.npmjs.com/package/aristid-ds/v/10.0.0) (2024-10-03)
 
 ### ✨ Features
+
 -   **⚠️ Breaking change - Alert:**
     - Update Alert component to make it toastable. Does not rely on Ant anymore. Props remains the same except `afterClose` and `banner` which are removed. (@evoiron)
-
 -   **⚠️ Breaking change - Grid:**
     - Update KitRow and KitCol to use antd API (@Delmotte-Vincent)
-
 -   **⚠️ Breaking change - Grid:**
     -   Update KitRow and KitCol to use antd API (@Delmotte-Vincent)
 -   **New - PageLayout:**
