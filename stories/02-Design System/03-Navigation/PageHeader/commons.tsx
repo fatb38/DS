@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import {ReactNode} from 'react';
 import {KitButton, KitTypography} from '@kit/General';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowUpZA, faFilter, faObjectUngroup, faSliders} from '@fortawesome/free-solid-svg-icons';

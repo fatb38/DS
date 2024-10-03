@@ -1,6 +1,5 @@
-
-import type { TagValue, CheckResult, Result, NodeResult } from 'axe-core';
-import type { RuleType } from '../types';
+import type {TagValue, CheckResult, Result, NodeResult} from 'axe-core';
+import type {RuleType} from '../types';
 
 export interface TagsProps {
     tags: TagValue[];

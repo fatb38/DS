@@ -32,10 +32,30 @@
         font-variant-position: super;
     }
 
-    &.bordered .kit-input-wrapper-content {
-        border: 1px solid var(--components-InputWrapper-colors-border-default, var(--general-utilities-border));
-        border-radius: convertToPixel(--components-InputWrapper-border-radius, --general-border-radius-s);
-        padding: 10px;
+    &.bordered {
+        .kit-input-wrapper-content {
+            border: 1px solid var(--components-InputWrapper-colors-border-default, var(--general-utilities-border));
+            border-radius: convertToPixel(--components-InputWrapper-border-radius, --general-border-radius-s);
+            padding: 10px;
+            transition: border 0.2s linear;
+        }
+
+        &:not(.disabled, .error, .warning) {
+            &.hoverable {
+                .kit-input-wrapper-content:hover {
+                    border-color: var(--general-utilities-main-default);
+                    transition: border 0.2s linear;
+                }
+            }
+
+            &.focusable {
+                .kit-input-wrapper-content:focus-within {
+                    outline: var(--general-utilities-focus) solid 3px;
+                    border-color: transparent;
+                    transition: border 0s;
+                }
+            }
+        }
     }
 
     &.error {
@@ -87,6 +107,10 @@
 
         .kit-input-wrapper-content {
             border-color: var(--components-InputWrapper-colors-border-disabled, var(--general-utilities-border));
+
+            &:focus-visible {
+                outline: none;
+            }
         }
     }
 }

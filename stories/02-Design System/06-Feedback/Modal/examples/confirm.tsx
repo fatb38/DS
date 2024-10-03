@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {KitSpace, KitSelect, KitCheckbox} from '@kit/index';
 import styled from 'styled-components';
 import {IKitConfirmDialog} from '@kit/Feedback/Modal/types';

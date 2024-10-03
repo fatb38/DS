@@ -1,46 +1,34 @@
-import {FunctionComponent} from 'react';
-import {Alert as AntdAlert} from 'antd';
-import {IKitAlert} from './types';
-import {useKitTheme} from '@theme/useKitTheme';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {
-    faXmark,
-    faCircleInfo,
-    faCircleCheck,
-    faCircleXmark,
-    faCircleExclamation
-} from '@fortawesome/free-solid-svg-icons';
-import cn from 'classnames';
+import toast from 'react-hot-toast';
+import {Alertfunc, IKitAlert, KitAlertCompoundedComponent} from './types';
+import Alert from './Alert';
+import {uuid} from '@utils/functions';
 
-import styles from './styles.module.scss';
-
-export const KitAlert: FunctionComponent<IKitAlert> = ({type, className, ...alertProps}) => {
-    const {appId} = useKitTheme();
-
-    const _getIcon = () => {
-        switch (type) {
-            case 'info':
-                return <FontAwesomeIcon className="fa-icon" icon={faCircleInfo} />;
-            case 'success':
-                return <FontAwesomeIcon className="fa-icon" icon={faCircleCheck} />;
-            case 'warning':
-                return <FontAwesomeIcon className="fa-icon" icon={faCircleExclamation} />;
-            case 'error':
-                return <FontAwesomeIcon className="fa-icon" icon={faCircleXmark} />;
-        }
+const toastAlert: Alertfunc = ({duration = Infinity, position = 'top-center', type, toastId, ...props}) => {
+    const propsOverrides: IKitAlert = {
+        className: `${props.className} toast-alert`
     };
 
-    const clx = cn(appId, styles['kit-alert'], className);
+    const toastUid = toastId || uuid();
 
-    return (
-        <AntdAlert
-            {...alertProps}
-            closeIcon={<FontAwesomeIcon icon={faXmark} />}
-            icon={_getIcon()}
-            type={type}
-            className={clx}
-        />
-    );
+    const _onClose = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        toast.dismiss(toastUid);
+        props.onClose && props.onClose(event);
+    };
+
+    if (props.closable) {
+        propsOverrides.onClose = _onClose;
+    }
+
+    return toast(<Alert {...props} type={type} {...propsOverrides} />, {duration, position, id: toastUid});
 };
 
+export const KitAlert = Alert as KitAlertCompoundedComponent;
+
 KitAlert.displayName = 'KitAlert';
+KitAlert.info = props => toastAlert({...props, type: 'info'});
+
+KitAlert.success = props => toastAlert({...props, type: 'success'});
+
+KitAlert.warning = props => toastAlert({...props, type: 'warning'});
+
+KitAlert.error = props => toastAlert({...props, type: 'error'});

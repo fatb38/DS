@@ -1,10 +1,10 @@
-name: "Publish nightly Package to npmjs cron task"
+name: 'Publish nightly Package to npmjs cron task'
 
 on:
-  schedule:
-    - cron: '0 20 * * *'
+    schedule:
+        - cron: '0 20 * * *'
 
 jobs:
-  nightly:
-    uses: ./.github/workflows/nightly.yml
-    secrets: inherit
+    nightly:
+        uses: ./.github/workflows/nightly.yml
+        secrets: inherit

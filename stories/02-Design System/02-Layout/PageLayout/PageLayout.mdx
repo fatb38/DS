@@ -1,0 +1,28 @@
+import {Meta, Canvas, Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples/index';
+import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
+import * as KitPageLayoutStories from './PageLayout.stories';
+
+<Meta of={KitPageLayoutStories} />
+
+# PageLayout
+
+Page Layout should be used to manage the layout of a page. It should be used to create a consistent layout for all pages in the application. This component manages the header, the side menu and the margins around the content.
+
+## Examples
+
+### Basic Layout
+
+A basic PageLayout is a Layout with a Header and a Content. The content has a fixed height and is scrollable if taller then screen height.
+
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="page-layout-basic" />
+
+### Layout with Side Menu
+
+You can add a SideMenu to the PageLayout by passing `sideMenuProps` to the PageLayout. The SideMenu will be displayed on the left side of the Content.
+
+<CustomCanvas content={Examples.WithSideMenu} source={Sources.WithSideMenu} id="page-layout-with-side-menu" />
+
+## Api
+
+<Controls of={KitPageLayoutStories.Api} />

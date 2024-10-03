@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitDropDown} from '@kit/Navigation';
 import {KitSpace} from '@kit/Layout';
 import {IKitDropdownMenu} from '@kit/Navigation/DropDown/types';
@@ -26,13 +25,13 @@ const items: IKitDropdownMenu['items'] = [
 ];
 
 const App = () => (
-        <KitSpace>
-            <KitDropDown menu={{items}}>
-                <KitTypography.Link>
-                    Hover me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
-                </KitTypography.Link>
-            </KitDropDown>
-        </KitSpace>
-    );
+    <KitSpace>
+        <KitDropDown menu={{items}}>
+            <KitTypography.Link>
+                Hover me <FontAwesomeIcon icon={faAngleDown} style={{marginLeft: '6px'}} />
+            </KitTypography.Link>
+        </KitDropDown>
+    </KitSpace>
+);
 
 export default App;

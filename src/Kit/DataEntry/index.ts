@@ -4,6 +4,7 @@ export {KitInputNumber} from './InputNumber';
 export {KitInputWrapper} from './InputWrapper';
 export {KitRadio} from './Radio';
 export {KitRate} from './Rate';
+export {KitRichText} from './RichText';
 export {KitSelect} from './Select';
 export {KitSwitch} from './Switch';
 export {KitDatePicker} from './DatePicker';

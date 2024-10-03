@@ -1,0 +1,58 @@
+@import '../../../../css/mixins.scss';
+
+:local(.kit-rich-text-menu-bar) {
+    --kit-rich-text-menu-bar-height: 40px;
+    --kit-rich-text-menu-bar-button-size: 32px;
+    --kit-rich-text-menu-bar-divider-height: 24px;
+
+    display: none;
+    height: var(--kit-rich-text-menu-bar-height);
+    width: calc(100% - convertToPixel(--general-spacing-xs) * 2);
+    border-top-left-radius: convertToPixel(--general-border-radius-s);
+    border-top-right-radius: convertToPixel(--general-border-radius-s);
+    background-color: var(--general-utilities-neutral-light);
+    align-items: center;
+    align-content: center;
+    padding: 0 convertToPixel(--general-spacing-xs);
+
+    button {
+        height: var(--kit-rich-text-menu-bar-button-size);
+        width: var(--kit-rich-text-menu-bar-button-size);
+        line-height: var(--kit-rich-text-menu-bar-button-size);
+        border: none;
+        border-radius: convertToPixel(--general-border-radius-xs);
+        background-color: var(--general-utilities-neutral-light);
+        color: var(--general-utilities-text-primary);
+        cursor: pointer;
+        z-index: 1;
+
+        &.is-active {
+            background-color: var(--general-utilities-light);
+            color: var(--general-utilities-text-blue);
+        }
+
+        &:not(:disabled) {
+            &:hover {
+                background-color: var(--general-utilities-light);
+            }
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            color: var(--general-utilities-disabled);
+        }
+
+        &:focus-visible {
+            outline: none;
+            // Use z-index to make sure the box-shadow is visible even if buttons are overlapping
+            z-index: 2;
+            box-shadow: 0 0 0 3px var(--general-utilities-focus);
+            background-color: var(--general-utilities-light);
+        }
+    }
+
+    .ant-divider {
+        height: var(--kit-rich-text-menu-bar-divider-height);
+        margin-inline: convertToPixel(--general-spacing-xxs);
+    }
+}

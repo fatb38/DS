@@ -1,4 +1,3 @@
-import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitIcon} from '@kit/General/';
 import {argTypes} from './data';
@@ -23,4 +22,4 @@ export const Api: Story = {
 
 export const ChromaticTest: Story = {
     render: () => <IconsTest />
-}
+};

@@ -16,6 +16,7 @@ const KitTextArea = forwardRef<InputRef, IKitTextArea>(
             label,
             className,
             helper,
+            htmlFor,
             wrapperClassName,
             allowClear = true,
             required,
@@ -34,6 +35,7 @@ const KitTextArea = forwardRef<InputRef, IKitTextArea>(
             <KitInputWrapper
                 label={label}
                 helper={helper}
+                htmlFor={htmlFor}
                 disabled={textAreaProps.disabled}
                 status={textAreaProps.status}
                 className={wrapperClassName}
@@ -60,6 +62,7 @@ const KitTextArea = forwardRef<InputRef, IKitTextArea>(
                                 : undefined
                         }
                         className={clx}
+                        id={textAreaProps.id ?? htmlFor}
                     />
                 )}
             </KitInputWrapper>

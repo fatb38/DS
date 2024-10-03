@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas, Source } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
+import {Meta, Story, Canvas, Source} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
-import Examples, { Sources } from './examples';
+import Examples, {Sources} from './examples';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
 import * as KitMenuStories from './Menu.stories';
@@ -29,9 +29,10 @@ A basic ItemMenu can contain a `title` and/or an `icon`.
 ##### Type
 
 ItemMenu provide 3 types of itemMenu such as :
-- `default` : indicate a series of itemMenu's.
-- `cta` : indicate an itemMenu with a call to action.
-- `ctaDanger`: indicate an itemMenu with a destructive call to action.
+
+-   `default` : indicate a series of itemMenu's.
+-   `cta` : indicate an itemMenu with a call to action.
+-   `ctaDanger`: indicate an itemMenu with a destructive call to action.
 
 <CustomCanvas content={Examples.ItemMenuType} source={Sources.ItemMenuType} />
 
@@ -55,23 +56,23 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const actions = [
     {
-        icon: <FontAwesomeIcon icon={faPlus}/>,
-        label: "Add",
-        onClick: () => console.log("on click add"),
+        icon: <FontAwesomeIcon icon={faPlus} />,
+        label: 'Add',
+        onClick: () => console.log('on click add')
     },
     {
-        icon: <FontAwesomeIcon icon={faMinus}/>,
-        label: "Subtract",
-        onClick: () => console.log("on click subtract"),
+        icon: <FontAwesomeIcon icon={faMinus} />,
+        label: 'Subtract',
+        onClick: () => console.log('on click subtract')
     },
     {
-        icon: <FontAwesomeIcon icon={faPercent}/>,
-        label: "Percent",
-        onClick: () => console.log("on click percent"),
-    },
+        icon: <FontAwesomeIcon icon={faPercent} />,
+        label: 'Percent',
+        onClick: () => console.log('on click percent')
+    }
 ];
 
-<KitMenu.Item title={"Item menu"} icon={<FontAwesomeIcon icon={faHouse} />} actions={actions} />
+<KitMenu.Item title={'Item menu'} icon={<FontAwesomeIcon icon={faHouse} />} actions={actions} />;
 ```
 
 ##### Value
@@ -121,8 +122,6 @@ Menu with ItemMenu's as children
 <Canvas of={KitMenuStories.Api} />
 
 <Controls of={KitMenuStories.Api} />
-
-
 
 ## Design Tokens
 

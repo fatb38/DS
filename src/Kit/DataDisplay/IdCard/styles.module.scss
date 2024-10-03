@@ -4,7 +4,7 @@
     &.id-card-grid {
         display: grid;
         grid-template-columns: min-content auto;
-        grid-template-areas: "avatar info";
+        grid-template-areas: 'avatar info';
 
         &:has(.card-avatar):has(.card-info) {
             column-gap: convertToPixel(--general-spacing-xs);

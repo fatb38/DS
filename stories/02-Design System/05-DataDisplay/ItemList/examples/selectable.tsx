@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitSpace} from '@kit/Layout';
 import {KitItemList} from '@kit/DataDisplay';
 import {IKitIdCard} from '@kit/DataDisplay/IdCard/types';

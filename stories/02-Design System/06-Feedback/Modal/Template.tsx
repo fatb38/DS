@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {KitModal} from '@kit/Feedback/';
 import {KitButton} from '@kit/General/';
 import {IEditorTemplate} from '../../../types';
@@ -48,56 +48,56 @@ const StyleContainer = styled.div`
 `;
 
 export const EditorTemplate: IEditorTemplate = () => (
-        <KitSpace direction="vertical">
-            <StyleContainer id="modal-test-container-1">
-                <ConfirmDialog
-                    isOpen
-                    type="info"
-                    icon
-                    title="Confirm action"
-                    secondLine="You can also show some complementary text"
-                    showSecondaryCta
-                    parentSelector={() => document.querySelector('#modal-test-container-1')}
-                    appElement={document.getElementById('storybook-docs')}
-                />
-            </StyleContainer>
-            <StyleContainer id="modal-test-container-2">
-                <ConfirmDialog
-                    isOpen
-                    type="success"
-                    icon
-                    title="Confirm action"
-                    secondLine="You can also show some complementary text"
-                    showSecondaryCta
-                    parentSelector={() => document.querySelector('#modal-test-container-2')}
-                    appElement={document.getElementById('storybook-docs')}
-                />
-            </StyleContainer>
-            <StyleContainer id="modal-test-container-3">
-                <ConfirmDialog
-                    isOpen
-                    type="warning"
-                    icon
-                    title="Confirm action"
-                    secondLine="You can also show some complementary text"
-                    showSecondaryCta
-                    parentSelector={() => document.querySelector('#modal-test-container-3')}
-                    appElement={document.getElementById('storybook-docs')}
-                />
-            </StyleContainer>
-            <StyleContainer id="modal-test-container-4">
-                <ConfirmDialog
-                    isOpen
-                    type="error"
-                    icon
-                    title="Confirm action"
-                    secondLine="You can also show some complementary text"
-                    showSecondaryCta
-                    parentSelector={() => document.querySelector('#modal-test-container-4')}
-                    appElement={document.getElementById('storybook-docs')}
-                />
-            </StyleContainer>
-        </KitSpace>
-    );
+    <KitSpace direction="vertical">
+        <StyleContainer id="modal-test-container-1">
+            <ConfirmDialog
+                isOpen
+                type="info"
+                icon
+                title="Confirm action"
+                secondLine="You can also show some complementary text"
+                showSecondaryCta
+                parentSelector={() => document.querySelector('#modal-test-container-1')}
+                appElement={document.getElementById('storybook-docs')}
+            />
+        </StyleContainer>
+        <StyleContainer id="modal-test-container-2">
+            <ConfirmDialog
+                isOpen
+                type="success"
+                icon
+                title="Confirm action"
+                secondLine="You can also show some complementary text"
+                showSecondaryCta
+                parentSelector={() => document.querySelector('#modal-test-container-2')}
+                appElement={document.getElementById('storybook-docs')}
+            />
+        </StyleContainer>
+        <StyleContainer id="modal-test-container-3">
+            <ConfirmDialog
+                isOpen
+                type="warning"
+                icon
+                title="Confirm action"
+                secondLine="You can also show some complementary text"
+                showSecondaryCta
+                parentSelector={() => document.querySelector('#modal-test-container-3')}
+                appElement={document.getElementById('storybook-docs')}
+            />
+        </StyleContainer>
+        <StyleContainer id="modal-test-container-4">
+            <ConfirmDialog
+                isOpen
+                type="error"
+                icon
+                title="Confirm action"
+                secondLine="You can also show some complementary text"
+                showSecondaryCta
+                parentSelector={() => document.querySelector('#modal-test-container-4')}
+                appElement={document.getElementById('storybook-docs')}
+            />
+        </StyleContainer>
+    </KitSpace>
+);
 EditorTemplate.path = 'components.Modal';
 EditorTemplate.title = 'Modal';

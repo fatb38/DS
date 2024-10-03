@@ -1,7 +1,7 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
-import Examples, { Sources } from './examples';
+import Examples, {Sources} from './examples';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
 import * as KitPagination from './Pagination.stories';
@@ -14,8 +14,8 @@ A long list can be divided into several pages using `Pagination`, and only one p
 
 ## Usage
 
-- When it will take a long time to load/render all items.
-- If you want to browse the data by navigating through pages.
+-   When it will take a long time to load/render all items.
+-   If you want to browse the data by navigating through pages.
 
 ## Examples
 
@@ -26,10 +26,10 @@ Basic pagination.
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="pagination-basic" />
 
 ##### Bordered
+
 show pagination with bordered items
 
 <CustomCanvas content={Examples.Bordered} source={Sources.Bordered} id="pagination-bordered" />
-
 
 ##### More
 
@@ -56,26 +56,31 @@ Mini size pagination.
 <CustomCanvas content={Examples.MiniSize} source={Sources.MiniSize} id="pagination-mini" />
 
 ##### Simple mode
+
 Simple mode.
 
 <CustomCanvas content={Examples.SimpleMode} source={Sources.SimpleMode} id="pagination-simple" />
 
 ##### controlled
+
 Controlled page number.
 
 <CustomCanvas content={Examples.Controlled} source={Sources.Controlled} id="pagination-controlled" />
 
 ##### Total number
+
 You can show the total number of data by setting showTotal.
 
 <CustomCanvas content={Examples.TotalNumber} source={Sources.TotalNumber} id="pagination-total" />
 
 ##### Show all
+
 Show all configured prop.
 
 <CustomCanvas content={Examples.ShowAll} source={Sources.ShowAll} id="pagination-all" />
 
 ##### Prev and Next
+
 Use text link for prev and next button.
 
 <CustomCanvas content={Examples.PrevNext} source={Sources.PrevNext} id="pagination-prev-next" />
@@ -85,8 +90,6 @@ Use text link for prev and next button.
 <Canvas of={KitPagination.Api} />
 
 <Controls of={KitPagination.Api} />
-
-
 
 ## Design Tokens
 

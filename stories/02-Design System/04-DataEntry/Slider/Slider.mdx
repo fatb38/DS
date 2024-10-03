@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -15,57 +15,64 @@ Slider Component.
 ## Examples
 
 ##### Basic
+
 Basic slider. When `range` is `true`, display as dual thumb mode. When `disable` is `true`, the slider will not be interactable.
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="slider-basic" />
 
 ##### Slider with InputNumber
+
 Synchronize with KitInputNumber component.
 
 <CustomCanvas content={Examples.WithInputNumber} source={Sources.WithInputNumber} id="slider-input" />
 
 ##### Slider with icon
+
 You can add an icon beside the slider to make it meaningful.
 
 <CustomCanvas content={Examples.WithIcon} source={Sources.WithIcon} id="slider-icon" />
 
 ##### Customize tooltip
+
 Use `tooltip.formatter` to format content of `Tooltip`. If `tooltip.formatter` is null, hide it.
 
 <CustomCanvas content={Examples.Formatter} source={Sources.Formatter} id="slider-formatter" />
 
 ##### Event
+
 The `onChange` callback function will fire when the user changes the slider's value. The `onAfterChange` callback function will fire when `onmouseup` fired.
 
 <CustomCanvas content={Examples.Events} source={Sources.Events} id="slider-events" />
 
 ##### Reverse
+
 Using `reverse` to render slider reversely.
 
 <CustomCanvas content={Examples.Reversed} source={Sources.Reversed} id="slider-reversed" />
 
 ##### Graduated slider
+
 Using `marks` property to mark a graduated slider, use `value` or `defaultValue` to specify the position of thumb. When `included` is false, means that different thumbs are coordinative. when `step` is null, users can only slide the thumbs onto marks.
 
 <CustomCanvas content={Examples.Graduated} source={Sources.Graduated} id="slider-graduated" />
 
 ##### Control visible of ToolTip
+
 When `tooltip.open` is `true`, ToolTip will always show, or ToolTip will not show anyway, even if dragging or hovering.
 
 <CustomCanvas content={Examples.VisibleTooltip} source={Sources.VisibleTooltip} id="slider-visible-tooltip" />
 
 ##### Draggable track
+
 Make range track draggable when set `range.draggableTrack`.
 
 <CustomCanvas content={Examples.Draggable} source={Sources.Draggable} id="slider-draggable" />
-
 
 ## API
 
 <Canvas of={KitSliderStories.Api} />
 
 <Controls of={KitSliderStories.Api} />
-
 
 ## Design Tokens
 

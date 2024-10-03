@@ -5,6 +5,7 @@ import {ReactNode, ReactElement, MouseEvent} from 'react';
 export interface IKitAutoComplete extends AutoCompleteProps<T, E>, KitHTMLAttributes<HTMLInputElement> {
     label?: string;
     helper?: string;
+    htmlFor?: string;
     allowClear?: boolean;
     placeholder?: string;
     wrapperClassName?: string;

@@ -1,4 +1,3 @@
-import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitModal} from '@kit/Feedback';
 import {Template} from './Template';

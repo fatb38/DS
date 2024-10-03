@@ -15,6 +15,6 @@ const _Description: FunctionComponent = () => (
     </KitSpace>
 );
 
-const App = () => <KitError title="Page not found" description={<_Description />} />;
+const App = () => <KitError title="Page not found" description={<_Description />} httpErrorCode="404" />;
 
 export default App;

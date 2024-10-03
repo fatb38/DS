@@ -12,20 +12,16 @@ import {KitNotificationProvider} from '@kit/Feedback/Notification/notification-p
 
 import './styles.scss';
 import {KitEmpty} from '@kit/DataDisplay';
-import {KitGridProvider} from '@kit/Layout/Grid/GridContext';
 
 export const KitApp: FunctionComponent<{
     customTheme?: IKitCustomTheme;
     locale?: IKitLocale;
     children?: ReactNode;
     id?: string;
-    useMediaQueries?: boolean;
-}> = ({children, locale, customTheme, id, useMediaQueries}) => (
-    <KitThemeProvider customTheme={customTheme} id={id} useMediaQueries={useMediaQueries}>
+}> = ({children, locale, customTheme, id}) => (
+    <KitThemeProvider customTheme={customTheme} id={id}>
         <KitLocaleProvider>
-            <KitAppConfig locale={locale}>
-                <KitGridProvider>{children}</KitGridProvider>
-            </KitAppConfig>
+            <KitAppConfig locale={locale}>{children}</KitAppConfig>
         </KitLocaleProvider>
     </KitThemeProvider>
 );

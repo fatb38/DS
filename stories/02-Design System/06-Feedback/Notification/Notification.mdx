@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -13,49 +13,59 @@ import * as KitNotificationStories from './Notification.stories';
 Display a notification message globally.
 
 ## When To Use
+
 To display a notification message at any of the four corners of the viewport. Typically it can be used in the following cases:
-* A notification with complex content.
-* A notification providing a feedback based on the user interaction. Or it may show some details about upcoming steps the user may have to follow.
-* A notification that is pushed by the application.
+
+-   A notification with complex content.
+-   A notification providing a feedback based on the user interaction. Or it may show some details about upcoming steps the user may have to follow.
+-   A notification that is pushed by the application.
 
 ## Examples
 
 ##### Basic
+
 The simplest usage that close the notification box after 4.5s.
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="notification-basic" />
 
 ##### With Message Extra
+
 When using KitNotification, you can specify the `messageExtra` prop. This prop has no effect when displaying a notification via `useKitNotification`.
 
 <CustomCanvas content={Examples.Subtitle} source={Sources.Subtitle} id="notification-message-extra" />
 
 ##### Duration after which the notification box is closed
+
 **Duration** can be used to specify how long the notification stays open. After the duration time elapses, the notification closes automatically. If not specified, default value is 4.5 seconds. If you set the value to 0, the notification box will never close automatically.
 
 <CustomCanvas content={Examples.Duration} source={Sources.Duration} id="notification-duration" />
 
 ##### Notification with icon
+
 A notification box with a icon at the left side.
 
 <CustomCanvas content={Examples.Icon} source={Sources.Icon} id="notification-icon" />
 
 ##### Customized Icon
+
 The icon can be customized to any react node.
 
 <CustomCanvas content={Examples.CustomIcon} source={Sources.CustomIcon} id="notification-custom-icon" />
 
 ##### Custom close button
+
 To customize the style or font of the close button.
 
 <CustomCanvas content={Examples.CustomClose} source={Sources.CustomClose} id="notification-custom-close" />
 
 ##### Placement
+
 A notification box can appear from the **topLeft**, **topRight**, **bottomLeft** or **bottomRight** of the viewport.
 
 <CustomCanvas content={Examples.Placement} source={Sources.Placement} id="notification-placement" />
 
 ##### Update Message Content
+
 Update content with unique key.
 
 <CustomCanvas content={Examples.UpdateMessage} source={Sources.UpdateMessage} id="notification-update-message" />
@@ -64,14 +74,14 @@ Update content with unique key.
 
 <Canvas of={KitNotificationStories.Api} />
 
-Common props ref: 
+Common props ref:
 
-- notification.success(config)
-- notification.error(config)
-- notification.info(config)
-- notification.warning(config)
-- notification.open(config)
-- notification.destroy(key?: String)
+-   notification.success(config)
+-   notification.error(config)
+-   notification.info(config)
+-   notification.warning(config)
+-   notification.open(config)
+-   notification.destroy(key?: String)
 
 The properties of config are as follows:
 

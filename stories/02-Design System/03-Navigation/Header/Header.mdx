@@ -102,22 +102,20 @@ The most complete usage with a menu, a logo, some content, a user profile and a 
 
 ### Header.Profile
 
-| Property               | Description                                                                   | Type              | Default |
-| ---------------------- | ----------------------------------------------------------------------------- | -------------     | ------- |
-| className              | The additional css class                                                      | string            | -       |
-| logo                   | Url of the logo to display (optional)                                         | string            | -       |
-| alt                    | This attribute defines the alternative text describing the image (optional)   | string            | -       |
-| tagProps               | tag to display (optional)                                                     | `IKitTag`         | -       |
-| profileMenuCardProps   | `KitHeaderIdCard` to display inside menu (optional). See KitIdCard fo details | `KitHeaderIdCard` | -       |
-| profileCardProps       | `KitIdCard` to display (optional). See KitIdCard fo details                   | `IKitIdCard`      | -       |
-| complement             | Complementary element to display on the right of profile block (optional)     | `ReactNode`       | -       |
-| menu                   | The menu props                                                                | `ReactNode`       | -       |
-
+| Property             | Description                                                                   | Type              | Default |
+| -------------------- | ----------------------------------------------------------------------------- | ----------------- | ------- |
+| className            | The additional css class                                                      | string            | -       |
+| logo                 | Url of the logo to display (optional)                                         | string            | -       |
+| alt                  | This attribute defines the alternative text describing the image (optional)   | string            | -       |
+| tagProps             | tag to display (optional)                                                     | `IKitTag`         | -       |
+| profileMenuCardProps | `KitHeaderIdCard` to display inside menu (optional). See KitIdCard fo details | `KitHeaderIdCard` | -       |
+| profileCardProps     | `KitIdCard` to display (optional). See KitIdCard fo details                   | `IKitIdCard`      | -       |
+| complement           | Complementary element to display on the right of profile block (optional)     | `ReactNode`       | -       |
+| menu                 | The menu props                                                                | `ReactNode`       | -       |
 
 ```typescript
 type KitHeaderIdCard = IKitIdCard & {onClick?: () => void};
 ```
-
 
 ## Design Tokens
 

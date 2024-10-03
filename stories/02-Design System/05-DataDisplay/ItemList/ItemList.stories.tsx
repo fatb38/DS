@@ -1,13 +1,13 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {KitItemList} from '@kit/DataDisplay';
 import {argTypes} from './data';
-import React from 'react';
 import {Template} from './Template';
 import {FullItemList} from './test-components/FullItemList';
 import {BasicItemList} from './test-components/BasicItemList';
 import {ActionItemList} from './test-components/ActionItemList';
 import {SelectableItemList} from './test-components/SelectableList';
 import {DisabledItemList} from './test-components/DisabledItemList';
+import {IdCardSubstituteItemList} from './test-components/IdCardSubstituteItemList';
 
 const meta: Meta<typeof KitItemList> = {
     component: KitItemList,
@@ -30,6 +30,7 @@ export const ChromaticTest: Story = {
         <div style={{width: '1000px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
             <div style={{width: '1000px', display: 'flex', flexDirection: 'column', gap: '20px'}}>
                 <BasicItemList />
+                <IdCardSubstituteItemList />
                 <SelectableItemList />
                 <ActionItemList />
                 <FullItemList />

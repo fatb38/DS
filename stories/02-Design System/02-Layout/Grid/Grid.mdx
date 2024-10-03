@@ -1,35 +1,9 @@
-import { Meta, Canvas, Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas, Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import * as KitGridStories from './Grid.stories';
 
 <Meta of={KitGridStories} />
-
-<style>
-{`
-    .col-demo {
-        background: #1677ff;
-        min-height: 40px;
-        line-height: 40px;
-        color: #fff;
-        text-align: center;
-        border-radius: 0;
-    }
-
-    .col-demo.odd {
-        background: #1677ffbf;
-    }
-
-    .col-demo.odd.higher {
-        min-height: 60px;
-        line-height: 60px;
-    }
-    .hiddenCanvas {
-        display: none;
-    }
-
-`}
-</style>
 
 # Grid
 
@@ -39,66 +13,59 @@ Variable grid system for layout.
 
 In most business situations, Aristid DS needs to solve a lot of information storage problems within the design area. We divided area in variable column numbers based on the screen size.
 
-
-## Outline
-
-In the grid system, we define the frame outside the information area based on  `grid`, `row` and `column`, to ensure that every area can have stable arrangement.
-
-Following is a brief look at how it works:
-
-- Establish a set of `column` in the horizontal space defined by `row` (abbreviated col).
-- Your content elements should be placed directly in the `col`, and only `col` should be placed directly in `row`.
-- The column grid system is a value of 4-12 to represent its range spans.
-
-Our grid systems base on Grid layout to allow the elements within the parent to be aligned horizontally. The Grid system also supports vertical alignment.
-
-The grid system manages a SideMenu open state. When menu is open, columns are pushed to the right and resized if necessary.
-
 ## Examples
 
 ### Basic Grid
 
 From the stack to the horizontal arrangement.
 
-You can create a basic grid system by using a single set of `Row` and `Col` grid assembly, all of the columns `Col` must be placed in `Row`.
-
+You can create a basic grid system by using a single set of `Row` and `Col` grid assembly, all of the columns (Col) must be placed in `Row`.
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="grid-basic"/>
 
-### Grid
-The `Grid` component is an optional wrapper for Row Elements. It allows to display a `SideMenu`and handles its open/close state automatically and passes it to Its `Row` children.
-If `SideMenuProps`is not defined, the `Grid` component will only render Rows.
+### xs screen
 
-***Note:*** you can set its `menuOpen` prop to `true` to open the `SideMenu` if set or to symply pass it to its `Row` elements.
+`xs` screens are **smaller than 576px**. They are organized in a grid of 4 columns and a **gutter of 8px**.
 
-<CustomCanvas content={Examples.Grid} source={Sources.Grid} id="grid-grid" />
+<CustomCanvas content={Examples.Xs} source={Sources.Xs} id="grid-xs"/>
 
-###### Grid with SideMenu
+### sm screen
 
-<CustomCanvas content={Examples.GridMenu} source={Sources.GridMenu} id="grid-grid-menu" />
+`sm` screens are **between 576px and 768px**. They are organized in a grid of **6 columns** and a **gutter of 8px**.
 
-### Row
-`Row`is the main component of the Grid system. It defines the number and size of columns. By default, the number of columns is set automatically according to the window size.
-You can however set its `breakpoint` property to specify  which breakpoint to use to set the number of columns. Like `Grid` component, it accepts a `menuOpen` property.
+<CustomCanvas content={Examples.Sm} source={Sources.Sm} id="grid-sm"/>
+
+### md screen
+
+`md` screens are **between 768px and 992px**. They are organized in a grid of **8 columns** and a **gutter of 8px**.
+
+<CustomCanvas content={Examples.Md} source={Sources.Md} id="grid-md"/>
+
+### lg screen
+
+`lg` screens are **between 992px and 1200px**. They are organized in a grid of **12 columns** and a **gutter of 8px**.
+
+<CustomCanvas content={Examples.Lg} source={Sources.Lg} id="grid-lg"/>
+
+### xl screen
+
+`xl` screens are **larger than 1200px**. They are organized in a grid of **12 columns** and a **gutter of 16px**.
+
+<CustomCanvas content={Examples.Xl} source={Sources.Xl} id="grid-xl"/>
 
 
-<CustomCanvas content={Examples.Row} source={Sources.Row} id="grid-row" />
+### xxl screen
 
-### Col
+`xxl` screens are **larger than 1600px**. They are organized in a grid of **12 columns** and a **gutter of 16px**.
 
-Every `Row` element should contain only `Col` elements, and `Col`element should only be used inside a `Row` element. `Col` element wraps content to be displayed in a column.
-It can be aligned veretically with `alignself` property.
+<CustomCanvas content={Examples.Xxl} source={Sources.Xxl} id="grid-xxl"/>
 
-* You can use it as a flex container by setting its `flex` property to `true` and use its `align` and `justify` properties to align its children.
-* You can also set its position and span by setting `col` and `span` properties.
-* You can set `fullWidth` to `true` to make the column span the full width of the row.
+### Playground
 
-**Note:** if you set `span` to -1, the column will span the remaining space.
+A simple playground for column count and gutter.
 
-<CustomCanvas content={Examples.Col} source={Sources.Col} id="grid-col" />
+<CustomCanvas content={Examples.Playground} source={Sources.Playground} id="grid-playground"/>
 
 ## Api
-
-<Canvas of={KitGridStories.Api} className="hiddenCanvas" />
 
 <Controls of={KitGridStories.Api} />

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {KitModal, KitButton} from '@kit/index';
 
 const App = () => {
@@ -25,8 +25,6 @@ const App = () => {
                 footer={<KitButton onClick={handleCancel}>Close</KitButton>}
                 appElement={document.getElementById('storybook-docs')}
             >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
                 <p>Some contents...</p>
             </KitModal>
         </>

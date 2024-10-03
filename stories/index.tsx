@@ -22,6 +22,7 @@ import {EditorTemplate as Slider} from './02-Design System/04-DataEntry/Slider/T
 import {EditorTemplate as Switch} from './02-Design System/04-DataEntry/Switch/Template';
 import {EditorTemplate as ColorPicker} from './02-Design System/04-DataEntry/ColorPicker/Template';
 import {EditorTemplate as Upload} from './02-Design System/04-DataEntry/Upload/Template';
+import {EditorTemplate as RichText} from './02-Design System/04-DataEntry/RichText/Template';
 import {EditorTemplate as Tag} from './02-Design System/05-DataDisplay/Tag/Template';
 import {EditorTemplate as Avatar} from './02-Design System/05-DataDisplay/Avatar/Template';
 import {EditorTemplateGroup as AvatarGroup} from './02-Design System/05-DataDisplay/Avatar/Template';
@@ -75,6 +76,7 @@ export default {
         InputNumber,
         Radio,
         Rate,
+        RichText,
         Select,
         Slider,
         Switch,

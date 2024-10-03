@@ -1,6 +1,6 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -22,26 +22,25 @@ An Idcard can be used to display content related to a single subject. The conten
 
 Simplest Usage.
 
-<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="component-id-card"/>
+<CustomCanvas content={Examples.Basic} source={Sources.Basic} id="component-id-card" />
 
 ### With Avatar
 
 You can set an avatar to the component using the `avatarProps` property.
 
-<CustomCanvas content={Examples.Avatar} source={Sources.Avatar} id="component-avatar"/>
+<CustomCanvas content={Examples.Avatar} source={Sources.Avatar} id="component-avatar" />
 
 ### Sizes
 
 You can set the size of the component using the `size` property.
 
-<CustomCanvas content={Examples.Size} source={Sources.Size} id="component-size"/>
+<CustomCanvas content={Examples.Size} source={Sources.Size} id="component-size" />
 
 ### Disabled
 
 You can disabled the component using the `disabled` property.
 
-<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="component-disabled"/>
-
+<CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="component-disabled" />
 
 ## Api
 

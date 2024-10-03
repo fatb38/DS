@@ -1,0 +1,43 @@
+@import '../../../../../css/mixins.scss';
+
+:local(.kit-rich-text-select-font-size) {
+    --kit-rich-text-select-font-size-width: 112px;
+    --kit-rich-text-select-font-size-height: 32px;
+
+    position: relative;
+    display: inline-block;
+    align-content: center;
+    width: var(--kit-rich-text-select-font-size-width);
+    height: var(--kit-rich-text-select-font-size-height);
+    line-height: var(--kit-rich-text-select-font-size-height);
+    border-radius: convertToPixel(--general-border-radius-xs);
+    padding: 0 convertToPixel(--general-spacing-xs);
+
+    &:hover,
+    &.dropdown-visible {
+        background-color: var(--general-utilities-light);
+    }
+
+    svg {
+        position: absolute;
+        top: convertToPixel(--general-spacing-xs);
+        right: convertToPixel(--general-spacing-xs);
+        font-size: calc(var(--general-typography-fontSize5) * 1px);
+    }
+
+    .selected-font-size-label {
+        display: inline-block;
+    }
+}
+
+:local(.kit-rich-text-select-font-size-dropdown) {
+    .ant-dropdown-menu-title-content {
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+    }
+}

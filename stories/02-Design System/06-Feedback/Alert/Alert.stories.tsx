@@ -5,7 +5,8 @@ import {Template} from './Template';
 import {argTypes} from './data';
 import {BasicAlertTest} from './test-components/BasicAlertTest.tsx';
 import {DescriptionAlertTest} from './test-components/DescriptionAlertTest.tsx';
-import {BannerAlertTest} from './test-components/BannerAlertTest.tsx';
+import {FullAlertTest} from './test-components/FullAlertTest.tsx';
+import {ToastedAlertTest} from './test-components/ToastedAlertTest.tsx';
 
 const meta: Meta<typeof KitAlert> = {
     component: KitAlert,
@@ -28,7 +29,8 @@ export const ChromaticTest: Story = {
         <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
             <BasicAlertTest />
             <DescriptionAlertTest />
-            <BannerAlertTest />
+            <FullAlertTest />
+            <ToastedAlertTest />
         </div>
     )
 };

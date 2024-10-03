@@ -13,5 +13,6 @@ export const KitAristidThemeGeneral: IKitThemeGeneral = {
     breakpoints: ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl'],
     grid: grid,
     typography: typography,
-    utilities: utilities
+    utilities: utilities,
+    header: {height: '64px'}
 };

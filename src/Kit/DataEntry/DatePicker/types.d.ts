@@ -7,6 +7,7 @@ interface IInternalDatePicker {
     bordered?: never;
     label?: string;
     helper?: string;
+    htmlFor?: string;
     allowClear?: boolean;
     cellRender?: DatePickerProps['cellrender'];
     wrapperClassName?: string;
@@ -31,6 +32,7 @@ interface IInternalRangerPicker {
     bordered?: never;
     label?: string;
     helper?: string;
+    htmlFor?: string;
     allowClear?: boolean;
     required?: boolean;
     infoIcon?: ReactNode;

@@ -56,6 +56,7 @@ const columns: KitTableColumnsType<DataType> = [
     {
         title: 'Tags',
         key: 'tags',
+        ellipsis: true,
         dataIndex: 'tags',
         render: (_, {tags}) => (
             <div style={{display: 'inline-flex'}}>

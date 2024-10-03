@@ -101,6 +101,16 @@ export const argTypes = {
             category: 'SideMenu'
         }
     },
+    customContent: {
+        name: 'customContent',
+        description: 'Custom content to display inside the menu',
+        table: {
+            type: {
+                summary: '(open: boolean) => ReactNode'
+            },
+            category: 'SideMenu'
+        }
+    },
     disableSecureClick: {
         name: 'disableSecureClick',
         control: {type: 'boolean'},

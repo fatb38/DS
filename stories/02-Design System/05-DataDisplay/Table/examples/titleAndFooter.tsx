@@ -58,15 +58,15 @@ const columns: KitTableColumnsType<DataType> = [
 ];
 
 const App = () => (
-        <KitSpace size="l">
-            <KitTable
-                dataSource={dataSource}
-                columns={columns}
-                pagination={false}
-                title={() => 'header'}
-                footer={() => 'footer'}
-            />
-        </KitSpace>
-    );
+    <KitSpace size="l">
+        <KitTable
+            dataSource={dataSource}
+            columns={columns}
+            pagination={false}
+            title={() => 'header'}
+            footer={() => 'footer'}
+        />
+    </KitSpace>
+);
 
 export default App;

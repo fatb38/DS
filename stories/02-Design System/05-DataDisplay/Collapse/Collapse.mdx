@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -14,8 +14,8 @@ A content area which can be collapsed and expanded.
 
 ## Usage
 
-- Can be used to group or hide complex regions to keep the page clean.
-- `Accordion` is a special kind of `Collapse`, which allows only one panel to be expanded at a time.
+-   Can be used to group or hide complex regions to keep the page clean.
+-   `Accordion` is a special kind of `Collapse`, which allows only one panel to be expanded at a time.
 
 ## Examples
 
@@ -47,13 +47,21 @@ In accordion mode, only one panel can be expanded at a time.
 
 Render header content with a proper layout in the top-left corner of each panel. To do so, you can use `KitCollapse.Header`.
 
-<CustomCanvas content={Examples.CustomHeaderContent} source={Sources.CustomHeaderContent} id="collapse-custom-header-content" />
+<CustomCanvas
+    content={Examples.CustomHeaderContent}
+    source={Sources.CustomHeaderContent}
+    id="collapse-custom-header-content"
+/>
 
 ##### Custom header extra actions
 
 Render extra element in the top-right corner of each panel. To do so, you can use `KitCollapse.HeaderExtra`.
 
-<CustomCanvas content={Examples.CustomHeaderExtra} source={Sources.CustomHeaderExtra} id="collapse-custom-header-extra" />
+<CustomCanvas
+    content={Examples.CustomHeaderExtra}
+    source={Sources.CustomHeaderExtra}
+    id="collapse-custom-header-extra"
+/>
 
 ##### Collapsible
 
@@ -67,13 +75,12 @@ Specify the trigger area of collapsible by `collapsible`.
 
 <Controls of={KitCollapseStories.Api} />
 
-
 ## Design Tokens
 
 <DesignTokens path="components.Collapse" tokens={fields?.components?.Collapse} />
 
 ## Translation Tokens
 
-|   | en-US | fr-FR |
-|---|-------|-------|
-| more | More | Plus |
+|      | en-US | fr-FR |
+| ---- | ----- | ----- |
+| more | More  | Plus  |

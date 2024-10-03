@@ -121,7 +121,9 @@ const TokensList: FunctionComponent<ITokensList> = ({path, tokens}) => {
     const documentStyles = getComputedStyle(document.documentElement);
 
     const _getItems: getItemsType = (node, nodeName, level, themeValue, childrenOnly) => {
-        const properties = Object.keys(node).filter(key => !key.startsWith('_'));
+        const properties = Object.keys(node)
+            .filter(key => !key.startsWith('_'))
+            .filter(property => property !== 'grid'); // Remove grid because it doesn't have css tokens
         const value = (themeValue && themeValue[nodeName]) ?? undefined;
 
         const varValue = documentStyles.getPropertyValue(`--${node._path.replace('.', '-')}`) ?? null;

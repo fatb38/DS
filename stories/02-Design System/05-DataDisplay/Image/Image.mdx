@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -14,48 +14,55 @@ Previewable image.
 
 ## Usage
 
-- When you need to display pictures.
-- Display when loading a large image or fault tolerant handling when loading fail.
+-   When you need to display pictures.
+-   Display when loading a large image or fault tolerant handling when loading fail.
 
 ## Examples
 
 ##### Basic
+
 Click the image to zoom in.
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="image-basic" />
 
 ##### Bordered and rounded image
+
 Image can have a border radius, and / or a border.
 
 <CustomCanvas content={Examples.Bordered} source={Sources.Bordered} id="image-bordered" />
 
-
 ##### Fault Tolerant
+
 Load failed to display image placeholder.
 
 <CustomCanvas content={Examples.FaultTolerant} source={Sources.FaultTolerant} id="image-fault-tolerant" />
 
 ##### Progressive loading
+
 Progressive when large image loading.
 
 <CustomCanvas content={Examples.Loading} source={Sources.Loading} id="image-loading" />
 
 ##### Multiple image preview
+
 Click the left and right switch buttons to preview multiple images.
 
 <CustomCanvas content={Examples.MultiplePreview} source={Sources.MultiplePreview} id="image-mutliple-preview" />
 
 ##### Preview from one image
+
 Preview a collection from one image.
 
 <CustomCanvas content={Examples.Preview} source={Sources.Preview} id="image-preview" />
 
 ##### Custom preview image
+
 You can set different preview image.
 
 <CustomCanvas content={Examples.Custom} source={Sources.Custom} id="image-custom" />
 
 ##### Controlled preview
+
 You can make preview controlled.
 
 <CustomCanvas content={Examples.Controlled} source={Sources.Controlled} id="image-controlled" />
@@ -83,13 +90,12 @@ You can make preview controlled.
 }
 ```
 
-
 ## Design Tokens
 
 <DesignTokens path="components.Image" tokens={fields?.components?.Image} />
 
 ## Translation Tokens
 
-|   | en-US | fr-FR |
-|---|-------|-------|
+|         | en-US   | fr-FR  |
+| ------- | ------- | ------ |
 | preview | Preview | Aperçu |

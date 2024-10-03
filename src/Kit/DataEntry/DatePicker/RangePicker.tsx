@@ -16,6 +16,7 @@ const KitRangePicker = forwardRef<any, IKitRangePicker>(
             label,
             className,
             helper,
+            htmlFor,
             suffixIcon,
             picker,
             allowClear = true,
@@ -55,6 +56,7 @@ const KitRangePicker = forwardRef<any, IKitRangePicker>(
             <KitInputWrapper
                 label={label}
                 helper={helper}
+                htmlFor={htmlFor}
                 disabled={_isInputWrapperDisabled()}
                 status={rangePickerProps.status}
                 required={required}
@@ -65,6 +67,7 @@ const KitRangePicker = forwardRef<any, IKitRangePicker>(
                 <div>
                     <AntdDatePicker.RangePicker
                         {...rangePickerProps}
+                        id={rangePickerProps.id ?? htmlFor}
                         picker={picker}
                         ref={ref}
                         disabled={readonly || rangePickerProps.disabled}

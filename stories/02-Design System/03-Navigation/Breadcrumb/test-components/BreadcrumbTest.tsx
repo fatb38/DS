@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHouse} from '@fortawesome/free-solid-svg-icons';
 import {KitBreadcrumb} from '@kit/Navigation';
@@ -67,11 +67,11 @@ const dropdownBreadcrumbItems: IKitBreadcrumbItem[] = [
 ];
 
 export const BreadcrumbTest: FunctionComponent = () => (
-        <>
-            <KitTypography.Title level="h3">Breadcrumb</KitTypography.Title>
-            <div style={{marginBlock: '24px'}}>
-                <KitBreadcrumb separator=">" items={textAndIconBreadcrumbItems} />
-            </div>
-            <KitBreadcrumb separator=">" items={dropdownBreadcrumbItems} />
-        </>
-    );
+    <>
+        <KitTypography.Title level="h3">Breadcrumb</KitTypography.Title>
+        <div style={{marginBlock: '24px'}}>
+            <KitBreadcrumb separator=">" items={textAndIconBreadcrumbItems} />
+        </div>
+        <KitBreadcrumb separator=">" items={dropdownBreadcrumbItems} />
+    </>
+);

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {KitSideMenu} from '@kit/Navigation';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faChartLine, faHome} from '@fortawesome/free-solid-svg-icons';

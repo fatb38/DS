@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitTree} from '@kit/DataDisplay';
 
 const treeData = [
@@ -49,18 +48,18 @@ const onCheck = (checkedKeys, info) => {
 };
 
 const App = () => (
-        <div style={{width: '300px'}}>
-            <KitTree
-                draggable
-                checkable
-                defaultExpandedKeys={['0-0-0', '0-0-1']}
-                defaultSelectedKeys={['0-0-0', '0-0-1']}
-                defaultCheckedKeys={['0-0-0', '0-0-1']}
-                onSelect={onSelect}
-                onCheck={onCheck}
-                treeData={treeData}
-            />
-        </div>
-    );
+    <div style={{width: '300px'}}>
+        <KitTree
+            draggable
+            checkable
+            defaultExpandedKeys={['0-0-0', '0-0-1']}
+            defaultSelectedKeys={['0-0-0', '0-0-1']}
+            defaultCheckedKeys={['0-0-0', '0-0-1']}
+            onSelect={onSelect}
+            onCheck={onCheck}
+            treeData={treeData}
+        />
+    </div>
+);
 
 export default App;

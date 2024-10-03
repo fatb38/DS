@@ -1,39 +1,39 @@
 # .github/workflows/npm.yml
 
 # Workflow name
-name: "Publish Package to npmjs"
+name: 'Publish Package to npmjs'
 
 on:
-  workflow_call:  
-    secrets:
-      NPM_TOKEN:
-        description: 'Npm Token'
-        required: false
+    workflow_call:
+        secrets:
+            NPM_TOKEN:
+                description: 'Npm Token'
+                required: false
 
 jobs:
-  prepublish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: nowsprinting/check-version-format-action@v3
-        id: version
-      - uses: geritol/match-tag-to-package-version@0.2.0
-        id: match-version
-  publish:
-    runs-on: ubuntu-latest
-    needs: prepublish
-    steps:
-      - uses: actions/checkout@v4
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'yarn'
-          registry-url: 'https://registry.npmjs.org'
-      - name: install dependencies
-        run: yarn
-      - name: build project
-        run: yarn build
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    prepublish:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: nowsprinting/check-version-format-action@v3
+              id: version
+            - uses: geritol/match-tag-to-package-version@0.2.0
+              id: match-version
+    publish:
+        runs-on: ubuntu-latest
+        needs: prepublish
+        steps:
+            - uses: actions/checkout@v4
+            # Setup .npmrc file to publish to npm
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: 'yarn'
+                  registry-url: 'https://registry.npmjs.org'
+            - name: install dependencies
+              run: yarn
+            - name: build project
+              run: yarn build
+            - run: npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

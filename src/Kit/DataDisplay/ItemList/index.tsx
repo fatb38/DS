@@ -13,7 +13,19 @@ import styles from './styles.module.scss';
 
 export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
     (
-        {idCardProps, draggableHandler, actions, content, onSelect, onClick, className, disabled = false, ...props},
+        {
+            idCardProps,
+            idCardSubstitute,
+            checkboxAriaLabel,
+            draggableHandler,
+            actions,
+            content,
+            onSelect,
+            onClick,
+            className,
+            disabled = false,
+            ...props
+        },
         ref
     ) => {
         const {appId} = useKitTheme();
@@ -22,6 +34,8 @@ export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
 
         const isSelectable = onSelect !== undefined;
         const isLessThanThreeActions = (actions ?? []).length <= 2;
+        const shouldDisplayIdCard = idCardProps !== undefined && idCardSubstitute === undefined;
+        const shouldDisplayIdCardSubstitute = idCardSubstitute !== undefined;
 
         const _getCheckbox = () => {
             if (!isSelectable) return null;
@@ -38,7 +52,7 @@ export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
                     checked={isChecked}
                     onClick={e => e.stopPropagation()}
                     onChange={onChange}
-                    aria-label={idCardProps.title ?? idCardProps.description}
+                    aria-label={checkboxAriaLabel ?? idCardProps?.title ?? idCardProps?.description}
                 />
             );
         };
@@ -74,6 +88,13 @@ export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
                     )}
                 </div>
             );
+
+        const _getCard = () => (
+            <div className={styles['kit-item-list-id-card']}>
+                {shouldDisplayIdCard && <KitIdCard {...idCardProps} disabled={disabled} />}
+                {shouldDisplayIdCardSubstitute && idCardSubstitute}
+            </div>
+        );
 
         const _getContent = () => content && <div className={styles['kit-item-list-content']}>{content}</div>;
 
@@ -117,9 +138,7 @@ export const KitItemList = forwardRef<HTMLDivElement, IKitItemList>(
             >
                 {draggableHandler}
                 {_getCheckbox()}
-                <div className={styles['kit-item-list-id-card']}>
-                    <KitIdCard {...idCardProps} disabled={disabled} />
-                </div>
+                {_getCard()}
                 {_getContent()}
                 {_getActionButtons()}
             </div>

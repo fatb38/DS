@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import {Unstyled} from '@storybook/blocks';
 import styled from 'styled-components';
@@ -6,15 +5,25 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faRocket, faExclamationTriangle} from '@fortawesome/free-solid-svg-icons';
 
 export const StyledInfoBox = styled.div`
-    position: relative; 
-    border-radius: .75em;
+    position: relative;
+    border-radius: 0.75em;
     border: 2px solid #f0f1f3;
     padding: 18px 24px 18px 64px;
     margin: 16px auto;
     width: 100%;
     max-width: 744px;
     box-sizing: border-box;
-    font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:
+        'Nunito Sans',
+        -apple-system,
+        '.SFNSText-Regular',
+        'San Francisco',
+        BlinkMacSystemFont,
+        'Segoe UI',
+        'Helvetica Neue',
+        Helvetica,
+        Arial,
+        sans-serif;
     -webkit-font-smoothing: antialiased;
 
     .title {
@@ -51,21 +60,21 @@ export const StyledInfoBox = styled.div`
 const InfoBox = props => {
     const {children} = props;
 
-
     const infoClassName = classNames({
-        'infobox': true,
+        infobox: true,
         warning: props.warning,
-        center: props.center,
+        center: props.center
     });
 
     return (
         <StyledInfoBox className={infoClassName}>
             <div className="icon">
-            <FontAwesomeIcon icon={props.warning ? faExclamationTriangle : faRocket} />
+                <FontAwesomeIcon icon={props.warning ? faExclamationTriangle : faRocket} />
             </div>
             <div className="content">
                 {props.title && <div className="title">{props.title}</div>}
-                <Unstyled>{children}</Unstyled></div>
+                <Unstyled>{children}</Unstyled>
+            </div>
         </StyledInfoBox>
     );
 };

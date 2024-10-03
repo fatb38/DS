@@ -1,8 +1,12 @@
-import React from 'react';
 import {KitError} from '@kit/DataDisplay';
+import KitParagraph from '@kit/General/Typography/Paragraph';
 
 const App = () => (
-    <KitError title="Page not found" description="This page does not seem to exist or no longer exists." />
+    <KitError
+        title="Unauthorized"
+        description={<KitParagraph>This page does not seem to exist or no longer exists.</KitParagraph>}
+        httpErrorCode="401"
+    />
 );
 
 export default App;

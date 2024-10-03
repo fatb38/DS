@@ -1,6 +1,6 @@
-import { Meta, Canvas } from "@storybook/addon-docs";
-import { Controls } from "@storybook/addon-docs";
-import Examples, { Sources } from './examples';
+import {Meta, Canvas} from '@storybook/addon-docs';
+import {Controls} from '@storybook/addon-docs';
+import Examples, {Sources} from './examples';
 import CustomCanvas from '../../../../.storybook/components/CustomCanvas.jsx';
 import DesignTokens from '../../../../.storybook/components/DesignTokens';
 import fields from '../../../tokens';
@@ -16,88 +16,89 @@ Tabs make it easy to switch between different views.
 
 Ant Design has 3 types of Tabs for different situations.
 
-- Card Tabs: for managing too many closeable views.
-- Normal Tabs: for functional aspects of a page.
-- `Radio.Button`: for secondary tabs.
+-   Card Tabs: for managing too many closeable views.
+-   Normal Tabs: for functional aspects of a page.
+-   `Radio.Button`: for secondary tabs.
 
 ## Examples
 
 ##### Basic
+
 Default activate first tab.
 
 <CustomCanvas content={Examples.Basic} source={Sources.Basic} id="tabs-basic" />
 
 ##### Disabled
+
 Disabled a tab
 
 <CustomCanvas content={Examples.Disabled} source={Sources.Disabled} id="tabs-disabled" />
 
-
 ##### Centered
+
 Centered tabs
 
 <CustomCanvas content={Examples.Centered} source={Sources.Centered} id="tabs-centered" />
 
-
 ##### Hide Separator
+
 Tabs without separator
 
 <CustomCanvas content={Examples.HideSeparator} source={Sources.HideSeparator} id="tabs-hide-separator" />
 
-
 ##### Icon
+
 The Tab with Icon.
 
 <CustomCanvas content={Examples.Icon} source={Sources.Icon} id="tabs-icon" />
 
-
 ##### Slide
+
 In order to fit in more tabs, they can slide left and right (or up and down).
 
 <CustomCanvas content={Examples.Slide} source={Sources.Slide} id="tabs-slide" />
 
-
 ##### Extra content
+
 You can add extra actions to the right or left or even both side of Tabs.
 
 <CustomCanvas content={Examples.Extra} source={Sources.Extra} id="tabs-extra" />
 
-
 ##### Size
+
 Large size tabs are usually used in page header, and small size could be used in Modal.
 
 <CustomCanvas content={Examples.Size} source={Sources.Size} id="tabs-size" />
 
-
 ##### Position
+
 Tab's position: left, right, top or bottom. Will auto switch to top in mobile.
 
 <CustomCanvas content={Examples.Position} source={Sources.Position} id="tabs-position" />
 
-
 ##### Card type Tab
+
 Another type of Tabs, which doesn't support vertical mode.
 
 <CustomCanvas content={Examples.Card} source={Sources.Card} id="tabs-card" />
 
-
 ##### Add & close tab
+
 Only card type Tabs support adding & closable. +Use `closable={false}` to disable close.
 
 <CustomCanvas content={Examples.AddClose} source={Sources.AddClose} id="tabs-add-close" />
 
-
 ##### Customized trigger of new tab
+
 Hide default plus icon, and bind event for customized trigger.
 
 <CustomCanvas content={Examples.CustomAddTrigger} source={Sources.CustomAddTrigger} id="tabs-custom-add-trigger" />
 
-
 ##### Customized bar of tab
+
 Use react-sticky-box and `renderTabBar`.
 
 <CustomCanvas content={Examples.CustomTabBar} source={Sources.CustomTabBar} id="tabs-custom-tabbar" />
-
 
 ## Api
 
@@ -109,15 +110,14 @@ More option at [rc-tabs tabs]
 
 ### TabItemType
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"` | ReactNode | - |
-| disabled | Set TabPane disabled | boolean | false |
-| forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |
-| key | TabPane's key | string | - |
-| label | TabPane's head display text | ReactNode | - |
-| children | TabPane's head display content | ReactNode | - |
-
+| Property    | Description                                                                     | Type      | Default |
+| ----------- | ------------------------------------------------------------------------------- | --------- | ------- |
+| closeIcon   | Customize close icon in TabPane's head. Only works while `type="editable-card"` | ReactNode | -       |
+| disabled    | Set TabPane disabled                                                            | boolean   | false   |
+| forceRender | Forced render of content in tabs, not lazy render after clicking on tabs        | boolean   | false   |
+| key         | TabPane's key                                                                   | string    | -       |
+| label       | TabPane's head display text                                                     | ReactNode | -       |
+| children    | TabPane's head display content                                                  | ReactNode | -       |
 
 ## Design Tokens
 

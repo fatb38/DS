@@ -7,13 +7,13 @@ import {disabledAndDividerDropdownItems, groupDropdownItems} from '../commons.ts
 
 export const GroupAndDisabledDropdownTest: FunctionComponent = () => {
     const customRender = (menu: React.ReactNode) => (
-            <>
-                {menu}
-                <KitButton type="primary" block style={{marginTop: '15px'}}>
-                    CTA Action
-                </KitButton>
-            </>
-        );
+        <>
+            {menu}
+            <KitButton type="primary" block style={{marginTop: '15px'}}>
+                CTA Action
+            </KitButton>
+        </>
+    );
 
     return (
         <div>

@@ -1,10 +1,9 @@
-import {Grid} from './Grid';
-import InternalCol from './Col';
-import InternalRow from './Row';
 import {KitGridCompoundedComponent} from './types';
+import {Row} from './Row';
+import {Col} from './Col';
 
-export const KitGrid = Grid as KitGridCompoundedComponent;
-KitGrid.Row = InternalRow;
-KitGrid.Col = InternalCol;
-
-KitGrid.displayName = 'KitGrid';
+export const KitGrid = {
+    KitRow: Row,
+    KitCol: Col,
+    displayName: 'KitGrid'
+} as KitGridCompoundedComponent;

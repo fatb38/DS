@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitIdCard} from '@kit/DataDisplay';
 import {KitSpace} from '@kit/Layout';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -21,26 +20,26 @@ const iconAvatarProps: IKitAvatar = {
 };
 
 const App = () => (
-        <KitSpace size={24}>
-            <KitIdCard
-                disabled={true}
-                avatarProps={basicAvatarProps}
-                title="John Doe"
-                description="A talented software developer."
-            />
-            <KitIdCard
-                disabled={true}
-                avatarProps={imageAvatarProps}
-                title="John Doe"
-                description="A talented software developer."
-            />
-            <KitIdCard
-                disabled={true}
-                avatarProps={iconAvatarProps}
-                title="John Doe"
-                description="A talented software developer."
-            />
-        </KitSpace>
-    );
+    <KitSpace size={24}>
+        <KitIdCard
+            disabled={true}
+            avatarProps={basicAvatarProps}
+            title="John Doe"
+            description="A talented software developer."
+        />
+        <KitIdCard
+            disabled={true}
+            avatarProps={imageAvatarProps}
+            title="John Doe"
+            description="A talented software developer."
+        />
+        <KitIdCard
+            disabled={true}
+            avatarProps={iconAvatarProps}
+            title="John Doe"
+            description="A talented software developer."
+        />
+    </KitSpace>
+);
 
 export default App;

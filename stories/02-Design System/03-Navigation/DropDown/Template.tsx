@@ -1,4 +1,3 @@
-import React from 'react';
 import {KitButton, KitTypography} from '@kit/General/';
 import {KitDropDown} from '@kit/Navigation/';
 import {IEditorTemplate} from '../../../types';
@@ -28,10 +27,10 @@ const items = [
 ];
 
 export const Template = (args: IKitDropdown) => (
-        <KitDropDown {...args} menu={{items}}>
-            <KitButton>Label</KitButton>
-        </KitDropDown>
-    );
+    <KitDropDown {...args} menu={{items}}>
+        <KitButton>Label</KitButton>
+    </KitDropDown>
+);
 
 export const EditorTemplate: IEditorTemplate = () => {
     const items: IKitDropdownMenu['items'] = [

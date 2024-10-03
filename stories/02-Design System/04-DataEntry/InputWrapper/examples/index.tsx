@@ -1,34 +1,46 @@
+import Actions from './actions';
 import Basic from './basic';
 import Border from './border';
-import Status from './status';
 import Disabled from './disabled';
-import Required from './required';
+import Focusable from './focusable';
+import Hoverable from './hoverable';
+import HtmlFor from './htmlFor';
 import Infos from './infos';
-import Actions from './actions';
+import Required from './required';
+import Status from './status';
 
+import ActionsSource from './actions?raw';
 import BasicSource from './basic?raw';
 import BorderSource from './border?raw';
-import StatusSource from './status?raw';
 import DisabledSource from './disabled?raw';
-import RequiredSource from './required?raw';
+import FocusableSource from './focusable?raw';
+import HoverableSource from './hoverable?raw';
+import HtmlForSource from './htmlFor?raw';
 import InfosSource from './infos?raw';
-import ActionsSource from './actions?raw';
+import RequiredSource from './required?raw';
+import StatusSource from './status?raw';
 
 export const Sources = {
+    Actions: ActionsSource,
     Basic: BasicSource,
     Border: BorderSource,
-    Status: StatusSource,
     Disabled: DisabledSource,
-    Required: RequiredSource,
+    Focusable: FocusableSource,
+    Hoverable: HoverableSource,
+    HtmlFor: HtmlForSource,
     Infos: InfosSource,
-    Actions: ActionsSource
+    Required: RequiredSource,
+    Status: StatusSource
 };
 export default {
+    Actions,
     Basic,
     Border,
-    Status,
     Disabled,
-    Required,
+    Focusable,
+    Hoverable,
+    HtmlFor,
     Infos,
-    Actions
+    Required,
+    Status
 };

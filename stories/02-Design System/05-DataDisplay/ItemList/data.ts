@@ -9,6 +9,17 @@ export const argTypes = {
             }
         }
     },
+    idCardSubstitute: {
+        name: 'idCardSubstitute',
+        description: '',
+        control: false,
+        table: {
+            category: 'ItemList',
+            type: {
+                summary: 'ReactNode'
+            }
+        }
+    },
     draggableHandler: {
         name: 'draggableHandler',
         description: '',
@@ -16,6 +27,19 @@ export const argTypes = {
             category: 'ItemList',
             type: {
                 summary: 'ReactNode'
+            }
+        }
+    },
+    checkboxAriaLabel: {
+        name: 'checkboxAriaLabel',
+        description: '',
+        control: {
+            type: 'text'
+        },
+        table: {
+            category: 'ItemList',
+            type: {
+                summary: 'String'
             }
         }
     },

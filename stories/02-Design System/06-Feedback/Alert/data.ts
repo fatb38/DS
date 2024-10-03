@@ -42,6 +42,32 @@ export const argTypes = {
             category: 'Alert'
         }
     },
+    details: {
+        name: 'details',
+        description: 'Add a collapsible details section',
+        control: {
+            type: 'text'
+        },
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            category: 'Alert'
+        }
+    },
+    customContent: {
+        name: 'customContent',
+        description: 'Add custom Content at the bottom of the alert',
+        control: {
+            type: 'text'
+        },
+        table: {
+            type: {
+                summary: 'ReactNode'
+            },
+            category: 'Alert'
+        }
+    },
     closable: {
         name: 'closable',
         description: 'Whether Alert can be closed',
@@ -51,22 +77,6 @@ export const argTypes = {
         table: {
             type: {
                 summary: 'boolean'
-            },
-            category: 'Alert'
-        }
-    },
-    banner: {
-        name: 'banner',
-        description: 'Whether to show as banner',
-        control: {
-            type: 'boolean'
-        },
-        table: {
-            type: {
-                summary: 'boolean'
-            },
-            defaultValue: {
-                summary: false
             },
             category: 'Alert'
         }
@@ -82,17 +92,7 @@ export const argTypes = {
                 summary: 'boolean'
             },
             defaultValue: {
-                summary: 'false, in banner mode default is true'
-            },
-            category: 'Alert'
-        }
-    },
-    afterClose: {
-        name: 'afterClose',
-        description: 'Called when close animation is finished',
-        table: {
-            type: {
-                summary: '() => void'
+                summary: 'false'
             },
             category: 'Alert'
         }

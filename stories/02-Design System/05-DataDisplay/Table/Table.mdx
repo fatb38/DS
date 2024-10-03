@@ -94,7 +94,6 @@ Display tree structure data in Table when there is field key `children` in dataS
 
 <CustomCanvas content={Examples.TreeData} source={Sources.TreeData} id="table-tree-data" />
 
-
 ### Fixed Header
 
 Display large amounts of data in scrollable view.
@@ -240,21 +239,21 @@ More about pagination, please check [pagination](/docs/design-system-navigation-
 
 Properties for row selection.
 
-| Property                    | Description                                                                 | Type                                                      | Default    |
-| --------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------- | ---------- |
-| **checkStrictly**           | Check table row precisely; parent row and children rows are not associated  | `boolean`                                                 | `true`     |
-| **columnTitle**             | Set the title of the selection column                                       | `ReactNode` `(originalNode: ReactNode) => ReactNode`      | -          |
-| **fixed**                   | Fixed selection column on the left                                          | `boolean`                                                 | `false`    |
-| **getCheckboxProps**        | Get Checkbox or Radio props                                                 | `function(record)`                                        | -          |
-| **hideSelectAll**           | Hide the selectAll checkbox and custom selection                            | `boolean`                                                 | `false`    |
-| **preserveSelectedRowKeys** | Keep selection `key` even when it removed from `dataSource`                 | `boolean`                                                 | `false`    |
-| **renderCell**              | Renderer of the table cell. Same as `render` in column                      | `function(checked, record, index, originNode)`            | -          |
-| **selectedRowKeys**         | Controlled selected row keys                                                | `string[]` `number[]`                                     | []         |
-| **type**                    | `checkbox` or `radio`                                                       | `checkbox` `radio`                                        | `checkbox` |
-| **onCell**                  | Set props on per cell. Same as `onCell` in column                           | `function(record, rowIndex)`                              | -          |
-| **onChange**                | Callback executed when selected rows change                                 | `function(selectedRowKeys, selectedRows, info: { type })` | -          |
-| **onSelect**                | Callback executed when select/deselect one row                              | `function(record, selected, selectedRows, nativeEvent)`   | -          |
-| **onSelectAll**             | Callback executed when select/deselect all rows                             | `function(selected, selectedRows, changeRows)`            | -          |
+| Property                    | Description                                                                | Type                                                      | Default    |
+| --------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------- | ---------- |
+| **checkStrictly**           | Check table row precisely; parent row and children rows are not associated | `boolean`                                                 | `true`     |
+| **columnTitle**             | Set the title of the selection column                                      | `ReactNode` `(originalNode: ReactNode) => ReactNode`      | -          |
+| **fixed**                   | Fixed selection column on the left                                         | `boolean`                                                 | `false`    |
+| **getCheckboxProps**        | Get Checkbox or Radio props                                                | `function(record)`                                        | -          |
+| **hideSelectAll**           | Hide the selectAll checkbox and custom selection                           | `boolean`                                                 | `false`    |
+| **preserveSelectedRowKeys** | Keep selection `key` even when it removed from `dataSource`                | `boolean`                                                 | `false`    |
+| **renderCell**              | Renderer of the table cell. Same as `render` in column                     | `function(checked, record, index, originNode)`            | -          |
+| **selectedRowKeys**         | Controlled selected row keys                                               | `string[]` `number[]`                                     | []         |
+| **type**                    | `checkbox` or `radio`                                                      | `checkbox` `radio`                                        | `checkbox` |
+| **onCell**                  | Set props on per cell. Same as `onCell` in column                          | `function(record, rowIndex)`                              | -          |
+| **onChange**                | Callback executed when selected rows change                                | `function(selectedRowKeys, selectedRows, info: { type })` | -          |
+| **onSelect**                | Callback executed when select/deselect one row                             | `function(record, selected, selectedRows, nativeEvent)`   | -          |
+| **onSelectAll**             | Callback executed when select/deselect all rows                            | `function(selected, selectedRows, changeRows)`            | -          |
 
 ### scroll
 

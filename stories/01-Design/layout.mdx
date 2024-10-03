@@ -1,0 +1,110 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="Design/Layout" />
+
+# Layout guidelines
+
+This page aims to provide you all the available layout guidelines from Aristid Design System.
+
+## Breakpoints
+
+You can find all of the breakpoints used in Aristid Design System in the table below.
+
+| Name  | Value      | Description                                                           |
+| ----- | ---------- | --------------------------------------------------------------------- |
+| `xs`  | -          | Extra small devices like phones **smaller than 576px**                |
+| `sm`  | **576px**  | Small devices like large phones **between 576px and 768px**           |
+| `md`  | **768px**  | Medium devices likelandscape tablets **between 768px and 992px**      |
+| `lg`  | **992px**  | Large devices like desktops between **992px and 1200px**              |
+| `xl`  | **1200px** | Extra large devices like large desktops **between 1200px and 1600px** |
+| `xxl` | **1600px** | Extra large devices like large desktops **larger than 1600px**        |
+
+This is the Javascript object representation of the breakpoints:
+
+```ts
+{
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+  xxl: '1600px',
+}
+```
+
+## Grid behavior
+
+Depending on the screen size, the grid system will behave differently. Here is a table that shows how many columns are displayed and how large is the gutter on each screen size.
+
+| Screen size | Number of columns | Gutter width |
+| ----------- | ----------------- | ------------ |
+| `xs`        | 4                 | 8px          |
+| `sm`        | 6                 | 8px          |
+| `md`        | 8                 | 8px          |
+| `lg`        | 12                | 8px          |
+| `xl`        | 12                | 16px         |
+| `xxl`       | 12                | 16px         |
+
+### Screen sm
+
+<img
+    style={{maxHeight: '300px'}}
+    src="../../public/images/layout/grid-sm-close.png"
+    alt="grid configuration for sm screen with side menu closed"
+/>
+<img
+    style={{maxHeight: '300px'}}
+    src="../../public/images/layout/grid-sm-open.png"
+    alt="grid configuration for sm screen with side menu open"
+/>
+
+### Screen md
+
+<img
+    style={{maxHeight: '300px'}}
+    src="../../public/images/layout/grid-md-close.png"
+    alt="grid configuration for md screen with side menu closed"
+/>
+<img
+    style={{maxHeight: '300px'}}
+    src="../../public/images/layout/grid-md-open.png"
+    alt="grid configuration for md screen with side menu open"
+/>
+
+### Screen lg
+
+<img
+    style={{maxHeight: '300px'}}
+    src="../../public/images/layout/grid-lg-close.png"
+    alt="grid configuration for lg screen with side menu closed"
+/>
+<img
+    style={{maxHeight: '300px'}}
+    src="../../public/images/layout/grid-lg-open.png"
+    alt="grid configuration for lg screen with side menu open"
+/>
+
+### Screen xl
+
+<img
+    style={{maxHeight: '300px'}}
+    src="../../public/images/layout/grid-xl-close.png"
+    alt="grid configuration for xl screen with side menu closed"
+/>
+<img
+    style={{maxHeight: '300px'}}
+    src="../../public/images/layout/grid-xl-open.png"
+    alt="grid configuration for xl screen with side menu open"
+/>
+
+### Screen xxl
+
+<img
+    style={{maxHeight: '300px'}}
+    src="../../public/images/layout/grid-xxl-close.png"
+    alt="grid configuration for xxl screen with side menu closed"
+/>
+<img
+    style={{maxHeight: '300px'}}
+    src="../../public/images/layout/grid-xxl-open.png"
+    alt="grid configuration for xxl screen with side menu open"
+/>

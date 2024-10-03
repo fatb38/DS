@@ -61,6 +61,7 @@ export type IKitInternalOption = Omit<IKitOption, 'label' | 'options'> & {
 export interface IKitSelect extends Omit<SelectProps, AntdSelectTypesToOmit>, KitHTMLAttributes<HTMLDivElement> {
     label?: string;
     helper?: string;
+    htmlFor?: string;
     allowClear?: boolean;
     oneLineTags?: boolean;
     options?: IKitOption[];

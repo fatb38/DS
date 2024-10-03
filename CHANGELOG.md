@@ -1,5 +1,50 @@
 # Changelog
 
+## [10.0.0](https://www.npmjs.com/package/aristid-ds/v/10.0.0) (2024-10-03)
+
+### ✨ Features
+
+-   **⚠️ Breaking change - Alert:**
+    - Update Alert component to make it toastable. Does not rely on Ant anymore. Props remains the same except `afterClose` and `banner` which are removed. (@evoiron)
+-   **⚠️ Breaking change - Grid:**
+    - Update KitRow and KitCol to use antd API (@Delmotte-Vincent)
+-   **⚠️ Breaking change - Grid:**
+    -   Update KitRow and KitCol to use antd API (@Delmotte-Vincent)
+-   **New - PageLayout:**
+    -   Add PageLayout component (@Delmotte-Vincent)
+-   **New - RichText:**
+    -   Add RichText component based on `Tiptap` editor (@philippechevieux)
+-   **SideMenu:**
+    -   Add `customContent` property to display a custom component depending on `open` side menu state (@philippechevieux)
+-   **ItemList:**
+    -   Make `idCardProps` property optional (@philippechevieux)
+    -   Add `idCardSubstitute` to display a custom component (@philippechevieux)
+    -   Add `checkboxAriaLabel` property because the `aria-label` of the checkbox was only based on `idCardProps` (@philippechevieux)
+-   **InputWrapper:**
+    -   Add `hoverable` to change border color when `bordered` is set to `true` (@philippechevieux)
+    -   Add `onFocus` to trigger a given function when content is focused. Also if `bordered` is set to `true` it will change the border render (@philippechevieux)
+    -   Add `htmlFor` property to link the label to the wrapped content. This property is also available for: (@philippechevieux)
+        -   `AutoComplete`
+        -   `DatePicker` and `RangePicker`
+        -   `Input`, `Password` and `TextArea`
+        -   `InputNumber`
+        -   `Select`
+-   **Error**
+    -   Add `httpErrorCode` property to choose which error to display (@fatb38 / @renaudamsellem)
+-   **Modal:**
+    -   Handle `maxHeight` in modal with a scrollbar if there is too much content. (@renaudamsellem)
+
+### 🐛 Bug Fixes
+
+-   **Table**:
+    -   Fix checkbox hidden when ellipsis is true (@renaudamsellem)
+-   **Input Number**:
+    -   Fix make onBlur and onFocus method overridable (@renaudamsellem)
+
+### 📚 Documentation
+
+-   Fix design tokens page that crashed every time it was consulted (@philippechevieux)
+
 ## [9.0.0](https://www.npmjs.com/package/aristid-ds/v/9.0.0) (2024-08-28)
 
 ### 🎨 Theming
@@ -29,12 +74,14 @@
     -   Change expected value of `size` prop. `small`, `medium` and `large` are replaced by fontSize from `fontSize1` to `fontSize7` (@philippechevieux)
     -   Remove `type` prop because it is not used anymore and has been replaced by `color` (@philippechevieux)
 -   **⚠️ Breaking change - RedirectCard:**
+
     -   Rename `imageSrc` as `coverSrc` and `imageAlt` as `coverAlt` (@philippechevieux)
     -   Add `actions` prop to display between 1 and 3 buttons (@philippechevieux)
     -   Fix cover divider render on hover (@philippechevieux)
 
 -   **⚠️ Breaking change - Grid Component:**
-    - Update `Grid` internal code. We have moved from the Antd Grid component to a home-made component. Please refer to the documentation for use.
+
+    -   Update `Grid` internal code. We have moved from the Antd Grid component to a home-made component. Please refer to the documentation for use.
 
 -   **Dropdown:**
     -   Update border, active & selected styles (@renaudAmsellem)

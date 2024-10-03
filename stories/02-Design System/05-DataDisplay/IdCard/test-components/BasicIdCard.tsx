@@ -1,4 +1,4 @@
-import React, {FunctionComponent} from 'react';
+import {FunctionComponent} from 'react';
 import {KitTypography} from '@kit/General';
 import {KitIdCard} from '@kit/DataDisplay';
 import {IKitAvatar} from '@kit/DataDisplay/Avatar/types';
@@ -9,8 +9,8 @@ const avatarProps: IKitAvatar = {
 };
 
 export const BasicIdCardTest: FunctionComponent = () => (
-        <div>
-            <KitTypography.Title level="h3">Default size IdCard</KitTypography.Title>
-            <KitIdCard avatarProps={avatarProps} title="John Doe" description="A talented software developer." />
-        </div>
-    );
+    <div>
+        <KitTypography.Title level="h3">Default size IdCard</KitTypography.Title>
+        <KitIdCard avatarProps={avatarProps} title="John Doe" description="A talented software developer." />
+    </div>
+);
